@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hyacehila - Personal Portfolio | Data Scientist & ML Engineer">
+  <meta name="keywords" content="Data Science, Machine Learning, Python, Statistics, Portfolio">
+  <meta name="author" content="Hyacehila">
+  <title>Hyacehila - Personal Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link data-target="about" data-i18n="nav-home">Home</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-target="resume" data-i18n="nav-resume">Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-target="portfolio" data-i18n="nav-portfolio">Projects</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-target="blog" data-i18n="nav-blog">Interests</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-target="contact" data-i18n="nav-contact">Contact</button>
+          </li>
+
+          <li class="navbar-item navbar-language">
+            <button class="navbar-link language-btn" id="language-toggle" title="切换语言 / Switch Language">
+              <ion-icon name="globe-outline"></ion-icon>
+              <span id="current-lang">EN</span>
+            </button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title" data-i18n="about-title">About me</h2>
+          <h3 class="about-name">Hyacehila</h3>
+        </header>
+
+        <section class="about-text">
+          <p data-i18n="about-text-1">
+            #
+          </p>
+          <p data-i18n="about-text-2">
+            #
+          </p>
+        </section>
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title" data-i18n="service-title">Current Work & Interests</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <div class="icon-box">
+                  <ion-icon name="analytics-outline"></ion-icon>
+                </div>
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title" data-i18n="service-data-science-title">Data Science</h4>
+                <p class="service-item-text" data-i18n="service-data-science-text">
+                  Extracting insights from data to drive informed decisions.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <div class="icon-box">
+                  <ion-icon name="text-outline"></ion-icon>
+                </div>
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title" data-i18n="service-llm-title">Large Language Model</h4>
+                <p class="service-item-text" data-i18n="service-llm-text">
+                  Focusing on post-training optimization and agents.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <div class="icon-box">
+                  <ion-icon name="phone-portrait-outline"></ion-icon>
+                </div>
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title" data-i18n="service-apps-title">Apps development</h4>
+                <p class="service-item-text" data-i18n="service-apps-text">
+                  Development of applications for iOS and other mobile platforms.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <div class="icon-box">
+                  <ion-icon name="camera-outline"></ion-icon>
+                </div>
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title" data-i18n="service-photo-title">Photography</h4>
+                <p class="service-item-text" data-i18n="service-photo-text">
+                  Just a hobby and I'm not a professional photographer.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+        <!--
+          - testimonials
+        -->
+
+        <section class="testimonials">
+
+          <h3 class="h3 testimonials-title" data-i18n="testimonials-title">My Friends</h3>
+
+          <ul class="testimonials-list has-scrollbar">
+
+            <li class="testimonials-item">
+              <a href="https://shimmer0007.github.io" class="testimonial-link" target="_blank" rel="noopener noreferrer">
+                <div class="content-card" data-testimonials-item>
+
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>Shimmer</h4>
+
+                  <div class="testimonials-text" data-testimonials-text>
+                    <p data-i18n="friend-shimmer">Data Analyst.</p>
+                  </div>
+
+                </div>
+              </a>
+            </li>
+
+            <li class="testimonials-item">
+              <a href="https://xducy.github.io" class="testimonial-link" target="_blank" rel="noopener noreferrer">
+                <div class="content-card" data-testimonials-item>
+
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>CY</h4>
+
+                  <div class="testimonials-text" data-testimonials-text>
+                    <p data-i18n="friend-cy">Computer Vision Engineer.</p>
+                  </div>
+
+                </div>
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title" data-i18n="resume-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="school-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3" data-i18n="education-title">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="university-wuhan">Wuhan University</h4>
+
+              <span>Sep 2025 — Jul 2027</span>
+
+              <p class="timeline-text" data-i18n="education-wuhan">
+                Pursuing Master's degree in Applied Statistics, focusing on advanced statistical methods and their practical applications. Conducting in-depth research projects to enhance data analysis and problem-solving capabilities.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="university-xidian">Xidian University</h4>
+
+              <span>Sep 2021 — Jul 2025</span>
+
+              <p class="timeline-text" data-i18n="education-xidian">
+                Bachelor's degree in Statistics. Established solid theoretical foundation in statistical analysis, machine learning, and data mining. Participated in national data modeling competitions to develop practical implementation skills.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="people-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3" data-i18n="experience-title">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="experience-placeholder-title">Data Science Intern</h4>
+
+              <span>2024 — Present</span>
+
+              <p class="timeline-text" data-i18n="experience-placeholder-text">
+                Working on machine learning projects and data analysis for real-world applications.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="code-slash-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3" data-i18n="skills-title">Skills</h3>
+          </div>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5" data-i18n="skill-data-mining">Data Mining</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Python</h5>
+                <data value="70">70%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 70%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5" data-i18n="skill-data-analysis">Data Analysis</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title" data-i18n="portfolio-title">Projects</h2>
+        </header>
+
+        <section class="portfolio-list">
+          <ul class="grid-list">
+
+            <li class="portfolio-item">
+              <div class="content-card">
+                <h4 class="h4 portfolio-item-title" data-i18n="project-mental-title">Mental Health Monitoring via Wearable Tech</h4>
+                <div class="portfolio-text">
+                  <p data-i18n="project-mental-desc">National Innovation Training Program project using R and Python.</p>
+                  <p><strong data-i18n="project-mental-data">Data Processing:</strong> <span data-i18n="project-mental-data-text">Processed 43 variables from 4-year NetHealth dataset (30k+ entries) with missing value imputation and Box-Cox transformation.</span></p>
+                  <p><strong data-i18n="project-mental-feature">Feature Optimization:</strong> <span data-i18n="project-mental-feature-text">Conducted PCA dimensionality reduction on independent variables.</span></p>
+                  <p><strong data-i18n="project-mental-model">Model Integration:</strong> <span data-i18n="project-mental-model-text">Developed stacked model (ElasticNet + RandomForest + GBDT) achieving MSE 0.032, outperforming base models through grid search optimization.</span></p>
+                </div>
+              </div>
+            </li>
+
+            <li class="portfolio-item">
+              <div class="content-card">
+                <h4 class="h4 portfolio-item-title" data-i18n="project-health-title">Public Health Metrics in Modern China</h4>
+                <div class="portfolio-text">
+                  <p data-i18n="project-health-desc">National Statistical Modeling Competition entry combining R and Python analysis.</p>
+                  <p><strong data-i18n="project-health-data">Data Collection:</strong> <span data-i18n="project-health-data-text">Aggregated health indicators from NBS databases and CNKI research metadata via web scraping.</span></p>
+                  <p><strong data-i18n="project-health-index">Index Construction:</strong> <span data-i18n="project-health-index-text">Developed composite health metric using Principal Component Analysis (PCA).</span></p>
+                  <p><strong data-i18n="project-health-model">Modeling:</strong> <span data-i18n="project-health-model-text">Implemented LASSO model for feature selection, identifying key determinants through sparse regression analysis.</span></p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+      </article>
+
+      <!--
+        - #BLOG
+      -->
+
+      <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title" data-i18n="blog-title">Interests</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
+
+                  <p class="blog-text">
+                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
+
+                  <p class="blog-text">
+                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design digest #80</h3>
+
+                  <p class="blog-text">
+                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
+
+                  <p class="blog-text">
+                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
+
+                  <p class="blog-text">
+                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
+                </figure>
+
+                <div class="blog-content">
+
+                  <div class="blog-meta">
+                    <p class="blog-category">Design</p>
+
+                    <span class="dot"></span>
+
+                    <time datetime="2022-02-23">Fab 23, 2022</time>
+                  </div>
+
+                  <h3 class="h3 blog-item-title">Design digest #79</h3>
+
+                  <p class="blog-text">
+                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title" data-i18n="contact-title">Contact</h2>
+        </header>
+
+        <section class="contact-info">
+
+          <ul class="contact-list">
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+
+              <div class="contact-content">
+                <h4 class="h4" data-i18n="contact-email">Email</h4>
+                <a href="mailto:hyacehila@126.com" class="contact-link">hyacehila@126.com</a>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+
+              <div class="contact-content">
+                <h4 class="h4" data-i18n="contact-phone">Phone</h4>
+                <a href="tel:+86157******21" class="contact-link">+86 157-****-**21</a>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="map-outline"></ion-icon>
+              </div>
+
+              <div class="contact-content">
+                <h4 class="h4" data-i18n="contact-address">Address</h4>
+                <address class="contact-link" data-i18n="contact-address-text">266 Bayi Road, Wuchang District<br>Wuhan, Hubei Province</address>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </div>
+
+              <div class="contact-content">
+                <h4 class="h4">Linkedin</h4>
+                <a href="https://www.linkedin.com/in/hyacehila" class="contact-link">hyacehila</a>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="logo-github"></ion-icon>
+              </div>
+
+              <div class="contact-content">
+                <h4 class="h4">GitHub</h4>
+                <a href="https://github.com/Hyacehila" class="contact-link">Hyacehila</a>
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!--
+    - translation script
+  -->
+  <script>
+    // Translation data
+    const translations = {
+      en: {
+        "nav-home": "Home",
+        "nav-resume": "Resume",
+        "nav-portfolio": "Projects",
+        "nav-blog": "Interests",
+        "nav-contact": "Contact",
+        "about-title": "About me",
+        "about-text-1": "#",
+        "about-text-2": "#",
+        "service-title": "Current Work & Interests",
+        "service-data-science-title": "Data Science",
+        "service-data-science-text": "Extracting insights from data to drive informed decisions.",
+        "service-llm-title": "Large Language Model",
+        "service-llm-text": "Focusing on post-training optimization and agents.",
+        "service-apps-title": "Apps development",
+        "service-apps-text": "Development of applications for iOS and other mobile platforms.",
+        "service-photo-title": "Photography",
+        "service-photo-text": "Just a hobby and I'm not a professional photographer.",
+        "testimonials-title": "My Friends",
+        "friend-shimmer": "Data Analyst.",
+        "friend-cy": "Computer Vision Engineer.",
+        "resume-title": "Resume",
+        "education-title": "Education",
+        "education-wuhan": "Pursuing Master's degree in Applied Statistics, focusing on advanced statistical methods and their practical applications. Conducting in-depth research projects to enhance data analysis and problem-solving capabilities.",
+        "education-xidian": "Bachelor's degree in Statistics from Xidian University. Systematically mastered fundamental statistical theories with deep expertise in applied fields including machine learning, data analysis, and data mining. Possesses a solid theoretical foundation combined with extensive practical application experience.",
+        "experience-title": "Experience",
+        "experience-placeholder-title": "Data Science Intern",
+        "experience-placeholder-text": "Working on machine learning projects and data analysis for real-world applications.",
+        "skills-title": "Skills",
+        "skill-data-mining": "Data Mining",
+        "skill-data-analysis": "Data Analysis",
+        "portfolio-title": "Projects",
+        "project-mental-title": "Mental Health Monitoring via Wearable Tech",
+        "project-mental-desc": "National Innovation Training Program project using R and Python.",
+        "project-mental-data": "Data Processing:",
+        "project-mental-data-text": "Processed 43 variables from 4-year NetHealth dataset (30k+ entries) with missing value imputation and Box-Cox transformation.",
+        "project-mental-feature": "Feature Optimization:",
+        "project-mental-feature-text": "Conducted PCA dimensionality reduction on independent variables.",
+        "project-mental-model": "Model Integration:",
+        "project-mental-model-text": "Developed stacked model (ElasticNet + RandomForest + GBDT) achieving MSE 0.032, outperforming base models through grid search optimization.",
+        "project-health-title": "Public Health Metrics in Modern China",
+        "project-health-desc": "National Statistical Modeling Competition entry combining R and Python analysis.",
+        "project-health-data": "Data Collection:",
+        "project-health-data-text": "Aggregated health indicators from NBS databases and CNKI research metadata via web scraping.",
+        "project-health-index": "Index Construction:",
+        "project-health-index-text": "Developed composite health metric using Principal Component Analysis (PCA).",
+        "project-health-model": "Modeling:",
+        "project-health-model-text": "Implemented LASSO model for feature selection, identifying key determinants through sparse regression analysis.",
+        "blog-title": "Interests",
+        "contact-title": "Contact",
+        "contact-email": "Email",
+        "contact-phone": "Phone",
+        "contact-address": "Address",
+        "contact-address-text": "266 Bayi Road, Wuchang District<br>Wuhan, Hubei Province",
+        "university-wuhan": "Wuhan University",
+        "university-xidian": "Xidian University"
+      },
+      zh: {
+        "nav-home": "主页",
+        "nav-resume": "简历",
+        "nav-portfolio": "项目",
+        "nav-blog": "兴趣",
+        "nav-contact": "联系方式",
+        "about-title": "关于我",
+        "about-text-1": "#",
+        "about-text-2": "#",
+        "service-title": "当前专注领域",
+        "service-data-science-title": "数据科学",
+        "service-data-science-text": "从数据提取有价值的见解，推动决策.",
+        "service-llm-title": "大语言模型",
+        "service-llm-text": "专注模型后训练与智能体应用.",
+        "service-apps-title": "Apps 开发",
+        "service-apps-text": "iOS应用的开发.",
+        "service-photo-title": "摄影",
+        "service-photo-text": "仅仅是爱好.",
+        "testimonials-title": "我的朋友们",
+        "friend-shimmer": "数据分析师.",
+        "friend-cy": "计算机视觉算法工程师.",
+        "resume-title": "简历",
+        "education-title": "教育背景",
+        "education-wuhan": "现于应用统计学专业攻读硕士学位，聚焦统计方法在实际场景中的深度应用，在进阶理论学习与课题研究中持续提升数据分析与问题解决能力。",
+        "education-xidian": "于西安电子科技大学获得统计学学士学位。系统掌握统计学基础理论，深耕机器学习、数据分析与数据挖掘等应用领域。拥有扎实的理论基础与丰富的应用实践经验。",
+        "experience-title": "工作经历",
+        "experience-placeholder-title": "数据科学实习生",
+        "experience-placeholder-text": "从事机器学习项目与数据分析工作，应用于实际场景。",
+        "skills-title": "技能",
+        "skill-data-mining": "数据挖掘",
+        "skill-data-analysis": "数据分析",
+        "portfolio-title": "项目",
+        "project-mental-title": "基于可穿戴设备技术的心理健康检测方案",
+        "project-mental-desc": "国家级大学生创新创业训练计划项目,主要使用R与Python进行数据分析与挖掘.",
+        "project-mental-data": "数据获取：",
+        "project-mental-data-text": "从 NetHealth 数据集长达四年的观测数据中筛选出了适用于本研究的 43 个变量，并根据不同的时间长度选取得到了四个列数不等，约 3 万行的数据集。",
+        "project-mental-feature": "特征工程：",
+        "project-mental-feature-text": "对原始数据中存在的缺失值与离群值进行了适当的插补与去除，对通过可视化手段确认了存在严重偏态的数据进行了 BoxCox 变换，利用 PCA 对自变量进行了降维处理。",
+        "project-mental-model": "模型构建：",
+        "project-mental-model-text": "建立了 ElasticNet、RandomForest、GBDT 三个机器回归模型并使用基于决策树的 Stacking 综合其结果，运用网格搜索确认最优参数。集成模型 MSE 约 0.032,优于所有基模型。",
+        "project-health-title": "中国现代化下人民健康状况测度与影响因素",
+        "project-health-desc": "全国大学生统计建模大赛作品,主要使用R与Python进行数据分析与挖掘.",
+        "project-health-data": "数据获取：",
+        "project-health-data-text": "从商业数据库与国家统计局数据库中获取可能可以反应综合健康状况的指标,从 CNKI 中使用爬虫获取相关的研究信息以了解研究重心在过去的变化情况.",
+        "project-health-index": "指标构建：",
+        "project-health-index-text": "使用主成分分析处理综合健康状况数据,获取综合健康状况测度.",
+        "project-health-model": "模型构建：",
+        "project-health-model-text": "使用研究相关数据与其他指标数据建立了 LASSO 模型,获取了一个稀疏的线性回归模型,结合其系数研究了综合健康状况的影响因素.",
+        "blog-title": "兴趣",
+        "contact-title": "联系方式",
+        "contact-email": "邮箱",
+        "contact-phone": "电话",
+        "contact-address": "地址",
+        "contact-address-text": "湖北省武汉市武昌区八一路266号",
+        "university-wuhan": "武汉大学",
+        "university-xidian": "西安电子科技大学"
+      }
+    };
+
+    // Language toggle functionality
+    let currentLang = localStorage.getItem('language') || 'en';
+    
+    function updateLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      document.getElementById('current-lang').textContent = lang.toUpperCase();
+      
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+      
+      // Save language preference
+      localStorage.setItem('language', lang);
+    }
+
+    // Language toggle event listener
+    document.getElementById('language-toggle').addEventListener('click', () => {
+      const newLang = currentLang === 'en' ? 'zh' : 'en';
+      updateLanguage(newLang);
+    });
+
+    // Initialize language on page load
+    updateLanguage(currentLang);
+  </script>
+
+</body>
+
+</html>

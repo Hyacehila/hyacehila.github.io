@@ -1,0 +1,28 @@
+# GitHub Pages configuration
+theme: jekyll-theme-minimal
+title: Hyacehila - Personal Portfolio
+description: Data Scientist & ML Engineer Portfolio
+baseurl: ""
+url: "https://hyacehila.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+
+# Include files
+include:
+  - _config.yml
+  - index.html
+  - assets/
+  - .gitignore
