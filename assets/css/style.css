@@ -834,34 +834,112 @@ main {
   #PORTFOLIO
 \*-----------------------------------*/
 
-.portfolio-item-title {
+/* 新的项目卡片样式 */
+.project-card {
   position: relative;
-  font-size: 1.4rem;
-  color: var(--orange-yellow-crayola);
+  background: var(--border-gradient-onyx);
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+  transition: var(--transition-1);
+  z-index: 1;
 }
 
-
-.portfolio-text p {
-
-  color: var(--light-gray);
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
 }
 
-.portfolio-text strong {
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-3);
+}
+
+.project-header {
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid var(--jet);
+  background: var(--eerie-black-1);
+  position: relative;
+}
+
+.project-title {
+  color: #FFD700 !important;
+  font-size: 28px !important;
+  font-weight: var(--fw-600) !important;
+  line-height: 1.4 !important;
+  margin-bottom: 12px !important;
+  text-indent: 0 !important;
+}
+
+.project-subtitle {
   color: var(--white-2);
-
-  display: inline-block;
-  margin-bottom: 0rem;
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  line-height: 1.5;
 }
 
-.grid-list {
-  display: grid;
-  gap: 20px;
+.project-details {
+  padding: 20px 24px;
+  background: var(--eerie-black-2);
 }
 
-/* 增加网格间距和响应式布局 */
+.detail-section {
+  margin-bottom: 20px;
+}
+
+.detail-section:last-child {
+  margin-bottom: 0;
+}
+
+.detail-title {
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-600);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-title::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--orange-yellow-crayola);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.detail-content {
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 16px;
+  border-left: 2px solid var(--jet);
+  position: relative;
+}
+
+.detail-content::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--orange-yellow-crayola);
+  opacity: 0.3;
+}
+
+/* 网格布局 */
 .portfolio-list.grid-list {
   gap: 30px; /* 增加项目间距 */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 响应式网格 */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* 响应式网格，最小宽度400px */
 }
 
 /* 移动端优化 */
@@ -870,6 +948,63 @@ main {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+  
+  .project-header {
+    padding: 20px 20px 12px;
+  }
+  
+  .project-title {
+    font-size: 18px;
+  }
+  
+  .project-details {
+    padding: 16px 20px;
+  }
+  
+  .detail-content {
+    padding-left: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-list.grid-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .project-header {
+    padding: 16px 16px 12px;
+  }
+  
+  .project-title {
+    font-size: 16px;
+  }
+  
+  .project-details {
+    padding: 12px 16px;
+  }
+}
+
+/* 保留原有的portfolio相关样式作为后备 */
+.portfolio-item-title {
+  position: relative;
+  font-size: 1.4rem;
+  color: var(--orange-yellow-crayola);
+}
+
+.portfolio-text p {
+  color: var(--light-gray);
+}
+
+.portfolio-text strong {
+  color: var(--white-2);
+  display: inline-block;
+  margin-bottom: 0rem;
+}
+
+.grid-list {
+  display: grid;
+  gap: 20px;
 }
 
 .portfolio-item {
@@ -1361,7 +1496,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     font-size: var(--fs-8);
   }
 
-  .info_more-btn ion-icon { display: none; }
+  .info_more_btn ion-icon { display: none; }
 
   .separator { margin: 32px 0; }
 
