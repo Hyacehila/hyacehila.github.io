@@ -373,17 +373,16 @@ main {
   content: "";
   position: absolute;
   inset: 1px;
-  border-radius: inherit;
   background: var(--bg-gradient-jet);
   transition: var(--transition-1);
   z-index: -1;
 }
 
 .info_more-btn:hover,
-.info_more-btn:focus { background: var(--bg-gradient-yellow-1); }
+.info_more_btn:focus { background: var(--bg-gradient-yellow-1); }
 
 .info_more-btn:hover::before,
-.info_more-btn:focus::before { background: var(--bg-gradient-yellow-2); }
+.info_more_btn:focus::before { background: var(--bg-gradient-yellow-2); }
 
 .info_more-btn span { display: none; }
 
@@ -482,7 +481,7 @@ main {
 
 .language-btn {
   background: transparent;
-  border: 1px solid var(--orange-yellow-crayola);
+  border: 1px solid var(--jet);
   color: var(--light-gray);
   padding: 8px 12px;
   border-radius: 8px;
@@ -495,13 +494,14 @@ main {
 }
 
 .language-btn:hover {
-  background: var(--bg-gradient-yellow-1);
-  color: var(--smoky-black);
-  border-color: var(--orange-yellow-crayola);
+  background: var(--eerie-black-1);
+  color: var(--orange-yellow-crayola);
+  border-color: var(--jet);
+  transform: translateY(-1px);
 }
 
 .language-btn:active {
-  transform: scale(0.95);
+  transform: translateY(0);
 }
 
 .language-btn ion-icon {
@@ -510,7 +510,7 @@ main {
 }
 
 .language-btn:hover ion-icon {
-  transform: rotate(20deg);
+  transform: scale(1.1);
 }
 
 #current-lang {
@@ -1441,8 +1441,6 @@ textarea.form-input::-webkit-resizer { display: none; }
     line-clamp: 2;
     -webkit-line-clamp: 2;
   }
-
-
 
 
 
