@@ -856,8 +856,9 @@ main {
 }
 
 .project-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-3);
+  /* 移除悬浮动画效果 */
+  transform: none;
+  box-shadow: var(--shadow-2);
 }
 
 .project-header {
@@ -867,12 +868,48 @@ main {
   position: relative;
 }
 
+.project-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.project-icon-box {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: var(--orange-yellow-crayola);
+  box-shadow: var(--shadow-1);
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.project-icon-box::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--eerie-black-1);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.project-icon-box ion-icon {
+  --ionicon-stroke-width: 40px;
+}
+
 .project-title {
   color: #FFD700 !important;
   font-size: 28px !important;
   font-weight: var(--fw-600) !important;
   line-height: 1.4 !important;
-  margin-bottom: 12px !important;
+  margin: 0 !important;
   text-indent: 0 !important;
 }
 
@@ -953,6 +990,16 @@ main {
     padding: 20px 20px 12px;
   }
   
+  .project-title-wrapper {
+    gap: 10px;
+  }
+  
+  .project-icon-box {
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
+  
   .project-title {
     font-size: 18px;
   }
@@ -974,6 +1021,16 @@ main {
   
   .project-header {
     padding: 16px 16px 12px;
+  }
+  
+  .project-title-wrapper {
+    gap: 8px;
+  }
+  
+  .project-icon-box {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
   }
   
   .project-title {
