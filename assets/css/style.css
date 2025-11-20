@@ -381,7 +381,7 @@ main {
 .info_more-btn:hover,
 .info_more_btn:focus { background: var(--bg-gradient-yellow-1); }
 
-.info_more-btn:hover::before,
+.info_more_btn:hover::before,
 .info_more_btn:focus::before { background: var(--bg-gradient-yellow-2); }
 
 .info_more-btn span { display: none; }
@@ -564,6 +564,69 @@ main {
 
 .about-text p { margin-bottom: 15px; }
 
+/* Section intro styles */
+.section-intro {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+  margin: 20px 0 30px 0;
+  padding: 15px 0;
+  border-left: 3px solid var(--orange-yellow-crayola);
+  padding-left: 20px;
+  background: linear-gradient(to right, rgba(255, 215, 0, 0.1), transparent);
+}
+
+.section-intro:last-child {
+  margin-bottom: 0;
+}
+
+/* 新增极小的页面卡片样式 */
+.intro-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0 25px 0;
+  padding: 0;
+}
+
+.intro-card-content {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  padding: 8px 16px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-1);
+  z-index: 1;
+  display: inline-block;
+  max-width: 90%;
+}
+
+.intro-card-content::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.intro-card-text {
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-300);
+  line-height: 1.4;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* 高亮样式 - 黄色和更大字号 */
+.intro-card-text.intro-highlight {
+  color: #FFD700 !important;
+  font-size: var(--fs-5) !important;
+  font-weight: var(--fw-500) !important;
+}
+
 .about-name {
   font-size: var(--fs-2);
   color: var(--white-1);
@@ -626,7 +689,7 @@ main {
 .service-item-text {
   color: var(--light-gray);
   font-size: var(--fs-6);
-  font-weight: var(--fw-3);
+  font-weight: var(--fw-300);
   line-height: 1.6;
 }
 
@@ -700,9 +763,6 @@ main {
 .testimonial-link:hover .testimonials-item-title {
   color: #FFD700; /* 黄色色值 */
 }
-
-
-
 
 
 
@@ -788,7 +848,6 @@ main {
 .skills-title {
   margin-bottom: 15px;
 }
-
 
 
 
@@ -2029,7 +2088,5 @@ textarea.form-input::-webkit-resizer { display: none; }
   /**
 	 * RESUME
 	 */
-
-  .timeline-text { max-width: 700px; }
 
 }

@@ -4,6 +4,8 @@
 
 Welcome to my personal portfolio website! This is a modern, responsive portfolio built with HTML, CSS, and JavaScript, featuring bilingual support (English/Chinese).
 
+This Personal Portfolio forks from the https://github.com/ivansaul/personal-portfolio and changed a lot.
+
 ## 🚀 Features
 
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
