@@ -798,12 +798,12 @@ main {
 
 .timeline-item { position: relative; }
 
-.timeline-item:not(:last-child) { margin-bottom: 20px; }
+.timeline-item:not(:last-child) { margin-bottom: 8px; }
 
 .timeline-item-title {
   font-size: var(--fs-6);
   line-height: 1.3;
-  margin-bottom: 7px;
+  margin-bottom: 4px;
 }
 
 .timeline-list span {
@@ -836,9 +836,87 @@ main {
 
 .timeline-text {
   color: var(--light-gray);
-  font-weight: var(--fw-300);
+  font-weight: var(--fw-400);
   line-height: 1.6;
 }
+
+/**
+ * experience specific styles
+ */
+
+.experience-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.experience-company {
+  color: var(--vegas-gold);
+  font-weight: var(--fw-500);
+  font-size: var(--fs-6);
+}
+
+/* Company name in title */
+.timeline-item-title .experience-company {
+  font-weight: var(--fw-400);
+  font-size: var(--fs-6);
+  color: var(--light-gray);
+}
+
+.experience-period {
+  color: var(--vegas-gold);
+  font-weight: var(--fw-400);
+  line-height: 1.6;
+}
+
+/* 工作经历分点叙述结构样式 */
+.timeline-item .project-details {
+  margin-top: 8px;
+  padding: 0;
+}
+
+.timeline-item .detail-section {
+  margin-bottom: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item .detail-section:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* 工作经历段落样式 - 粗体黄色概括 + 白色内容在同一行 */
+.timeline-item .detail-point {
+  margin-bottom: 0px;
+  line-height: 1.6;
+  color: var(--light-gray);
+}
+
+.timeline-item .detail-point:last-child {
+  margin-bottom: 0;
+}
+
+/* 粗体黄色标签作为段落的一部分 */
+.timeline-item .detail-point strong {
+  color: var(--orange-yellow-crayola);
+  font-weight: var(--fw-600);
+  margin-right: 4px;
+}
+
+
+/* 保持原有的detail-section样式作为备用 */
+.timeline-item .project-details .detail-content {
+  padding-left: 0;
+  border-left: none;
+}
+
+.timeline-item .project-details .detail-content::before {
+  display: none;
+}
+
 
 
 /**
@@ -1755,6 +1833,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     left: -43px;
   }
 
+  
   .skills-item:not(:last-child) { margin-bottom: 25px; }
 
 

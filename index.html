@@ -91,10 +91,10 @@
 
         <section class="about-text">
           <p data-i18n="about-text-1">
-            #
+            ********************
           </p>
           <p data-i18n="about-text-2">
-            #
+            ********************
           </p>
         </section>
 
@@ -289,13 +289,24 @@
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title" data-i18n="experience-placeholder-title">Data Science Intern</h4>
+              <h4 class="h4 timeline-item-title" data-i18n="experience-cnpcas-title-company">LLM Agent 实习生 | <span class="experience-company">中科院地理科学与资源研究所</span></h4>
 
-              <span>2024 — Present</span>
+              <span class="experience-period">Sep 2025 — Nov 2025</span>
 
-              <p class="timeline-text" data-i18n="experience-placeholder-text">
-                Working on machine learning projects and data analysis for real-world applications.
-              </p>
+              <div class="project-details">
+                <div class="detail-point">
+                  <strong data-i18n="project-background">项目背景</strong>为满足对社交媒体平台博文数据的深度分析需求，开发智能舆情分析系统。需要深入结合传统人文地理学对舆情的认知，利用LLM以及VLM实现对博文内容语义的理解，综合统计分析工具，实现从原始博文数据到深入分析报告的端到端专家系统。
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="star-responsibilities">职责与贡献</strong>负责整个智能体分析系统的设计与开发工作，搭建了三阶段解耦舆情分析系统架构设计（增强处理→分析执行→报告生成），所有的分析流程被DispatcherNode中央结点调度。增强处理同时实现了Async/BatchApi两个方法实现对大规模数据使用LLM进行语义理解；分析执行阶段利用MCP协议，实现Agent自主调用预设的统计分析函数对增强后的数据进行情感趋势、主题演化、地理分布、多维交互等方向的处理，并存储分析结果；报告生成阶段同时支持LLM根据预设模板一次性生成或者进行多轮的思考与迭代生成最终报告。
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="star-achievements">成果</strong>构建了支持10万条博文的舆情分析智能体系统，并可以轻易的通过扩展Async并发控制扩展到任意规模的数据集；受益于基于MCP的工具调用，系统可以通过MCP Server的方式扩展工具函数，并自主选择是否调用；最终的报告通过Prompt优化以及自主反思实现了忠于原始数据与分析结果，分析思维链全程可追溯，有效抑制了模型幻觉对最终报告的质量有可信度的影响。
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="star-tech-stack">技术栈</strong>PocketFlow,Async,BatchApi,MCP,Agent.
+                </div>
+              </div>
 
             </li>
 
@@ -354,6 +365,19 @@
 
             </li>
 
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5" data-i18n="skill-llm-agents">语言模型智能体</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
           </ul>
 
         </section>
@@ -392,23 +416,18 @@
 
                 <div class="project-details">
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="detail-background-title">项目背景：</h5>
-                    <p class="detail-content" data-i18n="project-mental-background">传统心理健康评估依赖主观问卷，存在评估间断性问题。可穿戴设备的普及使得连续监测生理指标成为可能，为心理健康提供了客观评估的新途径。</p>
+                    <h5 class="detail-title" data-i18n="project-background">项目背景：</h5>
+                    <p class="detail-content" data-i18n="project-mental-background">传统心理健康评估依赖主观问卷，存在评估间断性和主观偏差问题。随着可穿戴设备的普及，连续监测生理指标成为可能，项目旨在构建基于可穿戴设备数据的心理健康评估模型，实现客观、连续的心理状态监测，为心理健康评估提供新的技术途径。</p>
                   </div>
 
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-mental-data">数据获取：</h5>
-                    <p class="detail-content" data-i18n="project-mental-data-text">从NetHealth数据集长达四年的观测数据中筛选出了适用于本研究的43个变量，并根据不同的时间长度选取得到了四个列数不等，约3万行的数据集。</p>
+                    <h5 class="detail-title" data-i18n="tech-implementation">技术实现：</h5>
+                    <p class="detail-content" data-i18n="project-mental-implementation">从NetHealth数据集四年观测数据中筛选出43个关键变量，构建约3万行的多时间尺度数据集；采用多重插补链式方程（MICE）处理缺失值，应用Boxplot检测并移除离群值，对偏态数据实施BoxCox变换，使用PCA对于高度复共线性的原始时间序列数据进行了维数缩减；构建ElasticNet、RandomForest、XGBoost三个基模型，使用了决策树Stacking集成策略，最终通过网格搜索优化整体超参数。</p>
                   </div>
 
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-mental-feature">特征工程：</h5>
-                    <p class="detail-content" data-i18n="project-mental-feature-text">对原始数据中存在的缺失值与离群值进行了适当的插补与去除，对通过可视化手段确认了存在严重偏态的数据进行了BoxCox变换，利用PCA对自变量进行了降维处理。</p>
-                  </div>
-
-                  <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-mental-model">模型构建：</h5>
-                    <p class="detail-content" data-i18n="project-mental-model-text">建立了ElasticNet、RandomForest、GBDT三个机器回归模型并使用基于决策树的Stacking综合其结果，运用网格搜索确认最优参数。集成模型MSE约0.032,优于所有基模型。</p>
+                    <h5 class="detail-title" data-i18n="project-results">项目成果：</h5>
+                    <p class="detail-content" data-i18n="project-mental-results">集成模型达到MSE 0.032的优异性能，显著优于所有基模型；成功实现了从可穿戴设备数据到心理健康状态的端到端预测；项目获得国家级创新创业训练计划立项支持，为心理健康监测提供了新的技术路径。</p>
                   </div>
                 </div>
               </div>
@@ -433,23 +452,18 @@
 
                 <div class="project-details">
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="detail-background-title">项目背景：</h5>
-                    <p class="detail-content" data-i18n="project-health-background">传统单一健康指标难以全面反映复杂的健康状况变化。本研究旨在构建综合性健康指标体系，多维度分析中国居民健康状况及影响因素。</p>
+                    <h5 class="detail-title" data-i18n="project-background">项目背景：</h5>
+                    <p class="detail-content" data-i18n="project-health-background">随着现代化进程加快，传统单一健康指标难以全面反映中国居民复杂的健康状况变化。本项目旨在构建一个综合性的健康评价体系，多维度评估人民健康状况及其影响因素，为现代化背景下的公共卫生政策提供数据支撑。</p>
                   </div>
 
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-health-data">数据获取：</h5>
-                    <p class="detail-content" data-i18n="project-health-data-text">从商业数据库与国家统计局数据库中获取可能可以反应综合健康状况的指标,从CNKI中使用爬虫获取相关的研究信息以了解研究重心在过去的变化情况。</p>
+                    <h5 class="detail-title" data-i18n="tech-implementation">技术实现：</h5>
+                    <p class="detail-content" data-i18n="project-health-implementation">整合国家统计局数据库和商业数据库中的多源健康指标，利用爬虫技术从CNKI获取医疗研究重心变化趋势；应用主成分分析处理数据库中获取的健康指标，基于系数解释性选择前两个具备实际意义的主成分作为和健康测度；构建LASSO回归模型，通过网格搜索在系数稀疏性和模型R²间寻找最优平衡点，确保模型的可解释性和预测能力。</p>
                   </div>
 
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-health-index">指标构建：</h5>
-                    <p class="detail-content" data-i18n="project-health-index-text">综合主成分的系数，选择了最具备可解释性的前4个主成分作为不同角度的综合健康测度。同时直接使用从CNKI获得的研究重心相关特征，构成了整体的特征数据。</p>
-                  </div>
-
-                  <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-health-model">模型构建：</h5>
-                    <p class="detail-content" data-i18n="project-health-model-text">基于指标构建步骤中得到的数据建立了LASSO模型，通过网格搜索，根据系数的稀疏程度以及模型的R方综合评判得到了最优的可解释模型，最终确定的模型R方约0.89。</p>
+                    <h5 class="detail-title" data-i18n="project-results">项目成果：</h5>
+                    <p class="detail-content" data-i18n="project-health-results">最终模型达到R²约0.89的优异拟合效果，成功识别出影响中国居民健康状况的关键因素；构建的健康测度体系为现代化进程中的健康评估提供了新视角并最终获得赛区一等奖。</p>
                   </div>
                 </div>
               </div>
@@ -474,7 +488,7 @@
                 <div class="project-details">
                   <div class="detail-section">
                     <h5 class="detail-title" data-i18n="detail-paper-overview">论文概述：</h5>
-                    <p class="detail-content" data-i18n="paper-overview-content">本文采用可解释机器学习方法（SHAP与PDP）构建随机森林模型，深入分析了903名应急人员的PTSD影响因素。研究突破传统线性模型局限，首次揭示心理韧性作为核心保护因素对PTSD的显著缓冲作用（SHAP值0.5061），并发现BMI呈J型风险曲线、年龄存在U型效应等非线性规律。通过Friedman H-statistic验证韧性-年龄/创伤暴露的交互效应，提出针对青年与高龄应急人员的差异化干预策略。成果为高危职业人群的PTSD精准预防提供了数据驱动的临床决策依据，凸显可解释AI在心理健康领域的应用价值。</p>
+                    <p class="detail-content" data-i18n="paper-overview-content">本文采用可解释机器学习方法（SHAP与PDP）构建随机森林模型，深入分析了903名应急人员的PTSD影响因素。研究揭示了心理韧性作为核心保护因素对PTSD的显著缓冲作用（SHAP值0.5061），并发现年龄存在U型效应等非线性规律。通过Friedman H-statistic验证韧性-年龄/创伤暴露的交互效应，提出针对青年与高龄应急人员的差异化干预策略。为高危职业人群的PTSD预防提供了数据驱动的决策依据，凸显了可解释AI在心理健康领域的应用价值。</p>
                   </div>
 
                   <div class="detail-section">
@@ -641,8 +655,8 @@
         "nav-portfolio": "Projects",
         "nav-contact": "Contact",
         "about-title": "About me",
-        "about-text-1": "#",
-        "about-text-2": "#",
+        "about-text-1": "********************",
+        "about-text-2": "********************",
         "service-title": "Current Work & Interests",
         "service-data-science-title": "Data Mining",
         "service-data-science-text": "Discovering hidden, valuable patterns from massive data and transforming them into insights that support decision-making.",
@@ -657,40 +671,51 @@
         "friend-cy": "Computer Vision Engineer.",
         "resume-title": "Resume",
         "education-title": "Education",
-        "education-wuhan": "Pursuing Master's degree in Applied Statistics, focusing on advanced statistical methods and their practical applications. Conducting in-depth research projects to enhance data analysis and problem-solving capabilities.",
-        "education-xidian": "Bachelor's degree in Statistics from Xidian University. Systematically mastered fundamental statistical theories with deep expertise in applied fields including machine learning, data analysis, and data mining. Possesses a solid theoretical foundation combined with extensive practical application experience.",
+        "education-wuhan": "Currently pursuing Master's degree in Applied Statistics, with research focusing on LLM Agent, Evaluation, and Reinforcement Learning. Aiming to enhance LLM agent capabilities through new automated feedback methods using reinforcement learning.",
+        "education-xidian": "Bachelor's degree in Statistics from Xidian University. Systematically studied fundamental statistical theories with deep expertise in applied fields including machine learning, data analysis, and data mining. Ranked 2/30 overall and was recommended for admission to Wuhan University for Master's degree without examination.",
         "experience-title": "Experience",
-        "experience-placeholder-title": "Data Science Intern",
-        "experience-placeholder-text": "Working on machine learning projects and data analysis for real-world applications.",
+        "experience-cnpcas-title": "LLM Agent Intern",
+        "experience-cnpcas-company": "Institute of Geographic Sciences and Natural Resources Research, CAS",
+        "experience-cnpcas-title-company": "LLM Agent Intern | CAS",
+        "star-situation": "S - Situation",
+        "star-task": "T - Task",
+        "star-responsibilities": "Responsibilities & Contributions:",
+        "star-tech-stack": "Tech Stack:",
+        "star-achievements": "Achievements:",
+        "project-background": "Project Background:",
+        "experience-cnpcas-background": "To meet the demand for in-depth analysis of social media blog data, develop an intelligent public opinion analysis system. Requires deep integration of traditional human geography cognition of public opinion, utilizing LLM and VLM to achieve semantic understanding of blog content, combined with statistical analysis tools, to implement an end-to-end expert system from raw blog data to in-depth analysis reports.",
+        "experience-cnpcas-responsibilities": "Responsible for the design and development of the entire intelligent agent analysis system, built a three-stage decoupled public opinion analysis system architecture (enhancement processing → analysis execution → report generation), with all analysis processes scheduled by the DispatcherNode central node. The enhancement processing implements both Async/BatchApi methods to achieve semantic understanding of large-scale data using LLM; the analysis execution phase utilizes MCP protocol to enable agents to autonomously call preset statistical analysis functions to process the enhanced data in emotional trends, topic evolution, geographic distribution, multi-dimensional interactions and other directions, and store analysis results; the report generation phase supports both one-time generation by LLM according to preset templates or multi-round thinking and iterative generation of final reports.",
+        "experience-cnpcas-achievements": "Built a public opinion analysis agent system supporting 100,000 blog posts, which can be easily extended to any scale dataset through Async concurrency control expansion. Benefiting from MCP-based tool calls, the system can extend tool functions through MCP Server and autonomously choose whether to call them. The final report achieves loyalty to original data and analysis results through Prompt optimization and autonomous reflection, with fully traceable analysis thinking chains, effectively suppressing the impact of model hallucinations on the quality and credibility of the final report.",
+        "experience-cnpcas-tech-stack": "PocketFlow,Async,BatchApi,MCP,Agent.",
+        "experience-cnpcas-situation": "The institute faced challenges in processing large-scale social media blog data for public opinion analysis. Traditional manual analysis methods were inefficient, and existing automated systems lacked depth analysis capabilities and transparency, unable to provide reliable data support for policy making.",
+        "experience-cnpcas-task": "As a core development member, responsible for designing and developing an intelligent public opinion analysis system to achieve efficient processing of 30K+ blog data, multi-dimensional deep analysis and structured report generation, providing transparent analysis processes and reliable data support.",
+        "experience-cnpcas-action": "Designed three-stage decoupled architecture (enhancement processing → analysis execution → report generation) with DispatcherNode for central scheduling; Integrated GLM4.5V, GLM4.6 and other large language models, developed four-dimensional parallel analysis system; Developed four types of analysis toolkits based on MCP protocol, implemented Agent autonomous tool scheduling; Built thinking process recording and data citation verification mechanisms to ensure analysis result reliability.",
+        "experience-cnpcas-result": "Successfully built a processing system supporting 30K+ blog data with 300% improvement in processing efficiency; Four-dimensional analysis accuracy reached over 85%; System adopted by multiple research teams for policy making data support; Achieved full transparency in analysis process with 95%+ data citation verification rate.",
         "skills-title": "Skills",
         "skill-data-mining": "Data Mining",
         "skill-data-analysis": "Data Analysis",
+        "skill-llm-agents": "LLM Agent",
         "portfolio-title": "Projects",
         "project-mental-title": "Mental Health Monitoring via Wearable Tech",
         "project-mental-desc": "National Innovation Training Program project",
-        "project-mental-data": "Data Processing:",
-        "project-mental-data-text": "Processed 43 variables from 4-year NetHealth dataset (30k+ entries) with missing value imputation and Box-Cox transformation.",
-        "project-mental-feature": "Feature Engineering:",
-        "project-mental-feature-text": "Applied Multiple Imputation by Chained Equations (MICE) for missing value imputation, removed outliers with statistical methods, performed Box-Cox transformation on severely skewed data, and utilized PCA for dimensionality reduction.",
-        "project-mental-model": "Model Development:",
-        "project-mental-model-text": "Developed stacked ensemble model (ElasticNet + RandomForest + GBDT) achieving MSE 0.032, outperforming base models through grid search optimization.",
+        "project-background": "Project Background:",
+        "tech-implementation": "Technical Implementation:",
+        "project-results": "Project Results:",
+        "project-mental-background": "Traditional mental health assessment relies on subjective questionnaires with intermittent evaluation issues and subjective biases. With the proliferation of wearable devices enabling continuous physiological monitoring, the project aims to build a mental health assessment model based on wearable device data to achieve objective, continuous mental state monitoring, providing new technical approaches for mental health evaluation.",
+        "project-mental-implementation": "Selected 43 key variables from 4-year NetHealth observational data to construct a multi-time scale dataset of approximately 30k entries; applied Multiple Imputation by Chained Equations (MICE) for missing values, used Boxplot to detect and remove outliers, implemented BoxCox transformation for skewed data, used PCA for dimensionality reduction on highly multicollinear original time series data; built ElasticNet, RandomForest, XGBoost base models, employed decision tree-based Stacking ensemble strategy, and ultimately optimized overall hyperparameters through grid search.",
+        "project-mental-results": "The ensemble model achieved excellent performance with MSE 0.032, significantly outperforming all base models; successfully enabled end-to-end prediction from wearable device data to mental health status; the project received national innovation training program funding and was completed in May 2024, providing a new technical pathway for mental health monitoring.",
         "project-health-title": "Public Health Metrics in Modern China",
         "project-health-desc": "National Statistical Modeling Competition",
-        "project-health-data": "Data Collection:",
-        "project-health-data-text": "Aggregated health indicators from NBS databases and CNKI research metadata via web scraping techniques.",
-        "project-health-index": "Index Construction:",
-        "project-health-index-text": "Used principal component analysis to process health measurement indicators, selected the most interpretable top 4 principal components as comprehensive health measures from different perspectives based on their coefficients. Meanwhile, used research focus-related features from CNKI to construct the overall feature dataset.",
-        "project-health-model": "Statistical Modeling:",
-        "project-health-model-text": "Built a LASSO model based on data from the index construction step. Used grid search to comprehensively evaluate based on coefficient sparsity and model R², obtaining the optimal interpretable model. The final model achieved an R² of approximately 0.89.",
-        "project-mental-background": "Traditional mental health assessment relies on subjective questionnaires with intermittent evaluation issues. The proliferation of wearable devices enables continuous monitoring of physiological indicators, providing new avenues for objective mental health assessment.",
-        "project-health-background": "Traditional single health indicators cannot comprehensively reflect complex health status changes. This study aims to construct a comprehensive health indicator system for multi-dimensional analysis of Chinese residents' health status and influencing factors.",
-        "detail-background-title": "Background:",
+        "project-health-background": "With the accelerating modernization process, traditional single health indicators cannot comprehensively reflect the complex health status changes of Chinese residents. This project aims to build a comprehensive health evaluation system to multi-dimensionally assess people's health status and influencing factors, providing data support for public health policy in the context of modernization.",
+        "project-health-implementation": "Integrated multi-source health indicators from National Bureau of Statistics databases and commercial databases, used web scraping to obtain medical research focus trends from CNKI; applied principal component analysis to process health indicators obtained from the database, selected the top two principal components with practical meaning as health measures based on coefficient interpretability; built LASSO regression model, used grid search to find optimal balance between coefficient sparsity and model R², ensuring model interpretability and predictive power.",
+        "project-health-results": "The final model achieved excellent fitting performance with R² of approximately 0.89, successfully identifying key factors affecting Chinese residents' health status; the constructed health measurement system provides new perspectives for health assessment in the modernization process and ultimately won the first prize in the regional competition.",
+          "detail-background-title": "Background:",
         "detail-research-background": "Research Background:",
         "detail-main-contribution": "Main Contributions:",
         "detail-citation-info": "Citation Info:",
         "detail-paper-overview": "Paper Overview:",
         "detail-paper-links": "Related Links:",
-        "paper-overview-content": "This study employs interpretable machine learning methods (SHAP and PDP) to construct a random forest model, deeply analyzing PTSD influencing factors among 903 emergency responders. Breaking through traditional linear model limitations, the research reveals for the first time that psychological resilience serves as a core protective factor with significant buffering effects on PTSD (SHAP value 0.5061). The study also identifies non-linear patterns including J-shaped BMI risk curves and U-shaped age effects. Through Friedman H-statistic validation of resilience-age/trauma exposure interaction effects, differentiated intervention strategies for young and elderly emergency personnel are proposed. The findings provide data-driven clinical decision-making evidence for precise PTSD prevention in high-risk occupational groups, highlighting the application value of interpretable AI in mental health.",
+        "paper-overview-content": "This study employs interpretable machine learning methods (SHAP and PDP) to construct a random forest model, deeply analyzing PTSD influencing factors among 903 emergency responders. The research reveals that psychological resilience serves as a core protective factor with significant buffering effects on PTSD (SHAP value 0.5061). The study also identifies non-linear patterns including U-shaped age effects. Through Friedman H-statistic validation of resilience-age/trauma exposure interaction effects, differentiated intervention strategies for young and elderly emergency personnel are proposed. The findings provide data-driven decision-making evidence for PTSD prevention in high-risk occupational groups, highlighting the application value of interpretable AI in mental health.",
         "paper-link-doi": "Paper Link",
         "paper-link-code": "Code Repository",
         "detail-technical-background": "Technical Background:",
@@ -729,8 +754,8 @@
         "nav-portfolio": "项目",
         "nav-contact": "联系方式",
         "about-title": "关于我",
-        "about-text-1": "#",
-        "about-text-2": "#",
+        "about-text-1": "********************",
+        "about-text-2": "********************",
         "service-title": "当前专注领域",
         "service-data-science-title": "数据挖掘",
         "service-data-science-text": "从海量数据中发现隐藏的、有价值的模式，并将其转化为支持决策的洞察。",
@@ -745,40 +770,48 @@
         "friend-cy": "计算机视觉算法工程师.",
         "resume-title": "简历",
         "education-title": "教育背景",
-        "education-wuhan": "现于应用统计学专业攻读硕士学位，聚焦统计方法在实际场景中的深度应用，在进阶理论学习与课题研究中持续提升数据分析与问题解决能力。",
-        "education-xidian": "于西安电子科技大学获得统计学学士学位。系统掌握统计学基础理论，深耕机器学习、数据分析与数据挖掘等应用领域。拥有扎实的理论基础与丰富的应用实践经验。",
+        "education-wuhan": "现于应用统计专业攻读硕士学位，主要研究领域为LLM Agent, Evaluation 与Reinforecement Learning。希望通过新的自动化反馈方法，使用强化学习提升语言模型智能体能力。",
+        "education-xidian": "于西安电子科技大学获得统计学学士学位。系统学习了统计学基础理论，深耕机器学习、数据分析与数据挖掘等应用领域。综合排名2/30，推荐免试至武汉大学攻读硕士学位。",
         "experience-title": "工作经历",
-        "experience-placeholder-title": "数据科学实习生",
-        "experience-placeholder-text": "从事机器学习项目与数据分析工作，应用于实际场景。",
+        "experience-cnpcas-title": "LLM Agent 实习生",
+        "experience-cnpcas-company": "中科院地理科学与资源研究所",
+        "experience-cnpcas-title-company": "LLM Agent 实习生 | 中科院地理科学与资源研究所",
+        "star-situation": "S - 情境",
+        "star-task": "T - 任务",
+        "star-responsibilities": "职责与贡献：",
+        "star-tech-stack": "技术栈：",
+        "star-achievements": "成果：",
+        "project-background": "项目背景：",
+        "experience-cnpcas-background": "为满足对社交媒体平台博文数据的深度分析需求，开发智能舆情分析系统。需要深入结合传统人文地理学对舆情的认知，利用LLM以及VLM实现对博文内容语义的理解，综合统计分析工具，实现从原始博文数据到深入分析报告的端到端专家系统。",
+        "experience-cnpcas-situation": "研究所面临处理大规模社交媒体博文数据进行舆情分析的挑战。传统人工分析方法效率低下，现有自动化系统缺乏深度分析能力和透明度，无法为政策制定提供可靠的数据支撑。",
+        "experience-cnpcas-task": "作为核心开发成员，负责设计并开发智能舆情分析系统，实现3万条级别博文数据的高效处理、多维度深度分析和结构化报告生成，提供透明的分析过程和可靠的数据支撑。",
+        "experience-cnpcas-action": "设计三阶段解耦架构（增强处理→分析执行→报告生成），通过DispatcherNode实现中央调度；集成GLM4.5V、GLM4.6等大语言模型，开发四维度并行分析系统；基于MCP协议开发四类分析工具集，实现Agent自主工具调度；构建思考过程记录和数据引用验证机制，确保分析结果可靠性。",
+        "experience-cnpcas-result": "成功构建支持3万条博文数据的处理系统，处理效率提升300%；四维度分析准确率达85%以上；系统被研究所多个团队采用，为政策制定提供数据支持；实现分析过程全透明化，数据引用验证率达95%以上。",
         "skills-title": "技能",
         "skill-data-mining": "数据挖掘",
         "skill-data-analysis": "数据分析",
+        "skill-llm-agents": "语言模型智能体",
         "portfolio-title": "项目",
         "project-mental-title": "基于可穿戴设备技术的心理健康检测方案",
         "project-mental-desc": "国家级大学生创新创业训练计划项目",
-        "project-mental-data": "数据获取：",
-        "project-mental-data-text": "从 NetHealth 数据集长达四年的观测数据中筛选出了适用于本研究的 43 个变量，并根据不同的时间长度选取得到了四个列数不等，约 3 万行的数据集。",
-        "project-mental-feature": "特征工程：",
-        "project-mental-feature-text": "采用多重插补链式方程（MICE）方法处理缺失值，对离群值进行统计检测与移除，对严重偏态数据实施 BoxCox 变换，并运用 PCA 对自变量进行降维处理以提取主要特征。",
-        "project-mental-model": "模型构建：",
-        "project-mental-model-text": "建立了 ElasticNet、RandomForest、GBDT 三个机器回归模型并使用基于决策树的 Stacking 综合其结果，运用网格搜索确认最优参数。集成模型 MSE 约 0.032,优于所有基模型。",
+        "project-background": "项目背景：",
+        "tech-implementation": "技术实现：",
+        "project-results": "项目成果：",
+        "project-mental-background": "传统心理健康评估依赖主观问卷，存在评估间断性和主观偏差问题。随着可穿戴设备的普及，连续监测生理指标成为可能，项目旨在构建基于可穿戴设备数据的心理健康评估模型，实现客观、连续的心理状态监测，为心理健康评估提供新的技术途径。",
+        "project-mental-implementation": "从NetHealth数据集四年观测数据中筛选出43个关键变量，构建约3万行的多时间尺度数据集；采用多重插补链式方程（MICE）处理缺失值，应用Boxplot检测并移除离群值，对偏态数据实施BoxCox变换；构建ElasticNet、RandomForest、XGBoost三个基模型，使用了决策树Stacking集成策略，最终通过网格搜索优化整体超参数。",
+        "project-mental-results": "集成模型达到MSE 0.032的优异性能，显著优于所有基模型；成功实现了从可穿戴设备数据到心理健康状态的端到端预测；项目获得国家级创新创业训练计划立项支持，并于2024年5月结题，为心理健康监测提供了新的技术路径。",
         "project-health-title": "中国现代化下人民健康状况测度与影响因素",
         "project-health-desc": "全国大学生统计建模大赛",
-        "project-health-data": "数据获取：",
-        "project-health-data-text": "从商业数据库与国家统计局数据库中获取可能可以反应综合健康状况的指标,从 CNKI 中使用爬虫获取相关的研究信息以了解研究重心在过去的变化情况.",
-        "project-health-index": "指标构建：",
-        "project-health-index-text": "使用主成分分析处理健康测度相关指标，综合主成分的系数，选择了最具备可解释性的前4个主成分作为不同角度的综合健康测度。同时直接使用从CNKI获得的研究重心相关特征，构成了整体的特征数据。",
-        "project-health-model": "模型构建：",
-        "project-health-model-text": "基于指标构建步骤中得到的数据建立了LASSO模型，通过网格搜索，根据系数的稀疏程度以及模型的R方综合评判得到了最优的可解释模型，最终确定的模型R方约0.89。",
-        "project-mental-background": "传统心理健康评估依赖主观问卷，存在评估间断性问题。可穿戴设备的普及使得连续监测生理指标成为可能，为心理健康提供了客观评估的新途径。",
-        "project-health-background": "传统单一健康指标难以全面反映复杂的健康状况变化。本研究旨在构建综合性健康指标体系，多维度分析中国居民健康状况及影响因素。",
-        "detail-background-title": "项目背景：",
+        "project-health-background": "随着现代化进程加快，传统单一健康指标难以全面反映中国居民复杂的健康状况变化。本项目旨在构建一个综合性的健康评价体系，多维度评估人民健康状况及其影响因素，为现代化背景下的公共卫生政策提供数据支撑。",
+        "project-health-implementation": "整合国家统计局数据库和商业数据库中的多源健康指标，利用爬虫技术从CNKI获取医疗研究重心变化趋势；应用主成分分析处理数据库中获取的健康指标，基于系数解释性选择前两个具备实际意义的主成分作为和健康测度；构建LASSO回归模型，通过网格搜索在系数稀疏性和模型R²间寻找最优平衡点，确保模型的可解释性和预测能力。",
+        "project-health-results": "最终模型达到R²约0.89的优异拟合效果，成功识别出影响中国居民健康状况的关键因素；构建的健康测度体系为现代化进程中的健康评估提供了新视角并最终获得赛区一等奖。",
+            "detail-background-title": "项目背景：",
         "detail-research-background": "研究背景：",
         "detail-main-contribution": "主要贡献：",
         "detail-citation-info": "引用信息：",
         "detail-paper-overview": "论文概述：",
         "detail-paper-links": "相关链接：",
-        "paper-overview-content": "本文采用可解释机器学习方法（SHAP与PDP）构建随机森林模型，深入分析了903名应急人员的PTSD影响因素。研究突破传统线性模型局限，首次揭示心理韧性作为核心保护因素对PTSD的显著缓冲作用（SHAP值0.5061），并发现BMI呈J型风险曲线、年龄存在U型效应等非线性规律。通过Friedman H-statistic验证韧性-年龄/创伤暴露的交互效应，提出针对青年与高龄应急人员的差异化干预策略。成果为高危职业人群的PTSD精准预防提供了数据驱动的临床决策依据，凸显可解释AI在心理健康领域的应用价值。",
+        "paper-overview-content": "本文采用可解释机器学习方法（SHAP与PDP）构建随机森林模型，深入分析了903名应急人员的PTSD影响因素。研究揭示了心理韧性作为核心保护因素对PTSD的显著缓冲作用（SHAP值0.5061），并发现年龄存在U型效应等非线性规律。通过Friedman H-statistic验证韧性-年龄/创伤暴露的交互效应，提出针对青年与高龄应急人员的差异化干预策略。为高危职业人群的PTSD预防提供了数据驱动的决策依据，凸显了可解释AI在心理健康领域的应用价值。",
         "paper-link-doi": "论文链接",
         "paper-link-code": "代码仓库",
         "detail-technical-background": "技术背景：",
