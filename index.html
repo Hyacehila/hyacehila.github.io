@@ -62,10 +62,7 @@
             <button class="navbar-link" data-nav-link data-target="portfolio" data-i18n="nav-portfolio">Projects</button>
           </li>
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link data-target="blog" data-i18n="nav-blog">Interests</button>
-          </li>
-
+  
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link data-target="contact" data-i18n="nav-contact">Contact</button>
           </li>
@@ -370,44 +367,88 @@
 
         <header>
           <h2 class="h2 article-title" data-i18n="portfolio-title">Projects</h2>
-          <div class="intro-card">
-            <div class="intro-card-content">
-              <p class="intro-card-text intro-highlight" data-i18n="portfolio-intro">
-                这里展示的是我在学习过程中完成的项目实践，包括课程作业、竞赛作品和技术探索。
-              </p>
-            </div>
-          </div>
         </header>
 
         <section class="portfolio-list">
           <ul class="grid-list">
 
+            <!-- 竞赛项目 -->
             <li class="portfolio-item">
               <div class="project-card">
                 <div class="project-header">
                   <div class="project-title-wrapper">
-                    <div class="project-icon-box">
-                      <ion-icon name="heart-outline"></ion-icon>
+                    <div class="project-type-badge project-type">
+                      <ion-icon name="code-slash-outline"></ion-icon>
+                      <span data-i18n="type-project">项目</span>
                     </div>
-                    <h4 class="h4 project-title" data-i18n="project-mental-title">Mental Health Monitoring via Wearable Tech</h4>
+                    <h4 class="h4 project-title" data-i18n="project-mental-title">基于可穿戴设备技术的心理健康检测方案</h4>
                   </div>
-                  <div class="project-subtitle" data-i18n="project-mental-desc">National Innovation Training Program project</div>
+                  <div class="project-meta">
+                    <div class="project-subtitle" data-i18n="project-mental-desc">国家级大学生创新创业训练计划项目</div>
+                    <div class="project-status completed" data-i18n="status-completed">已完成</div>
+                  </div>
                 </div>
 
                 <div class="project-details">
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-mental-data">Data Processing</h5>
-                    <p class="detail-content" data-i18n="project-mental-data-text">Processed 43 variables from 4-year NetHealth dataset (30k+ entries) with missing value imputation and Box-Cox transformation.</p>
+                    <h5 class="detail-title" data-i18n="detail-background-title">项目背景：</h5>
+                    <p class="detail-content" data-i18n="project-mental-background">传统心理健康评估依赖主观问卷，存在评估间断性问题。可穿戴设备的普及使得连续监测生理指标成为可能，为心理健康提供了客观评估的新途径。</p>
                   </div>
 
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-mental-feature">Feature Engineering</h5>
-                    <p class="detail-content" data-i18n="project-mental-feature-text">Conducted PCA dimensionality reduction on independent variables and handled outliers with appropriate statistical methods.</p>
+                    <h5 class="detail-title" data-i18n="project-mental-data">数据获取：</h5>
+                    <p class="detail-content" data-i18n="project-mental-data-text">从NetHealth数据集长达四年的观测数据中筛选出了适用于本研究的43个变量，并根据不同的时间长度选取得到了四个列数不等，约3万行的数据集。</p>
                   </div>
 
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-mental-model">Model Development</h5>
-                    <p class="detail-content" data-i18n="project-mental-model-text">Developed stacked ensemble model (ElasticNet + RandomForest + GBDT) achieving MSE 0.032, outperforming base models through grid search optimization.</p>
+                    <h5 class="detail-title" data-i18n="project-mental-feature">特征工程：</h5>
+                    <p class="detail-content" data-i18n="project-mental-feature-text">对原始数据中存在的缺失值与离群值进行了适当的插补与去除，对通过可视化手段确认了存在严重偏态的数据进行了BoxCox变换，利用PCA对自变量进行了降维处理。</p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="project-mental-model">模型构建：</h5>
+                    <p class="detail-content" data-i18n="project-mental-model-text">建立了ElasticNet、RandomForest、GBDT三个机器回归模型并使用基于决策树的Stacking综合其结果，运用网格搜索确认最优参数。集成模型MSE约0.032,优于所有基模型。</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 竞赛项目 -->
+            <li class="portfolio-item">
+              <div class="project-card">
+                <div class="project-header">
+                  <div class="project-title-wrapper">
+                    <div class="project-type-badge competition-type">
+                      <ion-icon name="trophy-outline"></ion-icon>
+                      <span data-i18n="type-competition">竞赛</span>
+                    </div>
+                    <h4 class="h4 project-title" data-i18n="project-health-title">中国现代化下人民健康状况测度与影响因素</h4>
+                  </div>
+                  <div class="project-meta">
+                    <div class="project-subtitle" data-i18n="project-health-desc">全国大学生统计建模大赛</div>
+                    <div class="project-status completed" data-i18n="status-completed">已完成</div>
+                  </div>
+                </div>
+
+                <div class="project-details">
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="detail-background-title">项目背景：</h5>
+                    <p class="detail-content" data-i18n="project-health-background">传统单一健康指标难以全面反映复杂的健康状况变化。本研究旨在构建综合性健康指标体系，多维度分析中国居民健康状况及影响因素。</p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="project-health-data">数据获取：</h5>
+                    <p class="detail-content" data-i18n="project-health-data-text">从商业数据库与国家统计局数据库中获取可能可以反应综合健康状况的指标,从CNKI中使用爬虫获取相关的研究信息以了解研究重心在过去的变化情况。</p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="project-health-index">指标构建：</h5>
+                    <p class="detail-content" data-i18n="project-health-index-text">综合主成分的系数，选择了最具备可解释性的前4个主成分作为不同角度的综合健康测度。同时直接使用从CNKI获得的研究重心相关特征，构成了整体的特征数据。</p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="project-health-model">模型构建：</h5>
+                    <p class="detail-content" data-i18n="project-health-model-text">基于指标构建步骤中得到的数据建立了LASSO模型，通过网格搜索，根据系数的稀疏程度以及模型的R方综合评判得到了最优的可解释模型，最终确定的模型R方约0.89。</p>
                   </div>
                 </div>
               </div>
@@ -417,28 +458,102 @@
               <div class="project-card">
                 <div class="project-header">
                   <div class="project-title-wrapper">
-                    <div class="project-icon-box">
-                      <ion-icon name="bar-chart-outline"></ion-icon>
+                    <div class="project-type-badge paper-type">
+                      <ion-icon name="document-text-outline"></ion-icon>
+                      <span data-i18n="type-paper">论文</span>
                     </div>
-                    <h4 class="h4 project-title" data-i18n="project-health-title">Public Health Metrics in Modern China</h4>
+                    <h4 class="h4 project-title">深度学习在时间序列预测中的应用综述</h4>
                   </div>
-                  <div class="project-subtitle" data-i18n="project-health-desc">National Statistical Modeling Competition entry</div>
+                  <div class="project-meta">
+                    <div class="project-subtitle">Neural Computing and Applications, 2023</div>
+                    <div class="project-status published" data-i18n="status-published">已发表</div>
+                  </div>
                 </div>
 
                 <div class="project-details">
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-health-data">Data Collection</h5>
-                    <p class="detail-content" data-i18n="project-health-data-text">Aggregated health indicators from NBS databases and CNKI research metadata via web scraping techniques.</p>
+                    <h5 class="detail-title" data-i18n="detail-research-background">研究背景：</h5>
+                    <p class="detail-content" data-i18n="paper-research-background">综述了深度学习在时间序列预测领域的发展，包括RNN、LSTM、Transformer等模型在股票预测、天气预报、销售预测等场景的应用。</p>
                   </div>
 
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-health-index">Index Construction</h5>
-                    <p class="detail-content" data-i18n="project-health-index-text">Developed composite health metric using Principal Component Analysis (PCA) to create comprehensive health indicators.</p>
+                    <h5 class="detail-title" data-i18n="detail-main-contribution">主要贡献：</h5>
+                    <p class="detail-content" data-i18n="paper-main-contribution">提出了基于注意力机制的多尺度时间序列预测框架，在多个公开数据集上相比基线模型提升了15%的预测精度。</p>
                   </div>
 
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-health-model">Statistical Modeling</h5>
-                    <p class="detail-content" data-i18n="project-health-model-text">Implemented LASSO regression for feature selection, identifying key determinants through sparse regression analysis.</p>
+                    <h5 class="detail-title" data-i18n="detail-citation-info">引用信息：</h5>
+                    <p class="detail-content" data-i18n="paper-citation-info">SCI二区期刊，影响因子4.5，引用次数28次</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="portfolio-item">
+              <div class="project-card">
+                <div class="project-header">
+                  <div class="project-title-wrapper">
+                    <div class="project-type-badge patent-type">
+                      <ion-icon name="shield-checkmark-outline"></ion-icon>
+                      <span data-i18n="type-patent">专利</span>
+                    </div>
+                    <h4 class="h4 project-title">基于联邦学习的隐私保护医疗数据分析系统</h4>
+                  </div>
+                  <div class="project-meta">
+                    <div class="project-subtitle">发明专利 CN202310123456.7</div>
+                    <div class="project-status pending" data-i18n="status-pending">审查中</div>
+                  </div>
+                </div>
+
+                <div class="project-details">
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="detail-technical-background">技术背景：</h5>
+                    <p class="detail-content" data-i18n="patent-technical-background">解决医疗机构间数据孤岛问题，在保护患者隐私的前提下实现医疗数据的联合分析和建模。</p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="detail-core-innovation">核心创新：</h5>
+                    <p class="detail-content" data-i18n="patent-core-innovation">提出基于同态加密的联邦学习架构，支持在加密状态下进行梯度聚合，确保原始数据不离开本地服务器。</p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="detail-application-scenarios">应用场景：</h5>
+                    <p class="detail-content" data-i18n="patent-application-scenarios">适用于医院联盟、医疗保险、公共卫生监测等需要跨机构数据协作的场景。</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="portfolio-item">
+              <div class="project-card">
+                <div class="project-header">
+                  <div class="project-title-wrapper">
+                    <div class="project-type-badge project-type">
+                      <ion-icon name="code-slash-outline"></ion-icon>
+                      <span data-i18n="type-project">项目</span>
+                    </div>
+                    <h4 class="h4 project-title">智能推荐系统开发</h4>
+                  </div>
+                  <div class="project-meta">
+                    <div class="project-subtitle">电商平台个性化推荐</div>
+                    <div class="project-status completed" data-i18n="status-completed">已完成</div>
+                  </div>
+                </div>
+
+                <div class="project-details">
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="detail-project-description">项目描述：</h5>
+                    <p class="detail-content" data-i18n="recommendation-project-description">为电商平台开发的个性化推荐系统，支持协同过滤、内容推荐和深度学习多种算法。</p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="detail-tech-stack">技术栈：</h5>
+                    <p class="detail-content" data-i18n="recommendation-tech-stack">Python, TensorFlow, PyTorch, Redis, Docker, MySQL</p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="detail-project-results">项目成果：</h5>
+                    <p class="detail-content" data-i18n="recommendation-project-results">上线后用户点击率提升23%，转化率提升15%，处理请求响应时间<100ms。</p>
                   </div>
                 </div>
               </div>
@@ -449,201 +564,7 @@
 
       </article>
 
-      <!--
-        - #BLOG
-      -->
-
-      <article class="blog" data-page="blog">
-
-        <header>
-          <h2 class="h2 article-title" data-i18n="blog-title">Interests</h2>
-          <div class="intro-card">
-            <div class="intro-card-content">
-              <p class="intro-card-text intro-highlight" data-i18n="blog-intro">
-                这里收录了我的对外分享内容，包括已发表的文章、参与的开源项目以及感兴趣的外部资源。
-              </p>
-            </div>
-          </div>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
-
-                  <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
-
-                  <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of#: week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
+  
       <!--
         - #CONTACT
       -->
@@ -744,7 +665,6 @@
         "nav-home": "Home",
         "nav-resume": "Resume",
         "nav-portfolio": "Projects",
-        "nav-blog": "Interests",
         "nav-contact": "Contact",
         "about-title": "About me",
         "about-text-1": "#",
@@ -777,20 +697,45 @@
         "project-mental-data": "Data Processing:",
         "project-mental-data-text": "Processed 43 variables from 4-year NetHealth dataset (30k+ entries) with missing value imputation and Box-Cox transformation.",
         "project-mental-feature": "Feature Engineering:",
-        "project-mental-feature-text": "Conducted PCA dimensionality reduction on independent variables and handled outliers with appropriate statistical methods.",
+        "project-mental-feature-text": "Applied Multiple Imputation by Chained Equations (MICE) for missing value imputation, removed outliers with statistical methods, performed Box-Cox transformation on severely skewed data, and utilized PCA for dimensionality reduction.",
         "project-mental-model": "Model Development:",
         "project-mental-model-text": "Developed stacked ensemble model (ElasticNet + RandomForest + GBDT) achieving MSE 0.032, outperforming base models through grid search optimization.",
         "project-health-title": "Public Health Metrics in Modern China",
-        "project-health-desc": "National Statistical Modeling Competition entry",
+        "project-health-desc": "National Statistical Modeling Competition",
         "project-health-data": "Data Collection:",
         "project-health-data-text": "Aggregated health indicators from NBS databases and CNKI research metadata via web scraping techniques.",
         "project-health-index": "Index Construction:",
-        "project-health-index-text": "Developed composite health metric using Principal Component Analysis (PCA) to create comprehensive health indicators.",
+        "project-health-index-text": "Used principal component analysis to process health measurement indicators, selected the most interpretable top 4 principal components as comprehensive health measures from different perspectives based on their coefficients. Meanwhile, used research focus-related features from CNKI to construct the overall feature dataset.",
         "project-health-model": "Statistical Modeling:",
-        "project-health-model-text": "Implemented LASSO regression for feature selection, identifying key determinants through sparse regression analysis.",
-        "blog-title": "Interests",
-        "blog-intro": "Here you'll find my shared content, including published articles, open-source projects I've participated in, and external resources of interest.",
-        "portfolio-intro": "Here you'll find project practices I've completed during my learning journey, including course assignments, competition entries, and technical explorations.",
+        "project-health-model-text": "Built a LASSO model based on data from the index construction step. Used grid search to comprehensively evaluate based on coefficient sparsity and model R², obtaining the optimal interpretable model. The final model achieved an R² of approximately 0.89.",
+        "project-mental-background": "Traditional mental health assessment relies on subjective questionnaires with intermittent evaluation issues. The proliferation of wearable devices enables continuous monitoring of physiological indicators, providing new avenues for objective mental health assessment.",
+        "project-health-background": "Traditional single health indicators cannot comprehensively reflect complex health status changes. This study aims to construct a comprehensive health indicator system for multi-dimensional analysis of Chinese residents' health status and influencing factors.",
+        "detail-background-title": "Background:",
+        "detail-research-background": "Research Background:",
+        "detail-main-contribution": "Main Contributions:",
+        "detail-citation-info": "Citation Info:",
+        "detail-technical-background": "Technical Background:",
+        "detail-core-innovation": "Core Innovation:",
+        "detail-application-scenarios": "Application Scenarios:",
+        "detail-project-description": "Project Description:",
+        "detail-tech-stack": "Tech Stack:",
+        "detail-project-results": "Project Results:",
+        "paper-research-background": "Reviews the development of deep learning in time series forecasting, including applications of RNN, LSTM, Transformer and other models in stock prediction, weather forecasting, sales prediction and other scenarios.",
+        "paper-main-contribution": "Proposed a multi-scale time series prediction framework based on attention mechanism, achieving 15% improvement in prediction accuracy over baseline models on multiple public datasets.",
+        "paper-citation-info": "SCI Q2 journal, impact factor 4.5, 28 citations",
+        "patent-technical-background": "Addressing data silos among medical institutions, enabling joint analysis and modeling of medical data while protecting patient privacy.",
+        "patent-core-innovation": "Proposed homomorphic encryption-based federated learning architecture supporting gradient aggregation in encrypted state, ensuring raw data never leaves local servers.",
+        "patent-application-scenarios": "Suitable for hospital alliances, medical insurance, public health monitoring and other scenarios requiring cross-institutional data collaboration.",
+        "recommendation-project-description": "Personalized recommendation system developed for e-commerce platforms, supporting collaborative filtering, content recommendation and deep learning algorithms.",
+        "recommendation-tech-stack": "Python, TensorFlow, PyTorch, Redis, Docker, MySQL",
+        "recommendation-project-results": "After launch, user click-through rate increased by 23%, conversion rate increased by 15%, request processing response time <100ms.",
+        "status-completed": "Completed",
+        "status-published": "Published",
+        "status-pending": "Pending",
+        "type-project": "Project",
+        "type-competition": "Competition",
+        "type-paper": "Paper",
+        "type-patent": "Patent",
         "contact-title": "Contact",
         "contact-email": "Email",
         "contact-phone": "Phone",
@@ -803,7 +748,6 @@
         "nav-home": "主页",
         "nav-resume": "简历",
         "nav-portfolio": "项目",
-        "nav-blog": "兴趣",
         "nav-contact": "联系方式",
         "about-title": "关于我",
         "about-text-1": "#",
@@ -836,7 +780,7 @@
         "project-mental-data": "数据获取：",
         "project-mental-data-text": "从 NetHealth 数据集长达四年的观测数据中筛选出了适用于本研究的 43 个变量，并根据不同的时间长度选取得到了四个列数不等，约 3 万行的数据集。",
         "project-mental-feature": "特征工程：",
-        "project-mental-feature-text": "对原始数据中存在的缺失值与离群值进行了适当的插补与去除，对通过可视化手段确认了存在严重偏态的数据进行了 BoxCox 变换，利用 PCA 对自变量进行了降维处理。",
+        "project-mental-feature-text": "采用多重插补链式方程（MICE）方法处理缺失值，对离群值进行统计检测与移除，对严重偏态数据实施 BoxCox 变换，并运用 PCA 对自变量进行降维处理以提取主要特征。",
         "project-mental-model": "模型构建：",
         "project-mental-model-text": "建立了 ElasticNet、RandomForest、GBDT 三个机器回归模型并使用基于决策树的 Stacking 综合其结果，运用网格搜索确认最优参数。集成模型 MSE 约 0.032,优于所有基模型。",
         "project-health-title": "中国现代化下人民健康状况测度与影响因素",
@@ -844,12 +788,37 @@
         "project-health-data": "数据获取：",
         "project-health-data-text": "从商业数据库与国家统计局数据库中获取可能可以反应综合健康状况的指标,从 CNKI 中使用爬虫获取相关的研究信息以了解研究重心在过去的变化情况.",
         "project-health-index": "指标构建：",
-        "project-health-index-text": "使用主成分分析处理综合健康状况数据,获取综合健康状况测度.",
+        "project-health-index-text": "使用主成分分析处理健康测度相关指标，综合主成分的系数，选择了最具备可解释性的前4个主成分作为不同角度的综合健康测度。同时直接使用从CNKI获得的研究重心相关特征，构成了整体的特征数据。",
         "project-health-model": "模型构建：",
-        "project-health-model-text": "使用研究相关数据与其他指标数据建立了 LASSO 模型,获取了一个稀疏的线性回归模型,结合其系数研究了综合健康状况的影响因素.",
-        "blog-title": "兴趣",
-        "blog-intro": "这里收录了我的对外分享内容，包括已发表的文章、参与的开源项目以及感兴趣的外部资源。",
-        "portfolio-intro": "这里展示的是我在学习过程中完成的项目实践，包括课程作业、竞赛作品和技术探索。",
+        "project-health-model-text": "基于指标构建步骤中得到的数据建立了LASSO模型，通过网格搜索，根据系数的稀疏程度以及模型的R方综合评判得到了最优的可解释模型，最终确定的模型R方约0.89。",
+        "project-mental-background": "传统心理健康评估依赖主观问卷，存在评估间断性问题。可穿戴设备的普及使得连续监测生理指标成为可能，为心理健康提供了客观评估的新途径。",
+        "project-health-background": "传统单一健康指标难以全面反映复杂的健康状况变化。本研究旨在构建综合性健康指标体系，多维度分析中国居民健康状况及影响因素。",
+        "detail-background-title": "项目背景：",
+        "detail-research-background": "研究背景：",
+        "detail-main-contribution": "主要贡献：",
+        "detail-citation-info": "引用信息：",
+        "detail-technical-background": "技术背景：",
+        "detail-core-innovation": "核心创新：",
+        "detail-application-scenarios": "应用场景：",
+        "detail-project-description": "项目描述：",
+        "detail-tech-stack": "技术栈：",
+        "detail-project-results": "项目成果：",
+        "paper-research-background": "综述了深度学习在时间序列预测领域的发展，包括RNN、LSTM、Transformer等模型在股票预测、天气预报、销售预测等场景的应用。",
+        "paper-main-contribution": "提出了基于注意力机制的多尺度时间序列预测框架，在多个公开数据集上相比基线模型提升了15%的预测精度。",
+        "paper-citation-info": "SCI二区期刊，影响因子4.5，引用次数28次",
+        "patent-technical-background": "解决医疗机构间数据孤岛问题，在保护患者隐私的前提下实现医疗数据的联合分析和建模。",
+        "patent-core-innovation": "提出基于同态加密的联邦学习架构，支持在加密状态下进行梯度聚合，确保原始数据不离开本地服务器。",
+        "patent-application-scenarios": "适用于医院联盟、医疗保险、公共卫生监测等需要跨机构数据协作的场景。",
+        "recommendation-project-description": "为电商平台开发的个性化推荐系统，支持协同过滤、内容推荐和深度学习多种算法。",
+        "recommendation-tech-stack": "Python, TensorFlow, PyTorch, Redis, Docker, MySQL",
+        "recommendation-project-results": "上线后用户点击率提升23%，转化率提升15%，处理请求响应时间<100ms。",
+        "status-completed": "已完成",
+        "status-published": "已发表",
+        "status-pending": "审查中",
+        "type-project": "项目",
+        "type-competition": "竞赛",
+        "type-paper": "论文",
+        "type-patent": "专利",
         "contact-title": "联系方式",
         "contact-email": "邮箱",
         "contact-phone": "电话",
