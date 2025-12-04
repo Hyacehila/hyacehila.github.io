@@ -26,6 +26,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!--
+    - custom inline styles for translation spans
+  -->
+  <style>
+    /* 确保翻译用的span标签不换行，保持原有的排版 */
+    .detail-point span[data-i18n] {
+      display: inline;
+      color: var(--light-gray);
+    }
+  </style>
 </head>
 
 <body>
@@ -295,16 +306,16 @@
 
               <div class="project-details">
                 <div class="detail-point">
-                  <strong data-i18n="project-background">项目背景</strong>为满足对社交媒体平台博文数据的深度分析需求，开发智能舆情分析系统。需要深入结合传统人文地理学对舆情的认知，利用LLM以及VLM实现对博文内容语义的理解，综合统计分析工具，实现从原始博文数据到深入分析报告的端到端专家系统。
+                  <strong data-i18n="project-background">项目背景</strong><span data-i18n="experience-cnpcas-background">为满足对社交媒体平台博文数据的深度分析需求，开发智能舆情分析系统。需要深入结合传统人文地理学对舆情的认知，利用LLM以及VLM实现对博文内容语义的理解，综合统计分析工具，实现从原始博文数据到深入分析报告的端到端专家系统。</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="star-responsibilities">职责与贡献</strong>负责整个智能体分析系统的设计与开发工作，搭建了三阶段解耦舆情分析系统架构设计（增强处理→分析执行→报告生成），所有的分析流程被DispatcherNode中央结点调度。增强处理同时实现了Async/BatchApi两个方法实现对大规模数据使用LLM进行语义理解；分析执行阶段利用MCP协议，实现Agent自主调用预设的统计分析函数对增强后的数据进行情感趋势、主题演化、地理分布、多维交互等方向的处理，并存储分析结果；报告生成阶段同时支持LLM根据预设模板一次性生成或者进行多轮的思考与迭代生成最终报告。
+                  <strong data-i18n="star-responsibilities">职责与贡献</strong><span data-i18n="experience-cnpcas-responsibilities">负责整个智能体分析系统的设计与开发工作，搭建了三阶段解耦舆情分析系统架构设计（增强处理→分析执行→报告生成），所有的分析流程被DispatcherNode中央结点调度。增强处理同时实现了Async/BatchApi两个方法实现对大规模数据使用LLM进行语义理解；分析执行阶段利用MCP协议，实现Agent自主调用预设的统计分析函数对增强后的数据进行情感趋势、主题演化、地理分布、多维交互等方向的处理，并存储分析结果；报告生成阶段同时支持LLM根据预设模板一次性生成或者进行多轮的思考与迭代生成最终报告。</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="star-achievements">成果</strong>构建了支持10万条博文的舆情分析智能体系统，并可以轻易的通过扩展Async并发控制扩展到任意规模的数据集；受益于基于MCP的工具调用，系统可以通过MCP Server的方式扩展工具函数，并自主选择是否调用；最终的报告通过Prompt优化以及自主反思实现了忠于原始数据与分析结果，分析思维链全程可追溯，有效抑制了模型幻觉对最终报告的质量有可信度的影响。
+                  <strong data-i18n="star-achievements">成果</strong><span data-i18n="experience-cnpcas-achievements">构建了支持10万条博文的舆情分析智能体系统，并可以轻易的通过扩展Async并发控制扩展到任意规模的数据集；受益于基于MCP的工具调用，系统可以通过MCP Server的方式扩展工具函数，并自主选择是否调用；最终的报告通过Prompt优化以及自主反思实现了忠于原始数据与分析结果，分析思维链全程可追溯，有效抑制了模型幻觉对最终报告的质量有可信度的影响。</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="star-tech-stack">技术栈</strong>PocketFlow,Async,BatchApi,MCP,Agent.
+                  <strong data-i18n="star-tech-stack">技术栈</strong><span data-i18n="experience-cnpcas-tech-stack">PocketFlow,Async,BatchApi,MCP,Agent.</span>
                 </div>
               </div>
 
@@ -783,7 +794,10 @@
         "star-achievements": "成果：",
         "project-background": "项目背景：",
         "experience-cnpcas-background": "为满足对社交媒体平台博文数据的深度分析需求，开发智能舆情分析系统。需要深入结合传统人文地理学对舆情的认知，利用LLM以及VLM实现对博文内容语义的理解，综合统计分析工具，实现从原始博文数据到深入分析报告的端到端专家系统。",
-        "experience-cnpcas-situation": "研究所面临处理大规模社交媒体博文数据进行舆情分析的挑战。传统人工分析方法效率低下，现有自动化系统缺乏深度分析能力和透明度，无法为政策制定提供可靠的数据支撑。",
+        "experience-cnpcas-responsibilities": "负责整个智能体分析系统的设计与开发工作，搭建了三阶段解耦舆情分析系统架构设计（增强处理→分析执行→报告生成），所有的分析流程被DispatcherNode中央结点调度。增强处理同时实现了Async/BatchApi两个方法实现对大规模数据使用LLM进行语义理解；分析执行阶段利用MCP协议，实现Agent自主调用预设的统计分析函数对增强后的数据进行情感趋势、主题演化、地理分布、多维交互等方向的处理，并存储分析结果；报告生成阶段同时支持LLM根据预设模板一次性生成或者进行多轮的思考与迭代生成最终报告。",
+        "experience-cnpcas-achievements": "构建了支持10万条博文的舆情分析智能体系统，并可以轻易的通过扩展Async并发控制扩展到任意规模的数据集；受益于基于MCP的工具调用，系统可以通过MCP Server的方式扩展工具函数，并自主选择是否调用；最终的报告通过Prompt优化以及自主反思实现了忠于原始数据与分析结果，分析思维链全程可追溯，有效抑制了模型幻觉对最终报告的质量有可信度的影响。",
+        "experience-cnpcas-tech-stack": "PocketFlow,Async,BatchApi,MCP,Agent.",
+          "experience-cnpcas-situation": "研究所面临处理大规模社交媒体博文数据进行舆情分析的挑战。传统人工分析方法效率低下，现有自动化系统缺乏深度分析能力和透明度，无法为政策制定提供可靠的数据支撑。",
         "experience-cnpcas-task": "作为核心开发成员，负责设计并开发智能舆情分析系统，实现3万条级别博文数据的高效处理、多维度深度分析和结构化报告生成，提供透明的分析过程和可靠的数据支撑。",
         "experience-cnpcas-action": "设计三阶段解耦架构（增强处理→分析执行→报告生成），通过DispatcherNode实现中央调度；集成GLM4.5V、GLM4.6等大语言模型，开发四维度并行分析系统；基于MCP协议开发四类分析工具集，实现Agent自主工具调度；构建思考过程记录和数据引用验证机制，确保分析结果可靠性。",
         "experience-cnpcas-result": "成功构建支持3万条博文数据的处理系统，处理效率提升300%；四维度分析准确率达85%以上；系统被研究所多个团队采用，为政策制定提供数据支持；实现分析过程全透明化，数据引用验证率达95%以上。",
