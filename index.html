@@ -129,14 +129,31 @@
 
               <div class="service-icon-box">
                 <div class="icon-box">
-                  <ion-icon name="text-outline"></ion-icon>
+                  <ion-icon name="people-outline"></ion-icon>
                 </div>
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title" data-i18n="service-llm-title">Large Language Model</h4>
-                <p class="service-item-text" data-i18n="service-llm-text">
-                  Focusing on post-training optimization and agents.
+                <h4 class="h4 service-item-title" data-i18n="service-llm-agents-title">LLM Agents</h4>
+                <p class="service-item-text" data-i18n="service-llm-agents-text">
+                  Developing intelligent agents that leverage large language models for complex task automation.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <div class="icon-box">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                </div>
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title" data-i18n="service-llm-eval-title">LLM Evaluation</h4>
+                <p class="service-item-text" data-i18n="service-llm-eval-text">
+                  Developing comprehensive frameworks for assessing language model performance and safety.
                 </p>
               </div>
 
@@ -159,23 +176,7 @@
 
             </li>
 
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <div class="icon-box">
-                  <ion-icon name="camera-outline"></ion-icon>
-                </div>
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title" data-i18n="service-photo-title">Photography</h4>
-                <p class="service-item-text" data-i18n="service-photo-text">
-                  Just a hobby and I'm not a professional photographer.
-                </p>
-              </div>
-
-            </li>
-
+  
           </ul>
 
         </section>
@@ -462,33 +463,40 @@
                       <ion-icon name="document-text-outline"></ion-icon>
                       <span data-i18n="type-paper">论文</span>
                     </div>
-                    <h4 class="h4 project-title">深度学习在时间序列预测中的应用综述</h4>
+                    <h4 class="h4 project-title">Unveiling the Drivers of PTSD: An Interpretable Machine Learning Approach with SHAP</h4>
                   </div>
                   <div class="project-meta">
-                    <div class="project-subtitle">Neural Computing and Applications, 2023</div>
+                    <div class="journal-info">International Conference on Intelligent Computing and Data Analysis 2025</div>
                     <div class="project-status published" data-i18n="status-published">已发表</div>
                   </div>
                 </div>
 
                 <div class="project-details">
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="detail-research-background">研究背景：</h5>
-                    <p class="detail-content" data-i18n="paper-research-background">综述了深度学习在时间序列预测领域的发展，包括RNN、LSTM、Transformer等模型在股票预测、天气预报、销售预测等场景的应用。</p>
+                    <h5 class="detail-title" data-i18n="detail-paper-overview">论文概述：</h5>
+                    <p class="detail-content" data-i18n="paper-overview-content">本文采用可解释机器学习方法（SHAP与PDP）构建随机森林模型，深入分析了903名应急人员的PTSD影响因素。研究突破传统线性模型局限，首次揭示心理韧性作为核心保护因素对PTSD的显著缓冲作用（SHAP值0.5061），并发现BMI呈J型风险曲线、年龄存在U型效应等非线性规律。通过Friedman H-statistic验证韧性-年龄/创伤暴露的交互效应，提出针对青年与高龄应急人员的差异化干预策略。成果为高危职业人群的PTSD精准预防提供了数据驱动的临床决策依据，凸显可解释AI在心理健康领域的应用价值。</p>
                   </div>
 
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="detail-main-contribution">主要贡献：</h5>
-                    <p class="detail-content" data-i18n="paper-main-contribution">提出了基于注意力机制的多尺度时间序列预测框架，在多个公开数据集上相比基线模型提升了15%的预测精度。</p>
-                  </div>
-
-                  <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="detail-citation-info">引用信息：</h5>
-                    <p class="detail-content" data-i18n="paper-citation-info">SCI二区期刊，影响因子4.5，引用次数28次</p>
+                    <h5 class="detail-title" data-i18n="detail-paper-links">相关链接：</h5>
+                    <p class="detail-content">
+                      <a href="https://doi.org/10.1145/3772726.3772849" target="_blank" class="paper-link-small" rel="noopener noreferrer">
+                        <ion-icon name="link-outline"></ion-icon>
+                        <span data-i18n="paper-link-doi">论文链接</span>
+                      </a>
+                    </p>
+                    <p class="detail-content">
+                      <a href="https://github.com/Hyacehila/PTSD-IML" target="_blank" class="paper-link-small" rel="noopener noreferrer">
+                        <ion-icon name="code-outline"></ion-icon>
+                        <span data-i18n="paper-link-code">代码仓库</span>
+                      </a>
+                    </p>
                   </div>
                 </div>
               </div>
             </li>
 
+            <!-- 专利卡片模板 - 已注释，可作为添加新专利的参考
             <li class="portfolio-item">
               <div class="project-card">
                 <div class="project-header">
@@ -523,41 +531,7 @@
                 </div>
               </div>
             </li>
-
-            <li class="portfolio-item">
-              <div class="project-card">
-                <div class="project-header">
-                  <div class="project-title-wrapper">
-                    <div class="project-type-badge project-type">
-                      <ion-icon name="code-slash-outline"></ion-icon>
-                      <span data-i18n="type-project">项目</span>
-                    </div>
-                    <h4 class="h4 project-title">智能推荐系统开发</h4>
-                  </div>
-                  <div class="project-meta">
-                    <div class="project-subtitle">电商平台个性化推荐</div>
-                    <div class="project-status completed" data-i18n="status-completed">已完成</div>
-                  </div>
-                </div>
-
-                <div class="project-details">
-                  <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="detail-project-description">项目描述：</h5>
-                    <p class="detail-content" data-i18n="recommendation-project-description">为电商平台开发的个性化推荐系统，支持协同过滤、内容推荐和深度学习多种算法。</p>
-                  </div>
-
-                  <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="detail-tech-stack">技术栈：</h5>
-                    <p class="detail-content" data-i18n="recommendation-tech-stack">Python, TensorFlow, PyTorch, Redis, Docker, MySQL</p>
-                  </div>
-
-                  <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="detail-project-results">项目成果：</h5>
-                    <p class="detail-content" data-i18n="recommendation-project-results">上线后用户点击率提升23%，转化率提升15%，处理请求响应时间<100ms。</p>
-                  </div>
-                </div>
-              </div>
-            </li>
+            -->
 
           </ul>
         </section>
@@ -670,15 +644,15 @@
         "about-text-1": "#",
         "about-text-2": "#",
         "service-title": "Current Work & Interests",
-        "service-data-science-title": "Data Science",
-        "service-data-science-text": "Extracting insights from data to drive informed decisions.",
-        "service-llm-title": "Large Language Model",
-        "service-llm-text": "Focusing on post-training optimization and agents.",
+        "service-data-science-title": "Data Mining",
+        "service-data-science-text": "Discovering hidden, valuable patterns from massive data and transforming them into insights that support decision-making.",
+        "service-llm-agents-title": "LLM Agents",
+        "service-llm-agents-text": "Developing intelligent agents that leverage large language models for complex task automation.",
+        "service-llm-eval-title": "LLM Evaluation",
+        "service-llm-eval-text": "Quantifying the alignment between model outputs and human expectations, and transforming them into reward signals that drive reinforcement learning training, thereby guiding continuous model optimization.",
         "service-apps-title": "Apps development",
-        "service-apps-text": "Development of applications for iOS and other mobile platforms.",
-        "service-photo-title": "Photography",
-        "service-photo-text": "Just a hobby and I'm not a professional photographer.",
-        "testimonials-title": "My Friends",
+        "service-apps-text": "Building mobile applications that solve real-world user problems by identifying pain points and creating practical solutions.",
+            "testimonials-title": "My Friends",
         "friend-shimmer": "Data Analyst.",
         "friend-cy": "Computer Vision Engineer.",
         "resume-title": "Resume",
@@ -714,6 +688,11 @@
         "detail-research-background": "Research Background:",
         "detail-main-contribution": "Main Contributions:",
         "detail-citation-info": "Citation Info:",
+        "detail-paper-overview": "Paper Overview:",
+        "detail-paper-links": "Related Links:",
+        "paper-overview-content": "This study employs interpretable machine learning methods (SHAP and PDP) to construct a random forest model, deeply analyzing PTSD influencing factors among 903 emergency responders. Breaking through traditional linear model limitations, the research reveals for the first time that psychological resilience serves as a core protective factor with significant buffering effects on PTSD (SHAP value 0.5061). The study also identifies non-linear patterns including J-shaped BMI risk curves and U-shaped age effects. Through Friedman H-statistic validation of resilience-age/trauma exposure interaction effects, differentiated intervention strategies for young and elderly emergency personnel are proposed. The findings provide data-driven clinical decision-making evidence for precise PTSD prevention in high-risk occupational groups, highlighting the application value of interpretable AI in mental health.",
+        "paper-link-doi": "Paper Link",
+        "paper-link-code": "Code Repository",
         "detail-technical-background": "Technical Background:",
         "detail-core-innovation": "Core Innovation:",
         "detail-application-scenarios": "Application Scenarios:",
@@ -726,12 +705,12 @@
         "patent-technical-background": "Addressing data silos among medical institutions, enabling joint analysis and modeling of medical data while protecting patient privacy.",
         "patent-core-innovation": "Proposed homomorphic encryption-based federated learning architecture supporting gradient aggregation in encrypted state, ensuring raw data never leaves local servers.",
         "patent-application-scenarios": "Suitable for hospital alliances, medical insurance, public health monitoring and other scenarios requiring cross-institutional data collaboration.",
-        "recommendation-project-description": "Personalized recommendation system developed for e-commerce platforms, supporting collaborative filtering, content recommendation and deep learning algorithms.",
-        "recommendation-tech-stack": "Python, TensorFlow, PyTorch, Redis, Docker, MySQL",
-        "recommendation-project-results": "After launch, user click-through rate increased by 23%, conversion rate increased by 15%, request processing response time <100ms.",
         "status-completed": "Completed",
         "status-published": "Published",
         "status-pending": "Pending",
+        "status-submitted": "Submitted",
+        "status-preprint": "Preprint",
+        "status-accepted": "Accepted",
         "type-project": "Project",
         "type-competition": "Competition",
         "type-paper": "Paper",
@@ -753,15 +732,15 @@
         "about-text-1": "#",
         "about-text-2": "#",
         "service-title": "当前专注领域",
-        "service-data-science-title": "数据科学",
-        "service-data-science-text": "从数据提取有价值的见解，推动决策.",
-        "service-llm-title": "大语言模型",
-        "service-llm-text": "专注模型后训练与智能体应用.",
+        "service-data-science-title": "数据挖掘",
+        "service-data-science-text": "从海量数据中发现隐藏的、有价值的模式，并将其转化为支持决策的洞察。",
+        "service-llm-agents-title": "语言模型智能体",
+        "service-llm-agents-text": "开发基于大语言模型的智能体，实现复杂任务的自动化处理。",
+        "service-llm-eval-title": "语言模型评估",
+        "service-llm-eval-text": "量化模型输出与人类期望的对齐程度，并将其转化为驱动强化学习训练的奖励信号，从而引导模型持续优化。",
         "service-apps-title": "Apps 开发",
-        "service-apps-text": "iOS应用的开发.",
-        "service-photo-title": "摄影",
-        "service-photo-text": "仅仅是爱好.",
-        "testimonials-title": "我的朋友们",
+        "service-apps-text": "致力于构建能够解决真实用户问题的移动应用，通过深入挖掘用户痛点，创造实用的解决方案。",
+                "testimonials-title": "我的朋友们",
         "friend-shimmer": "数据分析师.",
         "friend-cy": "计算机视觉算法工程师.",
         "resume-title": "简历",
@@ -784,7 +763,7 @@
         "project-mental-model": "模型构建：",
         "project-mental-model-text": "建立了 ElasticNet、RandomForest、GBDT 三个机器回归模型并使用基于决策树的 Stacking 综合其结果，运用网格搜索确认最优参数。集成模型 MSE 约 0.032,优于所有基模型。",
         "project-health-title": "中国现代化下人民健康状况测度与影响因素",
-        "project-health-desc": "全国大学生统计建模大赛作品",
+        "project-health-desc": "全国大学生统计建模大赛",
         "project-health-data": "数据获取：",
         "project-health-data-text": "从商业数据库与国家统计局数据库中获取可能可以反应综合健康状况的指标,从 CNKI 中使用爬虫获取相关的研究信息以了解研究重心在过去的变化情况.",
         "project-health-index": "指标构建：",
@@ -797,6 +776,11 @@
         "detail-research-background": "研究背景：",
         "detail-main-contribution": "主要贡献：",
         "detail-citation-info": "引用信息：",
+        "detail-paper-overview": "论文概述：",
+        "detail-paper-links": "相关链接：",
+        "paper-overview-content": "本文采用可解释机器学习方法（SHAP与PDP）构建随机森林模型，深入分析了903名应急人员的PTSD影响因素。研究突破传统线性模型局限，首次揭示心理韧性作为核心保护因素对PTSD的显著缓冲作用（SHAP值0.5061），并发现BMI呈J型风险曲线、年龄存在U型效应等非线性规律。通过Friedman H-statistic验证韧性-年龄/创伤暴露的交互效应，提出针对青年与高龄应急人员的差异化干预策略。成果为高危职业人群的PTSD精准预防提供了数据驱动的临床决策依据，凸显可解释AI在心理健康领域的应用价值。",
+        "paper-link-doi": "论文链接",
+        "paper-link-code": "代码仓库",
         "detail-technical-background": "技术背景：",
         "detail-core-innovation": "核心创新：",
         "detail-application-scenarios": "应用场景：",
@@ -809,12 +793,12 @@
         "patent-technical-background": "解决医疗机构间数据孤岛问题，在保护患者隐私的前提下实现医疗数据的联合分析和建模。",
         "patent-core-innovation": "提出基于同态加密的联邦学习架构，支持在加密状态下进行梯度聚合，确保原始数据不离开本地服务器。",
         "patent-application-scenarios": "适用于医院联盟、医疗保险、公共卫生监测等需要跨机构数据协作的场景。",
-        "recommendation-project-description": "为电商平台开发的个性化推荐系统，支持协同过滤、内容推荐和深度学习多种算法。",
-        "recommendation-tech-stack": "Python, TensorFlow, PyTorch, Redis, Docker, MySQL",
-        "recommendation-project-results": "上线后用户点击率提升23%，转化率提升15%，处理请求响应时间<100ms。",
         "status-completed": "已完成",
         "status-published": "已发表",
         "status-pending": "审查中",
+        "status-submitted": "已投稿",
+        "status-preprint": "预印本",
+        "status-accepted": "已接收",
         "type-project": "项目",
         "type-competition": "竞赛",
         "type-paper": "论文",
