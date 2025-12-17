@@ -300,19 +300,22 @@
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title" data-i18n="experience-cnpcas-title-company">LLM Agent 实习生 | <span class="experience-company">中科院地理科学与资源研究所</span></h4>
+              <h4 class="h4 timeline-item-title" data-i18n="experience-cnpcas-title-company">LLM Agent算法实习生 | <span class="experience-company">中国科学院地理科学与资源研究所</span></h4>
 
-              <span class="experience-period">Sep 2025 — Nov 2025</span>
+              <span class="experience-period">2025.09 — 2025.12</span>
 
               <div class="project-details">
                 <div class="detail-point">
-                  <strong data-i18n="project-background">项目背景</strong><span data-i18n="experience-cnpcas-background">为满足对社交媒体平台博文数据的深度分析需求，开发智能舆情分析系统。需要深入结合传统人文地理学对舆情的认知，利用LLM以及VLM实现对博文内容语义的理解，综合统计分析工具，实现从原始博文数据到深入分析报告的端到端专家系统。</span>
+                  <strong data-i18n="architecture-design">架构设计</strong><span data-i18n="experience-cnpcas-architecture">设计并开发基于MCP（Model Context Protocol）协议的舆情分析多智能体系统，通过解耦Server/Client端，实现工具集（Tools）的热插拔扩展，解决传统Agent工具调用耦合度高的问题。构建的基于统计分析的工具集解决了舆情分析系统缺少整体视角的问题。</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="star-responsibilities">职责与贡献</strong><span data-i18n="experience-cnpcas-responsibilities">负责整个智能体分析系统的设计与开发工作，搭建了三阶段解耦舆情分析系统架构设计（增强处理→分析执行→报告生成），所有的分析流程被DispatcherNode中央结点调度。增强处理同时实现了Async/BatchApi两个方法实现对大规模数据使用LLM进行语义理解；分析执行阶段利用MCP协议，实现Agent自主调用预设的统计分析函数对增强后的数据进行情感趋势、主题演化、地理分布、多维交互等方向的处理，并存储分析结果；报告生成阶段同时支持LLM根据预设模板一次性生成或者进行多轮的思考与迭代生成最终报告。</span>
+                  <strong data-i18n="concurrency-optimization">并发优化</strong><span data-i18n="experience-cnpcas-concurrency">基于Async/BatchApi重构数据处理管道，实现对10万+条博文的大规模并发语义理解与清洗，大幅提升数据吞吐量，并可根据数据规模与并发上限随时进一步扩展。</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="star-achievements">成果</strong><span data-i18n="experience-cnpcas-achievements">构建了支持10万条博文的舆情分析智能体系统，并可以轻易的通过扩展Async并发控制扩展到任意规模的数据集；受益于基于MCP的工具调用，系统可以通过MCP Server的方式扩展工具函数，并自主选择是否调用；最终的报告通过Prompt优化以及自主反思实现了忠于原始数据与分析结果，分析思维链全程可追溯，有效抑制了模型幻觉对最终报告的质量有可信度的影响。</span>
+                  <strong data-i18n="hallucination-suppression">幻觉抑制</strong><span data-i18n="experience-cnpcas-hallucination">设计"三阶段解耦"工作流（清洗-分析-报告），通过思维链（CoT）追溯机制与预设模板的Prompt工程，有效降低模型生成文本报告时的幻觉率，确保数据来源可验证。</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="system-implementation">系统落地</strong><span data-i18n="experience-cnpcas-implementation">独立负责从数据接入到可视化报告生成的端到端系统开发，成果已交付业务团队使用，支持多模态数据输入，可根据使用需求启动局部工作流，单独进行数据清洗或报告生成。</span>
                 </div>
                 </div>
 
@@ -684,15 +687,15 @@
         "experience-title": "Experience",
         "experience-cnpcas-title": "LLM Agent Intern",
         "experience-cnpcas-company": "Institute of Geographic Sciences and Natural Resources Research, CAS",
-        "experience-cnpcas-title-company": "LLM Agent Intern | CAS",
-        "star-situation": "S - Situation",
-        "star-task": "T - Task",
-        "star-responsibilities": "Responsibilities & Contributions:",
-          "star-achievements": "Achievements:",
-        "project-background": "Project Background:",
-        "experience-cnpcas-background": "To meet the demand for in-depth analysis of social media blog data, develop an intelligent public opinion analysis system. Requires deep integration of traditional human geography cognition of public opinion, utilizing LLM and VLM to achieve semantic understanding of blog content, combined with statistical analysis tools, to implement an end-to-end expert system from raw blog data to in-depth analysis reports.",
-        "experience-cnpcas-responsibilities": "Responsible for the design and development of the entire intelligent agent analysis system, built a three-stage decoupled public opinion analysis system architecture (enhancement processing → analysis execution → report generation), with all analysis processes scheduled by the DispatcherNode central node. The enhancement processing implements both Async/BatchApi methods to achieve semantic understanding of large-scale data using LLM; the analysis execution phase utilizes MCP protocol to enable agents to autonomously call preset statistical analysis functions to process the enhanced data in emotional trends, topic evolution, geographic distribution, multi-dimensional interactions and other directions, and store analysis results; the report generation phase supports both one-time generation by LLM according to preset templates or multi-round thinking and iterative generation of final reports.",
-        "experience-cnpcas-achievements": "Built a public opinion analysis agent system supporting 100,000 blog posts, which can be easily extended to any scale dataset through Async concurrency control expansion. Benefiting from MCP-based tool calls, the system can extend tool functions through MCP Server and autonomously choose whether to call them. The final report achieves loyalty to original data and analysis results through Prompt optimization and autonomous reflection, with fully traceable analysis thinking chains, effectively suppressing the impact of model hallucinations on the quality and credibility of the final report.",
+        "experience-cnpcas-title-company": "LLM Agent Algorithm Intern | CAS Institute of Geographic Sciences and Natural Resources Research",
+        "architecture-design": "Architecture Design",
+        "concurrency-optimization": "Concurrency Optimization",
+        "hallucination-suppression": "Hallucination Suppression",
+        "system-implementation": "System Implementation",
+        "experience-cnpcas-architecture": "Designed and developed a multi-agent public opinion analysis system based on MCP (Model Context Protocol), enabling hot-swappable tool extensions through decoupled Server/Client architecture, solving high coupling issues in traditional Agent tool calling. Built statistical analysis-based toolkits addressing the lack of holistic perspective in public opinion analysis systems.",
+        "experience-cnpcas-concurrency": "Restructured data processing pipeline using Async/BatchApi, achieving large-scale concurrent semantic understanding and cleaning of 100k+ blog posts, significantly improving data throughput with scalability for further expansion based on data scale and concurrency limits.",
+        "experience-cnpcas-hallucination": "Designed 'three-stage decoupled' workflow (cleaning-analysis-reporting), reducing hallucination rates in model-generated text reports through Chain-of-Thought (CoT) tracing mechanisms and template-based prompt engineering, ensuring data source verifiability.",
+        "experience-cnpcas-implementation": "Independently responsible for end-to-end system development from data ingestion to visualization report generation, with results delivered to business teams. Supports multimodal data input and enables partial workflow activation for standalone data cleaning or report generation based on usage requirements.",
           "experience-cnpcas-situation": "The institute faced challenges in processing large-scale social media blog data for public opinion analysis. Traditional manual analysis methods were inefficient, and existing automated systems lacked depth analysis capabilities and transparency, unable to provide reliable data support for policy making.",
         "experience-cnpcas-task": "As a core development member, responsible for designing and developing an intelligent public opinion analysis system to achieve efficient processing of 30K+ blog data, multi-dimensional deep analysis and structured report generation, providing transparent analysis processes and reliable data support.",
         "experience-cnpcas-action": "Designed three-stage decoupled architecture (enhancement processing → analysis execution → report generation) with DispatcherNode for central scheduling; Integrated GLM4.5V, GLM4.6 and other large language models, developed four-dimensional parallel analysis system; Developed four types of analysis toolkits based on MCP protocol, implemented Agent autonomous tool scheduling; Built thinking process recording and data citation verification mechanisms to ensure analysis result reliability.",
@@ -781,15 +784,15 @@
         "experience-title": "工作经历",
         "experience-cnpcas-title": "LLM Agent 实习生",
         "experience-cnpcas-company": "中科院地理科学与资源研究所",
-        "experience-cnpcas-title-company": "LLM Agent 实习生 | 中科院地理科学与资源研究所",
-        "star-situation": "S - 情境",
-        "star-task": "T - 任务",
-        "star-responsibilities": "职责与贡献：",
-            "star-achievements": "成果：",
-        "project-background": "项目背景：",
-        "experience-cnpcas-background": "为满足对社交媒体平台博文数据的深度分析需求，开发智能舆情分析系统。需要深入结合传统人文地理学对舆情的认知，利用LLM以及VLM实现对博文内容语义的理解，综合统计分析工具，实现从原始博文数据到深入分析报告的端到端专家系统。",
-        "experience-cnpcas-responsibilities": "负责整个智能体分析系统的设计与开发工作，搭建了三阶段解耦舆情分析系统架构设计（增强处理→分析执行→报告生成），所有的分析流程被DispatcherNode中央结点调度。增强处理同时实现了Async/BatchApi两个方法实现对大规模数据使用LLM进行语义理解；分析执行阶段利用MCP协议，实现Agent自主调用预设的统计分析函数对增强后的数据进行情感趋势、主题演化、地理分布、多维交互等方向的处理，并存储分析结果；报告生成阶段同时支持LLM根据预设模板一次性生成或者进行多轮的思考与迭代生成最终报告。",
-        "experience-cnpcas-achievements": "构建了支持10万条博文的舆情分析智能体系统，并可以轻易的通过扩展Async并发控制扩展到任意规模的数据集；受益于基于MCP的工具调用，系统可以通过MCP Server的方式扩展工具函数，并自主选择是否调用；最终的报告通过Prompt优化以及自主反思实现了忠于原始数据与分析结果，分析思维链全程可追溯，有效抑制了模型幻觉对最终报告的质量有可信度的影响。",
+        "experience-cnpcas-title-company": "LLM Agent算法实习生 | 中国科学院地理科学与资源研究所",
+        "architecture-design": "架构设计",
+        "concurrency-optimization": "并发优化",
+        "hallucination-suppression": "幻觉抑制",
+        "system-implementation": "系统落地",
+        "experience-cnpcas-architecture": "设计并开发基于MCP（Model Context Protocol）协议的舆情分析多智能体系统，通过解耦Server/Client端，实现工具集（Tools）的热插拔扩展，解决传统Agent工具调用耦合度高的问题。构建的基于统计分析的工具集解决了舆情分析系统缺少整体视角的问题。",
+        "experience-cnpcas-concurrency": "基于Async/BatchApi重构数据处理管道，实现对10万+条博文的大规模并发语义理解与清洗，大幅提升数据吞吐量，并可根据数据规模与并发上限随时进一步扩展。",
+        "experience-cnpcas-hallucination": "设计\"三阶段解耦\"工作流（清洗-分析-报告），通过思维链（CoT）追溯机制与预设模板的Prompt工程，有效降低模型生成文本报告时的幻觉率，确保数据来源可验证。",
+        "experience-cnpcas-implementation": "独立负责从数据接入到可视化报告生成的端到端系统开发，成果已交付业务团队使用，支持多模态数据输入，可根据使用需求启动局部工作流，单独进行数据清洗或报告生成。",
             "experience-cnpcas-situation": "研究所面临处理大规模社交媒体博文数据进行舆情分析的挑战。传统人工分析方法效率低下，现有自动化系统缺乏深度分析能力和透明度，无法为政策制定提供可靠的数据支撑。",
         "experience-cnpcas-task": "作为核心开发成员，负责设计并开发智能舆情分析系统，实现3万条级别博文数据的高效处理、多维度深度分析和结构化报告生成，提供透明的分析过程和可靠的数据支撑。",
         "experience-cnpcas-action": "设计三阶段解耦架构（增强处理→分析执行→报告生成），通过DispatcherNode实现中央调度；集成GLM4.5V、GLM4.6等大语言模型，开发四维度并行分析系统；基于MCP协议开发四类分析工具集，实现Agent自主工具调度；构建思考过程记录和数据引用验证机制，确保分析结果可靠性。",
