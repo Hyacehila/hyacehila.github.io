@@ -218,10 +218,19 @@
             color: var(--light-gray);
             margin-bottom: 10px;
             line-height: 1.6;
+            padding-left: 5px;
         }
 
-        .blog-content li::marker {
+        /* 无序列表的小圆点颜色 */
+        .blog-content ul li::marker {
             color: var(--orange-yellow-crayola);
+            font-size: 1.2em;
+        }
+
+        /* 有序列表的数字颜色 */
+        .blog-content ol li::marker {
+            color: var(--orange-yellow-crayola);
+            font-weight: var(--fw-500);
         }
 
         .blog-content img {
