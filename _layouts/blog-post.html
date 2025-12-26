@@ -6,7 +6,6 @@
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
 
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/gitbook/rouge/github.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -198,30 +197,6 @@
         }
 
         /* Rouge代码高亮覆盖 - 深色主题 */
-        /* 禁用Rouge的table布局 */
-        .highlight table {
-            display: block !important;
-            width: 100% !important;
-        }
-
-        .highlight table td {
-            padding: 0 !important;
-            border: none !important;
-        }
-
-        .highlight table pre {
-            margin: 0 !important;
-            padding: 20px !important;
-            white-space: pre !important;
-            overflow-x: auto !important;
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
-            font-size: 0.9em !important;
-            line-height: 1.6 !important;
-            color: var(--light-gray) !important;
-            background: transparent !important;
-            display: block !important;
-        }
-
         .highlight {
             background: var(--eerie-black-1) !important;
             border-radius: 8px;
@@ -250,12 +225,6 @@
             display: block !important;
             background: transparent !important;
             padding: 0 !important;
-        }
-
-        /* 确保所有代码块内的元素都保留格式 */
-        .highlight pre *,
-        .highlight code * {
-            white-space: pre !important;
         }
 
         /* 代码高亮颜色 - 深色主题 */
