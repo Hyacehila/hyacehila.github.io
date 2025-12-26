@@ -198,26 +198,64 @@
         }
 
         /* Rouge代码高亮覆盖 - 深色主题 */
+        /* 禁用Rouge的table布局 */
+        .highlight table {
+            display: block !important;
+            width: 100% !important;
+        }
+
+        .highlight table td {
+            padding: 0 !important;
+            border: none !important;
+        }
+
+        .highlight table pre {
+            margin: 0 !important;
+            padding: 20px !important;
+            white-space: pre !important;
+            overflow-x: auto !important;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+            font-size: 0.9em !important;
+            line-height: 1.6 !important;
+            color: var(--light-gray) !important;
+            background: transparent !important;
+            display: block !important;
+        }
+
         .highlight {
             background: var(--eerie-black-1) !important;
             border-radius: 8px;
             margin: 20px 0;
+            border: 1px solid var(--jet);
         }
 
         .highlight pre {
             background: transparent !important;
-            padding: 20px;
-            margin: 0;
-            white-space: pre;
-            overflow-x: auto;
+            padding: 20px !important;
+            margin: 0 !important;
+            white-space: pre !important;
+            overflow-x: auto !important;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+            font-size: 0.9em !important;
+            line-height: 1.6 !important;
+            color: var(--light-gray) !important;
+            display: block !important;
         }
 
         .highlight code {
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            font-size: 0.9em;
-            line-height: 1.6;
-            white-space: pre;
-            display: block;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+            font-size: 0.9em !important;
+            line-height: 1.6 !important;
+            white-space: pre !important;
+            display: block !important;
+            background: transparent !important;
+            padding: 0 !important;
+        }
+
+        /* 确保所有代码块内的元素都保留格式 */
+        .highlight pre *,
+        .highlight code * {
+            white-space: pre !important;
         }
 
         /* 代码高亮颜色 - 深色主题 */
