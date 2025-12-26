@@ -210,27 +210,64 @@
 
         .blog-content ul,
         .blog-content ol {
-            padding-left: 30px;
+            padding-left: 25px;
             margin-bottom: 20px;
+            margin-top: 10px;
         }
 
         .blog-content li {
             color: var(--light-gray);
-            margin-bottom: 10px;
-            line-height: 1.6;
-            padding-left: 5px;
+            margin-bottom: 8px;
+            line-height: 1.8;
+            padding-left: 8px;
+            position: relative;
         }
 
-        /* 无序列表的小圆点颜色 */
-        .blog-content ul li::marker {
-            color: var(--orange-yellow-crayola);
-            font-size: 1.2em;
+        /* 无序列表 */
+        .blog-content ul {
+            list-style: none;
+            padding-left: 0;
         }
 
-        /* 有序列表的数字颜色 */
-        .blog-content ol li::marker {
+        .blog-content ul li {
+            padding-left: 25px;
+        }
+
+        .blog-content ul li::before {
+            content: "•";
             color: var(--orange-yellow-crayola);
-            font-weight: var(--fw-500);
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -3px;
+        }
+
+        /* 有序列表 */
+        .blog-content ol {
+            list-style: none;
+            padding-left: 0;
+            counter-reset: item;
+        }
+
+        .blog-content ol li {
+            padding-left: 35px;
+            counter-increment: item;
+        }
+
+        .blog-content ol li::before {
+            content: counter(item) ".";
+            color: var(--orange-yellow-crayola);
+            font-weight: var(--fw-600);
+            position: absolute;
+            left: 0;
+            min-width: 25px;
+            text-align: right;
+        }
+
+        /* 列表项中的加粗文本 */
+        .blog-content li strong {
+            color: var(--white-2);
+            font-weight: var(--fw-600);
         }
 
         .blog-content img {
