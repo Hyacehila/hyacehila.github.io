@@ -186,7 +186,6 @@
             overflow-x: auto;
             margin: 20px 0;
             border: 1px solid var(--jet);
-            white-space: pre;
         }
 
         .blog-content pre code {
@@ -197,6 +196,7 @@
             font-size: 0.9em;
             line-height: 1.6;
             white-space: pre;
+            tab-size: 4;
         }
 
         /* Mermaid 图表样式 */
@@ -207,6 +207,14 @@
             margin: 20px 0;
             border: 1px solid var(--jet);
             text-align: center;
+        }
+
+        /* Mermaid 代码块容器 */
+        pre code.language-mermaid,
+        pre.mermaid {
+            background: var(--eerie-black-1);
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
 
         .blog-content blockquote {
@@ -508,18 +516,6 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    <!-- Highlight.js 代码高亮 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>
-        // 初始化 highlight.js
-        document.addEventListener('DOMContentLoaded', function() {
-            // 高亮所有代码块
-            document.querySelectorAll('pre code').forEach((block) => {
-                hljs.highlightElement(block);
-            });
-        });
-    </script>
-
     <!-- Mermaid 图表支持 -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <script>
@@ -539,6 +535,27 @@
                 fontSize: '16px'
             },
             securityLevel: 'loose'
+        });
+    </script>
+
+    <!-- Highlight.js 代码高亮 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        // 初始化 highlight.js
+        document.addEventListener('DOMContentLoaded', function() {
+            // 找出所有 pre code 块，但排除 mermaid 块
+            document.querySelectorAll('pre code').forEach((block) => {
+                // 检查是否是 mermaid 代码块（通过 class 或父元素）
+                const pre = block.parentElement;
+                const isMermaid = block.classList.contains('language-mermaid') ||
+                                  block.className.indexOf('mermaid') !== -1 ||
+                                  pre.querySelector('.mermaid');
+
+                // 如果不是 mermaid 块，则应用语法高亮
+                if (!isMermaid) {
+                    hljs.highlightElement(block);
+                }
+            });
         });
     </script>
 </body>

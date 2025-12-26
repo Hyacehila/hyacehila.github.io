@@ -11,8 +11,13 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
   syntax_highlighter_opts:
     disable: true
+  # 保留代码块的原始格式
+  hard_wrap: false
+  # 启用 GFM 兼容
+  gfm_quirks: paragraph_end
 plugins:
   - jekyll-feed
   - jekyll-sitemap
