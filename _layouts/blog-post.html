@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+
+    <!-- Gitbook样式 -->
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/gitbook/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitbook-plugin-fontsettings@1.0.2/fontsettings.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .book {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .book-header {
+            position: relative;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .book-header h1 {
+            margin: 0;
+            padding: 20px;
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
+        .book-header .back-home {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .book-header .back-home:hover {
+            background: #2980b9;
+        }
+
+        .book-body {
+            padding: 40px 20px;
+        }
+
+        .book-body .page-inner {
+            background: white;
+        }
+
+        .book-body h1,
+        .book-body h2,
+        .book-body h3,
+        .book-body h4,
+        .book-body h5,
+        .book-body h6 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .book-body h1 {
+            font-size: 2.2em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .book-body h2 {
+            font-size: 1.8em;
+        }
+
+        .book-body h3 {
+            font-size: 1.4em;
+        }
+
+        .book-body p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+
+        .book-body code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Courier New", monospace;
+            color: #e74c3c;
+        }
+
+        .book-body pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .book-body pre code {
+            background: transparent;
+            padding: 0;
+            color: #ecf0f1;
+        }
+
+        .book-body blockquote {
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #7f8c8d;
+        }
+
+        .book-body ul,
+        .book-body ol {
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .book-body li {
+            margin-bottom: 8px;
+        }
+
+        .book-body img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .post-meta {
+            background: #ecf0f1;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .post-meta .meta-item {
+            display: inline-block;
+            margin-right: 20px;
+            color: #7f8c8d;
+        }
+
+        .post-meta .meta-item i {
+            margin-right: 5px;
+        }
+
+        .series-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #ecf0f1;
+        }
+
+        .series-nav a {
+            padding: 12px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .series-nav a:hover {
+            background: #2980b9;
+        }
+
+        .series-nav .prev {
+            text-align: left;
+        }
+
+        .series-nav .next {
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .book-body {
+                padding: 20px 10px;
+            }
+
+            .book-header h1 {
+                font-size: 20px;
+                padding: 15px;
+            }
+
+            .book-header .back-home {
+                position: static;
+                display: block;
+                margin: 10px 20px;
+                text-align: center;
+            }
+
+            .series-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="book">
+        <div class="book-header">
+            <h1>{{ page.title }}</h1>
+            <a href="{{ site.baseurl }}/blog/" class="back-home">
+                <i class="fa fa-arrow-left"></i> 返回博客列表
+            </a>
+        </div>
+
+        <div class="book-body">
+            <div class="page-inner">
+
+                {% if page.date or page.category or page.tags %}
+                <div class="post-meta">
+                    {% if page.date %}
+                    <span class="meta-item">
+                        <i class="fa fa-calendar"></i>
+                        {{ page.date | date: "%Y年%m月%d日" }}
+                    </span>
+                    {% endif %}
+
+                    {% if page.series %}
+                    <span class="meta-item">
+                        <i class="fa fa-book"></i>
+                        系列：{{ page.series }}
+                    </span>
+                    {% endif %}
+
+                    {% if page.category %}
+                    <span class="meta-item">
+                        <i class="fa fa-folder"></i>
+                        分类：{{ page.category }}
+                    </span>
+                    {% endif %}
+
+                    {% if page.author %}
+                    <span class="meta-item">
+                        <i class="fa fa-user"></i>
+                        作者：{{ page.author }}
+                    </span>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                {{ content }}
+
+                {% if page.tags %}
+                <div style="margin-top: 30px;">
+                    <strong>标签：</strong>
+                    {% for tag in page.tags %}
+                    <span style="display: inline-block; background: #ecf0f1; padding: 4px 12px; border-radius: 12px; margin-right: 8px; font-size: 0.9em;">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if page.previous or page.next %}
+                <div class="series-nav">
+                    {% if page.previous %}
+                    <a href="{{ site.baseurl }}{{ page.previous.url }}" class="prev">
+                        <i class="fa fa-arrow-left"></i>
+                        上一篇：{{ page.previous.title }}
+                    </a>
+                    {% endif %}
+
+                    {% if page.next %}
+                    <a href="{{ site.baseurl }}{{ page.next.url }}" class="next">
+                        下一篇：{{ page.next.title }}
+                        <i class="fa fa-arrow-right"></i>
+                    </a>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

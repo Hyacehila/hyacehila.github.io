@@ -1,5 +1,6 @@
 # GitHub Pages configuration
-theme: jekyll-theme-minimal
+# 不使用远程主题，使用自定义布局
+# theme: jekyll-theme-minimal
 title: Hyacehila - Personal Portfolio
 description: Data Scientist & ML Engineer Portfolio
 baseurl: ""
@@ -12,6 +13,12 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
+# 博客配置
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
 # Exclude files from processing
 exclude:
   - README.md
@@ -19,6 +26,7 @@ exclude:
   - .gitignore
   - Gemfile
   - Gemfile.lock
+  - temp-gitbook-theme/
 
 # Include files
 include:
@@ -26,3 +34,5 @@ include:
   - index.html
   - assets/
   - .gitignore
+  - _layouts/
+  - _includes/
