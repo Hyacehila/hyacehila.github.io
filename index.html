@@ -205,7 +205,12 @@
 
           <ul class="testimonials-list has-scrollbar">
 
-            {% for post in site.posts limit:4 %}
+            {% assign show_limit = 4 %}
+            {% if site.posts.size >= 3 %}
+              {% assign show_limit = 3 %}
+            {% endif %}
+
+            {% for post in site.posts limit:show_limit %}
             <li class="testimonials-item">
               <a href="{{ post.url }}" class="testimonial-link">
                 <div class="content-card" data-testimonials-item>
@@ -226,16 +231,16 @@
             </li>
             {% endfor %}
 
-            {% if site.posts.size > 4 %}
+            {% if site.posts.size >= 3 %}
             <li class="testimonials-item">
-              <a href="/blog/" class="testimonial-link" style="display: flex; align-items: center; justify-content: center; min-height: 100%;">
-                <div class="content-card" data-testimonials-item style="display: flex; align-items: center; justify-content: center; padding: 30px 15px;">
+              <a href="/blog/" class="testimonial-link">
+                <div class="content-card" data-testimonials-item style="display: flex; align-items: center; justify-content: center; min-height: 100%; padding: 20px;">
 
                   <div style="text-align: center;">
                     <ion-icon name="arrow-forward-outline" style="font-size: 32px; color: var(--orange-yellow-crayola);"></ion-icon>
-                    <h4 class="h4 testimonials-item-title" data-testimonials-title style="margin-top: 10px;">查看更多</h4>
+                    <h4 class="h4 testimonials-item-title" data-testimonials-title style="margin-top: 10px; margin-bottom: 5px;">View More</h4>
                     <div class="testimonials-text">
-                      <p data-i18n="blog-view-all" style="margin: 0;">浏览全部{{ site.posts.size }}篇文章</p>
+                      <p data-i18n="blog-view-all" style="margin: 0;">全部{{ site.posts.size }}篇文章</p>
                     </div>
                   </div>
 
