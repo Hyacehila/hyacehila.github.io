@@ -19,6 +19,8 @@ kramdown:
     block:
       line_numbers: false
       start_line: 1
+      # 禁用 table 布局
+      wrap: false
 plugins:
   - jekyll-feed
   - jekyll-sitemap
