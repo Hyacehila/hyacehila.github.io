@@ -6,6 +6,7 @@
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
 
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -180,7 +181,7 @@
 
         .blog-content pre {
             background: var(--eerie-black-1);
-            padding: 20px;
+            padding: 0;
             border-radius: 8px;
             overflow-x: auto;
             margin: 20px 0;
@@ -190,66 +191,23 @@
 
         .blog-content pre code {
             background: transparent;
-            color: var(--light-gray);
-            padding: 0;
-            white-space: pre;
+            padding: 20px;
             display: block;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            white-space: pre;
         }
 
-        /* Rouge代码高亮覆盖 - 深色主题 */
-        .highlight {
-            background: var(--eerie-black-1) !important;
+        /* Mermaid 图表样式 */
+        .mermaid {
+            background: var(--eerie-black-1);
+            padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
             border: 1px solid var(--jet);
+            text-align: center;
         }
-
-        .highlight pre {
-            background: transparent !important;
-            padding: 20px !important;
-            margin: 0 !important;
-            white-space: pre !important;
-            overflow-x: auto !important;
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
-            font-size: 0.9em !important;
-            line-height: 1.6 !important;
-            color: var(--light-gray) !important;
-            display: block !important;
-        }
-
-        .highlight code {
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
-            font-size: 0.9em !important;
-            line-height: 1.6 !important;
-            white-space: pre !important;
-            display: block !important;
-            background: transparent !important;
-            padding: 0 !important;
-        }
-
-        /* 代码高亮颜色 - 深色主题 */
-        .highlight .c { color: #6a9955; font-style: italic } /* 注释 */
-        .highlight .k { color: #569cd6; font-weight: bold } /* 关键字 */
-        .highlight .kd { color: #569cd6; font-weight: bold } /* 定义关键字 */
-        .highlight .kn { color: #569cd6; font-weight: bold } /* 命名空间 */
-        .highlight .kt { color: #4ec9b0 } /* 类型 */
-        .highlight .nf { color: #dcdcaa } /* 函数名 */
-        .highlight .nc { color: #4ec9b0 } /* 类名 */
-        .highlight .nb { color: #569cd6 } /* 内置名 */
-        .highlight .s1 { color: #ce9178 } /* 单引号字符串 */
-        .highlight .s2 { color: #ce9178 } /* 双引号字符串 */
-        .highlight .mi { color: #b5cea8 } /* 数字 */
-        .highlight .mf { color: #b5cea8 } /* 浮点数 */
-        .highlight .p { color: #d4d4d4 } /* 标点 */
-        .highlight .o { color: #d4d4d4 } /* 运算符 */
-        .highlight .ow { color: #569cd6; font-weight: bold } /* 运算符关键字 */
-        .highlight .na { color: #9cdcfe } /* 属性名 */
-        .highlight .nt { color: #569cd6 } /* 标签名 */
-        .highlight .nv { color: #4fc1ff } /* 变量名 */
-        .highlight .gp { color: #6a9955 } /* 提示符 */
-        .highlight .ss { color: #ce9178 } /* 符号 */
-        .highlight .sr { color: #d16969 } /* 正则表达式字符串 */
-        .highlight .se { color: #d7ba7d } /* 转义字符 */
 
         .blog-content blockquote {
             border-left: 4px solid var(--orange-yellow-crayola);
@@ -549,5 +507,39 @@
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- Highlight.js 代码高亮 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        // 初始化 highlight.js
+        document.addEventListener('DOMContentLoaded', function() {
+            // 高亮所有代码块
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightElement(block);
+            });
+        });
+    </script>
+
+    <!-- Mermaid 图表支持 -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        // 初始化 mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                darkMode: true,
+                background: '#1a1a1a',
+                primaryColor: '#ffcc00',
+                primaryTextColor: '#e0e0e0',
+                primaryBorderColor: '#ffcc00',
+                lineColor: '#e0e0e0',
+                secondaryColor: '#3a3a3a',
+                tertiaryColor: '#2a2a2a',
+                fontSize: '16px'
+            },
+            securityLevel: 'loose'
+        });
+    </script>
 </body>
 </html>

@@ -8,7 +8,7 @@ url: "https://hyacehila.github.io"
 
 # Build settings
 markdown: kramdown
-highlighter: none
+highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter_opts:
