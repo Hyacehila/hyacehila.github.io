@@ -129,7 +129,17 @@ a { text-decoration: none; }
 
 li { list-style: none; }
 
-img, ion-icon, a, button, time, span { display: block; }
+img, ion-icon, a, button, time { display: block; }
+
+/* span默认block，但代码块中的span必须inline */
+span { display: block; }
+pre span,
+code span,
+.highlight span,
+.highlighter-rouge span,
+div.highlight span {
+    display: inline;
+}
 
 button {
   font: inherit;
