@@ -8,11 +8,13 @@ url: "https://hyacehila.github.io"
 
 # Build settings
 markdown: kramdown
-highlighter: none
+highlighter: rouge
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
   syntax_highlighter_opts:
-    disable: true
+    block:
+      line_numbers: false
 plugins:
   - jekyll-feed
   - jekyll-sitemap

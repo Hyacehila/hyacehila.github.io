@@ -6,6 +6,7 @@
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
 
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/gitbook/rouge/monokai.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -178,8 +179,9 @@
             font-size: 0.9em;
         }
 
-        .blog-content pre {
-            background: var(--eerie-black-1);
+        .blog-content pre,
+        .blog-content div.highlight {
+            background: #272822;
             padding: 20px;
             border-radius: 8px;
             overflow-x: auto;
@@ -187,14 +189,32 @@
             border: 1px solid var(--jet);
         }
 
-        .blog-content pre code {
+        .blog-content div.highlight pre {
+            padding: 0;
+            margin: 0;
+            border: none;
+            background: transparent;
+        }
+
+        .blog-content pre code,
+        .blog-content .highlight code {
             background: transparent;
             font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
             font-size: 0.9em;
             line-height: 1.6;
-            color: var(--light-gray);
+            color: #f8f8f2;
             white-space: pre;
             display: block;
+            padding: 0;
+        }
+
+        /* Rouge语法高亮覆盖样式 */
+        .blog-content .highlight {
+            background: #272822;
+        }
+
+        .blog-content .highlight pre {
+            background: transparent;
         }
 
         .blog-content blockquote {
@@ -229,11 +249,12 @@
             padding-left: 0;
         }
 
-        .blog-content ul li {
+        .blog-content ul > li {
             padding-left: 25px;
+            position: relative;
         }
 
-        .blog-content ul li::before {
+        .blog-content ul > li::before {
             content: "•";
             color: var(--orange-yellow-crayola);
             font-size: 1.5em;
@@ -249,25 +270,52 @@
             counter-reset: item;
         }
 
-        .blog-content ol li {
+        .blog-content ol > li {
             padding-left: 35px;
             counter-increment: item;
+            position: relative;
         }
 
-        .blog-content ol li::before {
+        .blog-content ol > li::before {
             content: counter(item) ".";
             color: var(--orange-yellow-crayola);
             font-weight: var(--fw-600);
             position: absolute;
             left: 0;
+            top: 0;
             min-width: 25px;
             text-align: right;
+        }
+
+        /* 嵌套有序列表 */
+        .blog-content ol ol {
+            counter-reset: subitem;
+            margin-top: 8px;
+        }
+
+        .blog-content ol ol > li {
+            counter-increment: subitem;
+        }
+
+        .blog-content ol ol > li::before {
+            content: counter(subitem) ".";
         }
 
         /* 列表项中的加粗文本 */
         .blog-content li strong {
             color: var(--white-2);
             font-weight: var(--fw-600);
+            display: inline;
+        }
+
+        /* 确保列表项内的段落和块级元素正确显示 */
+        .blog-content li p {
+            margin-bottom: 10px;
+            display: inline;
+        }
+
+        .blog-content li p:first-child {
+            display: inline;
         }
 
         .blog-content img {
@@ -541,5 +589,78 @@
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- Mermaid图表支持 -->
+    <script src="https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化mermaid配置
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: 'dark',
+                themeVariables: {
+                    primaryColor: '#3b82f6',
+                    primaryTextColor: '#f8f8f2',
+                    primaryBorderColor: '#555',
+                    lineColor: '#888',
+                    secondaryColor: '#2d2d2d',
+                    tertiaryColor: '#1e1e1e',
+                    background: '#272822',
+                    mainBkg: '#2d2d2d',
+                    nodeBorder: '#555',
+                    clusterBkg: '#1e1e1e',
+                    clusterBorder: '#555',
+                    titleColor: '#f8f8f2',
+                    edgeLabelBackground: '#2d2d2d'
+                }
+            });
+
+            // 查找所有mermaid代码块并渲染
+            const mermaidBlocks = document.querySelectorAll('pre code.language-mermaid, code.language-mermaid');
+            mermaidBlocks.forEach(function(block, index) {
+                const pre = block.closest('pre') || block.parentElement;
+                const code = block.textContent;
+                
+                // 创建mermaid容器
+                const container = document.createElement('div');
+                container.className = 'mermaid';
+                container.textContent = code;
+                
+                // 替换原始代码块
+                pre.parentNode.replaceChild(container, pre);
+            });
+
+            // 同时处理rouge高亮后的mermaid块
+            const highlightedMermaidBlocks = document.querySelectorAll('.highlight-mermaid, div.language-mermaid');
+            highlightedMermaidBlocks.forEach(function(block, index) {
+                const code = block.textContent;
+                
+                // 创建mermaid容器
+                const container = document.createElement('div');
+                container.className = 'mermaid';
+                container.textContent = code;
+                
+                // 替换原始代码块
+                block.parentNode.replaceChild(container, block);
+            });
+
+            // 运行mermaid渲染
+            if (document.querySelectorAll('.mermaid').length > 0) {
+                mermaid.run();
+            }
+        });
+    </script>
+
+    <style>
+        /* Mermaid图表样式 */
+        .mermaid {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            border: 1px solid var(--jet);
+        }
+    </style>
 </body>
 </html>
