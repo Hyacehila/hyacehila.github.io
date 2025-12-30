@@ -36,7 +36,7 @@ series: 不知道在写什么
 categories: [生活, 随笔]
 tags: [欢迎, 博客]
 author: Hyacehila
-excerpt: 这是我博客的第一篇文章，欢迎大家来访！ 打撒打撒萨达撒旦
+excerpt: 这是我博客的第一篇文章，欢迎大家来访！
 ---
 
 ```
