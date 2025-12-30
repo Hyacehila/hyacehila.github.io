@@ -350,9 +350,15 @@
             <span class="filter-label">分类:</span>
             <div class="filter-buttons filter-category-buttons">
               <button class="filter-btn active" data-filter-type="category" data-filter-value="all" onclick="filterByCategory('all', this)">全部</button>
-              {% assign categories = site.posts | map: 'categories' | flatten | uniq | sort %}
-              {% for category in categories %}
-              <button class="filter-btn" data-filter-type="category" data-filter-value="{{ category }}" onclick="filterByCategory('{{ category }}', this)">{{ category }}</button>
+              {% assign unique_categories = '' %}
+              {% for post in site.posts %}
+                {% if post.categories.size > 0 %}
+                  {% assign category = post.categories[0] %}
+                  {% unless unique_categories contains category %}
+                    <button class="filter-btn" data-filter-type="category" data-filter-value="{{ category }}" onclick="filterByCategory('{{ category }}', this)">{{ category }}</button>
+                    {% assign unique_categories = unique_categories | append: category | append: ',' %}
+                  {% endunless %}
+                {% endif %}
               {% endfor %}
             </div>
           </div>
