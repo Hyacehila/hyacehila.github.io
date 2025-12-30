@@ -12,6 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
+        /* 最高优先级：覆盖全局style.css中的 span { display: block } */
+        .blog-container span,
+        .blog-content span {
+            display: inline;
+        }
+
         /* 固定标题栏 */
         .fixed-header {
             position: fixed;
@@ -198,23 +204,69 @@
 
         .blog-content pre code,
         .blog-content .highlight code {
-            background: transparent;
+            background: transparent !important;
             font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
             font-size: 0.9em;
             line-height: 1.6;
             color: #f8f8f2;
-            white-space: pre;
+            white-space: pre !important;
             display: block;
-            padding: 0;
+            padding: 0 !important;
         }
 
-        /* Rouge语法高亮覆盖样式 */
+        /* Rouge语法高亮 - 确保span元素内联显示 */
         .blog-content .highlight {
             background: #272822;
         }
 
         .blog-content .highlight pre {
             background: transparent;
+            white-space: pre !important;
+        }
+
+        .blog-content .highlight pre code {
+            white-space: pre !important;
+        }
+
+        /* 关键修复：确保Rouge生成的所有span保持内联 */
+        /* 覆盖全局 style.css 中的 span { display: block } */
+        .blog-content pre span,
+        .blog-content code span,
+        .blog-content .highlight span,
+        .blog-container pre span,
+        .blog-container code span,
+        .blog-container .highlight span,
+        pre.highlight span,
+        div.highlight span,
+        div.highlight pre span,
+        div.highlight pre code span,
+        .highlighter-rouge span,
+        .highlighter-rouge pre span,
+        .highlighter-rouge code span {
+            display: inline !important;
+            white-space: pre-wrap !important;
+            word-break: normal !important;
+            overflow-wrap: normal !important;
+        }
+
+        /* 确保代码块容器正确处理换行 */
+        .blog-content pre,
+        .blog-content .highlight pre,
+        .blog-content div.highlight pre,
+        div.highlighter-rouge pre,
+        div.highlighter-rouge div.highlight pre {
+            white-space: pre !important;
+            word-wrap: normal !important;
+            overflow-x: auto !important;
+        }
+
+        /* 代码块内的code元素 */
+        .blog-content pre > code,
+        .blog-content .highlight pre > code,
+        div.highlight pre > code {
+            display: block !important;
+            white-space: pre !important;
+            overflow-x: auto !important;
         }
 
         .blog-content blockquote {
