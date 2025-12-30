@@ -74,6 +74,90 @@
       background: var(--bg-gradient-yellow-2);
     }
 
+    /* 分类和标签筛选区域样式 */
+    .blog-filters {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: var(--border-gradient-onyx);
+      border-radius: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .blog-filters::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+    }
+
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .filter-label {
+      color: var(--light-gray);
+      font-size: var(--fs-8);
+      font-weight: var(--fw-500);
+      white-space: nowrap;
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      position: relative;
+      background: var(--border-gradient-onyx);
+      color: var(--light-gray);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: var(--fs-8);
+      font-weight: var(--fw-400);
+      transition: var(--transition-1);
+      z-index: 1;
+      cursor: pointer;
+      border: none;
+    }
+
+    .filter-btn::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+      transition: var(--transition-1);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--bg-gradient-yellow-1);
+      color: var(--white-2);
+    }
+
+    .filter-btn:hover::before,
+    .filter-btn.active::before {
+      background: var(--bg-gradient-yellow-2);
+    }
+
+    /* 隐藏被筛选的文章 */
+    .blog-post-card.hidden {
+      display: none;
+    }
+
     .blog-posts-grid {
       display: grid;
       gap: 20px;
@@ -260,10 +344,37 @@
           <button onclick="filterPosts('single', this)">单篇文章</button>
         </section>
 
+        <!-- 分类和标签筛选区域 -->
+        <section class="blog-filters">
+          <div class="filter-row">
+            <span class="filter-label">分类:</span>
+            <div class="filter-buttons filter-category-buttons">
+              <button class="filter-btn active" data-filter-type="category" data-filter-value="all" onclick="filterByCategory('all', this)">全部</button>
+              {% assign categories = site.posts | map: 'categories' | flatten | uniq | sort %}
+              {% for category in categories %}
+              <button class="filter-btn" data-filter-type="category" data-filter-value="{{ category }}" onclick="filterByCategory('{{ category }}', this)">{{ category }}</button>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="filter-row">
+            <span class="filter-label">标签:</span>
+            <div class="filter-buttons filter-tag-buttons">
+              <button class="filter-btn active" data-filter-type="tag" data-filter-value="all" onclick="filterByTag('all', this)">全部</button>
+              {% assign tags = site.posts | map: 'tags' | flatten | uniq | sort %}
+              {% for tag in tags %}
+              <button class="filter-btn" data-filter-type="tag" data-filter-value="{{ tag }}" onclick="filterByTag('{{ tag }}', this)">{{ tag }}</button>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+
         <section class="blog-posts-grid" id="blog-posts">
 
           {% for post in site.posts %}
-          <a href="{{ site.baseurl }}{{ post.url }}" class="blog-post-card" data-type="{% if post.series %}series{% else %}single{% endif %}">
+          <a href="{{ site.baseurl }}{{ post.url }}" class="blog-post-card"
+             data-type="{% if post.series %}series{% else %}single{% endif %}"
+             {% if post.categories %}data-category="{{ post.categories[0] }}"{% endif %}
+             {% if post.tags %}data-tags="{{ post.tags | join: ',' }}"{% endif %}>
 
             <h4 class="h4 blog-post-title">{{ post.title }}</h4>
 
@@ -316,17 +427,74 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   <script>
+    // 当前筛选状态
+    let currentTypeFilter = 'all';
+    let currentCategoryFilter = 'all';
+    let currentTagFilter = 'all';
+
+    // 原有的文章类型筛选函数
     function filterPosts(type, element) {
+      currentTypeFilter = type;
       document.querySelectorAll('.blog-nav button').forEach(btn => btn.classList.remove('active'));
       element.classList.add('active');
+      applyAllFilters();
+    }
 
+    // 分类筛选函数
+    function filterByCategory(category, element) {
+      currentCategoryFilter = category;
+      document.querySelectorAll('.filter-category-buttons .filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      element.classList.add('active');
+      applyAllFilters();
+    }
+
+    // 标签筛选函数
+    function filterByTag(tag, element) {
+      currentTagFilter = tag;
+      document.querySelectorAll('.filter-tag-buttons .filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      element.classList.add('active');
+      applyAllFilters();
+    }
+
+    // 应用所有筛选条件
+    function applyAllFilters() {
       const posts = document.querySelectorAll('.blog-post-card');
+
       posts.forEach(post => {
-        if (type === 'all') {
+        const postType = post.getAttribute('data-type');
+        const postCategory = post.getAttribute('data-category');
+        const postTags = post.getAttribute('data-tags');
+
+        // 检查文章类型匹配
+        let typeMatch = currentTypeFilter === 'all';
+        if (!typeMatch && postType) {
+          typeMatch = postType === currentTypeFilter;
+        }
+
+        // 检查分类匹配
+        let categoryMatch = currentCategoryFilter === 'all';
+        if (!categoryMatch && postCategory) {
+          categoryMatch = postCategory === currentCategoryFilter;
+        }
+
+        // 检查标签匹配
+        let tagMatch = currentTagFilter === 'all';
+        if (!tagMatch && postTags) {
+          const tagsArray = postTags.split(',');
+          tagMatch = tagsArray.includes(currentTagFilter);
+        }
+
+        // 根据所有筛选条件决定显示或隐藏
+        if (typeMatch && categoryMatch && tagMatch) {
           post.style.display = 'block';
+          post.classList.remove('hidden');
         } else {
-          const postType = post.getAttribute('data-type');
-          post.style.display = postType === type ? 'block' : 'none';
+          post.style.display = 'none';
+          post.classList.add('hidden');
         }
       });
     }
