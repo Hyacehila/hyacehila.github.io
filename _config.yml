@@ -43,9 +43,5 @@ exclude:
 
 # Include files
 include:
-  - _config.yml
-  - index.html
-  - assets/
-  - .gitignore
   - _layouts/
   - _includes/
