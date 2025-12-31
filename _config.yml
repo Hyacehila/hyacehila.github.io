@@ -15,6 +15,13 @@ kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: false
+
+# 显示未来日期的文章
+future: true
+
+# 显示未发布的草稿
+show_drafts: true
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
