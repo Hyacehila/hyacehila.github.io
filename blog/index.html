@@ -407,7 +407,7 @@
 
             {% assign post_plain = post.content | strip_html | strip_newlines %}
             {% assign post_han = post_plain | replace_regex: '[^\u3400-\u4DBF\u4E00-\u9FFF]', '' %}
-            {% assign han_count = post_han | size %}
+            {% assign han_count = post_han | split: '' | size %}
             {% assign read_minutes = han_count | divided_by: 300 %}
             {% assign read_remainder = han_count | modulo: 300 %}
             {% if read_remainder > 0 %}
