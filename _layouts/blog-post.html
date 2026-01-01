@@ -364,6 +364,34 @@
             color: var(--light-gray);
         }
 
+        /* 正文链接（避免默认刺眼蓝色） */
+        .post-body a {
+            color: var(--orange-yellow-crayola);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: hsla(45, 100%, 72%, 0.45);
+            text-decoration-thickness: 1px;
+            border-radius: 4px;
+            transition:
+                color var(--transition-1),
+                text-decoration-color var(--transition-1),
+                text-shadow var(--transition-1);
+        }
+
+        .post-body a:visited {
+            color: var(--vegas-gold);
+        }
+
+        .post-body a:hover {
+            text-decoration-color: var(--orange-yellow-crayola);
+            text-shadow: 0 0 10px hsla(45, 100%, 72%, 0.25);
+        }
+
+        .post-body a:focus-visible {
+            outline: 2px solid var(--orange-yellow-crayola);
+            outline-offset: 2px;
+        }
+
         /* 标签 */
         .post-tags {
             margin-top: 40px;
@@ -555,7 +583,9 @@
             {% endif %}
 
             <!-- 文章内容 -->
-            {{ content }}
+            <div class="post-body">
+                {{ content }}
+            </div>
 
             <!-- 标签 -->
             {% if page.tags %}

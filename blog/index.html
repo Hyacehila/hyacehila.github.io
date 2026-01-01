@@ -262,13 +262,22 @@
       color: var(--light-gray);
     }
 
-    .back-link {
+    .page-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .back-link,
+    .email-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       color: var(--light-gray);
       font-size: var(--fs-6);
-      margin-top: 30px;
       padding: 12px 20px;
       background: var(--border-gradient-onyx);
       border-radius: 12px;
@@ -278,7 +287,8 @@
       z-index: 1;
     }
 
-    .back-link::before {
+    .back-link::before,
+    .email-link::before {
       content: "";
       position: absolute;
       inset: 1px;
@@ -288,17 +298,30 @@
       transition: var(--transition-1);
     }
 
-    .back-link:hover {
+    .back-link:hover,
+    .email-link:hover {
       background: var(--bg-gradient-yellow-1);
       color: var(--white-2);
+    }
+
+    .back-link:hover {
       transform: translateX(-3px);
+    }
+
+    .email-link:hover {
+      transform: translateX(3px);
     }
 
     .back-link:hover::before {
       background: var(--bg-gradient-yellow-2);
     }
 
-    .back-link ion-icon {
+    .email-link:hover::before {
+      background: var(--bg-gradient-yellow-2);
+    }
+
+    .back-link ion-icon,
+    .email-link ion-icon {
       font-size: 18px;
     }
 
@@ -382,12 +405,28 @@
              {% if post.categories %}data-category="{{ post.categories[0] }}"{% endif %}
              {% if post.tags %}data-tags="{{ post.tags | join: ',' }}"{% endif %}>
 
+            {% assign post_plain = post.content | strip_html | strip_newlines %}
+            {% assign post_han = post_plain | replace_regex: '[^\u3400-\u4DBF\u4E00-\u9FFF]', '' %}
+            {% assign han_count = post_han | size %}
+            {% assign read_minutes = han_count | divided_by: 300 %}
+            {% assign read_remainder = han_count | modulo: 300 %}
+            {% if read_remainder > 0 %}
+              {% assign read_minutes = read_minutes | plus: 1 %}
+            {% endif %}
+            {% if read_minutes == 0 and han_count > 0 %}
+              {% assign read_minutes = 1 %}
+            {% endif %}
+
             <h4 class="h4 blog-post-title">{{ post.title }}</h4>
 
             <div class="blog-post-meta">
               <div class="blog-post-meta-item">
                 <ion-icon name="calendar-outline"></ion-icon>
                 <span>{{ post.date | date: "%Y-%m-%d" }}</span>
+              </div>
+              <div class="blog-post-meta-item" title="只计算汉字（300字/分钟）">
+                <ion-icon name="document-text-outline"></ion-icon>
+                <span>{{ han_count }}字 · {{ read_minutes }}分钟</span>
               </div>
               {% if post.category %}
               <div class="blog-post-meta-item">
@@ -416,10 +455,14 @@
 
         </section>
 
-        <section style="text-align: center;">
+        <section class="page-actions">
           <a href="{{ site.baseurl }}/" class="back-link">
             <ion-icon name="arrow-back-outline"></ion-icon>
             <span>返回主页</span>
+          </a>
+          <a href="mailto:hyacehila@qq.com" class="email-link">
+            <ion-icon name="mail-outline"></ion-icon>
+            <span>Email</span>
           </a>
         </section>
 
