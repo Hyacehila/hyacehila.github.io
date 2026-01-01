@@ -666,6 +666,71 @@
         });
     </script>
 
+    <!-- MathJax 渲染后处理脚本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 等待 MathJax 加载完成
+            function waitForMathJax(callback) {
+                if (window.MathJax && MathJax.typesetPromise) {
+                    callback();
+                } else {
+                    setTimeout(function() {
+                        waitForMathJax(callback);
+                    }, 100);
+                }
+            }
+
+            waitForMathJax(function() {
+                // 使用 MutationObserver 监听 DOM 变化，确保新渲染的公式也有正确的颜色
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.addedNodes.length > 0) {
+                            applyMathJaxColors();
+                        }
+                    });
+                });
+
+                observer.observe(document.body, {
+                    childList: true,
+                    subtree: true
+                });
+
+                // 初始应用颜色
+                applyMathJaxColors();
+
+                // MathJax 渲染完成后再次应用
+                MathJax.typesetPromise().then(function() {
+                    applyMathJaxColors();
+                });
+            });
+
+            function applyMathJaxColors() {
+                // 所有 MathJax 元素
+                const mathElements = document.querySelectorAll('.mjx-chtml, mjx-container, .MathJax, .mjx-container');
+
+                mathElements.forEach(function(el) {
+                    // 设置主要颜色
+                    el.style.setProperty('color', '#f8f8f2', 'important');
+
+                    // 设置所有子元素的样式
+                    const allChildren = el.querySelectorAll('*');
+                    allChildren.forEach(function(child) {
+                        if (child.classList.contains('mjx-mo')) {
+                            // 运算符用橙色
+                            child.style.setProperty('color', '#ffa500', 'important');
+                        } else if (child.classList.contains('mjx-mi') ||
+                                   child.classList.contains('mjx-mn') ||
+                                   child.classList.contains('mjx-mtext') ||
+                                   child.classList.contains('mjx-mspace')) {
+                            // 其他元素用浅灰色
+                            child.style.setProperty('color', '#f8f8f2', 'important');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+
     <style>
         /* Mermaid图表样式 */
         .mermaid {
@@ -675,6 +740,103 @@
             margin: 20px 0;
             text-align: center;
             border: 1px solid var(--jet);
+        }
+
+        /* MathJax 公式样式 */
+        /* 行间公式 */
+        .mjx-chtml {
+            color: #f8f8f2 !important;
+            outline: none;
+        }
+
+        /* 行间公式的上下间距 */
+        .blog-content p > .mjx-chtml,
+        .blog-content > .mjx-chtml {
+            display: block;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(30, 30, 30, 0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow-x: auto;
+        }
+
+        /* 确保行间公式居中显示 */
+        .mjx-chtml[jax="CHTML"][display="true"] {
+            display: block !important;
+            margin: 25px auto !important;
+            text-align: center !important;
+            padding: 20px;
+            background: rgba(30, 30, 30, 0.6);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 165, 0, 0.2);
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        /* 行内公式 */
+        .mjx-chtml[jax="CHTML"][display="false"] {
+            display: inline !important;
+            margin: 0 2px !important;
+            color: #ffa500 !important;
+            font-size: 0.95em;
+        }
+
+        /* 列表中的公式样式 */
+        .blog-content li .mjx-chtml {
+            color: #f8f8f2 !important;
+        }
+
+        /* 列表项中的行内公式 */
+        .blog-content li p .mjx-chtml[jax="CHTML"][display="false"] {
+            color: #ffa500 !important;
+            display: inline !important;
+        }
+
+        /* 列表项中的行间公式 */
+        .blog-content li .mjx-chtml[jax="CHTML"][display="true"],
+        .blog-content li p .mjx-chtml[jax="CHTML"][display="true"] {
+            display: block !important;
+            margin: 15px 0 !important;
+            padding: 12px;
+            background: rgba(30, 30, 30, 0.6);
+            border-radius: 8px;
+            border-left: 3px solid #ffa500;
+        }
+
+        /* 表格中的公式样式 */
+        .blog-content table .mjx-chtml {
+            color: #f8f8f2 !important;
+            font-size: 0.9em;
+        }
+
+        .blog-content table td .mjx-chtml,
+        .blog-content table th .mjx-chtml {
+            display: inline-block !important;
+            margin: 5px 0;
+        }
+
+        /* 确保 MathJax 元素在所有情况下都可见 */
+        mjx-container {
+            color: #f8f8f2 !important;
+        }
+
+        .mjx-mi,
+        .mjx-mo,
+        .mjx-mn,
+        .mjx-mtext,
+        .mjx-mspace {
+            color: #f8f8f2 !important;
+        }
+
+        /* 公式中的特殊符号颜色 */
+        .mjx-mo {
+            color: #ffa500 !important;
+        }
+
+        /* 公式容器样式优化 */
+        .mjx-container {
+            font-size: 1em !important;
         }
     </style>
 </body>

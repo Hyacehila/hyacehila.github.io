@@ -7,12 +7,56 @@ window.MathJax = {
     processEnvironments: true
   },
   options: {
-    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    ignoreHtmlClass: 'no-mathjax',
+    processHtmlClass: 'mathjax'
+  },
+  startup: {
+    typeset: false
   },
   svg: {
-    fontCache: 'global'
+    fontCache: 'global',
+    merrorFont: 'serif'
+  },
+  chtml: {
+    scale: 1,
+    minScale: 0.5,
+    mtextInheritFont: false
+  },
+  CSS: {
+    styles: {
+      '.mjx-chtml': {
+        'color': '#f8f8f2 !important',
+        'font-size': '1em'
+      },
+      '.mjx-chtml .mjx-math': {
+        'color': '#f8f8f2 !important'
+      },
+      '.mjx-chtml .mjx-mrow': {
+        'color': '#f8f8f2 !important'
+      },
+      '.mjx-chtml .mjx-mi, .mjx-chtml .mjx-mo, .mjx-chtml .mjx-mn, .mjx-chtml .mjx-mtext, .mjx-chtml .mjx-mspace': {
+        'color': '#f8f8f2 !important'
+      },
+      '.mjx-chtml .mjx-mtext': {
+        'color': '#f8f8f2 !important'
+      }
+    }
   }
 };
+</script>
+<script>
+// 确保 MathJax 渲染完成后设置颜色
+window.addEventListener('load', function() {
+  if (window.MathJax) {
+    MathJax.typesetPromise().then(() => {
+      // 设置所有 MathJax 元素的颜色
+      document.querySelectorAll('.mjx-chtml, .MathJax, .mjx-container').forEach(el => {
+        el.style.setProperty('color', '#f8f8f2', 'important');
+      });
+    });
+  }
+});
 </script>
 <script
   type="text/javascript" id="MathJax-script" async
