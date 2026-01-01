@@ -14,34 +14,24 @@ window.MathJax = {
   startup: {
     typeset: false
   },
-  svg: {
-    fontCache: 'global',
-    merrorFont: 'serif'
+  font: {
+    chtml: [
+      'Latin-Modern',
+      'STIX-Web',
+      'TeX'
+    ]
   },
   chtml: {
     scale: 1,
     minScale: 0.5,
-    mtextInheritFont: false
+    mtextInheritFont: true,
+    fontURL: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2'
   },
-  CSS: {
-    styles: {
-      '.mjx-chtml': {
-        'color': '#f8f8f2 !important',
-        'font-size': '1em'
-      },
-      '.mjx-chtml .mjx-math': {
-        'color': '#f8f8f2 !important'
-      },
-      '.mjx-chtml .mjx-mrow': {
-        'color': '#f8f8f2 !important'
-      },
-      '.mjx-chtml .mjx-mi, .mjx-chtml .mjx-mo, .mjx-chtml .mjx-mn, .mjx-chtml .mjx-mtext, .mjx-chtml .mjx-mspace': {
-        'color': '#f8f8f2 !important'
-      },
-      '.mjx-chtml .mjx-mtext': {
-        'color': '#f8f8f2 !important'
-      }
-    }
+  SVG: {
+    font: 'Latin-Modern',
+    scale: 1,
+    minScale: 0.5,
+    mtextInheritFont: true
   }
 };
 </script>

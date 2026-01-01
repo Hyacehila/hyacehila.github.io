@@ -709,8 +709,9 @@
                 const mathElements = document.querySelectorAll('.mjx-chtml, mjx-container, .MathJax, .mjx-container');
 
                 mathElements.forEach(function(el) {
-                    // 设置主要颜色
+                    // 设置主要颜色和字体
                     el.style.setProperty('color', '#f8f8f2', 'important');
+                    el.style.setProperty('font-family', "'Latin-Modern Math', 'STIX Two Math', 'Cambria Math', 'Times New Roman', serif", 'important');
 
                     // 设置所有子元素的样式
                     const allChildren = el.querySelectorAll('*');
@@ -724,6 +725,15 @@
                                    child.classList.contains('mjx-mspace')) {
                             // 其他元素用浅灰色
                             child.style.setProperty('color', '#f8f8f2', 'important');
+                        }
+
+                        // 为所有数学元素设置字体
+                        if (child.classList.contains('mjx-mi') ||
+                            child.classList.contains('mjx-mo') ||
+                            child.classList.contains('mjx-mn') ||
+                            child.classList.contains('mjx-mtext') ||
+                            child.classList.contains('mjx-mrow')) {
+                            child.style.setProperty('font-family', "'Latin-Modern Math', 'STIX Two Math', serif", 'important');
                         }
                     });
                 });
@@ -747,6 +757,7 @@
         .mjx-chtml {
             color: #f8f8f2 !important;
             outline: none;
+            font-family: 'Latin-Modern Math', 'STIX Two Math', 'Cambria Math', 'Times New Roman', serif !important;
         }
 
         /* 行间公式的上下间距 */
@@ -819,6 +830,7 @@
         /* 确保 MathJax 元素在所有情况下都可见 */
         mjx-container {
             color: #f8f8f2 !important;
+            font-family: 'Latin-Modern Math', 'STIX Two Math', 'Cambria Math', 'Times New Roman', serif !important;
         }
 
         .mjx-mi,
@@ -827,6 +839,7 @@
         .mjx-mtext,
         .mjx-mspace {
             color: #f8f8f2 !important;
+            font-family: 'Latin-Modern Math', 'STIX Two Math', 'Cambria Math', 'Times New Roman', serif !important;
         }
 
         /* 公式中的特殊符号颜色 */
@@ -837,6 +850,17 @@
         /* 公式容器样式优化 */
         .mjx-container {
             font-size: 1em !important;
+            font-family: 'Latin-Modern Math', 'STIX Two Math', 'Cambria Math', 'Times New Roman', serif !important;
+        }
+
+        /* 所有 MathJax 元素的字体设置 */
+        .mjx-chtml .mjx-math,
+        .mjx-chtml .mjx-mrow,
+        .mjx-chtml .mjx-mtext,
+        .mjx-chtml .mjx-mi,
+        .mjx-chtml .mjx-mo,
+        .mjx-chtml .mjx-mn {
+            font-family: 'Latin-Modern Math', 'STIX Two Math', 'Cambria Math', 'Times New Roman', serif !important;
         }
     </style>
 </body>
