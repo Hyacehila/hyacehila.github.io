@@ -709,9 +709,28 @@
                 const mathElements = document.querySelectorAll('.mjx-chtml, mjx-container, .MathJax, .mjx-container');
 
                 mathElements.forEach(function(el) {
-                    // 设置主要颜色和字体
-                    el.style.setProperty('color', '#f8f8f2', 'important');
-                    el.style.setProperty('font-family', "'Latin-Modern Math', 'STIX Two Math', 'Cambria Math', 'Times New Roman', serif", 'important');
+                    // 检查是否为行内公式
+                    const isInline = el.getAttribute('display') === 'false' ||
+                                    el.classList.contains('mjx-chtml') && el.getAttribute('jax') === 'CHTML' && !el.hasAttribute('display');
+
+                    // 检查是否在表格中
+                    const isInTable = el.closest('table') !== null;
+
+                    if (isInline) {
+                        // 行内公式 - 橙色
+                        el.style.setProperty('color', '#ffa500', 'important');
+                        el.style.setProperty('display', 'inline', 'important');
+                        el.style.setProperty('vertical-align', 'middle', 'important');
+                    } else {
+                        // 行间公式 - 浅灰色
+                        el.style.setProperty('color', '#f8f8f2', 'important');
+                        el.style.setProperty('font-family', "'Latin-Modern Math', 'STIX Two Math', 'Cambria Math', 'Times New Roman', serif", 'important');
+                    }
+
+                    // 表格中的特殊处理
+                    if (isInTable && isInline) {
+                        el.style.setProperty('font-size', '0.9em', 'important');
+                    }
 
                     // 设置所有子元素的样式
                     const allChildren = el.querySelectorAll('*');
@@ -785,26 +804,25 @@
             overflow-x: auto;
         }
 
-        /* 行内公式 */
+        /* 行内公式 - 全局规则 */
         .mjx-chtml[jax="CHTML"][display="false"] {
             display: inline !important;
             margin: 0 2px !important;
             color: #ffa500 !important;
             font-size: 0.95em;
+            vertical-align: middle !important;
         }
 
-        /* 列表中的公式样式 */
-        .blog-content li .mjx-chtml {
-            color: #f8f8f2 !important;
-        }
-
-        /* 列表项中的行内公式 */
-        .blog-content li p .mjx-chtml[jax="CHTML"][display="false"] {
-            color: #ffa500 !important;
+        /* 确保行内公式在任何容器中都正确显示 */
+        p .mjx-chtml[jax="CHTML"][display="false"],
+        li .mjx-chtml[jax="CHTML"][display="false"],
+        span .mjx-chtml[jax="CHTML"][display="false"],
+        td .mjx-chtml[jax="CHTML"][display="false"],
+        th .mjx-chtml[jax="CHTML"][display="false"] {
             display: inline !important;
         }
 
-        /* 列表项中的行间公式 */
+        /* 列表中的行间公式 */
         .blog-content li .mjx-chtml[jax="CHTML"][display="true"],
         .blog-content li p .mjx-chtml[jax="CHTML"][display="true"] {
             display: block !important;
@@ -821,10 +839,22 @@
             font-size: 0.9em;
         }
 
-        .blog-content table td .mjx-chtml,
-        .blog-content table th .mjx-chtml {
-            display: inline-block !important;
-            margin: 5px 0;
+        /* 表格中的行间公式 */
+        .blog-content table td .mjx-chtml[jax="CHTML"][display="true"],
+        .blog-content table th .mjx-chtml[jax="CHTML"][display="true"] {
+            display: block !important;
+            margin: 10px 0;
+            text-align: center;
+            color: #f8f8f2 !important;
+        }
+
+        /* 表格中的行内公式 - 保持 inline，橙色高亮 */
+        .blog-content table td .mjx-chtml[jax="CHTML"][display="false"],
+        .blog-content table th .mjx-chtml[jax="CHTML"][display="false"] {
+            display: inline !important;
+            margin: 0 2px !important;
+            color: #ffa500 !important;
+            vertical-align: middle !important;
         }
 
         /* 确保 MathJax 元素在所有情况下都可见 */
