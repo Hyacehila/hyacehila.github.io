@@ -16,11 +16,11 @@ kramdown:
     block:
       line_numbers: false
 
-# 显示未来日期的文章
-future: true
+# 显示未来日期的文章（生产环境建议关闭）
+future: false
 
-# 显示未发布的草稿
-show_drafts: true
+# 显示未发布的草稿（生产环境建议关闭）
+show_drafts: false
 
 plugins:
   - jekyll-feed
