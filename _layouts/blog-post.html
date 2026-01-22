@@ -143,64 +143,71 @@
         .blog-content h2 {
             font-size: 1.8em;
             color: var(--white-2);
-            margin-top: 50px;
+            margin-top: 48px;
             margin-bottom: 20px;
-            padding-bottom: 10px;
+            padding-bottom: 12px;
             border-bottom: 2px solid var(--orange-yellow-crayola);
+            line-height: 1.4;
         }
 
         .blog-content h3 {
             font-size: 1.4em;
             color: var(--white-2);
-            margin-top: 40px;
-            margin-bottom: 15px;
+            margin-top: 36px;
+            margin-bottom: 16px;
+            line-height: 1.4;
         }
 
         .blog-content h4 {
             font-size: 1.2em;
             color: var(--white-2);
-            margin-top: 30px;
-            margin-bottom: 12px;
+            margin-top: 28px;
+            margin-bottom: 14px;
+            line-height: 1.4;
         }
 
         .blog-content h5 {
             font-size: 1.1em;
             color: var(--white-2);
-            margin-top: 25px;
-            margin-bottom: 10px;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            line-height: 1.4;
         }
 
         .blog-content h6 {
             font-size: 1em;
             color: var(--light-gray);
             margin-top: 20px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
 
         .blog-content p {
             color: var(--light-gray);
             font-size: var(--fs-6);
-            line-height: 1.8;
+            line-height: 1.7;
             margin-bottom: 20px;
         }
 
         .blog-content code {
-            background: var(--jet);
+            background: rgba(255, 215, 0, 0.1);
             color: var(--orange-yellow-crayola);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-family: "Courier New", monospace;
-            font-size: 0.9em;
+            padding: 3px 9px;
+            border-radius: 5px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.88em;
+            border: 1px solid rgba(255, 215, 0, 0.2);
         }
 
         .blog-content pre,
         .blog-content div.highlight {
             background: #272822;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             overflow-x: auto;
-            margin: 20px 0;
-            border: 1px solid var(--jet);
+            margin: 24px 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .blog-content div.highlight pre {
@@ -244,60 +251,87 @@
         }
 
         .blog-content blockquote {
-            border-left: 4px solid var(--orange-yellow-crayola);
-            padding-left: 20px;
-            margin: 25px 0;
-            color: var(--light-gray-70);
-            font-style: italic;
-            background: var(--eerie-black-1);
-            padding: 15px 20px;
-            border-radius: 0 8px 8px 0;
+            border-left: 5px solid var(--orange-yellow-crayola);
+            padding: 18px 24px;
+            margin: 30px 0;
+            color: var(--light-gray);
+            font-style: normal;
+            background: linear-gradient(to right, rgba(255, 215, 0, 0.08), transparent);
+            border-radius: 0 10px 10px 0;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-content blockquote::before {
+            content: """;
+            position: absolute;
+            top: -5px;
+            left: 10px;
+            font-size: 3em;
+            color: var(--orange-yellow-crayola);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .blog-content blockquote p {
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .blog-content blockquote p:last-child {
+            margin-bottom: 0;
         }
 
         .blog-content ul,
         .blog-content ol {
-            padding-left: 25px;
-            margin-bottom: 20px;
-            margin-top: 10px;
+            padding-left: 0;
+            margin-bottom: 24px;
+            margin-top: 12px;
         }
 
         .blog-content li {
             color: var(--light-gray);
-            margin-bottom: 8px;
-            line-height: 1.8;
-            padding-left: 8px;
+            margin-bottom: 10px;
+            line-height: 1.7;
+            padding-left: 0;
             position: relative;
+        }
+        
+        .blog-content li:last-child {
+            margin-bottom: 0;
         }
 
         /* 无序列表 */
         .blog-content ul {
             list-style: none;
-            padding-left: 0;
         }
 
         .blog-content ul > li {
-            padding-left: 25px;
+            padding-left: 28px;
             position: relative;
         }
 
         .blog-content ul > li::before {
             content: "•";
             color: var(--orange-yellow-crayola);
-            font-size: 1.5em;
+            font-size: 1.3em;
+            font-weight: bold;
             position: absolute;
-            left: 0;
-            top: -3px;
+            left: 8px;
+            top: 0;
+            line-height: 1.7;
         }
 
         /* 有序列表 */
         .blog-content ol {
             list-style: none;
-            padding-left: 0;
             counter-reset: item;
         }
 
         .blog-content ol > li {
-            padding-left: 35px;
+            padding-left: 40px;
             counter-increment: item;
             position: relative;
         }
@@ -309,24 +343,57 @@
             position: absolute;
             left: 0;
             top: 0;
-            min-width: 25px;
-            text-align: right;
+            min-width: 28px;
+            text-align: left;
+            padding-left: 8px;
         }
 
         /* 嵌套有序列表 */
         .blog-content ol ol {
             counter-reset: subitem;
-            margin-top: 8px;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
         .blog-content ol ol > li {
             counter-increment: subitem;
+            padding-left: 36px;
         }
 
         .blog-content ol ol > li::before {
-            content: counter(subitem) ".";
+            content: counter(item) "." counter(subitem);
+            min-width: 32px;
+        }
+        
+        /* 嵌套无序列表 */
+        .blog-content ul ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .blog-content ul ul > li::before {
+            content: "◦";
+            font-size: 1.2em;
+        }
+        
+        /* 第三层嵌套 */
+        .blog-content ul ul ul > li::before {
+            content: "▪";
+            font-size: 1em;
         }
 
+        /* 加粗文本 */
+        .blog-content strong {
+            color: var(--white-2);
+            font-weight: var(--fw-600);
+        }
+        
+        /* 斜体文本 */
+        .blog-content em {
+            color: var(--light-gray);
+            font-style: italic;
+        }
+        
         /* 列表项中的加粗文本 */
         .blog-content li strong {
             color: var(--white-2);
@@ -343,39 +410,76 @@
         .blog-content li p:first-child {
             display: inline;
         }
+        
+        /* 水平分隔线 */
+        .blog-content hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--orange-yellow-crayola), transparent);
+            margin: 40px 0;
+            opacity: 0.5;
+        }
+        
+        /* 删除线 */
+        .blog-content del {
+            color: var(--light-gray-70);
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        
+        /* 键盘按键样式 */
+        .blog-content kbd {
+            background: var(--jet);
+            color: var(--white-2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85em;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
         .blog-content img {
             max-width: 100%;
             height: auto;
             border-radius: 12px;
-            box-shadow: var(--shadow-2);
-            margin: 25px 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            margin: 28px auto;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .blog-content table {
             width: 100%;
             border-collapse: collapse;
-            margin: 25px 0;
+            margin: 28px 0;
             background: var(--eerie-black-1);
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .blog-content th,
         .blog-content td {
-            padding: 12px 15px;
+            padding: 14px 16px;
             text-align: left;
-            border: 1px solid var(--jet);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.6;
         }
 
         .blog-content th {
-            background: var(--jet);
+            background: linear-gradient(to bottom, rgba(255, 215, 0, 0.15), rgba(255, 215, 0, 0.08));
             color: var(--orange-yellow-crayola);
-            font-weight: var(--fw-500);
+            font-weight: var(--fw-600);
+            border-bottom: 2px solid var(--orange-yellow-crayola);
         }
 
         .blog-content td {
             color: var(--light-gray);
+        }
+        
+        .blog-content tr:hover {
+            background: rgba(255, 255, 255, 0.03);
         }
 
         /* 正文链接（避免默认刺眼蓝色） */
@@ -564,7 +668,7 @@
     <div class="blog-container">
         <div class="blog-content">
             <!-- 文章元信息 -->
-            {% if page.date or page.series or page.category or page.author %}
+            {% if page.date or page.series or page.categories or page.category or page.author %}
             <div class="post-meta">
                 {% if page.date %}
                 <div class="post-meta-item">
@@ -580,10 +684,16 @@
                 </div>
                 {% endif %}
 
-                {% if page.category %}
+                {% if page.categories or page.category %}
                 <div class="post-meta-item">
                     <ion-icon name="folder-outline"></ion-icon>
-                    <span>{{ page.category }}</span>
+                    <span>
+                        {% if page.categories %}
+                            {{ page.categories | join: ", " }}
+                        {% else %}
+                            {{ page.category }}
+                        {% endif %}
+                    </span>
                 </div>
                 {% endif %}
 

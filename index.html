@@ -233,16 +233,12 @@
 
             {% if site.posts.size >= 3 %}
             <li class="testimonials-item">
-              <a href="/blog/" class="testimonial-link">
-                <div class="content-card" data-testimonials-item style="display: flex; align-items: center; justify-content: center; min-height: 100%; padding: 20px;">
+              <a href="/blog/" class="testimonial-link view-all-link">
+                <div class="content-card" data-testimonials-item style="display: flex; align-items: center; justify-content: center; height: 100%;">
 
                   <div style="text-align: center;">
-                    <ion-icon name="arrow-forward-outline" style="font-size: 32px; color: var(--orange-yellow-crayola);"></ion-icon>
-                    <h4 class="h4 testimonials-item-title" data-testimonials-title style="margin-top: 10px; margin-bottom: 8px;">View More</h4>
-                    <div class="testimonials-text">
-                      <p data-i18n="blog-view-all" style="margin: 0; margin-bottom: 4px;">浏览所有博客文章</p>
-                      <p style="margin: 0; font-size: var(--fs-8); color: var(--light-gray-70);">View all {{ site.posts.size }} posts</p>
-                    </div>
+                    <h4 class="h4 view-all-title" data-i18n="blog-view-all-title" style="margin-bottom: 8px;">View All Blogs</h4>
+                    <p style="margin: 0; font-size: var(--fs-8); color: var(--light-gray-70);">View all {{ site.posts.size }} posts</p>
                   </div>
 
                 </div>
@@ -741,6 +737,7 @@
         "service-apps-text": "Building mobile applications that solve real-world user problems by identifying pain points and creating practical solutions.",
             "blog-title": "Blog Posts (Chinese Only)",
         "blog-view-all": "View all blog posts",
+        "blog-view-all-title": "View All Blogs",
             "testimonials-title": "My Friends",
         "friend-shimmer": "Data Analyst.",
         "friend-cy": "Computer Vision Engineer.",
@@ -840,6 +837,7 @@
         "service-apps-text": "致力于构建能够解决真实用户问题的移动应用，通过深入挖掘用户痛点，创造实用的解决方案。",
                 "blog-title": "博客文章",
         "blog-view-all": "浏览所有博客文章",
+        "blog-view-all-title": "浏览所有博客",
                 "testimonials-title": "我的朋友们",
         "friend-shimmer": "数据分析师.",
         "friend-cy": "计算机视觉算法工程师.",

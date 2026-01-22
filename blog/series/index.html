@@ -1,0 +1,397 @@
+---
+---
+
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="系列文章 - Hyacehila">
+  <title>系列文章 - Hyacehila</title>
+
+  <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    .series-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .series-name {
+      font-size: var(--fs-1);
+      color: var(--white-2);
+      margin-bottom: 15px;
+    }
+
+    .series-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--light-gray-70);
+      font-size: var(--fs-7);
+    }
+
+    .series-info-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .series-info-item ion-icon {
+      font-size: 16px;
+      color: var(--vegas-gold);
+    }
+
+    .series-description {
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-300);
+      line-height: 1.6;
+      margin-top: 15px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .series-posts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .series-post-item {
+      position: relative;
+      background: var(--border-gradient-onyx);
+      padding: 20px 25px;
+      border-radius: 14px;
+      box-shadow: var(--shadow-2);
+      cursor: pointer;
+      z-index: 1;
+      transition: var(--transition-1);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .series-post-item::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+      transition: var(--transition-1);
+    }
+
+    .series-post-item:hover {
+      box-shadow: var(--shadow-3);
+    }
+
+    .series-post-item:hover::before {
+      background: linear-gradient(to bottom right, hsla(240, 1%, 18%, 0.351) 0%, hsla(240, 2%, 11%, 0.1) 100%);
+    }
+
+    .series-post-item:hover .series-post-title {
+      color: var(--orange-yellow-crayola);
+    }
+
+    .series-post-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: var(--jet);
+      border-radius: 50%;
+      color: var(--orange-yellow-crayola);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-600);
+      flex-shrink: 0;
+    }
+
+    .series-post-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .series-post-title {
+      font-size: var(--fs-5);
+      color: var(--white-2);
+      margin-bottom: 8px;
+      transition: color var(--transition-1);
+    }
+
+    .series-post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .series-post-meta-item {
+      color: var(--light-gray-70);
+      font-size: var(--fs-8);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .series-post-meta-item ion-icon {
+      font-size: 14px;
+      color: var(--vegas-gold);
+    }
+
+    .series-post-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--jet);
+      border-radius: 50%;
+      color: var(--light-gray);
+      font-size: 16px;
+      transition: var(--transition-1);
+      flex-shrink: 0;
+    }
+
+    .series-post-item:hover .series-post-arrow {
+      background: var(--orange-yellow-crayola);
+      color: var(--smoky-black);
+    }
+
+    .page-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      padding: 12px 20px;
+      background: var(--border-gradient-onyx);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: var(--transition-1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-link::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+      transition: var(--transition-1);
+    }
+
+    .back-link:hover {
+      background: var(--bg-gradient-yellow-1);
+      color: var(--white-2);
+    }
+
+    .back-link:hover::before {
+      background: var(--bg-gradient-yellow-2);
+    }
+
+    .back-link ion-icon {
+      font-size: 18px;
+    }
+
+    .no-series-message {
+      text-align: center;
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      padding: 40px;
+    }
+
+    @media (max-width: 580px) {
+      .series-post-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .series-post-number {
+        align-self: flex-start;
+      }
+
+      .series-post-arrow {
+        align-self: flex-end;
+        margin-top: -40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <div class="main-content">
+
+      <article class="about active" data-page="series">
+
+        <header>
+          <h2 class="h2 article-title">系列文章</h2>
+        </header>
+
+        <section class="series-header" id="series-header">
+          <h3 class="h3 series-name" id="series-name">加载中...</h3>
+          <div class="series-info" id="series-info">
+            <div class="series-info-item">
+              <ion-icon name="documents-outline"></ion-icon>
+              <span id="series-count">- 篇文章</span>
+            </div>
+            <div class="series-info-item">
+              <ion-icon name="calendar-outline"></ion-icon>
+              <span id="series-date-range">-</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="series-posts-list" id="series-posts">
+          <!-- 文章列表将通过 JavaScript 动态填充 -->
+        </section>
+
+        <section class="page-actions">
+          <a href="{{ site.baseurl }}/blog/" class="back-link">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <span>返回博客列表</span>
+          </a>
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    // 所有系列文章数据（由 Jekyll 生成）
+    const allSeriesData = {
+      {% assign series_list = "" %}
+      {% for post in site.posts %}
+        {% if post.series %}
+          {% unless series_list contains post.series %}
+            {% assign series_list = series_list | append: post.series | append: "|||" %}
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+      
+      {% assign series_array = series_list | split: "|||" %}
+      {% for series_name in series_array %}
+        {% if series_name != "" %}
+          "{{ series_name }}": {
+            name: "{{ series_name }}",
+            posts: [
+              {% assign series_posts = site.posts | where: "series", series_name | sort: "date" %}
+              {% for sp in series_posts %}
+              {
+                title: "{{ sp.title | escape }}",
+                url: "{{ site.baseurl }}{{ sp.url }}",
+                date: "{{ sp.date | date: "%Y-%m-%d" }}",
+                excerpt: "{{ sp.excerpt | strip_html | truncate: 100 | escape }}",
+                tags: [{% for tag in sp.tags %}"{{ tag }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]
+              }{% unless forloop.last %},{% endunless %}
+              {% endfor %}
+            ]
+          }{% unless forloop.last %},{% endunless %}
+        {% endif %}
+      {% endfor %}
+    };
+
+    // 获取URL参数
+    function getUrlParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    // 渲染系列文章列表
+    function renderSeriesPosts() {
+      const seriesName = getUrlParam('name');
+      const seriesNameEl = document.getElementById('series-name');
+      const seriesCountEl = document.getElementById('series-count');
+      const seriesDateRangeEl = document.getElementById('series-date-range');
+      const seriesPostsEl = document.getElementById('series-posts');
+
+      if (!seriesName || !allSeriesData[seriesName]) {
+        seriesNameEl.textContent = '系列不存在';
+        seriesPostsEl.innerHTML = '<div class="no-series-message">未找到该系列文章，请返回博客列表查看所有系列。</div>';
+        seriesCountEl.textContent = '0 篇文章';
+        seriesDateRangeEl.textContent = '-';
+        return;
+      }
+
+      const series = allSeriesData[seriesName];
+      const posts = series.posts;
+
+      // 更新标题
+      document.title = `${series.name} - 系列文章 - Hyacehila`;
+      seriesNameEl.textContent = series.name;
+      seriesCountEl.textContent = `${posts.length} 篇文章`;
+
+      // 计算日期范围
+      if (posts.length > 0) {
+        const firstDate = posts[0].date;
+        const lastDate = posts[posts.length - 1].date;
+        seriesDateRangeEl.textContent = firstDate === lastDate ? firstDate : `${firstDate} ~ ${lastDate}`;
+      }
+
+      // 渲染文章列表
+      let postsHtml = '';
+      posts.forEach((post, index) => {
+        postsHtml += `
+          <a href="${post.url}" class="series-post-item">
+            <div class="series-post-number">${index + 1}</div>
+            <div class="series-post-content">
+              <h4 class="h4 series-post-title">${post.title}</h4>
+              <div class="series-post-meta">
+                <div class="series-post-meta-item">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  <span>${post.date}</span>
+                </div>
+                ${post.tags.length > 0 ? `
+                <div class="series-post-meta-item">
+                  <ion-icon name="pricetags-outline"></ion-icon>
+                  <span>${post.tags.map(t => '#' + t).join(' ')}</span>
+                </div>
+                ` : ''}
+              </div>
+            </div>
+            <div class="series-post-arrow">
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </div>
+          </a>
+        `;
+      });
+
+      seriesPostsEl.innerHTML = postsHtml;
+    }
+
+    // 页面加载时渲染
+    document.addEventListener('DOMContentLoaded', renderSeriesPosts);
+  </script>
+
+</body>
+</html>
+
