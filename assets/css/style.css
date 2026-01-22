@@ -728,11 +728,20 @@ main {
 .testimonials-item {
   width: 100%;
   min-width: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.testimonials-item {
-  min-width: 100%;
-  scroll-snap-align: center;
+.testimonials-item > a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonials-item .content-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .testimonials-item-title {
@@ -775,19 +784,86 @@ main {
 }
 
 /* View All Blogs 方框样式 */
+.view-all-card-link {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-decoration: none;
+}
+
+.view-all-card {
+  position: relative;
+  flex: 1;
+  border-radius: 14px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--orange-yellow-crayola) 0%, var(--vegas-gold) 50%, var(--jet) 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.view-all-card::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: var(--eerie-black-1);
+  border-radius: 12px;
+  z-index: 0;
+}
+
+.view-all-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.view-all-icon {
+  font-size: 28px;
+  color: var(--orange-yellow-crayola);
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.view-all-card-link:hover .view-all-icon {
+  transform: translateX(8px);
+}
+
 .view-all-title {
   color: var(--white-2);
+  font-size: var(--fs-4);
+  font-weight: var(--fw-500);
+  margin-bottom: 8px;
   transition: color 0.3s ease;
-  font-size: var(--fs-5);
 }
 
-.view-all-link:hover .view-all-title {
-  color: #FFD700; /* 黄色 */
+.view-all-card-link:hover .view-all-title {
+  color: var(--orange-yellow-crayola);
 }
 
-/* 确保 View All 方框高度与其他博客卡片对齐 */
-.view-all-link .content-card {
-  height: 100%;
+.view-all-count {
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+  margin: 0;
+}
+
+.view-all-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.15);
 }
 
 

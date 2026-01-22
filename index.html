@@ -233,14 +233,13 @@
 
             {% if site.posts.size >= 3 %}
             <li class="testimonials-item">
-              <a href="/blog/" class="testimonial-link view-all-link">
-                <div class="content-card" data-testimonials-item style="display: flex; align-items: center; justify-content: center; height: 100%;">
-
-                  <div style="text-align: center;">
-                    <h4 class="h4 view-all-title" data-i18n="blog-view-all-title" style="margin-bottom: 8px;">View All Blogs</h4>
-                    <p style="margin: 0; font-size: var(--fs-8); color: var(--light-gray-70);">View all {{ site.posts.size }} posts</p>
+              <a href="/blog/" class="view-all-card-link">
+                <div class="view-all-card">
+                  <div class="view-all-content">
+                    <span class="view-all-icon">→</span>
+                    <h4 class="view-all-title" data-i18n="blog-view-all-title">浏览所有博客</h4>
+                    <p class="view-all-count">{{ site.posts.size }} posts</p>
                   </div>
-
                 </div>
               </a>
             </li>
