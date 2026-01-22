@@ -158,6 +158,139 @@
       display: none;
     }
 
+    /* 筛选区域隐藏状态 */
+    .blog-filters.hidden {
+      display: none;
+    }
+
+    /* 系列文章长卡片样式 */
+    .series-cards-container {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .series-cards-container.active {
+      display: flex;
+    }
+
+    .series-card {
+      position: relative;
+      background: var(--border-gradient-onyx);
+      padding: 25px 30px;
+      border-radius: 14px;
+      box-shadow: var(--shadow-2);
+      cursor: pointer;
+      z-index: 1;
+      transition: var(--transition-1);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .series-card::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+      transition: var(--transition-1);
+    }
+
+    .series-card:hover {
+      box-shadow: var(--shadow-3);
+    }
+
+    .series-card:hover::before {
+      background: linear-gradient(to bottom right, hsla(240, 1%, 18%, 0.351) 0%, hsla(240, 2%, 11%, 0.1) 100%);
+    }
+
+    .series-card:hover .series-title {
+      color: var(--orange-yellow-crayola);
+    }
+
+    .series-main-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .series-title {
+      font-size: var(--fs-3);
+      color: var(--white-2);
+      margin-bottom: 12px;
+      transition: color var(--transition-1);
+    }
+
+    .series-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 12px;
+    }
+
+    .series-meta-item {
+      color: var(--light-gray-70);
+      font-size: var(--fs-8);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .series-meta-item ion-icon {
+      font-size: 14px;
+      color: var(--vegas-gold);
+    }
+
+    .series-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .series-tag {
+      background: var(--jet);
+      color: var(--light-gray-70);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: var(--fs-8);
+      transition: var(--transition-1);
+    }
+
+    .series-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--jet);
+      border-radius: 50%;
+      color: var(--light-gray);
+      font-size: 20px;
+      transition: var(--transition-1);
+      flex-shrink: 0;
+    }
+
+    .series-card:hover .series-arrow {
+      background: var(--orange-yellow-crayola);
+      color: var(--smoky-black);
+    }
+
+    @media (max-width: 580px) {
+      .series-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .series-arrow {
+        align-self: flex-end;
+      }
+    }
+
     .blog-posts-grid {
       display: grid;
       gap: 20px;
@@ -189,7 +322,6 @@
     }
 
     .blog-post-card:hover {
-      transform: translateY(-3px);
       box-shadow: var(--shadow-3);
     }
 
@@ -304,18 +436,7 @@
       color: var(--white-2);
     }
 
-    .back-link:hover {
-      transform: translateX(-3px);
-    }
-
-    .email-link:hover {
-      transform: translateX(3px);
-    }
-
-    .back-link:hover::before {
-      background: var(--bg-gradient-yellow-2);
-    }
-
+    .back-link:hover::before,
     .email-link:hover::before {
       background: var(--bg-gradient-yellow-2);
     }
@@ -395,6 +516,65 @@
               {% endfor %}
             </div>
           </div>
+        </section>
+
+        <!-- 系列文章长卡片视图 -->
+        <section class="series-cards-container" id="series-cards">
+          {% assign series_list = "" %}
+          {% for post in site.posts %}
+            {% if post.series %}
+              {% unless series_list contains post.series %}
+                {% assign series_list = series_list | append: post.series | append: "|||" %}
+              {% endunless %}
+            {% endif %}
+          {% endfor %}
+          
+          {% assign series_array = series_list | split: "|||" %}
+          {% for series_name in series_array %}
+            {% if series_name != "" %}
+              {% assign series_posts = site.posts | where: "series", series_name | sort: "date" %}
+              {% assign all_tags = "" %}
+              {% assign total_words = 0 %}
+              {% assign first_date = series_posts.last.date %}
+              {% assign last_date = series_posts.first.date %}
+              {% for sp in series_posts %}
+                {% for tag in sp.tags %}
+                  {% unless all_tags contains tag %}
+                    {% assign all_tags = all_tags | append: tag | append: "," %}
+                  {% endunless %}
+                {% endfor %}
+              {% endfor %}
+              {% assign tags_array = all_tags | split: "," %}
+              
+              <a href="{{ site.baseurl }}/blog/series/?name={{ series_name | url_encode }}" class="series-card">
+                <div class="series-main-info">
+                  <h4 class="h4 series-title">{{ series_name }}</h4>
+                  <div class="series-meta">
+                    <div class="series-meta-item">
+                      <ion-icon name="documents-outline"></ion-icon>
+                      <span>{{ series_posts.size }} 篇文章</span>
+                    </div>
+                    <div class="series-meta-item">
+                      <ion-icon name="calendar-outline"></ion-icon>
+                      <span>{{ first_date | date: "%Y-%m-%d" }} ~ {{ last_date | date: "%Y-%m-%d" }}</span>
+                    </div>
+                  </div>
+                  {% if tags_array.size > 1 %}
+                  <div class="series-tags">
+                    {% for tag in tags_array %}
+                      {% if tag != "" %}
+                      <span class="series-tag">#{{ tag }}</span>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="series-arrow">
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+                </div>
+              </a>
+            {% endif %}
+          {% endfor %}
         </section>
 
         <section class="blog-posts-grid" id="blog-posts">
@@ -482,12 +662,29 @@
     let currentCategoryFilter = 'all';
     let currentTagFilter = 'all';
 
-    // 原有的文章类型筛选函数
+    // 文章类型筛选函数（包含视图切换逻辑）
     function filterPosts(type, element) {
       currentTypeFilter = type;
       document.querySelectorAll('.blog-nav button').forEach(btn => btn.classList.remove('active'));
       element.classList.add('active');
-      applyAllFilters();
+
+      const filtersSection = document.querySelector('.blog-filters');
+      const postsGrid = document.getElementById('blog-posts');
+      const seriesCards = document.getElementById('series-cards');
+
+      if (type === 'series') {
+        // 系列文章视角：隐藏筛选区域，显示系列卡片，隐藏普通文章卡片
+        filtersSection.classList.add('hidden');
+        postsGrid.style.display = 'none';
+        seriesCards.classList.add('active');
+      } else {
+        // 全部文章或单篇文章视角：显示筛选区域，显示普通文章卡片，隐藏系列卡片
+        filtersSection.classList.remove('hidden');
+        postsGrid.style.display = 'grid';
+        seriesCards.classList.remove('active');
+        updateTagFiltersByCategory();
+        applyAllFilters();
+      }
     }
 
     // 分类筛选函数
@@ -497,7 +694,64 @@
         btn.classList.remove('active');
       });
       element.classList.add('active');
+      
+      // 联动更新标签筛选器
+      updateTagFiltersByCategory();
       applyAllFilters();
+    }
+
+    // 根据当前分类更新标签筛选器（联动筛选核心逻辑）
+    function updateTagFiltersByCategory() {
+      const posts = document.querySelectorAll('.blog-post-card');
+      const tagButtonsContainer = document.querySelector('.filter-tag-buttons');
+      
+      // 收集当前分类（和文章类型）下所有存在的标签
+      const availableTags = new Set();
+      
+      posts.forEach(post => {
+        const postCategory = post.getAttribute('data-category');
+        const postType = post.getAttribute('data-type');
+        const postTags = post.getAttribute('data-tags');
+        
+        // 检查文章类型是否匹配
+        let typeMatch = currentTypeFilter === 'all';
+        if (!typeMatch && postType) {
+          typeMatch = postType === currentTypeFilter;
+        }
+        
+        // 检查分类是否匹配
+        let categoryMatch = currentCategoryFilter === 'all';
+        if (!categoryMatch && postCategory) {
+          categoryMatch = postCategory === currentCategoryFilter;
+        }
+        
+        // 如果文章类型和分类都匹配，收集其标签
+        if (typeMatch && categoryMatch && postTags) {
+          postTags.split(',').forEach(tag => {
+            if (tag.trim()) availableTags.add(tag.trim());
+          });
+        }
+      });
+      
+      // 更新标签按钮的可见性
+      const tagButtons = tagButtonsContainer.querySelectorAll('.filter-btn');
+      tagButtons.forEach(btn => {
+        const tagValue = btn.getAttribute('data-filter-value');
+        if (tagValue === 'all') {
+          // "全部"按钮始终可见
+          btn.style.display = 'inline-block';
+        } else if (availableTags.has(tagValue)) {
+          btn.style.display = 'inline-block';
+        } else {
+          btn.style.display = 'none';
+          // 如果当前选中的标签被隐藏，重置为"全部"
+          if (currentTagFilter === tagValue) {
+            currentTagFilter = 'all';
+            tagButtonsContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            tagButtonsContainer.querySelector('[data-filter-value="all"]').classList.add('active');
+          }
+        }
+      });
     }
 
     // 标签筛选函数
@@ -548,6 +802,11 @@
         }
       });
     }
+
+    // 页面加载时初始化标签筛选器状态
+    document.addEventListener('DOMContentLoaded', function() {
+      updateTagFiltersByCategory();
+    });
   </script>
 
 </body>

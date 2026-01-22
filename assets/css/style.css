@@ -774,6 +774,22 @@ main {
   color: #FFD700; /* 黄色色值 */
 }
 
+/* View All Blogs 方框样式 */
+.view-all-title {
+  color: var(--white-2);
+  transition: color 0.3s ease;
+  font-size: var(--fs-5);
+}
+
+.view-all-link:hover .view-all-title {
+  color: #FFD700; /* 黄色 */
+}
+
+/* 确保 View All 方框高度与其他博客卡片对齐 */
+.view-all-link .content-card {
+  height: 100%;
+}
+
 
 
 
