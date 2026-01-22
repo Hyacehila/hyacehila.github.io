@@ -148,6 +148,22 @@
       color: var(--vegas-gold);
     }
 
+    .series-post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .series-post-tag {
+      background: var(--jet);
+      color: var(--light-gray-70);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: var(--fs-8);
+      transition: var(--transition-1);
+    }
+
     .series-post-arrow {
       display: flex;
       align-items: center;
@@ -306,12 +322,26 @@
             posts: [
               {% assign series_posts = site.posts | where: "series", series_name | sort: "date" %}
               {% for sp in series_posts %}
+              {% assign sp_plain = sp.content | strip_html | strip_newlines %}
+              {% assign sp_han = sp_plain | replace_regex: '[^\u3400-\u4DBF\u4E00-\u9FFF]', '' %}
+              {% assign sp_han_escaped = sp_han | cgi_escape %}
+              {% assign sp_han_count = sp_han_escaped | size | divided_by: 9 %}
+              {% assign sp_read_minutes = sp_han_count | divided_by: 300 %}
+              {% assign sp_read_remainder = sp_han_count | modulo: 300 %}
+              {% if sp_read_remainder > 0 %}
+                {% assign sp_read_minutes = sp_read_minutes | plus: 1 %}
+              {% endif %}
+              {% if sp_read_minutes == 0 and sp_han_count > 0 %}
+                {% assign sp_read_minutes = 1 %}
+              {% endif %}
               {
                 title: "{{ sp.title | escape }}",
                 url: "{{ site.baseurl }}{{ sp.url }}",
                 date: "{{ sp.date | date: "%Y-%m-%d" }}",
                 excerpt: "{{ sp.excerpt | strip_html | truncate: 100 | escape }}",
-                tags: [{% for tag in sp.tags %}"{{ tag }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]
+                tags: [{% for tag in sp.tags %}"{{ tag }}"{% unless forloop.last %}, {% endunless %}{% endfor %}],
+                hanCount: {{ sp_han_count }},
+                readMinutes: {{ sp_read_minutes }}
               }{% unless forloop.last %},{% endunless %}
               {% endfor %}
             ]
@@ -370,13 +400,16 @@
                   <ion-icon name="calendar-outline"></ion-icon>
                   <span>${post.date}</span>
                 </div>
-                ${post.tags.length > 0 ? `
-                <div class="series-post-meta-item">
-                  <ion-icon name="pricetags-outline"></ion-icon>
-                  <span>${post.tags.map(t => '#' + t).join(' ')}</span>
+                <div class="series-post-meta-item" title="只计算汉字（300字/分钟）">
+                  <ion-icon name="document-text-outline"></ion-icon>
+                  <span>${post.hanCount}字 · ${post.readMinutes}分钟</span>
                 </div>
-                ` : ''}
               </div>
+              ${post.tags.length > 0 ? `
+              <div class="series-post-tags">
+                ${post.tags.map(t => `<span class="series-post-tag">#${t}</span>`).join('')}
+              </div>
+              ` : ''}
             </div>
             <div class="series-post-arrow">
               <ion-icon name="arrow-forward-outline"></ion-icon>
