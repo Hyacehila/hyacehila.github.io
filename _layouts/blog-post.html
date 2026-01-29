@@ -200,8 +200,9 @@
             border: 1px solid rgba(255, 215, 0, 0.2);
         }
 
-        .blog-content pre,
-        .blog-content div.highlight {
+        /* 代码块外层容器 - 只有这一层有背景和边框 */
+        .blog-content div.highlight,
+        .blog-content div.highlighter-rouge {
             background: #272822;
             padding: 20px;
             border-radius: 10px;
@@ -211,15 +212,33 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        .blog-content div.highlight pre {
-            padding: 0;
-            margin: 0;
-            border: none;
-            background: transparent;
+        /* 没有 highlight 包裹的纯 pre 元素 */
+        .blog-content pre:not(.highlight pre) {
+            background: #272822;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 24px 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
+        /* 内层 highlight 和 pre 全部透明 */
+        .blog-content div.highlighter-rouge .highlight,
+        .blog-content div.highlight pre,
+        .blog-content .highlighter-rouge pre {
+            background: transparent !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        /* 代码块内的 code 元素 - 完全透明 */
         .blog-content pre code,
-        .blog-content .highlight code {
+        .blog-content .highlight code,
+        .blog-content .highlighter-rouge code {
             background: transparent !important;
             font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
             font-size: 0.9em;
@@ -231,20 +250,6 @@
             border: none !important;
             border-radius: 0 !important;
             box-shadow: none !important;
-        }
-
-        /* Rouge语法高亮 - 确保span元素内联显示 */
-        .blog-content .highlight {
-            background: #272822;
-        }
-
-        .blog-content .highlight pre {
-            background: transparent;
-            white-space: pre !important;
-        }
-
-        .blog-content .highlight pre code {
-            white-space: pre !important;
         }
 
         /* 代码块样式保障 */
