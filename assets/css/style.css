@@ -141,6 +141,11 @@ div.highlight span {
     display: inline;
 }
 
+/* 博客文章内容中的链接保持内联显示 */
+.markdown-section a {
+    display: inline;
+}
+
 button {
   font: inherit;
   background: none;
