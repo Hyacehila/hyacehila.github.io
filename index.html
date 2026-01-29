@@ -22,6 +22,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/travelmap/map.css">
 
   <!--
     - google font link
@@ -754,6 +755,29 @@
 
         </section>
 
+        <!--
+          - Travel Footprint Map
+        -->
+
+        <section class="travel-map-section">
+
+          <h3 class="h3 section-title" data-i18n="travel-map-title">Travel Footprints</h3>
+
+          <div class="map-toggle-wrapper">
+            <button class="map-toggle-btn active" data-map-mode="china" data-i18n="map-toggle-china">
+              <ion-icon name="location-outline"></ion-icon>China
+            </button>
+            <button class="map-toggle-btn" data-map-mode="world" data-i18n="map-toggle-world">
+              <ion-icon name="globe-outline"></ion-icon>World
+            </button>
+          </div>
+
+          <div class="travel-map-container">
+            <div id="travel-map"></div>
+          </div>
+
+        </section>
+
       </article>
 
     </div>
@@ -763,7 +787,13 @@
   <!--
     - custom js link
   -->
+  <!-- ECharts for travel map -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+
   <script src="./assets/js/script.js"></script>
+
+  <!-- Travel map script -->
+  <script src="./assets/travelmap/map.js"></script>
 
   <!--
     - ionicon link
@@ -877,7 +907,10 @@
         "contact-address": "Address",
         "contact-address-text": "266 Bayi Road, Wuchang District<br>Wuhan, Hubei Province",
         "university-wuhan": "Wuhan University",
-        "university-xidian": "Xidian University"
+        "university-xidian": "Xidian University",
+        "travel-map-title": "Travel Footprints",
+        "map-toggle-china": "China",
+        "map-toggle-world": "World"
       },
       zh: {
         "nav-home": "主页",
@@ -979,7 +1012,10 @@
         "contact-address": "地址",
         "contact-address-text": "湖北省武汉市武昌区八一路266号",
         "university-wuhan": "武汉大学",
-        "university-xidian": "西安电子科技大学"
+        "university-xidian": "西安电子科技大学",
+        "travel-map-title": "旅行足迹",
+        "map-toggle-china": "中国",
+        "map-toggle-world": "世界"
       }
     };
 
@@ -1001,6 +1037,11 @@
 
       // Save language preference
       localStorage.setItem('language', lang);
+
+      // Update travel map if initialized
+      if (typeof window.updateTravelMapLanguage === 'function') {
+        window.updateTravelMapLanguage();
+      }
     }
 
     // Language toggle event listener
