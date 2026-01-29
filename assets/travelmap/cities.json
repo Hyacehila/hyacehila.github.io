@@ -1,0 +1,15 @@
+[
+    {
+        "name": "武汉",
+        "nameEn": "Wuhan",
+        "value": [
+            114.3999,
+            30.5923
+        ],
+        "visits": 1,
+        "type": "学习",
+        "typeEn": "Study",
+        "details": "武汉大学攻读硕士学位",
+        "detailsEn": "Pursuing Master's degree at Wuhan University"
+    }
+]
