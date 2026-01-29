@@ -73,10 +73,11 @@
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link data-target="portfolio" data-i18n="nav-portfolio">Projects</button>
+            <button class="navbar-link" data-nav-link data-target="portfolio"
+              data-i18n="nav-portfolio">Projects</button>
           </li>
 
-  
+
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link data-target="contact" data-i18n="nav-contact">Contact</button>
           </li>
@@ -190,7 +191,7 @@
 
             </li>
 
-  
+
           </ul>
 
         </section>
@@ -207,7 +208,7 @@
 
             {% assign show_limit = 4 %}
             {% if site.posts.size >= 3 %}
-              {% assign show_limit = 3 %}
+            {% assign show_limit = 3 %}
             {% endif %}
 
             {% for post in site.posts limit:show_limit %}
@@ -260,7 +261,8 @@
           <ul class="testimonials-list has-scrollbar">
 
             <li class="testimonials-item">
-              <a href="https://shimmer0007.github.io" class="testimonial-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://shimmer0007.github.io" class="testimonial-link" target="_blank"
+                rel="noopener noreferrer">
                 <div class="content-card" data-testimonials-item>
 
                   <h4 class="h4 testimonials-item-title" data-testimonials-title>Shimmer</h4>
@@ -281,6 +283,36 @@
 
                   <div class="testimonials-text" data-testimonials-text>
                     <p data-i18n="friend-cy">Computer Vision Engineer.</p>
+                  </div>
+
+                </div>
+              </a>
+            </li>
+
+            <li class="testimonials-item">
+              <a href="https://xiaofei-xu.github.io/" class="testimonial-link" target="_blank"
+                rel="noopener noreferrer">
+                <div class="content-card" data-testimonials-item>
+
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>XiaofeiXu</h4>
+
+                  <div class="testimonials-text" data-testimonials-text>
+                    <p data-i18n="friend-xiaofeixu">Researcher.</p>
+                  </div>
+
+                </div>
+              </a>
+            </li>
+
+            <li class="testimonials-item">
+              <a href="https://jszy.whu.edu.cn/zhaoxiaofei/zh_CN/index/1220200/list/index.htm" class="testimonial-link"
+                target="_blank" rel="noopener noreferrer">
+                <div class="content-card" data-testimonials-item>
+
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>XiaofeiZhao</h4>
+
+                  <div class="testimonials-text" data-testimonials-text>
+                    <p data-i18n="friend-xiaofeizhao">Professor.</p>
                   </div>
 
                 </div>
@@ -322,7 +354,9 @@
               <span>Sep 2025 — Jul 2027</span>
 
               <p class="timeline-text" data-i18n="education-wuhan">
-                Pursuing Master's degree in Applied Statistics, focusing on advanced statistical methods and their practical applications. Conducting in-depth research projects to enhance data analysis and problem-solving capabilities.
+                Pursuing Master's degree in Applied Statistics, focusing on advanced statistical methods and their
+                practical applications. Conducting in-depth research projects to enhance data analysis and
+                problem-solving capabilities.
               </p>
 
             </li>
@@ -334,7 +368,9 @@
               <span>Sep 2021 — Jul 2025</span>
 
               <p class="timeline-text" data-i18n="education-xidian">
-                Bachelor's degree in Statistics. Established solid theoretical foundation in statistical analysis, machine learning, and data mining. Participated in national data modeling competitions to develop practical implementation skills.
+                Bachelor's degree in Statistics. Established solid theoretical foundation in statistical analysis,
+                machine learning, and data mining. Participated in national data modeling competitions to develop
+                practical implementation skills.
               </p>
 
             </li>
@@ -357,24 +393,30 @@
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title" data-i18n="experience-cnpcas-title-company">LLM Agent算法实习生 | <span class="experience-company">中国科学院地理科学与资源研究所</span></h4>
+              <h4 class="h4 timeline-item-title" data-i18n="experience-cnpcas-title-company">LLM Agent算法实习生 | <span
+                  class="experience-company">中国科学院地理科学与资源研究所</span></h4>
 
               <span class="experience-period">2025.09 — 2025.12</span>
 
               <div class="project-details">
                 <div class="detail-point">
-                  <strong data-i18n="architecture-design">架构设计</strong><span data-i18n="experience-cnpcas-architecture">设计并开发基于MCP（Model Context Protocol）协议的舆情分析多智能体系统，通过解耦Server/Client端，实现工具集（Tools）的热插拔扩展，解决传统Agent工具调用耦合度高的问题。构建的基于统计分析的工具集解决了舆情分析系统缺少整体视角的问题。</span>
+                  <strong data-i18n="architecture-design">架构设计</strong><span
+                    data-i18n="experience-cnpcas-architecture">设计并开发基于MCP（Model Context
+                    Protocol）协议的舆情分析多智能体系统，通过解耦Server/Client端，实现工具集（Tools）的热插拔扩展，解决传统Agent工具调用耦合度高的问题。构建的基于统计分析的工具集解决了舆情分析系统缺少整体视角的问题。</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="concurrency-optimization">并发优化</strong><span data-i18n="experience-cnpcas-concurrency">基于Async/BatchApi重构数据处理管道，实现对10万+条博文的大规模并发语义理解与清洗，大幅提升数据吞吐量，并可根据数据规模与并发上限随时进一步扩展。</span>
+                  <strong data-i18n="concurrency-optimization">并发优化</strong><span
+                    data-i18n="experience-cnpcas-concurrency">基于Async/BatchApi重构数据处理管道，实现对10万+条博文的大规模并发语义理解与清洗，大幅提升数据吞吐量，并可根据数据规模与并发上限随时进一步扩展。</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="hallucination-suppression">幻觉抑制</strong><span data-i18n="experience-cnpcas-hallucination">设计"三阶段解耦"工作流（清洗-分析-报告），通过思维链（CoT）追溯机制与预设模板的Prompt工程，有效降低模型生成文本报告时的幻觉率，确保数据来源可验证。</span>
+                  <strong data-i18n="hallucination-suppression">幻觉抑制</strong><span
+                    data-i18n="experience-cnpcas-hallucination">设计"三阶段解耦"工作流（清洗-分析-报告），通过思维链（CoT）追溯机制与预设模板的Prompt工程，有效降低模型生成文本报告时的幻觉率，确保数据来源可验证。</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="system-implementation">系统落地</strong><span data-i18n="experience-cnpcas-implementation">独立负责从数据接入到可视化报告生成的端到端系统开发，成果已交付业务团队使用，支持多模态数据输入，可根据使用需求启动局部工作流，单独进行数据清洗或报告生成。</span>
+                  <strong data-i18n="system-implementation">系统落地</strong><span
+                    data-i18n="experience-cnpcas-implementation">独立负责从数据接入到可视化报告生成的端到端系统开发，成果已交付业务团队使用，支持多模态数据输入，可根据使用需求启动局部工作流，单独进行数据清洗或报告生成。</span>
                 </div>
-                </div>
+              </div>
 
             </li>
 
@@ -485,17 +527,22 @@
                 <div class="project-details">
                   <div class="detail-section">
                     <h5 class="detail-title" data-i18n="project-background">项目背景：</h5>
-                    <p class="detail-content" data-i18n="project-mental-background">传统心理健康评估依赖主观问卷，存在评估间断性和主观偏差问题。随着可穿戴设备的普及，连续监测生理指标成为可能，项目旨在构建基于可穿戴设备数据的心理健康评估模型，实现客观、连续的心理状态监测，为心理健康评估提供新的技术途径。</p>
+                    <p class="detail-content" data-i18n="project-mental-background">
+                      传统心理健康评估依赖主观问卷，存在评估间断性和主观偏差问题。随着可穿戴设备的普及，连续监测生理指标成为可能，项目旨在构建基于可穿戴设备数据的心理健康评估模型，实现客观、连续的心理状态监测，为心理健康评估提供新的技术途径。
+                    </p>
                   </div>
 
                   <div class="detail-section">
                     <h5 class="detail-title" data-i18n="tech-implementation">技术实现：</h5>
-                    <p class="detail-content" data-i18n="project-mental-implementation">从NetHealth数据集四年观测数据中筛选出43个关键变量，构建约3万行的多时间尺度数据集；采用多重插补链式方程（MICE）处理缺失值，应用Boxplot检测并移除离群值，对偏态数据实施BoxCox变换，使用PCA对于高度复共线性的原始时间序列数据进行了维数缩减；构建ElasticNet、RandomForest、XGBoost三个基模型，使用了决策树Stacking集成策略，最终通过网格搜索优化整体超参数。</p>
+                    <p class="detail-content" data-i18n="project-mental-implementation">
+                      从NetHealth数据集四年观测数据中筛选出43个关键变量，构建约3万行的多时间尺度数据集；采用多重插补链式方程（MICE）处理缺失值，应用Boxplot检测并移除离群值，对偏态数据实施BoxCox变换，使用PCA对于高度复共线性的原始时间序列数据进行了维数缩减；构建ElasticNet、RandomForest、XGBoost三个基模型，使用了决策树Stacking集成策略，最终通过网格搜索优化整体超参数。
+                    </p>
                   </div>
 
                   <div class="detail-section">
                     <h5 class="detail-title" data-i18n="project-results">项目成果：</h5>
-                    <p class="detail-content" data-i18n="project-mental-results">集成模型达到MSE 0.032的优异性能，显著优于所有基模型；成功实现了从可穿戴设备数据到心理健康状态的端到端预测；项目获得国家级创新创业训练计划立项支持，为心理健康监测提供了新的技术路径。</p>
+                    <p class="detail-content" data-i18n="project-mental-results">集成模型达到MSE
+                      0.032的优异性能，显著优于所有基模型；成功实现了从可穿戴设备数据到心理健康状态的端到端预测；项目获得国家级创新创业训练计划立项支持，为心理健康监测提供了新的技术路径。</p>
                   </div>
                 </div>
               </div>
@@ -521,17 +568,22 @@
                 <div class="project-details">
                   <div class="detail-section">
                     <h5 class="detail-title" data-i18n="project-background">项目背景：</h5>
-                    <p class="detail-content" data-i18n="project-health-background">随着现代化进程加快，传统单一健康指标难以全面反映中国居民复杂的健康状况变化。本项目旨在构建一个综合性的健康评价体系，多维度评估人民健康状况及其影响因素，为现代化背景下的公共卫生政策提供数据支撑。</p>
+                    <p class="detail-content" data-i18n="project-health-background">
+                      随着现代化进程加快，传统单一健康指标难以全面反映中国居民复杂的健康状况变化。本项目旨在构建一个综合性的健康评价体系，多维度评估人民健康状况及其影响因素，为现代化背景下的公共卫生政策提供数据支撑。
+                    </p>
                   </div>
 
                   <div class="detail-section">
                     <h5 class="detail-title" data-i18n="tech-implementation">技术实现：</h5>
-                    <p class="detail-content" data-i18n="project-health-implementation">整合国家统计局数据库和商业数据库中的多源健康指标，利用爬虫技术从CNKI获取医疗研究重心变化趋势；应用主成分分析处理数据库中获取的健康指标，基于系数解释性选择前两个具备实际意义的主成分作为和健康测度；构建LASSO回归模型，通过网格搜索在系数稀疏性和模型R²间寻找最优平衡点，确保模型的可解释性和预测能力。</p>
+                    <p class="detail-content" data-i18n="project-health-implementation">
+                      整合国家统计局数据库和商业数据库中的多源健康指标，利用爬虫技术从CNKI获取医疗研究重心变化趋势；应用主成分分析处理数据库中获取的健康指标，基于系数解释性选择前两个具备实际意义的主成分作为和健康测度；构建LASSO回归模型，通过网格搜索在系数稀疏性和模型R²间寻找最优平衡点，确保模型的可解释性和预测能力。
+                    </p>
                   </div>
 
                   <div class="detail-section">
                     <h5 class="detail-title" data-i18n="project-results">项目成果：</h5>
-                    <p class="detail-content" data-i18n="project-health-results">最终模型达到R²约0.89的优异拟合效果，成功识别出影响中国居民健康状况的关键因素；构建的健康测度体系为现代化进程中的健康评估提供了新视角并最终获得赛区一等奖。</p>
+                    <p class="detail-content" data-i18n="project-health-results">
+                      最终模型达到R²约0.89的优异拟合效果，成功识别出影响中国居民健康状况的关键因素；构建的健康测度体系为现代化进程中的健康评估提供了新视角并最终获得赛区一等奖。</p>
                   </div>
                 </div>
               </div>
@@ -545,10 +597,12 @@
                       <ion-icon name="document-text-outline"></ion-icon>
                       <span data-i18n="type-paper">论文</span>
                     </div>
-                    <h4 class="h4 project-title">Unveiling the Drivers of PTSD: An Interpretable Machine Learning Approach with SHAP</h4>
+                    <h4 class="h4 project-title">Unveiling the Drivers of PTSD: An Interpretable Machine Learning
+                      Approach with SHAP</h4>
                   </div>
                   <div class="project-meta">
-                    <div class="journal-info">International Conference on Intelligent Computing and Data Analysis 2025</div>
+                    <div class="journal-info">International Conference on Intelligent Computing and Data Analysis 2025
+                    </div>
                     <div class="project-status published" data-i18n="status-published">已发表</div>
                   </div>
                 </div>
@@ -556,19 +610,24 @@
                 <div class="project-details">
                   <div class="detail-section">
                     <h5 class="detail-title" data-i18n="detail-paper-overview">论文概述：</h5>
-                    <p class="detail-content" data-i18n="paper-overview-content">本文采用可解释机器学习方法（SHAP与PDP）构建随机森林模型，深入分析了903名应急人员的PTSD影响因素。研究揭示了心理韧性作为核心保护因素对PTSD的显著缓冲作用（SHAP值0.5061），并发现年龄存在U型效应等非线性规律。通过Friedman H-statistic验证韧性-年龄/创伤暴露的交互效应，提出针对青年与高龄应急人员的差异化干预策略。为高危职业人群的PTSD预防提供了数据驱动的决策依据，凸显了可解释AI在心理健康领域的应用价值。</p>
+                    <p class="detail-content" data-i18n="paper-overview-content">
+                      本文采用可解释机器学习方法（SHAP与PDP）构建随机森林模型，深入分析了903名应急人员的PTSD影响因素。研究揭示了心理韧性作为核心保护因素对PTSD的显著缓冲作用（SHAP值0.5061），并发现年龄存在U型效应等非线性规律。通过Friedman
+                      H-statistic验证韧性-年龄/创伤暴露的交互效应，提出针对青年与高龄应急人员的差异化干预策略。为高危职业人群的PTSD预防提供了数据驱动的决策依据，凸显了可解释AI在心理健康领域的应用价值。
+                    </p>
                   </div>
 
                   <div class="detail-section">
                     <h5 class="detail-title" data-i18n="detail-paper-links">相关链接：</h5>
                     <p class="detail-content">
-                      <a href="https://doi.org/10.1145/3772726.3772849" target="_blank" class="paper-link-small" rel="noopener noreferrer">
+                      <a href="https://doi.org/10.1145/3772726.3772849" target="_blank" class="paper-link-small"
+                        rel="noopener noreferrer">
                         <ion-icon name="link-outline"></ion-icon>
                         <span data-i18n="paper-link-doi">论文链接</span>
                       </a>
                     </p>
                     <p class="detail-content">
-                      <a href="https://github.com/Hyacehila/PTSD-IML" target="_blank" class="paper-link-small" rel="noopener noreferrer">
+                      <a href="https://github.com/Hyacehila/PTSD-IML" target="_blank" class="paper-link-small"
+                        rel="noopener noreferrer">
                         <ion-icon name="code-outline"></ion-icon>
                         <span data-i18n="paper-link-code">代码仓库</span>
                       </a>
@@ -620,7 +679,7 @@
 
       </article>
 
-  
+
       <!--
         - #CONTACT
       -->
@@ -664,7 +723,8 @@
 
               <div class="contact-content">
                 <h4 class="h4" data-i18n="contact-address">Address</h4>
-                <address class="contact-link" data-i18n="contact-address-text">266 Bayi Road, Wuchang District<br>Wuhan, Hubei Province</address>
+                <address class="contact-link" data-i18n="contact-address-text">266 Bayi Road, Wuchang District<br>Wuhan,
+                  Hubei Province</address>
               </div>
             </li>
 
@@ -734,12 +794,14 @@
         "service-llm-eval-text": "Quantifying the alignment between model outputs and human expectations, and transforming them into reward signals that drive reinforcement learning training, thereby guiding continuous model optimization.",
         "service-apps-title": "Apps development",
         "service-apps-text": "Building mobile applications that solve real-world user problems by identifying pain points and creating practical solutions.",
-            "blog-title": "Blog Posts (Chinese Only)",
+        "blog-title": "Blog Posts (Chinese Only)",
         "blog-view-all": "View all blog posts",
         "blog-view-all-title": "View All Blogs",
-            "testimonials-title": "My Friends",
+        "testimonials-title": "My Friends",
         "friend-shimmer": "Data Analyst.",
         "friend-cy": "Computer Vision Engineer.",
+        "friend-xiaofeixu": "Researcher.",
+        "friend-xiaofeizhao": "Professor.",
         "resume-title": "Resume",
         "education-title": "Education",
         "education-wuhan": "Currently pursuing Master's degree in Applied Statistics, with research focusing on LLM Agent, Evaluation, and Reinforcement Learning. Aiming to enhance LLM agent capabilities through new automated feedback methods using reinforcement learning.",
@@ -756,7 +818,7 @@
         "experience-cnpcas-concurrency": "Restructured data processing pipeline using Async/BatchApi and MapReduce for large-scale concurrent semantic understanding and cleaning of 100k+ blog posts, significantly improving data throughput with scalability for further expansion based on data scale and concurrency limits.",
         "experience-cnpcas-hallucination": "Designed 'three-stage decoupled' workflow (cleaning-analysis-reporting), reducing hallucination rates in model-generated text reports through Chain-of-Thought (CoT) tracing mechanisms and template-based prompt engineering, ensuring data source verifiability.",
         "experience-cnpcas-implementation": "Independently responsible for end-to-end system development from data ingestion to visualization report generation, with results delivered to business teams. Supports multimodal data input and enables partial workflow activation for standalone data cleaning or report generation based on usage requirements.",
-          "experience-cnpcas-situation": "The institute faced challenges in processing large-scale social media blog data for public opinion analysis. Traditional manual analysis methods were inefficient, and existing automated systems lacked depth analysis capabilities and transparency, unable to provide reliable data support for policy making.",
+        "experience-cnpcas-situation": "The institute faced challenges in processing large-scale social media blog data for public opinion analysis. Traditional manual analysis methods were inefficient, and existing automated systems lacked depth analysis capabilities and transparency, unable to provide reliable data support for policy making.",
         "experience-cnpcas-task": "As a core development member, responsible for designing and developing an intelligent public opinion analysis system to achieve efficient processing of 30K+ blog data, multi-dimensional deep analysis and structured report generation, providing transparent analysis processes and reliable data support.",
         "experience-cnpcas-action": "Designed three-stage decoupled architecture (enhancement processing → analysis execution → report generation) with DispatcherNode for central scheduling; Integrated GLM4.5V, GLM4.6 and other large language models, developed four-dimensional parallel analysis system; Developed four types of analysis toolkits based on MCP protocol, implemented Agent autonomous tool scheduling; Built thinking process recording and data citation verification mechanisms to ensure analysis result reliability.",
         "experience-cnpcas-result": "Successfully built a processing system supporting 30K+ blog data with 300% improvement in processing efficiency; Four-dimensional analysis accuracy reached over 85%; System adopted by multiple research teams for policy making data support; Achieved full transparency in analysis process with 95%+ data citation verification rate.",
@@ -778,7 +840,7 @@
         "project-health-background": "With the accelerating modernization process, traditional single health indicators cannot comprehensively reflect the complex health status changes of Chinese residents. This project aims to build a comprehensive health evaluation system to multi-dimensionally assess people's health status and influencing factors, providing data support for public health policy in the context of modernization.",
         "project-health-implementation": "Integrated multi-source health indicators from National Bureau of Statistics databases and commercial databases, used web scraping to obtain medical research focus trends from CNKI; applied principal component analysis to process health indicators obtained from the database, selected the top two principal components with practical meaning as health measures based on coefficient interpretability; built LASSO regression model, used grid search to find optimal balance between coefficient sparsity and model R², ensuring model interpretability and predictive power.",
         "project-health-results": "The final model achieved excellent fitting performance with R² of approximately 0.89, successfully identifying key factors affecting Chinese residents' health status; the constructed health measurement system provides new perspectives for health assessment in the modernization process and ultimately won the first prize in the regional competition.",
-          "detail-background-title": "Background:",
+        "detail-background-title": "Background:",
         "detail-research-background": "Research Background:",
         "detail-main-contribution": "Main Contributions:",
         "detail-citation-info": "Citation Info:",
@@ -834,12 +896,14 @@
         "service-llm-eval-text": "量化模型输出与人类期望的对齐程度，并将其转化为驱动强化学习训练的奖励信号，从而引导模型持续优化。",
         "service-apps-title": "Apps 开发",
         "service-apps-text": "致力于构建能够解决真实用户问题的移动应用，通过深入挖掘用户痛点，创造实用的解决方案。",
-                "blog-title": "博客文章",
+        "blog-title": "博客文章",
         "blog-view-all": "浏览所有博客文章",
         "blog-view-all-title": "浏览所有博客",
-                "testimonials-title": "我的朋友们",
+        "testimonials-title": "我的朋友们",
         "friend-shimmer": "数据分析师.",
         "friend-cy": "计算机视觉算法工程师.",
+        "friend-xiaofeixu": "研究员.",
+        "friend-xiaofeizhao": "教授.",
         "resume-title": "简历",
         "education-title": "教育背景",
         "education-wuhan": "现于应用统计专业攻读硕士学位，主要研究领域为LLM Agent, Evaluation 与Reinforecement Learning。希望通过新的自动化反馈方法，使用强化学习提升语言模型智能体能力。",
@@ -856,7 +920,7 @@
         "experience-cnpcas-concurrency": "基于Async/BatchApi重构数据处理管道，使用MapReduce实现对10万+条博文的大规模并发语义理解与清洗，大幅提升数据吞吐量，并可根据数据规模与并发上限随时进一步扩展。",
         "experience-cnpcas-hallucination": "设计\"三阶段解耦\"工作流（清洗-分析-报告），通过思维链（CoT）追溯机制与预设模板的Prompt工程，有效降低模型生成文本报告时的幻觉率，确保数据来源可验证。",
         "experience-cnpcas-implementation": "独立负责从数据接入到可视化报告生成的端到端系统开发，成果已交付业务团队使用，支持多模态数据输入，可根据使用需求启动局部工作流，单独进行数据清洗或报告生成。",
-            "experience-cnpcas-situation": "研究所面临处理大规模社交媒体博文数据进行舆情分析的挑战。传统人工分析方法效率低下，现有自动化系统缺乏深度分析能力和透明度，无法为政策制定提供可靠的数据支撑。",
+        "experience-cnpcas-situation": "研究所面临处理大规模社交媒体博文数据进行舆情分析的挑战。传统人工分析方法效率低下，现有自动化系统缺乏深度分析能力和透明度，无法为政策制定提供可靠的数据支撑。",
         "experience-cnpcas-task": "作为核心开发成员，负责设计并开发智能舆情分析系统，实现3万条级别博文数据的高效处理、多维度深度分析和结构化报告生成，提供透明的分析过程和可靠的数据支撑。",
         "experience-cnpcas-action": "设计三阶段解耦架构（增强处理→分析执行→报告生成），通过DispatcherNode实现中央调度；集成GLM4.5V、GLM4.6等大语言模型，开发四维度并行分析系统；基于MCP协议开发四类分析工具集，实现Agent自主工具调度；构建思考过程记录和数据引用验证机制，确保分析结果可靠性。",
         "experience-cnpcas-result": "成功构建支持3万条博文数据的处理系统，处理效率提升300%；四维度分析准确率达85%以上；系统被研究所多个团队采用，为政策制定提供数据支持；实现分析过程全透明化，数据引用验证率达95%以上。",
@@ -878,7 +942,7 @@
         "project-health-background": "随着现代化进程加快，传统单一健康指标难以全面反映中国居民复杂的健康状况变化。本项目旨在构建一个综合性的健康评价体系，多维度评估人民健康状况及其影响因素，为现代化背景下的公共卫生政策提供数据支撑。",
         "project-health-implementation": "整合国家统计局数据库和商业数据库中的多源健康指标，利用爬虫技术从CNKI获取医疗研究重心变化趋势；应用主成分分析处理数据库中获取的健康指标，基于系数解释性选择前两个具备实际意义的主成分作为和健康测度；构建LASSO回归模型，通过网格搜索在系数稀疏性和模型R²间寻找最优平衡点，确保模型的可解释性和预测能力。",
         "project-health-results": "最终模型达到R²约0.89的优异拟合效果，成功识别出影响中国居民健康状况的关键因素；构建的健康测度体系为现代化进程中的健康评估提供了新视角并最终获得赛区一等奖。",
-            "detail-background-title": "项目背景：",
+        "detail-background-title": "项目背景：",
         "detail-research-background": "研究背景：",
         "detail-main-contribution": "主要贡献：",
         "detail-citation-info": "引用信息：",
@@ -921,12 +985,12 @@
 
     // Language toggle functionality
     let currentLang = localStorage.getItem('language') || 'en';
-    
+
     function updateLanguage(lang) {
       currentLang = lang;
       document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
       document.getElementById('current-lang').textContent = lang.toUpperCase();
-      
+
       // Update all elements with data-i18n attribute
       document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -934,7 +998,7 @@
           element.textContent = translations[lang][key];
         }
       });
-      
+
       // Save language preference
       localStorage.setItem('language', lang);
     }
