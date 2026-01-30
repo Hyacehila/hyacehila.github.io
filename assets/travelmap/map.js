@@ -38,11 +38,28 @@
         });
 
         try {
-            // Load all data in parallel
+            // Load all data in parallel with individual error handling
+            const [citiesResponse, chinaResponse, worldResponse] = await Promise.all([
+                fetch('/assets/travelmap/cities.json'),
+                fetch('https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/json/china.json'),
+                fetch('https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/json/world.json')
+            ]);
+
+            // Check each response
+            if (!citiesResponse.ok) {
+                throw new Error(`Cities data failed: ${citiesResponse.status} ${citiesResponse.statusText}`);
+            }
+            if (!chinaResponse.ok) {
+                throw new Error(`China map failed: ${chinaResponse.status} ${chinaResponse.statusText}`);
+            }
+            if (!worldResponse.ok) {
+                throw new Error(`World map failed: ${worldResponse.status} ${worldResponse.statusText}`);
+            }
+
             const [cities, china, world] = await Promise.all([
-                fetch('/assets/travelmap/cities.json').then(r => r.json()),
-                fetch('https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/json/china.json').then(r => r.json()),
-                fetch('https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/json/world.json').then(r => r.json())
+                citiesResponse.json(),
+                chinaResponse.json(),
+                worldResponse.json()
             ]);
 
             citiesData = cities;
@@ -60,7 +77,7 @@
         } catch (error) {
             console.error('Failed to load map data:', error);
             myChart.hideLoading();
-            mapContainer.innerHTML = '<div style="color: rgba(255,255,255,0.6); text-align: center; padding: 40px;">Failed to load map / 加载地图失败</div>';
+            mapContainer.innerHTML = '<div style="color: rgba(255,255,255,0.6); text-align: center; padding: 40px;">Failed to load map / 加载地图失败<br><small style="color: rgba(255,255,255,0.4);">' + error.message + '</small></div>';
         }
 
         // Handle window resize
