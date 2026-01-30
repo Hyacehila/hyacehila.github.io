@@ -152,14 +152,7 @@
                         const typeLabel = lang === 'zh' ? '类型' : 'Type';
                         const detailsLabel = lang === 'zh' ? '备注' : 'Notes';
 
-                        return `
-              <div style="padding: 4px 8px;">
-                <strong style="color: #ffdb70; font-size: 14px;">📍 ${city.name}</strong><br/>
-                <span style="color: rgba(255,255,255,0.7);">${typeLabel}: ${city.type || '-'}</span><br/>
-                <span style="color: rgba(255,255,255,0.7);">${visitLabel}: ${city.visits || 1}</span><br/>
-                <span style="color: rgba(255,255,255,0.6); font-size: 12px;">${city.details || ''}</span>
-              </div>
-            `;
+                        return `<div style="padding: 2px 6px; line-height: 1.4;"><strong style="color: #ffdb70; font-size: 13px;">${city.name}</strong><br/><span style="color: rgba(255,255,255,0.7); font-size: 12px;">${typeLabel}: ${city.type || '-'} | ${visitLabel}: ${city.visits || 1}</span><br/><span style="color: rgba(255,255,255,0.6); font-size: 11px;">${city.details || ''}</span></div>`;
                     }
                     return '';
                 }
@@ -188,15 +181,9 @@
                 type: 'scatter',
                 coordinateSystem: 'geo',
                 symbol: 'pin',
-                symbolSize: 30,
+                symbolSize: 18,
                 label: {
-                    show: true,
-                    position: 'top',
-                    formatter: '{b}',
-                    fontSize: 11,
-                    color: 'rgba(255, 255, 255, 0.9)',
-                    textBorderColor: 'rgba(0, 0, 0, 0.5)',
-                    textBorderWidth: 2
+                    show: false
                 },
                 itemStyle: {
                     color: '#ffdb70', // Vegas gold - matching site theme
