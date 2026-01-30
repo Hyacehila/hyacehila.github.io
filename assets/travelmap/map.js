@@ -158,9 +158,11 @@
             geo: {
                 map: mapName,
                 roam: false, // Disable zoom and pan as per user request
-                // Use layoutCenter and layoutSize for proper centering and sizing
-                layoutCenter: ['50%', '50%'],
-                layoutSize: mode === 'china' ? '100%' : '95%',
+                // Use left/right/top/bottom to fill container (ECharts 4.x way)
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0,
                 // Aspect ratio adjustment
                 aspectScale: mode === 'china' ? 0.85 : 0.75,
                 label: {
