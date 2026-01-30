@@ -26,6 +26,9 @@
         // Initialize ECharts instance
         myChart = echarts.init(mapContainer);
 
+        // Setup toggle buttons (moved outside try block to ensure they always work)
+        setupToggleButtons();
+
         // Show loading state
         myChart.showLoading({
             text: getCurrentLang() === 'zh' ? '加载中...' : 'Loading...',
@@ -37,9 +40,9 @@
         try {
             // Load all data in parallel
             const [cities, china, world] = await Promise.all([
-                fetch('./assets/travelmap/cities.json').then(r => r.json()),
-                fetch('https://cdn.jsdelivr.net/gh/apache/echarts@5.5.0/map/json/china.json').then(r => r.json()),
-                fetch('https://cdn.jsdelivr.net/gh/apache/echarts@5.5.0/map/json/world.json').then(r => r.json())
+                fetch('/assets/travelmap/cities.json').then(r => r.json()),
+                fetch('https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/json/china.json').then(r => r.json()),
+                fetch('https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/json/world.json').then(r => r.json())
             ]);
 
             citiesData = cities;
@@ -52,9 +55,6 @@
 
             // Render initial map
             renderMap(currentMapMode);
-
-            // Setup toggle buttons
-            setupToggleButtons();
 
             myChart.hideLoading();
         } catch (error) {
