@@ -152,7 +152,7 @@
                         const typeLabel = lang === 'zh' ? '类型' : 'Type';
                         const detailsLabel = lang === 'zh' ? '备注' : 'Notes';
 
-                        return `<div style="padding: 2px 6px; line-height: 1.15;"><strong style="color: #ffdb70; font-size: 13px;">${city.name}</strong><br/><span style="color: rgba(255,255,255,0.7); font-size: 12px;">${typeLabel}: ${city.type || '-'} | ${visitLabel}: ${city.visits || 1}</span><br/><span style="color: rgba(255,255,255,0.6); font-size: 11px;">${city.details || ''}</span></div>`;
+                        return `<div style="padding: 2px 6px; line-height: 1.15;"><strong style="color: #ffdb70; font-size: 13px;">${city.name}</strong><br/><span style="color: rgba(255,255,255,0.7); font-size: 12px;">${city.type || '-'} | ${city.visits || 1}${lang === 'zh' ? '次' : ' visits'}</span><br/><span style="color: rgba(255,255,255,0.6); font-size: 11px;">${city.details || ''}</span></div>`;
                     }
                     return '';
                 }
