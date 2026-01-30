@@ -6,10 +6,49 @@
             114.3999,
             30.5923
         ],
-        "visits": 1,
+        "visits": 2,
         "type": "学习",
         "typeEn": "Study",
-        "details": "武汉大学攻读硕士学位",
-        "detailsEn": "Pursuing Master's degree at Wuhan University"
+        "details": "读书，顺便在附近旅旅游，城市内部有这么大一个湖还是舒服的",
+        "detailsEn": "Studied, toured around, the city has a big lake in the middle, it's comfortable"
+    },
+    {
+        "name": "西安",
+        "nameEn": "Xian",
+        "value": [
+            108.9426,
+            34.2616
+        ],
+        "visits": 3,
+        "type": "学习",
+        "typeEn": "Study",
+        "details": "在一个充满历史气息的城市里度过本科的四年，确实是一个很像家的城市",
+        "detailsEn": "Spending four years of undergraduate studies in a city steeped in history, it truly is a city that feels like home."
+    },
+    {
+        "name": "洛阳",
+        "nameEn": "Luoyang",
+        "value": [
+            112.4442,
+            34.7226
+        ],
+        "visits": "∞",
+        "type": "家",
+        "typeEn": "Home",
+        "details": "一个很小的城市，但是很舒服，在这里度过了人生的前18年",
+        "detailsEn": "A small city, but very comfortable, spent the first 18 years of my life here."
+    },
+    {
+        "name": "三亚",
+        "nameEn": "Sanya",
+        "value": [
+            109.5116,
+            18.2522
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "一次在三岁的旅行，如果不是有照片我真不知道我来过",
+        "detailsEn": "A trip at the age of three, if it weren't for the photos I wouldn't know I came here."
     }
 ]
