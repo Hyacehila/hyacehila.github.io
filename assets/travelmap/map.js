@@ -26,6 +26,16 @@
         // Initialize ECharts instance
         myChart = echarts.init(mapContainer);
 
+        // Use ResizeObserver to handle container size changes
+        // This fixes the issue where the map initializes with 0 size
+        // when Contact page is hidden, and auto-resizes when it becomes visible
+        const resizeObserver = new ResizeObserver(() => {
+            if (myChart) {
+                myChart.resize();
+            }
+        });
+        resizeObserver.observe(mapContainer);
+
         // Setup toggle buttons (moved outside try block to ensure they always work)
         setupToggleButtons();
 
