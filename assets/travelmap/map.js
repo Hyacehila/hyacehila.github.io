@@ -147,9 +147,11 @@
 
             tooltip: {
                 trigger: 'item',
+                confine: true,
                 backgroundColor: 'rgba(30, 30, 30, 0.9)',
                 borderColor: 'rgba(255, 219, 112, 0.3)',
                 borderWidth: 1,
+                extraCssText: 'max-width: 280px; white-space: normal; word-wrap: break-word;',
                 textStyle: {
                     color: '#fff',
                     fontSize: 13
