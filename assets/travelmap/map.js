@@ -158,10 +158,10 @@
             geo: {
                 map: mapName,
                 roam: false, // Disable zoom and pan as per user request
-                // Adjust center and zoom based on map mode
-                center: mode === 'china' ? [104.5, 35.5] : undefined,
-                zoom: mode === 'china' ? 1.2 : 1.0,
-                // Aspect ratio for world map (Miller projection ~2.1:1)
+                // Use layoutCenter and layoutSize for proper centering and sizing
+                layoutCenter: ['50%', '50%'],
+                layoutSize: mode === 'china' ? '100%' : '95%',
+                // Aspect ratio adjustment
                 aspectScale: mode === 'china' ? 0.85 : 0.75,
                 label: {
                     show: false
