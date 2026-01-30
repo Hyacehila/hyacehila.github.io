@@ -28,20 +28,6 @@
         "detailsEn": "Spending four years of undergraduate studies in a city steeped in history, it truly is a city that feels like home."
     },
     {
-        "name": "洛阳",
-        "nameEn": "Luoyang",
-        "province": "河南",
-        "value": [
-            112.4442,
-            34.6226
-        ],
-        "visits": "∞",
-        "type": "家",
-        "typeEn": "Home",
-        "details": "一个很小的城市，但是很舒服，在这里度过了人生的前18年",
-        "detailsEn": "A small city, but very comfortable, spent the first 18 years of my life here."
-    },
-    {
         "name": "三亚",
         "nameEn": "Sanya",
         "province": "海南",
@@ -320,5 +306,19 @@
         "typeEn": "Travel",
         "details": "两千年前的无坝引水工程奇迹，造就了成都平原的“天府之国”，鱼嘴和宝瓶口智慧无穷",
         "detailsEn": "A miracle of damless irrigation engineering from two thousand years ago, creating the 'Land of Abundance' in the Chengdu Plain; the Fish Mouth and Bottle-Neck Channel show infinite wisdom."
+    },
+    {
+        "name": "洛阳",
+        "nameEn": "Luoyang",
+        "province": "河南",
+        "value": [
+            112.4442,
+            34.6226
+        ],
+        "visits": "∞",
+        "type": "家",
+        "typeEn": "Home",
+        "details": "一个很小的城市，但是很舒服，在这里度过了人生的前18年",
+        "detailsEn": "A small city, but very comfortable, spent the first 18 years of my life here."
     }
 ]
