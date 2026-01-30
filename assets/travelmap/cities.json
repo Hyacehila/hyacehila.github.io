@@ -2,6 +2,7 @@
     {
         "name": "武汉",
         "nameEn": "Wuhan",
+        "province": "湖北",
         "value": [
             114.3999,
             30.5923
@@ -15,6 +16,7 @@
     {
         "name": "西安",
         "nameEn": "Xian",
+        "province": "陕西",
         "value": [
             108.9426,
             34.2616
@@ -28,6 +30,7 @@
     {
         "name": "洛阳",
         "nameEn": "Luoyang",
+        "province": "河南",
         "value": [
             112.4442,
             34.7226
@@ -41,6 +44,7 @@
     {
         "name": "三亚",
         "nameEn": "Sanya",
+        "province": "海南",
         "value": [
             109.5116,
             18.2522
