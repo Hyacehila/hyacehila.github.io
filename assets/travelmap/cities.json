@@ -66,7 +66,7 @@
         "visits": 1,
         "type": "旅游",
         "typeEn": "Travel",
-        "details": "CNCC2025，顺便在附近转了转，太阳岛确实值得一去，江边的风景和岛上的小镇都很有特色",
+        "details": "CNCC2025，顺便在附近转了转，太阳岛确实值得一去，江边的风景和岛上的小镇都很有特色，索菲亚教堂很出片",
         "detailsEn": "Attended CNCC2025 and explored the area. Sun Island is definitely worth a visit; the riverside scenery and the island town are quite unique."
     },
     {
@@ -96,5 +96,229 @@
         "typeEn": "Travel",
         "details": "跑来面试了一圈顺便旅游，西湖和东湖有点接近，虽然都说杭州无美食，但杭州酒家值得一去",
         "detailsEn": "Came for an interview and did some sightseeing. West Lake feels similar to East Lake. Although people say Hangzhou lacks good food, Hangzhou Restaurant is definitely worth a visit."
+    },
+    {
+        "name": "北京",
+        "nameEn": "Beijing",
+        "province": "北京",
+        "value": [
+            116.4074,
+            39.9042
+        ],
+        "visits": 2,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "经典打卡旅游，故宫，长城，天安门；还有一次应该来开会，但是没怎么玩",
+        "detailsEn": "Classic sightseeing trip, visited Forbidden City, Great Wall, Tiananmen Square; also came once for a conference, but didn't have much time to explore."
+    },
+    {
+        "name": "日照",
+        "nameEn": "Rizhao",
+        "province": "山东",
+        "value": [
+            119.4573,
+            35.4208
+        ],
+        "visits": 2,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "小时候就喜欢去海边玩",
+        "detailsEn": "I loved going to the beach as a child."
+    },
+    {
+        "name": "晋城",
+        "nameEn": "Jincheng",
+        "province": "山西",
+        "value": [
+            112.4442,
+            34.7226
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "也没什么特别好玩的，王莽岭和郭亮村还不错",
+        "detailsEn": "Nothing particularly special, but Wangmangling and Guoliang Village are quite nice."
+    },
+    {
+        "name": "敦煌",
+        "nameEn": "Dunhuang",
+        "province": "甘肃",
+        "value": [
+            94.6618,
+            40.1421
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "莫高窟千年的历史令人震撼，鸣沙山月牙泉的沙漠风光也很独特",
+        "detailsEn": "The thousand-year history of the Mogao Caves is awe-inspiring, and the desert scenery of Mingsha Mountain and Crescent Lake is also very unique."
+    },
+    {
+        "name": "嘉峪关",
+        "nameEn": "Jiayuguan",
+        "province": "甘肃",
+        "value": [
+            98.2894,
+            39.7731
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "天下第一雄关名不虚传",
+        "detailsEn": "The First Pass Under Heaven lives up to its reputation."
+    },
+    {
+        "name": "西宁",
+        "nameEn": "Xining",
+        "province": "青海",
+        "value": [
+            101.7785,
+            36.6171
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "青海湖的碧波万顷和油菜花田美不胜收，茶卡盐湖“天空之镜”的倒影更是如梦如幻",
+        "detailsEn": "The vast blue waves of Qinghai Lake and the fields of rapeseed flowers are breathtaking, while the 'Mirror of the Sky' reflection at Chaka Salt Lake is truly dreamlike."
+    },
+    {
+        "name": "安顺",
+        "nameEn": "Anshun",
+        "province": "贵州",
+        "value": [
+            105.9462,
+            26.2536
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "黄果树瀑布非常壮观，水势浩大，穿过水帘洞的体验也很有趣",
+        "detailsEn": "The Huangguoshu Waterfall is incredibly spectacular with massive water flow, and the experience of walking through the Water Curtain Cave is quite interesting."
+    },
+    {
+        "name": "贵阳",
+        "nameEn": "Guiyang",
+        "province": "贵州",
+        "value": [
+            106.6302,
+            26.6477
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "最大的感觉是酸汤鱼不好吃",
+        "detailsEn": "My biggest impression was that the Sour Soup Fish wasn't very good."
+    },
+    {
+        "name": "黔东南",
+        "nameEn": "Qiandongnan",
+        "province": "贵州",
+        "value": [
+            108.1719,
+            26.4925
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "千户苗寨从山顶向下看的景色确实很美",
+        "detailsEn": "The view looking down from the top of the mountain at the Thousand Households Miao Village is truly beautiful."
+    },
+    {
+        "name": "厦门",
+        "nameEn": "Xiamen",
+        "province": "福建",
+        "value": [
+            118.0894,
+            24.4798
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "在鼓浪屿岸边发呆的感觉还不错",
+        "detailsEn": "Spacing out by the shore of Gulangyu Island felt pretty good."
+    },
+    {
+        "name": "丽江",
+        "nameEn": "Lijiang",
+        "province": "云南",
+        "value": [
+            100.2297,
+            26.8726
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "在拉市海体验湿地骑马，丽江古城感受纳西族的小桥流水，玉龙雪山的冰川公园和蓝月谷更是绝美",
+        "detailsEn": "Experienced horseback riding in the Lashihai wetlands, felt the Naxi culture with bridges and flowing water in Lijiang Old Town; the Glacier Park and Blue Moon Valley of Yulong Snow Mountain are absolutely stunning."
+    },
+    {
+        "name": "昆明",
+        "nameEn": "Kunming",
+        "province": "云南",
+        "value": [
+            102.7123,
+            25.0406
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "石林典型的喀斯特地貌千奇百怪，过桥米线汤鲜味美，不愧是春城",
+        "detailsEn": "The typical Karst landform of the Stone Forest is full of strange wonders, and the Cross-Bridge Rice Noodles are delicious with fresh soup; it truly lives up to the name 'City of Spring'."
+    },
+    {
+        "name": "张掖",
+        "nameEn": "Zhangye",
+        "province": "甘肃",
+        "value": [
+            100.4555,
+            38.9329
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "七彩丹霞名不虚传，层理交错的岩石像上帝打翻的调色盘，日落且雨后观感最佳",
+        "detailsEn": "The Rainbow Danxia lives up to its reputation; the layered rocks look like a palette overturned by God, best viewed at sunset or after rain."
+    },
+    {
+        "name": "宝鸡",
+        "nameEn": "Baoji",
+        "province": "陕西",
+        "value": [
+            107.1449,
+            34.3693
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "秦岭主峰太白山，拥有独特的高山海子和第四纪冰川遗迹，鳌太线最近热度好像很高",
+        "detailsEn": "Taibai Mountain, the main peak of the Qinling Mountains, boasts unique alpine lakes and remnants of Quaternary glaciers; the Aota Line seems to be very popular recently."
+    },
+    {
+        "name": "乐山",
+        "nameEn": "Leshan",
+        "province": "四川",
+        "value": [
+            103.7613,
+            29.5820
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "山是一尊佛，佛是一座山，三江汇流处的乐山大佛气势恢宏，令人肃然起敬",
+        "detailsEn": "The mountain is a Buddha, and the Buddha is a mountain. The Leshan Giant Buddha at the confluence of three rivers is magnificent and awe-inspiring."
+    },
+    {
+        "name": "都江堰",
+        "nameEn": "Dujiangyan",
+        "province": "四川",
+        "value": [
+            103.6194,
+            30.9982
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "两千年前的无坝引水工程奇迹，造就了成都平原的“天府之国”，鱼嘴和宝瓶口智慧无穷",
+        "detailsEn": "A miracle of damless irrigation engineering from two thousand years ago, creating the 'Land of Abundance' in the Chengdu Plain; the Fish Mouth and Bottle-Neck Channel show infinite wisdom."
     }
 ]
