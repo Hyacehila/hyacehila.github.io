@@ -133,6 +133,15 @@
             originalNameEn: city.nameEn
         }));
 
+        // Extract unique visited provinces for highlighting (China map only)
+        const visitedProvinces = [...new Set(citiesData.map(c => c.province).filter(Boolean))];
+        const provinceRegions = mode === 'china' ? visitedProvinces.map(name => ({
+            name: name,
+            itemStyle: {
+                areaColor: 'rgba(255, 219, 112, 0.35)'  // Semi-transparent gold
+            }
+        })) : [];
+
         const option = {
             backgroundColor: 'transparent',
 
@@ -173,7 +182,8 @@
                 emphasis: {
                     disabled: true
                 },
-                silent: true
+                silent: true,
+                regions: provinceRegions  // Highlight visited provinces
             },
 
             series: [{
