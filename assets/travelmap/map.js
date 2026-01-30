@@ -157,14 +157,8 @@
 
             geo: {
                 map: mapName,
-                roam: false, // Disable zoom and pan as per user request
-                // Use left/right/top/bottom to fill container (ECharts 4.x way)
-                left: 0,
-                right: 0,
-                top: 0,
-                bottom: 0,
-                // Aspect ratio adjustment
-                aspectScale: mode === 'china' ? 0.85 : 0.75,
+                roam: false, // Disable zoom and pan
+                // Let ECharts auto-center and auto-size (no manual positioning)
                 label: {
                     show: false
                 },
@@ -174,9 +168,9 @@
                     borderWidth: 0.5
                 },
                 emphasis: {
-                    disabled: true // Disable region hover effect
+                    disabled: true
                 },
-                silent: true // Make geo component non-interactive
+                silent: true
             },
 
             series: [{
