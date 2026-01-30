@@ -54,5 +54,47 @@
         "typeEn": "Travel",
         "details": "一次在三岁的旅行，如果不是有照片我真不知道我来过",
         "detailsEn": "A trip at the age of three, if it weren't for the photos I wouldn't know I came here."
+    },
+    {
+        "name": "哈尔滨",
+        "nameEn": "Harbin",
+        "province": "黑龙江",
+        "value": [
+            126.5295,
+            45.7612
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "CNCC2025，顺便在附近转了转，太阳岛确实值得一去，江边的风景和岛上的小镇都很有特色",
+        "detailsEn": "Attended CNCC2025 and explored the area. Sun Island is definitely worth a visit; the riverside scenery and the island town are quite unique."
+    },
+    {
+        "name": "荆州",
+        "nameEn": "Jingzhou",
+        "province": "湖北",
+        "value": [
+            112.2347,
+            30.3382
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "很匆忙的行程，荆州的博物馆和古塔值得一去， 鱼糕也好吃",
+        "detailsEn": "A rushed trip, but the Jingzhou Museum and the ancient pagoda are worth visiting, and the Yugao is delicious too."
+    },
+    {
+        "name": "杭州",
+        "nameEn": "Hangzhou",
+        "province": "浙江",
+        "value": [
+            120.1614,
+            30.2575
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "跑来面试了一圈顺便旅游，西湖和东湖有点接近，虽然都说杭州无美食，但杭州酒家值得一去",
+        "detailsEn": "Came for an interview and did some sightseeing. West Lake feels similar to East Lake. Although people say Hangzhou lacks good food, Hangzhou Restaurant is definitely worth a visit."
     }
 ]
