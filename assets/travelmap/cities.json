@@ -91,11 +91,11 @@
             116.4074,
             39.9042
         ],
-        "visits": 2,
+        "visits": 3,
         "type": "旅游",
         "typeEn": "Travel",
-        "details": "经典打卡旅游，故宫，长城，天安门；还有一次应该来开会，但是没怎么玩",
-        "detailsEn": "Classic sightseeing trip, visited Forbidden City, Great Wall, Tiananmen Square; also came once for a conference, but didn't have much time to explore."
+        "details": "经典打卡旅游，故宫，长城，天安门；剩下全是出差，北京烤鸭和涮肉还是好吃的",
+        "detailsEn": "Classic sightseeing trip, visited Forbidden City, Great Wall, Tiananmen Square; the rest were all business trips. Beijing Roast Duck and Hot Pot are still delicious."
     },
     {
         "name": "日照",
@@ -320,5 +320,47 @@
         "typeEn": "Home",
         "details": "一个很小的城市，但是很舒服，在这里度过了人生的前18年",
         "detailsEn": "A small city, but very comfortable, spent the first 18 years of my life here."
+    },
+    {
+        "name": "成都",
+        "nameEn": "Chengdu",
+        "province": "四川",
+        "value": [
+            104.0651,
+            30.6762
+        ],
+        "visits": "1",
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "好吃的城市",
+        "detailsEn": "A delicious city."
+    },
+    {
+        "name": "宜昌",
+        "nameEn": "Yichang",
+        "province": "湖北",
+        "value": [
+            111.2956,
+            30.7055
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "三峡还是很壮观，不过游船没什么意思",
+        "detailsEn": "The Three Gorges are still very spectacular, but the cruise wasn't very interesting."
+    },
+    {
+        "name": "神农架",
+        "nameEn": "Shennongjia",
+        "province": "湖北",
+        "value": [
+            111.2956,
+            30.7055
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "神秘的地方",
+        "detailsEn": "A mysterious place."
     }
 ]
