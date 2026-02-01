@@ -1,7 +1,7 @@
 ---
 layout: blog-post
 title:  "安斯库姆四重奏：可视化的力量与统计错觉"
-date: 2026-01-28 22:00:00 +0800
+date: 2026-01-14 12:00:00 +0800
 categories: [统计学]
 tags: [Visualization, EDA, Statistics]
 author: Hyacehila
