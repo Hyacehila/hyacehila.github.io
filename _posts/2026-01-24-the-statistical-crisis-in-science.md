@@ -57,6 +57,10 @@ p-value告诉你：**在零假设为真时**，观察到“和当前结果一样
 
 Yihui的文风确实很有特色，[原文参考](https://yihui.org/cn/2009/02/test-statistical-distributions/) 
 
+对于 p-hacking 或许可以看看这个图，完全依靠重复实验的运气去获得所谓的显著，图来自统计之都
+
+![p-hacking](https://raw.githubusercontent.com/tcya/tcya.github.io/master/assets/images/xkcd_significant.jpg)
+
 ## 关于可视化
 可视化也是统计学一个非常重要的组成部分，从某种意义上讲它是文章最重要的部分，一个美观的图表是读者获取你想表达的内容的最简单方式，而不是大段的文字叙述。遗憾的是在可视化领域的问题不比假设检验更少。Cleveland 在几十年前就讨论图形的各种缺陷，近10年以来学术界对于Barplot的批评也层出不穷，但顶级期刊上依旧遍布质量极差的 Barplot。研究者用它们掩盖实验数据的缺陷，欺骗审稿人与编辑以获得发表机会。
 
