@@ -318,20 +318,18 @@
         }
 
         .blog-content ul>li {
-            padding-left: 28px;
-            position: relative;
+            display: flex;
+            align-items: baseline;
+            padding-left: 0;
         }
 
         .blog-content ul>li::before {
             content: "•";
             color: var(--orange-yellow-crayola);
-            font-size: 1.5em;
+            font-size: 1.2em;
             font-weight: bold;
-            position: absolute;
-            left: 4px;
-            top: 0.85em;
-            transform: translateY(-50%);
-            line-height: 1;
+            margin-right: 8px;
+            flex-shrink: 0;
         }
 
         /* 有序列表 */
