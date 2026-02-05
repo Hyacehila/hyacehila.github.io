@@ -3,7 +3,7 @@ layout: blog-post
 title: "统计与真理：如何运用偶然性 (Statistics and Truth)"
 date: 2026-01-10 12:00:00 +0800
 categories: [统计学]
-tags: [Statistics, Book]
+tags: [Reading Notes]
 author: Hyacehila
 math: true
 excerpt: 在终极的分析中，一切知识都是历史；在抽象的意义下，一切科学都是数学；在理性的基础上，所有的判断都是统计学。—— C.R. Rao。本文重读这本统计学经典，回顾整个统计学的历史以及整个发展中产生的诸多问题。

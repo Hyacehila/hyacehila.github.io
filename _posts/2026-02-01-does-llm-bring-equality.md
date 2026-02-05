@@ -3,9 +3,8 @@ layout: blog-post
 title: "LLM 是否带来技术平权？(Does LLM Bring Equality?)"
 date: 2026-01-04 18:00:00 +0800
 categories: [随笔]
-tags: [LLM, Tech, Society]
+tags: [Society]
 author: Hyacehila
-math: true
 excerpt: ChatGPT 发布以来，AI 被誉为知识的民主化工具。本文探讨大型语言模型（LLM）究竟是促进了知识和技能的普惠，还是加剧了现有的社会不平等，并分析 DeepSeek 等开源模型在其中的调节作用。
 ---
 

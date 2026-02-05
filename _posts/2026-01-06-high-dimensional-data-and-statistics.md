@@ -3,7 +3,7 @@ layout: blog-post
 title: "高维数据与高维统计：挑战、理论与方法"
 date: 2026-01-06 12:00:00 +0800
 categories: [统计学]
-tags: [Statistics, High-Dimensional Data]
+tags: [High-Dimensional Statistics]
 author: Hyacehila
 math: true
 excerpt: 在大数据时代，数据的维度常常远超样本量，这种“高维小样本”情形对传统统计方法构成了严峻挑战。本文探讨了高维数据带来的计算、感知与统计维度的三重挑战，并介绍了统计学界通过降维、正则化与稀疏性假设等方法进行的理论重构与创新。
