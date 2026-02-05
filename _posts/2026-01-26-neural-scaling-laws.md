@@ -3,10 +3,10 @@ layout: blog-post
 title:  About Scaling Laws ?
 date: 2026-01-26 21:00:00 +0800
 categories: [机器学习]
-tags: [Scaling Laws, LLM, TreeModel]  
+tags: [Scaling Laws, LLM, Tree Models, Learning]  
 author: Hyacehila
 math: true
-excerpt: 本文从 Kaplan 定律到 Chinchilla 修正，探讨关于ScalingLaw的研究，并且简单讨论一下TreeModel与ScalingLaw的关系。
+excerpt: 本文从 Kaplan 定律到 Chinchilla 修正，介绍关于ScalingLaw的研究，并且简单讨论一下TreeModel与ScalingLaw的关系。
 ---
 
 # About Scaling Laws ?

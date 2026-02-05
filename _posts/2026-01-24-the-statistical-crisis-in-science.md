@@ -3,9 +3,9 @@ layout: blog-post
 title: The Statistical Crisis in Science
 date: 2026-01-24 10:00:00 +0800
 categories: [统计学]
-tags: [假设检验, p值, p-hacking]
+tags: [Hypothesis Testing, P-Value, P-Hacking]
 author: Hyacehila
-excerpt: 假设检验很强大，但它依赖前提；p 值显著也不等于“结论正确”的概率。
+excerpt: 假设检验很强大，但它依赖前提；p 值显著也不等于“结论正确”的概；任何不精通统计学的人都可能在无意中进行统计造假。
 ---
 
 # The Statistical Crisis in Science

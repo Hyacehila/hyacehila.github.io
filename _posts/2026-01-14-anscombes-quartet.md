@@ -3,7 +3,7 @@ layout: blog-post
 title:  "安斯库姆四重奏：可视化的力量与统计错觉"
 date: 2026-01-14 12:00:00 +0800
 categories: [统计学]
-tags: [Visualization, EDA, Statistics]
+tags: [Learning]
 author: Hyacehila
 math: true
 excerpt: 数值计算是精确的，图表是粗略的？统计学家 Francis Anscombe 用四组神奇的数据集打破了这一成见。本文将通过安斯库姆四重奏（Anscombe's Quartet）深入探讨探索性数据分析（EDA）在统计推断中的必要性。
