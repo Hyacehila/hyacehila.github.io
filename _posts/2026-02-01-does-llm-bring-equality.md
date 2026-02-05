@@ -1,6 +1,6 @@
 ---
 layout: blog-post
-title: "LLM 是否带来技术平权？(Does LLM Bring Equality?)"
+title: LLM 是否带来技术平权？(Does LLM Bring Equality?)
 date: 2026-01-04 18:00:00 +0800
 categories: [随笔]
 tags: [Society]

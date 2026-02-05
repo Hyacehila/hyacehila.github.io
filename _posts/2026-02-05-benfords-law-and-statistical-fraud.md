@@ -1,6 +1,6 @@
 ---
 layout: blog-post
-title:  "数字不会撒谎，但撒谎的人会编数字：从本福特定律聊聊统计造假识别"
+title:  数字不会撒谎，但撒谎的人会编数字：从本福特定律聊聊统计造假识别
 date: 2026-02-05 23:00:00 +0800
 categories: [统计学]
 tags: [Benford's Law, Hypothesis Testing]
