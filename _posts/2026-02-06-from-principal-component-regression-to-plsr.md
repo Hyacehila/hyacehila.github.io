@@ -2,7 +2,7 @@
 layout: blog-post
 title: 从主成分回归 (PCR) 到偏最小二乘 (PLS)
 date: 2026-02-05 12:00:00 +0800
-categories: [Statistics]
+categories: [统计学]
 tags: [Linear Regression]
 author: Hyacehila
 excerpt: 当数据存在多重共线性时，PCR 和 PLSR 都是常用的降维回归方法。本文详细推导了 PCR 与 PLSR 的数学原理，分析了 PCR “只看 X 不看 Y” 的潜在缺陷，并直观解释了 PLSR 如何通过引入因变量相关性来解决这一问题。
