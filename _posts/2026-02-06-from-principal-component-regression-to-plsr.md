@@ -6,7 +6,6 @@ categories: [Statistics]
 tags: [Linear Regression]
 author: Hyacehila
 excerpt: 当数据存在多重共线性时，PCR 和 PLSR 都是常用的降维回归方法。本文详细推导了 PCR 与 PLSR 的数学原理，分析了 PCR “只看 X 不看 Y” 的潜在缺陷，并直观解释了 PLSR 如何通过引入因变量相关性来解决这一问题。
-mathjax: true
 ---
 
 > 本文核心观点和部分内容参考自谢益辉的文章：[主成分回归与偏最小二乘回归](https://yihui.org/cn/2008/09/principle-component-regression-and-partial-least-square-regression/)。
