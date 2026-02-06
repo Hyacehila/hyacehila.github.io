@@ -2,7 +2,7 @@
 layout: blog-post
 title: 基础预测模型的基本限制：多模态与严谨评估的必要性
 date: 2026-02-06 12:00:00 +0800
-categories: [Machine Learning]
+categories: [机器学习]
 tags: [Time Series]
 excerpt: 深度学习在时间序列预测中真的总是有效吗？本文基于 Christoph Bergmeir 在 NeurIPS 2024 的演讲，探讨了基础预测模型的局限性、评估中的陷阱，以及为何多模态上下文才是未来的方向。
 ---
