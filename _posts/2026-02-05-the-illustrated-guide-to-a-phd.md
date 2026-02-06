@@ -1,7 +1,7 @@
 ---
 layout: blog-post
 title: The Illustrated Guide to a Ph.D.
-date: 2026-02-05 23:55:00 +0800
+date: 2026-01-31 23:55:00 +0800
 categories: [随笔]
 tags: [Society]
 author: Hyacehila
