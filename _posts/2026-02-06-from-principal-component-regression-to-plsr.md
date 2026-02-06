@@ -1,7 +1,7 @@
 ---
 layout: blog-post
 title: 从主成分回归 (PCR) 到偏最小二乘 (PLS)
-date: 2026-02-06 12:00:00 +0800
+date: 2026-02-05 12:00:00 +0800
 categories: [Statistics]
 tags: [Linear Regression]
 author: Hyacehila
