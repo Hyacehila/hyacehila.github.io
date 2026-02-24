@@ -380,76 +380,6 @@
 
         </section>
 
-        <section class="timeline experience-section">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="people-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3" data-i18n="experience-title">Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title" data-i18n="experience-cnpcas-title">LLM Agent 算法实习生</h4>
-
-              <div class="experience-meta-row">
-                <span class="experience-company" data-i18n="experience-cnpcas-company">中国科学院地理科学与资源研究所</span>
-                <span class="experience-period">2025.09 — 2025.12</span>
-              </div>
-
-              <div class="project-details">
-                <div class="detail-point">
-                  <strong data-i18n="architecture-design">架构设计</strong><span
-                    data-i18n="experience-cnpcas-architecture">设计并开发基于MCP（Model Context
-                    Protocol）协议的舆情分析多智能体系统，通过解耦Server/Client端，实现工具集（Tools）的热插拔扩展，解决传统Agent工具调用耦合度高的问题。构建的基于统计分析的工具集解决了舆情分析系统缺少整体视角的问题。</span>
-                </div>
-                <div class="detail-point">
-                  <strong data-i18n="concurrency-optimization">并发优化</strong><span
-                    data-i18n="experience-cnpcas-concurrency">基于Async/BatchApi重构数据处理管道，实现对10万+条博文的大规模并发语义理解与清洗，大幅提升数据吞吐量，并可根据数据规模与并发上限随时进一步扩展。</span>
-                </div>
-                <div class="detail-point">
-                  <strong data-i18n="hallucination-suppression">幻觉抑制</strong><span
-                    data-i18n="experience-cnpcas-hallucination">设计"三阶段解耦"工作流（清洗-分析-报告），通过思维链（CoT）追溯机制与预设模板的Prompt工程，有效降低模型生成文本报告时的幻觉率，确保数据来源可验证。</span>
-                </div>
-                <div class="detail-point">
-                  <strong data-i18n="system-implementation">系统落地</strong><span
-                    data-i18n="experience-cnpcas-implementation">独立负责从数据接入到可视化报告生成的端到端系统开发，成果已交付业务团队使用，支持多模态数据输入，可根据使用需求启动局部工作流，单独进行数据清洗或报告生成。</span>
-                </div>
-              </div>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title" data-i18n="experience-placeholder-title">示例职位 / Example Position</h4>
-
-              <div class="experience-meta-row">
-                <span class="experience-company" data-i18n="experience-placeholder-company">示例公司 / Example
-                  Company</span>
-                <span class="experience-period">2024.06 — 2024.09</span>
-              </div>
-
-              <div class="project-details">
-                <div class="detail-point">
-                  <strong data-i18n="experience-placeholder-point1-label">核心工作</strong><span
-                    data-i18n="experience-placeholder-point1">这里是第一条工作内容的详细描述，用于展示排版效果。</span>
-                </div>
-                <div class="detail-point">
-                  <strong data-i18n="experience-placeholder-point2-label">技术成果</strong><span
-                    data-i18n="experience-placeholder-point2">这里是第二条工作内容的详细描述，用于展示多条要点的视觉效果。</span>
-                </div>
-              </div>
-
-            </li>
-
-          </ol>
-
-        </section>
-
         <section class="timeline research-section">
 
           <div class="title-wrapper">
@@ -464,16 +394,98 @@
 
             <li class="timeline-item">
 
+              <h4 class="h4 timeline-item-title" data-i18n="research-analysisposts-title">Trustworthy Public Opinion
+                Analysis Multi-Agent System</h4>
+
+              <span class="research-venue" data-i18n="research-analysisposts-venue">Intelligent Analysis of Urban
+                Security and Public Opinion Based on Multimodal Data Fusion Computing, Original Exploration Program
+                Project of National Natural Science Foundation of China</span>
+
+              <div class="project-details">
+                <div class="detail-point">
+                  <strong data-i18n="research-analysisposts-p1-label">System Architecture</strong><span
+                    data-i18n="research-analysisposts-p1">Designed a three-stage decoupled foundational architecture
+                    based on the PocketFlow Agent Framework. The system integrates and scales trusted
+                    analysis tools via the MCP protocol, and deeply combines Forum multi-Agent debate with multi-round
+                    reflection and traceability mechanisms to build a secure, accurate, and fully reliable Public
+                    Opinion Analysis Agent System.</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="research-analysisposts-p2-label">High-Concurrency Cleaning & Annotation
+                    Pipeline</strong><span data-i18n="research-analysisposts-p2">Constructed a high-concurrency data
+                    processing pipeline
+                    based on Async and MapReduce. Driven by few-shot prompts, deployed LLM Agents to execute
+                    large-scale concurrent cleaning and semantic annotation on massive unordered raw posts. By expanding
+                    API
+                    concurrency limits, the system acquires the capability for rapid processing of million-level
+                    data.</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="research-analysisposts-p3-label">Dynamic Forum Decision Mechanism</strong><span
+                    data-i18n="research-analysisposts-p3">Introduced the ForumHost as a dispatch center during the
+                    analysis
+                    phase. This node dynamically coordinates the DataAgent and SearchAgent to engage in multiple rounds
+                    of
+                    debate and cross-validation, driving them to supplement background data on demand, significantly
+                    enhancing
+                    the logical depth and conclusion reliability of the public opinion analysis.</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="research-analysisposts-p4-label">Multi-Dimensional Source
+                    Cross-Validation</strong><span data-i18n="research-analysisposts-p4">Data Agent leverages
+                    high-quality annotated databases and executes precise quantitative analysis via the MCP toolchain.
+                    Meanwhile, Search Agent utilizes Tavily to retrieve real-time facts from the open web to complete
+                    the event context. Moderated by ForumHost, both Agents conduct adversarial reflection and
+                    cross-supplementation based on each other's intel, thereby achieving a multi-dimensional, in-depth
+                    analysis of complex events.</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="research-analysisposts-p5-label">Transparent and Traceable Analytical
+                    Report</strong><span data-i18n="research-analysisposts-p5">Embedded the Self-reflection mechanism
+                    deep into the dynamic, chapter-by-step construction of the report. The system strictly forces the
+                    model to conduct inline citations for every conclusion, tracing back its information source and
+                    evaluating reliability. This fundamentally blocks the self-reinforcing snowballing hallucinations
+                    common in simple auto-regressive generation, ensuring absolute transparency and factual
+                    rigor.</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="research-analysisposts-p6-label">Full-Pipeline White-Box Dashboard</strong><span
+                    data-i18n="research-analysisposts-p6">Developed and deployed an engineering-grade Streamlit terminal
+                    interface. Beyond offering flexible API configuration, pre-checks, and task flow monitoring, it
+                    completely white-boxes the complex analysis pipeline. Operators can transparently inspect the
+                    scheduling logic of ForumHost and all runtime decision sequences of sub-Agents from the frontend,
+                    delivering the highest level of observability and reliability for the system.</span>
+                </div>
+              </div>
+
+              <div class="research-links">
+                <a href="https://github.com/Hyacehila/AnalysisPosts" class="research-link" target="_blank"
+                  rel="noopener noreferrer">
+                  <ion-icon name="logo-github"></ion-icon>
+                  <span data-i18n="link-code">Code</span>
+                </a>
+              </div>
+
+            </li>
+
+            <li class="timeline-item">
+
               <h4 class="h4 timeline-item-title" data-i18n="research-ptsd-title">Unveiling the Drivers of PTSD: An
                 Interpretable Machine Learning Approach with SHAP</h4>
 
               <span class="research-venue" data-i18n="research-ptsd-venue">International Conference on Intelligent
-                Computing and Data Analysis (ICIDA) 2025</span>
+                Computing and Data Analysis 2025 ; EI</span>
 
               <div class="project-details">
                 <div class="detail-point">
-                  <span
-                    data-i18n="research-ptsd-detail">本文采用可解释机器学习方法（SHAP与PDP）构建随机森林模型，深入分析了903名应急人员的PTSD影响因素。研究揭示了心理韧性作为核心保护因素对PTSD的显著缓冲作用，并发现年龄存在U型效应等非线性规律。</span>
+                  <strong data-i18n="research-ptsd-tech-label">研究与技术方案</strong><span
+                    data-i18n="research-ptsd-tech">为深入分析903名应急人员的PTSD影响因素，采用可解释机器学习架构。构建基于决策树集成的随机森林预测模型，并引入SHAP（Shapley
+                    Additive exPlanations）和PDP（Partial Dependence Plots）对黑盒模型进行全方位解构，结合Friedman
+                    H-statistic深度验证变量间的复杂非线性交互效应。</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="research-ptsd-result-label">核心发现与结论</strong><span
+                    data-i18n="research-ptsd-result">精准量化了心理韧性对PTSD的缓冲作用（SHAP值为0.5061），并敏锐捕捉到年龄分布上的U型非线性规律。研究不仅验证了韧性、年龄与创伤暴露间的深层交互模式，更为不同年龄段的高危职业人群提供了数据驱动的差异化干预基准。</span>
                 </div>
               </div>
 
@@ -492,25 +504,7 @@
 
             </li>
 
-            <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title" data-i18n="research-placeholder-title">Example Research Project Title
-              </h4>
-
-              <span class="research-venue" data-i18n="research-placeholder-venue">Conference / Journal Name, 2025</span>
-
-              <div class="research-links">
-                <a href="#" class="research-link" target="_blank" rel="noopener noreferrer">
-                  <ion-icon name="document-text-outline"></ion-icon>
-                  <span data-i18n="link-paper">Paper</span>
-                </a>
-                <a href="#" class="research-link" target="_blank" rel="noopener noreferrer">
-                  <ion-icon name="logo-github"></ion-icon>
-                  <span data-i18n="link-code">Code</span>
-                </a>
-              </div>
-
-            </li>
 
           </ol>
 
@@ -529,19 +523,19 @@
           <ol class="timeline-list">
 
             <li class="timeline-item">
-              <h4 class="h4 timeline-item-title" data-i18n="award-modeling">全国大学生统计建模大赛 赛区一等奖</h4>
+              <h4 class="h4 timeline-item-title" data-i18n="award-modeling">全国大学生统计建模大赛陕西省一等奖</h4>
             </li>
 
             <li class="timeline-item">
-              <h4 class="h4 timeline-item-title" data-i18n="award-innovation">国家级大学生创新创业训练计划 国家级立项</h4>
+              <h4 class="h4 timeline-item-title" data-i18n="award-sas">中国高校SAS数据分析大赛全国三等奖</h4>
             </li>
 
             <li class="timeline-item">
-              <h4 class="h4 timeline-item-title" data-i18n="award-scholarship">示例奖学金 / Example Scholarship</h4>
+              <h4 class="h4 timeline-item-title" data-i18n="award-mcm">美国大学生数学建模竞赛二等奖</h4>
             </li>
 
             <li class="timeline-item">
-              <h4 class="h4 timeline-item-title" data-i18n="award-cert">CET-6 英语六级</h4>
+              <h4 class="h4 timeline-item-title" data-i18n="award-cet">CET4: 510 | CET6: 513</h4>
             </li>
 
           </ol>
@@ -864,17 +858,33 @@
         "experience-cnpcas-result": "Successfully built a processing system supporting 30K+ blog data with 300% improvement in processing efficiency; Four-dimensional analysis accuracy reached over 85%; System adopted by multiple research teams for policy making data support; Achieved full transparency in analysis process with 95%+ data citation verification rate.",
         "research-title": "Research",
         "research-ptsd-title": "Unveiling the Drivers of PTSD: An Interpretable Machine Learning Approach with SHAP",
-        "research-ptsd-venue": "International Conference on Intelligent Computing and Data Analysis (ICIDA) 2025",
-        "research-ptsd-detail": "This study employs interpretable machine learning methods (SHAP and PDP) to construct a random forest model, deeply analyzing PTSD influencing factors among 903 emergency responders. The research reveals that psychological resilience serves as a core protective factor with significant buffering effects on PTSD, and identifies non-linear patterns including U-shaped age effects.",
-        "research-placeholder-title": "Example Research Project Title",
+        "research-ptsd-venue": "International Conference on Intelligent Computing and Data Analysis 2025 ; EI",
+        "research-ptsd-tech-label": "Research & Technology",
+        "research-ptsd-tech": "To deeply analyze PTSD influencing factors among 903 emergency responders, an interpretable machine learning architecture was employed. Constructed a Random Forest prediction model based on decision tree ensembles, and introduced SHAP (Shapley Additive exPlanations) and PDP (Partial Dependence Plots) to comprehensively deconstruct the black-box model, combined with Friedman H-statistic to profoundly validate complex non-linear interaction effects between variables.",
+        "research-ptsd-result-label": "Findings & Conclusion",
+        "research-ptsd-result": "Accurately quantified the buffering effect of psychological resilience on PTSD (SHAP value 0.5061) and keenly captured the U-shaped non-linear pattern in age distribution. The study not only verified deep interaction patterns among resilience, age, and trauma exposure but also provided data-driven differentiated intervention baselines for high-risk occupational groups.",
+        "research-analysisposts-title": "Trustworthy Public Opinion Analysis Multi-Agent System",
+        "research-analysisposts-venue": "Intelligent Analysis of Urban Security and Public Opinion Based on Multimodal Data Fusion Computing, Original Exploration Program Project of National Natural Science Foundation of China",
+        "research-analysisposts-p1-label": "System Architecture",
+        "research-analysisposts-p1": " Designed a three-stage decoupled foundational architecture based on the PocketFlow Agent Framework. The system integrates and scales trusted analysis tools via the MCP protocol, and deeply combines Forum multi-Agent debate with multi-round reflection and traceability mechanisms to build a secure, accurate, and fully reliable Public Opinion Analysis Agent System.",
+        "research-analysisposts-p2-label": "High-Concurrency Cleaning & Annotation Pipeline",
+        "research-analysisposts-p2": " Constructed a high-concurrency data processing pipeline based on Async and MapReduce. Driven by few-shot prompts, deployed LLM Agents to execute large-scale concurrent cleaning and semantic annotation on massive unordered raw posts. By expanding API concurrency limits, the system acquires the capability for rapid processing of million-level data.",
+        "research-analysisposts-p3-label": "Dynamic Forum Decision Mechanism",
+        "research-analysisposts-p3": " Introduced the ForumHost as a dispatch center during the analysis phase. This node dynamically coordinates the DataAgent and SearchAgent to engage in multiple rounds of debate and cross-validation, driving them to supplement background data on demand, significantly enhancing the logical depth and conclusion reliability of the public opinion analysis.",
+        "research-analysisposts-p4-label": "Multi-Dimensional Source Cross-Validation",
+        "research-analysisposts-p4": " Data Agent leverages high-quality annotated databases and executes precise quantitative analysis via the MCP toolchain. Meanwhile, Search Agent utilizes Tavily to retrieve real-time facts from the open web to complete the event context. Moderated by ForumHost, both Agents conduct adversarial reflection and cross-supplementation based on each other's intel, thereby achieving a multi-dimensional, in-depth analysis of complex events.",
+        "research-analysisposts-p5-label": "Transparent and Traceable Analytical Report",
+        "research-analysisposts-p5": " Embedded the Self-reflection mechanism deep into the dynamic, chapter-by-step construction of the report. The system strictly forces the model to conduct inline citations for every conclusion, tracing back its information source and evaluating reliability. This fundamentally blocks the self-reinforcing snowballing hallucinations common in simple auto-regressive generation, ensuring absolute transparency and factual rigor.",
+        "research-analysisposts-p6-label": "Full-Pipeline White-Box Dashboard",
+        "research-analysisposts-p6": " Developed and deployed an engineering-grade Streamlit terminal interface. Beyond offering flexible API configuration, pre-checks, and task flow monitoring, it completely white-boxes the complex analysis pipeline. Operators can transparently inspect the scheduling logic of ForumHost and all runtime decision sequences of sub-Agents from the frontend, delivering the highest level of observability and reliability for the system.",
         "research-placeholder-venue": "Conference / Journal Name, 2025",
         "link-paper": "Paper",
         "link-code": "Code",
         "awards-title": "Awards & Certificates",
-        "award-modeling": "National Statistics Modeling Competition - Regional First Prize",
-        "award-innovation": "National Innovation Training Program - National Level Project",
-        "award-scholarship": "Example Scholarship",
-        "award-cert": "CET-6 English Proficiency",
+        "award-modeling": "First Prize in Shaanxi Province, National College Students Statistical Modeling Competition",
+        "award-sas": "Third Prize National, SAS China University Data Analysis Competition",
+        "award-mcm": "Second Prize, Mathematical Contest in Modeling (MCM/ICM)",
+        "award-cet": "CET4: 510 | CET6: 513",
         "portfolio-title": "Projects",
         "project-mental-title": "Mental Health Monitoring via Wearable Tech",
         "project-mental-desc": "National Innovation Training Program project",
@@ -978,17 +988,33 @@
         "experience-cnpcas-result": "成功构建支持3万条博文数据的处理系统，处理效率提升300%；四维度分析准确率达85%以上；系统被研究所多个团队采用，为政策制定提供数据支持；实现分析过程全透明化，数据引用验证率达95%以上。",
         "research-title": "研究",
         "research-ptsd-title": "Unveiling the Drivers of PTSD: An Interpretable Machine Learning Approach with SHAP",
-        "research-ptsd-venue": "International Conference on Intelligent Computing and Data Analysis (ICIDA) 2025",
-        "research-ptsd-detail": "本文采用可解释机器学习方法（SHAP与PDP）构建随机森林模型，深入分析了903名应急人员的PTSD影响因素。研究揭示了心理韧性作为核心保护因素对PTSD的显著缓冲作用，并发现年龄存在U型效应等非线性规律。",
-        "research-placeholder-title": "示例研究项目标题",
+        "research-ptsd-venue": "International Conference on Intelligent Computing and Data Analysis 2025 ; EI",
+        "research-ptsd-tech-label": "研究与技术方案",
+        "research-ptsd-tech": "为深入分析903名应急人员的PTSD影响因素，采用可解释机器学习架构。构建基于决策树集成的随机森林预测模型，并引入SHAP（Shapley Additive exPlanations）和PDP（Partial Dependence Plots）对黑盒模型进行全方位解构，结合Friedman H-statistic深度验证变量间的复杂非线性交互效应。",
+        "research-ptsd-result-label": "核心发现与结论",
+        "research-ptsd-result": "精准量化了心理韧性对PTSD的缓冲作用（SHAP值为0.5061），并敏锐捕捉到年龄分布上的U型非线性规律。研究不仅验证了韧性、年龄与创伤暴露间的深层交互模式，更为不同年龄段的高危职业人群提供了数据驱动的差异化干预基准。",
+        "research-analysisposts-title": "可信舆情分析多 Agent 系统",
+        "research-analysisposts-venue": "基于多模态数据融合计算的城市安全与舆情智能分析，为国家自然科学基金原创探索计划项目",
+        "research-analysisposts-p1-label": "舆情分析Agent整体架构",
+        "research-analysisposts-p1": " 基于 PocketFlow Agent Framework 设计三阶段解耦的基础运行架构。系统通过 MCP 协议集成和扩展可信分析工具，并深度融合 Forum 多 Agent 辩论与多轮反思溯源机制，致力于构建一个安全、精确且完全可信赖的舆情分析Agent系统。",
+        "research-analysisposts-p2-label": "高并发指令与标注管道",
+        "research-analysisposts-p2": " 基于 Async 与 MapReduce 构建高并发数据处理管道，利用 few-shot 提示驱动 LLM Agent，对海量无序的原始博文进行大规模并发清洗与语义标注。通过扩展 API 并发上限，系统具备百万级数据的极速处理能力。",
+        "research-analysisposts-p3-label": "动态论坛决策机制",
+        "research-analysisposts-p3": " 在分析阶段引入 ForumHost 作为调度中枢。该节点通过动态协调 DataAgent 与 SearchAgent 展开多轮辩论与信息交叉验证，驱动其按需补充背景数据，显著提升了舆情分析的逻辑深度与结论可靠性。",
+        "research-analysisposts-p4-label": "多维信源交叉验证",
+        "research-analysisposts-p4": " Data Agent 依托高质量的标注数据，通过 MCP 工具链执行精准的量化统计分析；Search Agent 则紧扣分析目标，调用 Tavily 实时检索全网事实以补全事件上下文。在 ForumHost 的调度下，双 Agent 针对彼此提交的情报开展对抗式反思与交叉补充，从而实现对复杂事件的多维深度剖析。",
+        "research-analysisposts-p5-label": "透明可溯源分析报告",
+        "research-analysisposts-p5": " 将自我反思机制深度植入报告的逐章动态构建中。强制要求模型在正文中对其每一个结论进行严格的内联引用，并反溯信息源与可靠性评分。此举在根本上阻断了传统自回归生成中极易衍生和自我强化的雪球式幻觉，确保分析事实严谨可见。",
+        "research-analysisposts-p6-label": "全链路白盒化前端管控",
+        "research-analysisposts-p6": " 开发部署工程级 Streamlit 终端交互界面。不仅提供灵活的 API 配置、前置自检及进度流可视化，更实现了对复杂分析链路的彻底白盒化，允许分析员从前端穿透检查 ForumHost 调度逻辑及各子 Agent 的所有多轮对话与运行时决策信息，为系统交付了最高级别的可监督性与流程可靠度。",
         "research-placeholder-venue": "会议 / 期刊名称, 2025",
         "link-paper": "论文",
         "link-code": "代码",
         "awards-title": "奖项与证书",
-        "award-modeling": "全国大学生统计建模大赛 赛区一等奖",
-        "award-innovation": "国家级大学生创新创业训练计划 国家级立项",
-        "award-scholarship": "示例奖学金",
-        "award-cert": "CET-6 英语六级",
+        "award-modeling": "全国大学生统计建模大赛陕西省一等奖",
+        "award-sas": "中国高校SAS数据分析大赛全国三等奖",
+        "award-mcm": "美国大学生数学建模竞赛二等奖",
+        "award-cet": "CET4: 510 | CET6: 513",
         "portfolio-title": "项目",
         "project-mental-title": "基于可穿戴设备技术的心理健康检测方案",
         "project-mental-desc": "国家级大学生创新创业训练计划项目",
