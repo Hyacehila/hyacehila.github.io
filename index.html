@@ -380,6 +380,59 @@
 
         </section>
 
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3" data-i18n="experience-title">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="experience-nsfocus-title-company">Algorithm Researcher
+                (Intern) | NSFOCUS Technology (Wuhan)</h4>
+
+              <span>Dec 2025 — Present</span>
+
+              <div class="project-details">
+                <div class="detail-point">
+                  <strong data-i18n="experience-nsfocus-p1-label">Post-Training Data Collection & Curation</strong><span
+                    data-i18n="experience-nsfocus-p1">Developed an automated preprocessing engine for massive
+                    unstructured data from open-source platforms (e.g., GitHub SecurityLab). Achieved CVE entity
+                    validation through regex matching and source code Diff extraction, and performed multi-dimensional
+                    CWE/OWASP feature annotation based on the authoritative vuln-node library. Designed and implemented
+                    a hybrid sampling algorithm supporting dynamic thresholds and tail-class oversampling to provide a
+                    high-quality, distribution-balanced data foundation for model post-training.</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="experience-nsfocus-p2-label">Agent-in-the-Loop SFT Trajectory
+                    Pipeline</strong><span data-i18n="experience-nsfocus-p2">Designed a single-agent closed-loop
+                    decision pipeline for code review: Information Retrieval → Source Browsing → Taint Analysis → CodeQL
+                    Verification. Leveraged model self-reflection and error trace feedback in real sandboxes to produce
+                    and curate structured SFT data with high-quality tool-calling trajectories at scale, significantly
+                    mitigating invalid exploration and hallucination during cold-start.</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="experience-nsfocus-p3-label">RL-Stage Data Strategy & Reward Design</strong><span
+                    data-i18n="experience-nsfocus-p3">Planned a coreset extraction pipeline of "LSH pre-filtering +
+                    Faiss vector retrieval + K-center Greedy" to maximize data information entropy for the RL
+                    exploration stage. Designed a dynamic reward system covering path accuracy and reproduction rate
+                    based on LLM Rubric, and innovatively introduced "Reward for Refusal" for extremely hard samples to
+                    broaden model capability boundaries (Pass@128).</span>
+                </div>
+              </div>
+
+            </li>
+
+          </ol>
+
+        </section>
+
         <section class="timeline research-section">
 
           <div class="title-wrapper">
@@ -411,7 +464,7 @@
                     Opinion Analysis Agent System.</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="research-analysisposts-p2-label">High-Concurrency Cleaning & Annotation
+                  <strong data-i18n="research-analysisposts-p2-label">High-Concurrency Cleaning &amp; Annotation
                     Pipeline</strong><span data-i18n="research-analysisposts-p2">Constructed a high-concurrency data
                     processing pipeline
                     based on Async and MapReduce. Driven by few-shot prompts, deployed LLM Agents to execute
@@ -841,6 +894,13 @@
         "education-wuhan": "Currently pursuing Master's degree in Applied Statistics, with research focusing on LLM Agent, Evaluation, and Agentic Reinforcement Learning. Aiming to build powerful LLM AI Agents to solve real-world problems.",
         "education-xidian": "Bachelor's degree in Statistics from Xidian University. Systematically studied fundamental statistical theories with deep expertise in applied fields including machine learning, data analysis, and data mining. Ranked 2/30 overall and was recommended for admission to Wuhan University for Master's degree without examination.",
         "experience-title": "Experience",
+        "experience-nsfocus-title-company": "Algorithm Researcher (Intern) | NSFOCUS Technology (Wuhan)",
+        "experience-nsfocus-p1-label": "Post-Training Data Collection & Curation",
+        "experience-nsfocus-p1": "Developed an automated preprocessing engine for massive unstructured data from open-source platforms (e.g., GitHub SecurityLab). Achieved CVE entity validation through regex matching and source code Diff extraction, and performed multi-dimensional CWE/OWASP feature annotation based on the authoritative vuln-node library. Designed and implemented a hybrid sampling algorithm supporting dynamic thresholds and tail-class oversampling to provide a high-quality, distribution-balanced data foundation for model post-training.",
+        "experience-nsfocus-p2-label": "Agent-in-the-Loop SFT Trajectory Pipeline",
+        "experience-nsfocus-p2": "Designed a single-agent closed-loop decision pipeline for code review: Information Retrieval → Source Browsing → Taint Analysis → CodeQL Verification. Leveraged model self-reflection and error trace feedback in real sandboxes to produce and curate structured SFT data with high-quality tool-calling trajectories at scale, significantly mitigating invalid exploration and hallucination during cold-start.",
+        "experience-nsfocus-p3-label": "RL-Stage Data Strategy & Reward Design",
+        "experience-nsfocus-p3": "Planned a coreset extraction pipeline of 'LSH pre-filtering + Faiss vector retrieval + K-center Greedy' to maximize data information entropy for the RL exploration stage. Designed a dynamic reward system covering path accuracy and reproduction rate based on LLM Rubric, and innovatively introduced 'Reward for Refusal' for extremely hard samples to broaden model capability boundaries (Pass@128).",
         "experience-cnpcas-title": "LLM Agent Intern",
         "experience-cnpcas-company": "Institute of Geographic Sciences and Natural Resources Research, CAS",
         "experience-cnpcas-title-company": "LLM Agent Algorithm Intern | CAS",
@@ -971,6 +1031,13 @@
         "education-wuhan": "现于应用统计专业攻读硕士学位，主要研究领域为LLM Agent, Evaluation 与Agentic Reinforecement Learning。构建Powerful的LLM AI Agent，解决现实存在的问题。",
         "education-xidian": "于西安电子科技大学获得统计学学士学位。系统学习了统计学基础理论，深耕机器学习、数据分析与数据挖掘等应用领域。综合排名2/30，推荐免试至武汉大学攻读硕士学位。",
         "experience-title": "工作经历",
+        "experience-nsfocus-title-company": "算法研究员（实习） | 绿盟科技（武汉）",
+        "experience-nsfocus-p1-label": "后训练数据收集与策展",
+        "experience-nsfocus-p1": "针对海量 GitHub SecurityLab 等开源非结构化数据，开发自动化预处理引擎。通过正则匹配与源码 Diff 提取完成 CVE 实体校验，并基于 vuln-node 权威库进行 CWE/OWASP 多维特征标注。设计并落地支持动态阈值与尾部扩增（Oversampling）的混合采样算法，为模型后训练提供高质量、分布均衡的数据基座。",
+        "experience-nsfocus-p2-label": "Agent 闭环 SFT 轨迹沉淀",
+        "experience-nsfocus-p2": "设计面向代码审查的'信息检索→源码浏览→污点分析→CodeQL验证'单体 Agent 决策闭环，利用模型在真实沙盒中的自我反思（Reflection）与环境报错（Error Trace）反馈，规模化产出并沉淀包含高质量工具调用的结构化 SFT 数据，显著缓解冷启动阶段的无效探索与幻觉问题。",
+        "experience-nsfocus-p3-label": "RL 阶段数据策略与 Reward 设计",
+        "experience-nsfocus-p3": "规划'LSH初筛+Faiss向量检索+K-center Greedy'的核心集提取流水线以最大化数据信息熵；基于 LLM Rubric 设计涵盖路径准确率、复现率的动态奖励体系，并创新引入针对极难样本的'拒绝奖励（Reward for Refusal）'，旨在拓宽模型能力边界（Pass@128）。",
         "experience-cnpcas-title": "LLM Agent 实习生",
         "experience-cnpcas-company": "中科院地理科学与资源研究所",
         "experience-cnpcas-title-company": "LLM Agent算法实习生 | 中国科学院地理科学与资源研究所",
