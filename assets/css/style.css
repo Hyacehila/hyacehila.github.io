@@ -1002,10 +1002,10 @@ main {
 .timeline-item:not(:last-child)::before {
   content: "";
   position: absolute;
-  top: -25px;
+  top: 18px;
   left: -30px;
   width: 1px;
-  height: calc(100% + 50px);
+  height: calc(100% - 6px);
   background: var(--jet);
 }
 
@@ -1104,6 +1104,140 @@ main {
   display: none;
 }
 
+
+/**
+ * experience - optimized layout
+ */
+
+/* 工作经历元信息行：公司名 + 时间一行展示 */
+.experience-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.experience-meta-row .experience-company {
+  color: var(--light-gray);
+  font-weight: var(--fw-400);
+  font-size: var(--fs-7);
+}
+
+.experience-meta-row .experience-period {
+  color: var(--vegas-gold);
+  font-weight: var(--fw-400);
+  font-size: var(--fs-8);
+  flex-shrink: 0;
+  opacity: 0.8;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.experience-meta-row .experience-period::before {
+  content: "📅";
+  font-size: 11px;
+}
+
+/* 工作经历条目间距加大 */
+.experience-section .timeline-item:not(:last-child) {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* detail-point 前添加小圆点装饰 */
+.timeline-item .detail-point {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 2px;
+}
+
+.timeline-item .detail-point::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 4px;
+  height: 4px;
+  background: var(--orange-yellow-crayola);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+
+/**
+ * research - links & venue styles
+ */
+
+/* 科研经历圆点外发光 */
+.research-section .timeline-item::after {
+  box-shadow: 0 0 0 4px var(--jet), 0 0 8px 2px rgba(255, 215, 0, 0.35);
+}
+
+/* 来源行（会议/期刊等） */
+.research-venue {
+  color: var(--light-gray-70);
+  font-style: italic;
+  font-size: var(--fs-7);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+/* 科研外链按钮容器 */
+.research-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* 科研外链按钮 - pill 形状徽章 */
+.research-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  background: var(--eerie-black-1);
+  border: 1px solid var(--jet);
+  border-radius: 20px;
+  color: var(--light-gray) !important;
+  font-size: var(--fs-8);
+  font-weight: var(--fw-400);
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.research-link ion-icon {
+  font-size: 14px;
+  color: var(--light-gray-70);
+  transition: color 0.25s ease;
+}
+
+.research-link span {
+  display: inline;
+}
+
+.research-link:hover {
+  border-color: var(--orange-yellow-crayola);
+  color: var(--orange-yellow-crayola) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.15);
+}
+
+.research-link:hover ion-icon {
+  color: var(--orange-yellow-crayola);
+}
+
+
+/**
+ * awards & certificates - using timeline-list instead
+ */
 
 
 /**
