@@ -380,7 +380,7 @@
 
         </section>
 
-        <section class="timeline">
+        <section class="timeline experience-section">
 
           <div class="title-wrapper">
             <div class="icon-box">
@@ -394,10 +394,12 @@
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title" data-i18n="experience-cnpcas-title-company">LLM Agent算法实习生 | <span
-                  class="experience-company">中国科学院地理科学与资源研究所</span></h4>
+              <h4 class="h4 timeline-item-title" data-i18n="experience-cnpcas-title">LLM Agent 算法实习生</h4>
 
-              <span class="experience-period">2025.09 — 2025.12</span>
+              <div class="experience-meta-row">
+                <span class="experience-company" data-i18n="experience-cnpcas-company">中国科学院地理科学与资源研究所</span>
+                <span class="experience-period">2025.09 — 2025.12</span>
+              </div>
 
               <div class="project-details">
                 <div class="detail-point">
@@ -421,11 +423,34 @@
 
             </li>
 
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="experience-placeholder-title">示例职位 / Example Position</h4>
+
+              <div class="experience-meta-row">
+                <span class="experience-company" data-i18n="experience-placeholder-company">示例公司 / Example
+                  Company</span>
+                <span class="experience-period">2024.06 — 2024.09</span>
+              </div>
+
+              <div class="project-details">
+                <div class="detail-point">
+                  <strong data-i18n="experience-placeholder-point1-label">核心工作</strong><span
+                    data-i18n="experience-placeholder-point1">这里是第一条工作内容的详细描述，用于展示排版效果。</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="experience-placeholder-point2-label">技术成果</strong><span
+                    data-i18n="experience-placeholder-point2">这里是第二条工作内容的详细描述，用于展示多条要点的视觉效果。</span>
+                </div>
+              </div>
+
+            </li>
+
           </ol>
 
         </section>
 
-        <section class="timeline">
+        <section class="timeline research-section">
 
           <div class="title-wrapper">
             <div class="icon-box">
@@ -437,7 +462,87 @@
 
           <ol class="timeline-list">
 
-            <!-- Research items will be added here -->
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="research-ptsd-title">Unveiling the Drivers of PTSD: An
+                Interpretable Machine Learning Approach with SHAP</h4>
+
+              <span class="research-venue" data-i18n="research-ptsd-venue">International Conference on Intelligent
+                Computing and Data Analysis (ICIDA) 2025</span>
+
+              <div class="project-details">
+                <div class="detail-point">
+                  <span
+                    data-i18n="research-ptsd-detail">本文采用可解释机器学习方法（SHAP与PDP）构建随机森林模型，深入分析了903名应急人员的PTSD影响因素。研究揭示了心理韧性作为核心保护因素对PTSD的显著缓冲作用，并发现年龄存在U型效应等非线性规律。</span>
+                </div>
+              </div>
+
+              <div class="research-links">
+                <a href="https://doi.org/10.1145/3772726.3772849" class="research-link" target="_blank"
+                  rel="noopener noreferrer">
+                  <ion-icon name="document-text-outline"></ion-icon>
+                  <span data-i18n="link-paper">Paper</span>
+                </a>
+                <a href="https://github.com/Hyacehila/PTSD-IML" class="research-link" target="_blank"
+                  rel="noopener noreferrer">
+                  <ion-icon name="logo-github"></ion-icon>
+                  <span data-i18n="link-code">Code</span>
+                </a>
+              </div>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="research-placeholder-title">Example Research Project Title
+              </h4>
+
+              <span class="research-venue" data-i18n="research-placeholder-venue">Conference / Journal Name, 2025</span>
+
+              <div class="research-links">
+                <a href="#" class="research-link" target="_blank" rel="noopener noreferrer">
+                  <ion-icon name="document-text-outline"></ion-icon>
+                  <span data-i18n="link-paper">Paper</span>
+                </a>
+                <a href="#" class="research-link" target="_blank" rel="noopener noreferrer">
+                  <ion-icon name="logo-github"></ion-icon>
+                  <span data-i18n="link-code">Code</span>
+                </a>
+              </div>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="trophy-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3" data-i18n="awards-title">Awards & Certificates</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title" data-i18n="award-modeling">全国大学生统计建模大赛 赛区一等奖</h4>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title" data-i18n="award-innovation">国家级大学生创新创业训练计划 国家级立项</h4>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title" data-i18n="award-scholarship">示例奖学金 / Example Scholarship</h4>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title" data-i18n="award-cert">CET-6 英语六级</h4>
+            </li>
 
           </ol>
 
@@ -758,6 +863,18 @@
         "experience-cnpcas-action": "Designed three-stage decoupled architecture (enhancement processing → analysis execution → report generation) with DispatcherNode for central scheduling; Integrated GLM4.5V, GLM4.6 and other large language models, developed four-dimensional parallel analysis system; Developed four types of analysis toolkits based on MCP protocol, implemented Agent autonomous tool scheduling; Built thinking process recording and data citation verification mechanisms to ensure analysis result reliability.",
         "experience-cnpcas-result": "Successfully built a processing system supporting 30K+ blog data with 300% improvement in processing efficiency; Four-dimensional analysis accuracy reached over 85%; System adopted by multiple research teams for policy making data support; Achieved full transparency in analysis process with 95%+ data citation verification rate.",
         "research-title": "Research",
+        "research-ptsd-title": "Unveiling the Drivers of PTSD: An Interpretable Machine Learning Approach with SHAP",
+        "research-ptsd-venue": "International Conference on Intelligent Computing and Data Analysis (ICIDA) 2025",
+        "research-ptsd-detail": "This study employs interpretable machine learning methods (SHAP and PDP) to construct a random forest model, deeply analyzing PTSD influencing factors among 903 emergency responders. The research reveals that psychological resilience serves as a core protective factor with significant buffering effects on PTSD, and identifies non-linear patterns including U-shaped age effects.",
+        "research-placeholder-title": "Example Research Project Title",
+        "research-placeholder-venue": "Conference / Journal Name, 2025",
+        "link-paper": "Paper",
+        "link-code": "Code",
+        "awards-title": "Awards & Certificates",
+        "award-modeling": "National Statistics Modeling Competition - Regional First Prize",
+        "award-innovation": "National Innovation Training Program - National Level Project",
+        "award-scholarship": "Example Scholarship",
+        "award-cert": "CET-6 English Proficiency",
         "portfolio-title": "Projects",
         "project-mental-title": "Mental Health Monitoring via Wearable Tech",
         "project-mental-desc": "National Innovation Training Program project",
@@ -860,6 +977,18 @@
         "experience-cnpcas-action": "设计三阶段解耦架构（增强处理→分析执行→报告生成），通过DispatcherNode实现中央调度；集成GLM4.5V、GLM4.6等大语言模型，开发四维度并行分析系统；基于MCP协议开发四类分析工具集，实现Agent自主工具调度；构建思考过程记录和数据引用验证机制，确保分析结果可靠性。",
         "experience-cnpcas-result": "成功构建支持3万条博文数据的处理系统，处理效率提升300%；四维度分析准确率达85%以上；系统被研究所多个团队采用，为政策制定提供数据支持；实现分析过程全透明化，数据引用验证率达95%以上。",
         "research-title": "研究",
+        "research-ptsd-title": "Unveiling the Drivers of PTSD: An Interpretable Machine Learning Approach with SHAP",
+        "research-ptsd-venue": "International Conference on Intelligent Computing and Data Analysis (ICIDA) 2025",
+        "research-ptsd-detail": "本文采用可解释机器学习方法（SHAP与PDP）构建随机森林模型，深入分析了903名应急人员的PTSD影响因素。研究揭示了心理韧性作为核心保护因素对PTSD的显著缓冲作用，并发现年龄存在U型效应等非线性规律。",
+        "research-placeholder-title": "示例研究项目标题",
+        "research-placeholder-venue": "会议 / 期刊名称, 2025",
+        "link-paper": "论文",
+        "link-code": "代码",
+        "awards-title": "奖项与证书",
+        "award-modeling": "全国大学生统计建模大赛 赛区一等奖",
+        "award-innovation": "国家级大学生创新创业训练计划 国家级立项",
+        "award-scholarship": "示例奖学金",
+        "award-cert": "CET-6 英语六级",
         "portfolio-title": "项目",
         "project-mental-title": "基于可穿戴设备技术的心理健康检测方案",
         "project-mental-desc": "国家级大学生创新创业训练计划项目",
