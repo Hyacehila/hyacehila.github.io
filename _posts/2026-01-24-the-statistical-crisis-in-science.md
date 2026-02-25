@@ -6,6 +6,7 @@ categories: [统计学]
 tags: [Hypothesis Testing, P-Value, P-Hacking]
 author: Hyacehila
 excerpt: 假设检验很强大，但它依赖前提；p 值显著也不等于“结论正确”的概；任何不精通统计学的人都可能在无意中进行统计造假。
+featured: true
 ---
 
 # The Statistical Crisis in Science
