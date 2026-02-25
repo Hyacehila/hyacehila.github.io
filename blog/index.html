@@ -486,6 +486,7 @@
           <button class="active" onclick="filterPosts('all', this)">全部文章</button>
           <button onclick="filterPosts('series', this)">系列文章</button>
           <button onclick="filterPosts('single', this)">单篇文章</button>
+          <button onclick="filterPosts('featured', this)">得意之作</button>
         </section>
 
         <!-- 分类和标签筛选区域 -->
@@ -493,26 +494,30 @@
           <div class="filter-row">
             <span class="filter-label">分类:</span>
             <div class="filter-buttons filter-category-buttons">
-              <button class="filter-btn active" data-filter-type="category" data-filter-value="all" onclick="filterByCategory('all', this)">全部</button>
+              <button class="filter-btn active" data-filter-type="category" data-filter-value="all"
+                onclick="filterByCategory('all', this)">全部</button>
               {% assign unique_categories = '' %}
               {% for post in site.posts %}
-                {% if post.categories.size > 0 %}
-                  {% assign category = post.categories[0] %}
-                  {% unless unique_categories contains category %}
-                    <button class="filter-btn" data-filter-type="category" data-filter-value="{{ category }}" onclick="filterByCategory('{{ category }}', this)">{{ category }}</button>
-                    {% assign unique_categories = unique_categories | append: category | append: ',' %}
-                  {% endunless %}
-                {% endif %}
+              {% if post.categories.size > 0 %}
+              {% assign category = post.categories[0] %}
+              {% unless unique_categories contains category %}
+              <button class="filter-btn" data-filter-type="category" data-filter-value="{{ category }}"
+                onclick="filterByCategory('{{ category }}', this)">{{ category }}</button>
+              {% assign unique_categories = unique_categories | append: category | append: ',' %}
+              {% endunless %}
+              {% endif %}
               {% endfor %}
             </div>
           </div>
           <div class="filter-row">
             <span class="filter-label">标签:</span>
             <div class="filter-buttons filter-tag-buttons">
-              <button class="filter-btn active" data-filter-type="tag" data-filter-value="all" onclick="filterByTag('all', this)">全部</button>
+              <button class="filter-btn active" data-filter-type="tag" data-filter-value="all"
+                onclick="filterByTag('all', this)">全部</button>
               {% assign tags = site.posts | map: 'tags' | flatten | uniq | sort %}
               {% for tag in tags %}
-              <button class="filter-btn" data-filter-type="tag" data-filter-value="{{ tag }}" onclick="filterByTag('{{ tag }}', this)">{{ tag }}</button>
+              <button class="filter-btn" data-filter-type="tag" data-filter-value="{{ tag }}"
+                onclick="filterByTag('{{ tag }}', this)">{{ tag }}</button>
               {% endfor %}
             </div>
           </div>
@@ -522,58 +527,58 @@
         <section class="series-cards-container" id="series-cards">
           {% assign series_list = "" %}
           {% for post in site.posts %}
-            {% if post.series %}
-              {% unless series_list contains post.series %}
-                {% assign series_list = series_list | append: post.series | append: "|||" %}
-              {% endunless %}
-            {% endif %}
+          {% if post.series %}
+          {% unless series_list contains post.series %}
+          {% assign series_list = series_list | append: post.series | append: "|||" %}
+          {% endunless %}
+          {% endif %}
           {% endfor %}
-          
+
           {% assign series_array = series_list | split: "|||" %}
           {% for series_name in series_array %}
-            {% if series_name != "" %}
-              {% assign series_posts = site.posts | where: "series", series_name | sort: "date" %}
-              {% assign all_tags = "" %}
-              {% assign total_words = 0 %}
-              {% assign first_date = series_posts.last.date %}
-              {% assign last_date = series_posts.first.date %}
-              {% for sp in series_posts %}
-                {% for tag in sp.tags %}
-                  {% unless all_tags contains tag %}
-                    {% assign all_tags = all_tags | append: tag | append: "," %}
-                  {% endunless %}
+          {% if series_name != "" %}
+          {% assign series_posts = site.posts | where: "series", series_name | sort: "date" %}
+          {% assign all_tags = "" %}
+          {% assign total_words = 0 %}
+          {% assign first_date = series_posts.last.date %}
+          {% assign last_date = series_posts.first.date %}
+          {% for sp in series_posts %}
+          {% for tag in sp.tags %}
+          {% unless all_tags contains tag %}
+          {% assign all_tags = all_tags | append: tag | append: "," %}
+          {% endunless %}
+          {% endfor %}
+          {% endfor %}
+          {% assign tags_array = all_tags | split: "," %}
+
+          <a href="{{ site.baseurl }}/blog/series/?name={{ series_name | url_encode }}" class="series-card">
+            <div class="series-main-info">
+              <h4 class="h4 series-title">{{ series_name }}</h4>
+              <div class="series-meta">
+                <div class="series-meta-item">
+                  <ion-icon name="documents-outline"></ion-icon>
+                  <span>{{ series_posts.size }} 篇文章</span>
+                </div>
+                <div class="series-meta-item">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  <span>{{ first_date | date: "%Y-%m-%d" }} ~ {{ last_date | date: "%Y-%m-%d" }}</span>
+                </div>
+              </div>
+              {% if tags_array.size > 1 %}
+              <div class="series-tags">
+                {% for tag in tags_array %}
+                {% if tag != "" %}
+                <span class="series-tag">#{{ tag }}</span>
+                {% endif %}
                 {% endfor %}
-              {% endfor %}
-              {% assign tags_array = all_tags | split: "," %}
-              
-              <a href="{{ site.baseurl }}/blog/series/?name={{ series_name | url_encode }}" class="series-card">
-                <div class="series-main-info">
-                  <h4 class="h4 series-title">{{ series_name }}</h4>
-                  <div class="series-meta">
-                    <div class="series-meta-item">
-                      <ion-icon name="documents-outline"></ion-icon>
-                      <span>{{ series_posts.size }} 篇文章</span>
-                    </div>
-                    <div class="series-meta-item">
-                      <ion-icon name="calendar-outline"></ion-icon>
-                      <span>{{ first_date | date: "%Y-%m-%d" }} ~ {{ last_date | date: "%Y-%m-%d" }}</span>
-                    </div>
-                  </div>
-                  {% if tags_array.size > 1 %}
-                  <div class="series-tags">
-                    {% for tag in tags_array %}
-                      {% if tag != "" %}
-                      <span class="series-tag">#{{ tag }}</span>
-                      {% endif %}
-                    {% endfor %}
-                  </div>
-                  {% endif %}
-                </div>
-                <div class="series-arrow">
-                  <ion-icon name="arrow-forward-outline"></ion-icon>
-                </div>
-              </a>
-            {% endif %}
+              </div>
+              {% endif %}
+            </div>
+            <div class="series-arrow">
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </div>
+          </a>
+          {% endif %}
           {% endfor %}
         </section>
 
@@ -581,9 +586,9 @@
 
           {% for post in site.posts %}
           <a href="{{ site.baseurl }}{{ post.url }}" class="blog-post-card"
-             data-type="{% if post.series %}series{% else %}single{% endif %}"
-             {% if post.categories %}data-category="{{ post.categories[0] }}"{% endif %}
-             {% if post.tags %}data-tags="{{ post.tags | join: ',' }}"{% endif %}>
+            data-type="{% if post.series %}series{% else %}single{% endif %}" {% if post.categories
+            %}data-category="{{ post.categories[0] }}" {% endif %} {% if post.tags
+            %}data-tags="{{ post.tags | join: ',' }}" {% endif %} data-featured="{{ post.featured | default: false }}">
 
             {% assign post_plain = post.content | strip_html | strip_newlines %}
             {% assign post_han = post_plain | replace_regex: '[^\u3400-\u4DBF\u4E00-\u9FFF]', '' %}
@@ -592,10 +597,10 @@
             {% assign read_minutes = han_count | divided_by: 300 %}
             {% assign read_remainder = han_count | modulo: 300 %}
             {% if read_remainder > 0 %}
-              {% assign read_minutes = read_minutes | plus: 1 %}
+            {% assign read_minutes = read_minutes | plus: 1 %}
             {% endif %}
             {% if read_minutes == 0 and han_count > 0 %}
-              {% assign read_minutes = 1 %}
+            {% assign read_minutes = 1 %}
             {% endif %}
 
             <h4 class="h4 blog-post-title">{{ post.title }}</h4>
@@ -661,10 +666,12 @@
     let currentTypeFilter = 'all';
     let currentCategoryFilter = 'all';
     let currentTagFilter = 'all';
+    let currentFeaturedOnly = false;
 
     // 文章类型筛选函数（包含视图切换逻辑）
     function filterPosts(type, element) {
       currentTypeFilter = type;
+      currentFeaturedOnly = (type === 'featured');
       document.querySelectorAll('.blog-nav button').forEach(btn => btn.classList.remove('active'));
       element.classList.add('active');
 
@@ -694,7 +701,7 @@
         btn.classList.remove('active');
       });
       element.classList.add('active');
-      
+
       // 联动更新标签筛选器
       updateTagFiltersByCategory();
       applyAllFilters();
@@ -704,35 +711,39 @@
     function updateTagFiltersByCategory() {
       const posts = document.querySelectorAll('.blog-post-card');
       const tagButtonsContainer = document.querySelector('.filter-tag-buttons');
-      
+
       // 收集当前分类（和文章类型）下所有存在的标签
       const availableTags = new Set();
-      
+
       posts.forEach(post => {
         const postCategory = post.getAttribute('data-category');
         const postType = post.getAttribute('data-type');
         const postTags = post.getAttribute('data-tags');
-        
+        const postFeatured = post.getAttribute('data-featured');
+
         // 检查文章类型是否匹配
-        let typeMatch = currentTypeFilter === 'all';
+        let typeMatch = (currentTypeFilter === 'all' || currentFeaturedOnly);
         if (!typeMatch && postType) {
           typeMatch = postType === currentTypeFilter;
         }
-        
+
         // 检查分类是否匹配
         let categoryMatch = currentCategoryFilter === 'all';
         if (!categoryMatch && postCategory) {
           categoryMatch = postCategory === currentCategoryFilter;
         }
-        
-        // 如果文章类型和分类都匹配，收集其标签
-        if (typeMatch && categoryMatch && postTags) {
+
+        // 得意之作匹配
+        let featuredMatch = !currentFeaturedOnly || postFeatured === 'true';
+
+        // 如果文章类型、分类和得意之作都匹配，收集其标签
+        if (typeMatch && categoryMatch && featuredMatch && postTags) {
           postTags.split(',').forEach(tag => {
             if (tag.trim()) availableTags.add(tag.trim());
           });
         }
       });
-      
+
       // 更新标签按钮的可见性
       const tagButtons = tagButtonsContainer.querySelectorAll('.filter-btn');
       tagButtons.forEach(btn => {
@@ -772,9 +783,10 @@
         const postType = post.getAttribute('data-type');
         const postCategory = post.getAttribute('data-category');
         const postTags = post.getAttribute('data-tags');
+        const postFeatured = post.getAttribute('data-featured');
 
-        // 检查文章类型匹配
-        let typeMatch = currentTypeFilter === 'all';
+        // 检查文章类型匹配（得意之作模式不限制类型）
+        let typeMatch = (currentTypeFilter === 'all' || currentFeaturedOnly);
         if (!typeMatch && postType) {
           typeMatch = postType === currentTypeFilter;
         }
@@ -792,8 +804,11 @@
           tagMatch = tagsArray.includes(currentTagFilter);
         }
 
+        // 得意之作匹配
+        let featuredMatch = !currentFeaturedOnly || postFeatured === 'true';
+
         // 根据所有筛选条件决定显示或隐藏
-        if (typeMatch && categoryMatch && tagMatch) {
+        if (typeMatch && categoryMatch && tagMatch && featuredMatch) {
           post.style.display = 'block';
           post.classList.remove('hidden');
         } else {
@@ -804,10 +819,11 @@
     }
 
     // 页面加载时初始化标签筛选器状态
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       updateTagFiltersByCategory();
     });
   </script>
 
 </body>
+
 </html>
