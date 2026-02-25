@@ -308,6 +308,7 @@
         .blog-content ul>li {
             display: flex;
             align-items: baseline;
+            flex-wrap: wrap;
             padding-left: 0;
         }
 
@@ -361,10 +362,21 @@
             min-width: 32px;
         }
 
-        /* 嵌套无序列表 */
+        /* 嵌套无序列表 - 占满父 li 的整行，并加左缩进 */
         .blog-content ul ul {
-            margin-top: 10px;
-            margin-bottom: 10px;
+            flex-basis: 100%;
+            /* 强制换到下一行，不与父级文字并排 */
+            margin-top: 8px;
+            margin-bottom: 4px;
+            padding-left: 20px;
+            /* 子列表整体左缩进，体现层级 */
+        }
+
+        /* 嵌套 li 本身不再用 flex，改为普通块级以避免再次嵌套 flex 问题 */
+        .blog-content ul ul>li {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
         }
 
         .blog-content ul ul>li::before {
@@ -373,6 +385,10 @@
         }
 
         /* 第三层嵌套 */
+        .blog-content ul ul ul {
+            padding-left: 18px;
+        }
+
         .blog-content ul ul ul>li::before {
             content: "▪";
             font-size: 1em;
