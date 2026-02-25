@@ -305,11 +305,14 @@
             list-style: none;
         }
 
+        /* 无序列表：用 position:absolute 放置项目符号，li 保持普通块级流
+           这样文字换行、嵌套子列表都能自然向下排列，不会产生双列效果 */
         .blog-content ul>li {
-            display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-            padding-left: 0;
+            padding-left: 22px;
+            /* 为绝对定位的 bullet 留出空间 */
+            position: relative;
+            display: block;
+            /* 覆盖上方 li { position: relative } 的基础样式 */
         }
 
         .blog-content ul>li::before {
@@ -317,9 +320,35 @@
             color: var(--orange-yellow-crayola);
             font-size: 1.2em;
             font-weight: bold;
-            margin-right: 8px;
-            flex-shrink: 0;
+            position: absolute;
+            left: 0;
+            top: 0.05em;
+            /* 与首行文字视觉对齐 */
         }
+
+        /* 嵌套无序列表：额外向右缩进，体现层级 */
+        .blog-content ul ul {
+            padding-left: 20px;
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+
+        .blog-content ul ul>li::before {
+            content: "◦";
+            font-size: 1.2em;
+            top: 0.05em;
+        }
+
+        /* 第三层嵌套 */
+        .blog-content ul ul ul {
+            padding-left: 18px;
+        }
+
+        .blog-content ul ul ul>li::before {
+            content: "▪";
+            font-size: 1em;
+        }
+
 
         /* 有序列表 */
         .blog-content ol {
@@ -362,37 +391,6 @@
             min-width: 32px;
         }
 
-        /* 嵌套无序列表 - 占满父 li 的整行，并加左缩进 */
-        .blog-content ul ul {
-            flex-basis: 100%;
-            /* 强制换到下一行，不与父级文字并排 */
-            margin-top: 8px;
-            margin-bottom: 4px;
-            padding-left: 20px;
-            /* 子列表整体左缩进，体现层级 */
-        }
-
-        /* 嵌套 li 本身不再用 flex，改为普通块级以避免再次嵌套 flex 问题 */
-        .blog-content ul ul>li {
-            display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-        }
-
-        .blog-content ul ul>li::before {
-            content: "◦";
-            font-size: 1.2em;
-        }
-
-        /* 第三层嵌套 */
-        .blog-content ul ul ul {
-            padding-left: 18px;
-        }
-
-        .blog-content ul ul ul>li::before {
-            content: "▪";
-            font-size: 1em;
-        }
 
         /* 加粗文本 */
         .blog-content strong {
