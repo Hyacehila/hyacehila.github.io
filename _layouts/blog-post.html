@@ -305,49 +305,47 @@
             list-style: none;
         }
 
-        /* 无序列表：用 position:absolute 放置项目符号，li 保持普通块级流
-           这样文字换行、嵌套子列表都能自然向下排列，不会产生双列效果 */
+        /* 无序列表：::before 作为 inline 内容，紧贴文字前显示
+           - li 不加额外 padding，文字与段落/标题左对齐
+           - li p { display:inline } 使 kramdown 生成的 <p> 内联化，bullet 与文字共行
+           - 嵌套 <ul> 是块级，自然另起一行，通过 padding-left 实现缩进层级 */
         .blog-content ul>li {
-            padding-left: 22px;
-            /* 为绝对定位的 bullet 留出空间 */
-            position: relative;
+            padding-left: 0;
             display: block;
-            /* 覆盖上方 li { position: relative } 的基础样式 */
         }
 
         .blog-content ul>li::before {
-            content: "•";
+            content: "•\00a0\00a0";
+            /* bullet + 两个不换行空格作间距 */
             color: var(--orange-yellow-crayola);
             font-size: 1.2em;
             font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 0.05em;
-            /* 与首行文字视觉对齐 */
+            display: inline;
+            line-height: inherit;
         }
 
-        /* 嵌套无序列表：额外向右缩进，体现层级 */
+        /* 嵌套无序列表：通过 padding-left 缩进，体现层级 */
         .blog-content ul ul {
-            padding-left: 20px;
+            padding-left: 1.6em;
             margin-top: 8px;
             margin-bottom: 4px;
         }
 
         .blog-content ul ul>li::before {
-            content: "◦";
+            content: "◦\00a0\00a0";
             font-size: 1.2em;
-            top: 0.05em;
         }
 
         /* 第三层嵌套 */
         .blog-content ul ul ul {
-            padding-left: 18px;
+            padding-left: 1.4em;
         }
 
         .blog-content ul ul ul>li::before {
-            content: "▪";
+            content: "▪\00a0\00a0";
             font-size: 1em;
         }
+
 
 
         /* 有序列表 */
