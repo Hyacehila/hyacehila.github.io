@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog-post
 title:  聊聊齐普夫定律：从伏尼契手稿到外星文明
 date:   2026-02-18 20:00:00 +0800
 categories: [Statistics]
