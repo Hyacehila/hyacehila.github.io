@@ -291,6 +291,155 @@
       }
     }
 
+    /* ===== 碎碎念视图 ===== */
+    .murmur-container {
+      display: none;
+      margin-top: 20px;
+      column-count: 2;
+      column-gap: 20px;
+      animation: murmur-fade-in 0.4s ease;
+    }
+
+    .murmur-container.active {
+      display: block;
+    }
+
+    @keyframes murmur-fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .murmur-card {
+      break-inside: avoid;
+      position: relative;
+      background: var(--border-gradient-onyx);
+      border-radius: 16px;
+      padding: 28px 24px 22px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-2);
+      z-index: 1;
+      overflow: hidden;
+      transition: var(--transition-1);
+    }
+
+    .murmur-card::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+      transition: var(--transition-1);
+    }
+
+    .murmur-card:hover {
+      box-shadow: var(--shadow-3);
+      transform: translateY(-3px);
+    }
+
+    .murmur-card:hover::before {
+      background: linear-gradient(to bottom right, hsla(240, 1%, 18%, 0.5) 0%, hsla(240, 2%, 11%, 0.15) 100%);
+    }
+
+    /* 巨型引号装饰 */
+    .murmur-quote-mark {
+      position: absolute;
+      top: 8px;
+      left: 14px;
+      font-size: 72px;
+      line-height: 1;
+      font-family: Georgia, serif;
+      color: var(--orange-yellow-crayola);
+      opacity: 0.13;
+      user-select: none;
+      pointer-events: none;
+      transition: opacity var(--transition-1);
+    }
+
+    .murmur-card:hover .murmur-quote-mark {
+      opacity: 0.22;
+    }
+
+    .murmur-text {
+      font-size: var(--fs-5);
+      color: var(--white-2);
+      font-weight: var(--fw-300);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .murmur-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .murmur-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .murmur-author {
+      font-size: var(--fs-8);
+      color: var(--orange-yellow-crayola);
+      font-weight: var(--fw-500);
+    }
+
+    .murmur-source {
+      font-size: var(--fs-8);
+      color: var(--light-gray-70);
+      font-style: italic;
+    }
+
+    .murmur-mood {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--jet);
+      color: var(--light-gray-70);
+      white-space: nowrap;
+      transition: var(--transition-1);
+    }
+
+    .murmur-card:hover .murmur-mood {
+      background: hsla(45, 100%, 72%, 0.12);
+      color: var(--orange-yellow-crayola);
+    }
+
+    .murmur-date {
+      font-size: 10px;
+      color: var(--light-gray-70);
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .murmur-empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--light-gray-70);
+      font-size: var(--fs-6);
+    }
+
+    @media (max-width: 580px) {
+      .murmur-container {
+        column-count: 1;
+      }
+    }
+
     .blog-posts-grid {
       display: grid;
       gap: 20px;
@@ -487,6 +636,7 @@
           <button onclick="filterPosts('series', this)">系列文章</button>
           <button onclick="filterPosts('single', this)">单篇文章</button>
           <button onclick="filterPosts('featured', this)">得意之作</button>
+          <button onclick="filterPosts('murmur', this)">碎碎念</button>
         </section>
 
         <!-- 分类和标签筛选区域 -->
@@ -641,6 +791,15 @@
 
         </section>
 
+        <!-- 碎碎念视图 -->
+        <section class="murmur-container" id="murmur-container">
+          <div class="murmur-empty" id="murmur-loading">
+            <ion-icon name="chatbubble-ellipses-outline"
+              style="font-size:32px;display:block;margin-bottom:10px;opacity:0.4"></ion-icon>
+            加载中…
+          </div>
+        </section>
+
         <section class="page-actions">
           <a href="{{ site.baseurl }}/" class="back-link">
             <ion-icon name="arrow-back-outline"></ion-icon>
@@ -667,6 +826,7 @@
     let currentCategoryFilter = 'all';
     let currentTagFilter = 'all';
     let currentFeaturedOnly = false;
+    let murmurLoaded = false;
 
     // 文章类型筛选函数（包含视图切换逻辑）
     function filterPosts(type, element) {
@@ -678,17 +838,27 @@
       const filtersSection = document.querySelector('.blog-filters');
       const postsGrid = document.getElementById('blog-posts');
       const seriesCards = document.getElementById('series-cards');
+      const murmurContainer = document.getElementById('murmur-container');
 
-      if (type === 'series') {
+      if (type === 'murmur') {
+        // 碎碎念视角：隐藏所有博文相关区域，显示碎碎念
+        filtersSection.classList.add('hidden');
+        postsGrid.style.display = 'none';
+        seriesCards.classList.remove('active');
+        murmurContainer.classList.add('active');
+        if (!murmurLoaded) loadMurmur();
+      } else if (type === 'series') {
         // 系列文章视角：隐藏筛选区域，显示系列卡片，隐藏普通文章卡片
         filtersSection.classList.add('hidden');
         postsGrid.style.display = 'none';
         seriesCards.classList.add('active');
+        murmurContainer.classList.remove('active');
       } else {
         // 全部文章或单篇文章视角：显示筛选区域，显示普通文章卡片，隐藏系列卡片
         filtersSection.classList.remove('hidden');
         postsGrid.style.display = 'grid';
         seriesCards.classList.remove('active');
+        murmurContainer.classList.remove('active');
         updateTagFiltersByCategory();
         applyAllFilters();
       }
@@ -822,6 +992,55 @@
     document.addEventListener('DOMContentLoaded', function () {
       updateTagFiltersByCategory();
     });
+
+    // ===== 碎碎念加载与渲染 =====
+    function loadMurmur() {
+      const container = document.getElementById('murmur-container');
+      fetch('../assets/murmur/murmur.json')
+        .then(res => res.json())
+        .then(data => {
+          murmurLoaded = true;
+          renderMurmur(data, container);
+        })
+        .catch(err => {
+          container.innerHTML = '<div class="murmur-empty">暂无碎碎念，或数据加载失败 😶</div>';
+          console.error('murmur.json 加载失败:', err);
+        });
+    }
+
+    function renderMurmur(data, container) {
+      if (!data || data.length === 0) {
+        container.innerHTML = '<div class="murmur-empty">还没有碎碎念，去 murmur.json 里写下第一句吧 ✏️</div>';
+        return;
+      }
+
+      // 随机打乱展示顺序，让每次进入都有新鲜感
+      const shuffled = [...data].sort(() => Math.random() - 0.5);
+
+      const html = shuffled.map(item => {
+        const author = item.author ? item.author : '';
+        const source = item.source ? `《${item.source}》` : '';
+        const mood = item.mood ? item.mood : '';
+        const date = item.date ? item.date : '';
+
+        return `
+          <div class="murmur-card">
+            <span class="murmur-quote-mark">"</span>
+            <p class="murmur-text">${item.text}</p>
+            <div class="murmur-footer">
+              <div class="murmur-meta">
+                ${author ? `<span class="murmur-author">— ${author}</span>` : ''}
+                ${source ? `<span class="murmur-source">${source}</span>` : ''}
+                ${date ? `<span class="murmur-date"><ion-icon name="calendar-outline" style="font-size:11px"></ion-icon>${date}</span>` : ''}
+              </div>
+              ${mood ? `<span class="murmur-mood">${mood}</span>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = html;
+    }
   </script>
 
 </body>
