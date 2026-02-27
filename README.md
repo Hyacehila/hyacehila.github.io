@@ -1,174 +1,281 @@
-# Hyacehila - Personal Portfolio & Blog
+# Hyacehila - Personal Portfolio & Blog (Jekyll)
 
-## 🌟 About
+> 一个静态个人主页（Portfolio）+ Jekyll 技术博客。
 
-Welcome to my personal website! This is a modern, responsive website that integrates a personal portfolio with a technical blog, featuring bilingual support (English/Chinese).
+English: A static personal portfolio + Jekyll-powered blog.
 
-The website is built with HTML, CSS, JavaScript, and powered by Jekyll for blog functionality.
+## 目录
 
-- **Portfolio**: Showcases my education, work experience, projects, and skills
-- **Blog**: Technical notes, project reviews, and thoughts
+- [项目简介](#项目简介)
+- [功能特性](#功能特性)
+- [项目结构](#项目结构)
+- [本地预览](#本地预览)
+- [部署到 GitHub Pages](#部署到-github-pages)
+- [博客写作指南（给 AI Agent）](#博客写作指南给-ai-agent)
+- [License](#license)
 
-This project is forked from [personal-portfolio](https://github.com/ivansaul/personal-portfolio) and extensively modified to add Jekyll blog functionality.
+## 项目简介
 
-## 🚀 Features
+本仓库是我的个人站点，包含：
 
-### Website Features
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
-- **Bilingual Support**: Switch between English and Chinese languages
-- **Modern UI**: Clean, professional design with smooth animations
-- **Interactive Navigation**: Smooth page transitions and user-friendly interface
-- **Contact Form**: Functional contact section with validation
+- **主页（Portfolio）**：单页站点，支持 **中英双语切换**，并包含旅行足迹地图等组件。
+- **博客（Blog）**：基于 **Jekyll** 的 Markdown 博客系统，提供分类/标签筛选、系列文章聚合、代码高亮、Mermaid、MathJax 等能力。
 
-### Blog Features
-- **Markdown Writing**: Write blog posts using Markdown syntax
-- **Code Highlighting**: Syntax highlighting powered by Rouge (Monokai theme)
-- **Math Formulas**: LaTeX math formula rendering via MathJax
-- **Diagram Support**: Mermaid diagrams (flowcharts, sequence diagrams, Gantt charts, etc.)
-- **Categories & Tags**: Organize articles with categories and tags
-- **Article Series**: Support for series organization
-- **Article Navigation**: Previous/Next article navigation
-- **Draft System**: Draft preview and management support
+线上预览（当前仓库配置）：
 
-## 📁 Project Structure
+- 主页：`https://hyacehila.github.io/`
+- 博客：`https://hyacehila.github.io/blog/`
+
+项目最初 fork 自 `ivansaul/personal-portfolio`（GitHub：`https://github.com/ivansaul/personal-portfolio`），随后进行了较大幅度改造以适配 Jekyll 博客与自定义页面。
+
+## 功能特性
+
+### 主页（Portfolio）
+
+- **响应式**：适配桌面/平板/移动端。
+- **中英双语切换**：`index.html` 内通过 `data-i18n` + JS 字典渲染。
+- **旅行足迹地图**：ECharts 渲染，支持 China/World 模式切换（数据在 `assets/travelmap/cities.json`）。
+- **联系信息**：Email/Phone/Address/LinkedIn/GitHub 等（当前无“提交式”Contact Form）。
+
+### 博客（Blog）
+
+- **Markdown 写作**：Kramdown（GFM 输入）。
+- **代码高亮**：Rouge（Monokai）。
+- **数学公式**：MathJax（`$...$`/`$$...$$`）。
+- **图表**：Mermaid（```mermaid 代码块）。
+- **分类/标签筛选**：博客主页按钮筛选（注意：筛选使用 `categories` 的第 1 个元素作为主分类）。
+- **系列文章**：通过 Front Matter 的 `series` 字段聚合，并提供系列页：`/blog/series/?name=...`。
+- **得意之作（精选）**：`featured: true` 的文章可在“得意之作”视图筛选。
+- **阅读时长**：在博客卡片上按汉字统计（300 字/分钟，英文占比高的文章可能显示为 0）。
+- **碎碎念**：在博客主页“碎碎念”视图中随机展示 `assets/murmur/murmur.json`。
+- **上一篇/下一篇**：文章页底部导航（按时间排序）。
+- **草稿（Drafts）**：草稿放在 `_drafts/`，本地可用 `--drafts` 预览，默认不会发布（见 `_config.yml`）。
+
+## 项目结构
 
 ```
 PersonelPage/
-├── index.html              # Main page (portfolio)
-├── _config.yml             # Jekyll configuration file
-├── _posts/                 # Blog posts directory
-│   └── YYYY-MM-DD-title.md # Posts named by date
-├── _drafts/                # Blog drafts directory
-├── _layouts/               # Jekyll layout templates
-│   └── blog-post.html      # Blog post layout
-├── _includes/              # Jekyll reusable components
-│   ├── head.html
-│   ├── footer.html
-│   ├── mathjax.html        # Math formula support
-│   └── mermaid.html        # Diagram support
+├── index.html                  # 主页（Portfolio，含 i18n & travelmap）
+├── _config.yml                 # Jekyll 配置（permalink, future/show_drafts 等）
+├── _posts/                     # 已发布文章（YYYY-MM-DD-slug.md）
+├── _drafts/                    # 草稿（本地 --drafts 预览）
+├── _layouts/
+│   └── blog-post.html          # 文章页布局（固定 header、上一篇/下一篇、标签等）
+├── _includes/
+│   └── mathjax.html            # MathJax 配置与加载
+├── blog/
+│   ├── index.html              # 博客主页（筛选/系列卡片/碎碎念）
+│   └── series/
+│       └── index.html          # 系列页（按 series 聚合）
 ├── assets/
-│   ├── css/
-│   │   └── style.css       # Main stylesheet
-│   ├── js/
-│   │   └── script.js       # JavaScript functionality
-│   ├── gitbook/            # GitBook style resources
-│   └── images/             # Images and icons
-├── blog/                   # Blog-related pages
-├── code/                   # Code examples directory
-├── README.md               # This file
-└── LICENSE                 # License information
+│   ├── css/style.css           # 全站样式
+│   ├── js/script.js            # 主页交互脚本
+│   ├── gitbook/                # 排版/高亮资源
+│   ├── images/                 # 图片资源
+│   ├── murmur/murmur.json      # 碎碎念数据
+│   └── travelmap/              # 旅行足迹（ECharts + 数据）
+├── code/                       # 文章配套代码/资料（会被静态发布）
+├── README.md
+└── LICENSE
 ```
 
-## 🛠️ Technologies Used
+## 本地预览
 
-### Core Technologies
-- **HTML5**: Semantic markup and structure
-- **CSS3**: Modern styling with animations and transitions
-- **JavaScript ES6+**: Interactive features and language switching
-- **Ionicons**: Beautiful icon library
-- **Google Fonts**: Poppins font family
+本仓库是纯静态文件 + Jekyll 站点结构。
 
-### Blog Stack
-- **Jekyll**: Static site generator
-- **Kramdown**: Markdown parser
-- **Rouge**: Code syntax highlighting
-- **MathJax**: LaTeX math formula rendering
-- **Mermaid**: Diagram rendering engine
-- **GitHub Pages**: Website hosting platform
+如果你已经有 Ruby/Jekyll 环境：
 
-## 🌐 Language Support
+```bash
+jekyll serve
+```
 
-The website supports two languages:
-- **English** (Default)
-- **中文** (Chinese)
+预览草稿与未来日期文章：
 
-Click the language toggle button (🌐) in the navigation bar to switch between languages.
+```bash
+jekyll serve --drafts --future
+```
 
-## 📱 Website Sections
+说明：`_config.yml` 中默认 `future: false`、`show_drafts: false`，用于生产环境不发布草稿/未来文章。
 
-### Main Sections
-- **Home**: About me and introduction
-- **Resume**: Education, experience, and skills
-- **Projects**: Showcase of my work and projects
-- **Interests**: Personal interests and hobbies
-- **Contact**: Get in touch with me
+## 部署到 GitHub Pages
 
-### Blog Sections
-- **Blog Home**: Article list in reverse chronological order
-- **Article Detail**: Full content of a single article
-- **Category Browse**: Filter articles by category
-- **Tag Cloud**: Filter articles by tags
+1. 推送到 GitHub 仓库
+2. 在仓库设置中启用 GitHub Pages（选择分支作为 Source）
+3. 等待 Pages 构建完成后访问站点（通常为 `https://<username>.github.io/` 或 `https://<username>.github.io/<repo>/`）
 
-## 🚀 Deployment
+## 博客写作指南（给 AI Agent）
 
-This project is designed to be deployed on GitHub Pages. To deploy:
+本章用于指导后续 AI Agent：**将“原始草稿”加工为符合本仓库规范、可直接放入 `_posts/` 发布的 Markdown 博客文章**。
 
-1. Push the code to your GitHub repository
-2. Enable GitHub Pages in repository settings
-3. Select the main branch as source
-4. Your site will be available at `https://username.github.io/repository-name`
+### 0. 最终交付物（Definition of Done）
 
+- 产出 1 个 Markdown 文件：放入 `_posts/`（或先放 `_drafts/`），并满足文件命名与 YAML Front Matter 规范
+- 文章结构清晰：`#` / `##` / `###` 层级合理，排版不破坏样式
+- 元数据可用于博客主页筛选：`categories` / `tags` / `series` / `featured`
+- `excerpt` 可直接用于列表卡片展示（短、准、无 Markdown）
 
-## 🎨 Customization
+### 1. 文件路径与命名
 
-### Website Customization
+#### 1.1 草稿阶段（推荐）
 
-To customize this website for your own use:
+- 放到：`_drafts/`
+- 文件名：可自由（例如 `topic.md`），便于快速迭代
+- 本地预览：`jekyll serve --drafts`
 
-1. **Personal Information**: Update the content in `index.html`
-2. **Images**: Replace images in the `assets/images/` folder
-3. **Colors**: Modify CSS variables in `assets/css/style.css`
-4. **Languages**: Update translation objects in the script section
+#### 1.2 发布阶段（必须）
 
-### Blog Customization
+- 放到：`_posts/`
+- 文件名：`YYYY-MM-DD-<slug>.md`
 
-#### Writing New Articles
+`<slug>` 的建议规则（结合现有文章命名习惯做约束）：
 
-1. Create a new file in `_posts/` directory with the format: `YYYY-MM-DD-title.md`
-2. Add YAML Front Matter at the top of the file:
+- 推荐使用 **小写英文 + 连字符**：`high-dimensional-data-and-statistics`
+- 系列文章可加入编号：`re0hf-01` / `re0hf-02`（也可以保留既有风格 `Re0HF-01`，但不建议混用大小写）
+- **避免**：空格、逗号、引号、括号等复杂符号（会增加 URL slugify 与转义风险）
+- 中文标题建议：用英文 slug（或拼音）+ 在 `title` 里写中文全称
+
+### 2. YAML Front Matter 规范（强制）
+
+每篇文章文件顶部必须包含 Front Matter：
 
 ```yaml
 ---
 layout: blog-post
-title: Article Title
-date: 2025-12-26 10:00:00 +0800
-series: Series Name (optional)
-categories: [Category1, Category2]
-tags: [Tag1, Tag2]
-author: Author Name
-excerpt: Article summary
+title: "文章标题（建议与正文 H1 完全一致）"
+date: 2026-02-27 20:00:00 +0800
+categories: [统计学]          # 至少 1 个；第 1 个会被当作主分类用于筛选
+tags: [Learning, Bootstrap]   # 必须是列表；tag 名称里不要包含逗号
+author: Hyacehila             # 推荐保留；可省略
+excerpt: "给列表卡片用的一句话摘要，不要写 Markdown"
+
+# 可选：系列文章
+series: "概率图模型 (Probabilistic Graphical Models)"
+
+# 可选：精选文章（会进入“得意之作”视图）
+featured: true
+
+# 可选：数学标记（当前页面会全量加载 MathJax，但建议保留该语义字段）
+math: true
 ---
 ```
 
-3. Write the content in Markdown, supporting:
-   - **Code Highlighting**: Use \`\`\`language code blocks
-   - **Math Formulas**: Use `$...$` (inline) or `$$...$$` (block)
-   - **Mermaid Diagrams**: Use \`\`\`mermaid code blocks
+字段说明（结合现有页面逻辑）：
 
-#### Blog Configuration
+- `layout`: 固定为 `blog-post`（对应 `_layouts/blog-post.html`）。
+- `title`: 用于页面标题与列表卡片标题；如包含冒号/引号等特殊字符，务必用双引号包裹。
+- `date`: 用于排序、URL 与“上一篇/下一篇”。注意 `_config.yml` 默认 `future: false`，**未来日期文章不会发布**。
+- `categories`: 必须为列表（`[...]`）。博客主页筛选 **只读取第 1 个分类** 作为主分类。
+- `tags`: 必须为列表（`[...]`）。博客主页用 `,` 拼接 tags 做筛选，因此 **单个 tag 名称不要包含逗号**。
+- `excerpt`: 列表卡片摘要；建议 60~140 字（中文）或 20~40 words（英文），不换行、不写 Markdown。
+- `series`: 相同字符串会被聚合到同一系列；系列页按 `date` 排序。
+- `featured`: `true` 时会出现在“得意之作”。
 
-Edit `_config.yml` file to configure:
-- Site title and description
-- Blog post permalink format
-- Code highlighting theme
-- Plugins (jekyll-feed, jekyll-sitemap)
+### 3. 正文标题层级与排版逻辑（强约定）
 
-## 📄 License
+#### 3.1 标题层级
 
-This project is open source and available under the [MIT License](LICENSE).
+- 正文第一行使用 `#`（H1）：**必须与 `title` 一致**
+- 主要章节使用 `##`（H2）：用于“章节级”逻辑分割（引言/方法/推导/实验/结论…）
+- 小节使用 `###`（H3）：用于展开细节（定义/推导步骤/实现细节/示例…）
 
-## 👤 Author
+#### 3.2 常用文章结构模板（按类型选用）
 
-**Hyacehila**   Portfolio: [https://hyacehila.github.io](https://hyacehila.github.io)
+随笔/观点型（示例：`_posts/2026-01-04-does-llm-bring-equality.md`）：
 
-## 🙏 Acknowledgments
+1. `## 引子/背景`：用 1~2 段说明问题与动机
+2. `## 核心观点`：用小标题拆分论点（每点 2~4 段）
+3. `## 反例/边界条件`：说明何时不成立、有哪些争议
+4. `## 结论`：回扣问题，给出 takeaway
+5. `## 参考资料`：外链/论文/博客（可选）
 
-- Original portfolio template from [ivansaul/personal-portfolio](https://github.com/ivansaul/personal-portfolio)
-- Blog functionality powered by Jekyll
-- Code highlighting by [Rouge](https://github.com/rouge-ruby/rouge)
-- Math formula rendering by [MathJax](https://www.mathjax.org/)
-- Diagram rendering by [Mermaid](https://mermaid.js.org/)
+教程/笔记型（示例：`_posts/2025-12-27-Re0HF-01.md`）：
 
----
+1. `## 前言`：为什么需要这项技术
+2. `## 本章学习目标`：列出 3~6 条明确目标
+3. `## 核心概念/原理`：定义 + 直觉 + 公式（可选）
+4. `## 实现细节/代码`：给出可运行片段、关键参数解释
+5. `## 常见坑/最佳实践`：列 checklist
+6. `## 小结`：本章总结 + 下一步
 
-⭐ If you like this project, consider giving it a star!
+翻译/整理型（示例：`_posts/2026-02-08-why-im-not-a-fan-of-r-squared.md`）：
+
+- 开头用 blockquote 标注来源：
+  `> 本文核心观点翻译/整理自 ...（给出链接）`
+- 适当加入 `## Take Home Message` 或 `## TL;DR`，先给结论再展开
+
+#### 3.3 排版细则
+
+- 段落：以“短段落”为主（2~5 句/段），避免一整屏的长段。
+- 强调：用 `**加粗**` 突出关键结论；避免连续多段全加粗。
+- 列表：优先用无序列表（`-`）表达要点；列表前后留空行。
+- 表格：适合对比概念/参数（参考 `anscombes-quartet` 的数据表）。
+
+### 4. 代码、公式、图表、图片的写法（按需）
+
+#### 4.1 代码块（Rouge）
+
+使用 fenced code block，并写清语言：
+
+````markdown
+```python
+print("hello")
+```
+````
+
+#### 4.2 数学公式（MathJax）
+
+- 行内：`$a^2+b^2=c^2$`
+- 行间：
+
+```markdown
+$$
+E[X] = \mu
+$$
+```
+
+已知坑（来自示例文章约定）：**公式里尽量不要直接写 `|`**，需要“竖线/条件”时用 `\mid`，避免被 Markdown 当成表格分隔符。
+
+#### 4.3 Mermaid 图表
+
+直接写：
+
+````markdown
+```mermaid
+graph TD
+  A --> B
+```
+````
+
+#### 4.4 图片
+
+Markdown 语法：`![alt](url)`。
+
+- 当前仓库文章多使用外链图片；如需要更稳定，建议把图片放到 `assets/images/` 下并用相对路径引用：
+  `![]({{ site.baseurl }}/assets/images/xxx.png)`
+
+### 5. 从原始草稿到可发布文章：操作流程
+
+1. **理解草稿意图**：确定文章类型（随笔/教程/整理），明确 1 句话核心结论。
+2. **确定元数据**：`title`、`excerpt`、主分类（`categories[0]`）、tags（3~8 个为宜）、是否系列/精选。
+3. **搭建大纲**：用 `##` 写 4~8 个主章节；每个 `##` 下用 `###` 拆成 2~5 个小节（需要时）。
+4. **填充内容**：优先写“结论/Takeaways”，再补论证与例子；技术文建议加入可运行代码片段与图表。
+5. **润色与一致性**：统一术语（中英文大小写）、统一编号格式（`1.` / `1.1`）、删掉重复句。
+6. **自检（见下方 checklist）**：确保 Front Matter 与 Markdown 不会破坏页面渲染。
+7. **发布**：移动到 `_posts/`，按规范重命名，提交并 push，等待 Pages 构建。
+
+### 6. 发布前自检 Checklist（必须逐条通过）
+
+- [ ] 文件位于 `_posts/`，文件名为 `YYYY-MM-DD-<slug>.md`
+- [ ] Front Matter 有且只有一段：以 `---` 开始/结束
+- [ ] `layout: blog-post`
+- [ ] `title` 与正文第一个 `#` 完全一致
+- [ ] `date` 不是未来时间（除非你明确知道 `_config.yml` 的 `future` 行为）
+- [ ] `categories`/`tags` 均为 `[...]` 列表，且 **tag 名称不含逗号**
+- [ ] `excerpt` 为纯文本、无换行、可做列表摘要
+- [ ] 所有 fenced code block 成对闭合；Mermaid 块使用 `mermaid` fenced block
+- [ ] 公式块 `$$...$$` 成对出现；必要时避开 `|`（用 `\mid`）
+- [ ] 外链图片/引用链接可访问
+
+## License
+
+本项目基于 [MIT License](LICENSE) 开源。
