@@ -6,6 +6,7 @@ categories: [数据科学]
 tags: [Spatial Data,Statistics]
 excerpt: "对空间数据分析的基本概念、空间总体特性、抽样和插值方法进行了系统的整理和详细介绍。"
 math: true
+author: Hyacehila
 ---
 
 # 空间数据分析
