@@ -3,7 +3,7 @@ layout: blog-post
 title: "SHaply与SHAP——模型解释性的SOTA工具"
 date: 2026-02-28 00:00:00 +0800
 categories: [机器学习]
-tags: [Explainable AI, SHAP]
+tags: [Model Interpretability]
 excerpt: "本文详细介绍了Shapley值的理论基础及其在机器学习中的应用SHAP，探讨了其优势与局限性，并分享了实际工程中的指导指南。"
 math: true
 featured: true

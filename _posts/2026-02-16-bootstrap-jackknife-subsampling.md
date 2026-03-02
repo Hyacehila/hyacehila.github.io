@@ -3,7 +3,7 @@ layout: blog-post
 title: "统计推断的计算革命：详解 Jackknife, Bootstrap 与 Subsampling"
 date: 2026-02-16 12:00:00 +0800
 categories: [统计学]
-tags: [Bootstrap]
+tags: [Resampling Methods]
 excerpt: "无需繁冗的分布假设，如何估计统计量的误差？本文深入剖析 Jackknife、Bootstrap 与 Subsampling 三种重抽样方法，从数学原理到渐进性质，探讨计算力如何替代解析推导成为统计推断的新引擎。"
 ---
 
