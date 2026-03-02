@@ -4,7 +4,7 @@ title: "LLM 推理与训练的本质：从 Surrogate 到强化学习的几何空
 date: 2026-02-23 20:00:00 +0800
 series: "LLM ESSENCE"
 categories: [LLM]
-tags: [Reasoning, RL, PostTraining]
+tags: [Reasoning, RL, Alignment]
 author: Hyacehila
 math: true
 featured: true

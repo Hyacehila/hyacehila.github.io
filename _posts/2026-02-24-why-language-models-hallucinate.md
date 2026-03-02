@@ -4,7 +4,7 @@ title: "Why Language Models Hallucinate"
 date: 2026-02-24 20:00:00 +0800
 series: "LLM ESSENCE"
 categories: [LLM]
-tags: [LLM, Learning]
+tags: [Hallucination]
 author: Hyacehila
 math: true
 excerpt: "基于 OpenAI 团队论文《Why Language Models Hallucinate》：幻觉并非单纯源于数据噪声或模型缺陷，而是现代训练范式与二元评估机制带来的统计压力——系统性惩罚不确定性表达，从而奖励瞎猜。"

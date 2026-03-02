@@ -3,7 +3,7 @@ layout: blog-post
 title: "数据科学的第60年"
 date: 2026-02-13 12:00:00 +0800
 categories: [统计学]
-tags: [Data Science]
+tags: []
 excerpt: "回顾数据科学60年的发展历程，从John Tukey的预言到David Donoho的广义数据科学。探讨统计学与计算机科学的融合，以及数据科学作为第四范式的科学本质与未来。"
 featured: true
 

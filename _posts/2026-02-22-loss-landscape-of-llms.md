@@ -4,7 +4,7 @@ title: "大模型的Loss Landscape是什么样的？"
 date: 2026-02-22 20:00:00 +0800
 series: "LLM ESSENCE"
 categories: [LLM]
-tags: [Pretraining, SFT]
+tags: [Pre-Training, SFT]
 author: Hyacehila
 math: true
 excerpt: "从 Loss Landscape 视角理解大模型的预训练与微调：pre-training basin 如何保护泛化能力；为何微调会导致能力退化/遗忘；以及为什么少量对抗数据能在最差方向上快速摧毁模型能力。"
