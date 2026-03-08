@@ -1,7 +1,7 @@
 # AGENTS.md — Coding Agent Operating Protocol
 
-> **Version**: 1.0.0  
-> **Last Updated**: 2026-02-18
+> **Version**: 1.1.0  
+> **Last Updated**: 2026-03-08
 
 ---
 
@@ -13,7 +13,8 @@
 4. [Rule 2 — Mandatory Documentation Synchronization](#4-rule-2--mandatory-documentation-synchronization)
 5. [Rule 3 — UV Environment Management](#5-rule-3--uv-environment-management)
 6. [Rule 4 — Test-Driven Development (TDD)](#6-rule-4--test-driven-development-tdd)
-7. [Violation Handling](#7-violation-handling)
+7. [Miscellaneous Operating Notes](#7-miscellaneous-operating-notes)
+8. [Violation Handling](#8-violation-handling)
 
 ---
 
@@ -290,7 +291,31 @@ When a test fails, there are **two possible causes**. The agent must diagnose be
 
 ---
 
-## 7. Violation Handling
+## 7. Miscellaneous Operating Notes
+
+These notes apply to routine agent work even when another section does not mention them explicitly.
+
+### 7.1 File Encoding and Text Handling
+
+- When reading or writing Markdown, YAML, JSON, CSV, HTML, CSS, JavaScript, Python, or configuration files, the agent **MUST** use UTF-8 unless the file is clearly known to use a different encoding.
+- If terminal output appears garbled, the agent must retry with explicit UTF-8 settings before assuming the file contents are corrupted.
+- The agent must preserve existing line endings, BOM behavior, and non-ASCII characters unless the task explicitly requires normalization.
+- The agent must not silently convert file encodings across the project.
+
+### 7.2 Minimal and Safe Edits
+
+- Prefer targeted patches over broad rewrites.
+- Do not reorder content, reformat entire files, or rename fields purely for style unless the user explicitly asks for it.
+- When editing bilingual or mirrored documentation, keep the English and Chinese versions aligned in both structure and meaning.
+
+### 7.3 Content Verification
+
+- Before finalizing, quickly re-read the edited sections to ensure headings, numbering, links, and code fences still render correctly.
+- If a note is uncertain or strongly project-specific, prefer a concise clarification to the user instead of inventing a rule.
+
+---
+
+## 8. Violation Handling
 
 If the agent realizes it has violated any rule in this document (e.g., started work without asking for clarification, or made a code change without updating docs), it must:
 
