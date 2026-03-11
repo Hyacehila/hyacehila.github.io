@@ -148,6 +148,10 @@ MCP 的抽象太完整了,Anthropic的工程团队几乎考虑了当时能考虑
 
 这也是为什么 MCP 后来继续补 Registry、补 `.mcpb`、补 server instructions。因为协议世界终究也意识到了：**接口定义不是全部，分发、安装、心智负担和默认体验同样是协议的一部分。**
 
+> 关于MCP的 `server instructions`: MCP在第一次发布的时候不包含该功能，Anthropic的开发团队意识到了我们需要补充对Server的整体介绍而不是只有工具的description。
+> 新增的 `instructions` 字段就是一本专门写给 AI 模型的用户手册（User Manual）, 也可以理解Skills的文本描述部分，它介绍这个Server里的各个功能，以避免之前的开发将全局规则被迫写到工具描述里。
+> Anthropic 建议将 instructions 的使用重点放在 Tools 和 Resources 本身无法传达的信息上，主要包括以下三类：跨功能依赖关系（Cross-feature relationships），最佳操作模式（Operational patterns）以及系统约束与硬性限制（Constraints and limitations）
+
 ## Skills 为什么会赢得开发者
 
 如果只从纯技术完备性看，Skills 不应该这么火；但如果从真实开发流程看，它火得非常合理。
