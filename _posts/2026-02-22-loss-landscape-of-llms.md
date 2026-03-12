@@ -171,8 +171,7 @@ $$
 \mathbb{E}_{\boldsymbol{\epsilon}}[J(\boldsymbol{\theta}_{\text{sft}}+\boldsymbol{\epsilon})]
 \ge
 \Phi\left(
-\Phi^{-1}(\mathbb{E}_{\boldsymbol{\epsilon}}[J(\boldsymbol{\theta}_0+\boldsymbol{\epsilon})])
--
+\Phi^{-1}(\mathbb{E}_{\boldsymbol{\epsilon}}[J(\boldsymbol{\theta}_0+\boldsymbol{\epsilon})])-
 \frac{\lVert \boldsymbol{\theta}_{\text{sft}}-\boldsymbol{\theta}_0 \rVert_2}{\sigma}
 \right)
 $$
