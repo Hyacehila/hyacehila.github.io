@@ -1,7 +1,7 @@
 # AGENTS.md — 代码智能体操作协议
 
-> **版本**: 1.1.0  
-> **最后更新**: 2026-03-08
+> **版本**: 1.1.1  
+> **最后更新**: 2026-03-13
 
 ---
 
@@ -31,8 +31,9 @@
 | 1 | **先问后做** | 指令不清晰时，必须先向用户请求澄清，而不是直接开始工作。 |
 | 2 | **文档随代码更新** | 每次代码变更必须伴随相应的文档更新。 |
 | 3 | **先读后写** | 在进行任何修改之前，必须先阅读 `doc/` 文件夹中的现有文档。 |
-| 4 | **仅限 UV** | 所有 Python 项目使用 UV 作为唯一的包管理和环境管理工具。禁止直接使用 pip、conda 或 virtualenv。 |
-| 5 | **先写测试** | 严格遵循 TDD 循环。在测试存在并失败之前，不得编写功能代码。 |
+| 4 | **Windows 下端到端使用 UTF-8** | 当任务在 Windows 上涉及中文或其他非 ASCII 文本时，智能体必须先确保终端、子进程和文件 I/O 全链路使用 UTF-8，再信任输出结果。 |
+| 5 | **仅限 UV** | 所有 Python 项目使用 UV 作为唯一的包管理和环境管理工具。禁止直接使用 pip、conda 或 virtualenv。 |
+| 6 | **先写测试** | 严格遵循 TDD 循环。在测试存在并失败之前，不得编写功能代码。 |
 
 ---
 
@@ -297,10 +298,21 @@ uv run pytest tests/ -v
 
 ### 7.1 文件编码与文本处理
 
-- 在读取或写入 Markdown、YAML、JSON、CSV、HTML、CSS、JavaScript、Python 或各类配置文件时，智能体**必须**优先使用 UTF-8，除非已经明确知道该文件使用其他编码。
-- 如果终端输出出现乱码，智能体必须先使用显式 UTF-8 设置重新读取，再判断文件内容是否损坏。
+- **通用规则**：在读取或写入 Markdown、YAML、JSON、CSV、HTML、CSS、JavaScript、Python 或各类配置文件时，智能体**必须**优先使用 UTF-8，除非已经明确知道该文件使用其他编码。
+- **Windows 规则**：在 Windows 终端会话（PowerShell、Windows Terminal 或 `cmd`）中，只要任务涉及读取、写入、显示、复制或比较中文或其他非 ASCII 文本，智能体**必须**先确认终端和子进程 I/O 端到端使用 UTF-8，再信任输出结果。
+- **诊断规则**：如果终端输出出现乱码，智能体**必须**优先假设是编码不一致，先用显式 UTF-8 设置重新读取或重跑命令，再判断文件内容是否真的损坏。在确认之前，不得基于乱码输出继续分析、比较或修改内容。
 - 智能体必须保留现有的换行符、BOM 行为以及非 ASCII 字符，除非任务明确要求进行规范化处理。
 - 智能体不得在未说明的情况下静默转换项目中的文件编码。
+- **PowerShell 示例**：
+
+```powershell
+[Console]::InputEncoding = [System.Text.UTF8Encoding]::new($false)
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+$OutputEncoding = [Console]::OutputEncoding
+Get-Content -Encoding utf8 ./notes.md
+Set-Content -Encoding utf8 ./notes.md '中文示例'
+python -X utf8 ./script.py
+```
 
 ### 7.2 最小且安全的修改
 
@@ -311,6 +323,7 @@ uv run pytest tests/ -v
 ### 7.3 内容校验
 
 - 在最终交付前，快速复读已修改的小节，确认标题、编号、链接和代码块仍然正确。
+- 如果本次任务涉及中文文本或终端输出，智能体**必须**确认最终展示给用户的内容是可正常阅读的 UTF-8 文本，不得把乱码终端输出直接复制进最终回复或文档。
 - 如果某条注意事项存在不确定性，或高度依赖项目背景，应优先向用户做简洁澄清，而不是自行臆造规则。
 
 ---
