@@ -1,7 +1,7 @@
 # AGENTS.md — Coding Agent Operating Protocol
 
-> **Version**: 1.1.0  
-> **Last Updated**: 2026-03-08
+> **Version**: 1.1.1  
+> **Last Updated**: 2026-03-13
 
 ---
 
@@ -31,8 +31,9 @@ This document defines the operating protocol for any AI Coding Agent working on 
 | 1 | **Ask, don't assume** | When instructions are unclear, always ask the user for clarification before starting work. |
 | 2 | **Docs follow code** | Every code change must be accompanied by corresponding documentation updates. |
 | 3 | **Read before write** | Always read existing documentation in the `doc/` folder before making any modifications. |
-| 4 | **UV only** | All Python projects use UV as the sole package and environment manager. Never use pip, conda, or virtualenv directly. |
-| 5 | **Test first** | Strictly follow the TDD cycle. No functional code may be written until a test exists and fails. |
+| 4 | **UTF-8 end to end on Windows** | When work involves Chinese or other non-ASCII text on Windows, the agent must ensure terminal, subprocess, and file I/O all use UTF-8 before trusting the output. |
+| 5 | **UV only** | All Python projects use UV as the sole package and environment manager. Never use pip, conda, or virtualenv directly. |
+| 6 | **Test first** | Strictly follow the TDD cycle. No functional code may be written until a test exists and fails. |
 
 ---
 
@@ -297,10 +298,21 @@ These notes apply to routine agent work even when another section does not menti
 
 ### 7.1 File Encoding and Text Handling
 
-- When reading or writing Markdown, YAML, JSON, CSV, HTML, CSS, JavaScript, Python, or configuration files, the agent **MUST** use UTF-8 unless the file is clearly known to use a different encoding.
-- If terminal output appears garbled, the agent must retry with explicit UTF-8 settings before assuming the file contents are corrupted.
+- **General rule**: When reading or writing Markdown, YAML, JSON, CSV, HTML, CSS, JavaScript, Python, or configuration files, the agent **MUST** use UTF-8 unless the file is clearly known to use a different encoding.
+- **Windows rule**: On Windows terminal sessions (PowerShell, Windows Terminal, or `cmd`), if the task involves reading, writing, displaying, copying, or comparing Chinese or other non-ASCII text, the agent **MUST** first ensure terminal and subprocess I/O use UTF-8 end to end before trusting the output.
+- **Diagnosis rule**: If terminal output appears garbled, the agent **MUST** assume an encoding mismatch first, retry with explicit UTF-8 settings, and only then decide whether the file contents are actually corrupted. The agent must not continue analysis, comparison, or editing based on garbled output.
 - The agent must preserve existing line endings, BOM behavior, and non-ASCII characters unless the task explicitly requires normalization.
 - The agent must not silently convert file encodings across the project.
+- **PowerShell example**:
+
+```powershell
+[Console]::InputEncoding = [System.Text.UTF8Encoding]::new($false)
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+$OutputEncoding = [Console]::OutputEncoding
+Get-Content -Encoding utf8 ./notes.md
+Set-Content -Encoding utf8 ./notes.md '中文示例'
+python -X utf8 ./script.py
+```
 
 ### 7.2 Minimal and Safe Edits
 
@@ -311,6 +323,7 @@ These notes apply to routine agent work even when another section does not menti
 ### 7.3 Content Verification
 
 - Before finalizing, quickly re-read the edited sections to ensure headings, numbering, links, and code fences still render correctly.
+- If the task involves Chinese text or terminal output, the agent **MUST** confirm that the final text shown to the user is readable UTF-8 text and must not copy garbled output directly into the final reply or documentation.
 - If a note is uncertain or strongly project-specific, prefer a concise clarification to the user instead of inventing a rule.
 
 ---
