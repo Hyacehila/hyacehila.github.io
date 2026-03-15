@@ -397,46 +397,34 @@
               <h4 class="h4 timeline-item-title" data-i18n="experience-nsfocus-title-company">Algorithm Researcher
                 (Intern) | NSFOCUS Technology (Wuhan)</h4>
 
-              <span>Dec 2025 — Present</span>
+              <span>Dec 2025 &mdash; Mar 2026</span>
 
               <div class="project-details">
                 <div class="detail-point">
-                  <strong data-i18n="experience-nsfocus-p1-label">Post-Training Data Collection & Cleaning</strong><span
-                    data-i18n="experience-nsfocus-p1"><br><b>• Automated Data Pipeline:</b> Built an automated
-                    preprocessing and feature extraction pipeline targeting GitHub ecosystems to meet RL model demands
-                    in vulnerability discovery. Extracted and validated 30K+ CVE entities via regex and source code
-                    Diffs, integrated with internal databases for high-precision CWE/OWASP multi-dimensional semantic
-                    annotation.<br><b>• Dynamic Target Distribution Control:</b> Designed a hybrid sampling algorithm
-                    utilizing dynamic thresholds and tail-class oversampling. Established a high-quality post-training
-                    data foundation supporting 10+ mainstream programming languages. Enabled dynamic adjustment of
-                    classification on demand, strictly controlling the deviation between final and target distribution
-                    ratios within 3%.</span>
+                  <strong data-i18n="experience-nsfocus-p1-label">Security Data Pipeline</strong><span
+                    data-i18n="experience-nsfocus-p1"><br><b>&bull; Automated Data Pipeline:</b> Built a security data
+                    preprocessing and feature extraction pipeline over GitHub repositories and internal databases;
+                    extracted and validated 8,000+ CVE instances, distilled about 4,000 high-quality samples, and
+                    produced multi-dimensional CWE/OWASP labels.<br><b>&bull; Sample Mixing for Training Targets:</b>
+                    Mixed samples to align vulnerability-type and programming-language distributions with training
+                    targets.</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="experience-nsfocus-p2-label">Agent System for CodeQL Analysis</strong><span
-                    data-i18n="experience-nsfocus-p2"><br><b>• Closed-Loop Decision & Real-Environment Interaction:</b>
-                    Built a CodeQL-oriented Single Agent decision engine governing a comprehensive "Information
-                    Retrieval → Source Browsing → Taint Analysis → CodeQL Verification" pipeline. Introduced an
-                    Error-guided Reflection mechanism based on real-environment execution feedback, empowering the model
-                    with deep self-correction and continuous decision-making capabilities.<br><b>• SFT & RL Data
-                      Synthesis:</b> Leveraged the large-scale analysis of the Agent system to deeply analyze
-                    3,000 original CVEs, automatically purifying and curating 20,000 structured SFT trajectory data
-                    entries containing high-confidence Tool-use sequences. This effectively mitigated model
-                    hallucinations and invalid explorations during the cold-start phase, successfully generating 1,500+
-                    highly reliable taint flows as prior data directly serving the subsequent RL training.</span>
+                  <strong data-i18n="experience-nsfocus-p2-label">CodeQL Review Agent</strong><span
+                    data-i18n="experience-nsfocus-p2"><br><b>&bull; Single-Agent Review Loop:</b> Built a single-agent
+                    workflow for CodeQL-based code review, covering information retrieval, repository navigation, taint
+                    analysis, and engine-backed validation. Added reflection from real execution feedback to improve
+                    self-correction and long-horizon decision-making.<br><b>&bull; SFT & RL Data Synthesis:</b> Analyzed 500
+                    raw CVEs to distill 2,500 structured SFT trajectories with high-confidence tool-use patterns and 300
+                    verified taint-flow examples for cold start and downstream RL training.</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="experience-nsfocus-p3-label">RL Baseline & Progressive Alignment
-                    Design</strong><span data-i18n="experience-nsfocus-p3"><br><b>• Rule-Based Reward & RL
-                      Cold Start:</b> Constructed a foundational rule-based reward system based on preceding
-                    high-quality
-                    SFT taint flow data. Rapidly established the RL baseline pipeline, conducting preliminary alignment
-                    fine-tuning on the model's taint analysis capabilities.<br><b>• High-Entropy Dynamic Evolution
-                      Scheme:</b> Addressed larger-scale data alignment efficiency by designing a progressive evolution
-                    strategy that combines vector-based information entropy maximization (Faiss + LSH) and dynamic
-                    difficulty adjustment (Curriculum Learning). Proposed a novel dynamic reward system centered around
-                    LLM Rubrics, providing fine-grained alignment metrics for complex, ultra-long-span taint flow
-                    analyses.</span>
+                  <strong data-i18n="experience-nsfocus-p3-label">RL Baseline & Alignment Roadmap</strong><span
+                    data-i18n="experience-nsfocus-p3"><br><b>&bull; RL Baseline:</b> Completed a rule-based reward design
+                    and the initial RL training pipeline using high-quality taint-flow supervision.<br><b>&bull; Advanced
+                      Alignment Roadmap:</b> Proposed a next-stage alignment roadmap that combines Faiss+LSH-based
+                    vector sampling, curriculum-style difficulty control, and an LLM-as-Judge reward system for
+                    long-horizon taint analysis.</span>
                 </div>
               </div>
 
@@ -908,12 +896,12 @@
         "education-xidian": "Bachelor's degree in Statistics from Xidian University. Systematically studied fundamental statistical theories with deep expertise in applied fields including machine learning, data analysis, and data mining. Ranked 2/30 overall and was recommended for admission to Wuhan University for Master's degree without examination.",
         "experience-title": "Experience",
         "experience-nsfocus-title-company": "Algorithm Researcher (Intern) | NSFOCUS Technology (Wuhan)",
-        "experience-nsfocus-p1-label": "Post-Training Data Collection & Cleaning",
-        "experience-nsfocus-p1": "<br><b>• Automated Data Pipeline:</b> Built an automated preprocessing and feature extraction pipeline targeting GitHub ecosystems to meet RL model demands in vulnerability discovery. Extracted and validated 30K+ CVE entities via regex and source code Diffs, integrated with internal databases for high-precision CWE/OWASP multi-dimensional semantic annotation.<br><b>• Dynamic Target Distribution Control:</b> Designed a hybrid sampling algorithm utilizing dynamic thresholds and tail-class oversampling. Established a high-quality post-training data foundation supporting 10+ mainstream programming languages. Enabled dynamic adjustment of classification on demand, strictly controlling the deviation between final and target distribution ratios within 3%.",
-        "experience-nsfocus-p2-label": "Agent System for CodeQL Analysis",
-        "experience-nsfocus-p2": "<br><b>• Closed-Loop Decision & Real-Environment Interaction:</b> Built a CodeQL-oriented Single Agent decision engine governing a comprehensive \"Information Retrieval → Source Browsing → Taint Analysis → CodeQL Verification\" pipeline. Introduced an Error-guided Reflection mechanism based on real-environment execution feedback, empowering the model with deep self-correction and continuous decision-making capabilities.<br><b>• SFT & RL Data Synthesis:</b> Leveraged the large-scale analysis of the Agent system to deeply analyze 3,000 original CVEs, automatically purifying and curating 20,000 structured SFT trajectory data entries containing high-confidence Tool-use sequences. This effectively mitigated model hallucinations and invalid explorations during the cold-start phase, successfully generating 1,500+ highly reliable taint flows as prior data directly serving the subsequent RL training.",
-        "experience-nsfocus-p3-label": "RL Baseline & Progressive Alignment Design",
-        "experience-nsfocus-p3": "<br><b>• Rule-Based Reward & RL Cold Start:</b> Constructed a foundational rule-based reward system based on preceding high-quality SFT taint flow data. Rapidly established the RL baseline pipeline, conducting preliminary alignment fine-tuning on the model's taint analysis capabilities.<br><b>• High-Entropy Dynamic Evolution Scheme:</b> Addressed larger-scale data alignment efficiency by designing a progressive evolution strategy that combines vector-based information entropy maximization (Faiss + LSH) and dynamic difficulty adjustment (Curriculum Learning). Proposed a novel dynamic reward system centered around LLM Rubrics, providing fine-grained alignment metrics for complex, ultra-long-span taint flow analyses.",
+        "experience-nsfocus-p1-label": "Security Data Pipeline",
+        "experience-nsfocus-p1": "<br><b>&bull; Automated Data Pipeline:</b> Built a security data preprocessing and feature extraction pipeline over GitHub repositories and internal databases; extracted and validated 8,000+ CVE instances, distilled about 4,000 high-quality samples, and produced multi-dimensional CWE/OWASP labels.<br><b>&bull; Sample Mixing for Training Targets:</b> Mixed samples to align vulnerability-type and programming-language distributions with training targets.",
+        "experience-nsfocus-p2-label": "CodeQL Review Agent",
+        "experience-nsfocus-p2": "<br><b>&bull; Single-Agent Review Loop:</b> Built a single-agent workflow for CodeQL-based code review, covering information retrieval, repository navigation, taint analysis, and engine-backed validation. Added reflection from real execution feedback to improve self-correction and long-horizon decision-making.<br><b>&bull; SFT & RL Data Synthesis:</b> Analyzed 500 raw CVEs to distill 2,500 structured SFT trajectories with high-confidence tool-use patterns and 300 verified taint-flow examples for cold start and downstream RL training.",
+        "experience-nsfocus-p3-label": "RL Baseline & Alignment Roadmap",
+        "experience-nsfocus-p3": "<br><b>&bull; RL Baseline:</b> Completed a rule-based reward design and the initial RL training pipeline using high-quality taint-flow supervision.<br><b>&bull; Advanced Alignment Roadmap:</b> Proposed a next-stage alignment roadmap that combines Faiss+LSH-based vector sampling, curriculum-style difficulty control, and an LLM-as-Judge reward system for long-horizon taint analysis.",
         "experience-cnpcas-title": "LLM Agent Intern",
         "experience-cnpcas-company": "Institute of Geographic Sciences and Natural Resources Research, CAS",
         "experience-cnpcas-title-company": "LLM Agent Algorithm Intern | CAS",
@@ -1045,12 +1033,12 @@
         "education-xidian": "于西安电子科技大学获得统计学学士学位。系统学习了统计学基础理论，深耕机器学习、数据分析与数据挖掘等应用领域。综合排名2/30，推荐免试至武汉大学攻读硕士学位。",
         "experience-title": "工作经历",
         "experience-nsfocus-title-company": "算法研究员（实习） | 绿盟科技（武汉）",
-        "experience-nsfocus-p1-label": "后训练数据收集与清洗",
-        "experience-nsfocus-p1": "<br><b>• 自动化数据管线建设：</b>针对 RL 模型在漏洞发现场景的需求，构建基于 GitHub 生态的自动化预处理与特征抽取管线。通过正则与源码 Diff 提取并校验3万余 CVE 实体，结合内部库完成 CWE/OWASP 的高精度多维语义标注。<br><b>• 动态长尾增强与分布控制：</b>设计支持「动态阈值截断+尾部扩增」的混合采样算法。为模型后训练淬炼出支持10余种编程语言的高质量数据基座，支持按需动态调整数据分类占比，最终分布与目标比例的偏差严控在3%以内。",
-        "experience-nsfocus-p2-label": "面向 CodeQL 分析的Agent系统",
-        "experience-nsfocus-p2": "<br><b>• 闭环决策与真实环境交互：</b>构建面向 CodeQL 代码审查的 Single Agent 决控引擎，打通「信息检索→源码浏览→污点分析→CodeQL引擎验证」全链路。引入基于真实环境执行报错的 Error-guided Reflection 机制，赋予模型基于真实环境反馈的深度自我纠错与长时决策能力。<br><b>• SFT与RL数据合成：</b>依托Agent系统的大规模分析，深度剖析3000个原始CVE，自动化提纯并沉淀2万条包含高确信度 Tool-use 序列的结构化 SFT 轨迹数据。此举有效缓解了冷启动阶段的模型幻觉与无效探索，并成功构建出1500余条绝对可靠的污点流先验数据，直接服务于后续的RL训练。",
-        "experience-nsfocus-p3-label": "RL基建与进阶对齐策略设计",
-        "experience-nsfocus-p3": "<br><b>• Rule-based 奖励与微调冷启动：</b>基于前置产出的高质量 SFT 污点流数据，构建基础规则导向的 Reward 体系。快速打通 RL 流程基线，对模型的污点分析能力进行初步对齐微调。<br><b>• 从启发式到高熵动态演进方案设计：</b>针对更大规模数据对齐效率问题，设计了包含基于向量技术（Faiss+LSH）最大化信息熵抽样与动态难度调节（Curriculum Learning）的阶段性演进方案。并规划以 LLM Rubric 为核心的奖励系统，为深层、超长跨度的复杂污点流域分析提供细粒度的对齐标尺。",
+        "experience-nsfocus-p1-label": "漏洞数据管线与样本构建",
+        "experience-nsfocus-p1": "<br><b>&bull; 自动化数据管线：</b>基于 GitHub 开源数据与内部数据库搭建漏洞数据预处理与特征抽取管线，提取并校验 8,000+ CVE 实体，清洗沉淀约 4,000 条高质量样本，并完成 CWE/OWASP 多维类型标注。<br><b>&bull; 样本混合控制：</b>通过样本混合控制漏洞类型与语言类型分布，使训练集满足目标配比。",
+        "experience-nsfocus-p2-label": "CodeQL 审查 Agent",
+        "experience-nsfocus-p2": "<br><b>&bull; Single Agent 闭环：</b>构建面向 CodeQL 代码审查的 Single Agent，打通信息检索→源码浏览→污点分析→CodeQL 引擎验证闭环，并引入基于真实环境执行反馈的反思机制，增强模型的自纠错与长程决策能力。<br><b>&bull; SFT 与 RL 数据合成：</b>基于 Agent 系统深度分析 500 个原始 CVE，沉淀 2,500 条高确信度 Tool-use 结构化 SFT 轨迹，以及 300 条经验证的可靠污点流数据，用于冷启动与后续 RL 训练。",
+        "experience-nsfocus-p3-label": "RL 基线与对齐规划",
+        "experience-nsfocus-p3": "<br><b>&bull; RL 基线搭建：</b>基于高质量 SFT 污点流数据完成规则导向的奖励设计与基础 RL 训练流程搭建，对模型污点分析能力进行初步对齐。<br><b>&bull; 进阶对齐规划：</b>进一步规划结合 Faiss+LSH 向量抽样、Curriculum Learning 动态难度调节，以及以 LLM as Judge 为核心的奖励系统，面向长跨度污点分析开展后续进阶对齐。",
         "experience-cnpcas-title": "LLM Agent 实习生",
         "experience-cnpcas-company": "中科院地理科学与资源研究所",
         "experience-cnpcas-title-company": "LLM Agent算法实习生 | 中国科学院地理科学与资源研究所",
