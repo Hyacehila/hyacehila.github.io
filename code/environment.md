@@ -38,7 +38,10 @@
     ```bash
     npm i -g @openai/codex
     ```
-
+6.  **Claude Code**:
+    ```bash
+    curl -fsSL https://claude.ai/install.sh | bash
+    ```
 
 ## SSH服务器环境控制
 
