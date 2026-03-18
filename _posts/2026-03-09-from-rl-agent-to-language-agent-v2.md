@@ -3,7 +3,7 @@ layout: blog-post
 title: "从 RL Agent 到 LLM Agent：The Second Half 之后的范式转移与不确定性建模"
 date: 2026-03-09 12:00:00 +0800
 categories: [LLM]
-tags: [Agent, Reinforcement Learning, LLM Agent, ReAct, Reflexion, Tree of Thoughts, Voyager, GITM, Plan4MC, CoALA]
+tags: [Agent, Reinforcement Learning, LLM Agent, ReAct, Reflexion, Tree of Thoughts, Voyager, GITM, Plan4MC, CoALA, Era of Experience, Reward Design]
 author: Hyacehila
 excerpt: "从RL Agent到LLM Agent的演进不是简单的模型替换，而是学习信号从数值空间迁移到语言空间的范式转换。The Second Half 之后，开放世界研究、语言空间推理与混合架构共同证明：预训练先验、评估与记忆正在重写智能体的主范式"
 series: "Agent时代的基础设施"
@@ -66,6 +66,48 @@ GPT 系列模型最终的泛化解释了我们缺少的那块拼图——Pretrai
 我们将迎来从解决问题到定义问题的阶段：算法的泛化意味着我们不需要全新的结构与方法去获取智能；从提高指标到将现实世界的复杂问题转换为指标；从算法在固定数据集（如 ImageNet）上的改进，转向模型能力在真实任务中的提升。而现实世界交互就是最大的评估，世界模型将会取代从真实世界获取数据，从世界模型出发实现数据与模型的最终 Generalization。
 
 也正因为如此，研究模型去玩Minecraft游戏不在于游戏本身，就和DOta等游戏一样， 在于它提供了一个足够复杂、足够长程、足够接近真实任务结构的试验场：如果一个智能体体系能在这里证明自己不再依赖纯粹的环境内盲目探索，而是开始依赖先验知识、规划、文本反馈和外部记忆，那么范式转移就已经发生了。
+
+## 另一个视角：Era of Experience 与路线之争
+
+The Second Half 从 RL 泛化和评估的角度解释了范式为什么要转移。几乎同一时间，David Silver 和 Richard Sutton 在 [Welcome to the Era of Experience](https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf) 中从另一个角度做了方向性判断：**AI 研究的核心问题正在从「如何从人类数据中学更多」变成「如何让 agent 在世界中行动并从后果中学习」。**
+
+他们的核心论证是：高质量人类数据的增量收益正在变小，而很多真正重要的新能力——超人水平的数学、科学发现、复杂规划——按定义就还没写进现有数据里。下一阶段的核心数据源，是 **agent 自己在环境里行动、观察、试错、获取反馈之后产生的经验（experience）**。他们把新阶段拆成四个核心变化：
+
+1. **Streams**：agent 不再是一问一答的聊天模型，而是活在一条持续的经验流里，跨越数月甚至数年地积累知识和修正策略。
+2. **Grounded Actions / Observations**：输入输出不再局限于文本，而是真正落在环境中——网页、代码执行器、API、机器人传感器。
+3. **Grounded Rewards**：奖励不再只是"人类觉得这个回答好不好"，而是来自环境后果——代码有没有跑通、实验结果是否更好、任务是否完成。
+4. **Planning Beyond Human Traces**：推理不必永远像人类写 chain-of-thought 那样进行；agent 可以发展出不同于人类表述的内部计算与规划方式。
+
+这个框架和 The Second Half 指向的目标一致——**去定义新的有价值的问题并给出有价值的 reward**——但路径不同。需要先说清楚一个判断：**这篇短文更像研究宣言而不是已验证的定律。** 最好的读法是把它当作一种新总纲，思考它如何影响我们该做什么的研究。
+
+### 2024-2026：从观点到现实
+
+这些方向性判断已经开始在一批系统中变成现实：
+
+| 系统 | 时间 | 代表什么 |
+|---|---|---|
+| [OpenAI o1](https://openai.com/index/learning-to-reason-with-llms/) | 2024 | 推理能力提升越来越依赖 RL 与推理计算，而非继续堆预训练数据 |
+| [DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1) | 2025 | 纯 RL 先冒出推理行为，证明经验能长出新能力 |
+| [AlphaProof](https://www.nature.com/articles/s41586-025-09833-y) | 2025 | 形式化证明器提供高质量验证信号，是环境反馈驱动学习的最理想场景 |
+| [AlphaEvolve](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/AlphaEvolve.pdf) | 2025 | 用自动评估器驱动代码/算法搜索，agent 在"试-评-改"循环里进化方案 |
+| [Operator](https://cdn.openai.com/operator_system_card.pdf) | 2025 | agent 直接在 GUI 中完成任务，从答题转成行动 |
+| [Gemini Robotics](https://arxiv.org/abs/2503.20020) | 2025 | 多模态模型进入实体环境，视觉-动作闭环 |
+
+其中 DeepSeek-R1 尤其值得注意：R1-Zero **先做大规模 RL，不做 SFT 冷启动**，纯 RL 的确涌现了 self-verification、reflection、long CoT。但同时也出现了 endless repetition、language mixing 等问题。这恰好说明：**经验可以长出新能力，但经验本身不会自动带来好用性和稳定对齐。** 经验时代不是替代一切人类数据，而是减弱人类数据的必须性——预训练先验仍然不可或缺。
+
+AlphaProof 在 2024 年 IMO 上拿到银牌水平，包括只有 5 名选手做出的最难题目。它的成功核心不在于 RL 有多强，而在于**一旦高质量环境反馈存在，经验学习就可能迅速超越纯人类数据路线**。形式化证明器提供的是可执行、可重复、可规模化的验证信号——这比"人类觉得你回答不错"强得多。
+
+### 路线之争：这件事远没有共识
+
+围绕"用什么去补人类数据的天花板"，至少存在三条竞争路线：
+
+- **Silver / Sutton 路线**：RL + 经验 + 标量奖励。核心信念是 [Reward is Enough](https://www.sciencedirect.com/science/article/pii/S0004370221000862)——所有目标都可被表达为累积标量奖励最大化。Sutton 在 2025 年甚至将 LLM 称为"世界的瞬间痴迷"（a passing fad）。
+- **LeCun 路线**：世界模型 + JEPA。构建编码物理、因果关系和时间演化的世界模型，在抽象表示空间中预测未来。2025 年底 LeCun 创立 AMI Labs 全面押注这条路线，核心论证是人脑用极少数据就能学会理解世界，说明架构比数据量更重要。
+- **Hassabis 路线**：务实折中。DeepMind 在实践中混合使用——AlphaProof 用 Gemini + AlphaZero，Gemini Robotics 混合大模型和控制策略。
+
+**我自己的判断是辩证的**：纯 RL 路线低估了预训练先验的价值——正是 Pretraining 带来的 Priors 让 RL 在语言空间的泛化成为可能，这在本文前面已经论证过。但 Silver 和 Sutton 对 agent 在环境中行动、获取反馈、用环境后果 reward 自己这一核心循环的强调是完全正确的。**LLM 提供先验和语义规划能力，RL 提供环境反馈驱动的持续优化——两者的融合才是可能的智能路线。** 这也是下面即将讨论的 Plan4MC、Voyager 等混合架构已经在验证的方向。
+
+无论哪条路线胜出，有一件事是共识：**纯粹依赖人类已有数据的路线正在接近天花板。** 分歧只在于用什么去补。而 The Second Half 和 Era of Experience 从不同角度给出的答案是一致的：定义问题比研究解决问题的方法更重要——只要你有一个完美的 Rewarder 可以近似人类的需求，RL 就能将模型带到那个位置。
 
 ## 开放世界中的范式证据：Plan4MC / GITM / Voyager
 
