@@ -8,6 +8,7 @@ author: Hyacehila
 excerpt: "从 reward、baseline、advantage 与 normalization 这条信号链出发，解释为什么 LLM 对齐中的 RL 算法总在重写奖励信号。"
 featured: false
 math: true
+series: "Reward and Training"
 ---
 
 # LLM 对齐中的强化学习：从奖励信号到优势估计
