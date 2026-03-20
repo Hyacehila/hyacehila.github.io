@@ -1,12 +1,12 @@
 ---
 layout: blog-post
-title: "Agent 时代的基础设施建设"
+title: Agent 时代的基础设施建设
 date: 2026-03-02 17:00:00 +0800
-categories: [LLM]
-tags: [Agent, Infrastructure]
+series: Agent时代的基础设施
+categories: [智能体系统]
+tags: [Agents, Tool Use, Context Engineering]
 author: Hyacehila
-excerpt: "从“模型即服务”走向“智能体即服务”，探讨 AI Agent 的基础能力将会沉淀为新时代的基础设施的必然趋势"
-series: "Agent时代的基础设施"
+excerpt: 从“模型即服务”走向“智能体即服务”，探讨 AI Agent 的基础能力将会沉淀为新时代的基础设施的必然趋势
 math: false
 ---
 

@@ -1,13 +1,13 @@
 ---
 layout: blog-post
-title: "从 MCP 到 Agent Skills：为什么 Agent 又需要一种新的上下文工程协议？"
+title: 从 MCP 到 Agent Skills：为什么 Agent 又需要一种新的上下文工程协议？
 date: 2026-03-10 20:00:00 +0800
-categories: [LLM]
-tags: [Agent, MCP, Skills, Context Engineering, Tooling]
+series: Agent时代的基础设施
+categories: [智能体系统]
+tags: [MCP, Agents, Context Engineering, Tool Use]
 author: Hyacehila
-excerpt: "Agent Skills 的爆火不是因为它比 MCP 更先进，而是因为它把能力封装做得足够简单。它是上下文工程中重要的一环，但不是新的统一协议，更不是 Agent 的终局。"
-series: "Agent时代的基础设施"
-featured: True
+excerpt: Agent Skills 的爆火不是因为它比 MCP 更先进，而是因为它把能力封装做得足够简单。它是上下文工程中重要的一环，但不是新的统一协议，更不是 Agent 的终局。
+featured: true
 math: false
 ---
 

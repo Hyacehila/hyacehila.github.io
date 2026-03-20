@@ -1,12 +1,12 @@
 ---
 layout: blog-post
-title: "从智能体的认知结构到智能体框架"
+title: 从智能体的认知结构到智能体框架
 date: 2026-03-03 23:36:00 +0800
-categories: [LLM]
-tags: [Cognitive Architecture, Agent Framework, Workflow, LLM]
+series: Agent时代的基础设施
+categories: [智能体系统]
+tags: [Agents, Tool Use, Context Engineering]
 author: Hyacehila
-excerpt: "本文从认知架构（CoALA）出发，探讨了纯Agent与Workflow的优劣，并深入分析了智能体框架的工程价值、瓶颈及下一代基础设施的构建思路。"
-series: "Agent时代的基础设施"
+excerpt: 本文从认知架构（CoALA）出发，探讨了纯Agent与Workflow的优劣，并深入分析了智能体框架的工程价值、瓶颈及下一代基础设施的构建思路。
 featured: true
 ---
 

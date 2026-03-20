@@ -1,12 +1,12 @@
 ---
 layout: blog-post
-title: "多元时间序列的 SVD 分解与模式"
+title: 多元时间序列的 SVD 分解与模式
 date: 2026-01-12 12:00:00 +0800
 categories: [统计学]
 tags: [Time Series, Dimensionality Reduction]
 author: Hyacehila
-math: true
 excerpt: 对于一个 n×T 的时间序列矩阵 X，SVD 分解可以得到 X=UΣV^T。本文将详细解释得到的矩阵在时空模式挖掘中的物理意义，包括空间模式 U、时间模式 V 以及奇异值 Σ 的含义。
+math: true
 ---
 
 对于一个 $n\times T$ 的多元时间序列矩阵 $X$，其中 $n$ 是通道数（或变量数），$T$ 是时间节点（观测数）。对其进行 SVD 分解，可以得到 $X=U\Sigma V^T$。下面我们来详细解释分解后得到的各个矩阵的意义及其应用。

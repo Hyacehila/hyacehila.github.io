@@ -407,7 +407,8 @@
               </div>
               ${post.tags.length > 0 ? `
               <div class="series-post-tags">
-                ${post.tags.map(t => `<span class="series-post-tag">#${t}</span>`).join('')}
+                ${post.tags.slice(0, 4).map(t => `<span class="series-post-tag">#${t}</span>`).join('')}
+                ${post.tags.length > 4 ? `<span class="series-post-tag">+${post.tags.length - 4}</span>` : ''}
               </div>
               ` : ''}
             </div>

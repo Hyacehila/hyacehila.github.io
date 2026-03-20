@@ -1,13 +1,13 @@
 ---
 layout: blog-post
-title: "Compression for AGI：压缩即智能"
+title: Compression for AGI：压缩即智能
 date: 2026-02-20 20:00:00 +0800
-series: "LLM ESSENCE"
-categories: [LLM]
-tags: [Pre-Training]
+series: LLM ESSENCE
+categories: [基础模型]
+tags: [Pre-Training, Model Mechanics]
 author: Hyacehila
+excerpt: 整理 Jack Rae 在《Compression for AGI》中的核心观点：基础模型训练可以理解为对有效信息的无损压缩；压缩率越高（loss 越低），模型越可能呈现更强的泛化与智能行为。
 math: true
-excerpt: "整理 Jack Rae 在《Compression for AGI》中的核心观点：基础模型训练可以理解为对有效信息的无损压缩；压缩率越高（loss 越低），模型越可能呈现更强的泛化与智能行为。"
 ---
 
 # Compression for AGI：压缩即智能

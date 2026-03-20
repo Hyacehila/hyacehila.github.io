@@ -1,12 +1,12 @@
 ---
 layout: blog-post
-title: "Context is All You Need：智能体的上下文工程"
+title: Context is All You Need：智能体的上下文工程
 date: 2026-03-06 12:00:00 +0800
-categories: [LLM]
-tags: [Context Engineering, Agent Memory]
+series: Agent时代的基础设施
+categories: [智能体系统]
+tags: [Agents, Context Engineering]
 author: Hyacehila
-excerpt: "从CoALA认知架构出发，系统讨论智能体的记忆分层、检索策略与上下文自动管理，这是一篇包含各种零散想法的草稿而不是一个系统的Blog"
-series: "Agent时代的基础设施"
+excerpt: 从CoALA认知架构出发，系统讨论智能体的记忆分层、检索策略与上下文自动管理，这是一篇包含各种零散想法的草稿而不是一个系统的Blog
 featured: true
 math: false
 ---

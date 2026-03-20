@@ -2,8 +2,8 @@
 layout: blog-post
 title: 第一篇博客（An Example）
 date: 2025-12-26 19:00:00 +0800
-categories: [随笔]
-tags: [Tech]
+categories: [随笔与观察]
+tags: [Methodology, Society]
 author: Hyacehila
 excerpt: 这是博客的第一篇文章，也是后续写作规范的一个示例与说明。
 ---

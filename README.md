@@ -43,7 +43,7 @@ English: A static personal portfolio + Jekyll-powered blog.
 - **代码高亮**：Rouge（Monokai）。
 - **数学公式**：MathJax（`$...$`/`$$...$$`）。
 - **图表**：Mermaid（```mermaid 代码块）。
-- **分类/标签筛选**：博客主页按钮筛选（注意：筛选使用 `categories` 的第 1 个元素作为主分类）。
+- **分类/标签筛选**：博客主页使用 7 个固定中文主分类 + 英文标签白名单筛选（仍以 `categories` 的第 1 个元素作为主分类）。
 - **系列文章**：通过 Front Matter 的 `series` 字段聚合，并提供系列页：`/blog/series/?name=...`。
 - **得意之作（精选）**：`featured: true` 的文章可在“得意之作”视图筛选。
 - **阅读时长**：在博客卡片上按汉字统计（300 字/分钟，英文占比高的文章可能显示为 0）。
@@ -74,6 +74,8 @@ PersonelPage/
 │   ├── images/                 # 图片资源
 │   ├── murmur/murmur.json      # 碎碎念数据
 │   └── travelmap/              # 旅行足迹（ECharts + 数据）
+├── scripts/
+│   └── validate_taxonomy.py    # 校验固定分类/标签白名单与数量规则
 ├── code/                       # 文章配套代码/资料（会被静态发布）
 ├── README.md
 └── LICENSE
@@ -93,6 +95,12 @@ jekyll serve
 
 ```bash
 jekyll serve --drafts --future
+```
+
+校验博客分类/标签元数据：
+
+```bash
+python scripts/validate_taxonomy.py
 ```
 
 说明：`_config.yml` 中默认 `future: false`、`show_drafts: false`，用于生产环境不发布草稿/未来文章。
@@ -143,8 +151,8 @@ jekyll serve --drafts --future
 layout: blog-post
 title: "文章标题（建议与正文 H1 完全一致）"
 date: 2026-02-27 20:00:00 +0800
-categories: [统计学]          # 至少 1 个；第 1 个会被当作主分类用于筛选
-tags: [Learning, Bootstrap]   # 必须是列表；tag 名称里不要包含逗号
+categories: [统计学]                           # 必须且只能有 1 个主分类
+tags: [Statistical Inference, Resampling]     # 2~4 个英文标签，必须来自白名单
 author: Hyacehila             # 推荐保留；可省略
 excerpt: "给列表卡片用的一句话摘要，不要写 Markdown"
 
@@ -164,11 +172,28 @@ math: true
 - `layout`: 固定为 `blog-post`（对应 `_layouts/blog-post.html`）。
 - `title`: 用于页面标题与列表卡片标题；如包含冒号/引号等特殊字符，务必用双引号包裹。
 - `date`: 用于排序、URL 与“上一篇/下一篇”。注意 `_config.yml` 默认 `future: false`，**未来日期文章不会发布**。
-- `categories`: 必须为列表（`[...]`）。博客主页筛选 **只读取第 1 个分类** 作为主分类。
-- `tags`: 必须为列表（`[...]`）。博客主页用 `,` 拼接 tags 做筛选，因此 **单个 tag 名称不要包含逗号**。
+- `categories`: 必须为列表（`[...]`），且长度固定为 1。允许值仅有：`基础模型`、`训练与对齐`、`智能体系统`、`机器学习`、`统计学`、`数据科学`、`随笔与观察`。
+- `tags`: 必须为列表（`[...]`），长度固定为 2~4，且全部使用英文白名单标签；博客主页用 `,` 拼接 tags 做筛选，因此 **单个 tag 名称不要包含逗号**。
 - `excerpt`: 列表卡片摘要；建议 60~140 字（中文）或 20~40 words（英文），不换行、不写 Markdown。
 - `series`: 相同字符串会被聚合到同一系列；系列页按 `date` 排序。
 - `featured`: `true` 时会出现在“得意之作”。
+
+固定 taxonomy：
+
+- 主分类（7 个）：`基础模型`、`训练与对齐`、`智能体系统`、`机器学习`、`统计学`、`数据科学`、`随笔与观察`
+- 英文标签白名单（30 个）：
+  `Pre-Training`、`Fine-Tuning`、`Alignment`、`Reinforcement Learning`、`Reward Modeling`、`Reasoning`、`Multimodality`、`Model Mechanics`、`Agents`、`Tool Use`、`MCP`、`Context Engineering`、`Retrieval`、`Evaluation`、`Data Curation`、`Ensemble Learning`、`Interpretability`、`Imbalanced Learning`、`Scientific ML`、`Embeddings`、`Statistical Inference`、`Linear Models`、`Graphical Models`、`Time Series`、`Dimensionality Reduction`、`Resampling`、`Spatial Data`、`Data Visualization`、`Society`、`Methodology`
+- 标签顺序建议：领域标签 -> 方法标签 -> 任务/视角标签 -> 可选补充标签
+- 统一映射约束：
+  - `SFT`/`PEFT`/`LoRA`/`Post-Training` 统一写为 `Fine-Tuning`
+  - `RL`/`Agentic RL` 统一写为 `Reinforcement Learning`
+  - `RLHF`/`RLVR`/`RLAIF` 优先归到 `Alignment`，奖励机制为主角时再补 `Reward Modeling`
+  - `Agent`/`LLM Agent`/`Agent Framework`/`AEnvironment` 统一写为 `Agents`
+  - `Tool Use`/`Skills`/`Workflow` 统一写为 `Tool Use`
+  - `Context Engineering`/`Agent Memory` 统一写为 `Context Engineering`
+  - `Data Pipeline`/`Data Cleaning`/`Deduplication`/`Data Curation` 统一写为 `Data Curation`
+  - `Ensemble Learning`/`Tree Models` 统一写为 `Ensemble Learning`
+  - `Explainability`/`Model Interpretability` 统一写为 `Interpretability`
 
 ### 3. 正文标题层级与排版逻辑（强约定）
 
@@ -256,7 +281,7 @@ Markdown 语法：`![alt](url)`。
 ### 5. 从原始草稿到可发布文章：操作流程
 
 1. **理解草稿意图**：确定文章类型（随笔/教程/整理），明确 1 句话核心结论。
-2. **确定元数据**：`title`、`excerpt`、主分类（`categories[0]`）、tags（3~8 个为宜）、是否系列/精选。
+2. **确定元数据**：`title`、`excerpt`、主分类（固定 7 选 1）、tags（2~4 个英文白名单标签）、是否系列/精选。
 3. **搭建大纲**：用 `##` 写 4~8 个主章节；每个 `##` 下用 `###` 拆成 2~5 个小节（需要时）。
 4. **填充内容**：优先写“结论/Takeaways”，再补论证与例子；技术文建议加入可运行代码片段与图表。
 5. **润色与一致性**：统一术语（中英文大小写）、统一编号格式（`1.` / `1.1`）、删掉重复句。
@@ -270,11 +295,12 @@ Markdown 语法：`![alt](url)`。
 - [ ] `layout: blog-post`
 - [ ] `title` 与正文第一个 `#` 完全一致
 - [ ] `date` 不是未来时间（除非你明确知道 `_config.yml` 的 `future` 行为）
-- [ ] `categories`/`tags` 均为 `[...]` 列表，且 **tag 名称不含逗号**
+- [ ] `categories`/`tags` 均为 `[...]` 列表，且 `categories` 恰好 1 个、`tags` 为 2~4 个英文白名单标签
 - [ ] `excerpt` 为纯文本、无换行、可做列表摘要
 - [ ] 所有 fenced code block 成对闭合；Mermaid 块使用 `mermaid` fenced block
 - [ ] 公式块 `$$...$$` 成对出现；必要时避开 `|`（用 `\mid`）
 - [ ] 外链图片/引用链接可访问
+- [ ] `python scripts/validate_taxonomy.py` 通过
 
 ## License
 

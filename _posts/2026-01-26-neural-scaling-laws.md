@@ -1,13 +1,13 @@
 ---
 layout: blog-post
-title: "Neural Scaling Laws：从 Kaplan 到 Chinchilla"
+title: Neural Scaling Laws：从 Kaplan 到 Chinchilla
 date: 2026-01-26 21:00:00 +0800
-series: "LLM ESSENCE"
-categories: [LLM]
-tags: [Scaling Laws]
+series: LLM ESSENCE
+categories: [基础模型]
+tags: [Pre-Training, Model Mechanics]
 author: Hyacehila
-math: true
 excerpt: 本文从 Kaplan 定律到 Chinchilla 修正，介绍关于ScalingLaw的研究，并且简单讨论一下TreeModel与ScalingLaw的关系。
+math: true
 ---
 
 # Neural Scaling Laws：从 Kaplan 到 Chinchilla

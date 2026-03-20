@@ -1,12 +1,12 @@
 ---
 layout: blog-post
-title: "从数据整理到 Agentic RL：把训练真正接成一个闭环"
+title: 从数据整理到 Agentic RL：把训练真正接成一个闭环
 date: 2026-03-21 22:00:00 +0800
-categories: [LLM]
-tags: [Agentic RL, Training Systems, Data Curation, SFT, RL, Post-Training]
-series: "Reward and Training"
+series: Reward and Training
+categories: [训练与对齐]
+tags: [Fine-Tuning, Reinforcement Learning, Data Curation]
 author: Hyacehila
-excerpt: "Agentic RL 真正要解决的，不是把 RL 接到 tool use 上，而是把任务整理、环境合同、反馈栈、offline shaping、online rollout 与部署回流接成一条完整训练飞轮。"
+excerpt: Agentic RL 真正要解决的，不是把 RL 接到 tool use 上，而是把任务整理、环境合同、反馈栈、offline shaping、online rollout 与部署回流接成一条完整训练飞轮。
 featured: false
 math: false
 ---
