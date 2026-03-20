@@ -1,11 +1,11 @@
 ---
 layout: blog-post
-title: "从 LSH 到 K-center-greedy：语义嵌入如何做数据去重、清洗与样本筛选"
+title: 从 LSH 到 K-center-greedy：语义嵌入如何做数据去重、清洗与样本筛选
 date: 2026-03-19 23:20:00 +0800
 categories: [机器学习]
-tags: [Embeddings, Data Cleaning, Deduplication, LSH, Faiss, K-center-greedy]
+tags: [Embeddings, Data Curation]
 author: Hyacehila
-excerpt: "语义嵌入不只是用来做检索。无论是 LSH 初筛、Faiss 语义去重，还是 K-center-greedy 样本筛选，本质上都在利用同一个表示空间处理冗余、覆盖与召回问题。"
+excerpt: 语义嵌入不只是用来做检索。无论是 LSH 初筛、Faiss 语义去重，还是 K-center-greedy 样本筛选，本质上都在利用同一个表示空间处理冗余、覆盖与召回问题。
 featured: false
 math: true
 ---

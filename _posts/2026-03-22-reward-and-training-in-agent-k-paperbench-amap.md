@@ -1,12 +1,12 @@
 ---
 layout: blog-post
-title: "Reward 与 Training 在真实 Agent 中如何闭环：从数据治理到在线 RL"
+title: Reward 与 Training 在真实 Agent 中如何闭环：从数据治理到在线 RL
 date: 2026-03-22 20:30:00 +0800
-categories: [LLM]
-tags: [Reward Design, Agent Training, Data Curation, Agent K, MLE-bench, tau-bench, PaperBench, AMAP]
-series: "Reward and Training"
+series: Reward and Training
+categories: [训练与对齐]
+tags: [Reward Modeling, Data Curation, Evaluation, Alignment]
 author: Hyacehila
-excerpt: "这一篇不再把论文逐篇串讲，而是按真实系统的训练流水线来重写：从 3000 万历史 query 的数据治理，到工具环境、reward 与 verifier 设计，再到 verified trajectories、SFT、curriculum、online RL 与 benchmark audit。"
+excerpt: 这一篇不再把论文逐篇串讲，而是按真实系统的训练流水线来重写：从 3000 万历史 query 的数据治理，到工具环境、reward 与 verifier 设计，再到 verified trajectories、SFT、curriculum、online RL 与 benchmark audit。
 featured: false
 math: true
 ---

@@ -1,11 +1,11 @@
 ---
 layout: blog-post
-title: "LLM 工具使用的技术演进：从 Toolformer 到 ToolLLM"
+title: LLM 工具使用的技术演进：从 Toolformer 到 ToolLLM
 date: 2026-03-05 13:20:00 +0800
-categories: [LLM]
-tags: [Tool Use, Agent]
+categories: [智能体系统]
+tags: [Agents, Tool Use]
 author: Hyacehila
-excerpt: "梳理 LLM Tool Use 领域的研究脉络——从 Toolformer 的自监督学习、Gorilla 的微调+检索、Tulip Agent 的递归分解，到 ToolLLM 的大规模框架，以及为什么这条研究路线正在被模型能力提升和 MCP 所取代。"
+excerpt: 梳理 LLM Tool Use 领域的研究脉络——从 Toolformer 的自监督学习、Gorilla 的微调+检索、Tulip Agent 的递归分解，到 ToolLLM 的大规模框架，以及为什么这条研究路线正在被模型能力提升和 MCP 所取代。
 math: false
 ---
 

@@ -1,11 +1,11 @@
 ---
 layout: blog-post
-title: "从黑盒预测器到可追溯医疗 Agent：医疗AI的未来"
+title: 从黑盒预测器到可追溯医疗 Agent：医疗AI的未来
 date: 2026-03-18 20:00:00 +0800
-categories: [AI, Research]
-tags: [Medical-AI, Agent, Multimodal, Genomics, Rare-Disease, Explainability]
+categories: [智能体系统]
+tags: [Agents, Multimodality, Interpretability]
 author: Hyacehila
-excerpt: "按技术演进梳理医疗 AI 如何从黑盒预测器走向可追溯医疗 Agent。"
+excerpt: 按技术演进梳理医疗 AI 如何从黑盒预测器走向可追溯医疗 Agent。
 featured: false
 math: false
 ---

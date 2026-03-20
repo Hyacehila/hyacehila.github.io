@@ -1,14 +1,14 @@
 ---
 layout: blog-post
-title: "LLM 推理与训练的本质：从 Surrogate 到强化学习的几何空间"
+title: LLM 推理与训练的本质：从 Surrogate 到强化学习的几何空间
 date: 2026-02-23 20:00:00 +0800
-series: "LLM ESSENCE"
-categories: [LLM]
-tags: [Reasoning, RL, Alignment]
+series: LLM ESSENCE
+categories: [训练与对齐]
+tags: [Reasoning, Alignment, Reinforcement Learning]
 author: Hyacehila
-math: true
+excerpt: 从Loss 只是 Surrogate的视角出发，回顾 Test-Time Compute (TTS) 如何控制泛化误差，并结合 CMU 的能力边缘理论揭示 RL 后训练的边界；微观剖析策略熵坍缩现象与 Meta 的 Three-Gate 理论，了解RL和SFT在微观的差异。
 featured: true
-excerpt: "从Loss 只是 Surrogate的视角出发，回顾 Test-Time Compute (TTS) 如何控制泛化误差，并结合 CMU 的能力边缘理论揭示 RL 后训练的边界；微观剖析策略熵坍缩现象与 Meta 的 Three-Gate 理论，了解RL和SFT在微观的差异。"
+math: true
 ---
 
 > **本文融合近期多篇核心研究，旨在系统性地回应一个问题：当下的 LLM 后训练（如 RLHF / RLVR）到底是在创造全新的推理能力，还是仅仅解锁了预训练的固有封印？从宏观泛化到微观几何，希望这篇文章能帮你更好的理解RL**

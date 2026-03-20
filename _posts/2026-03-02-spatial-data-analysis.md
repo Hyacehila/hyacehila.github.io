@@ -1,12 +1,12 @@
 ---
 layout: blog-post
-title: "空间数据分析"
+title: 空间数据分析
 date: 2026-03-02 12:13:58 +0800
 categories: [数据科学]
-tags: [Spatial Data]
-excerpt: "对空间数据分析的基本概念、空间总体特性、抽样和插值方法进行了系统的整理和详细介绍。"
-math: true
+tags: [Spatial Data, Methodology]
 author: Hyacehila
+excerpt: 对空间数据分析的基本概念、空间总体特性、抽样和插值方法进行了系统的整理和详细介绍。
+math: true
 ---
 
 # 空间数据分析

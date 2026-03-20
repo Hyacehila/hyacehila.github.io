@@ -1,12 +1,12 @@
 ---
 layout: blog-post
-title: "从 RL Agent 到 LLM Agent：The Second Half 之后的范式转移与不确定性建模"
+title: 从 RL Agent 到 LLM Agent：The Second Half 之后的范式转移与不确定性建模
 date: 2026-03-09 12:00:00 +0800
-categories: [LLM]
-tags: [Agent, Reinforcement Learning, LLM Agent, ReAct, Reflexion, Tree of Thoughts, Voyager, GITM, Plan4MC, CoALA, Era of Experience, Reward Design]
+series: Agent时代的基础设施
+categories: [智能体系统]
+tags: [Agents, Reinforcement Learning, Tool Use]
 author: Hyacehila
-excerpt: "从RL Agent到LLM Agent的演进不是简单的模型替换，而是学习信号从数值空间迁移到语言空间的范式转换。The Second Half 之后，开放世界研究、语言空间推理与混合架构共同证明：预训练先验、评估与记忆正在重写智能体的主范式"
-series: "Agent时代的基础设施"
+excerpt: 从RL Agent到LLM Agent的演进不是简单的模型替换，而是学习信号从数值空间迁移到语言空间的范式转换。The Second Half 之后，开放世界研究、语言空间推理与混合架构共同证明：预训练先验、评估与记忆正在重写智能体的主范式
 featured: false
 math: false
 ---

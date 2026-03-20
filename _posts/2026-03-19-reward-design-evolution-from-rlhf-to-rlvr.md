@@ -1,12 +1,12 @@
 ---
 layout: blog-post
-title: "Reward 设计的演化：从 RLHF 到 RLVR，监督对象如何被重写"
+title: Reward 设计的演化：从 RLHF 到 RLVR，监督对象如何被重写
 date: 2026-03-19 20:00:00 +0800
-categories: [LLM]
-tags: [Reward Modeling, RLHF, RLVR, RLAIF, Process Reward Models, LLM as Judge, ArenaRL]
-series: "Reward and Training"
+series: Reward and Training
+categories: [训练与对齐]
+tags: [Alignment, Reward Modeling, Reinforcement Learning]
 author: Hyacehila
-excerpt: "这篇文章把 reward 主线一次讲到底：从 OpenAI 的 RLHF 奠基，到 PRM 与 RLVR，再到 LLM as Judge、Rubrics as Rewards 与 ArenaRL。真正的主线不是“谁来打分”，而是 reward 本身应该怎样被给出、被组织、被约束。"
+excerpt: 这篇文章把 reward 主线一次讲到底：从 OpenAI 的 RLHF 奠基，到 PRM 与 RLVR，再到 LLM as Judge、Rubrics as Rewards 与 ArenaRL。真正的主线不是“谁来打分”，而是 reward 本身应该怎样被给出、被组织、被约束。
 featured: false
 math: true
 ---

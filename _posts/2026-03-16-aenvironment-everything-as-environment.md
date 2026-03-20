@@ -1,12 +1,12 @@
 ---
 layout: blog-post
-title: "AEnvironment：Agent 需要一个统一的环境层吗？"
+title: AEnvironment：Agent 需要一个统一的环境层吗？
 date: 2026-03-16 21:00:00 +0800
-categories: [AI]
-tags: [AEnvironment, Agent Infrastructure, MCP, Reinforcement Learning, Environment, NitroGen, VLA, Reward Design, Era of Experience]
+series: Agent时代的基础设施
+categories: [智能体系统]
+tags: [Agents, MCP, Reinforcement Learning, Tool Use]
 author: Hyacehila
-excerpt: "AEnvironment 不是在和 LangChain 争谁来写 agent loop，它在回答另一个问题：agent 通过什么统一边界接触世界。这个问题值得认真讨论，但答案未必是它。"
-series: "Agent时代的基础设施"
+excerpt: AEnvironment 不是在和 LangChain 争谁来写 agent loop，它在回答另一个问题：agent 通过什么统一边界接触世界。这个问题值得认真讨论，但答案未必是它。
 featured: false
 math: false
 ---
