@@ -74,8 +74,6 @@ PersonelPage/
 │   ├── images/                 # 图片资源
 │   ├── murmur/murmur.json      # 碎碎念数据
 │   └── travelmap/              # 旅行足迹（ECharts + 数据）
-├── scripts/
-│   └── validate_taxonomy.py    # 校验固定分类/标签白名单与数量规则
 ├── code/                       # 文章配套代码/资料（会被静态发布）
 ├── README.md
 └── LICENSE
