@@ -611,7 +611,47 @@
         <section class="portfolio-list">
           <ul class="grid-list">
 
-            <!-- 竞赛项目 -->
+            <!-- 项目 -->
+            <li class="portfolio-item">
+              <div class="project-card">
+                <div class="project-header">
+                  <div class="project-title-wrapper">
+                    <div class="project-type-badge project-type">
+                      <ion-icon name="code-slash-outline"></ion-icon>
+                      <span data-i18n="type-project">项目</span>
+                    </div>
+                    <h4 class="h4 project-title" data-i18n="project-novel-eval-title">Novel Evaluation：基于 LLM Rubric 的小说结构化评测工具</h4>
+                  </div>
+                  <div class="project-meta">
+                    <div class="project-subtitle" data-i18n="project-novel-eval-desc">个人研究项目 · LLM as Judge / LLM Evaluation</div>
+                    <div class="project-status completed" data-i18n="status-completed">已完成</div>
+                  </div>
+                </div>
+
+                <div class="project-details">
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="project-background">项目背景：</h5>
+                    <p class="detail-content" data-i18n="project-novel-eval-background">
+                      面向小说质量评测这一高度主观且难以标准化的问题，项目尝试引入 LLM Rubric / LLM as Judge，将原本依赖经验与直觉的文本判断拆解为多个可解释维度，对其进行分层评估与量化表达。希望在保留文学判断弹性的同时，让评测过程更系统化且可迭代改进。
+                    </p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="tech-implementation">技术实现：</h5>
+                    <p class="detail-content" data-i18n="project-novel-eval-implementation">
+                      项目围绕分阶段评测流程构建，包含输入预检查、8 轴 LLM Rubric 评分、一致性整理、聚合与最终结果投影。8 轴主要覆盖平台契合程度、商业性、核心优点、核心缺点等关键维度，并通过严格 JSON 与 schema 约束保证 LLM 输出结果可被利用。系统层面则完成前端界面、后端任务执行与数据存储。
+                    </p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="project-results">项目成果：</h5>
+                    <p class="detail-content" data-i18n="project-novel-eval-results">形成了包含完整前端交互界面、后端任务执行与数据库的评测工具，支持任务创建、状态跟踪、结果展示与历史回访。可输出总体判断、平台候选、市场判断等 8 轴评价结果与总体评价。验证了将 LLM Rubric 方法引入到文学评价这一高度主观且评价角度分散领域的可行性。</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 项目 -->
             <li class="portfolio-item">
               <div class="project-card">
                 <div class="project-header">
@@ -947,11 +987,16 @@
         "award-mcm": "Second Prize, Mathematical Contest in Modeling (MCM/ICM)",
         "award-cet": "CET4: 510 | CET6: 513",
         "portfolio-title": "Projects",
+        "project-novel-eval-title": "Novel Evaluation: A Rubric-Based Fiction Assessment Tool",
+        "project-novel-eval-desc": "Personal Research Project · LLM as Judge / LLM Evaluation",
         "project-mental-title": "Mental Health Monitoring via Wearable Tech",
         "project-mental-desc": "National Innovation Training Program project",
         "project-background": "Project Background:",
         "tech-implementation": "Technical Implementation:",
         "project-results": "Project Results:",
+        "project-novel-eval-background": "This project addresses the highly subjective and difficult-to-standardize problem of fiction quality evaluation by introducing LLM Rubric / LLM as Judge. It breaks judgment that would otherwise rely on intuition and experience into multiple interpretable dimensions, enabling layered evaluation and quantifiable expression. The goal is to preserve the flexibility of literary judgment while making the evaluation process more systematic and iteratively improvable.",
+        "project-novel-eval-implementation": "The project is built around a staged evaluation pipeline, including input pre-checks, 8-axis LLM Rubric scoring, consistency review, aggregation, and final projection. The eight axes primarily cover dimensions such as platform fit, commercial potential, core strengths, and core weaknesses, while strict JSON and schema constraints ensure the LLM outputs can be directly utilized. At the system level, it includes the frontend interface, backend task execution, and data storage.",
+        "project-novel-eval-results": "The project evolved into an evaluation tool with a complete frontend interface, backend task execution, and database support, supporting task creation, status tracking, result presentation, and history review. It can output overall verdicts, platform candidates, market judgments, other 8-axis evaluation results, and an overall assessment. It validates the feasibility of introducing the LLM Rubric approach into literary evaluation, a domain that is both highly subjective and fragmented in evaluation criteria.",
         "project-mental-background": "Traditional mental health assessment relies on subjective questionnaires with intermittent evaluation issues and subjective biases. With the proliferation of wearable devices enabling continuous physiological monitoring, the project aims to build a mental health assessment model based on wearable device data to achieve objective, continuous mental state monitoring, providing new technical approaches for mental health evaluation.",
         "project-mental-implementation": "Selected 43 key variables from 4-year NetHealth observational data to construct a multi-time scale dataset of approximately 30k entries; applied Multiple Imputation by Chained Equations (MICE) for missing values, used Boxplot to detect and remove outliers, implemented BoxCox transformation for skewed data, used PCA for dimensionality reduction on highly multicollinear original time series data; built ElasticNet, RandomForest, XGBoost base models, employed decision tree-based Stacking ensemble strategy, and ultimately optimized overall hyperparameters through grid search.",
         "project-mental-results": "The ensemble model achieved excellent performance with MSE 0.032, significantly outperforming all base models; successfully enabled end-to-end prediction from wearable device data to mental health status; the project received national innovation training program funding and was completed in May 2024, providing a new technical pathway for mental health monitoring.",
@@ -1084,11 +1129,16 @@
         "award-mcm": "美国大学生数学建模竞赛二等奖",
         "award-cet": "CET4: 510 | CET6: 513",
         "portfolio-title": "项目",
+        "project-novel-eval-title": "Novel Evaluation：基于 LLM Rubric 的小说结构化评测工具",
+        "project-novel-eval-desc": "个人研究项目 · LLM as Judge / LLM Evaluation",
         "project-mental-title": "基于可穿戴设备技术的心理健康检测方案",
         "project-mental-desc": "国家级大学生创新创业训练计划项目",
         "project-background": "项目背景：",
         "tech-implementation": "技术实现：",
         "project-results": "项目成果：",
+        "project-novel-eval-background": "面向小说质量评测这一高度主观且难以标准化的问题，项目尝试引入 LLM Rubric / LLM as Judge，将原本依赖经验与直觉的文本判断拆解为多个可解释维度，对其进行分层评估与量化表达。希望在保留文学判断弹性的同时，让评测过程更系统化且可迭代改进。",
+        "project-novel-eval-implementation": "项目围绕分阶段评测流程构建，包含输入预检查、8 轴 LLM Rubric 评分、一致性整理、聚合与最终结果投影。8 轴主要覆盖平台契合程度、商业性、核心优点、核心缺点等关键维度，并通过严格 JSON 与 schema 约束保证 LLM 输出结果可被利用。系统层面则完成前端界面、后端任务执行与数据存储。",
+        "project-novel-eval-results": "形成了包含完整前端交互界面、后端任务执行与数据库的评测工具，支持任务创建、状态跟踪、结果展示与历史回访。可输出总体判断、平台候选、市场判断等 8 轴评价结果与总体评价。验证了将 LLM Rubric 方法引入到文学评价这一高度主观且评价角度分散领域的可行性。",
         "project-mental-background": "传统心理健康评估依赖主观问卷，存在评估间断性和主观偏差问题。随着可穿戴设备的普及，连续监测生理指标成为可能，项目旨在构建基于可穿戴设备数据的心理健康评估模型，实现客观、连续的心理状态监测，为心理健康评估提供新的技术途径。",
         "project-mental-implementation": "从NetHealth数据集四年观测数据中筛选出43个关键变量，构建约3万行的多时间尺度数据集；采用多重插补链式方程（MICE）处理缺失值，应用Boxplot检测并移除离群值，对偏态数据实施BoxCox变换；构建ElasticNet、RandomForest、XGBoost三个基模型，使用了决策树Stacking集成策略，最终通过网格搜索优化整体超参数。",
         "project-mental-results": "集成模型达到MSE 0.032的优异性能，显著优于所有基模型；成功实现了从可穿戴设备数据到心理健康状态的端到端预测；项目获得国家级创新创业训练计划立项支持，并于2024年5月结题，为心理健康监测提供了新的技术路径。",
