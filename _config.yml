@@ -6,6 +6,16 @@ description: Data Scientist & ML Engineer Portfolio
 baseurl: ""
 url: "https://hyacehila.github.io"
 
+# 博客访问计数配置
+counter:
+  enabled: true
+  provider: busuanzi
+  api_url: "https://cdn.busuanzi.cc/api.php"
+  timeout_ms: 4500
+  show_site_summary: true
+  show_post_pv: true
+  show_post_uv: true
+
 # Build settings
 markdown: kramdown
 highlighter: rouge
