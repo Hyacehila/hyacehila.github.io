@@ -132,6 +132,60 @@
             font-weight: var(--fw-500);
         }
 
+        .post-meta-counter-panel {
+            display: none;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            animation: counter-fade-in 0.3s ease;
+        }
+
+        .post-meta-counter-panel.is-visible {
+            display: block;
+        }
+
+        .post-meta-counter-panel.is-hidden {
+            display: none;
+        }
+
+        .post-meta-counter-item {
+            margin-right: 0;
+        }
+
+        .post-meta-counter-item.is-hidden {
+            display: none;
+        }
+
+        .post-meta-counter-item .counter-value {
+            color: var(--white-2);
+            font-weight: var(--fw-600);
+        }
+
+        .post-meta-note {
+            margin-top: 12px;
+            color: var(--light-gray-70);
+            font-size: var(--fs-8);
+            line-height: 1.6;
+        }
+
+        .counter-link {
+            color: var(--orange-yellow-crayola);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        @keyframes counter-fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* 文章标题 */
         .blog-content h1 {
             font-size: 2.5em;
@@ -678,7 +732,8 @@
     <div class="blog-container">
         <div class="blog-content">
             <!-- 文章元信息 -->
-            {% if page.date or page.series or page.categories or page.category or page.author %}
+            {% capture render_post_meta %}{% if page.date or page.series or page.categories or page.category or page.author %}true{% endif %}{% if site.counter.enabled and site.counter.provider == "busuanzi" and site.counter.show_post_pv %}true{% endif %}{% if site.counter.enabled and site.counter.provider == "busuanzi" and site.counter.show_post_uv %}true{% endif %}{% endcapture %}
+            {% if render_post_meta contains "true" %}
             <div class="post-meta">
                 {% if page.date %}
                 <div class="post-meta-item">
@@ -712,6 +767,35 @@
                     <ion-icon name="person-outline"></ion-icon>
                     <span>{{ page.author }}</span>
                 </div>
+                {% endif %}
+
+                {% if site.counter.enabled and site.counter.provider == "busuanzi" %}
+                {% if site.counter.show_post_pv or site.counter.show_post_uv %}
+                <div class="post-meta-counter-panel is-hidden" data-busuanzi-group
+                    data-counter-api="{{ site.counter.api_url | escape }}"
+                    data-counter-timeout="{{ site.counter.timeout_ms | default: 4500 }}" aria-hidden="true">
+                    {% if site.counter.show_post_pv %}
+                    <div class="post-meta-item post-meta-counter-item is-hidden" data-busuanzi-metric
+                        data-counter-key="busuanzi_page_pv" aria-hidden="true">
+                        <ion-icon name="eye-outline"></ion-icon>
+                        <span>阅读量 <span class="counter-value" id="busuanzi_page_pv" data-busuanzi-value>--</span></span>
+                    </div>
+                    {% endif %}
+                    {% if site.counter.show_post_uv %}
+                    <div class="post-meta-item post-meta-counter-item is-hidden" data-busuanzi-metric
+                        data-counter-key="busuanzi_page_uv" aria-hidden="true">
+                        <ion-icon name="people-outline"></ion-icon>
+                        <span>访客数 <span class="counter-value" id="busuanzi_page_uv" data-busuanzi-value>--</span></span>
+                    </div>
+                    {% endif %}
+                    <div class="post-meta-note">
+                        访问统计由第三方
+                        <a class="counter-link" href="https://www.busuanzi.cc/" target="_blank"
+                            rel="noopener noreferrer">Busuanzi</a>
+                        提供，访问请求可能被用于统计分析与展示。
+                    </div>
+                </div>
+                {% endif %}
                 {% endif %}
             </div>
             {% endif %}
@@ -1057,6 +1141,9 @@
             font-family: 'Latin-Modern Math', 'STIX Two Math', 'Cambria Math', 'Times New Roman', serif !important;
         }
     </style>
+    {% if site.counter.enabled and site.counter.provider == "busuanzi" %}
+    <script src="{{ site.baseurl }}/assets/js/blog-counter.js"></script>
+    {% endif %}
 </body>
 
 </html>

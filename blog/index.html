@@ -30,6 +30,108 @@
       margin-top: 10px;
     }
 
+    .blog-stats-panel {
+      display: none;
+      margin: 20px auto 0;
+      max-width: 720px;
+      padding: 18px;
+      background: var(--border-gradient-onyx);
+      border-radius: 14px;
+      position: relative;
+      z-index: 1;
+      box-shadow: var(--shadow-1);
+      animation: counter-fade-in 0.3s ease;
+    }
+
+    .blog-stats-panel::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--bg-gradient-jet);
+      border-radius: inherit;
+      z-index: -1;
+    }
+
+    .blog-stats-panel.is-visible {
+      display: block;
+    }
+
+    .blog-stats-panel.is-hidden {
+      display: none;
+    }
+
+    .blog-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .blog-stat-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      min-width: 0;
+    }
+
+    .blog-stat-item.is-hidden {
+      display: none;
+    }
+
+    .blog-stat-item ion-icon {
+      font-size: 18px;
+      color: var(--vegas-gold);
+      flex-shrink: 0;
+    }
+
+    .blog-stat-copy {
+      min-width: 0;
+    }
+
+    .blog-stat-label {
+      display: block;
+      color: var(--light-gray-70);
+      font-size: var(--fs-8);
+      margin-bottom: 4px;
+    }
+
+    .blog-stat-value {
+      display: block;
+      color: var(--white-2);
+      font-size: var(--fs-5);
+      font-weight: var(--fw-600);
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .counter-privacy-note {
+      margin-top: 14px;
+      color: var(--light-gray-70);
+      font-size: var(--fs-8);
+      line-height: 1.6;
+    }
+
+    .counter-link {
+      color: var(--orange-yellow-crayola);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @keyframes counter-fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .blog-nav {
       display: flex;
       justify-content: center;
@@ -435,6 +537,10 @@
     }
 
     @media (max-width: 580px) {
+      .blog-stats-grid {
+        grid-template-columns: 1fr;
+      }
+
       .murmur-container {
         column-count: 1;
       }
@@ -630,6 +736,36 @@
           <h3 class="h3">记录学习、思考与成长</h3>
           <p class="blog-description">分享我在数据科学、机器学习、LLM Agent等领域的探索与见解</p>
         </section>
+
+        {% if site.counter.enabled and site.counter.provider == "busuanzi" and site.counter.show_site_summary %}
+        <section class="blog-stats-panel is-hidden" data-busuanzi-group
+          data-counter-api="{{ site.counter.api_url | escape }}"
+          data-counter-timeout="{{ site.counter.timeout_ms | default: 4500 }}" aria-hidden="true">
+          <div class="blog-stats-grid">
+            <div class="blog-stat-item is-hidden" data-busuanzi-metric data-counter-key="busuanzi_site_pv"
+              aria-hidden="true">
+              <ion-icon name="analytics-outline"></ion-icon>
+              <div class="blog-stat-copy">
+                <span class="blog-stat-label">全站总访问量</span>
+                <span class="blog-stat-value" id="busuanzi_site_pv" data-busuanzi-value>--</span>
+              </div>
+            </div>
+            <div class="blog-stat-item is-hidden" data-busuanzi-metric data-counter-key="busuanzi_site_uv"
+              aria-hidden="true">
+              <ion-icon name="people-outline"></ion-icon>
+              <div class="blog-stat-copy">
+                <span class="blog-stat-label">全站总访客数</span>
+                <span class="blog-stat-value" id="busuanzi_site_uv" data-busuanzi-value>--</span>
+              </div>
+            </div>
+          </div>
+          <p class="counter-privacy-note">
+            访问统计由第三方
+            <a class="counter-link" href="https://www.busuanzi.cc/" target="_blank" rel="noopener noreferrer">Busuanzi</a>
+            提供，访问请求可能被用于统计分析与展示。
+          </p>
+        </section>
+        {% endif %}
 
         <section class="blog-nav">
           <button class="active" onclick="filterPosts('all', this)">全部文章</button>
@@ -1045,6 +1181,10 @@
       container.innerHTML = html;
     }
   </script>
+
+  {% if site.counter.enabled and site.counter.provider == "busuanzi" %}
+  <script src="{{ site.baseurl }}/assets/js/blog-counter.js"></script>
+  {% endif %}
 
 </body>
 
