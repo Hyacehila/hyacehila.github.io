@@ -2,7 +2,7 @@
 layout: blog-post
 title: 卡尔曼滤波：从阿波罗登月到全球气象预报
 date: 2026-02-19 20:00:00 +0800
-categories: [统计学]
+categories: [数据科学]
 tags: [Time Series, Statistical Inference]
 author: Hyacehila
 excerpt: 状态估计是现代科技的基石。本文深入浅出地介绍了卡尔曼滤波(KF)、扩展卡尔曼滤波(EKF)、无迹卡尔曼滤波(UKF)以及集合卡尔曼滤波(EnKF)的原理与应用。

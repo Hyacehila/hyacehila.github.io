@@ -739,7 +739,7 @@
             <div class="filter-buttons filter-category-buttons">
               <button class="filter-btn active" data-filter-type="category" data-filter-value="all"
                 onclick="filterByCategory('all', this)">全部</button>
-              {% assign ordered_categories = "基础模型|训练与对齐|智能体系统|机器学习|统计学|数据科学|随笔与观察" | split: "|" %}
+              {% assign ordered_categories = "基础模型|训练与对齐|智能体系统|机器学习|数据科学|随笔与观察" | split: "|" %}
               {% for category in ordered_categories %}
               <button class="filter-btn" data-filter-type="category" data-filter-value="{{ category }}"
                 onclick="filterByCategory('{{ category }}', this)">{{ category }}</button>
@@ -751,12 +751,17 @@
             <div class="filter-buttons filter-tag-buttons">
               <button class="filter-btn active" data-filter-type="tag" data-filter-value="all"
                 onclick="filterByTag('all', this)">全部</button>
-              {% assign ordered_tags = "Pre-Training|Fine-Tuning|Alignment|Reinforcement Learning|Reward Modeling|Reasoning|Multimodality|Model Mechanics|Agents|Tool Use|MCP|Context Engineering|Retrieval|Evaluation|Data Curation|Ensemble Learning|Interpretability|Imbalanced Learning|Scientific ML|Embeddings|Statistical Inference|Linear Models|Graphical Models|Time Series|Dimensionality Reduction|Resampling|Spatial Data|Data Visualization|Society|Methodology" | split: "|" %}
-              {% assign all_post_tags = site.posts | map: 'tags' | flatten %}
-              {% for tag in ordered_tags %}
-              {% if all_post_tags contains tag %}
+              {% assign all_post_tags = "" %}
+              {% for post in site.posts %}
+              {% for tag in post.tags %}
+              {% assign all_post_tags = all_post_tags | append: tag | append: "|||" %}
+              {% endfor %}
+              {% endfor %}
+              {% assign auto_tags = all_post_tags | split: "|||" | uniq | sort_natural %}
+              {% for tag in auto_tags %}
+              {% if tag != "" %}
               <button class="filter-btn" data-filter-type="tag" data-filter-value="{{ tag }}"
-                onclick="filterByTag('{{ tag }}', this)">{{ tag }}</button>
+                onclick='filterByTag({{ tag | jsonify }}, this)'>{{ tag }}</button>
               {% endif %}
               {% endfor %}
             </div>
