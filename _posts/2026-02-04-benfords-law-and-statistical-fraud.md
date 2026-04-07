@@ -2,7 +2,7 @@
 layout: blog-post
 title: 数字不会撒谎，但撒谎的人会编数字：从本福特定律聊聊统计造假识别
 date: 2026-02-04 23:00:00 +0800
-categories: [统计学]
+categories: [数据科学]
 tags: [Statistical Inference, Methodology]
 author: Hyacehila
 excerpt: 当数据看起来太过“完美”时，往往意味着它可能偏离了真实。本文将从本福特定律开始，揭示那些隐藏在造假数据背后的统计学指纹。

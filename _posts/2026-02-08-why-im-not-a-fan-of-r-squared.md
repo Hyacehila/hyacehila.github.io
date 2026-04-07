@@ -2,7 +2,7 @@
 layout: blog-post
 title: 统计学常用评估指标R方，它从不衡量模型与真实世界的拟合程度
 date: 2026-02-08 12:00:00 +0800
-categories: [统计学]
+categories: [数据科学]
 tags: [Linear Models, Statistical Inference]
 excerpt: R方不只是模型误差的函数，它的定义中还隐含了两个模型的比较：一个是当前被分析的模型，一个是所谓的常数模型，即只利用因变量均值进行预测的模型。基于此，R方从不衡量模型与真实世界的拟合程度。
 ---

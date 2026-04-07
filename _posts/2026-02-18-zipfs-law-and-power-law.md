@@ -2,7 +2,7 @@
 layout: blog-post
 title: 聊聊齐普夫定律：从伏尼契手稿到外星文明
 date: 2026-02-18 20:00:00 +0800
-categories: [统计学]
+categories: [数据科学]
 tags: [Statistical Inference, Methodology]
 author: Hyacehila
 excerpt: 伏尼契手稿是胡乱涂鸦还是失落的语言？外星人信号长什么样？这一切都指向同一个统计学定律。

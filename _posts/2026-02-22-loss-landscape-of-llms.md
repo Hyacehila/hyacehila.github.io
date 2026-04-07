@@ -3,7 +3,7 @@ layout: blog-post
 title: 大模型的 Loss Landscape 是什么样的？
 date: 2026-02-22 20:00:00 +0800
 series: LLM ESSENCE
-categories: [训练与对齐]
+categories: [基础模型]
 tags: [Fine-Tuning, Alignment, Model Mechanics]
 author: Hyacehila
 excerpt: 基于论文 Unveiling the Basin-Like Loss Landscape in Large Language Models，系统解读大模型 loss landscape 中的 basin 现象：为什么大多数方向上的微调相对安全、为什么最坏方向上的少量对抗数据能迅速摧毁能力，以及这对对齐、越狱与预训练意味着什么。

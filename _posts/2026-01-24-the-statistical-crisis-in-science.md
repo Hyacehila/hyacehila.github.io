@@ -2,7 +2,7 @@
 layout: blog-post
 title: The Statistical Crisis in Science
 date: 2026-01-24 10:00:00 +0800
-categories: [统计学]
+categories: [数据科学]
 tags: [Statistical Inference, Methodology, Society]
 author: Hyacehila
 excerpt: 假设检验很强大，但它依赖前提；p 值显著也不等于“结论正确”的概；任何不精通统计学的人都可能在无意中进行统计造假。
