@@ -451,64 +451,51 @@
               <h4 class="h4 timeline-item-title" data-i18n="research-analysisposts-title">Trustworthy Public Opinion
                 Analysis Multi-Agent System</h4>
 
-              <span class="research-venue" data-i18n="research-analysisposts-venue">Intelligent Analysis of Urban
-                Security and Public Opinion Based on Multimodal Data Fusion Computing, Original Exploration Program
-                Project of National Natural Science Foundation of China</span>
+              <span class="research-venue" data-i18n="research-analysisposts-venue">Led multi-agent architecture
+                design, focusing on black-box observability, long-horizon generation drift, and evidence traceability
+                in open-domain agent systems.</span>
 
               <div class="project-details">
                 <div class="detail-point">
-                  <strong data-i18n="research-analysisposts-p1-label">System Architecture</strong><span
-                    data-i18n="research-analysisposts-p1">Designed a three-stage decoupled foundational architecture
-                    based on the PocketFlow Agent Framework. The system integrates and scales trusted
-                    analysis tools via the MCP protocol, and deeply combines Forum multi-Agent debate with multi-round
-                    reflection and traceability mechanisms to build a secure, accurate, and fully reliable Public
-                    Opinion Analysis Agent System.</span>
+                  <strong data-i18n="research-analysisposts-p1-label">Multi-Agent Runtime &amp; White-Box
+                    Observability</strong><span data-i18n="research-analysisposts-p1">Built a three-stage runtime
+                    across data preparation, collaborative analysis, and report generation on top of PocketFlow, and
+                    standardized statistical-analysis tools through MCP to reduce fragmented tool invocation, poor
+                    extensibility, and limited auditability in agent workflows. Also developed a Streamlit white-box
+                    console exposing step-level traces, tool I/O, and node scheduling paths, reducing exception
+                    diagnosis time for complex tasks from hours to 10 minutes.</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="research-analysisposts-p2-label">High-Concurrency Cleaning &amp; Annotation
-                    Pipeline</strong><span data-i18n="research-analysisposts-p2">Constructed a high-concurrency data
-                    processing pipeline
-                    based on Async and MapReduce. Driven by few-shot prompts, deployed LLM Agents to execute
-                    large-scale concurrent cleaning and semantic annotation on massive unordered raw posts. By expanding
-                    API
-                    concurrency limits, the system acquires the capability for rapid processing of million-level
-                    data.</span>
+                  <strong data-i18n="research-analysisposts-p2-label">Collaborative Orchestration &amp; Conflict
+                    Resolution</strong><span data-i18n="research-analysisposts-p2">Designed ForumHost as the explicit
+                    orchestration hub for open-domain public-opinion analysis, coordinating DataAgent for quantitative
+                    analysis over labeled data and tools, and SearchAgent for real-time facts and context via Tavily.
+                    Through iterative evidence supplementation, cross-challenge, conflict detection, and stopping
+                    conditions, the workflow constrained multi-agent collaboration from free-form dialogue into a
+                    controllable process and mitigated context pollution and objective drift. In representative
+                    head-to-head validation, key factual error rate dropped from about 20% to 0 versus a single-agent
+                    baseline using only DataAgent, and the factual portions of the final report required no further
+                    manual correction.</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="research-analysisposts-p3-label">Dynamic Forum Decision Mechanism</strong><span
-                    data-i18n="research-analysisposts-p3">Introduced the ForumHost as a dispatch center during the
-                    analysis
-                    phase. This node dynamically coordinates the DataAgent and SearchAgent to engage in multiple rounds
-                    of
-                    debate and cross-validation, driving them to supplement background data on demand, significantly
-                    enhancing
-                    the logical depth and conclusion reliability of the public opinion analysis.</span>
+                  <strong data-i18n="research-analysisposts-p3-label">Structured Reporting &amp; Citation
+                    Constraints</strong><span data-i18n="research-analysisposts-p3">To address snowball
+                    hallucinations, unconstrained elaboration, and citation drift in long-horizon report generation,
+                    embedded structured output schemas, inline citations, source backtracking, and reliability
+                    annotations into chapter-by-chapter generation. Each core claim had to bind to evidence, source,
+                    and confidence score, with a verifier agent performing secondary checks on critical conclusions and
+                    cited evidence. Final reports reached 95% citation coverage, while incorrect citation rate was
+                    reduced to 3%.</span>
                 </div>
                 <div class="detail-point">
-                  <strong data-i18n="research-analysisposts-p4-label">Multi-Dimensional Source
-                    Cross-Validation</strong><span data-i18n="research-analysisposts-p4">Data Agent leverages
-                    high-quality annotated databases and executes precise quantitative analysis via the MCP toolchain.
-                    Meanwhile, Search Agent utilizes Tavily to retrieve real-time facts from the open web to complete
-                    the event context. Moderated by ForumHost, both Agents conduct adversarial reflection and
-                    cross-supplementation based on each other's intel, thereby achieving a multi-dimensional, in-depth
-                    analysis of complex events.</span>
-                </div>
-                <div class="detail-point">
-                  <strong data-i18n="research-analysisposts-p5-label">Transparent and Traceable Analytical
-                    Report</strong><span data-i18n="research-analysisposts-p5">Embedded the Self-reflection mechanism
-                    deep into the dynamic, chapter-by-step construction of the report. The system strictly forces the
-                    model to conduct inline citations for every conclusion, tracing back its information source and
-                    evaluating reliability. This fundamentally blocks the self-reinforcing snowballing hallucinations
-                    common in simple auto-regressive generation, ensuring absolute transparency and factual
-                    rigor.</span>
-                </div>
-                <div class="detail-point">
-                  <strong data-i18n="research-analysisposts-p6-label">Full-Pipeline White-Box Dashboard</strong><span
-                    data-i18n="research-analysisposts-p6">Developed and deployed an engineering-grade Streamlit terminal
-                    interface. Beyond offering flexible API configuration, pre-checks, and task flow monitoring, it
-                    completely white-boxes the complex analysis pipeline. Operators can transparently inspect the
-                    scheduling logic of ForumHost and all runtime decision sequences of sub-Agents from the frontend,
-                    delivering the highest level of observability and reliability for the system.</span>
+                  <strong data-i18n="research-analysisposts-p4-label">High-Concurrency Data Processing
+                    Pipeline</strong><span data-i18n="research-analysisposts-p4">Built an Async-based high-concurrency
+                    cleaning and semantic annotation pipeline for massive unordered raw posts. Few-shot prompted LLM
+                    nodes handled text cleaning, label completion, and semantic normalization, while retry logic,
+                    resumable execution, and concurrency control mitigated API rate limits and stabilized the data
+                    foundation for downstream analysis. Under a 40-60 concurrency budget, processing time for 20,000
+                    records was reduced to under 12 hours, and input-token cost dropped by about 60% by caching
+                    few-shot examples and system prompts.</span>
                 </div>
               </div>
 
@@ -965,19 +952,15 @@
         "research-ptsd-result-label": "Findings & Conclusion",
         "research-ptsd-result": "Accurately quantified the buffering effect of psychological resilience on PTSD (SHAP value 0.5061) and keenly captured the U-shaped non-linear pattern in age distribution. The study not only verified deep interaction patterns among resilience, age, and trauma exposure but also provided data-driven differentiated intervention baselines for high-risk occupational groups.",
         "research-analysisposts-title": "Trustworthy Public Opinion Analysis Multi-Agent System",
-        "research-analysisposts-venue": "Intelligent Analysis of Urban Security and Public Opinion Based on Multimodal Data Fusion Computing, Original Exploration Program Project of National Natural Science Foundation of China",
-        "research-analysisposts-p1-label": "System Architecture",
-        "research-analysisposts-p1": " Designed a three-stage decoupled foundational architecture based on the PocketFlow Agent Framework. The system integrates and scales trusted analysis tools via the MCP protocol, and deeply combines Forum multi-Agent debate with multi-round reflection and traceability mechanisms to build a secure, accurate, and fully reliable Public Opinion Analysis Agent System.",
-        "research-analysisposts-p2-label": "High-Concurrency Cleaning & Annotation Pipeline",
-        "research-analysisposts-p2": " Constructed a high-concurrency data processing pipeline based on Async and MapReduce. Driven by few-shot prompts, deployed LLM Agents to execute large-scale concurrent cleaning and semantic annotation on massive unordered raw posts. By expanding API concurrency limits, the system acquires the capability for rapid processing of million-level data.",
-        "research-analysisposts-p3-label": "Dynamic Forum Decision Mechanism",
-        "research-analysisposts-p3": " Introduced the ForumHost as a dispatch center during the analysis phase. This node dynamically coordinates the DataAgent and SearchAgent to engage in multiple rounds of debate and cross-validation, driving them to supplement background data on demand, significantly enhancing the logical depth and conclusion reliability of the public opinion analysis.",
-        "research-analysisposts-p4-label": "Multi-Dimensional Source Cross-Validation",
-        "research-analysisposts-p4": " Data Agent leverages high-quality annotated databases and executes precise quantitative analysis via the MCP toolchain. Meanwhile, Search Agent utilizes Tavily to retrieve real-time facts from the open web to complete the event context. Moderated by ForumHost, both Agents conduct adversarial reflection and cross-supplementation based on each other's intel, thereby achieving a multi-dimensional, in-depth analysis of complex events.",
-        "research-analysisposts-p5-label": "Transparent and Traceable Analytical Report",
-        "research-analysisposts-p5": " Embedded the Self-reflection mechanism deep into the dynamic, chapter-by-step construction of the report. The system strictly forces the model to conduct inline citations for every conclusion, tracing back its information source and evaluating reliability. This fundamentally blocks the self-reinforcing snowballing hallucinations common in simple auto-regressive generation, ensuring absolute transparency and factual rigor.",
-        "research-analysisposts-p6-label": "Full-Pipeline White-Box Dashboard",
-        "research-analysisposts-p6": " Developed and deployed an engineering-grade Streamlit terminal interface. Beyond offering flexible API configuration, pre-checks, and task flow monitoring, it completely white-boxes the complex analysis pipeline. Operators can transparently inspect the scheduling logic of ForumHost and all runtime decision sequences of sub-Agents from the frontend, delivering the highest level of observability and reliability for the system.",
+        "research-analysisposts-venue": "Led multi-agent architecture design, focusing on black-box observability, long-horizon generation drift, and evidence traceability in open-domain agent systems.",
+        "research-analysisposts-p1-label": "Multi-Agent Runtime & White-Box Observability",
+        "research-analysisposts-p1": "Built a three-stage runtime across data preparation, collaborative analysis, and report generation on top of PocketFlow, and standardized statistical-analysis tools through MCP to reduce fragmented tool invocation, poor extensibility, and limited auditability in agent workflows. Also developed a Streamlit white-box console exposing step-level traces, tool I/O, and node scheduling paths, reducing exception diagnosis time for complex tasks from hours to 10 minutes.",
+        "research-analysisposts-p2-label": "Collaborative Orchestration & Conflict Resolution",
+        "research-analysisposts-p2": "Designed ForumHost as the explicit orchestration hub for open-domain public-opinion analysis, coordinating DataAgent for quantitative analysis over labeled data and tools, and SearchAgent for real-time facts and context via Tavily. Through iterative evidence supplementation, cross-challenge, conflict detection, and stopping conditions, the workflow constrained multi-agent collaboration from free-form dialogue into a controllable process and mitigated context pollution and objective drift. In representative head-to-head validation, key factual error rate dropped from about 20% to 0 versus a single-agent baseline using only DataAgent, and the factual portions of the final report required no further manual correction.",
+        "research-analysisposts-p3-label": "Structured Reporting & Citation Constraints",
+        "research-analysisposts-p3": "To address snowball hallucinations, unconstrained elaboration, and citation drift in long-horizon report generation, embedded structured output schemas, inline citations, source backtracking, and reliability annotations into chapter-by-chapter generation. Each core claim had to bind to evidence, source, and confidence score, with a verifier agent performing secondary checks on critical conclusions and cited evidence. Final reports reached 95% citation coverage, while incorrect citation rate was reduced to 3%.",
+        "research-analysisposts-p4-label": "High-Concurrency Data Processing Pipeline",
+        "research-analysisposts-p4": "Built an Async-based high-concurrency cleaning and semantic annotation pipeline for massive unordered raw posts. Few-shot prompted LLM nodes handled text cleaning, label completion, and semantic normalization, while retry logic, resumable execution, and concurrency control mitigated API rate limits and stabilized the data foundation for downstream analysis. Under a 40-60 concurrency budget, processing time for 20,000 records was reduced to under 12 hours, and input-token cost dropped by about 60% by caching few-shot examples and system prompts.",
         "research-placeholder-venue": "Conference / Journal Name, 2025",
         "link-paper": "Paper",
         "link-code": "Code",
@@ -1107,19 +1090,15 @@
         "research-ptsd-result-label": "核心发现与结论",
         "research-ptsd-result": "精准量化了心理韧性对PTSD的缓冲作用（SHAP值为0.5061），并敏锐捕捉到年龄分布上的U型非线性规律。研究不仅验证了韧性、年龄与创伤暴露间的深层交互模式，更为不同年龄段的高危职业人群提供了数据驱动的差异化干预基准。",
         "research-analysisposts-title": "可信舆情分析多 Agent 系统",
-        "research-analysisposts-venue": "基于多模态数据融合计算的城市安全与舆情智能分析，为国家自然科学基金原创探索计划项目",
-        "research-analysisposts-p1-label": "舆情分析Agent整体架构",
-        "research-analysisposts-p1": " 基于 PocketFlow Agent Framework 设计三阶段解耦的基础运行架构。系统通过 MCP 协议集成和扩展可信分析工具，并深度融合 Forum 多 Agent 辩论与多轮反思溯源机制，致力于构建一个安全、精确且完全可信赖的舆情分析Agent系统。",
-        "research-analysisposts-p2-label": "高并发指令与标注管道",
-        "research-analysisposts-p2": " 基于 Async 与 MapReduce 构建高并发数据处理管道，利用 few-shot 提示驱动 LLM Agent，对海量无序的原始博文进行大规模并发清洗与语义标注。通过扩展 API 并发上限，系统具备百万级数据的极速处理能力。",
-        "research-analysisposts-p3-label": "动态论坛决策机制",
-        "research-analysisposts-p3": " 在分析阶段引入 ForumHost 作为调度中枢。该节点通过动态协调 DataAgent 与 SearchAgent 展开多轮辩论与信息交叉验证，驱动其按需补充背景数据，显著提升了舆情分析的逻辑深度与结论可靠性。",
-        "research-analysisposts-p4-label": "多维信源交叉验证",
-        "research-analysisposts-p4": " Data Agent 依托高质量的标注数据，通过 MCP 工具链执行精准的量化统计分析；Search Agent 则紧扣分析目标，调用 Tavily 实时检索全网事实以补全事件上下文。在 ForumHost 的调度下，双 Agent 针对彼此提交的情报开展对抗式反思与交叉补充，从而实现对复杂事件的多维深度剖析。",
-        "research-analysisposts-p5-label": "透明可溯源分析报告",
-        "research-analysisposts-p5": " 将自我反思机制深度植入报告的逐章动态构建中。强制要求模型在正文中对其每一个结论进行严格的内联引用，并反溯信息源与可靠性评分。此举在根本上阻断了传统自回归生成中极易衍生和自我强化的雪球式幻觉，确保分析事实严谨可见。",
-        "research-analysisposts-p6-label": "全链路白盒化前端管控",
-        "research-analysisposts-p6": " 开发部署工程级 Streamlit 终端交互界面。不仅提供灵活的 API 配置、前置自检及进度流可视化，更实现了对复杂分析链路的彻底白盒化，允许分析员从前端穿透检查 ForumHost 调度逻辑及各子 Agent 的所有多轮对话与运行时决策信息，为系统交付了最高级别的可监督性与流程可靠度。",
+        "research-analysisposts-venue": "负责多 Agent 架构设计，聚焦解决开放场景下 Agent 系统黑盒难观测、长链路易发散、证据难追溯等问题。",
+        "research-analysisposts-p1-label": "多 Agent 运行时与白盒监控",
+        "research-analysisposts-p1": "基于 PocketFlow 设计数据准备、协同分析、报告生成三阶段运行架构，通过 MCP 将统计分析工具统一封装为标准接口，降低 Agent 分析链路中工具调用分散、扩展困难与状态难审计的问题；同时开发 Streamlit 白盒化前端，暴露步骤级 trace、tool I/O 与节点调度路径，实现 Agent 分析全流程可观测，将复杂任务的异常定位时间从数小时压缩至 10 分钟。",
+        "research-analysisposts-p2-label": "协同编排与冲突裁决",
+        "research-analysisposts-p2": "围绕开放域舆情分析中单 Agent 结论片面、证据来源单一的问题，设计 ForumHost 作为显式调度中枢，统一协调 DataAgent 基于标注数据与量化工具执行统计分析，SearchAgent 基于 Tavily 补充实时事实与上下文；通过多轮补证、交叉质疑、冲突检测与停止条件，将多 Agent 协作从自由对话收敛为可控工作流，缓解长链路任务中的上下文污染与目标偏移。在代表性事件对照验证中，相较单 Agent（仅 DataAgent）基线，关键事实错误率由约 20% 降至 0，最终报告的事实部分无需再人工修订。",
+        "research-analysisposts-p3-label": "结构化报告与引用约束",
+        "research-analysisposts-p3": "针对长链路报告生成中常见的“雪球式幻觉”、自由扩写与引用漂移问题，将结构化输出 Schema、内联引用、来源回溯与可靠性标注嵌入逐章生成流程，要求核心结论必须绑定证据、来源与置信度，并引入核查 Agent 对关键结论及溯源证据进行二次校验；最终报告引用覆盖率达到 95%，错误引用率降低至 3%。",
+        "research-analysisposts-p4-label": "高并发数据处理管线",
+        "research-analysisposts-p4": "面向海量无序原始博文的预处理难题，基于 Async 构建高并发清洗与语义标注流水线，结合 few-shot 提示驱动 LLM 节点完成文本清洗、标签补全与语义标准化，并通过失败重试、断点续跑与并发控制缓解 API 限流瓶颈，为后续 Agent 分析提供稳定数据底座；在 40–60 并发约束下，将 2 万条数据的处理时间压缩至 12 小时以内，并通过缓存 few-shot 示例与系统提示，将输入 token 成本降低约 60%。",
         "research-placeholder-venue": "会议 / 期刊名称, 2025",
         "link-paper": "论文",
         "link-code": "代码",
