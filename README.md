@@ -105,6 +105,8 @@ python scripts/validate_taxonomy.py
 
 说明：`_config.yml` 中默认 `future: false`、`show_drafts: false`，用于生产环境不发布草稿/未来文章。
 
+特别的，在目前的开发环境中不包含Jekyll，在任何博客修改完成后都不进行预览，而是等待人工审阅和部署后检查。
+
 ## 部署到 GitHub Pages
 
 1. 推送到 GitHub 仓库
