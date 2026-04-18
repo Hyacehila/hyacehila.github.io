@@ -1,312 +1,370 @@
 ---
 layout: blog-post
-title: "AI Agent 的工程化：给 LLM 戴上确定性枷锁的外围工程"
+title: "给 LLM 戴上确定性枷锁的外围工程：从 Claude Code 看 Agent Harness"
 date: 2026-03-20 21:00:00 +0800
 series: Agent时代的基础设施
 categories: [智能体系统]
-tags: [Agents, Tool Use, Context Engineering, Evaluation]
+tags: [Agents, Harness, Claude Code, MCP, Permissions, Context Engineering]
 author: Hyacehila
-excerpt: 工程化不只是框架封装。真正把 Agent 变成可交付系统的，是围绕 LLM 不确定性搭起来的一整套技术外壳：状态约束、流程约束、工具包装、网关控制、评测反馈与治理。
+excerpt: 真正把 Agent 压成可交付系统的，不是核心 loop，而是围绕 LLM 不确定性搭出来的外围工程：把语言请求进一步下沉成工具契约、知识路由、生命周期验证、隔离恢复与自治治理。
 featured: true
 math: false
 ---
 
-# AI Agent 的工程化：给 LLM 戴上确定性枷锁的外围工程
+# 给 LLM 戴上确定性枷锁的外围工程：从 Claude Code 看 Agent Harness
 
-有些人在同时犯两个方向相反的错误。
+如果今天要研究怎么给 `LLM` 戴上确定性枷锁，我现在更愿意先从 Claude Code 谈起。不是因为它把问题都解决了，而是因为它把 Harness 里最关键的结构件直接暴露给了开发者：`MCP`、`CLAUDE.md` 与 `rules`、`hooks`、`subagents`、`checkpointing`、`permission modes`、`plugins`、`Agent SDK`。在一个真实可用的系统里，你几乎可以直接观察语言约束如何被逐步压成系统约束。
 
-第一种错误，是把 Agent 讨论得过于中间。一谈架构图，大家就盯着 `planning`、`memory`、`tool use`、`reflection` 这些最显眼的部分，仿佛只要把中间这颗大脑设计好了，系统就自然成立。
+真正把 Agent 变成可交付系统的，不是核心 loop 本身，而是围绕 `LLM` 不确定性搭出来的一整套外围工程。核心循环当然重要，但它往往只是最短的一段。
 
-第二种错误，是把工程化理解得过于宽泛。工程化当然很大，既包括需求建模、交互设计、人机协作和信任建立，也包括架构、网关、评测、可观测性和治理。可一旦什么都叫工程化，真正被低估的那部分反而会重新隐身。
+最长、也最贵的一段，通常是把这个循环关进一个可控系统里。不是让它更会想，而是让它在想错、说错、调错工具、上下文漂移、连续运行几十轮之后，系统仍然不至于一起失控。
 
-我同意一个很重要的区分：**工程化 = 产品工程 + 技术工程。** 前者回答“这个东西能不能被人用、被人信、被人持续用”；后者回答“这个系统能不能稳定运行、能不能规模化扩展、能不能被约束和治理”。产品工程当然重要，甚至完全值得单独写一篇。但如果把视角放回我这组Agent 时代的基础设施文章，真正还没有被单独立起来讲透的，其实是另一半：**技术工程。**
+几乎每一个认真用过 Claude Code 的人，都经历过同一个阶段：开始疯狂往 `CLAUDE.md` 里写东西。
 
-也正因为如此，这篇文章想谈的不是如何做一个更会规划的 Agent，而是另一个更容易被忽视的问题：**为什么真正把 Agent 变成可交付系统的，不是核心 loop，而是围绕 LLM 不确定性搭出来的一整套技术外壳。**
+起因通常很普通。Claude 改了不该改的文件，于是你补一条“不要动这个目录”。它没跑测试就宣布完成，于是你再补一条“必须先跑测试”。它用了错误的包管理器、在奇怪的时机 `commit`、或者把不相关的文档也一起改了，于是 `CLAUDE.md` 越写越长，从几行涨到几十行，再涨到几百行。
 
-换句话说，Agent 的核心循环当然重要，但它往往只是最短的一段。最长、也最贵的一段，通常是把这个循环关进一个可控系统里。不是让它更会想，而是让它在想错、说错、调错工具、上下文漂移、连续运行几十轮之后，系统仍然不至于一起失控。
+然后你发现：它还是会犯。
 
-这就是我想用确定性枷锁来概括的问题：**LLM Agent 让系统第一次有能力处理开放世界的不确定性，但工程系统首先要做的，恰恰是给 LLM 本身的不确定性戴上枷锁。**
+不完全是同一个错误，而是变种。你写了“不要直接 `push`”，它不 `push` 了，但开始在奇怪的时机 `commit`。你写了“必须先跑测试”，它也跑了，但跑的是不相关的测试文件。你会很自然地产生一个念头：是不是模型还不够强，换一个更强的就好了。
 
-## 为什么今天工程化会被重新看见
+但很快你会意识到，问题不只在模型。问题在别的地方。问题在于：**你仍然在用语言去请求一个概率语言模型按你的方式行动。**
 
-如果把时间拨回 2023 年，大家主要还在讨论 Prompt。那时这很合理，因为大量 AI 应用本质上还是模型接进来的阶段：把一个强模型接进聊天框、搜索框、Copilot 侧边栏，已经足够带来体验跃迁。那一阶段最值钱的问题，是提示词怎么写、工作流怎么串、模型怎么选。
+语言请求当然有用，但它天然是概率性的。任务越长、工具越多、上下文越脏、状态越复杂，它就越会衰减。你往 `CLAUDE.md` 里堆的每一条规则，本质上都在和上下文长度、注意力漂移和临场变通赛跑。
 
-但到 2025 年和 2026 年，讨论重心明显开始变化。大家越来越频繁地谈 `harness`、`runtime`、`gateway`、`sandbox`、`evals`、`observability`。这并不是因为 Agent 的核心逻辑突然不重要了，而是因为**模型终于强到可以被放进更开放、更长程、更高风险的真实任务里了。**
+这就是我现在想用“确定性枷锁”概括的问题：`LLM Agent` 让系统第一次有能力处理开放世界的不确定性，但工程系统首先要做的，恰恰是给 `LLM` 本身的不确定性戴上枷锁。
 
-于是问题也变了。
+也正因为如此，真正让 Agent 可交付的，不是继续往文档里补“下次别再犯”的句子，而是把这些句子一层层压成系统结构：哪些工具存在、哪些工具不存在；哪些知识常驻、哪些知识按需注入；哪些动作在生命周期节点上会被拦截；哪些任务必须在隔离的上下文里完成；哪些“完成声明”会被验证系统直接拒绝。
 
-过去我们问的是：怎么把模型接进产品？
+这正是我现在理解的 `harness` 问题。下一篇我会专门讨论这个词本身，但这一篇我更关心另一个问题：**这些外围工程在产品里到底是怎么长出来的。**
 
-现在我们问的是：怎么把模型围进系统？
+值得注意的是，在这篇文章原始发布日期 `2026-03-20` 之后，Anthropic 又在 `2026-03-24` 和 `2026-03-25` 分别公开了长时应用开发的 Harness 设计与 `auto mode` 的安全栈。补齐了以前尚未展开的两层：**恢复与验证的运行时结构，以及自主性治理。**
 
-2026 年 2 月 11 日，OpenAI 在 [Harness engineering](https://openai.com/index/harness-engineering/) 里把这件事说得非常直接：当团队的主要工作不再是手写代码，而是设计环境、指定意图、建立反馈回路，让 agent 可靠地工作，工程重心就已经从写逻辑转向造外壳了。他们甚至把这套经验压缩成一句非常刺耳但准确的话：**“Humans steer. Agents execute.”**
+## 语言约束为什么会衰减
 
-Anthropic 在 2025 年 11 月的 [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) 里则从另一个角度证明了同一个问题：Agent 一旦跨越多个 context window 连续工作，真正的难点不是模型会不会写代码，而是它怎样跨会话保持增量进展、留下清晰工件、让下一轮继续接力。也就是说，**长任务的瓶颈很快就不再是单次推理，而是跨轮次的工程组织。**
+这不是提示词无效，而是提示词的作用边界很明确。
 
-这也让我更理解我在 [《Model Is Good Enough》](/blog/2026/03/18/model-is-good-enough/) 里写过的判断：模型一旦跨过够用阈值，真正稀缺的就不再只是更强的模型，而是把能力组织进真实任务的应用与工程能力。今天大家重新开始认真谈工程化，不是因为工程第一次重要，而是因为**模型能力终于高到足以把工程问题全部暴露出来了。**
+Claude Code 的官方文档一直把 `CLAUDE.md` 放在 “memory / context” 这条线上讨论，而不是把它当成强制配置文件来讨论。[Store instructions and memories](https://code.claude.com/docs/en/memory) 里说得很直接：`CLAUDE.md` 和 auto memory 都是上下文，而不是 enforced configuration。事实型、常驻型、跨任务稳定成立的约束适合放在 `CLAUDE.md`；一旦进入条件加载、路径匹配、生命周期拦截、权限裁剪和沙箱边界，事情就已经不再是单纯的“写文档”。
 
-```mermaid
-flowchart LR
-  P["产品工程\n需求建模\n协作模式\nUI/UX\n信任设计"] --> C["Agent Core Loop\nplan -> act -> observe"]
-  T["技术工程\n状态约束\n流程约束\n工具包装\n网关控制\n评测反馈\n治理"] --> C
-```
+这其实已经把问题说透了。
 
-## 先说清楚：本文为什么只讨论技术工程
+`CLAUDE.md` 的强项是让模型在会话开始时拿到一组重要事实。它的弱项是：**它仍然活在上下文里，而不是活在系统结构里。**
 
-如果从产品视角看，工程化当然不只有技术。需求到底怎么切、用户愿不愿意把任务交给 Agent、界面是否让用户感到可控、系统是否会在关键时刻暴露引用与思路，这些都非常重要。
+所以只要任务复杂起来，语言约束就会同时面临几个老问题：
 
-但我这篇文要主动收缩。
+- 它会被遗忘。
+- 它会被误解。
+- 它会被临场“合理变通”。
+- 它会在长链任务后半段权重下降。
 
-原因很简单：产品工程在其实并不算被低估。相反，今天太多讨论都集中在场景包装、用户体验和工作流 demo 上（我也学了不少，确实不懂产品活不下去了，因此本文存在自相矛盾，仅供参考）。真正被系统性低估的，反而是那部分更枯燥、更像基础设施、却更决定系统能否活下去的东西：**技术工程。**
+写好提示词不再应该是 Agent 工程的主线。提示词当然重要，但它更像是最靠近模型、也最软的一层约束。真正成熟的系统，一定会把一部分原本靠提示词维持的希望，迁移到模型之外。
 
-所以这篇文章不打算写成一篇AI 工程全景图，而是只盯住一个问题：当我们说Agent 进入生产，到底是哪一圈技术外壳在替核心 loop 擦屁股。
+## 技术工程的分层与 Claude Code 的 Harness
 
-## 被低估的七层技术工程
+如果把这件事再拆开，我现在更愿意把给 `LLM` 戴上确定性枷锁理解成七层技术工程。它们不是某家框架的 `feature list`，也不是某个厂商的 `marketing terminology`，而是所有可靠 Agent 系统迟早都会长出来的控制层。
 
-如果把给 LLM 戴上确定性枷锁这件事拆开看，我现在更愿意把它理解为七层技术工程。它们不是某家框架的 feature list，也不是某个厂商的 marketing terminology，而是所有可靠 Agent 系统迟早都会长出来的控制层。
+前两层处理的是“系统到底接收什么状态、沿着什么流程推进”。结构化输入输出层负责让系统只接受被 `parser`、`validator` 和 `schema` 验过的状态，而不是看起来像答案的东西；控制流与任务闭环层负责把 Agent 关进一个有终点、有 `budget`、有 `checkpoint`、可回退也可插手的流程，不让规划无限发散。
 
-### 1. 结构化输入输出层：第一层枷锁，是让系统只接受可验证的状态
+中间三层处理的是“它能碰什么、看见什么、谁能拦住它”。工具与运行时层把 `shell`、`browser`、`API` 这类能力改造成有参数约束、副作用边界和上下文预算的契约；上下文与系统提示词层决定哪些知识常驻、哪些按需注入、哪些以前置索引和文档入口的形式进入工作记忆；网关、流量与权限层则负责 `rate limit`、`auth`、`quota`、审计和访问边界，用更强的确定性去对冲模型引入的新攻击面和成本面。
 
-软件系统和 LLM 之间最先发生冲突的地方，不是在推理，而是在接口。
+最后两层处理的是“它做完没有、长期会不会慢慢烂掉”。评测、验证与恢复层负责在外部环境里证明任务真的完成，并在失败后能 `replay`、`rollback`、继续推进；可观测、运维与治理层负责盯住漂移、坏模式复制、`AI slop` 和熵增，不让一次错误在系统里被规模化复用。Claude Code 暴露给开发者看到的是产品化表面，而这些表面背后对应的，正是更抽象的控制工程。
 
-模型天生擅长生成看起来像答案的东西，系统需要的却是可以被消费的东西。这也是为什么我之前会单独写 [《让 Agent 变得可行，大模型结构化输出与受限解码技术》](/blog/2026/03/01/语言模型的结构化输出/)：结构化输出不是一个小优化，而是 Agent 工程最早的一条生死线。
+Claude Code 值得分析，就在这里。官方甚至在 [How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works) 里直接把它定义成 “the agentic harness around Claude”。问题于是就不再是 Claude 能做什么，而是：**这个 Harness 把哪些本来靠语言维持的约束，下沉成了产品里可见的结构件。**
 
-这一层要解决的不是让模型尽量输出 JSON，而是：
+先理解给 `LLM` 戴上确定性枷锁的抽象控制层，再看 Claude Code 在产品里把哪些层做成了可见设计面：
 
-- 输入是否有明确 schema
-- 中间状态是否有 typed state
-- 输出是否先过 parser 和 validator
-- 失败时是 repair、retry 还是 fallback
-- 语法合法之后，语义是否也合法
+| Claude Code 可见设计面 | 在产品里长什么样 | 它真正解决的 Harness 问题 | 主要映射到哪些工程层 |
+| --- | --- | --- | --- |
+| 工具契约层 | `MCP`、`built-in tools`、`tool search` | 定义动作契约、裁剪能力边界、控制工具进入上下文的成本 | 工具与运行时层、部分权限层、部分上下文层 |
+| 上下文路由层 | `CLAUDE.md`、`.claude/rules/`、`imports`、`auto memory`、`managed settings` | 决定哪些知识常驻、哪些按条件注入、哪些由系统强制 | 上下文层、部分治理层 |
+| 生命周期验证层 | `hooks`、`prompt hooks`、`agent hooks` | 在动作前、动作后、结束前和 `compaction` 前后插入验证器与状态回注 | 控制流层、验证恢复层 |
+| 隔离与恢复层 | `subagents`、`sessions`、`checkpointing`、`--fork-session` | 隔离上下文、分叉任务路径、回滚文件状态、显式 `handoff` | 控制流层、上下文层、恢复层 |
+| 自主性治理层 | `permission modes`、`protected paths`、`sandbox`、`auto mode` | 调节自治程度、对冲 `approval fatigue`、阻断高风险越界 | 权限层、网关与治理层、安全层 |
+| 可分发 Harness | `plugins`、`GitHub Actions`、`Agent SDK` | 把本地 Harness 原语打包成可复用、可部署、可集成的部件 | 平台化、运维、分发层 |
 
-这里最容易被忽略的地方是：**结构化输出只是第一层枷锁，不是全部。** JSON 合法并不等于动作可执行，字段齐全也不等于参数语义没漂。很多 Demo 最大的问题不是模型不会答，而是下游系统把一个差不多的输出错当成了已经被验证的状态。
 
-因此，这一层真正要建立的是一个原则：**不是让 LLM 尽量格式正确，而是让系统只接受被验证过的状态。**
+## 一. 工具契约层：`MCP` 不只是扩能力，也是压缩动作世界
 
-### 2. 控制流与任务闭环层：Agent 不是更自由，而是被关进有终点的流程
+很多人第一次接触 `MCP`，会把它理解成“让 Claude 会更多事”。
 
-很多人看到 Manus 这类产品，会把注意力放在自主规划四个字上。但从工程角度看，真正重要的不是它会不会规划，而是它有没有被组织成一个任务闭环：规划、执行、验证、必要时再回到上一步；中间允许人插手，但不能无限发散。
+这个理解不算错，但只理解了一半。`MCP` 更深的价值，不在能力扩展，而在能力边界的划分。
 
-这恰好说明一个更重要的事实：**Agent 的可靠性，很大一部分来自控制流，而不是来自模型本身忽然变谨慎。**
+Anthropic 在 [Writing effective tools for agents](https://www.anthropic.com/engineering/writing-tools-for-agents) 里有一个非常重要的判断：传统函数和 API，是确定性系统和确定性系统之间的契约；而 tool，是确定性系统和非确定性 agent 之间的新契约。这意味着工具层最重要的不是暴露更多动作，而是**把动作写成 agent 可以安全使用、系统可以稳定消费的契约**。
 
-这一层真正要写的东西包括：
+放到 Claude Code 上，这个判断会变得非常具体。
 
-- workflow / graph / state machine
-- turn budget
-- timeout
-- termination condition
-- checkpoint
-- approval gate
-- handoff rule
+没有 `MCP` 时，Claude 想查数据库、碰内部服务或者读 Issue，很可能要在终端里现场猜路径、猜认证方式、猜命令序列。它当然可能猜对，但每次执行路径都带着临场推断。
 
-Anthropic 在 long-running harness 那篇里给出的两段式结构很有代表性：第一次运行由 initializer agent 完成环境准备，后续每轮由 coding agent 负责增量推进并为下一轮留下清晰工件。这套设计之所以重要，不是因为它优雅，而是因为它承认了一个现实：**Agent 没有天然的连续自我，它每次都可能像换班工程师一样重新接手。**
+有了 `MCP` 之后，事情被改写了。Claude 不再需要自己猜“数据库在哪、如何认证、失败时怎么恢复”，它看到的是一组已经被裁剪、命名、约束过的工具接口。`query_database(sql: string)`、`get_ticket(id)`、`search_internal_docs(query)` 这种接口，真正重要的不是功能更多，而是**实现细节已经被收走了，剩下的是系统愿意让 agent 看到的那部分能力边界。**
 
-所以控制流层真正做的事情，不是在增加智能，而是在防止智能无边界地扩散。很多时候，所谓 `workflow`、`graph`、`state machine` 的本质不是更高级的 Agent 设计，而只是**把 LLM 关进一个带出口的流程。**
+**能力边界即架构边界。** 没有 `delete_user_data` 这个工具，这个动作就不只是“不建议做”，而是在技术层面“不存在”。这和传统软件里的最小权限原则是同一件事，只不过现在这个原则被应用到了 agent 工具设计上。
 
-### 3. 工具与运行时层：不是把工具给模型，而是把工具改造成模型能安全使用的接口
+但只把 `MCP` 理解成权限边界也还不够。Claude Code 官方还把这层和上下文预算直接绑在了一起。[How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works) 与 [Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp) 都明确提到：`MCP` tool definitions 默认会通过 tool search 延迟加载，Claude 先只看到工具名，真正的 schema 在需要时才进入上下文。这意味着工具层除了定义能力边界，还在定义**上下文成本边界**。
 
-Anthropic 在 [Writing effective tools for agents](https://www.anthropic.com/engineering/writing-tools-for-agents) 里有一个很准确的判断：传统函数和 API 是 deterministic systems 之间的契约，而 tool 是 deterministic systems 和 non-deterministic agents 之间的新型契约。
+这件事其实很关键。工具的“出口设计”最后会进入模型的上下文。如果一个工具把整页数据库记录、整份 HTML 或完整日志一股脑塞回来，污染的不是单次调用，而是后续整条推理链。好的工具设计，会在服务端先做过滤、压缩和字段选择；好的工具发现机制，则会控制多少工具描述真正进入上下文。
 
-这句话特别重要，因为它直接解释了为什么把工具暴露给模型远远不够。
+所以 `MCP` 这一层解决的，从来不只是 Claude 怎么调用外部世界，而是三件事情：
 
-给模型一把 shell，不等于给了它能力，而是给了它毁掉仓库的可能。
+- 工具契约必须由系统定义，不能交给模型现场猜。
+- 动作空间必须被主动裁剪，而不是靠 prompt 事后约束。
+- 工具进入上下文的时机和粒度，也属于 Harness 设计，因为工具描述与工具输出都会反向塑造后续推理。
 
-给模型一个 `git`，不等于让它能改代码，而是让它可以顺手把工作区、分支和历史一起搞乱。
+这也是为什么 OpenAI 在 [From model to agent: Equipping the Responses API with a computer environment](https://openai.com/index/equip-responses-api-computer-environment/) 里会把 shell、hosted container、skills、compaction、状态持久化这些东西直接下沉成平台原语。词可以不一样，但工程事实是一致的：**真正难的从来不是“给模型一个动作”，而是“给模型一个被约束过的动作世界”。**
 
-给模型一个 browser，不等于让它完成网页任务，而是给它一个充满副作用、登录态、跳转与外部输入的环境。
+放回更抽象的 7 层里看，这一层主要对应工具与运行时层，同时向上牵动权限边界和上下文成本控制。
 
-所以工具层真正要处理的，是：
+## 二. 上下文路由层：`CLAUDE.md`、`rules`、`auto memory` 与 `docs index` 的分工
 
-- tool wrapper
-- 参数命名与参数约束
-- 返回上下文的粒度控制
-- idempotency
-- `dry-run`
-- sandbox
-- permission model
-- 资源预算与配额
+有了更可靠的工具边界之后，第二类问题很快会浮出来：Claude 还是会做出不符合团队习惯的决定。
 
-Anthropic 的 sandboxing 文章把这里说得很直白：为了减少 prompt injection 风险并减少无意义的权限弹窗，他们在 Claude Code 里强调了两条同时存在的边界：filesystem isolation 和 network isolation，并报告说这让 permission prompts 安全地下降了 84%。这说明什么？说明**工具可用性和安全边界不是两个后置问题，而是同一个运行时设计问题。**
+比如用了你们已经废弃的 `API` 版本，没有遵循既有的 `Repository` 模式，或者把本来只该用于排查告警的流程拿去处理日常开发任务。这个时候，最自然的动作还是继续往 `CLAUDE.md` 里补规则。
 
-这也正好和我在 [《AEnvironment：Agent 需要一个统一的环境层吗？》](/blog/2026/03/16/aenvironment-everything-as-environment/) 里的判断形成互文：工具不是简单的函数暴露，它背后始终站着一个环境。真正的工程难点，不在于模型能不能看到工具，而在于**它在什么环境里、以什么副作用边界、用什么失败恢复机制去碰工具。**
+方向没错，但载体往往不够好。
 
-### 4. 上下文与系统提示词层：系统提示词不是文案，它是最早一层运行时约束
+Claude Code 的记忆系统现在其实已经分成了几层，而不是单一的 `CLAUDE.md`：
 
-在中文讨论里，system prompt 很容易被写成提示词技巧。这当然不完全错，但如果只把它理解成文案优化，你就会低估它在工程系统里的真实地位。
+- `CLAUDE.md` 和 `CLAUDE.local.md` 负责常驻说明。
+- `.claude/rules/*.md` 负责把说明切成模块，并允许用 `paths:` `frontmatter` 做条件加载。
+- `@path` `import` 负责把 `repo docs`、`README`、流程文档稳定挂进入口文件。
+- `auto memory` 负责让 Claude 自己沉淀跨会话学习。
 
-系统提示词首先不是文案，它是**最早一层运行时约束。**
+这背后的工程逻辑是：**每一次 Agent 的失败，都是某条隐性知识还没有被显式编码进系统，或者还没有被放在正确加载层级上的信号。**
 
-产品工程视角下，它决定角色、语气、协作方式和信任边界；技术工程视角下，它决定模型默认如何理解任务、可引用什么、什么时候必须收敛、哪些行为属于越界。
+也正是在这里，Vercel 那篇 [AGENTS.md outperforms skills in our agent evals](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals) 仍然有很大参考价值。它最重要的结论不是 `AGENTS.md` 打败了 `skills`，而是：**知识暴露顺序本身就是约束强度的一部分。**
 
-NotebookLM 的例子很典型。它最有价值的地方不是回答更像研究助理，而是它把约束写得非常硬：回答围绕用户上传资料展开，并且尽量带出处。这不是一句友好的角色描述，而是把可回答范围和可验证责任一起写进了系统边界。
+他们的结果很直接：
 
-这也是为什么这一层不能只谈 prompt，还要谈：
+- 没有文档时，`baseline` 通过率是 53%。
+- 默认 `skills` 触发时，结果几乎没有改善，仍是 53%。
+- 显式提示模型去用 `skills` 时，提升到 79%。
+- 把压缩后的文档索引直接放进仓库根部 `AGENTS.md` 时，做到了 100%。
 
-- `AGENTS.md`
-- `WORKFLOW.md`
-- repo-local docs
-- progressive disclosure
-- 引用规则
-- 上下文压缩与召回
+这里真正发生的事情，不是哪种格式更高级，而是：**系统有没有把要不要去读这份知识继续交给模型临场决定。**
 
-OpenAI 在 [Harness engineering](https://openai.com/index/harness-engineering/) 里给出的经验很值得记住：`AGENTS.md` 不应该是百科全书，而应该更像 table of contents；真正的知识库是仓库里的 `docs/`，并且要被当成 system of record。这个判断和我在 [《从 MCP 到 Agent Skills》](/blog/2026/03/10/from-mcp-to-agent-skills/) 以及 [《Context is All You Need》](/blog/2026/03/06/agent-context-engineering/) 里写过的内容其实在说同一件事：**上下文工程不是把资料全塞进去，而是决定什么信息以什么顺序进入工作记忆。**
+所以这一层我现在更愿意下一个更硬的结论：
 
-Vercel 在 2026 年 1 月 27 日的 eval 结果更是把这个问题进一步验证：baseline 53%，skills 默认行为 53%，显式要求使用 skills 79%，而一个压缩后的 `AGENTS.md` docs index 直接做到 100%。这不是在说 skills 没价值，而是在提醒我们：**知识暴露顺序本身就是性能的一部分。**
+- `CLAUDE.md` 解决常驻事实。
+- `.claude/rules/` 解决条件注入和路径匹配。
+- `auto memory` 解决跨会话学习。
+- `repo docs` 继续做 `system of record`。
+- `managed settings` 负责把不该靠语言维持的约束收回到客户端强制层。
 
-所以这一层真正的判断是：系统提示词、仓库文档、知识暴露机制，统统不是外围润色，而是**最早进入模型上下文、最先塑造模型行为的那层软约束。**
+从这个意义上说，真正值得学是**把知识装配改造成知识路由。**
 
-### 5. 网关、流量与权限控制层：经典应用加 AI 后，多出来的是整套新攻击面
+放回更抽象的 7 层里看，这一层主要对应上下文与系统提示词层，也和治理层共享一部分知识入口的控制权。
 
-这是这次重写里我最想补强的一层，因为它在开源 Agent 讨论里经常被直接跳过。
+## 三. 生命周期验证层：`hooks` 不只是脚本，而是外部 `verifier` 接口
 
-很多本地 Demo 看起来之所以很顺，是因为它们默认不面对真实用户、不面对公开流量、不面对滥用、不面对成本爆炸，也不面对复杂权限边界。可一旦系统从本地脚本变成真实服务，问题立刻就换了。
+到了第三层，问题会再次收紧。
 
-经典应用接入 AI 之后，多出来的不只是一次模型调用，而是一整套新的攻击面：
+假设你已经有了合理的工具边界，也把关键流程写进了 `skills` 或仓库文档里，Claude 仍然可能在长任务末尾说一句“完成了”，但你一看，测试没跑，或者跑错了。
 
-- 模型本身的成本与频控
-- 外部工具和 MCP server 的访问边界
-- 用户身份与权限映射
-- prompt injection 带来的越权调用
-- 输入输出内容安全
-- 缓存、重放、审计与滥用对抗
+这时你就会发现：`请确保测试通过` 这种句子，本质上还是语言请求。
 
-也正因此，后台逻辑确定性越不可控，流量与用户访问控制越重要，我认为是非常值得保留的判断。它说的不是某个具体网关产品，而是一个更底层的事实：**当系统的核心处理链路里引入了不确定模型，你就必须用更强的网关、权限和流量控制去对冲这种不确定性。**
+Claude Code 的 [Hooks reference](https://code.claude.com/docs/en/hooks) 很重要，因为它把这件事从提醒直接推进到了生命周期事件。你不再只是对模型说“请这样做”，而是在 `SessionStart`、`InstructionsLoaded`、`PreToolUse`、`PostToolUse`、`Stop`、`PreCompact`、`PostCompact` 这些节点上挂接外部逻辑。
 
-所以这一层真正的工程内容是：
+这件事的意义，不在脚本自动化本身，而在于：**完成声明、工具调用、上下文压缩这些原本只活在模型叙事里的事件，第一次被外部系统拿回来了。**
 
-- rate limit
-- auth
-- quota
-- cache
-- 输入输出安全拦截
-- MCP / model / agent 之间的访问边界
-- 审计日志与调用追踪
+`PreToolUse` 的价值，是把越界动作变成可以在发生前被阻断的事情。比如禁止高风险命令、限制危险路径、阻止某类写操作。这时约束不再是“请不要这么做”，而是“你根本不能做”。
 
-这一层之所以常被低估，是因为它既不性感，也不容易在 Demo 视频里展示。但一旦没有它，所有Agent 已经可以进入真实业务的判断都会显得非常脆弱。从某种意义上讲，OpenClaw就是这一层的最大反面例子。
+`Stop` 的价值更大。它把模型说自己做完了，变成一个可以被验证器拒绝的系统事件。官方文档现在已经不只支持 `command hook`，还支持 `prompt hook` 和 `agent hook`。也就是说，`Stop` 不只是跑个 `shell` 脚本，它还可以拉起一个带工具的 `verifier subagent` 去检查测试、读文件、比对工件，再决定要不要允许会话结束。
 
-### 6. 评测、验证与恢复层：没有验证闭环的 Agent，本质上只是把采样结果直接暴露给用户
+这一步非常关键，因为它说明 Claude Code 的生命周期层，已经不只是“事件回调”，而是在产品层面正式打开了 **`generator / verifier` 分离** 的接口。
 
-这是我认为当前很多 AI 应用最危险的盲区。
+这也正好和 Anthropic 在 `2026-03-24` 发布的 [Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps) 形成互文。那篇文章明确把长时应用开发写成 `planner / generator / evaluator` 三代理结构：生成器负责推进，评估器负责打分、找 `bug`、把输出拉回规格。这其实就是一个更通用的 Harness 原理：**不要让同一个 `agent` 既负责产出，又负责无限信任自己的完成声明。**
 
-系统给出了一个结果，于是我们默认它完成了任务；可对 Agent 来说，真正重要的从来不是它说完成了什么，而是**环境里最后到底发生了什么。**
+从这个角度看，Claude Code 的 `hooks` 就不只是“自动化小脚本”，而是把 `verifier` 接进运行时的标准口。
 
-Anthropic 在 [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) 里把这个边界说得很清楚：evaluation harness 是负责端到端跑任务、记录步骤、打分和汇总结果的基础设施；agent harness 则是让模型以 agent 方式行动的系统。换句话说，当我们说在评估一个 agent时，我们评估的从来都不是裸模型，而是 **harness + model working together**。
+`InstructionsLoaded`、`SessionStart`、`PreCompact`、`PostCompact` 则处理另一个更隐蔽的问题：上下文压缩和状态蒸发。长任务里最危险的事情之一，不是模型一开始没拿到约束，而是它在压缩、恢复和切换阶段把约束丢了。把关键状态外置到文件、脚本、检查点和生命周期注入里，才能避免前面明明说过的知识在后面自然蒸发。
 
-这意味着评测、验证和恢复层必须成为系统的一等公民，而不是上线前顺手补一套 smoke test。你真正需要的是：
+这一层最重要的工程判断，我现在会写得非常重：
 
-- tests
-- critic / judge
-- replay
-- reference solution
-- human review
-- canary
-- rollback
-- 失败后继续推进的恢复路径
+- `PreToolUse` 负责在动作发生前阻断越界行为。
+- `Stop` 负责把“完成声明”变成可拒绝的系统事件。
+- `prompt hooks` 和 `agent hooks` 说明验证器本身也已经被产品化，而不只是 `shell glue`。
+- `PreCompact / PostCompact / SessionStart / InstructionsLoaded` 负责把关键状态从上下文窗口外置，并允许你调试“它到底加载了什么”。
+- 越接近安全和强制性约束，越应使用确定性实现，而不是再交回给 `LLM` 判断。
 
-Vercel 之所以能得出 `AGENTS.md` 比 skills 更有效的判断，不是因为他们拍脑袋觉得如此，而是因为他们先把 eval suite 硬化了：去掉 task leakage、消除歧义、改成行为导向的测试，再做配置对比。这个顺序非常重要，因为它提醒我们：**很多看起来像模型问题的东西，实际上是评测和 harness 问题。**
+这也是为什么 Anthropic 在 [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) 里要非常清楚地区分 `agent harness` 和 `evaluation harness`。前者让模型以 `agent` 的方式行动，后者运行任务、记录轨迹、打分和汇总结果。两者分开之后，你才会发现一个关键事实：**没有验证闭环的 Agent，本质上只是把一次采样结果直接暴露给用户。**
 
-所以我还是想重复一句更重的话：**没有验证闭环的 Agent，本质上只是把一次采样结果直接暴露给用户。** 只有当系统能够在外部环境里验证、复查、回滚、再推进时，它才真正开始像一个可交付系统，而不是一场精致的生成实验。
+`hooks` 的价值，就在于它让一部分原本只能在评测或人工 `review` 里完成的检查，被提前嵌进了运行时，并且它一定会被执行，而不是 `CLAUDE.md` 里的一句“请进行测试并保证测试通过”。
 
-### 7. 可观测、运维与治理层：真正的敌人不是某次失败，而是熵增、漂移和坏模式复制
+放回更抽象的 7 层里看，这一层主要对应控制流与任务闭环层，以及评测、验证与恢复层。
 
-如果前六层解决的是“怎么让系统跑起来”，那么最后一层处理的就是“怎么让它别慢慢烂掉”。
+## 四. 隔离、分叉与恢复：`subagents` 只是入口，不是全部
 
-AI 系统的可观测对象，从来都不只是延迟、报错率和 CPU。对 Agent 来说，真正危险的东西往往更语义化：
+`subagents` 很容易被讲成并行化或者提速功能。
 
-- 工具为什么被误用
-- 上下文什么时候开始漂移
-- 哪类任务在持续 over-trigger 某个动作
-- 什么坏模式正在被不断复制
-- 哪些所谓成功，其实只是低质量完成
+这当然不是错，但如果只看到这里，你会错过它更核心的工程意义：**把一个大而脏的解空间拆成多个更窄、更可控、更容易验证的解空间。**
 
-所以这一层真正要做的不是普通日志，而是：
+Claude Code 的 [Create custom subagents](https://code.claude.com/docs/en/sub-agents) 文档强调的是专门化、隔离的上下文和定制工具访问。对工程来说，这件事真正值钱的地方，不是多开几个 `agent`，而是每个 `agent` 可以在更干净的上下文里、用更受限的工具集，只解决一个更窄的问题。
 
-- trace
-- artifact
-- semantic observability
-- incident debugging
-- quality score
-- 背景治理任务
-- entropy / slop cleanup
+一个 `reviewer subagent` 如果只有读权限，那么“不要修改文件”就不再是一条依赖模型自觉的提示词，而是它的动作空间里根本没有 `Edit`。一个在隔离工作区里运行的 `subagent`，即便失败，也不会把主工作区一起拖脏。一个只负责测试和验证的 `subagent`，不需要背着前面几十轮探索历史继续工作。
 
-OpenAI 在 harness engineering 里有一段非常值得所有做 Agent 的人反复看：他们一开始每周五要花 20% 的时间手工清理 “AI slop”，后来干脆把 golden principles 直接写进仓库，再让后台任务持续扫描偏差、更新质量分数、自动开 refactor PR。这套做法最打动我的地方，不是自动化本身，而是它把一个事实说透了：**Agent 最大的风险往往不是一次错，而是系统会无比忠诚地复制已有的错。**
+但如果把视角再放大一点，你会发现 Claude Code 官方这两个月已经把隔离这件事从 `subagent` 扩到更完整的一组恢复原语上了：
 
-因此，这一层的本质不是后期运维，而是**持续治理模型在工程环境里的熵增。** 你不处理它，它就会自己增长。你不尽早把治理机制编码进系统，最后就只能靠人肉周五去清理 AI slop。
+- [Checkpointing](https://code.claude.com/docs/en/checkpointing) 会在每次编辑前自动快照文件状态。
+- [How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works) 说明会话是本地 `JSONL`，可 `resume`，也可 `--fork-session` 分叉。
+- `session-scoped permissions` 在 `resume` 或 `fork` 时不会继承，说明权限状态本身也被当成显式边界，而不是隐式延续。
+- `session` 与目录绑定，官方直接建议用 `git worktrees` 跑并行会话，避免同一 `session` 在多个终端里互相污染。
 
-```mermaid
-flowchart TB
-  A["可观测、运维与治理层"] --> B["评测、验证与恢复层"] --> C["网关、流量与权限控制层"] --> D["上下文与系统提示词层"] --> E["工具与运行时层"] --> F["控制流与任务闭环层"] --> G["结构化输入输出层"] --> H["Agent Core Loop\nplan -> act -> observe"]
-```
+这组设计放在一起，才是这一层真正完整的样子：它不只是开 `subagent`，而是**把长任务拆成可隔离、可回滚、可分叉、可 `handoff` 的局部状态机**。
 
-## 这就是框架真正替你做掉的大头工作
+这也正好和 Anthropic 在 2026-03-24 那篇 Harness 文里讲的重点完全一致。那篇文章明确区分了 `compaction` 和 `context reset`：`compaction` 只是原地压缩，同一个 `agent` 继续跑；`reset` 则是给下一个 `agent` 一个干净上下文，只通过结构化 `handoff artifact` 交接必要状态。原文甚至直接写道：`compaction` 保留连续性，但不提供 `clean slate`；而 `reset` 虽然要付出 `handoff` 成本，却能真正切断 `context anxiety`。
 
-当你把上面七层技术工程一层层摊开之后，框架这个词就会自动去魅。
+从这个角度看，这一层的真正价值是四件事：
 
-框架并不是因为大家不会写 `while loop` 才存在，也不是因为 `planner` 特别难写才存在。框架真正替你做掉的大头工作，是把这些反复出现、极其琐碎但又绝不能缺席的外壳冻结成一套可复用约定：
+- 独立上下文，减少噪音污染。
+- 缩窄工具集，减少越界路径。
+- 明确 `handoff`，让每一轮都知道自己接的是什么。
+- 结合 `checkpoint`、`resume`、`fork` 和 `worktree`，把失败限制在更小的局部里。
 
-- 状态如何定义
-- 控制流如何限制
-- 工具如何包装
-- 文档如何暴露
-- 权限如何切边界
-- 验证如何自动发生
-- 治理如何持续进行
+**限制不是缺陷，而是可靠性的来源。**
 
-所以我现在越来越愿意把框架理解成另一种东西：**它们不是智能本身，而是技术工程的模板化沉淀。**
+自由度越高，失控路径越多；解空间越窄，行为越容易预测。很多时候，真正把 Agent 做稳的方法，不是继续放大它的自主性，而是把任务拆给多个更受限、更好验证、而且可分叉恢复的执行单元。
 
-这也解释了为什么不同框架看起来差异巨大，底层却总在重复类似问题。有的框架优先冻结控制流，有的优先冻结会话与工具运行时，有的优先冻结 memory、sandbox、eval 和 agent ops。你当然可以不用框架，但你不用框架，不代表这些问题会消失。更常见的现实是：**你最后还是会把它们自己补回来。**
+放回更抽象的 7 层里看，这一层主要对应控制流层、恢复层和一部分上下文隔离机制。
 
-## 如果今天让我从 0 开始，我会先搭什么
+## 五. 自主性治理：`permission modes`、沙箱与 `auto mode`
 
-如果今天让我从 0 开始搭一个 Agent，我不会先追求多 Agent，也不会先追求复杂 graph，更不会一上来就做一个看起来像平台的东西。我会先把最小可行的技术外壳补齐。
+因为如果没有这一层，Claude Code 看起来就还像一个默认要不断弹权限框的 `agent` 工具。可现在已经不是这样了。它实际上已经长出了一条非常清晰的**自主性梯度**。
 
-顺序大概是这样：
+[Choose a permission mode](https://code.claude.com/docs/en/permission-modes) 里现在已经把日常最常见的四个模式排成一条明确梯度：
 
-1. **先定义任务边界和成功标准**  
-   不先定义什么叫完成，后面所有自主规划都会变成幻觉放大器。
+- `default`：只默认读。
+- `acceptEdits`：自动接受工作目录内的文件编辑和常见文件系统命令。
+- `plan`：研究和提出方案，但不改源文件。
+- `auto`：不弹人工确认，由后台安全检查代替。
 
-2. **再定义 typed state 与结构化输入输出**  
-   先把系统的输入、状态和输出变成可验证对象，再谈更复杂的策略。
+如果再加上更极端的 `bypassPermissions`，就能更清楚地看到这是一个策略层，而不是几个 `UI` 开关。
 
-3. **再包装工具与权限边界**  
-   工具不是自由能力，而是经过裁剪的接口；公开系统还要尽早补网关、频控与鉴权。
+更重要的是，这条梯度不是“随你点哪个都一样”。官方文档里已经明确把一些边界硬编码成了模式无关的 `guardrail`：
 
-4. **再补验证回路与失败恢复**  
-   没有 test、judge、review、replay、rollback，系统只是在赌采样。
+- `protected paths` 在任何模式都不会被无条件放行。
+- `acceptEdits` 只自动批准工作目录内的编辑和有限的文件系统命令。
+- `bypassPermissions` 也仍然会对 `protected paths` 保留最后一道提示。
+- `auto` 则不是“什么都放”，而是把高风险动作送给分类器。
 
-5. **最后再补长期上下文、可观测与治理**  
-   当最小闭环稳定后，再系统化处理 docs、memory、trace、quality score 和 background cleanup。
+这意味着 `permission modes` 已经不是“用户体验偏好”，而是**自治程度如何被制度化管理**的问题。
 
-这也是为什么我现在越来越不认同先把架构图画复杂再说的开发习惯。Agent 的核心逻辑可以很晚才复杂，但**它的确定性边界必须很早就被设计。** 单 Agent 的外壳没扎实之前，多 Agent 往往只会把不确定性复制得更快。
+再往下看，Anthropic 在 [Making Claude Code more secure and autonomous with sandboxing](https://www.anthropic.com/engineering/claude-code-sandboxing) 里公开的东西就更值得注意了。它不是把沙箱写成一个安全附件，而是直接把它写成更安全也更 `autonomous`的基础条件。
 
-## 结语：真正成熟的 Agent，不是更自由的 LLM，而是被精心约束后的 LLM
+如果说沙箱回答的是“能在哪些硬边界内放权”，那么 [Claude Code auto mode](https://www.anthropic.com/engineering/claude-code-auto-mode) 回答的就是另一个问题：**怎样在不回到人工审批疲劳的前提下，给高自治一个更细粒度的策略栈。**
 
-回到文章一开始那个问题：为什么今天工程化会被重新看见？
+这篇文章提到：用户实际会批准 93% 的 `permission prompt`。也就是说，单纯把一切风险都压回人工确认，最后很容易演化成 `approval fatigue`。
 
-因为模型已经强到足以让我们把它们放进真实任务里了，而一旦真的这么做，所有原本还能被 Demo 掩盖的问题都会暴露出来。模型会不会漂、工具会不会误用、文档会不会过期、权限会不会越界、验证闭环是不是缺席、坏模式会不会在系统里持续复制——这些都不再是以后再说的问题。
+它介绍了 `auto mode` 的两层防线：
 
-**所谓外围代码，其实根本不是外围。它才是把 LLM 变成可交付 Agent 的主体工程。**
+- 输入层有一个 `prompt-injection probe`，在工具结果进入 `agent` 上下文前先扫一遍。
+- 输出层有 `transcript classifier`，在动作执行前判断这一步是否真的被用户授权，以及是否越过了信任边界。
 
-产品工程当然重要，需求建模、信任设计、人机协作也完全值得单独写。但如果只从构建可靠 Agent 的技术角度看，真正决定上限的，往往不是中间那颗聪明的大脑，而是周围这一圈是否足够坚硬、足够可验证、足够能治理的外壳。
+它不是单层分类器，而是两阶段结构：先用一个快速、偏保守的单 `token filter` 做初筛，再只对被 `flag` 的动作启用带推理的第二阶段，尽量把成本和误杀率压下来。
 
-真正成熟的 Agent，不是更自由的 LLM，而是**被精心约束后，仍然保有足够自由度的 LLM。**
+它把多代理 `handoff` 也纳入了审查范围。官方文里明确写了，`classifier` 会在 `subagent delegation` 的出去和回来两端都做检查，因为是否用户真授权了这个任务在 `handoff` 处最容易失真。
+
+当你想提高自治（自主智能体一定是我们想要的），不应该只想着“怎么让主 `agent` 更聪明”，还应该同时设计“谁来判断这一步是否越权”。
+
+所以这一层最值得保留的判断是：
+
+- `default / acceptEdits / plan / auto` 不是几个便利模式，而是一条自治梯度。
+- `protected paths`、`managed settings`、沙箱和分类器一起构成了自治的硬边界。
+- 真正成熟的自治，不是去掉审批，而是把审批背后的判断逻辑重写成系统结构。
+
+放回更抽象的 7 层里看，这一层主要对应网关、流量与权限控制层，也向可观测与治理层延伸。
+
+## 六. 可分发 Harness：`plugins`、`GitHub Actions`、`Agent SDK`
+
+前面几层都还比较像本地工具怎么约束自己。但 Claude Code 其实还有一个更容易被低估的设计面：它已经不只是一个 `CLI`，而是开始把自己的 Harness 打包成可分发组件。
+
+先看 [Create plugins](https://code.claude.com/docs/en/plugins)。官方现在给插件的定义已经非常明确：插件不是只装 `skill` 的小扩展，而是可以打包 `skills`、`agents`、`hooks`、`MCP servers`、`LSP servers`、`monitors`、`bin/` 可执行文件和默认 `settings` 的复合单元。也就是说，一个插件本质上就是一包可搬运的 Harness 配置。
+
+这件事很重要，因为它说明 Claude Code 已经不把 Harness 视为用户机器上的零散私有配置，而是视为可版本化、可分享、可装配的部件。你今天在本地调好的技能、`agent`、`hook` 和监控器，明天可以封成插件，变成团队级基础设施。
+
+再看 [Claude Code GitHub Actions](https://code.claude.com/docs/en/github-actions)。官方文档写得很清楚：它允许你在 `GitHub workflow` 里运行 Claude Code，本身又建立在 Claude Agent SDK 之上，而且会尊重仓库里的 `CLAUDE.md` 标准。这意味着同一套本地 Harness 逻辑，可以被搬去做 `PR` 创建、`issue` 实现、`code review` 和自动化修复。
+
+最后是 [Agent SDK overview](https://code.claude.com/docs/en/agent-sdk/overview)。它提供的是“the same tools, agent loop, and context management that power Claude Code”，只是被做成了 `Python` 和 `TypeScript` 可编程接口。更重要的是，它不是只暴露一个 `query API` 就结束了，而是连 `hooks`、`subagents`、`MCP`、`permissions`、`sessions`、`checkpointing`、`OpenTelemetry observability` 都一起暴露出来。
+
+这就意味着 Claude Code 背后的 Harness 已经出现了一个很清楚的平台化趋势：
+
+- `CLI` 是交互表面。
+- 插件是配置与能力分发单元。
+- `GitHub Actions` 是 `CI` 运行表面。
+- `Agent SDK` 是程序化嵌入表面。
+
+换句话说，Claude Code 不是一个孤立产品，而是**一组被产品化的 Harness 原语**。这也是为什么我会把这一层叫作可分发 Harness。
+
+放回更抽象的 7 层里看，这一层不是新增的“第八层”，而是把前面几层控制能力打包成平台化、运维化和可分发的基础设施表面。
+
+## 如果你还在写语言请求，更好的结构通常会长成什么
+
+把前面六层压回工程语言之后，我现在更愿意把对照关系写成下面这样：
+
+| 如果你只写语言请求 | 更硬的结构约束通常会长成什么 |
+| --- | --- |
+| “让它自己去查系统、自己调工具” | `MCP` 契约 + `tool search` + 服务端过滤后的工具输出 |
+| “遵守团队规范和目录边界” | `CLAUDE.md` 入口 + `.claude/rules/` 条件加载 + `managed settings` 的强制层 |
+| “完成前记得检查一下” | `Stop` `hook` + `prompt/agent verifier` + `generator/evaluator` 分离 |
+| “别把主上下文和工作区搞脏” | `subagents` 隔离 + `checkpoints` + `resume` / `fork-session` + `worktree` |
+| “尽量少打扰我，但别胡来” | `permission modes` + `protected paths` + `sandbox` + `auto mode` `classifier` |
+| “把这套经验复用到别的仓库和运行场景” | `plugins` + `GitHub Actions` + `Agent SDK` |
+
+这张表最想说明的一点其实很简单：**语言请求没有消失，但真正决定系统可靠性的，已经不是语言请求本身。**
+
+## 这也是框架真正替你做掉的大头工作
+
+当你把这些问题摊开之后，`framework` 这个词就会自动去魅。
+
+框架并不是因为大家不会写 `while loop` 才存在，也不是因为 `planner` 特别难写才存在。框架真正应该替你做掉的大头工作，是把这些一遍遍出现、又不能总靠人工重讲的 Harness 技术冻结成可复用约定：
+
+- 状态如何定义。
+- 工具如何包装和延迟装载。
+- 文档如何前置、切片和路由。
+- 生命周期节点如何拦截、校验和回注。
+- 子任务如何隔离、分叉、恢复与 `handoff`。
+- 自治等级如何被治理，而不是只靠人工点确认。
+- 这些约束如何被封装成插件、`CI` 集成和 `SDK`。
+
+所以我现在越来越愿意把框架理解成另一种东西：**它不是智能本身，而是 Harness 技术的收敛形态。**
+
+你当然可以不用框架，但你不用框架，不代表这些问题会消失。更常见的现实是：你最后还是会把它们自己补回来。区别只在于，是每个项目都重造一遍，还是有人已经把其中一部分抽成了稳定部件。
+
+> 题外话：现有的框架包括极简框架（如Pocketflow）为用户提供Agent架构的理解，高度集成框架（LangChain/Graph）为用户提供封装Agent结构，但单纯提供Harness本身是不足的，Agent时代需要新的基础设施帮助开发者更好的开发，但不需要过多封装导致留下技术债。真正通用且好用的框架离我们还很远。
+
+## 结语
+
+回到文章开头那个把 `CLAUDE.md` 写得越来越长的工程师。
+
+他做的事情并没有错，只是停在了一个更软的层次上。用语言去约束语言模型，就像把“不要犯错”写进员工手册：有帮助，但远远不够。真正的工程答案，是给它搭一套工作系统：它能碰什么工具、哪些规范会在正确时机被加载、哪些动作在生命周期节点会被拦下、哪些任务要在隔离环境里做、它说“完成”时谁来验证、它可以被放权到什么程度、以及这套约束怎么被带进 CI 和别的运行表面。
+
+这也是我现在最想保留的一句判断：**真正重要的不是让模型更会听话，而是让系统在模型不听话时仍然有边界。**
+
+这一篇回答的是：这些外围工程在产品里具体怎么工作，以及为什么 Claude Code 是观察它们的绝佳入口。
+
+下一篇我会把角度切开，专门讨论另一个问题：为什么今天大家把这整圈东西集中叫作 `harness`，这个词到底该怎么拆、什么时候有解释力、什么时候会因为过宽而失效，以及为什么在讨论具体工程问题时，把它继续拆成 `工程 harness + 产品 harness + 用户友好 harness` 往往比停在 `agent = model + harness` 更重要。
 
 ## 参考资料
 
-- 阿里云云原生, [AI Agent 的工程化被低估了](https://www.cnblogs.com/alisystemsoftware/p/18926545)
+- Anthropic Docs, [How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works)
+- Anthropic Docs, [Explore the context window](https://code.claude.com/docs/en/context-window)
+- Anthropic Docs, [Store instructions and memories](https://code.claude.com/docs/en/memory)
+- Anthropic Docs, [Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp)
+- Anthropic Docs, [Hooks reference](https://code.claude.com/docs/en/hooks)
+- Anthropic Docs, [Create custom subagents](https://code.claude.com/docs/en/sub-agents)
+- Anthropic Docs, [Checkpointing](https://code.claude.com/docs/en/checkpointing)
+- Anthropic Docs, [Choose a permission mode](https://code.claude.com/docs/en/permission-modes)
+- Anthropic Docs, [Create plugins](https://code.claude.com/docs/en/plugins)
+- Anthropic Docs, [Claude Code GitHub Actions](https://code.claude.com/docs/en/github-actions)
+- Anthropic Docs, [Agent SDK overview](https://code.claude.com/docs/en/agent-sdk/overview)
 - OpenAI, [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/)
-- OpenAI, [Unlocking the Codex harness: how we built the App Server](https://openai.com/index/unlocking-the-codex-harness/)
-- Anthropic, [Building effective agents](https://www.anthropic.com/research/building-effective-agents/)
-- Anthropic, [Writing effective tools for AI agents—using AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents)
+- OpenAI, [From model to agent: Equipping the Responses API with a computer environment](https://openai.com/index/equip-responses-api-computer-environment/)
+- Anthropic, [Writing effective tools for agents](https://www.anthropic.com/engineering/writing-tools-for-agents)
+- Anthropic, [Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps)
+- Anthropic, [Claude Code auto mode: a safer way to skip permissions](https://www.anthropic.com/engineering/claude-code-auto-mode)
+- Anthropic, [Making Claude Code more secure and autonomous with sandboxing](https://www.anthropic.com/engineering/claude-code-sandboxing)
 - Anthropic, [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)
 - Anthropic, [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
-- Anthropic, [Beyond permission prompts: making Claude Code more secure and autonomous](https://www.anthropic.com/engineering/claude-code-sandboxing)
 - Vercel, [AGENTS.md outperforms skills in our agent evals](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)
 - [《让 Agent 变得可行，大模型结构化输出与受限解码技术》](/blog/2026/03/01/语言模型的结构化输出/)
-- [《从智能体的认知结构到智能体框架》](/blog/2026/03/03/cognitive-architecture-to-agent-framework/)
 - [《Context is All You Need：智能体的上下文工程》](/blog/2026/03/06/agent-context-engineering/)
 - [《从 MCP 到 Agent Skills：为什么 Agent 又需要一种新的上下文工程协议？》](/blog/2026/03/10/from-mcp-to-agent-skills/)
 - [《AEnvironment：Agent 需要一个统一的环境层吗？》](/blog/2026/03/16/aenvironment-everything-as-environment/)
-- [《Model Is Good Enough：2026 年，AI 真正稀缺的是应用而不是更大的模型》](/blog/2026/03/18/model-is-good-enough/)
-
-
+- [《Harness 到底是什么：从 model + harness 到工程、产品与用户友好外壳》](/blog/2026/04/18/understanding-agent-harness/)
