@@ -277,11 +277,11 @@ Claude Code 的 [Create custom subagents](https://code.claude.com/docs/en/sub-ag
 
 先看 [Create plugins](https://code.claude.com/docs/en/plugins)。官方现在给插件的定义已经非常明确：插件不是只装 `skill` 的小扩展，而是可以打包 `skills`、`agents`、`hooks`、`MCP servers`、`LSP servers`、`monitors`、`bin/` 可执行文件和默认 `settings` 的复合单元。也就是说，一个插件本质上就是一包可搬运的 Harness 配置。
 
-这件事很重要，因为它说明 Claude Code 已经不把 Harness 视为用户机器上的零散私有配置，而是视为可版本化、可分享、可装配的部件。你今天在本地调好的技能、`agent`、`hook` 和监控器，明天可以封成插件，变成团队级基础设施。
+Claude Code 已经不把 Harness 视为用户机器上的零散私有配置，而是视为可版本化、可分享、可装配的部件。你今天在本地调好的技能、`agent`、`hook` 和监控器，明天可以封成插件，变成团队级基础设施。
 
 再看 [Claude Code GitHub Actions](https://code.claude.com/docs/en/github-actions)。官方文档写得很清楚：它允许你在 `GitHub workflow` 里运行 Claude Code，本身又建立在 Claude Agent SDK 之上，而且会尊重仓库里的 `CLAUDE.md` 标准。这意味着同一套本地 Harness 逻辑，可以被搬去做 `PR` 创建、`issue` 实现、`code review` 和自动化修复。
 
-最后是 [Agent SDK overview](https://code.claude.com/docs/en/agent-sdk/overview)。它提供的是“the same tools, agent loop, and context management that power Claude Code”，只是被做成了 `Python` 和 `TypeScript` 可编程接口。更重要的是，它不是只暴露一个 `query API` 就结束了，而是连 `hooks`、`subagents`、`MCP`、`permissions`、`sessions`、`checkpointing`、`OpenTelemetry observability` 都一起暴露出来。
+最后是 [Agent SDK overview](https://code.claude.com/docs/en/agent-sdk/overview)。它提供的是“the same tools, agent loop, and context management that power Claude Code”，只是被做成了 `Python` 和 `TypeScript` 可编程接口。更重要的是，它不是只暴露一个 `query API` 就结束了，而是连 `hooks`、`subagents`、`MCP`、`permissions`、`sessions`、`checkpointing`、`OpenTelemetry observability` 都一起暴露出来。在通用任务Single Agent 任务上，复用Claude Code SDK 或者类似 PI 之类的成品 Harness 可以让我们利用现成的不确定性压缩以及工程收敛的结果，Harness as a service（Haas）
 
 这就意味着 Claude Code 背后的 Harness 已经出现了一个很清楚的平台化趋势：
 
@@ -292,7 +292,7 @@ Claude Code 的 [Create custom subagents](https://code.claude.com/docs/en/sub-ag
 
 换句话说，Claude Code 不是一个孤立产品，而是**一组被产品化的 Harness 原语**。这也是为什么我会把这一层叫作可分发 Harness。
 
-放回更抽象的 7 层里看，这一层不是新增的“第八层”，而是把前面几层控制能力打包成平台化、运维化和可分发的基础设施表面。
+放回更抽象的 7 层里看，这一层不是新增的第八层，而是把前面几层控制能力打包成平台化、运维化和可分发的基础设施表面。
 
 ## 如果你还在写语言请求，更好的结构通常会长成什么
 
