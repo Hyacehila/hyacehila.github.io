@@ -104,7 +104,9 @@ Anthropic 在 [Writing effective tools for agents](https://www.anthropic.com/eng
 
 但只把 `MCP` 理解成权限边界也还不够。Claude Code 官方还把这层和上下文预算直接绑在了一起。[How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works) 与 [Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp) 都明确提到：`MCP` tool definitions 默认会通过 tool search 延迟加载，Claude 先只看到工具名，真正的 schema 在需要时才进入上下文。这意味着工具层除了定义能力边界，还在定义**上下文成本边界**。
 
-这件事其实很关键。工具的“出口设计”最后会进入模型的上下文。如果一个工具把整页数据库记录、整份 HTML 或完整日志一股脑塞回来，污染的不是单次调用，而是后续整条推理链。好的工具设计，会在服务端先做过滤、压缩和字段选择；好的工具发现机制，则会控制多少工具描述真正进入上下文。
+这件事其实很关键。工具的出口设计最后会进入模型的上下文。如果一个工具把整页数据库记录、整份 HTML 或完整日志一股脑塞回来，污染的不是单次调用，而是后续整条推理链。好的工具设计，会在服务端先做过滤、压缩和字段选择；好的工具发现机制，则会控制多少工具描述真正进入上下文。
+
+再往前推一步，`MCP` 层也不只是把动作空间压小，它还在提前定义 **agent 的动作语言**。这个语言是否结构清晰、边界稳定、返回值可验证，会直接决定后面的轨迹如何被切分、行为如何被审计、评测如何被程序化，以及训练闭环里哪些步骤能够被稳定地写进 verifier 和 reward。工具契约不是只服务于一次调用，它还在为可学习、可评测、可审计的 agent 行为预先造语法。
 
 所以 `MCP` 这一层解决的，从来不只是 Claude 怎么调用外部世界，而是三件事情：
 
