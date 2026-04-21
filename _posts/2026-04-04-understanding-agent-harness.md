@@ -237,17 +237,87 @@ LangChain 的 [The Anatomy of an Agent Harness](https://www.langchain.com/blog/t
 
 *本节所谓的harness收敛还是在使用Agent = model + harness的概念进行解读，而不是我前面提出了补充概念解释。*
 
+## Tool 是 harness 的最小接口单元
+
+如果说前面那些收敛中的原语里，有哪一项最值得单独拎出来，那大概就是 `tool`。
+
+很多人直到今天仍然会下意识把 tool 理解成给模型加一个函数或者工具。
+
+这句话当然没错，但仍然只说对了一半。
+
+Anthropic 在 [Writing effective tools for agents](https://www.anthropic.com/engineering/writing-tools-for-agents) 里提出了一个判断：**传统函数和 API，主要是确定性系统和确定性系统之间的契约；而 agent tool，则是确定性系统和非确定性模型之间的契约。**
+
+这个差异会直接改写我们该怎么理解 tool design。
+
+在普通软件工程里，一个接口写得好不好，更多是人类开发者与另一个系统之间的可维护性问题；但在 agent 系统里，tool 的名字、描述、参数形状、错误信息、返回字段，都会直接进入模型的决策回路。它们不是纯粹的后端实现细节，而是 **harness 暴露给模型的最小接口单元**。
+
+也正因为如此，tool design 从来不只是能不能调通，而是至少同时在回答五个问题：
+
+- 模型能不能一眼知道什么时候该用它
+- 模型会不会把它和相邻工具混淆
+- 返回结果是否足够支持下一步决策
+- 上下文成本会不会因为工具描述和工具输出迅速膨胀
+- 这个动作是否已经被裁剪到系统真正愿意承担的能力边界之内
+
+Anthropic 那篇文章里有几条经验值得参考。
+
+第一，**工具不是越多越好，而是越可区分越好。**  
+一个 agent 看到十个功能高度重叠、命名非常接近、描述又写得很泛的工具时，增加的不是能力，而是路由噪音。工具集设计首先要服务于动作空间的可判别性，而不是功能列表的完整感。
+
+第二，**tool 要按 agent affordance 来设计，而不是按底层系统模块来设计。**  
+很多后端接口是按数据库表、服务边界、组织分工长出来的；但 agent 不关心你的微服务拓扑，它关心我现在要完成什么动作。从用户和使用者的角度思考，而不是从后端如何开发出来的角度思考。
+
+第三，**命名空间会反向塑造模型的路由行为。**  
+名字不是 cosmetic 的。一个工具叫 `fetch`、`query`、`lookup`、`search`、`read_doc`，模型对它们的预期并不一样；前缀、分组、动词风格是否一致，也都会影响模型把哪个动作优先纳入候选集。很多时候，命名就是最轻量的动作先验。
+
+第四，**高信号、低 token 的返回结果，本身就是 tool design 的一部分。**  
+Tool output 不是拿到什么就全塞回去。如果一个工具每次都把原始网页、完整日志、整段 HTML、整个对象树原封不动地回注进上下文，污染的不是一次调用，而是后续整条推理链。对 agent 来说，好的返回值不是最全的返回值，而是最适合下一步决策的返回值。
+
+第五，**tool description / schema 本身就是 prompt。**  
+很多人把 prompt engineering 和 tool calling 分开写，但在真实系统里，两者经常是同一件事。工具说明不是给人看的补充文档，而是模型理解动作世界的入口文本。参数名写得是否自然，说明里有没有把触发条件、边界条件、危险动作、典型用法说清楚，都会直接影响 tool selection。MCP使用文档字符串来构造工具描述是最自然的思路。
+
+从这个角度看，tool 层其实同时连接了三件事：
+
+- 它向上连接模型决策，因为模型通过它理解“我能做什么”
+- 它向下连接系统边界，因为系统通过它决定“只能做什么”
+- 它向侧面连接上下文成本，因为 description 与 output 都会反向进入工作记忆
+
+综上所述，**tool 不是一个附着在 harness 上的小零件，它就是 harness 的最小接口原语。**
+
+而且这个判断不只发生在推理时。
+
+一旦 agent 进入训练、评测和持续优化闭环，tool 设计就会进一步变成训练对象的一部分。一个动作是被写成结构清晰、边界明确、可验证的工具，还是被留给模型通过自然语言和 shell 自己摸索，它最后决定的，不只是推理阶段的稳定性，还决定了 trajectory schema 怎么切、verifier 能覆盖到哪里、credit assignment 能不能落到关键步骤上、benchmark 到底在测什么。
+
+换句话说，**tool 这种 harness 结构并不只是在 runtime 里包住模型，它还会反过来塑造训练数据、评测接口和能力学习边界。** 你给 agent 什么样的动作语言，它就更可能学会什么样的行为；你把什么样的工具结果做成可验证中间态，你就更容易把这部分能力写进 reward、judge 与 replay。
+
+很多看起来像模型学会了调用工具的进展，背后其实同时包含了另一半——**harness 先把动作世界整理成了一个更适合被学习、被评测、也更适合被人类治理的形状。**
+
 ## 一个短的概念延伸：`model harness`
 
-这里我只想留一个很短的延伸。
+这里我原本只想留一个很短的延伸，但现在觉得它值得稍微展开一点。
 
-`model harness` 不是当前通行术语，而只是我为了理解未来趋势提出的一个工作概念。它想指的是：未来很多 agent 的竞争，可能不再只是更强的通用底模 + 更厚的外壳，而会越来越像更贴近某类任务形态的模型优化 + 更贴近某类任务形态的 harness 优化。正如Claude Code针对bash命令进行针对性学习的那样。
+`model harness` 不是当前通行术语，而只是我为了理解未来趋势提出的一个工作概念。它想指的是：未来很多 agent 的竞争，可能不再只是更强的通用底模 + 更厚的外壳，而会越来越像更贴近某类任务形态的模型优化 + 更贴近某类任务形态的 harness 优化。正如 Claude Code 针对 `bash` 命令进行针对性学习那样。
 
-我把它留在这里只是为了提醒自己：不要把模型能力和外围工程写成两个彼此孤立的世界。它不是这篇文章的主干，也不是今天必须接受的定义。
+我把它留在这里只是为了提醒自己：不要把模型能力和外围工程写成两个彼此孤立的世界。它不是这篇文章的主干，也不是今天必须接受的定义，但它对理解 tool 和 harness 很有帮助。
 
-模型的差异直接产生了产品包装的差异与工作方式的差异，当我们在构建一个Agent的时候，切换基础模型可能不是免费的。
+因为一旦你认真去看 tool design，就会发现不同模型对同一套工具世界的敏感性并不相同。  
 
-在OpenAI 将 Response API交付给大家的时候，model和harness就不是两个更完全割裂开的概念了。当通用基础模型的发展结束，定制模型与harness的系统将会是新的方向。
+有的模型更吃动词清晰、参数显式、错误信息短而硬的接口；有的模型更能容忍说明更长、更接近自然语言的工具描述；有的模型在结构化返回上更稳，有的模型在半结构化脚本化工作流上更有优势。现在的模型在训练的时候已经和工具调用与Agentic的能力耦合了。
+
+这意味着切换基础模型往往不是免费的。你不只是换了一颗更强或更弱的大脑，你还经常在同时改变：
+
+- 工具命名和描述的最优写法
+- 返回结构的压缩方式
+- 错误提示该有多强的引导性
+- 哪些动作适合保留成 schema-first，哪些动作适合交给脚本化编排
+- 人类审批点、默认自治程度与工作流节奏
+- 模型在不同工具上的能力与偏好
+
+模型的差异会直接产生产品包装的差异与工作方式的差异，当我们在构建一个 Agent 的时候，切换基础模型可能不是免费的。
+
+在 OpenAI 将 Response API 交付给大家的时候，model 和 harness 就不是两个更完全割裂开的概念了。当通用基础模型的发展结束，定制模型与 harness 的系统将会是新的方向。
+
+**未来很多竞争，不是 `model vs harness`，而是 `model-harness co-design`。** 谁能把模型偏好、动作接口、返回结构、验证闭环和产品交互一起调到同一个方向，谁才更可能做出真正稳定的 agent 系统。
 
 ## 结语
 
@@ -277,6 +347,7 @@ LangChain 的 [The Anatomy of an Agent Harness](https://www.langchain.com/blog/t
 - OpenAI, [The next evolution of the Agents SDK](https://openai.com/index/the-next-evolution-of-the-agents-sdk/)
 - Anthropic, [Building effective agents](https://www.anthropic.com/research/building-effective-agents/)
 - Anthropic, [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
+- Anthropic, [Writing effective tools for agents](https://www.anthropic.com/engineering/writing-tools-for-agents)
 - LangChain, [The Anatomy of an Agent Harness](https://www.langchain.com/blog/the-anatomy-of-an-agent-harness)
 - [EleutherAI / lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
 - [ServiceNow / BrowserGym](https://github.com/ServiceNow/BrowserGym)
