@@ -8,21 +8,21 @@ excerpt: 转载自 Jonas Kristoffer Lindeløv 的文章。揭示了 t 检验、A
 ---
 
 > 本文转载自 Jonas Kristoffer Lindeløv 的精彩文章 [Common statistical tests are linear models](https://lindeloev.github.io/tests-as-linear/)
-> 原文深入浅出地揭示了统计学中一个令人惊讶的简单真理：大多数常用的统计检验（t检验、相关分析、ANOVA、卡方检验等）其实都是线性模型的特例。
+> 原文深入浅出地揭示了统计学中一个令人惊讶的简单真理：大多数常用的统计检验（t检验、相关分析、ANOVA、卡方检验等）都是线性模型的特例。
 
 # Common statistical tests are linear models
 
 ## 核心概念：万物皆线性
 
-大多数常用的统计模型（t-test, correlation, ANOVA; chi-square, etc.）都是线性模型的特例，或者是非常近似的特例。这意味着我们不需要死记硬背每一个检验的假设和公式，因为它们本质上都可以归结为我们高中就学过的公式：
+大多数常用的统计模型（t-test, correlation, ANOVA; chi-square, etc.）都是线性模型的特例，或者是近似的特例。我们不必死记硬背每一个检验的假设和公式，因为它们都可以归结为高中就学过的公式：
 
 $$y = a \cdot x + b$$
 
-这种简单的美感极大地简化了统计学的理解。不论是频率学派、贝叶斯学派还是基于置换的推断，核心的线性模型都是一致的。
+这种简单的美感降低了理解统计学的门槛。不论是频率学派、贝叶斯学派还是基于置换的推断，底层的线性模型都是一致的。
 
 对于所谓的“非参数检验 (non-parametric tests)”，我们也可以用一种更直观的方式来理解：它们通常只是在**秩变换 (rank-transformed)** 数据上运行的对应参数检验。与其认为非参数检验“不需要假设”，不如将其理解为“在排名 (ranks) 上进行计算”。
 
-下图完美总结了这一观点（点击查看[PDF版本](https://lindeloev.github.io/tests-as-linear/linear_tests_cheat_sheet.pdf)）：
+下图概括了这一观点（点击查看[PDF版本](https://lindeloev.github.io/tests-as-linear/linear_tests_cheat_sheet.pdf)）：
 
 ![Linear Tests Cheat Sheet](https://lindeloev.github.io/tests-as-linear/linear_tests_cheat_sheet.png)
 
@@ -36,7 +36,7 @@ $$y = a \cdot x + b$$
 
 $$y = \beta_0 + \beta_1 x \qquad \mathcal{H}_0: \beta_1 = 0$$
 
-这其实就是我们熟悉的 $y = ax + b$。在 R 语言中，我们通常写成 `y ~ 1 + x`，这代表 $y = 1 \cdot \beta_0 + x \cdot \beta_1$。不论怎么写，它的核心就是截距 ($\beta_0$) 和斜率 ($\beta_1$)。
+这就是我们熟悉的 $y = ax + b$。在 R 语言中，我们通常写成 `y ~ 1 + x`，这代表 $y = 1 \cdot \beta_0 + x \cdot \beta_1$。不论怎么写，它都由截距 ($\beta_0$) 和斜率 ($\beta_1$) 构成。
 
 ### 秩变换 (Rank-transformation) 与 Spearman
 
@@ -50,7 +50,7 @@ $$rank(y) = \beta_0 + \beta_1 \cdot rank(x) \qquad \mathcal{H}_0: \beta_1 = 0$$
 
 运行下面的 R 代码，你会发现线性模型 (`lm`) 产生的 $t$, $p$ 值与内置的 `cor.test` 完全一致。
 
-唯一的小区别是：`lm` 给出的是斜率，而 `cor.test` 给出的是相关系数 $r$。如果我们将数据标准化（使 SD=1），那么斜率就等于 $r$。
+区别在于：`lm` 给出的是斜率，而 `cor.test` 给出的是相关系数 $r$。如果我们将数据标准化（使 SD=1），那么斜率就等于 $r$。
 
 ```r
 # Built-in t-test
@@ -122,7 +122,7 @@ c = t.test(signed_rank(y))
 
 ## 其他常用检验汇总
 
-除了上述两个详细示例，其他常见的统计检验也都可以完美映射到线性模型中。为了保持本文简洁，以下列出摘要对照表，点击链接可查看原文详细推导和代码。
+除了上述两个示例，其他常见的统计检验也都可以映射到线性模型中。为了保持本文简洁，以下列出摘要对照表，点击链接可查看原文详细推导和代码。
 
 | 统计检验 (Test) | 线性模型公式 (Simulated LM) | 原文链接 |
 | :--- | :--- | :--- |
@@ -135,7 +135,7 @@ c = t.test(signed_rank(y))
 
 ## 总结
 
-理解这些检验背后的线性模型本质，能让我们摆脱对特定“检验名称”的依赖，转而关注模型的构建。无论是 t 检验还是复杂的 ANOVA，它们都在回答同一个问题：我的模型参数是否显著不为零？
+理解这些检验背后的线性模型关系，能让我们减少对特定“检验名称”的依赖，转而关注模型的构建。无论是 t 检验还是复杂的 ANOVA，它们都在回答同一个问题：我的模型参数是否显著不为零？
 
 感谢 **Jonas Kristoffer Lindeløv** 提供的精彩视角。
 

@@ -13,61 +13,61 @@ math: true
 
 # Reward 设计的演化：从 RLHF 到 RLVR，监督对象如何被重写
 
-[上一篇文章]({% post_url 2026-03-16-rl-alignment-from-reward-to-advantage %})讲的是，一条 reward 怎样通过 KL、baseline、advantage 和 normalization，最后变成可以更新 policy 的训练信号。那篇真正关心的是 `reward -> advantage` 这条链。
+[上一篇文章]({% post_url 2026-03-16-rl-alignment-from-reward-to-advantage %})讲的是，一条 reward 怎样通过 KL、baseline、advantage 和 normalization，最后变成可以更新 policy 的训练信号。那篇关心的是 `reward -> advantage` 这条链。
 
-这一篇要把问题往前再推一步，而且我想把它一次讲到底：reward 自己到底从哪里来，它应该以什么形式给出，又为什么会从 OpenAI 式 RLHF 一路演化到 PRM、RLVR、LLM as Judge、Rubrics as Rewards，最后走到 ArenaRL 这种开放式 agent 的相对排序框架。这条主线的核心从来不是”换了谁来打分”，而是监督对象本身一直在被重写——OpenAI 时代把人类偏好变成可学的 surrogate reward；再往后，单一答案级总分既太粗、也太容易被 exploit，reward 开始向多目标、ranking、process、verifier、rubric 继续分化；到了开放 agent 场景，问题甚至已经不再是怎样写一个稳定总分，而是怎样把候选之间的相对结构更可靠地送进优化器。
+这一篇要把问题往前再推一步，而且我想把它一次讲到底：reward 自己到底从哪里来，它应该以什么形式给出，又为什么会从 OpenAI 式 RLHF 一路演化到 PRM、RLVR、LLM as Judge、Rubrics as Rewards，最后走到 ArenaRL 这种开放式 agent 的相对排序框架。这条主线从来不是”换了谁来打分”，而是监督对象本身一直在被重写——OpenAI 时代把人类偏好变成可学的 surrogate reward；再往后，单一答案级总分既太粗、也太容易被 exploit，reward 开始向多目标、ranking、process、verifier、rubric 继续分化；到了开放 agent 场景，问题甚至已经不再是怎样写一个稳定总分，而是怎样把候选之间的相对结构更可靠地送进优化器。
 
-在训练那条线上我们已经反复看到：后面的 optimizer 再精致，也救不了先天结构模糊的上游信号。很多近年的进展表面上像是在改 loss、改 trainer、改 sampling，真正发生变化的地方却往往在 reward production pipeline：监督对象到底是答案、排序、步骤、轨迹还是未来状态，监督来源到底是人、AI、规则、verifier 还是环境后果，信号组织到底是 pointwise、pairwise、listwise、rubric 还是 tournament。换句话说，reward 不能再被理解成某个单独模型吐出来的一行分数，它更像一条生产线——前面负责把目标改写成某种可监督对象，中间负责把这些对象组织成相对稳定的信号，最后才轮到 optimizer 去消费。
+在训练那条线上我们已经反复看到：后面的 optimizer 再精致，也救不了先天结构模糊的上游信号。不少近年的进展表面上像是在改 loss、改 trainer、改 sampling，变化却往往发生在 reward production pipeline：监督对象到底是答案、排序、步骤、轨迹还是未来状态，监督来源到底是人、AI、规则、verifier 还是环境后果，信号组织到底是 pointwise、pairwise、listwise、rubric 还是 tournament。reward 不能再被理解成某个单独模型吐出来的一行分数，它更像一条生产线——前面负责把目标改写成某种可监督对象，中间负责把这些对象组织成相对稳定的信号，最后才轮到 optimizer 去消费。
 
 ## 第一阶段：OpenAI 的 RLHF，用人工反馈作为奖励
 
-严格说，reward from preferences 的原型当然可以追到 [Deep Reinforcement Learning from Human Preferences](https://arxiv.org/abs/1706.03741)。但如果把 LLM 时代的 reward 主线单独拉出来，我还是更愿意从 OpenAI 这条线开始，也就是 [Learning to Summarize from Human Feedback](https://arxiv.org/abs/2009.01325) 和 [InstructGPT](https://arxiv.org/abs/2203.02155)。原因很简单，真正把“偏好数据 -> 奖励模型 -> PPO”写成一条可复用工业流水线的，不是概念上的偏好学习，而是这一组具体工作。
+严格说，reward from preferences 的原型当然可以追到 [Deep Reinforcement Learning from Human Preferences](https://arxiv.org/abs/1706.03741)。但如果把 LLM 时代的 reward 主线单独拉出来，我还是更愿意从 OpenAI 这条线开始，也就是 [Learning to Summarize from Human Feedback](https://arxiv.org/abs/2009.01325) 和 [InstructGPT](https://arxiv.org/abs/2203.02155)。原因很简单，把“偏好数据 -> 奖励模型 -> PPO”写成一条可复用工业流水线的，不是概念上的偏好学习，而是这一组具体工作。
 
-先看 2020 年的 `Learning to Summarize from Human Feedback`。它要解决的问题一点都不抽象：摘要质量很难写成手工 reward，但人类对两份摘要做相对比较却很容易。于是论文采用的做法也非常直接：让模型对同一篇文章生成多个摘要候选，收集人工 pairwise comparison，用这些比较数据去训练 reward model，再把这个 reward model 接到 PPO 上，让 policy 朝着更容易得到高 reward 的方向优化。
+先看 2020 年的 `Learning to Summarize from Human Feedback`。它要解决的问题一点都不抽象：摘要质量很难写成手工 reward，但人类对两份摘要做相对比较却很容易。于是论文采用的做法也很直接：让模型对同一篇文章生成多个摘要候选，收集人工 pairwise comparison，用这些比较数据去训练 reward model，再把这个 reward model 接到 PPO 上，让 policy 朝着更容易得到高 reward 的方向优化。
 
-真正重要的细节不只是“有了一个 reward model”，而是 reward 的监督对象从人工规则改成了偏好排序，reward 本身也不再等于某个原始人类分数，而是一个对偏好关系的学习的神经奖励模型。更关键的是，OpenAI 很早就在这篇工作里**明确观察到 reward over-optimization：policy 一旦过度追逐 RM 分数，输出就会开始偏离真实人类偏好**。也就是说，language task 的确可以被纳入 preference-based RL，但 proxy gap 从第一代系统里就已经出现了。
+值得保留的细节不只是“有了一个 reward model”，而是 reward 的监督对象从人工规则改成了偏好排序，reward 本身也不再等于某个原始人类分数，而是一个对偏好关系的学习的神经奖励模型。更早的问题是，OpenAI 已经在这篇工作里**明确观察到 reward over-optimization：policy 一旦过度追逐 RM 分数，输出就会开始偏离真实人类偏好**。这说明，language task 的确可以被纳入 preference-based RL，但 proxy gap 从第一代系统里就已经出现了。
 
-再往后就是 `InstructGPT`，它真正做的事情，是把这一套 proof of concept 压缩成后来人人都熟悉的三段式流程：**先用 demonstrations 做 SFT，再用 ranked comparisons 训练 reward model，最后用 PPO 在 RM 指导下继续优化 policy。**这篇论文最值得记住的地方，其实不是又做了一次 RLHF，而是它把几个后来几乎所有 post-training recipe 都会继承的结构写死了。
+再往后就是 `InstructGPT`，它做的事情，是把这一套 proof of concept 压缩成后来人人都熟悉的三段式流程：**先用 demonstrations 做 SFT，再用 ranked comparisons 训练 reward model，最后用 PPO 在 RM 指导下继续优化 policy。**这篇论文更值得记住的地方，不是又做了一次 RLHF，而是它把几个后来几乎所有 post-training recipe 都会继承的结构写死了。
 
 第一，SFT 不是临时 warm-up，而是 reward 优化的行为起点，它先把基本回答风格、任务格式和动作合法性写进模型，再让 RL 去做细调。
 
-第二，真正进入优化器的从来不是一个孤立的 RM 分数，而更像一个复合信号：
+第二，进入优化器的从来不是一个孤立的 RM 分数，而更像一个复合信号：
 $$
 R(x, y) = r_\phi(x, y) - \beta \log \frac{\pi_\theta(y\mid x)}{\pi_{\text{ref}}(y\mid x)}
 $$
 
-也就是说，reward model 给的是往前拉的力，KL 给的是不许偏离太远的边界，这两者共同决定 policy 能往哪里走。
+reward model 给的是往前拉的力，KL 给的是不许偏离太远的边界，这两者共同决定 policy 能往哪里走。
 
-第三，InstructGPT 那个最经典的结果，经过 RLHF 的 1.3B 模型在人类偏好上可以胜过原始 175B GPT-3，真正说明的也不是参数不重要，而是 reward design 和 post-training pipeline 在用户感知质量上可能比继续堆参数更直接。
+第三，InstructGPT 那个最经典的结果，经过 RLHF 的 1.3B 模型在人类偏好上可以胜过原始 175B GPT-3，说明的也不是参数不重要，而是 reward design 和 post-training pipeline 在用户感知质量上可能比继续堆参数更直接。
 
-如果把 OpenAI 这条线压缩成一句话，它做的不是“用人类给模型打分”这么简单，而是三件彼此绑定的事：**先把复杂目标改写成人类可比较的 pairwise preference，再把这些偏好学成神经奖励模型，最后给这条 reward 加上 reference policy 的边界去优化**。也正是在这里，后面所有关于 reward 的扩展都已经埋下了种子，因为一旦你承认 reward 是 surrogate、而且 surrogate 会被 exploit，你就不得不继续追问：这个 surrogate 到底该怎样组织才更稳。
+如果把 OpenAI 这条线压缩成一句话，它做的不是“用人类给模型打分”，而是三件彼此绑定的事：**先把复杂目标改写成人类可比较的 pairwise preference，再把这些偏好学成神经奖励模型，最后给这条 reward 加上 reference policy 的边界去优化**。也正是在这里，后面所有关于 reward 的扩展都已经埋下了种子，因为一旦你承认 reward 是 surrogate、而且 surrogate 会被 exploit，你就不得不继续追问：这个 surrogate 到底该怎样组织才更稳。
 
 ## 第二阶段：走向多目标与可扩展监督
 
 RLHF 一旦在语言模型里跑起来，问题很快就从能不能做变成这种单一偏好分数到底能覆盖什么。这一阶段最重要的变化不是 trainer 换了什么，而是 reward 对象本身开始变得多维。
 
-[Training a Helpful and Harmless Assistant with RLHF](https://arxiv.org/abs/2204.05862) 很值得放在这里，因为它第一次正面把这个问题摊开：helpful 和 harmless 不是一个维度。如果你只追更符合用户意图的回答，模型可能在危险请求上变得过于迎合；但如果你只强调无害，它又会迅速滑向过度保守。这个工作最重要的意义，不是又复刻了一遍 RLHF，而是它让 alignment 从“单一质量分数”正式变成“多目标之间的折中”。从 reward 设计的角度看，这件事非常关键，因为它说明单一 scalar reward 很多时候只是为了优化方便而做的压缩，并不等于目标本身本来就只有一个轴。后面为什么越来越多系统会显式引入子分数、rubric 和 hard constraints，某种意义上都可以追到这里。
+[Training a Helpful and Harmless Assistant with RLHF](https://arxiv.org/abs/2204.05862) 很值得放在这里，因为它第一次正面把这个问题摊开：helpful 和 harmless 不是一个维度。如果你只追更符合用户意图的回答，模型可能在危险请求上变得过于迎合；但如果你只强调无害，它又会迅速滑向过度保守。这个工作最重要的意义，不是又复刻了一遍 RLHF，而是它让 alignment 从“单一质量分数”正式变成“多目标之间的折中”。从 reward 设计的角度看，这件事很关键，因为它说明单一 scalar reward 常常只是为了优化方便而做的压缩，并不等于目标本身本来就只有一个轴。后面越来越多系统显式引入子分数、rubric 和 hard constraints，某种意义上都可以追到这里。
 
-如果说 HH RLHF 暴露的是目标本身不止一个，那么 [Constitutional AI](https://arxiv.org/abs/2212.08073) 和 [RLAIF](https://arxiv.org/abs/2309.00267) 暴露的则是监督来源也不一定总得靠人。Constitutional AI 的关键做法，是先写下一组 constitution principles，让模型先自我批评、再自我修订，然后再把 AI feedback 接回 preference 或 reward 流水线。RLAIF 则把这一思路进一步工程化，把原本完全依赖人工比较的上游部分替换成更规模化的 AI feedback。它们真正改写的，不是谁来做标注，而是 reward production pipeline 的最上游开始被结构化：原则本身成为先验约束，critic 的生成过程开始可程序化，监督来源不再只是人工外包，而变成制度设计的一部分。
+如果说 HH RLHF 暴露的是目标本身不止一个，那么 [Constitutional AI](https://arxiv.org/abs/2212.08073) 和 [RLAIF](https://arxiv.org/abs/2309.00267) 暴露的则是监督来源也不一定总得靠人。Constitutional AI 的关键做法，是先写下一组 constitution principles，让模型先自我批评、再自我修订，然后再把 AI feedback 接回 preference 或 reward 流水线。RLAIF 则把这一思路进一步工程化，把原本完全依赖人工比较的上游部分替换成更规模化的 AI feedback。它们改写的，不是谁来做标注，而是 reward production pipeline 的最上游开始被结构化：原则本身成为先验约束，critic 的生成过程开始可程序化，监督来源不再只是人工外包，而变成制度设计的一部分。
 
-这一阶段对 reward 设计留下的启发非常直接。
+这一阶段对 reward 设计留下的启发很直接。
 1. reward 最好别再被想象成一个单目标 utility scalar，它往往是多目标压缩后的产物。
 2. 上游 judge 生产线本身也要设计，constitution、AI critique、comparison policy 用什么，都会改变 reward 的形状
-3. 一旦目标确实是多维的，未来往 rubric、向子分数、向 hard constraints 走几乎是必然的，因为继续把所有东西揉成平均分，只会把真正的冲突藏起来。
+3. 一旦目标确实是多维的，未来往 rubric、向子分数、向 hard constraints 走几乎是必然的，因为继续把所有东西揉成平均分，只会把冲突藏起来。
 
 ## 第三阶段：代理奖励的结构性诊断——偏好学习能被修好吗
 
 前两个阶段扩展了 reward 的目标维度和监督来源，但有一个更基本的问题一直没有被正面追问：**从偏好数据里学出来的 reward model，作为一个代理（proxy），它自己到底有多可靠？**
 
-这个问题之所以重要，是因为 RLHF（以及后面的Constitution AI） 的核心架构选择就是用学习的方式把偏好压成一个神经奖励函数，再让优化器去追逐这个函数。如果 proxy 本身有结构性缺陷，那么后面无论怎么改 trainer、改 loss、改 sampling，都是在一个先天不牢的地基上修补。2023 年前后的一批工作，恰好从不同层面把这个地基的裂缝逐一暴露了出来。
+这个问题重要，是因为 RLHF（以及后面的Constitution AI） 的架构选择就是用学习的方式把偏好压成一个神经奖励函数，再让优化器去追逐这个函数。如果 proxy 本身有结构性缺陷，那么后面无论怎么改 trainer、改 loss、改 sampling，都是在一个先天不牢的地基上修补。2023 年前后的一批工作，恰好从不同层面把这个地基的裂缝逐一暴露了出来。
 
 **信息在进入 RM 之前就被丢了**
 
-[Preference Ranking Optimization](https://arxiv.org/abs/2306.17492) 针对的问题并不复杂：如果你手里天然就有一个候选集合的排序，把它拆成若干独立的 pairwise 胜负再去训练 RM，会不会先丢掉结构信息？PRO 的回答是会，而且丢得很严重。一个 listwise 排序所包含的全局位序关系，比从中拆出的若干 pairwise 二元比较要丰富得多。
+[Preference Ranking Optimization](https://arxiv.org/abs/2306.17492) 针对的问题并不难理解：如果你手里天然就有一个候选集合的排序，把它拆成若干独立的 pairwise 胜负再去训练 RM，会不会先丢掉结构信息？PRO 的回答是会，而且丢得很严重。一个 listwise 排序所包含的全局位序关系，比从中拆出的若干 pairwise 二元比较要丰富得多。
 
-[GPO](https://deepmind.google/research/publications/92798/) 暴露的是另一种丢失（GPO是一种对DPO的优化，但是我们还是放到RL里一起讨论，因为他也是偏好学习的典型例子）。很多真实比较并不长成干净的 0 或 1，它更像”A 略好于 B””两者几乎一样”或者”不同标注者之间有稳定分歧”。但传统 RLHF 把这些灰度统一压成了硬标签。GPO 的核心价值，就是把偏好里的不确定性保留下来做 soft preference labels，让优化器不至于在本来就很模糊的边界样本上过度用力。
+[GPO](https://deepmind.google/research/publications/92798/) 暴露的是另一种丢失（GPO是一种对DPO的优化，但是我们还是放到RL里一起讨论，因为他也是偏好学习的典型例子）。许多真实比较并不长成干净的 0 或 1，它更像”A 略好于 B””两者几乎一样”或者”不同标注者之间有稳定分歧”。但传统 RLHF 把这些灰度统一压成了硬标签。GPO 的价值，是把偏好里的不确定性保留下来做 soft preference labels，让优化器不至于在本来就很模糊的边界样本上过度用力。
 
-这一层的问题原则上是可修的——用 listwise loss，用 soft label。但它们共同揭示的模式非常重要：**从原始偏好到 RM 训练数据的每一步压缩，都在丢信息，而丢掉的信息后面再也拿不回来。**
+这一层的问题原则上是可修的——用 listwise loss，用 soft label。但它们共同揭示的模式很重要：**从原始偏好到 RM 训练数据的每一步压缩，都在丢信息，而丢掉的信息后面再也拿不回来。**
 
 **第二层裂缝：统计建模本身在写 reward**
 

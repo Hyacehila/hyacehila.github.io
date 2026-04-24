@@ -1,4 +1,4 @@
----
+﻿---
 layout: blog-post
 title: Reward 与 Training 在真实 Agent 中如何闭环：从数据治理到在线 RL
 date: 2026-03-22 20:30:00 +0800
@@ -13,21 +13,21 @@ math: true
 
 # Reward 与 Training 在真实 Agent 中如何闭环：从数据治理到在线 RL
 
-前两篇系列文分别在讲两件事：一篇讲 reward 自己是怎样被生产出来的，另一篇讲这些 reward 进入训练以后，又怎样一路变成 `advantage`、`update` 和 agentic RL 的闭环。但只讲到那里其实还不够，因为读者最容易卡住的问题并不是“某个公式怎么推”，而是更工程化的那个问题：**真实 agent 系统到底从哪里开始长出来？**
+前两篇系列文分别在讲两件事：一篇讲 reward 自己是怎样被生产出来的，另一篇讲这些 reward 进入训练以后，又怎样一路变成 `advantage`、`update` 和 agentic RL 的闭环。但只讲到那里还不够，因为读者最容易卡住的并不是“某个公式怎么推”，而是更工程化的问题：**真实 agent 系统到底从哪里开始长出来？**
 
 答案通常不是“先写一个奖励函数”。更真实的顺序是：先有原始数据和历史 query，再有数据治理和环境构造；环境跑起来以后，系统才会产生日志、tests、数据库状态、工具输出和用户交互；这些反馈再被组织成 verifier、judge、rubric 或 outcome reward；接着才轮到 verified trajectories、SFT、curriculum 和 online RL；最后 benchmark 还要回过头来审计，我们到底有没有在优化正确的目标。
 
-换句话说，reward 在真实系统里不是一个孤零零的分数，而更像一条生产线。为了把这条线讲清楚，我这里不再按论文一篇篇做摘要，而是按系统流水线来重写全文。主线由 `AMAP` 提供，因为它最接近从数据治理一直写到 RL 的完整 recipe；`Agent K`、`MLE-bench`、`tau-bench`、`PaperBench` 和 `Benchmark^2` 则分别嵌到这条链的不同环节，负责回答环境、评估结构、部署目标和 benchmark 审计的问题。
+reward 在真实系统里不是一个孤零零的分数，而更像一条生产线。为了把这条线讲清楚，我这里不再按论文一篇篇做摘要，而是按系统流水线来重写全文。主线由 `AMAP` 提供，因为它最接近从数据治理一直写到 RL 的完整 recipe；`Agent K`、`MLE-bench`、`tau-bench`、`PaperBench` 和 `Benchmark^2` 则分别嵌到这条链的不同环节，负责回答环境、评估结构、部署目标和 benchmark 审计的问题。
 
 如果读完这篇文章以后，读者能够顺着这条线把从数据处理开始的 reward 与 RL training 全流程复述出来，那这篇文章就算达到目的了。
 
 ## 为什么真实系统不是从“一个奖励函数”开始
 
-很多关于 RL 的讨论之所以容易飘，是因为默认系统里先有一个奖励函数，后面的所有工作都只是围绕这个函数做优化。但在真实 agent 里，这个顺序几乎总是反过来的。
+许多关于 RL 的讨论之所以容易飘，是因为默认系统里先有一个奖励函数，后面的所有工作都只是围绕这个函数做优化。但在真实 agent 里，这个顺序几乎总是反过来的。
 
-因为模型不会直接面对目标本身，它只会面对一个被工程化以后可交互的世界。这个世界里有原始日志、有历史 query、有工具协议、有失败码、有用户反馈、有测试脚本、有数据库状态，也有 judge 和 verifier。reward 只是这整套世界在某个接口上的压缩表达。你如果还没有把数据、环境和评估结构造出来，其实连稳定的 reward 都谈不上，更不用说训练。
+因为模型不会直接面对目标本身，它只会面对一个被工程化以后可交互的世界。这个世界里有原始日志、有历史 query、有工具协议、有失败码、有用户反馈、有测试脚本、有数据库状态，也有 judge 和 verifier。reward 只是这整套世界在某个接口上的压缩表达。如果还没有把数据、环境和评估结构造出来，稳定的 reward 都谈不上，更不用说训练。
 
-这也是为什么我更愿意把真实 agent 里的 reward 理解成一条 `feedback production pipeline`。这条 pipeline 的前半段负责把任务改写成环境、把环境反馈改写成可监督对象；后半段负责把这些对象筛成高价值轨迹，再写回 SFT 和 RL。很多论文在讲 trainer，真正决定上限的地方却往往发生在 trainer 之前，算法和训练确实很重要，但数据的重要性至少与他们等同。
+这也是为什么我更愿意把真实 agent 里的 reward 理解成一条 `feedback production pipeline`。这条 pipeline 的前半段负责把任务改写成环境、把环境反馈改写成可监督对象；后半段负责把这些对象筛成高价值轨迹，再写回 SFT 和 RL。许多论文在讲 trainer，决定上限的地方却往往发生在 trainer 之前；算法和训练确实重要，但数据至少同样重要。
 
 ## 各篇论文在这条流水线里的位置
 
@@ -42,19 +42,19 @@ math: true
 | [PaperBench](https://arxiv.org/abs/2504.01848) | judge 依赖的评估结构 | 开放研究复现任务怎样拆成 rubrics / eval tree | 辅助 |
 | [Benchmark^2](https://arxiv.org/abs/2601.03986) | benchmark 审计 | benchmark 自己是否稳定、可区分、对齐能力层级 | 收束辅助 |
 
-这张表也解释了一个后面会反复出现的判断：**不是每篇论文都在直接讲训练配方。** 有些论文主要在定义环境，有些在定义 benchmark，有些在审计 benchmark。它们都重要，但重要的方式不一样。也正因为如此，后面关于数据治理与训练治理的主体篇幅会明显向 `AMAP`、`Agent K` 和 `tau-bench` 倾斜，而 `MLE-bench`、`PaperBench`、`Benchmark^2` 会更多承担“约束训练目标”的角色。
+这张表也解释了一个后面会反复出现的判断：**不是每篇论文都在直接讲训练配方。** 有些论文主要在定义环境，有些在定义 benchmark，有些在审计 benchmark。它们都重要，只是重要的方式不一样。也正因为如此，后面关于数据治理与训练治理的主体篇幅会明显向 `AMAP`、`Agent K` 和 `tau-bench` 倾斜，而 `MLE-bench`、`PaperBench`、`Benchmark^2` 会更多承担“约束训练目标”的角色。
 
 ## 一、从原始数据到可训练 query pool：数据治理与环境准备
 
 ### 1. AMAP 先解决的不是 RL，而是 3000 万历史 query 怎么变成训练数据
 
-如果只看二手介绍，很多人会把 `AMAP Agentic Planning Technical Report` 读成一篇地图 agent + RL的文章。但直接读原文以后，很难再这么理解。因为 AMAP 最先解决的，不是 optimizer，而是**数据治理**。
+如果只看二手介绍，不少人会把 `AMAP Agentic Planning Technical Report` 读成一篇地图 agent + RL的文章。但直接读原文以后，很难再这么理解。因为 AMAP 最先解决的，不是 optimizer，而是**数据治理**。
 
-论文把真实世界里的匿名化用户日志作为起点，时间窗是三个月，总量超过3000 万。问题在于，这些日志并不是训练数据，而只是原始世界留下来的痕迹：它们噪声很大、重复很多、分布极不均衡，而且完全没有现成的难度标签、任务类型标签或是否适合 agent 学习的标记。直接拿来训练，只会把噪声和头部高频需求一起喂给模型。
+论文把真实世界里的匿名化用户日志作为起点，时间窗是三个月，总量超过3000 万。问题在于，这些日志并不是训练数据，而只是原始世界留下来的痕迹：它们噪声很大、重复严重、分布极不均衡，而且完全没有现成的难度标签、任务类型标签或是否适合 agent 学习的标记。直接拿来训练，只会把噪声和头部高频需求一起喂给模型。
 
-所以 AMAP 做的第一件事，是为这些原始 query 先造一套 `Intent Taxonomy`。这个 taxonomy 不是随便列几个类目，而是一个分层的意图框架：论文里最后收敛成 `5` 个一级类目（Rules and Policies、Discovery、Planning and Decision、Dynamic Information、Application Interaction）、`16` 个二级类目和 `30` 个细粒度叶节点。更重要的是，这套 taxonomy 不是拍脑袋生成的，而是论文所说的 `Seed-Driven Evolutionary Framework`，一步一步长出来的。具体来说分四个阶段：
+所以 AMAP 做的第一件事，是为这些原始 query 先造一套 `Intent Taxonomy`。这个 taxonomy 不是随便列几个类目，而是一个分层的意图框架：论文里最后收敛成 `5` 个一级类目（Rules and Policies、Discovery、Planning and Decision、Dynamic Information、Application Interaction）、`16` 个二级类目和 `30` 个细粒度叶节点。更值得注意的是，这套 taxonomy 不是拍脑袋生成的，而是论文所说的 `Seed-Driven Evolutionary Framework`，一步一步长出来的。具体来说分四个阶段：
 
-**Stage 1: Seed Initialization。** 人工挑选一小批高方差的种子 prompt（$D_{seed} \subset D_{pool}$），由专家为每条 query 标注开放式的意图标签。每条 query 被映射成一个元组 $S_i = \langle q_i, T_i \rangle$，其中 $T_i = \{t_{i,1}, t_{i,2}, \ldots, t_{i,k}\}$ 是这条指令覆盖的 $k$ 个正交或互补的意图节点。这一步的关键不是数量，而是让种子集尽可能覆盖领域的核心多样性。
+**Stage 1: Seed Initialization。** 人工挑选一小批高方差的种子 prompt（$D_{seed} \subset D_{pool}$），由专家为每条 query 标注开放式的意图标签。每条 query 被映射成一个元组 $S_i = \langle q_i, T_i \rangle$，其中 $T_i = \{t_{i,1}, t_{i,2}, \ldots, t_{i,k}\}$ 是这条指令覆盖的 $k$ 个正交或互补的意图节点。这一步看的不是数量，而是让种子集尽可能覆盖领域的主要多样性。
 
 **Stage 2: LLM-Driven Category Induction。** 用标注好的种子集去 prompt LLM，让它归纳出正交的一级类目（Level-1 categories）。LLM 在这里扮演的角色是"从具体样本中抽象出结构"，而不是凭空编造分类体系。
 
@@ -62,7 +62,7 @@ math: true
 
 **Stage 4: Dynamic Taxonomy Expansion。** 前三步只能覆盖种子集能触及的意图空间。为了捕捉长尾意图，论文在每个节点强制保留一个 `Other` 类目。当大规模原始日志被标注后，落入 Other 的样本会被单独分析，从中发现并合并新兴类目。这个机制把 taxonomy 从静态树变成了一个能适应开放世界 query 分布的演化系统。
 
-也就是说，数据治理在这里并不是简单清洗，而是**先把世界切成可管理的意图空间**（俗话说就是先给样本分个类），而且这个分类体系本身就是通过"种子驱动 + LLM 归纳 + 人类校正 + Other 动态扩张"迭代生长出来的。
+数据治理在这里并不是简单清洗，而是**先把世界切成可管理的意图空间**（俗话说就是先给样本分个类），而且这个分类体系也是通过"种子驱动 + LLM 归纳 + 人类校正 + Other 动态扩张"迭代生长出来的。
 
 这一步为什么关键？因为训练真正需要的不是更多数据，而是可控的数据分布。没有 taxonomy，你只能看到一个模糊的 query 海洋；有了 taxonomy，你才能谈覆盖度、长尾比例、困难样本、约束密度，以及哪些区域的监督更稀缺、哪些区域更值得扩充。
 
@@ -264,27 +264,27 @@ AMAP 接下来最有意思的一步，是它对 curriculum 的处理方式。论
 
 ### 1. RL 不是接管一切，而是接管 frontier tasks
 
-到了这里，很多系统会开始上 RL。但真正好的 recipe 不是数据来了就 RL，而是先把哪些问题应该留给 RL 说清楚。
+到了这里，不少系统会开始上 RL。但好的 recipe 不是数据来了就 RL，而是先把哪些问题应该留给 RL 说清楚。
 
-AMAP 在宏观叙事上把这件事概括成：`seed SFT -> 再用更确定的样本稳住行为 -> 把低 certainty 的 frontier tasks 留给 RL`。如果把它和正文里的 capability probing 结合起来读，意思就非常清楚：RL 的职责不是替代全部 SFT，而是去吃那些已经被 reward、verifier 和前两轮 SFT 压缩过、仍然存在探索空间的困难样本。
+AMAP 在宏观叙事上把这件事概括成：`seed SFT -> 再用更确定的样本稳住行为 -> 把低 certainty 的 frontier tasks 留给 RL`。如果把它和正文里的 capability probing 结合起来读，意思就很清楚：RL 的职责不是替代全部 SFT，而是去吃那些已经被 reward、verifier 和前两轮 SFT 压缩过、仍然存在探索空间的困难样本。
 
-这和很多人想象中的 RL 很不一样。RL 在这里不是万能细调器，而是一个专门处理长程交互、探索、恢复、决策时机和服务闭环这些静态 SFT 不擅长的问题的模块。
+这和不少人想象中的 RL 不一样。RL 在这里不是万能细调器，而是一个专门处理长程交互、探索、恢复、决策时机和服务链路这些静态 SFT 不擅长的问题的模块。
 
 ### 2. AMAP 的 RL：沿用同一套 reward 结构，而不是再造黑盒 RM
 
-AMAP 的另一个优点，是它没有在进入 RL 时突然切换监督来源。online RL 用的还是前面那套 reward design：同样的三维 rubric、同样的动态权重、同样的 hallucination veto。也就是说，离线筛轨迹和在线优化共享同一套价值接口。
+AMAP 的另一个优点，是它没有在进入 RL 时突然切换监督来源。online RL 用的还是前面那套 reward design：同样的三维 rubric、同样的动态权重、同样的 hallucination veto。离线筛轨迹和在线优化共享同一套价值接口。
 
-这点很关键，因为很多训练 recipe 最大的问题，就是离线数据和在线优化在学两件不同的事。AMAP 在这里尽量避免了这种断裂：reward 先当过滤器，后当 RL 的回报信号，但价值定义本身保持连续。
+这点很关键，因为许多训练 recipe 最大的问题，就是离线数据和在线优化在学两件不同的事。AMAP 在这里尽量避免了这种断裂：reward 先当过滤器，后当 RL 的回报信号，但价值定义本身保持连续。
 
 ### 3. 算法层：GRPO 是形式，真正重要的是它在什么环境里优化什么
 
-AMAP 在算法层使用的是 `GRPO`，并且在实现上使用 `GSPO` 来稳定训练。论文里的核心做法可以概括成三件事：
+AMAP 在算法层使用的是 `GRPO`，并且在实现上使用 `GSPO` 来稳定训练。论文里的做法可以概括成三件事：
 
 - 对每个 query 采样一组轨迹
 - 用 reward 组内标准化得到 advantage
 - 用 clip 和 KL 约束控制策略更新不要偏离 reference 太远
 
-这些公式当然重要，但这篇文章更想强调的是另一件事：**算法名不是这篇论文的真正重点，重点是 RL 到底在什么环境里、用什么 reward、接管什么样的数据区间。** 如果没有前面的数据治理、环境构造、verified trajectories 和 curriculum 分层，单独把 GRPO 搬进去并不会自然长出一个强 agent。
+这些公式当然重要，但这篇文章更想强调另一件事：**算法名不是这篇论文的重点，重点是 RL 到底在什么环境里、用什么 reward、接管什么样的数据区间。** 如果没有前面的数据治理、环境构造、verified trajectories 和 curriculum 分层，单独把 GRPO 搬进去并不会自然长出一个强 agent。
 
 ### 4. RL 真正在这里学的是什么
 
@@ -293,17 +293,17 @@ AMAP 在算法层使用的是 `GRPO`，并且在实现上使用 `GSPO` 来稳定
 - 什么时候应该继续探索，而不是过早停止
 - 什么时候应该修正用户前提，而不是被动拒绝
 - 什么时候需要多工具联动，而不是只做局部检索
-- 什么时候应该把前面多步 observation 真正组织成服务闭环
+- 什么时候应该把前面多步 observation 组织成服务链路
 
-也就是说，online RL 真正补的是 agent 在环境里的决策能力，而不是简单的文本风格或答案模板。
+online RL 补的是 agent 在环境里的决策能力，而不是简单的文本风格或答案模板。
 
 ## 七、benchmark 怎样约束训练目标，而 benchmark 自己又怎样被审计
 
-到这里，训练闭环其实已经大体成形了。但还有最后一层经常被忽略的问题：我们怎么知道自己真的在优化正确目标？
+到这里，训练闭环已经大体成形。但还有最后一层经常被忽略的问题：我们怎么知道自己真的在优化正确目标？
 
 ### 1. MLE-bench、tau-bench、PaperBench 分别在约束什么
 
-`MLE-bench` 约束的是“完整 ML engineering workflow 能否被公共 benchmark 标准化”。它让我们看到，真正被评估的应该是 description、dataset、grader、leaderboard 一起定义出来的工程任务，而不是单轮答题能力。
+`MLE-bench` 约束的是“完整 ML engineering workflow 能否被公共 benchmark 标准化”。它让我们看到，被评估的应该是 description、dataset、grader、leaderboard 一起定义出来的工程任务，而不是单轮答题能力。
 
 `tau-bench` 约束的是“部署级成功到底是什么意思”。它用数据库终态、一致性和 `pass^k` 提醒我们：部署中的 agent 不该只追求至少成功一次，而必须追求稳定、守规矩地成功。
 
@@ -313,13 +313,13 @@ AMAP 在算法层使用的是 `GRPO`，并且在实现上使用 `GSPO` 来稳定
 
 ### 2. Benchmark^2：reward 是 proxy，judge 是 proxy，benchmark 也是 proxy
 
-最后，`Benchmark^2` 把这个问题再往上提了一层。它问的不是“哪个模型更强”，而是“这个 benchmark 本身到底好不好”。论文提出了三个核心指标：
+最后，`Benchmark^2` 把这个问题再往上提了一层。它问的不是“哪个模型更强”，而是“这个 benchmark 本身到底好不好”。论文提出了三个指标：
 
 - `CBRC`：一个 benchmark 给出的模型排序，是否和同领域其他 benchmark 大体一致
 - `DS`：这个 benchmark 是否真的能拉开不同模型
 - `CAD`：题目层面是否经常出现“同一家族里更弱模型做对了、更强模型反而没做对”的反常 inversion
 
-这个框架的重要性在于，它把 benchmark 从默认真理重新拉回到了 proxy 的位置上。前面几篇文章里我们已经反复看到：reward model 是 proxy，judge 是 proxy；而 Benchmark^2 只是把这件事再推进一步，告诉我们 benchmark 自己也是 proxy。
+这个框架的价值在于，它把 benchmark 从默认真理重新拉回到了 proxy 的位置上。前面几篇文章里我们已经反复看到：reward model 是 proxy，judge 是 proxy；而 Benchmark^2 只是把这件事再推进一步，告诉我们 benchmark 自己也是 proxy。
 
 这也是为什么我会把 benchmark audit 放在整条流水线的最后。训练闭环不是在 policy update 那一刻结束的，而是在 benchmark 也被审计以后才算闭环。否则你很可能只是在一个脆弱评测器上制造了虚假的进步。
 
@@ -327,9 +327,9 @@ AMAP 在算法层使用的是 `GRPO`，并且在实现上使用 `GSPO` 来稳定
 
 如果只允许我留一句话，我会写成：**真实 agent 里的 reward、verifier、judge、SFT、RL 与 benchmark 不是六个分开的模块，而是一条从数据治理、环境构造、轨迹筛选到训练更新与评测审计的连续系统。**
 
-AMAP 给了我们这条系统里最完整的训练 recipe：从 3000 万历史 query 开始，经由 taxonomy、过滤、难度标注和负样本构造，变成 20 万级的候选 query pool；再通过强模型生成、verifier 评分和 perfect-trajectory 保留，变成 verified trajectories；然后先用 seed SFT 把模型带进环境，再用 capability probing 和 signal/noise filtration 重建 curriculum，最后把真正的 frontier tasks 交给 online RL。`Agent K`、`tau-bench`、`PaperBench`、`MLE-bench` 和 `Benchmark^2` 则分别告诉我们，这条链的前提是任务被环境化、目标被结构化、部署标准被写清楚、benchmark 也被当成 proxy 来审计。
+AMAP 给了我们这条系统里最完整的训练 recipe：从 3000 万历史 query 开始，经由 taxonomy、过滤、难度标注和负样本构造，变成 20 万级的候选 query pool；再通过强模型生成、verifier 评分和 perfect-trajectory 保留，变成 verified trajectories；然后先用 seed SFT 把模型带进环境，再用 capability probing 和 signal/noise filtration 重建 curriculum，最后把 frontier tasks 交给 online RL。`Agent K`、`tau-bench`、`PaperBench`、`MLE-bench` 和 `Benchmark^2` 则分别告诉我们，这条链的前提是任务被环境化、目标被结构化、部署标准被写清楚、benchmark 也被当成 proxy 来审计。
 
-不要把 reward 与 training 理解成两个词。对真实 agent 来说，它们更像同一条系统链的前后半段：前半段负责把目标翻译成可学信号，后半段负责把这些信号真正写回策略。只有把这整条链重新连起来，我们才算真正理解了奖励与训练在实践中的全流程。
+不要把 reward 与 training 理解成两个词。对真实 agent 来说，它们更像同一条系统链的前后半段：前半段负责把目标翻译成可学信号，后半段负责把这些信号写回策略。只有把这整条链重新连起来，我们才算理解了奖励与训练在实践中的全流程。
 
 ## 参考资料
 
