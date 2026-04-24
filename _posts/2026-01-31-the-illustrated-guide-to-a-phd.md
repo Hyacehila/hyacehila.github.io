@@ -46,7 +46,7 @@ excerpt: 每年秋天，Matt Might 都要向新一批博士生解释什么是博
 
 ![](http://matt.might.net/articles/phd-school-in-pictures/images/PhDKnowledge.007.jpg)
 
-你在边界上推了很多年：
+你在边界上推了好几年：
 
 ![](http://matt.might.net/articles/phd-school-in-pictures/images/PhDKnowledge.008.jpg)
 
@@ -58,7 +58,7 @@ excerpt: 每年秋天，Matt Might 都要向新一批博士生解释什么是博
 
 ![](http://matt.might.net/articles/phd-school-in-pictures/images/PhDKnowledge.010.jpg)
 
-当然，现在的世界在你眼中看起来已经不一样了：
+当然，现在的世界在你眼中已经不一样了：
 
 ![](http://matt.might.net/articles/phd-school-in-pictures/images/PhDKnowledge.011.jpg)
 
