@@ -1,6 +1,6 @@
 ﻿---
 layout: blog-post
-title: AutoGluon：把机器学习 Baseline 压缩到几行代码
+title: AutoGluon：把机器学习 Baseline 简化到几行代码
 date: 2026-04-24 21:45:00 +0800
 categories: [技术, 机器学习]
 tags: [AutoML, AutoGluon, Machine Learning, Baseline]
@@ -8,7 +8,7 @@ author: Hyacehila
 excerpt: AutoGluon 的价值不只是少写几行代码，而是把一套强 baseline 方法论固化成统一、可比较、可迁移的机器学习工作流。
 ---
 
-# AutoGluon：把机器学习 Baseline 压缩到几行代码
+# AutoGluon：把机器学习 Baseline 简化到几行代码
 
 在很多机器学习项目里，真正消耗时间的往往不是训练一个模型这件事，而是训练模型之前和之后的一整串工程摩擦：字段类型识别、缺失值处理、类别编码、特征筛选、模型选择、调参、交叉验证、结果记录、推理速度评估、错误样本回看……
 
@@ -50,7 +50,7 @@ predictor.evaluate(test_data)
 predictor.leaderboard(test_data)
 ```
 
-这套接口的意义不只是简单。它把不同机器学习任务都压缩成几个稳定动作：训练、预测、评估、比较。
+这套接口的意义不只是简单。它把不同机器学习任务都组织成几个稳定动作：训练、预测、评估、比较。
 
 对使用者来说，这意味着你不必在项目早期过度关心底层模型族、特征处理细节和验证流程。你先用统一接口跑起来，拿到一个结果基线，再决定要不要下钻。
 

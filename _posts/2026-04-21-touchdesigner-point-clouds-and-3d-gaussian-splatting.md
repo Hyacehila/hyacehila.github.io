@@ -28,7 +28,7 @@ math: false
 
 ### 1. 巨量空间：城市变成发光颗粒
 
-Derivative 官方案例 **Point Cloud Mastery from Think and Sense** 很适合放在这里当第一眼效果：现实街区被压成一片会发光的空间尘埃，既像城市扫描，也像一场巨大的数字星图。
+Derivative 官方案例 **Point Cloud Mastery from Think and Sense** 很适合放在这里当第一眼效果：现实街区变成一片会发光的空间尘埃，既像城市扫描，也像一场巨大的数字星图。
 
 ![Think and Sense 官方案例：巨幕上的城市点云像一片被点亮的空间尘埃。](https://derivative.ca/sites/default/files/styles/og_image/public/field/image/DSC01837.jpg)
 *巨幕上的城市点云像一片被点亮的空间尘埃。*

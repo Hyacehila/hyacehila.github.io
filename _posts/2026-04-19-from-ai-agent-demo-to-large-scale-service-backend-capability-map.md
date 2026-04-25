@@ -114,7 +114,7 @@ Anthropic 在 [Building effective agents](https://www.anthropic.com/engineering/
 - 缓存负责热点读取、会话加速、短期去重和降压。
 - 搜索索引或向量索引负责检索类能力，但通常不承担最核心的事务真相。
 
-Google 在 [Patterns for scalable and resilient apps](https://cloud.google.com/architecture/scalable-and-resilient-apps) 的数据库部分明确指出，关系型数据库的价值在于事务、强一致性、引用完整性和跨表查询；PostgreSQL 在 [MVCC 文档](https://www.postgresql.org/docs/current/mvcc-intro.html) 里也说明，多版本并发控制的目标是在多用户环境里维护一致性、隔离并尽量减少锁竞争。数据库不只是“把数据放进去以后再取出来”的工具，更像是**把多用户、多事务、多并发条件下的真实世界压成可维护状态的机器。**
+Google 在 [Patterns for scalable and resilient apps](https://cloud.google.com/architecture/scalable-and-resilient-apps) 的数据库部分明确指出，关系型数据库的价值在于事务、强一致性、引用完整性和跨表查询；PostgreSQL 在 [MVCC 文档](https://www.postgresql.org/docs/current/mvcc-intro.html) 里也说明，多版本并发控制的目标是在多用户环境里维护一致性、隔离并尽量减少锁竞争。数据库不只是“把数据放进去以后再取出来”的工具，更像是**把多用户、多事务、多并发条件下的真实世界维护在可管理状态里的机器。**
 
 从这一章开始，需要先接触这些词：
 

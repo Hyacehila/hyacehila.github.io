@@ -56,7 +56,7 @@ $$
 \overline{\text{error}}^2 \leq \frac{2R^2\alpha}{N} \left[ D_{\text{KL}}(P_{\text{test}}^{\text{OOD}}(C_i \mid X) \Vert P_{\text{train}}(C_i \mid X)) + \mathbb{E}_{C_i \sim P_{\text{test}}^{\text{OOD}}(C_i \mid X)} \left[ D_{\text{KL}}(P_{\text{test}}^{\text{OOD}}(Y \mid X, C_i) \Vert P_{\text{train}}(Y \mid X, C_i)) \right] \right]
 $$
 
-简言之：**CoT 通过显式生成的中间步骤 $C$，把一个原本难以直接外推的 OOD 组合问题，转化为若干个更接近 ID 分布、也更容易控制散度的局部子问题。** 如果把视角再往 latent reasoning 推一步，也可以把 latent CoT 当作一种启发式理解：中间步骤未必作为输出 token 出现，也可能被压进隐藏层表征里。
+简言之：**CoT 通过显式生成的中间步骤 $C$，把一个原本难以直接外推的 OOD 组合问题，转化为若干个更接近 ID 分布、也更容易控制散度的局部子问题。** 如果把视角再往 latent reasoning 推一步，也可以把 latent CoT 当作一种启发式理解：中间步骤未必作为输出 token 出现，也可能被编码进隐藏层表征里。
 
 ### RL 如何延伸能力边缘？
 
@@ -147,7 +147,7 @@ $$
 
 那么，在生成长长的 CoT 时，每一次 token 预测都有相同的战略重量吗？显然不是。
 
-一篇近期工作 [Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning](https://arxiv.org/abs/2506.01939v2) 把这个问题压到了 token 级别。作者发现，在 CoT rollout 中，熵的分布是高度不均匀的：
+一篇近期工作 [Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning](https://arxiv.org/abs/2506.01939v2) 把这个问题细化到了 token 级别。作者发现，在 CoT rollout 中，熵的分布是高度不均匀的：
 
 *   **极少数“高熵” Token**：它们通常位于逻辑路线的分叉口、假设反转点或关键运算节点。这里每一步选择都可能把模型带向完全不同的推理分支。
 *   **绝大多数“低熵” Token**：它们更多承担铺垫句法、补全连接词或延续既有表述的职责，在这些位置上模型往往已经非常笃定。
@@ -187,4 +187,3 @@ Meta 的研究论文 *"The Path Not Taken: RLVR Provably Learns Off the Principa
 - [Do Large Language Models Latently Perform Multi-Hop Reasoning?](https://arxiv.org/abs/2402.16837v2)
 - [Hopping Too Late: Exploring the Limitations of Large Language Models on Multi-Hop Queries](https://arxiv.org/abs/2406.12775v2)
 - [From Explicit CoT to Implicit CoT: Learning to Internalize CoT Step by Step](https://arxiv.org/abs/2405.14838v1)
-
