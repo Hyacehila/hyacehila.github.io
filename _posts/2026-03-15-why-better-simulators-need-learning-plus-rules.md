@@ -181,7 +181,7 @@ $$
 
 不过，现实问题很快就会告诉你：规则网格不是全部世界。工程问题常常牵涉复杂边界、不规则网格、变形体和多尺度耦合。
 
-这时候 [MeshGraphNets](https://arxiv.org/abs/2010.03409) 很有代表性。它直接在 mesh graph 上做 message passing，并把 adaptivity 纳入 forward simulation。它的意义在于：**离散结构本身就是物理 bias。** 你不再逼着模型把一切压扁成规则 tensor，而是承认物理系统天然有拓扑。
+这时候 [MeshGraphNets](https://arxiv.org/abs/2010.03409) 很有代表性。它直接在 mesh graph 上做 message passing，并把 adaptivity 纳入 forward simulation。它的意义在于：**离散结构本身就是物理 bias。** 你不再逼着模型把一切展平为规则 tensor，而是承认物理系统天然有拓扑。
 
 [Geo-FNO](https://jmlr.org/beta/papers/v24/23-0064.html) 则解决了另一个痛点：经典 FNO 依赖 FFT，天然更适合规则网格和矩形域；Geo-FNO 明确把任意几何 deform 到 latent uniform grid，再在潜空间里应用 FNO。它说明：**当问题不适合某种架构时，不是放弃 bias，而是重写 bias。**
 
@@ -327,7 +327,7 @@ NVIDIA 的 [Instant-NGP](https://research.nvidia.com/publication/2022-07_instant
 
 ## 最后的判断
 
-如果要把全文压成一句话，我会这样写：
+如果要用一句话总结全文，我会这样写：
 
 **更好的 simulator / model，不是把 world rules 忘掉以后再从数据里盲学一遍，而是把那些已经知道的结构——守恒、几何、边界条件、可见性、采样、拓扑——变成 bias，让 learning 去专注于值得学习的部分。**
 

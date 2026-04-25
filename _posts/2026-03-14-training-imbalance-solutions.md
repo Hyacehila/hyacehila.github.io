@@ -246,7 +246,7 @@ graph TD
 | 多分类长尾图像识别 | decoupling + classifier retraining | balanced softmax、logit adjustment、weight balancing、PaCo / BCL | 盲目欠采样 backbone 训练数据 | Macro-F1、per-class accuracy、head / medium / tail split |
 | 需要可靠概率输出的风控 / 医疗场景 | 先定义部署先验和成本，再训练 | calibration、threshold moving、label-shift correction | 只看 tail accuracy 就上线 | Calibration curve、Brier、ECE / TCE、业务成本指标 |
 
-如果一定要把上面的内容压缩成一句操作建议，我的默认顺序通常是这样的：
+如果一定要把上面的内容概括为一句操作建议，我的默认顺序通常是这样的：
 
 1. **先定义目标**：我要优化排序、概率还是最终收益？
 2. **先守住评估**：validation / test 的先验是否接近真实部署？
@@ -284,7 +284,7 @@ Micro 指标通常会高度贴近 head class。你看到的“整体提升”，
 
 ## 结语
 
-如果把过去二十多年的研究脉络压缩成一个判断，我会这样表述：**真正稳定的样本不均衡处理方案，从来不是某一个万能 loss，而是训练目标、评价指标与部署决策之间的一致性设计。**
+如果把过去二十多年的研究脉络概括成一个判断，我会这样表述：**真正稳定的样本不均衡处理方案，从来不是某一个万能 loss，而是训练目标、评价指标与部署决策之间的一致性设计。**
 
 经典统计学习给我们的启发是，样本不均衡首先是一个决策问题和估计问题；现代长尾深度学习则进一步告诉我们，不均衡还会表现为分类头偏置、表示几何失衡和概率校准失真。把这些视角放在一起之后，很多“方法选择题”其实就变简单了：
 

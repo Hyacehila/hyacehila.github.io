@@ -266,7 +266,7 @@ AMAP 接下来最有意思的一步，是它对 curriculum 的处理方式。论
 
 到了这里，不少系统会开始上 RL。但好的 recipe 不是数据来了就 RL，而是先把哪些问题应该留给 RL 说清楚。
 
-AMAP 在宏观叙事上把这件事概括成：`seed SFT -> 再用更确定的样本稳住行为 -> 把低 certainty 的 frontier tasks 留给 RL`。如果把它和正文里的 capability probing 结合起来读，意思就很清楚：RL 的职责不是替代全部 SFT，而是去吃那些已经被 reward、verifier 和前两轮 SFT 压缩过、仍然存在探索空间的困难样本。
+AMAP 在宏观叙事上把这件事概括成：`seed SFT -> 再用更确定的样本稳住行为 -> 把低 certainty 的 frontier tasks 留给 RL`。如果把它和正文里的 capability probing 结合起来读，意思就很清楚：RL 的职责不是替代全部 SFT，而是去吃那些已经被 reward、verifier 和前两轮 SFT 筛过、仍然存在探索空间的困难样本。
 
 这和不少人想象中的 RL 不一样。RL 在这里不是万能细调器，而是一个专门处理长程交互、探索、恢复、决策时机和服务链路这些静态 SFT 不擅长的问题的模块。
 
