@@ -1,4 +1,4 @@
-﻿---
+---
 layout: blog-post
 title: 行为审计与行为解码：从 Reward 之后到 Agent 可观测性
 date: 2026-03-17 10:00:00 +0800

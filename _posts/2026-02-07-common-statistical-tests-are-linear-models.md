@@ -4,6 +4,7 @@ title: 常见的统计检验本质上都是线性模型 (Common statistical test
 date: 2026-02-07 12:00:00 +0800
 categories: [数据科学]
 tags: [Linear Models, Statistical Inference]
+author: Hyacehila
 excerpt: 转载自 Jonas Kristoffer Lindeløv 的文章。揭示了 t 检验、ANOVA、卡方检验等常用统计方法背后的统一线性模型原理。
 ---
 

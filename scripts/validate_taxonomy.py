@@ -14,7 +14,18 @@ ALLOWED_CATEGORIES = {
     "随笔与观察",
 }
 
-FRONT_MATTER_RE = re.compile(r"\A---\r?\n(.*?)\r?\n---\r?\n", re.DOTALL)
+REQUIRED_FIELDS = {
+    "layout",
+    "title",
+    "date",
+    "categories",
+    "tags",
+    "author",
+    "excerpt",
+}
+
+FRONT_MATTER_RE = re.compile(r"\A(?:\ufeff)?---\r?\n(.*?)\r?\n---\r?\n", re.DOTALL)
+POST_FILENAME_RE = re.compile(r"\A(\d{4}-\d{2}-\d{2})-.+\.md\Z")
 
 
 def parse_list(raw: str) -> list[str]:
@@ -30,7 +41,7 @@ def parse_list(raw: str) -> list[str]:
 
 
 def parse_front_matter(path: Path) -> dict[str, str]:
-    text = path.read_text(encoding="utf-8")
+    text = path.read_text(encoding="utf-8-sig")
     match = FRONT_MATTER_RE.match(text)
     if not match:
         raise ValueError("Missing YAML front matter")
@@ -51,6 +62,31 @@ def validate_post(path: Path) -> tuple[list[str], str | None]:
         front_matter = parse_front_matter(path)
     except ValueError as exc:
         return [f"{path.name}: {exc}"], None
+
+    filename_match = POST_FILENAME_RE.match(path.name)
+    if not filename_match:
+        errors.append(f"{path.name}: filename must match YYYY-MM-DD-<slug>.md")
+        filename_date = None
+    else:
+        filename_date = filename_match.group(1)
+
+    missing_fields = sorted(REQUIRED_FIELDS - set(front_matter))
+    for field in missing_fields:
+        errors.append(f"{path.name}: missing {field}")
+
+    layout = front_matter.get("layout", "").strip().strip("'\"")
+    if layout and layout != "blog-post":
+        errors.append(f"{path.name}: layout must be 'blog-post'")
+
+    raw_date = front_matter.get("date", "").strip().strip("'\"")
+    if raw_date and filename_date and raw_date[:10] != filename_date:
+        errors.append(
+            f"{path.name}: date {raw_date[:10]} does not match filename date {filename_date}"
+        )
+
+    author = front_matter.get("author", "").strip().strip("'\"")
+    if author and author != "Hyacehila":
+        errors.append(f"{path.name}: author must be 'Hyacehila'")
 
     raw_categories = front_matter.get("categories")
     if raw_categories is None:

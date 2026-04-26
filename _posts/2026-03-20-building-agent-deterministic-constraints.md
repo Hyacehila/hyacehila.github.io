@@ -4,7 +4,7 @@ title: "给 LLM 戴上确定性枷锁的外围工程：从 Claude Code 看 Agent
 date: 2026-03-20 21:00:00 +0800
 series: Agent时代的基础设施
 categories: [智能体系统]
-tags: [Agents, Harness, Claude Code, MCP, Permissions, Context Engineering]
+tags: [Agents, Harness, MCP, Context Engineering]
 author: Hyacehila
 excerpt: 真正让 Agent 变成可交付系统的，不是核心 loop，而是围绕 LLM 不确定性搭出来的外围工程：把语言请求进一步下沉成工具契约、知识路由、生命周期验证、隔离恢复与自治治理。
 featured: true
