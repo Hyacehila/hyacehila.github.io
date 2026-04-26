@@ -5,6 +5,7 @@ date: 2026-03-03 12:00:00 +0800
 series: Agent时代的基础设施
 categories: [智能体系统]
 tags: [Agents, Retrieval, Data Curation]
+author: Hyacehila
 excerpt: 当搜索与抓取 API 的接口逐渐趋同，Tavily、Exa、Grok/xAI、Firecrawl、Nimble 与 Crawl4AI 的差异主要体现在答案生成、搜索提取、实时检索、文档清洗与抓取控制等不同层次。本文按定位、适用场景与接入成本比较它们。
 ---
 
