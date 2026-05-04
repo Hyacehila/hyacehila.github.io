@@ -149,8 +149,8 @@ math: true
 - `layout`: 固定为 `blog-post`。
 - `title`: 用于页面标题与列表卡片标题；建议与正文第一个 `#` 保持一致。
 - `date`: 用于排序、URL 与上一篇/下一篇；`_config.yml` 默认 `future: false`，未来日期不会发布。
-- `categories`: 必须是单元素列表，且值只能是 `基础模型`、`训练与对齐`、`智能体系统`、`机器学习`、`数据科学`、`随笔与观察`。
-- `tags`: 必须是列表；博客主页会按 Front Matter 自动生成标签筛选。当前校验脚本要求标签存在、标签非空且单个 tag 不含逗号。数量上建议控制在 2~4 个。
+- `categories`: 必须是单元素列表，且值只能是 `基础模型`、`训练与对齐`、`智能体系统`、`机器学习`、`数据科学`、`随笔与观察`、`小说时间`。
+- `tags`: 必须是列表，可为空列表；博客主页会按 Front Matter 自动生成标签筛选。当前校验脚本要求单个 tag 不含逗号。数量上建议控制在 0~4 个。
 - `excerpt`: 建议使用单行纯文本；博客列表直接展示该字段。
 - `series`: 可选；相同字符串会聚合到同一系列页，且同一系列文章应保持同一主分类。
 - `featured`: 可选；`true` 时会出现在“得意之作”筛选视图。
@@ -158,7 +158,7 @@ math: true
 
 ### 3. 标签与 taxonomy
 
-- 博客主页当前使用 6 个固定主分类按钮。
+- 博客主页当前使用 7 个固定主分类按钮。
 - 标签按钮不再依赖手写白名单，而是从所有文章的 `tags` 自动汇总并按自然顺序排序。
 - 仍建议优先复用现有常见标签词汇，避免同义词重复造轮子；例如 `Agents`、`Tool Use`、`Context Engineering`、`Statistical Inference`、`Data Curation`。
 - `统计学` 已不再作为主分类使用；相关内容统一归入 `数据科学`。
@@ -177,8 +177,8 @@ math: true
 
 - [ ] 文件位于 `_posts/`，文件名符合 `YYYY-MM-DD-<slug>.md`
 - [ ] Front Matter 以 `---` 包裹且字段完整
-- [ ] `categories` 为单元素列表，且属于当前 6 分类 taxonomy
-- [ ] `tags` 为列表，且单个 tag 不含逗号
+- [ ] `categories` 为单元素列表，且属于当前 7 分类 taxonomy
+- [ ] `tags` 为列表，可为空，且单个 tag 不含逗号
 - [ ] `excerpt` 为适合列表展示的单行摘要
 - [ ] `python scripts/validate_taxonomy.py` 通过
 - [ ] 如本地具备 Ruby/Jekyll 环境，执行 `jekyll serve --drafts --future` 做渲染检查

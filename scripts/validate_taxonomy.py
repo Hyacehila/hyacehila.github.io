@@ -12,6 +12,7 @@ ALLOWED_CATEGORIES = {
     "机器学习",
     "数据科学",
     "随笔与观察",
+    "小说时间",
 }
 
 REQUIRED_FIELDS = {
