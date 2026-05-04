@@ -739,7 +739,7 @@
             <div class="filter-buttons filter-category-buttons">
               <button class="filter-btn active" data-filter-type="category" data-filter-value="all"
                 onclick="filterByCategory('all', this)">全部</button>
-              {% assign ordered_categories = "基础模型|训练与对齐|智能体系统|机器学习|数据科学|随笔与观察" | split: "|" %}
+              {% assign ordered_categories = "基础模型|训练与对齐|智能体系统|机器学习|数据科学|随笔与观察|小说时间" | split: "|" %}
               {% for category in ordered_categories %}
               <button class="filter-btn" data-filter-type="category" data-filter-value="{{ category }}"
                 onclick="filterByCategory('{{ category }}', this)">{{ category }}</button>
@@ -835,7 +835,7 @@
           {% assign primary_category = post.categories | first %}
           <a href="{{ site.baseurl }}{{ post.url }}" class="blog-post-card"
             data-type="{% if post.series %}series{% else %}single{% endif %}" {% if post.categories
-            %}data-category="{{ primary_category }}" {% endif %} {% if post.tags
+            %}data-category="{{ primary_category }}" {% endif %} {% if post.tags and post.tags.size > 0
             %}data-tags="{{ post.tags | join: ',' }}" {% endif %} data-featured="{{ post.featured | default: false }}">
 
             {% assign post_plain = post.content | strip_html | strip_newlines %}
@@ -876,7 +876,7 @@
             </p>
             {% endif %}
 
-            {% if post.tags %}
+            {% if post.tags and post.tags.size > 0 %}
             <div class="blog-post-tags">
               {% for tag in post.tags limit:3 %}
               <span class="blog-post-tag">#{{ tag }}</span>

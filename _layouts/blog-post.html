@@ -787,7 +787,7 @@
             </div>
 
             <!-- 标签 -->
-            {% if page.tags %}
+            {% if page.tags and page.tags.size > 0 %}
             <div class="post-tags">
                 <div class="post-tags-title">标签</div>
                 {% for tag in page.tags %}
