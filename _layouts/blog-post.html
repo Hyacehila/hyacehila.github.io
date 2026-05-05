@@ -796,24 +796,47 @@
             </div>
             {% endif %}
 
+            {% assign previous_post = nil %}
+            {% assign next_post = nil %}
+            {% assign found_current_post = false %}
+            {% assign sorted_posts = site.posts | sort: "date" %}
+            {% for nav_post in sorted_posts %}
+            {% assign include_nav_post = false %}
+            {% if page.series %}
+            {% if nav_post.series == page.series %}
+            {% assign include_nav_post = true %}
+            {% endif %}
+            {% elsif nav_post.series == nil %}
+            {% assign include_nav_post = true %}
+            {% endif %}
+            {% if include_nav_post %}
+            {% if found_current_post and next_post == nil %}
+            {% assign next_post = nav_post %}
+            {% elsif nav_post.url == page.url %}
+            {% assign found_current_post = true %}
+            {% elsif found_current_post == false %}
+            {% assign previous_post = nav_post %}
+            {% endif %}
+            {% endif %}
+            {% endfor %}
             <!-- 上一篇/下一篇导航 -->
-            {% if page.previous or page.next %}
+            {% if previous_post or next_post %}
             <div class="post-navigation">
-                {% if page.previous %}
-                <a href="{{ site.baseurl }}{{ page.previous.url }}" class="nav-link prev">
+                {% if previous_post %}
+                <a href="{{ site.baseurl }}{{ previous_post.url }}" class="nav-link prev">
                     <span class="nav-label">上一篇</span>
                     <div class="nav-title">
                         <ion-icon name="arrow-back-outline"></ion-icon>
-                        {{ page.previous.title }}
+                        {{ previous_post.title }}
                     </div>
                 </a>
                 {% endif %}
 
-                {% if page.next %}
-                <a href="{{ site.baseurl }}{{ page.next.url }}" class="nav-link next">
+                {% if next_post %}
+                <a href="{{ site.baseurl }}{{ next_post.url }}" class="nav-link next">
                     <span class="nav-label">下一篇</span>
                     <div class="nav-title">
-                        {{ page.next.title }}
+                        {{ next_post.title }}
                         <ion-icon name="arrow-forward-outline"></ion-icon>
                     </div>
                 </a>

@@ -725,9 +725,8 @@
         </section>
 
         <section class="blog-nav">
-          <button class="active" onclick="filterPosts('all', this)">全部文章</button>
+          <button class="active" onclick="filterPosts('single', this)">单篇文章</button>
           <button onclick="filterPosts('series', this)">系列文章</button>
-          <button onclick="filterPosts('single', this)">单篇文章</button>
           <button onclick="filterPosts('featured', this)">得意之作</button>
           <button onclick="filterPosts('murmur', this)">碎碎念</button>
         </section>
@@ -833,7 +832,7 @@
 
           {% for post in site.posts %}
           {% assign primary_category = post.categories | first %}
-          <a href="{{ site.baseurl }}{{ post.url }}" class="blog-post-card"
+          <a href="{{ site.baseurl }}{{ post.url }}" class="blog-post-card{% if post.series %} hidden{% endif %}"
             data-type="{% if post.series %}series{% else %}single{% endif %}" {% if post.categories
             %}data-category="{{ primary_category }}" {% endif %} {% if post.tags and post.tags.size > 0
             %}data-tags="{{ post.tags | join: ',' }}" {% endif %} data-featured="{{ post.featured | default: false }}">
@@ -948,7 +947,7 @@
 
   <script>
     // 当前筛选状态
-    let currentTypeFilter = 'all';
+    let currentTypeFilter = 'single';
     let currentCategoryFilter = 'all';
     let currentTagFilter = 'all';
     let currentFeaturedOnly = false;
@@ -980,7 +979,7 @@
         seriesCards.classList.add('active');
         murmurContainer.classList.remove('active');
       } else {
-        // 全部文章或单篇文章视角：显示筛选区域，显示普通文章卡片，隐藏系列卡片
+        // 单篇文章或得意之作视角：显示筛选区域，显示普通文章卡片，隐藏系列卡片
         filtersSection.classList.remove('hidden');
         postsGrid.style.display = 'grid';
         seriesCards.classList.remove('active');
@@ -1117,6 +1116,7 @@
     // 页面加载时初始化标签筛选器状态
     document.addEventListener('DOMContentLoaded', function () {
       updateTagFiltersByCategory();
+      applyAllFilters();
     });
 
     // ===== 碎碎念加载与渲染 =====

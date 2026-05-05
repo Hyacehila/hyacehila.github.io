@@ -207,12 +207,22 @@
 
           <ul class="testimonials-list has-scrollbar">
 
+            {% assign single_posts_count = 0 %}
+            {% for post in site.posts %}
+            {% unless post.series %}
+            {% assign single_posts_count = single_posts_count | plus: 1 %}
+            {% endunless %}
+            {% endfor %}
+
             {% assign show_limit = 4 %}
-            {% if site.posts.size >= 3 %}
+            {% if single_posts_count >= 3 %}
             {% assign show_limit = 3 %}
             {% endif %}
 
-            {% for post in site.posts limit:show_limit %}
+            {% assign shown_posts = 0 %}
+            {% for post in site.posts %}
+            {% unless post.series %}
+            {% if shown_posts < show_limit %}
             <li class="testimonials-item">
               <a href="{{ post.url }}" class="testimonial-link">
                 <div class="content-card" data-testimonials-item>
@@ -231,16 +241,19 @@
                 </div>
               </a>
             </li>
+            {% assign shown_posts = shown_posts | plus: 1 %}
+            {% endif %}
+            {% endunless %}
             {% endfor %}
 
-            {% if site.posts.size >= 3 %}
+            {% if single_posts_count >= 3 %}
             <li class="testimonials-item">
               <a href="/blog/" class="view-all-card-link">
                 <div class="view-all-card">
                   <div class="view-all-content">
                     <span class="view-all-icon">→</span>
                     <h4 class="view-all-title" data-i18n="blog-view-all-title">浏览所有博客</h4>
-                    <p class="view-all-count">{{ site.posts.size }} posts</p>
+                    <p class="view-all-count">{{ single_posts_count }} posts</p>
                   </div>
                 </div>
               </a>
