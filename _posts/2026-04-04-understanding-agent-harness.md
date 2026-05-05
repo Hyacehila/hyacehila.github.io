@@ -2,7 +2,6 @@
 layout: blog-post
 title: "Harness 到底是什么：从 model + harness 到工程、产品与用户友好外壳"
 date: 2026-04-04 23:20:00 +0800
-series: Agent时代的基础设施
 categories: [智能体系统]
 tags: [Agents, Harness, Runtime, Evaluation]
 author: Hyacehila

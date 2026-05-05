@@ -2,7 +2,6 @@
 layout: blog-post
 title: Compression for AGI：压缩即智能
 date: 2026-02-20 20:00:00 +0800
-series: LLM ESSENCE
 categories: [基础模型]
 tags: [Pre-Training, Model Mechanics]
 author: Hyacehila

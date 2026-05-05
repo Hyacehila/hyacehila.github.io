@@ -2,7 +2,6 @@
 layout: blog-post
 title: 大模型的 Loss Landscape 是什么样的？
 date: 2026-02-22 20:00:00 +0800
-series: LLM ESSENCE
 categories: [基础模型]
 tags: [Fine-Tuning, Alignment, Model Mechanics]
 author: Hyacehila

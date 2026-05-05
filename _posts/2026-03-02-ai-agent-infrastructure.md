@@ -2,7 +2,6 @@
 layout: blog-post
 title: Agent 时代的基础设施建设
 date: 2026-03-02 17:00:00 +0800
-series: Agent时代的基础设施
 categories: [智能体系统]
 tags: [Agents, Tool Use, Context Engineering]
 author: Hyacehila

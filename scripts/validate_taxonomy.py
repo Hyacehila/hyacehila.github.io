@@ -7,7 +7,6 @@ from pathlib import Path
 
 ALLOWED_CATEGORIES = {
     "基础模型",
-    "训练与对齐",
     "智能体系统",
     "机器学习",
     "数据科学",

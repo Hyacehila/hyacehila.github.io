@@ -2,7 +2,6 @@
 layout: blog-post
 title: Neural Scaling Laws：从 Kaplan 到 Chinchilla
 date: 2026-01-26 21:00:00 +0800
-series: LLM ESSENCE
 categories: [基础模型]
 tags: [Pre-Training, Model Mechanics]
 author: Hyacehila

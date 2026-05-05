@@ -2,7 +2,6 @@
 layout: blog-post
 title: AI Agent 时代的检索与爬虫工具
 date: 2026-03-03 12:00:00 +0800
-series: Agent时代的基础设施
 categories: [智能体系统]
 tags: [Agents, Retrieval, Data Curation]
 author: Hyacehila

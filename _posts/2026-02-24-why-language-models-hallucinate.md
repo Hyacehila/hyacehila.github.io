@@ -2,7 +2,6 @@
 layout: blog-post
 title: Why Language Models Hallucinate
 date: 2026-02-24 20:00:00 +0800
-series: LLM ESSENCE
 categories: [基础模型]
 tags: [Reasoning, Model Mechanics]
 author: Hyacehila

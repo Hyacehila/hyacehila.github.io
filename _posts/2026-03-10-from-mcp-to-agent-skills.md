@@ -2,7 +2,6 @@
 layout: blog-post
 title: 从 MCP 到 Agent Skills：为什么 Agent 又需要一种新的上下文工程协议？
 date: 2026-03-10 20:00:00 +0800
-series: Agent时代的基础设施
 categories: [智能体系统]
 tags: [MCP, Agents, Context Engineering, Tool Use]
 author: Hyacehila
