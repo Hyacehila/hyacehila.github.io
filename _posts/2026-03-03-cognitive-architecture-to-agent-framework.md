@@ -2,7 +2,6 @@
 layout: blog-post
 title: 从智能体的认知结构到智能体框架
 date: 2026-03-03 23:36:00 +0800
-series: Agent时代的基础设施
 categories: [智能体系统]
 tags: [Agents, Tool Use, Context Engineering]
 author: Hyacehila

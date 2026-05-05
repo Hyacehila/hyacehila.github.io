@@ -3,7 +3,7 @@ layout: blog-post
 title: Reward Hacking：当奖励信号被优化器反向搜索
 date: 2026-03-20 20:00:00 +0800
 series: Reward and Training
-categories: [训练与对齐]
+categories: [基础模型]
 tags: [Alignment, Reward Modeling, Reinforcement Learning, Evaluation]
 author: Hyacehila
 excerpt: 当 policy 的探索能力超过 reward signal 的判别和泛化能力，并且优化压力持续增加时，reward hacking 就会从偶发错误变成系统性训练风险。

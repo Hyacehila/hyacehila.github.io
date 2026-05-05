@@ -2,7 +2,6 @@
 layout: blog-post
 title: LLM 推理与训练的本质：从 Surrogate 到强化学习的几何空间
 date: 2026-02-23 20:00:00 +0800
-series: LLM ESSENCE
 categories: [基础模型]
 tags: [Reasoning, Alignment, Reinforcement Learning]
 author: Hyacehila

@@ -2,7 +2,6 @@
 layout: blog-post
 title: Context is All You Need：智能体的上下文工程
 date: 2026-03-06 12:00:00 +0800
-series: Agent时代的基础设施
 categories: [智能体系统]
 tags: [Agents, Context Engineering]
 author: Hyacehila

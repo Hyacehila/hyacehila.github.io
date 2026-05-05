@@ -2,7 +2,6 @@
 layout: blog-post
 title: "给 LLM 戴上确定性枷锁的外围工程：从 Claude Code 看 Agent Harness"
 date: 2026-03-20 21:00:00 +0800
-series: Agent时代的基础设施
 categories: [智能体系统]
 tags: [Agents, Harness, MCP, Context Engineering]
 author: Hyacehila

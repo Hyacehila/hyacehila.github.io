@@ -2,7 +2,6 @@
 layout: blog-post
 title: AEnvironment：Agent 需要一个统一的环境层吗？
 date: 2026-03-16 21:00:00 +0800
-series: Agent时代的基础设施
 categories: [智能体系统]
 tags: [Agents, MCP, Reinforcement Learning, Tool Use]
 author: Hyacehila

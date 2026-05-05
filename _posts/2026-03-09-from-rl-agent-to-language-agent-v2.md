@@ -2,7 +2,6 @@
 layout: blog-post
 title: 从 RL Agent 到 LLM Agent：The Second Half 之后的范式转移与不确定性建模
 date: 2026-03-09 12:00:00 +0800
-series: Agent时代的基础设施
 categories: [智能体系统]
 tags: [Agents, Reinforcement Learning, Tool Use]
 author: Hyacehila

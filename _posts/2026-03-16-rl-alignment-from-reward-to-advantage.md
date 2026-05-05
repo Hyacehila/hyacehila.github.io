@@ -3,7 +3,7 @@ layout: blog-post
 title: LLM 对齐中的强化学习：从奖励信号到优势估计
 date: 2026-03-16 17:30:00 +0800
 series: Reward and Training
-categories: [训练与对齐]
+categories: [基础模型]
 tags: [Alignment, Reinforcement Learning, Reward Modeling]
 author: Hyacehila
 excerpt: 从 reward、baseline、advantage 与 normalization 这条信号链出发，解释为什么 LLM 对齐中的 RL 算法总在重写奖励信号。
