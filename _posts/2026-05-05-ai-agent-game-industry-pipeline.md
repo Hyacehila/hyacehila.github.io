@@ -2,7 +2,7 @@
 layout: blog-post
 title: "游戏行业如何引入 AI Agent"
 date: 2026-05-05 20:00:00 +0800
-categories: [智能体系统]
+categories: [Agent 系统]
 tags: [Agents, 游戏工业化]
 author: Hyacehila
 excerpt: "AI 不只是内容生成工具，而是进入游戏研发、运营与玩家体验的协作系统。"

@@ -738,7 +738,7 @@
             <div class="filter-buttons filter-category-buttons">
               <button class="filter-btn active" data-filter-type="category" data-filter-value="all"
                 onclick="filterByCategory('all', this)">全部</button>
-              {% assign ordered_categories = "基础模型|智能体系统|机器学习|数据科学|随笔与观察|小说时间" | split: "|" %}
+              {% assign ordered_categories = "基础模型|Agent 基础设施|Agent 系统|机器学习|数据科学|随笔与观察|小说时间" | split: "|" %}
               {% for category in ordered_categories %}
               <button class="filter-btn" data-filter-type="category" data-filter-value="{{ category }}"
                 onclick="filterByCategory('{{ category }}', this)">{{ category }}</button>

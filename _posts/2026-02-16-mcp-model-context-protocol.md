@@ -2,7 +2,7 @@
 layout: blog-post
 title: MCP (Model Context Protocol)
 date: 2026-02-16 11:30:00 +0800
-categories: [智能体系统]
+categories: [Agent 基础设施]
 tags: [MCP, Agents, Context Engineering]
 author: Hyacehila
 excerpt: 本文详细介绍了MCP（Model Context Protocol）的架构与实现，包括Host、Client、Server的核心概念与Python SDK实战，并深入探讨了从MCP到Agent Skills的技术演进与未来思考。
