@@ -3,7 +3,7 @@ layout: blog-post
 title: "从 Working Memory 到长期记忆：Agent Memory 的全景图"
 date: 2026-03-21 20:00:00 +0800
 author: Hyacehila
-categories: [智能体系统]
+categories: [Agent 系统]
 tags: [Agents, Context Engineering, Retrieval, Evaluation]
 excerpt: "Memory 不是外挂数据库，而是围绕 Working Memory 展开的认知生命周期管理，难点在写入、更新、检索与治理。"
 math: false

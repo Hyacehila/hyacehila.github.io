@@ -2,7 +2,7 @@
 layout: blog-post
 title: "Harness 到底是什么：从 model + harness 到工程、产品与用户友好外壳"
 date: 2026-04-04 23:20:00 +0800
-categories: [智能体系统]
+categories: [Agent 系统]
 tags: [Agents, Harness, Runtime, Evaluation]
 author: Hyacehila
 excerpt: LangChain 关于 agent = model + harness 的说法只在粗粒度上成立；真实工程里更有解释力的是工程、产品、用户友好外壳与 task interface。

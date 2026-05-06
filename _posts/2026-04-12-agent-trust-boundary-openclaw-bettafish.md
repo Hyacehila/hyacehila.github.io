@@ -2,7 +2,7 @@
 layout: blog-post
 title: "BettaFish、MiroFish、OpenClaw 与 Agent 的信任边界"
 date: 2026-04-12 20:00:00 +0800
-categories: [智能体系统]
+categories: [Agent 系统]
 tags: [Agents, OpenClaw, Trust Boundary, Product]
 author: Hyacehila
 excerpt: "BettaFish/MiroFish 和 OpenClaw 分别把 Agent 推到两条信任边界上：我们能相信 AI 说到什么程度，以及我们愿意让 AI 在自己的环境里做到什么程度。"

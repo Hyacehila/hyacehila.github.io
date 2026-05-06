@@ -7,11 +7,17 @@ from pathlib import Path
 
 ALLOWED_CATEGORIES = {
     "基础模型",
-    "智能体系统",
+    "Agent 基础设施",
+    "Agent 系统",
     "机器学习",
     "数据科学",
     "随笔与观察",
     "小说时间",
+}
+
+DEPRECATED_CATEGORIES = {
+    "统计学",
+    "智能体系统",
 }
 
 REQUIRED_FIELDS = {
@@ -103,9 +109,9 @@ def validate_post(path: Path) -> tuple[list[str], str | None]:
         errors.append(f"{path.name}: categories must contain exactly one entry")
     else:
         category = categories[0]
-        if category == "统计学":
-            errors.append(f"{path.name}: deprecated category '统计学' is not allowed")
-        if category not in ALLOWED_CATEGORIES:
+        if category in DEPRECATED_CATEGORIES:
+            errors.append(f"{path.name}: deprecated category '{category}' is not allowed")
+        elif category not in ALLOWED_CATEGORIES:
             errors.append(f"{path.name}: category '{category}' is not in the allowed taxonomy")
 
     raw_tags = front_matter.get("tags")
