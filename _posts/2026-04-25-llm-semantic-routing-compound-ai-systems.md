@@ -3,7 +3,7 @@ layout: blog-post
 title: "模型路由到底在解决什么：从 Agent 成本、延迟到推理控制"
 date: 2026-04-25 20:00:00 +0800
 categories: [Agent 基础设施]
-tags: [LLM Routing, vLLM, OpenRouter, Agents]
+tags: [Agents, Backend, Model Mechanics]
 author: Hyacehila
 excerpt: "模型路由把 Agent 的每次调用拆成成本、延迟、工具稳定性和失败升级决策；重点不是选最强模型，而是分配预算。"
 featured: false
@@ -132,4 +132,3 @@ OpenRouter 让我们看到托管平台如何把模型选择、provider 排序和
 路由将会成为 Agent 基础设施的一部分，所以它一定会变得简单，简单到用户无需思考就可以使用，但它依旧是一个重要的问题，基础设施里的很多重要问题，都从简单的直觉开始，最终回归简单的使用。
 
 > 学术界在研究什么：参考阅读 [Dynamic Model Routing and Cascading survey](https://arxiv.org/abs/2603.04445)  ，作者并不了解模型路由相关研究。此综述把 query difficulty、preference、uncertainty、reinforcement learning、multimodality、cascading 等方向整理到一起。方便读者理解路由的基本研究脉络。
-

@@ -3,7 +3,7 @@ layout: blog-post
 title: 训练模型时的样本不均衡：从统计学习到长尾学习的处理方案
 date: 2026-03-14 20:00:00 +0800
 categories: [机器学习]
-tags: [Imbalanced Learning, Statistical Inference, Methodology]
+tags: [Statistical Inference, Methodology]
 author: Hyacehila
 excerpt: “训练集类别不均衡并不只是少数类太少这么简单。本文从统计学习、稀有事件建模、长尾深度学习与概率校准四条线梳理样本不均衡的研究脉络，并给出可执行的选型框架，说明何时该采样、何时该重加权、何时该调阈值与做校准。”
 featured: false

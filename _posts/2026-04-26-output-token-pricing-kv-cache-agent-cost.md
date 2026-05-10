@@ -3,7 +3,7 @@ layout: blog-post
 title: "为什么 Output Token 更贵：从 KV Cache 到 Agent 成本工程"
 date: 2026-04-26 15:00:00 +0800
 categories: [Agent 基础设施]
-tags: [LLM Inference, KV Cache, Agents, Token Pricing]
+tags: [Agents, Backend, Model Mechanics]
 author: Hyacehila
 excerpt: "Output token 贵，主要因为 decode 串行、KV Cache 占显存和调度槽位；Agent 成本优化要控制输出预算和稳定前缀。"
 featured: false
