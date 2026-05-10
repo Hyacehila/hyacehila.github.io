@@ -3,7 +3,7 @@ layout: blog-post
 title: '从 `\n\n` 看模型状态：Word Salad Chopper 带来的一个小启发'
 date: 2026-04-26 16:00:00 +0800
 categories: [基础模型]
-tags: [Word Salad, Hidden States, Interpretability, Reasoning Models]
+tags: [Interpretability, Reasoning, Model Mechanics]
 author: Hyacehila
 excerpt: Word Salad Chopper 有趣的地方不只是砍掉推理模型里的重复废话，而是提示我们：换行边界 token 的 hidden state 可能是观察模型生成模式的低成本入口。
 featured: false

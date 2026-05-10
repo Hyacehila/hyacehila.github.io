@@ -32,6 +32,8 @@ REQUIRED_FIELDS = {
 
 FRONT_MATTER_RE = re.compile(r"\A(?:\ufeff)?---\r?\n(.*?)\r?\n---\r?\n", re.DOTALL)
 POST_FILENAME_RE = re.compile(r"\A(\d{4}-\d{2}-\d{2})-.+\.md\Z")
+TAG_RE = re.compile(r"\A[A-Za-z0-9][A-Za-z0-9 ./&+-]*\Z")
+MAX_TAGS_PER_POST = 3
 
 
 def parse_list(raw: str) -> list[str]:
@@ -59,6 +61,29 @@ def parse_front_matter(path: Path) -> dict[str, str]:
         key, value = line.split(":", 1)
         data[key.strip()] = value.strip()
     return data
+
+
+def validate_tags(path: Path, tags: list[str]) -> list[str]:
+    errors: list[str] = []
+
+    if len(tags) > MAX_TAGS_PER_POST:
+        errors.append(
+            f"{path.name}: tags must contain at most {MAX_TAGS_PER_POST} entries"
+        )
+
+    seen_tags: set[str] = set()
+    for tag in tags:
+        normalized_tag = tag.casefold()
+        if normalized_tag in seen_tags:
+            errors.append(f"{path.name}: duplicate tag '{tag}'")
+        seen_tags.add(normalized_tag)
+
+        if not tag or "," in tag:
+            errors.append(f"{path.name}: tags must be non-empty strings without commas")
+        elif not tag.isascii() or not TAG_RE.fullmatch(tag):
+            errors.append(f"{path.name}: tag '{tag}' must be an English ASCII tag")
+
+    return errors
 
 
 def validate_post(path: Path) -> tuple[list[str], str | None]:
@@ -123,8 +148,7 @@ def validate_post(path: Path) -> tuple[list[str], str | None]:
         except ValueError as exc:
             errors.append(f"{path.name}: invalid tags: {exc}")
         else:
-            if not all(tag and "," not in tag for tag in tags):
-                errors.append(f"{path.name}: tags must be non-empty strings without commas")
+            errors.extend(validate_tags(path, tags))
 
     series = front_matter.get("series", "").strip().strip("'\"") or None
     category_value = categories[0] if len(categories) == 1 else None

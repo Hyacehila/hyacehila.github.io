@@ -135,7 +135,7 @@ layout: blog-post
 title: "文章标题"
 date: 2026-02-27 20:00:00 +0800
 categories: [数据科学]
-tags: [Statistical Inference, Resampling]
+tags: [Statistical Inference, Methodology]
 author: Hyacehila
 excerpt: "给列表卡片用的一句话摘要，不要写 Markdown"
 series: "概率图模型 (Probabilistic Graphical Models)"
@@ -150,7 +150,7 @@ math: true
 - `title`: 用于页面标题与列表卡片标题；建议与正文第一个 `#` 保持一致。
 - `date`: 用于排序、URL 与上一篇/下一篇；`_config.yml` 默认 `future: false`，未来日期不会发布。
 - `categories`: 必须是单元素列表，且值只能是 `基础模型`、`Agent 基础设施`、`Agent 系统`、`机器学习`、`数据科学`、`随笔与观察`、`小说时间`。
-- `tags`: 必须是列表，可为空列表；博客主页会按 Front Matter 自动生成标签筛选。当前校验脚本要求单个 tag 不含逗号。数量上建议控制在 0~4 个。
+- `tags`: 必须是列表，可为空列表；博客主页会按 Front Matter 自动生成标签筛选。非空 tag 必须是英文 ASCII 字符串、不含逗号、不重复，且每篇文章最多 3 个。
 - `excerpt`: 建议使用单行纯文本；博客列表直接展示该字段。
 - `series`: 可选；相同字符串会聚合到同一系列页，且同一系列文章应保持同一主分类。带 `series` 的文章不会出现在默认单篇列表，但详情页 URL 仍会正常发布。
 - `featured`: 可选；`true` 时会出现在“得意之作”筛选视图，即使文章属于某个系列。
@@ -160,7 +160,8 @@ math: true
 
 - 博客主页当前使用 7 个固定主分类按钮：`基础模型`、`Agent 基础设施`、`Agent 系统`、`机器学习`、`数据科学`、`随笔与观察`、`小说时间`。
 - 标签按钮不再依赖手写白名单，而是从所有文章的 `tags` 自动汇总并按自然顺序排序。
-- 仍建议优先复用现有常见标签词汇，避免同义词重复造轮子；例如 `Agents`、`Tool Use`、`Context Engineering`、`Statistical Inference`、`Data Curation`。
+- 推荐优先复用核心标签池：`Agents`、`Tool Use`、`Context Engineering`、`MCP`、`Harness`、`Retrieval`、`Backend`、`Software Engineering`、`Security`、`Evaluation`、`Data Curation`、`Alignment`、`Reinforcement Learning`、`Reward Modeling`、`Fine-Tuning`、`Pre-Training`、`Model Mechanics`、`Reasoning`、`Interpretability`、`Multimodality`、`Statistical Inference`、`Methodology`、`Linear Models`、`Graphical Models`、`Time Series`、`Dimensionality Reduction`、`Ensemble Learning`、`Society`、`Product`。
+- 新增 tag 前先判断它是否预计会被多篇文章复用，或是否正在形成稳定系列；一次性工具名、产品名、项目名和过细实现细节优先保留在标题/正文中，不作为标签。
 - `Agent 基础设施` 只收协议、工具接入、结构化执行契约、服务化后端、模型路由、推理成本、数据/检索底座等基础能力。
 - `Agent 系统` 收 Agent 的架构边界、记忆与上下文设计、Harness、环境层、评估治理、产品形态、行业应用和实践方法。
 - `统计学` 已不再作为主分类使用；相关内容统一归入 `数据科学`。
@@ -180,7 +181,7 @@ math: true
 - [ ] 文件位于 `_posts/`，文件名符合 `YYYY-MM-DD-<slug>.md`
 - [ ] Front Matter 以 `---` 包裹且字段完整
 - [ ] `categories` 为单元素列表，且属于当前 7 分类 taxonomy
-- [ ] `tags` 为列表，可为空，且单个 tag 不含逗号
+- [ ] `tags` 为列表，可为空；非空 tag 为英文 ASCII、无重复、单篇不超过 3 个
 - [ ] `excerpt` 为适合列表展示的单行摘要
 - [ ] `python scripts/validate_taxonomy.py` 通过
 - [ ] 如本地具备 Ruby/Jekyll 环境，执行 `jekyll serve --drafts --future` 做渲染检查

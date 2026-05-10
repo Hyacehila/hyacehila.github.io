@@ -3,7 +3,7 @@ layout: blog-post
 title: 为什么更好的 Simulator 往往是 Learning + Rules：从 PDE、光线追踪到 DLSS
 date: 2026-03-15 21:00:00 +0800
 categories: [机器学习]
-tags: [Scientific ML, Methodology]
+tags: [Model Mechanics, Methodology]
 author: Hyacehila
 excerpt: 更好的 simulator 往往不是纯规则，也不是纯学习，而是把守恒、几何、因果、边界条件与渲染/求解结构当作归纳偏置，交给 learning 去补昂贵、模糊或难解析的部分。
 featured: false

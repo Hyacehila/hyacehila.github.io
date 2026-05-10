@@ -3,7 +3,7 @@ layout: blog-post
 title: "差就是好：从 DeepSeek 未采用 n-gram 结构说起"
 date: 2026-04-30 00:00:00 +0800
 categories: [基础模型]
-tags: [DeepSeek, Transformer, Scaling Laws, Hardware Efficiency]
+tags: [Model Mechanics, Pre-Training]
 author: Hyacehila
 excerpt: "一个有趣的知乎回答提醒我们：在大模型工程里，精巧结构未必胜过简单结构。能稳定吃满显卡、顺着矩阵乘法流水线奔跑的设计，往往才是最后留下来的设计。"
 featured: false

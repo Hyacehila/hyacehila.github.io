@@ -39,7 +39,7 @@ title: 欢迎来到我的博客
 date: 2025-12-26 10:00:00 +0800
 series: 不知道在写什么
 categories: [生活, 随笔]
-tags: [欢迎, 博客]
+tags: [Methodology, Society]
 author: Hyacehila
 excerpt: 这是我博客的第一篇文章，欢迎大家来访！
 ---

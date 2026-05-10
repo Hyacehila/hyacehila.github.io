@@ -3,7 +3,7 @@ layout: blog-post
 title: "TouchDesigner 点云与 3D Gaussian Splatting"
 date: 2026-04-21 09:00:00 +0800
 categories: [随笔与观察]
-tags: [TouchDesigner, Point Cloud, Gaussian Splatting, Creative Coding]
+tags: [Multimodality, Methodology]
 author: Hyacehila
 excerpt: TouchDesigner 最迷人的地方，不只是能把点云显示出来，而是能把扫描到的现实、生成式动画和实时系统揉成同一种视觉语言。
 featured: false

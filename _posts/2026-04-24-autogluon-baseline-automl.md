@@ -3,7 +3,7 @@ layout: blog-post
 title: AutoGluon：把机器学习 Baseline 简化到几行代码
 date: 2026-04-24 21:45:00 +0800
 categories: [机器学习]
-tags: [AutoML, AutoGluon, Machine Learning, Baseline]
+tags: [Methodology, Software Engineering]
 author: Hyacehila
 excerpt: AutoGluon 的价值不只是少写几行代码，而是把一套强 baseline 方法论固化成统一、可比较、可迁移的机器学习工作流。
 ---

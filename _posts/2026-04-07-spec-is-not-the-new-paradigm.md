@@ -3,7 +3,7 @@ layout: blog-post
 title: "Spec 不是新范式：Vibe Coding、SDD 与 AI 时代的软件工程转向"
 date: 2026-04-07 20:00:00 +0800
 categories: [Agent 系统]
-tags: [Software Engineering, Vibe Coding, Spec-Driven Development, Agents]
+tags: [Software Engineering, Agents, Methodology]
 author: Hyacehila
 excerpt: AI 时代的软件工程并没有走向 Spec-first，而是在代码生成成本坍塌后转向 feedback-first：先用原型和集成反馈发现真实需求，再把已结晶的约束反向提炼成活文档、契约与 ADR。
 featured: false
