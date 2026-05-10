@@ -1,7 +1,7 @@
 ---
 layout: blog-post
 title: "从 Engineer 到 Builder：AI 时代的一人公司与产品思维"
-date: 2026-05-10 14:00:00 +0800
+date: 2026-05-11 14:00:00 +0800
 categories: [随笔与观察]
 tags: [Society, Product, Software Engineering]
 author: Hyacehila
