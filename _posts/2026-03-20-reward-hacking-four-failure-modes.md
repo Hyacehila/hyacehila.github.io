@@ -13,13 +13,13 @@ math: true
 
 # Reward Hacking：当奖励信号被优化器反向搜索
 
-[上一篇文章]({% post_url 2026-03-19-reward-design-evolution-from-rlhf-to-rlvr %})讲的是 reward 自己怎样被生产出来：从人工偏好、神经 reward model、PRM、RLVR、LLM as Judge、rubric，一路到开放 agent 里的 tournament ranking。那篇文章的主线是：**reward 不是一个分数，而是一条生产线。**
+[上一篇文章]({% post_url 2026-03-19-reward-design-evolution-from-rlhf-to-rlvr %})讲的是 reward 自己怎样被生产出来：从人工偏好、神经 reward model、PRM、RLVR、LLM as Judge、rubric，一路到开放 agent 里的 tournament ranking。那篇文章的主线是：**reward 不只是一个分数，也是一套把目标转成训练信号的接口链路。**
 
 但只讲 reward 怎样生产还不够。reward hacking 不是 reward production 的一个阶段，而是任何 reward signal 被强优化以后都可能暴露出的风险。只要 reward 被接进 optimizer，它就会从一个评估接口变成一个被主动搜索、主动放大、主动利用的目标。模型不是被动接受奖励，而是在训练中持续试探奖励系统的边界。于是 reward design 里最需要提前防范的问题就出现了：
 
 **当一个信号被当成目标优化以后，它还配不配继续代表原来的目标？**
 
-这就是 reward hacking 或 reward over-optimization 的核心。它不是单个问题 prompt、异常样本或个别模型缺陷导致的偶发 bug，而是代理目标进入强优化以后需要默认防范的结构性风险。[Learning to Summarize from Human Feedback](https://arxiv.org/abs/2009.01325) 很早就观察到，policy 过度追逐 reward model 分数后，真实人类偏好反而会下降；[DeepSeek-R1](https://arxiv.org/abs/2501.12948) 在讨论 R1-Zero 时也明确说，没有使用 neural reward model 的原因之一，是大规模 RL 中神经 RM 可能带来 reward hacking。
+这就是 reward hacking 或 reward over-optimization 要处理的问题。它不是单个问题 prompt、异常样本或个别模型缺陷导致的偶发 bug，而是代理目标进入强优化以后需要默认防范的结构性风险。[Learning to Summarize from Human Feedback](https://arxiv.org/abs/2009.01325) 很早就观察到，policy 过度追逐 reward model 分数后，真实人类偏好反而会下降；[DeepSeek-R1](https://arxiv.org/abs/2501.12948) 在讨论 R1-Zero 时也明确说，没有使用 neural reward model 的原因之一，是大规模 RL 中神经 RM 可能带来 reward hacking。
 
 也就是：
 
@@ -163,11 +163,11 @@ $$
 
 ## 最后：reward hacking 不是异常，而是压力测试结果
 
-很多人谈 reward hacking 时，语气像是在说模型耍小聪明。但更准确的说法是：**reward hacking 是优化器替你做了一次规格审计。** 它暴露的不是模型和优化器本身不够好，而是 reward interface 没有把真实目标表达完整。
+很多人谈 reward hacking 时，语气像是在说模型耍小聪明。但更准确的说法是：**reward hacking 会把规格漏洞暴露出来。** 它暴露的不是模型和优化器本身不够好，而是 reward interface 没有把真实目标表达完整。
 
 沿着前面几个接口看，规则奖励暴露的是规格漏洞；神经 RM 暴露的是 proxy gap；LLM judge 暴露的是裁判偏差；混合奖励暴露的是目标冲突和聚合缺陷。
 
-所以更成熟的 reward engineering 不应该只问这个 reward 能不能让体现需求，而应该问四个更难的问题：
+所以更成熟的 reward engineering 不应该只问这个 reward 能不能体现需求，还要继续问四个更具体的问题：
 
 - 这个 reward 的盲区在哪里？
 - policy 多强时会超过它的判别能力？
@@ -176,7 +176,7 @@ $$
 
 把这四个问题回答清楚，reward 才从一个训练分数变成一个可被审计、可被迭代、可被放进工业系统的接口。
 
-到这里，Reward 这组三篇就形成了一条闭环：先看信号怎样被消费，再看信号怎样被生产，最后看信号在强优化下怎样失配。后续再进入 [training loop]({% post_url 2026-03-22-reward-and-training-in-agent-k-paperbench-amap %})：当 reward 已经被拆成 verifier、judge、rubric、trajectory ranking 和 hard constraints 以后，SFT、offline shaping、online RL、curriculum 和 distillation 应该怎样组成一个闭环。
+到这里，Reward 这组三篇就串起了一条线：先看信号怎样被消费，再看信号怎样被生产，最后看信号在强优化下怎样失配。后续再进入 [training loop]({% post_url 2026-03-22-reward-and-training-in-agent-k-paperbench-amap %})：当 reward 已经被拆成 verifier、judge、rubric、trajectory ranking 和 hard constraints 以后，SFT、offline shaping、online RL、curriculum 和 distillation 需要怎样接起来。
 
 ## 参考资料
 

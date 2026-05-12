@@ -15,7 +15,7 @@ math: true
 
 过去很长一段时间里，我们谈论 LLM 对齐中的强化学习，常常是按算法名字来记忆的：PPO、DPO、RLOO、GRPO、REINFORCE++。这么记当然方便，但也很容易失去对这个领域的全面认识，好像这个领域的进展主要就是不断换缩写、换 loss、换训练配方，涨点（也不一定真涨了），pub，然后下一个。各种策略优化（PO）层出不穷，但是好像外行不了解他们在折腾什么。
 
-换个角度看会更清楚。**LLM 对齐里持续被重写的，是奖励信号如何进入优化。** 一条原始 reward，到底怎样经过约束、分配、减基线、归一化，最后变成可以稳定更新策略的 advantage，才是这些方法的主要分歧。
+换个角度看会更清楚。**LLM 对齐里持续变化的，是奖励信号进入优化器的方式。** 一条原始 reward，到底怎样经过约束、分配、减基线、归一化，最后变成可以稳定更新策略的 advantage，才是这些方法的主要分歧。
 
 抓住这条主线后，原本彼此割裂的方法就能连起来：
 
@@ -31,7 +31,7 @@ math: true
 
 首先，它往往是**稀疏**的。许多场景里，模型生成完整段回答之后，奖励模型才给一个总分，或者验证器才告诉你答案对不对。[Learning to Summarize from Human Feedback](https://proceedings.neurips.cc/paper/2020/file/1f89885d556929e98d3ef9b86448f951-Paper.pdf) 与 [InstructGPT](https://arxiv.org/abs/2203.02155) 这类经典 RLHF 流程，很大程度上都在处理这种终局反馈。
 
-其次，它往往是**延迟**的。一个回答前面几十个 token 的价值，很可能只有在整段答案写完之后才能被判断出来。策略梯度之所以麻烦，很大程度上就是因为要把这个迟到的信号再分配回前面的生成过程。[Williams 1992](https://doi.org/10.1007/BF00992696) / [Policy Gradient Theorem](https://proceedings.neurips.cc/paper/1713-policy-gradient-methods-for-reinforcement-learning-with-function-approximation)
+其次，它往往是**延迟**的。一个回答前面几十个 token 的价值，很可能只有在整段答案写完之后才能被判断出来。策略梯度的难点之一，就是要把这个迟到的信号再分配回前面的生成过程。[Williams 1992](https://doi.org/10.1007/BF00992696) / [Policy Gradient Theorem](https://proceedings.neurips.cc/paper/1713-policy-gradient-methods-for-reinforcement-learning-with-function-approximation)
 
 第三，它常常是**带噪声的**。奖励模型并不是真理判官，它只是一个 surrogate。它可以学习到人类偏好的某些模式，也可以学偏。OpenAI 在总结任务上很早就观察到，如果让策略过度优化 reward model，最终得到的结果会偏离真实人类偏好。
 
@@ -48,8 +48,8 @@ math: true
 1. **LLM-RL 的演化，是在不断重写 `reward -> advantage` 这条链。** 变化的不是算法名，而是谁更擅长把原始反馈变成稳定的优势估计。[PPO](https://arxiv.org/abs/1707.06347) / [Back to Basics](https://aclanthology.org/2024.acl-long.662/) / [REINFORCE++](https://arxiv.org/abs/2501.03262)
 2. **经典 RLHF 里的 reward，从一开始就不是裸分数，而是“任务奖励 + 行为约束”的复合信号。** [Learning to Summarize from Human Feedback](https://proceedings.neurips.cc/paper/2020/file/1f89885d556929e98d3ef9b86448f951-Paper.pdf) / [InstructGPT](https://arxiv.org/abs/2203.02155)
 3. **critic-free 方法并没有消灭 advantage estimation 的问题，只是把它从 critic 网络转移到了 reward 处理与统计构造上。** 你不再训练 value head，但仍然要回答：baseline 从哪里来、尺度怎么定、局部噪声怎么控。[Back to Basics](https://aclanthology.org/2024.acl-long.662/) / [DeepSeekMath / GRPO](https://arxiv.org/abs/2402.03300)
-4. **GRPO 的关键创新，不只是不用 critic，而是把学习信号改写成组内相对优势。** 这在推理任务上很有效，但也把问题暴露了出来：局部标准差太小怎么办？组内更好是否等于全局更好？[DeepSeekMath / GRPO](https://arxiv.org/abs/2402.03300)
-5. **REINFORCE++ 值得单独重视，不是因为它又发明了一个新缩写，而是因为它把问题重新定义成全局归一化。** 它争论的不再只是 baseline，而是：advantage 的尺度究竟应该在 prompt 内定义，还是在整个 batch 上定义。[REINFORCE++](https://arxiv.org/abs/2501.03262)
+4. **GRPO 的关键创新，不只是不用 critic，还包括把学习信号改写成组内相对优势。** 这在推理任务上很有效，但也把问题暴露了出来：局部标准差太小怎么办？组内更好是否等于全局更好？[DeepSeekMath / GRPO](https://arxiv.org/abs/2402.03300)
+5. **REINFORCE++ 值得单独重视，因为它把尺度问题推到了全局归一化上。** 它争论的不再只是 baseline，而是：advantage 的尺度究竟应该在 prompt 内定义，还是在整个 batch 上定义。[REINFORCE++](https://arxiv.org/abs/2501.03262)
 6. **如果你以后再读新的 RL 对齐论文，最值得先问的不是它叫什么 PO，而是五个问题：reward 从哪里来、KL 放哪里、baseline 从哪里来、normalization 在哪里做、最后优化的到底是什么。** 这比背算法缩写更有用。
 
 ## 先把概念拆开：reward、return、baseline、advantage、KL、normalization
@@ -316,9 +316,9 @@ $$
 - PPO 式 RLHF 解决的是：怎样把 reward model、critic 和 KL 组合成一套可大规模工作的系统模板；
 - DPO 告诉我们：有些问题可以绕开在线 RL；
 - GRPO 说明：没有 critic 之后，baseline 与 normalization 会被转移到组内统计上；
-- REINFORCE++ 则进一步把问题收敛到了一个具体且根本的争论上：**advantage 的尺度，到底应该局部定义，还是全局定义。**
+- REINFORCE++ 则进一步把问题收敛到一个具体争论上：**advantage 的尺度，到底应该局部定义，还是全局定义。**
 
-说到底，这条研究线可以概括为一句话：
+这条研究线可以概括为一句话：
 
 **至少在 RL 算法这条线上，改进的重点不是不停发明新的奖励，而是在重写奖励信号进入优化器前后应该怎样被解释。**
 
