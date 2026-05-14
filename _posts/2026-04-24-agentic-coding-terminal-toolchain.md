@@ -1,11 +1,13 @@
 ---
 layout: blog-post
 title: Agentic Coding 时代的终端工作流：git worktree、Ghostty、Zellij 与 Neovim
+title_en: "Agentic Coding Terminal Workflow: git worktree, Ghostty, Zellij, and Neovim"
 date: 2026-04-24 22:00:00 +0800
 categories: [随笔与观察]
 tags: [Software Engineering, Agents, Tool Use]
 author: Hyacehila
 excerpt: 一篇面向 Agentic Coding 日常实践的小分享：用 git worktree 隔离并行任务，用 Ghostty 承载更舒服的终端体验，用 Zellij 组织会话，并在需要时用 Neovim 直接修改文件。
+excerpt_en: "A practical note on agentic coding workflows: use git worktree for isolated parallel tasks, Ghostty for a better terminal, Zellij for session organization, and Neovim when direct editing helps."
 ---
 
 # Agentic Coding 时代的终端工作流：git worktree、Ghostty、Zellij 与 Neovim

@@ -1,11 +1,13 @@
 ---
 layout: blog-post
 title: "从 Working Memory 到长期记忆：Agent Memory 的全景图"
+title_en: "From Working Memory to Long-Term Memory: A Panorama of Agent Memory"
 date: 2026-03-21 20:00:00 +0800
 author: Hyacehila
 categories: [Agent 系统]
 tags: [Agents, Context Engineering, Retrieval]
 excerpt: "Memory 不是外挂数据库，而是围绕 Working Memory 展开的认知生命周期管理，难点在写入、更新、检索与治理。"
+excerpt_en: "Memory is not an external database; it is cognitive lifecycle management around Working Memory, with hard problems in writing, updating, retrieval, and governance."
 math: false
 ---
 

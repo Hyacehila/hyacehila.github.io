@@ -1,12 +1,14 @@
 ---
 layout: blog-post
 title: 隐马尔可夫模型：时间序列的概率解析
+title_en: "Hidden Markov Models: A Probabilistic View of Time Series"
 date: 2026-02-10 12:00:00 +0800
 series: 概率图模型 (Probabilistic Graphical Models)
 categories: [数据科学]
 tags: [Graphical Models, Time Series]
 author: Hyacehila
 excerpt: 当概率图模型遇上时间序列，便诞生了能够描述动态系统的隐马尔可夫模型 (HMM)。本文深入解析了 HMM 的双重随机过程结构，并详细推导了解决评估、解码与学习这三大核心问题的数学算法。
+excerpt_en: "When probabilistic graphical models meet time series, hidden Markov models emerge. This post explains their dual stochastic process and derives evaluation, decoding, and learning algorithms."
 math: true
 ---
 

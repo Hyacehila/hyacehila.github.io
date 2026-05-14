@@ -98,7 +98,7 @@
         - #ABOUT
       -->
 
-      <article class="about active" data-page="about">
+      <article class="about active" data-page="about" data-i18n-force-lang="en">
 
         <header>
           <h2 class="h2 article-title" data-i18n="about-title">About me</h2>
@@ -227,10 +227,10 @@
               <a href="{{ post.url }}" class="testimonial-link">
                 <div class="content-card" data-testimonials-item>
 
-                  <h4 class="h4 testimonials-item-title" data-testimonials-title>{{ post.title }}</h4>
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>{{ post.title_en | default: post.title }}</h4>
 
                   <div class="testimonials-text" data-testimonials-text>
-                    <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+                    <p>{{ post.excerpt_en | default: post.excerpt | strip_html | truncate: 100 }}</p>
                   </div>
 
                   <div style="margin-top: 8px; color: var(--vegas-gold); font-size: var(--fs-8);">
@@ -1194,8 +1194,10 @@
       // Update all elements with data-i18n attribute
       document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          element.innerHTML = translations[lang][key];
+        const forcedLangContainer = element.closest('[data-i18n-force-lang]');
+        const elementLang = forcedLangContainer ? forcedLangContainer.getAttribute('data-i18n-force-lang') : lang;
+        if (translations[elementLang] && translations[elementLang][key]) {
+          element.innerHTML = translations[elementLang][key];
         }
       });
 

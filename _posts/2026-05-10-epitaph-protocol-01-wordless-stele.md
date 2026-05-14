@@ -1,12 +1,14 @@
 ---
 layout: blog-post
 title: "墓志协议 01｜无字碑"
+title_en: "Epitaph Protocol 01: Wordless Stele"
 date: 2026-05-10 20:00:00 +0800
 permalink: /blog/2026/05/10/epitaph-protocol-01-wordless-stele/
 categories: [小说时间]
-tags: [Sci-Fi, Alternate History, Epitaph, Fiction]
+tags: [Sci-Fi, Alternate History, Fiction]
 author: Hyacehila
 excerpt: "乾陵无字碑在雨夜吐出每个读者各自相信的正史；一个负债石匠必须用自己的名字补上一道旧裂。"
+excerpt_en: "On a rainy night, the Wordless Stele at Qianling reveals to each reader the official history they already believe; an indebted stonemason must seal an old crack with his own name."
 series: "墓志协议"
 featured: false
 math: false

@@ -1,11 +1,13 @@
 ---
 layout: blog-post
 title: MCP (Model Context Protocol)
+title_en: "MCP (Model Context Protocol)"
 date: 2026-02-16 11:30:00 +0800
 categories: [Agent 基础设施]
 tags: [MCP, Agents, Context Engineering]
 author: Hyacehila
 excerpt: 介绍 MCP 的 Host、Client、Server 分层，stdio 与 Streamable HTTP 传输，以及用 Python SDK 编写和调试 MCP Server/Client 的基本流程。
+excerpt_en: "An introduction to MCP's Host, Client, and Server layers, stdio and Streamable HTTP transports, and the workflow for building and debugging MCP servers and clients."
 ---
 
 # 关于MCP

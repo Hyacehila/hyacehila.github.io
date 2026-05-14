@@ -1,11 +1,13 @@
 ---
 layout: blog-post
 title: Context is All You Need：智能体的上下文工程
+title_en: "Context Is All You Need: Context Engineering for Agents"
 date: 2026-03-06 12:00:00 +0800
 categories: [Agent 系统]
 tags: [Agents, Context Engineering]
 author: Hyacehila
 excerpt: 聚焦 Working Memory 的工程化管理：如何组织 Memory Manager、混合检索、写入更新、遗忘治理与评估闭环。
+excerpt_en: "A focus on engineering Working Memory: how to organize memory managers, hybrid retrieval, write and update flows, forgetting governance, and evaluation loops."
 featured: true
 math: false
 ---
