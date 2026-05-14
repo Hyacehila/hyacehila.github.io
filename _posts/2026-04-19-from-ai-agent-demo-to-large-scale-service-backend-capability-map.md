@@ -1,12 +1,14 @@
 ---
 layout: blog-post
 title: "从 AI Agent Demo 到大规模服务：后端能力全景图"
+title_en: "From AI Agent Demo to Large-Scale Service: A Backend Capability Map"
 date: 2026-04-19 21:30:00 +0800
 series: 后端学习笔记
 categories: [Agent 基础设施]
 tags: [Backend, Agents, Software Engineering]
 author: Hyacehila
 excerpt: 这是一份后端学习笔记的第一篇，梳理 AI Agent 从 Demo 走向大规模服务时依赖的后端能力，以及这些能力分别解决的工程问题。后面将逐步学习相关技术。
+excerpt_en: "The first post in a backend learning series, mapping the capabilities needed for AI agents to move from demos to large-scale services and the engineering problems each solves."
 featured: false
 math: false
 ---

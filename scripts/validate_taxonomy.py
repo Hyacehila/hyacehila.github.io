@@ -23,11 +23,13 @@ DEPRECATED_CATEGORIES = {
 REQUIRED_FIELDS = {
     "layout",
     "title",
+    "title_en",
     "date",
     "categories",
     "tags",
     "author",
     "excerpt",
+    "excerpt_en",
 }
 
 FRONT_MATTER_RE = re.compile(r"\A(?:\ufeff)?---\r?\n(.*?)\r?\n---\r?\n", re.DOTALL)
@@ -118,6 +120,11 @@ def validate_post(path: Path) -> tuple[list[str], str | None]:
     author = front_matter.get("author", "").strip().strip("'\"")
     if author and author != "Hyacehila":
         errors.append(f"{path.name}: author must be 'Hyacehila'")
+
+    for localized_field in ("title_en", "excerpt_en"):
+        localized_value = front_matter.get(localized_field, "").strip().strip("'\"")
+        if localized_field in front_matter and not localized_value:
+            errors.append(f"{path.name}: {localized_field} must be a non-empty single-line field")
 
     raw_categories = front_matter.get("categories")
     if raw_categories is None:

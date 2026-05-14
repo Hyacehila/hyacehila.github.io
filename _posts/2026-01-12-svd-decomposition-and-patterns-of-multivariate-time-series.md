@@ -1,11 +1,13 @@
 ---
 layout: blog-post
 title: 多元时间序列的 SVD 分解与模式
+title_en: "SVD Decomposition and Patterns in Multivariate Time Series"
 date: 2026-01-12 12:00:00 +0800
 categories: [数据科学]
 tags: [Time Series, Dimensionality Reduction]
 author: Hyacehila
 excerpt: 对于一个 n×T 的时间序列矩阵 X，SVD 分解可以得到 X=UΣV^T。本文解释得到的矩阵在时空模式挖掘中的物理意义，包括空间模式 U、时间模式 V 以及奇异值 Σ 的含义。
+excerpt_en: "For an n by T time-series matrix X, SVD decomposes it into U, Sigma, and V transpose. This post explains spatial patterns, temporal patterns, and singular values."
 math: true
 ---
 

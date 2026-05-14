@@ -1,11 +1,13 @@
 ---
 layout: blog-post
 title: "给 LLM 戴上确定性枷锁的外围工程：从 Claude Code 看 Agent Harness"
+title_en: "Putting Deterministic Guardrails Around LLMs: Agent Harness Engineering from Claude Code"
 date: 2026-03-20 21:00:00 +0800
 categories: [Agent 系统]
 tags: [Agents, Harness, Context Engineering]
 author: Hyacehila
 excerpt: 真正让 Agent 变成可交付系统的，不是核心 loop，而是围绕 LLM 不确定性搭出来的外围工程：把语言请求进一步下沉成工具契约、知识路由、生命周期验证、隔离恢复与自治治理。
+excerpt_en: "What makes agents deliverable is not only the core loop, but the surrounding engineering that turns language requests into tool contracts, routing, validation, isolation, recovery, and governance."
 featured: true
 math: false
 ---

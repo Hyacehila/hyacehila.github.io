@@ -1,11 +1,13 @@
 ---
 layout: blog-post
 title: Agent 时代的基础设施建设
+title_en: "Infrastructure for the Agent Era"
 date: 2026-03-02 17:00:00 +0800
 categories: [Agent 基础设施]
 tags: [Agents, Tool Use, Context Engineering]
 author: Hyacehila
 excerpt: 讨论 Agent 开发里哪些能力会逐渐变成基础设施：框架、检索、记忆、推理路由，以及它们带来的调试和可观测性问题。
+excerpt_en: "A discussion of which capabilities in agent development are becoming infrastructure: frameworks, retrieval, memory, reasoning routers, and their debugging and observability costs."
 math: false
 ---
 

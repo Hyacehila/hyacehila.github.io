@@ -18,7 +18,7 @@ English: A static personal portfolio + Jekyll-powered blog.
 
 本仓库是我的个人站点，包含：
 
-- **主页（Portfolio）**：单页站点，支持 **中英双语切换**，并包含旅行足迹地图等组件。
+- **主页（Portfolio）**：单页站点，支持 **中英双语切换**；其中 About me 区域固定英文展示，并包含旅行足迹地图等组件。
 - **博客（Blog）**：基于 **Jekyll** 的 Markdown 博客系统，提供分类/标签筛选、系列文章聚合、代码高亮、Mermaid、MathJax 等能力。
 
 线上预览（当前仓库配置）：
@@ -33,7 +33,7 @@ English: A static personal portfolio + Jekyll-powered blog.
 ### 主页（Portfolio）
 
 - **响应式**：适配桌面/平板/移动端。
-- **中英双语切换**：`index.html` 内通过 `data-i18n` + JS 字典渲染。
+- **中英双语切换**：`index.html` 内通过 `data-i18n` + JS 字典渲染；About me 区域通过 `data-i18n-force-lang="en"` 固定英文展示。
 - **旅行足迹地图**：ECharts 渲染，支持 China/World 模式切换（数据在 `assets/travelmap/cities.json`）。
 - **联系信息**：Email/Phone/Address/LinkedIn/GitHub 等（当前无“提交式”Contact Form）。
 
@@ -133,11 +133,13 @@ python scripts/validate_taxonomy.py
 ---
 layout: blog-post
 title: "文章标题"
+title_en: "English title for homepage preview"
 date: 2026-02-27 20:00:00 +0800
 categories: [数据科学]
 tags: [Statistical Inference, Methodology]
 author: Hyacehila
 excerpt: "给列表卡片用的一句话摘要，不要写 Markdown"
+excerpt_en: "English one-line summary for the homepage preview"
 series: "概率图模型 (Probabilistic Graphical Models)"
 featured: true
 math: true
@@ -148,10 +150,12 @@ math: true
 
 - `layout`: 固定为 `blog-post`。
 - `title`: 用于页面标题与列表卡片标题；建议与正文第一个 `#` 保持一致。
+- `title_en`: 英文标题，供主页 About me 区域中的博客预览卡片使用；独立博客页不使用该字段。
 - `date`: 用于排序、URL 与上一篇/下一篇；`_config.yml` 默认 `future: false`，未来日期不会发布。
 - `categories`: 必须是单元素列表，且值只能是 `基础模型`、`Agent 基础设施`、`Agent 系统`、`机器学习`、`数据科学`、`随笔与观察`、`小说时间`。
 - `tags`: 必须是列表，可为空列表；博客主页会按 Front Matter 自动生成标签筛选。非空 tag 必须是英文 ASCII 字符串、不含逗号、不重复，且每篇文章最多 3 个。
 - `excerpt`: 建议使用单行纯文本；博客列表直接展示该字段。
+- `excerpt_en`: 英文单行摘要，供主页 About me 区域中的博客预览卡片使用；独立博客页继续展示 `excerpt`。
 - `series`: 可选；相同字符串会聚合到同一系列页，且同一系列文章应保持同一主分类。带 `series` 的文章不会出现在默认单篇列表，但详情页 URL 仍会正常发布。
 - `featured`: 可选；`true` 时会出现在“得意之作”筛选视图，即使文章属于某个系列。
 - `math`: 可选；当前页面会全量加载 MathJax，这个字段保留语义用途。
@@ -183,6 +187,7 @@ math: true
 - [ ] `categories` 为单元素列表，且属于当前 7 分类 taxonomy
 - [ ] `tags` 为列表，可为空；非空 tag 为英文 ASCII、无重复、单篇不超过 3 个
 - [ ] `excerpt` 为适合列表展示的单行摘要
+- [ ] `title_en` 与 `excerpt_en` 为适合主页预览展示的英文单行文本
 - [ ] `python scripts/validate_taxonomy.py` 通过
 - [ ] 如本地具备 Ruby/Jekyll 环境，执行 `jekyll serve --drafts --future` 做渲染检查
 

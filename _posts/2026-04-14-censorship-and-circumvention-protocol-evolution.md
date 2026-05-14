@@ -1,11 +1,13 @@
 ---
 layout: blog-post
 title: 国家级网络审查机制与抗审查代理协议的攻防演进
+title_en: "National Internet Censorship and Anti-Censorship Proxy Protocols"
 date: 2026-04-14 20:00:00 +0800
 categories: [随笔与观察]
 tags: [Security]
 author: Hyacehila
 excerpt: 国家级网络审查与抗审查协议的对抗，不是某几个工具的替换史，而是围绕识别、伪装、探测、成本与生态展开的长期系统工程博弈。
+excerpt_en: "The struggle between national censorship and anti-censorship protocols is a long systems game around identification, camouflage, probing, cost, and ecosystems."
 math: false
 ---
 

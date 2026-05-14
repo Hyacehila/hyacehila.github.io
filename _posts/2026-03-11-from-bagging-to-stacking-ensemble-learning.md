@@ -1,11 +1,13 @@
 ---
 layout: blog-post
 title: 从 Bagging 到 Stacking：集成学习学习笔记
+title_en: "From Bagging to Stacking: Notes on Ensemble Learning"
 date: 2026-03-11 22:30:00 +0800
 categories: [机器学习]
 tags: [Ensemble Learning, Methodology]
 author: Hyacehila
 excerpt: 把 Random Forest、GBDT、XGBoost 与 Stacking 放回同一张图里：一篇集成学习学习笔记。
+excerpt_en: "A study note that puts Random Forest, GBDT, XGBoost, and Stacking back onto the same conceptual map."
 math: true
 ---
 

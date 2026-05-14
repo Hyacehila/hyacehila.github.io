@@ -1,11 +1,13 @@
 ---
 layout: blog-post
 title: 从 LSH 到 K-center-greedy：语义嵌入如何做数据去重、清洗与样本筛选
+title_en: "From LSH to K-Center Greedy: Semantic Embeddings for Deduplication, Cleaning, and Sample Selection"
 date: 2026-03-19 23:20:00 +0800
 categories: [Agent 基础设施]
 tags: [Data Curation, Methodology]
 author: Hyacehila
 excerpt: 语义嵌入不只是用来做检索。LSH 初筛、Faiss 语义去重和 K-center-greedy 样本筛选，都在利用同一个表示空间处理冗余、覆盖与召回问题。
+excerpt_en: "Semantic embeddings are not only for retrieval. LSH filtering, Faiss deduplication, and K-center greedy sampling all use the same representation space for redundancy and coverage."
 featured: false
 math: true
 ---

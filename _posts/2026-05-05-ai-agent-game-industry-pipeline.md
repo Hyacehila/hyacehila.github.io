@@ -1,11 +1,13 @@
 ---
 layout: blog-post
 title: "游戏行业如何引入 AI Agent"
+title_en: "How the Game Industry Can Introduce AI Agents"
 date: 2026-05-05 20:00:00 +0800
 categories: [Agent 系统]
 tags: [Agents, Product]
 author: Hyacehila
 excerpt: "AI Agent 对游戏行业的价值，不在全自动创作，而在进入可验证、可回滚、可审计的生产与反馈流程。"
+excerpt_en: "AI agents matter to the game industry not through fully automated creation, but by entering production and feedback workflows that are verifiable, rollbackable, and auditable."
 featured: false
 math: false
 ---
