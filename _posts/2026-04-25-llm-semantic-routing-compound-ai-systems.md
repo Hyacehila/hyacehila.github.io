@@ -133,4 +133,6 @@ OpenRouter 让我们看到托管平台如何把模型选择、provider 排序和
 
 路由会成为 Agent 基础设施的一部分，也会逐渐被产品封装到用户无需感知的程度。但在系统内部，它回答的是一个很实际的问题：每一步任务该花多少预算，失败时该怎么升级。
 
+这也是它和普通模型选择工具的区别。模型路由真正基础设施化以后，应该接入日志、成本、延迟、工具成功率和质量反馈，让推理预算分配成为可观测、可回滚、可持续调参的系统能力，而不是写死在配置里的几个 if-else。
+
 > 学术界在研究什么：参考阅读 [Dynamic Model Routing and Cascading survey](https://arxiv.org/abs/2603.04445)  ，作者并不了解模型路由相关研究。此综述把 query difficulty、preference、uncertainty、reinforcement learning、multimodality、cascading 等方向整理到一起。方便读者理解路由的基本研究脉络。
