@@ -4,7 +4,7 @@ title: 科幻文学与未来
 title_en: "Science Fiction Literature and the Future"
 date: 2026-05-04 20:30:00 +0800
 categories: [小说时间]
-tags: []
+tags: [Sci-Fi, Literature]
 author: Hyacehila
 excerpt: 科幻不是新技术的技术报告。本文从世界科幻与中国科幻的演变出发，讨论未来、历史岔路和社会科学如何继续为科幻小说提供新题材。
 excerpt_en: "Science fiction is not a technical report about new technologies. This post starts from world and Chinese science-fiction history to discuss futures, historical branches, and social science as new material."
