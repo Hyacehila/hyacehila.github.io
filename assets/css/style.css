@@ -684,7 +684,7 @@ main {
 
 /* 高亮样式 - 黄色和更大字号 */
 .intro-card-text.intro-highlight {
-  color: #FFD700 !important;
+  color: var(--orange-yellow-crayola) !important;
   font-size: var(--fs-5) !important;
   font-weight: var(--fw-500) !important;
 }
@@ -774,6 +774,9 @@ main {
   margin-bottom: 30px;
 }
 
+/* 注意：此处未加作用域的 .article-title{margin-bottom:0} 与 #RESUME 区段（约 956 行）
+   的 .article-title{margin-bottom:30px} 选择器特异性相同；按源序，后者最终生效。
+   如需让本区段标题真正贴合，应改用带父级的作用域选择器（如 .testimonials .article-title）。 */
 .article-title {
   margin-bottom: 0px;
 }
@@ -848,8 +851,7 @@ main {
 }
 
 .testimonial-link:hover .testimonials-item-title {
-  color: #FFD700;
-  /* 黄色色值 */
+  color: var(--orange-yellow-crayola);
 }
 
 /* View All Blogs 方框样式 */
@@ -1406,7 +1408,7 @@ main {
 }
 
 .project-title {
-  color: #FFD700 !important;
+  color: var(--orange-yellow-crayola) !important;
   font-size: var(--fs-3) !important;
   font-weight: var(--fw-600) !important;
   line-height: 1.4 !important;
@@ -1494,7 +1496,7 @@ main {
 }
 
 .paper-title-link {
-  color: #FFD700 !important;
+  color: var(--orange-yellow-crayola) !important;
   text-decoration: none !important;
   transition: var(--transition-1);
 }
@@ -1824,6 +1826,9 @@ main {
   margin-left: 10px;
 }
 
+/* 注意：此处的 color/font-size/font-weight 会被上方 .project-title（约 1407 行，
+   带 !important 的 #PROJECT 卡片样式）覆盖；保留 margin/line-height/text-transform 等
+   未被覆盖的声明。重构 !important 前需先在本地逐项目检视觉效果。 */
 .project-title {
   color: var(--white-2);
   font-size: var(--fs-5);
