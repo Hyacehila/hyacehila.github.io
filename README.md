@@ -55,21 +55,27 @@ English: A static personal portfolio + Jekyll-powered blog.
 
 ```
 PersonelPage/
-├── index.html                  # 主页（Portfolio，含 i18n & travelmap）
+├── index.html                  # 主页骨架（薄壳：include 各区段 + i18n/travelmap 脚本）
 ├── _config.yml                 # Jekyll 配置（permalink, future/show_drafts 等）
 ├── _posts/                     # 已发布文章（YYYY-MM-DD-slug.md）
 ├── _drafts/                    # 草稿（本地 --drafts 预览）
+├── _data/
+│   ├── taxonomy.yml            # 博客分类的唯一来源（被索引页与校验脚本共同读取）
+│   └── i18n/home.json          # 主页中英文案数据（由 index.html 经 jsonify 注入）
 ├── _layouts/
-│   └── blog-post.html          # 文章页布局（固定 header、上一篇/下一篇、标签等）
+│   └── blog-post.html          # 文章页布局（样式/脚本已抽离为外部文件）
 ├── _includes/
-│   └── mathjax.html            # MathJax 配置与加载
+│   ├── mathjax.html            # MathJax 配置与加载
+│   └── home/                   # 主页区段 partial（navbar/about/resume/portfolio/contact）
 ├── blog/
 │   ├── index.html              # 博客主页（筛选/系列卡片/碎碎念）
 │   └── series/
 │       └── index.html          # 系列页（按 series 聚合）
 ├── assets/
 │   ├── css/style.css           # 全站样式
-│   ├── js/script.js            # 主页交互脚本
+│   ├── css/blog-post.css       # 文章页样式（从 blog-post 布局抽离）
+│   ├── js/script.js            # 主页导航脚本
+│   ├── js/blog-render.js       # 文章页 mermaid/MathJax 渲染脚本（从布局抽离）
 │   ├── gitbook/                # 排版/高亮资源
 │   ├── images/                 # 图片资源
 │   ├── murmur/murmur.json      # 碎碎念数据
@@ -152,7 +158,7 @@ math: true
 - `title`: 用于页面标题与列表卡片标题；建议与正文第一个 `#` 保持一致。
 - `title_en`: 英文标题，供主页 About me 区域中的博客预览卡片使用；独立博客页不使用该字段。
 - `date`: 用于排序、URL 与上一篇/下一篇；`_config.yml` 默认 `future: false`，未来日期不会发布。
-- `categories`: 必须是单元素列表，且值只能是 `基础模型`、`Agent 基础设施`、`Agent 系统`、`机器学习`、`数据科学`、`随笔与观察`、`小说时间`。
+- `categories`: 必须是单元素列表，且值只能取自 `_data/taxonomy.yml` 的 `categories` 清单（分类的唯一来源；博客索引页与 `validate_taxonomy.py` 均从此读取）。
 - `tags`: 必须是列表，可为空列表；博客主页会按 Front Matter 自动生成标签筛选。非空 tag 必须是英文 ASCII 字符串、不含逗号、不重复，且每篇文章最多 3 个。
 - `excerpt`: 建议使用单行纯文本；博客列表直接展示该字段。
 - `excerpt_en`: 英文单行摘要，供主页 About me 区域中的博客预览卡片使用；独立博客页继续展示 `excerpt`。
@@ -162,7 +168,7 @@ math: true
 
 ### 3. 标签与 taxonomy
 
-- 博客主页当前使用 7 个固定主分类按钮：`基础模型`、`Agent 基础设施`、`Agent 系统`、`机器学习`、`数据科学`、`随笔与观察`、`小说时间`。
+- 博客主页的固定主分类按钮由 `_data/taxonomy.yml` 的 `categories` 列表驱动（顺序即按钮展示顺序），调整分类只需改这一处。
 - 标签按钮不再依赖手写白名单，而是从所有文章的 `tags` 自动汇总并按自然顺序排序。
 - 推荐优先复用核心标签池：`Agents`、`Tool Use`、`Context Engineering`、`MCP`、`Harness`、`Retrieval`、`Backend`、`Software Engineering`、`Security`、`Evaluation`、`Data Curation`、`Alignment`、`Reinforcement Learning`、`Reward Modeling`、`Fine-Tuning`、`Pre-Training`、`Model Mechanics`、`Reasoning`、`Interpretability`、`Multimodality`、`Statistical Inference`、`Methodology`、`Linear Models`、`Graphical Models`、`Time Series`、`Dimensionality Reduction`、`Ensemble Learning`、`Society`、`Product`。
 - 新增 tag 前先判断它是否预计会被多篇文章复用，或是否正在形成稳定系列；一次性工具名、产品名、项目名和过细实现细节优先保留在标题/正文中，不作为标签。

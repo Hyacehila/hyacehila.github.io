@@ -5,20 +5,38 @@ import sys
 from pathlib import Path
 
 
-ALLOWED_CATEGORIES = {
-    "基础模型",
-    "Agent 基础设施",
-    "Agent 系统",
-    "机器学习",
-    "数据科学",
-    "随笔与观察",
-    "小说时间",
-}
+# 分类清单的唯一来源是 _data/taxonomy.yml；这两个全局在 main() 启动时由
+# load_taxonomy() 填充，validate_post() 继续读取它们（保持签名不变）。
+ALLOWED_CATEGORIES: set[str] = set()
+DEPRECATED_CATEGORIES: set[str] = set()
 
-DEPRECATED_CATEGORIES = {
-    "统计学",
-    "智能体系统",
-}
+
+def load_taxonomy(repo_root: Path) -> tuple[set[str], set[str]]:
+    """极简解析 _data/taxonomy.yml（顶层 key -> '- value' 列表），避免引入 PyYAML 依赖。
+
+    仅支持本项目用到的扁平结构：
+        categories:
+          - 名称
+        deprecated:
+          - 名称
+    """
+    path = repo_root / "_data" / "taxonomy.yml"
+    text = path.read_text(encoding="utf-8-sig")
+    buckets: dict[str, list[str]] = {}
+    current: str | None = None
+    for raw in text.splitlines():
+        line = raw.split("#", 1)[0].rstrip()  # 去掉行内注释
+        if not line.strip():
+            continue
+        if not line[:1].isspace() and line.rstrip().endswith(":"):
+            current = line.strip()[:-1]
+            buckets[current] = []
+        elif line.lstrip().startswith("- ") and current is not None:
+            item = line.lstrip()[2:].strip().strip("'\"")
+            if item:
+                buckets[current].append(item)
+    return set(buckets.get("categories", [])), set(buckets.get("deprecated", []))
+
 
 REQUIRED_FIELDS = {
     "layout",
@@ -164,6 +182,17 @@ def validate_post(path: Path) -> tuple[list[str], str | None]:
 
 def main() -> int:
     repo_root = Path(__file__).resolve().parent.parent
+
+    global ALLOWED_CATEGORIES, DEPRECATED_CATEGORIES
+    try:
+        ALLOWED_CATEGORIES, DEPRECATED_CATEGORIES = load_taxonomy(repo_root)
+    except (OSError, ValueError) as exc:
+        print(f"Failed to load _data/taxonomy.yml: {exc}", file=sys.stderr)
+        return 1
+    if not ALLOWED_CATEGORIES:
+        print("No categories found in _data/taxonomy.yml", file=sys.stderr)
+        return 1
+
     posts_dir = repo_root / "_posts"
     errors: list[str] = []
     series_categories: dict[str, set[str]] = {}
