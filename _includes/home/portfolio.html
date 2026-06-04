@@ -1,0 +1,176 @@
+{%- comment -%} 主页 #PORTFOLIO 区段，从 index.html 抽离。{%- endcomment -%}
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title" data-i18n="portfolio-title">Projects</h2>
+        </header>
+
+        <section class="portfolio-list">
+          <ul class="grid-list">
+
+            <!-- 项目 -->
+            <li class="portfolio-item">
+              <div class="project-card">
+                <div class="project-header">
+                  <div class="project-title-wrapper">
+                    <div class="project-type-badge project-type">
+                      <ion-icon name="code-slash-outline"></ion-icon>
+                      <span data-i18n="type-project">项目</span>
+                    </div>
+                    <h4 class="h4 project-title" data-i18n="project-novel-eval-title">Novel Evaluation：基于 LLM Rubric 的小说结构化评测工具</h4>
+                  </div>
+                  <div class="project-meta">
+                    <div class="project-subtitle" data-i18n="project-novel-eval-desc">个人研究项目 · LLM as Judge / LLM Evaluation</div>
+                    <div class="project-status completed" data-i18n="status-completed">已完成</div>
+                  </div>
+                </div>
+
+                <div class="project-details">
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="project-background">项目背景：</h5>
+                    <p class="detail-content" data-i18n="project-novel-eval-background">
+                      面向小说质量评测这一高度主观且难以标准化的问题，项目尝试引入 LLM Rubric / LLM as Judge，将原本依赖经验与直觉的文本判断拆解为多个可解释维度，对其进行分层评估与量化表达。希望在保留文学判断弹性的同时，让评测过程更系统化且可迭代改进。
+                    </p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="tech-implementation">技术实现：</h5>
+                    <p class="detail-content" data-i18n="project-novel-eval-implementation">
+                      项目围绕分阶段评测流程构建，包含输入预检查、8 轴 LLM Rubric 评分、一致性整理、聚合与最终结果投影。8 轴主要覆盖平台契合程度、商业性、核心优点、核心缺点等关键维度，并通过严格 JSON 与 schema 约束保证 LLM 输出结果可被利用。系统层面则完成前端界面、后端任务执行与数据存储。
+                    </p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="project-results">项目成果：</h5>
+                    <p class="detail-content" data-i18n="project-novel-eval-results">形成了包含完整前端交互界面、后端任务执行与数据库的评测工具，支持任务创建、状态跟踪、结果展示与历史回访。可输出总体判断、平台候选、市场判断等 8 轴评价结果与总体评价。验证了将 LLM Rubric 方法引入到文学评价这一高度主观且评价角度分散领域的可行性。</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 项目 -->
+            <li class="portfolio-item">
+              <div class="project-card">
+                <div class="project-header">
+                  <div class="project-title-wrapper">
+                    <div class="project-type-badge project-type">
+                      <ion-icon name="code-slash-outline"></ion-icon>
+                      <span data-i18n="type-project">项目</span>
+                    </div>
+                    <h4 class="h4 project-title" data-i18n="project-mental-title">基于可穿戴设备技术的心理健康检测方案</h4>
+                  </div>
+                  <div class="project-meta">
+                    <div class="project-subtitle" data-i18n="project-mental-desc">国家级大学生创新创业训练计划项目</div>
+                    <div class="project-status completed" data-i18n="status-completed">已完成</div>
+                  </div>
+                </div>
+
+                <div class="project-details">
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="project-background">项目背景：</h5>
+                    <p class="detail-content" data-i18n="project-mental-background">
+                      传统心理健康评估依赖主观问卷，存在评估间断性和主观偏差问题。随着可穿戴设备的普及，连续监测生理指标成为可能，项目旨在构建基于可穿戴设备数据的心理健康评估模型，实现客观、连续的心理状态监测，为心理健康评估提供新的技术途径。
+                    </p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="tech-implementation">技术实现：</h5>
+                    <p class="detail-content" data-i18n="project-mental-implementation">
+                      从NetHealth数据集四年观测数据中筛选出43个关键变量，构建约3万行的多时间尺度数据集；采用多重插补链式方程（MICE）处理缺失值，应用Boxplot检测并移除离群值，对偏态数据实施BoxCox变换，使用PCA对于高度复共线性的原始时间序列数据进行了维数缩减；构建ElasticNet、RandomForest、XGBoost三个基模型，使用了决策树Stacking集成策略，最终通过网格搜索优化整体超参数。
+                    </p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="project-results">项目成果：</h5>
+                    <p class="detail-content" data-i18n="project-mental-results">集成模型达到MSE
+                      0.032的优异性能，显著优于所有基模型；成功实现了从可穿戴设备数据到心理健康状态的端到端预测；项目获得国家级创新创业训练计划立项支持，为心理健康监测提供了新的技术路径。</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 竞赛项目 -->
+            <li class="portfolio-item">
+              <div class="project-card">
+                <div class="project-header">
+                  <div class="project-title-wrapper">
+                    <div class="project-type-badge competition-type">
+                      <ion-icon name="trophy-outline"></ion-icon>
+                      <span data-i18n="type-competition">竞赛</span>
+                    </div>
+                    <h4 class="h4 project-title" data-i18n="project-health-title">中国现代化下人民健康状况测度与影响因素</h4>
+                  </div>
+                  <div class="project-meta">
+                    <div class="project-subtitle" data-i18n="project-health-desc">全国大学生统计建模大赛</div>
+                    <div class="project-status completed" data-i18n="status-completed">已完成</div>
+                  </div>
+                </div>
+
+                <div class="project-details">
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="project-background">项目背景：</h5>
+                    <p class="detail-content" data-i18n="project-health-background">
+                      随着现代化进程加快，传统单一健康指标难以全面反映中国居民复杂的健康状况变化。本项目旨在构建一个综合性的健康评价体系，多维度评估人民健康状况及其影响因素，为现代化背景下的公共卫生政策提供数据支撑。
+                    </p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="tech-implementation">技术实现：</h5>
+                    <p class="detail-content" data-i18n="project-health-implementation">
+                      整合国家统计局数据库和商业数据库中的多源健康指标，利用爬虫技术从CNKI获取医疗研究重心变化趋势；应用主成分分析处理数据库中获取的健康指标，基于系数解释性选择前两个具备实际意义的主成分作为和健康测度；构建LASSO回归模型，通过网格搜索在系数稀疏性和模型R²间寻找最优平衡点，确保模型的可解释性和预测能力。
+                    </p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="project-results">项目成果：</h5>
+                    <p class="detail-content" data-i18n="project-health-results">
+                      最终模型达到R²约0.89的优异拟合效果，成功识别出影响中国居民健康状况的关键因素；构建的健康测度体系为现代化进程中的健康评估提供了新视角并最终获得赛区一等奖。</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 专利卡片模板 - 已注释，可作为添加新专利的参考
+            <li class="portfolio-item">
+              <div class="project-card">
+                <div class="project-header">
+                  <div class="project-title-wrapper">
+                    <div class="project-type-badge patent-type">
+                      <ion-icon name="shield-checkmark-outline"></ion-icon>
+                      <span data-i18n="type-patent">专利</span>
+                    </div>
+                    <h4 class="h4 project-title">基于联邦学习的隐私保护医疗数据分析系统</h4>
+                  </div>
+                  <div class="project-meta">
+                    <div class="project-subtitle">发明专利 CN202310123456.7</div>
+                    <div class="project-status pending" data-i18n="status-pending">审查中</div>
+                  </div>
+                </div>
+
+                <div class="project-details">
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="detail-technical-background">技术背景：</h5>
+                    <p class="detail-content" data-i18n="patent-technical-background">
+                      解决医疗机构间数据孤岛问题，在保护患者隐私的前提下实现医疗数据的联合分析和建模。</p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="detail-core-innovation">核心创新：</h5>
+                    <p class="detail-content" data-i18n="patent-core-innovation">
+                      提出基于同态加密的联邦学习架构，支持在加密状态下进行梯度聚合，确保原始数据不离开本地服务器。</p>
+                  </div>
+
+                  <div class="detail-section">
+                    <h5 class="detail-title" data-i18n="detail-application-scenarios">应用场景：</h5>
+                    <p class="detail-content" data-i18n="patent-application-scenarios">适用于医院联盟、医疗保险、公共卫生监测等需要跨机构数据协作的场景。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            -->
+
+          </ul>
+        </section>
+
+      </article>

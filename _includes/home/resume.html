@@ -1,0 +1,255 @@
+{%- comment -%} 主页 #RESUME 区段，从 index.html 抽离。{%- endcomment -%}
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title" data-i18n="resume-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="school-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3" data-i18n="education-title">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="university-wuhan">Wuhan University</h4>
+
+              <span>Sep 2025 — Jul 2027</span>
+
+              <p class="timeline-text" data-i18n="education-wuhan">
+                Currently pursuing Master's degree in Applied Statistics, with research focusing on LLM Agent,
+                Evaluation, and Agentic Reinforcement Learning. Aiming to build powerful LLM AI Agents to solve
+                real-world problems.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="university-xidian">Xidian University</h4>
+
+              <span>Sep 2021 — Jul 2025</span>
+
+              <p class="timeline-text" data-i18n="education-xidian">
+                Bachelor's degree in Statistics. Established solid theoretical foundation in statistical analysis,
+                machine learning, and data mining. Participated in national data modeling competitions to develop
+                practical implementation skills.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3" data-i18n="experience-title">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="experience-nsfocus-title-company">Algorithm Researcher
+                (Intern) | NSFOCUS Technology (Wuhan)</h4>
+
+              <span>Dec 2025 &mdash; Mar 2026</span>
+
+              <div class="project-details">
+                <div class="detail-point">
+                  <strong data-i18n="experience-nsfocus-p1-label">Security Data Pipeline</strong><span
+                    data-i18n="experience-nsfocus-p1"><br><b>&bull; Automated Data Pipeline:</b> Built a security data
+                    preprocessing and feature extraction pipeline over GitHub repositories and internal databases;
+                    extracted and validated 8,000+ CVE instances, distilled about 4,000 high-quality samples, and
+                    produced multi-dimensional CWE/OWASP labels.<br><b>&bull; Sample Mixing for Training Targets:</b>
+                    Mixed samples to align vulnerability-type and programming-language distributions with training
+                    targets.</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="experience-nsfocus-p2-label">CodeQL Review Agent</strong><span
+                    data-i18n="experience-nsfocus-p2"><br><b>&bull; Single-Agent Review Loop:</b> Built a single-agent
+                    workflow for CodeQL-based code review, covering information retrieval, repository navigation, taint
+                    analysis, and engine-backed validation. Added reflection from real execution feedback to improve
+                    self-correction and long-horizon decision-making.<br><b>&bull; SFT & RL Data Synthesis:</b> Analyzed 500
+                    raw CVEs to distill 2,500 structured SFT trajectories with high-confidence tool-use patterns and 300
+                    verified taint-flow examples for cold start and downstream RL training.</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="experience-nsfocus-p3-label">RL Baseline & Alignment Roadmap</strong><span
+                    data-i18n="experience-nsfocus-p3"><br><b>&bull; RL Baseline:</b> Completed a rule-based reward design
+                    and the initial RL training pipeline using high-quality taint-flow supervision.<br><b>&bull; Advanced
+                      Alignment Roadmap:</b> Proposed a next-stage alignment roadmap that combines Faiss+LSH-based
+                    vector sampling, curriculum-style difficulty control, and an LLM-as-Judge reward system for
+                    long-horizon taint analysis.</span>
+                </div>
+              </div>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline research-section">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3" data-i18n="research-title">Research</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="research-analysisposts-title">Trustworthy Public Opinion
+                Analysis Multi-Agent System</h4>
+
+              <span class="research-venue" data-i18n="research-analysisposts-venue">Led multi-agent architecture
+                design, focusing on black-box observability, long-horizon generation drift, and evidence traceability
+                in open-domain agent systems.</span>
+
+              <div class="project-details">
+                <div class="detail-point">
+                  <strong data-i18n="research-analysisposts-p1-label">Multi-Agent Runtime &amp; White-Box
+                    Observability</strong><span data-i18n="research-analysisposts-p1">Built a three-stage runtime
+                    across data preparation, collaborative analysis, and report generation on top of PocketFlow, and
+                    standardized statistical-analysis tools through MCP to reduce fragmented tool invocation, poor
+                    extensibility, and limited auditability in agent workflows. Also developed a Streamlit white-box
+                    console exposing step-level traces, tool I/O, and node scheduling paths, reducing exception
+                    diagnosis time for complex tasks from hours to 10 minutes.</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="research-analysisposts-p2-label">Collaborative Orchestration &amp; Conflict
+                    Resolution</strong><span data-i18n="research-analysisposts-p2">Designed ForumHost as the explicit
+                    orchestration hub for open-domain public-opinion analysis, coordinating DataAgent for quantitative
+                    analysis over labeled data and tools, and SearchAgent for real-time facts and context via Tavily.
+                    Through iterative evidence supplementation, cross-challenge, conflict detection, and stopping
+                    conditions, the workflow constrained multi-agent collaboration from free-form dialogue into a
+                    controllable process and mitigated context pollution and objective drift. In representative
+                    head-to-head validation, key factual error rate dropped from about 20% to 0 versus a single-agent
+                    baseline using only DataAgent, and the factual portions of the final report required no further
+                    manual correction.</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="research-analysisposts-p3-label">Structured Reporting &amp; Citation
+                    Constraints</strong><span data-i18n="research-analysisposts-p3">To address snowball
+                    hallucinations, unconstrained elaboration, and citation drift in long-horizon report generation,
+                    embedded structured output schemas, inline citations, source backtracking, and reliability
+                    annotations into chapter-by-chapter generation. Each core claim had to bind to evidence, source,
+                    and confidence score, with a verifier agent performing secondary checks on critical conclusions and
+                    cited evidence. Final reports reached 95% citation coverage, while incorrect citation rate was
+                    reduced to 3%.</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="research-analysisposts-p4-label">High-Concurrency Data Processing
+                    Pipeline</strong><span data-i18n="research-analysisposts-p4">Built an Async-based high-concurrency
+                    cleaning and semantic annotation pipeline for massive unordered raw posts. Few-shot prompted LLM
+                    nodes handled text cleaning, label completion, and semantic normalization, while retry logic,
+                    resumable execution, and concurrency control mitigated API rate limits and stabilized the data
+                    foundation for downstream analysis. Under a 40-60 concurrency budget, processing time for 20,000
+                    records was reduced to under 12 hours, and input-token cost dropped by about 60% by caching
+                    few-shot examples and system prompts.</span>
+                </div>
+              </div>
+
+              <div class="research-links">
+                <a href="https://github.com/Hyacehila/AnalysisPosts" class="research-link" target="_blank"
+                  rel="noopener noreferrer">
+                  <ion-icon name="logo-github"></ion-icon>
+                  <span data-i18n="link-code">Code</span>
+                </a>
+              </div>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title" data-i18n="research-ptsd-title">Unveiling the Drivers of PTSD: An
+                Interpretable Machine Learning Approach with SHAP</h4>
+
+              <span class="research-venue" data-i18n="research-ptsd-venue">International Conference on Intelligent
+                Computing and Data Analysis 2025 ; EI</span>
+
+              <div class="project-details">
+                <div class="detail-point">
+                  <strong data-i18n="research-ptsd-tech-label">研究与技术方案</strong><span
+                    data-i18n="research-ptsd-tech">为深入分析903名应急人员的PTSD影响因素，采用可解释机器学习架构。构建基于决策树集成的随机森林预测模型，并引入SHAP（Shapley
+                    Additive exPlanations）和PDP（Partial Dependence Plots）对黑盒模型进行全方位解构，结合Friedman
+                    H-statistic深度验证变量间的复杂非线性交互效应。</span>
+                </div>
+                <div class="detail-point">
+                  <strong data-i18n="research-ptsd-result-label">核心发现与结论</strong><span
+                    data-i18n="research-ptsd-result">精准量化了心理韧性对PTSD的缓冲作用（SHAP值为0.5061），并敏锐捕捉到年龄分布上的U型非线性规律。研究不仅验证了韧性、年龄与创伤暴露间的深层交互模式，更为不同年龄段的高危职业人群提供了数据驱动的差异化干预基准。</span>
+                </div>
+              </div>
+
+              <div class="research-links">
+                <a href="https://doi.org/10.1145/3772726.3772849" class="research-link" target="_blank"
+                  rel="noopener noreferrer">
+                  <ion-icon name="document-text-outline"></ion-icon>
+                  <span data-i18n="link-paper">Paper</span>
+                </a>
+                <a href="https://github.com/Hyacehila/PTSD-IML" class="research-link" target="_blank"
+                  rel="noopener noreferrer">
+                  <ion-icon name="logo-github"></ion-icon>
+                  <span data-i18n="link-code">Code</span>
+                </a>
+              </div>
+
+            </li>
+
+
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="trophy-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3" data-i18n="awards-title">Awards & Certificates</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title" data-i18n="award-modeling">全国大学生统计建模大赛陕西省一等奖</h4>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title" data-i18n="award-sas">中国高校SAS数据分析大赛全国三等奖</h4>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title" data-i18n="award-mcm">美国大学生数学建模竞赛二等奖</h4>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title" data-i18n="award-cet">CET4: 510 | CET6: 513</h4>
+            </li>
+
+          </ol>
+
+        </section>
+
+      </article>

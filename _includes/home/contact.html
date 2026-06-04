@@ -1,0 +1,95 @@
+{%- comment -%} 主页 #CONTACT 区段，从 index.html 抽离。{%- endcomment -%}
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title" data-i18n="contact-title">Contact</h2>
+        </header>
+
+        <section class="contact-info">
+
+          <ul class="contact-list">
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+
+              <div class="contact-content">
+                <h4 class="h4" data-i18n="contact-email">Email</h4>
+                <a href="mailto:hyacehila@126.com" class="contact-link">hyacehila@126.com</a>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+
+              <div class="contact-content">
+                <h4 class="h4" data-i18n="contact-phone">Phone</h4>
+                <a href="tel:+86157******21" class="contact-link">+86 157-****-**21</a>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="map-outline"></ion-icon>
+              </div>
+
+              <div class="contact-content">
+                <h4 class="h4" data-i18n="contact-address">Address</h4>
+                <address class="contact-link" data-i18n="contact-address-text">266 Bayi Road, Wuchang District<br>Wuhan,
+                  Hubei Province</address>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </div>
+
+              <div class="contact-content">
+                <h4 class="h4">Linkedin</h4>
+                <a href="https://www.linkedin.com/in/hyacehila" class="contact-link">hyacehila</a>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="logo-github"></ion-icon>
+              </div>
+
+              <div class="contact-content">
+                <h4 class="h4">GitHub</h4>
+                <a href="https://github.com/Hyacehila" class="contact-link">Hyacehila</a>
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+        <!--
+          - Travel Footprint Map
+        -->
+
+        <section class="travel-map-section">
+
+          <h3 class="h3 section-title" data-i18n="travel-map-title">Travel Footprints</h3>
+
+          <div class="map-toggle-wrapper">
+            <button class="map-toggle-btn active" data-map-mode="china" data-i18n="map-toggle-china">
+              <ion-icon name="location-outline"></ion-icon>China
+            </button>
+            <button class="map-toggle-btn" data-map-mode="world" data-i18n="map-toggle-world">
+              <ion-icon name="globe-outline"></ion-icon>World
+            </button>
+          </div>
+
+          <div class="travel-map-container">
+            <div id="travel-map"></div>
+          </div>
+
+        </section>
+
+      </article>
