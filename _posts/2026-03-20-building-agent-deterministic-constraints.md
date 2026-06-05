@@ -376,6 +376,6 @@ Claude Code 不是一个孤立产品，而是**一组被产品化的 Harness 原
 - Vercel, [AGENTS.md outperforms skills in our agent evals](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)
 - 知乎，[从 Claude Code 看 Harness Engineer 的设计](https://zhuanlan.zhihu.com/p/2021603278606087058?share_code=11INMrHCLcWKE&utm_psn=2025010367944730281)
 - [《让 Agent 变得可行，大模型结构化输出与受限解码技术》](/blog/2026/03/01/语言模型的结构化输出/)
-- [《Context is All You Need：智能体的上下文工程》](/blog/2026/03/06/agent-context-engineering/)
+- [《Context is All You Need：智能体的上下文工程》](/blog/2026/03/23/agent-context-engineering/)
 - [《从 MCP 到 Agent Skills：为什么 Agent 又需要一种新的上下文工程协议？》](/blog/2026/03/10/from-mcp-to-agent-skills/)
 - [《AEnvironment：Agent 需要一个统一的环境层吗？》](/blog/2026/03/16/aenvironment-everything-as-environment/)

@@ -51,7 +51,7 @@ OpenAI 对 `Codex` 的叙事则更偏另一侧。无论是 `Codex app`、`GPT-5.
 
 如果把这层差异再说得更直接一点，`Claude Code` 与 `Codex` 的不同，已经不太像“两个功能列表谁更长”的不同，而更像产品如何把模型放进开发环境的不同。`Claude Code` 更像先把工作流搭起来：先理解任务、组织上下文、设定权限边界、接上工具回路，再让模型在这个回路里持续推进；`Codex` 则更像先把任务边界收清楚，再利用强模型的编码能力直接执行，把 agent 性更多体现在执行链路里。
 
-这不是谁先进谁落后的问题，而是产品化入口不同。若结合我之前写的 [Agent 框架与原生 runtime](/blog/2026/03/03/cognitive-architecture-to-agent-framework/) 和 [上下文工程](/blog/2026/03/06/agent-context-engineering/)，这里其实也在回答同一个问题：当模型能力足够强之后，系统怎么把它放进环境里工作。`Claude Code` 与 `Codex`，恰好代表了两种不同答案。这里不评判方案的好与坏，只讨论它们的差别和适用场景。
+这不是谁先进谁落后的问题，而是产品化入口不同。他在回答：当模型能力足够强之后，系统怎么把它放进环境里工作。`Claude Code` 与 `Codex`，恰好代表了两种不同答案。这里不评判方案的好与坏，只讨论它们的差别和适用场景。
 
 很多开发者会体感到，在较高思考强度的任务里，`GPT-5.4` 一类模型有时会呈现更长的等待段；一旦产品把这种等待、可见反馈和接管方式继续放进 harness，在等待时间上的体验差异就会被进一步放大。但这更多是在当前产品实现和常见用法下的观察，并不该被写成绝对结论。
 
@@ -187,5 +187,5 @@ OpenAI 对 `Codex` 的叙事则更偏另一侧。无论是 `Codex app`、`GPT-5.
 
 - [Model Is Good Enough：2026 年，AI 真正稀缺的是应用而不是更大的模型](/blog/2026/03/18/model-is-good-enough/)
 - [从智能体的认知结构到智能体框架：CoALA 之后，Framework 还重要吗？](/blog/2026/03/03/cognitive-architecture-to-agent-framework/)
-- [Context is All You Need：智能体的上下文工程](/blog/2026/03/06/agent-context-engineering/)
+- [Context is All You Need：智能体的上下文工程](/blog/2026/03/23/agent-context-engineering/)
 - [从 MCP 到 Agent Skills：为什么 Agent 又需要一种新的上下文工程协议？](/blog/2026/03/10/from-mcp-to-agent-skills/)
