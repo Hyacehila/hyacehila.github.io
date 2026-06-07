@@ -1367,6 +1367,49 @@ main {
   border: 1px solid rgba(251, 191, 36, 0.3);
 }
 
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-shrink: 0;
+  min-height: 28px;
+  padding: 5px 12px;
+  background: var(--eerie-black-1);
+  border: 1px solid var(--jet);
+  border-radius: 16px;
+  color: var(--light-gray) !important;
+  font-size: var(--fs-8);
+  font-weight: var(--fw-500);
+  line-height: 1;
+  text-decoration: none !important;
+  transition: var(--transition-1);
+}
+
+.project-link ion-icon {
+  font-size: 14px;
+  color: var(--light-gray-70);
+  transition: var(--transition-1);
+}
+
+.project-link span {
+  display: inline;
+  white-space: nowrap;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+  border-color: var(--orange-yellow-crayola);
+  color: var(--orange-yellow-crayola) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px hsla(45, 100%, 72%, 0.15);
+}
+
+.project-link:hover ion-icon,
+.project-link:focus-visible ion-icon {
+  color: var(--orange-yellow-crayola);
+}
+
 /* 增强的项目卡片样式 */
 .project-card {
   position: relative;
@@ -1586,6 +1629,10 @@ main {
 
   .project-status {
     margin-left: 0;
+    align-self: flex-end;
+  }
+
+  .project-link {
     align-self: flex-end;
   }
 
