@@ -17,10 +17,10 @@
                       <ion-icon name="code-slash-outline"></ion-icon>
                       <span data-i18n="type-project">项目</span>
                     </div>
-                    <h4 class="h4 project-title" data-i18n="project-novel-eval-title">Novel Evaluation：基于 LLM Rubric 的小说结构化评测工具</h4>
+                    <h4 class="h4 project-title" data-i18n="project-novel-eval-title">Novel Evaluation：基于 LLM Rubric 的小说结构化评测系统</h4>
                   </div>
                   <div class="project-meta">
-                    <div class="project-subtitle" data-i18n="project-novel-eval-desc">个人研究项目 · LLM as Judge / LLM Evaluation</div>
+                    <div class="project-subtitle" data-i18n="project-novel-eval-desc">个人研究项目 · LLM as Judge / 评测工作流</div>
                     <div class="project-status completed" data-i18n="status-completed">已完成</div>
                     <a class="project-link" href="https://github.com/Hyacehila/novel_evaluation" target="_blank"
                       rel="noopener noreferrer">
@@ -32,22 +32,17 @@
 
                 <div class="project-details">
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-background">项目背景：</h5>
-                    <p class="detail-content" data-i18n="project-novel-eval-background">
-                      面向小说质量评测这一高度主观且难以标准化的问题，项目尝试引入 LLM Rubric / LLM as Judge，将原本依赖经验与直觉的文本判断拆解为多个可解释维度，对其进行分层评估与量化表达。希望在保留文学判断弹性的同时，让评测过程更系统化且可迭代改进。
+                    <h5 class="detail-title" data-i18n="project-novel-eval-problem-title">核心问题：</h5>
+                    <p class="detail-content" data-i18n="project-novel-eval-problem">
+                      小说评测高度依赖编辑经验、平台直觉、类型判断和市场判断，标准分散且难以复用，不同作品之间也很难稳定比较。这个项目关注的是：能否用 LLM Rubric 把“像编辑一样判断”的过程拆成清晰、可解释、可迭代的评测依据，而不是只给出一个黑箱式总分。
                     </p>
                   </div>
 
                   <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="tech-implementation">技术实现：</h5>
-                    <p class="detail-content" data-i18n="project-novel-eval-implementation">
-                      项目围绕分阶段评测流程构建，包含输入预检查、8 轴 LLM Rubric 评分、一致性整理、聚合与最终结果投影。8 轴主要覆盖平台契合程度、商业性、核心优点、核心缺点等关键维度，并通过严格 JSON 与 schema 约束保证 LLM 输出结果可被利用。系统层面则完成前端界面、后端任务执行与数据存储。
+                    <h5 class="detail-title" data-i18n="project-novel-eval-solution-title">系统方案：</h5>
+                    <p class="detail-content" data-i18n="project-novel-eval-solution">
+                      我围绕 LLM Rubric 构建了一套本地单用户评测系统：先进行输入筛查与分析模式选择，再依次完成类型识别、8 轴 Rubric 评分、类型 lens 评估、一致性检查、聚合与最终结果投影，输出包含总体判断、评分轴和可选类型评估的结构化结果。除 Rubric 方案本身外，项目也完成了前端任务创建与结果展示、FastAPI 后端任务执行、SQLite 历史与结果持久化、Prompt 资产管理、Schema 校验以及 eval/batch 回归工具等工程化系统。
                     </p>
-                  </div>
-
-                  <div class="detail-section">
-                    <h5 class="detail-title" data-i18n="project-results">项目成果：</h5>
-                    <p class="detail-content" data-i18n="project-novel-eval-results">形成了包含完整前端交互界面、后端任务执行与数据库的评测工具，支持任务创建、状态跟踪、结果展示与历史回访。可输出总体判断、平台候选、市场判断等 8 轴评价结果与总体评价。验证了将 LLM Rubric 方法引入到文学评价这一高度主观且评价角度分散领域的可行性。</p>
                   </div>
                 </div>
               </div>
