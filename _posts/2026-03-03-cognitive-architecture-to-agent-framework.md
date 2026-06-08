@@ -73,7 +73,9 @@ CoALA 的核心执行单元可以理解为 ReAct Loop。虽然目前已经提出
 
 工程框架中的图结构、条件边、工具 schema、system prompt、skills、MCP Server、审批规则，都可以看作程序记忆的一部分。程序记忆是启动智能体所必需的，但它也最容易被误用。自动生成 Workflow 本质上是在修改程序记忆：如果没有专家知识介入和验证，生成出来的流程可能看似合理，却在边界条件下无法纠错。
 
-**2026年6月补：Claude Code 捣鼓出来了一个 [Dynamic Workflows](https://claude.com/blog/introducing-dynamic-workflows-in-claude-code),本质上就是在动态的调整程序记忆，我和淚笑在1月聊过这个问题，毫无疑问，他是危险的，Agent的输出还没有可信到那个地步；最初淚笑设计出来的东西就有点类似他，人工撰写一个DAG的YAML文件（其实可以有环，但更不安全），然后搞一套 Runtime 去自动化完成这个 DAG，CC 的这个新设计，也没有那么领先；后面淚笑捣鼓出来的[新项目](https://github.com/l3yx/intentlang)更加符合我们的出发点，让专家经验更多的进入硬约束，但让专家不用研究这越来越卷的 Agent 概念。**
+**2026年6月补：Claude Code 捣鼓出来了一个 [Dynamic Workflows](https://claude.com/blog/introducing-dynamic-workflows-in-claude-code),本质上就是在动态的调整程序记忆，我和淚笑在1月聊过这个问题，毫无疑问，他是危险的，Agent的输出还没有可信到那个地步；最初淚笑设计出来的东西就有点类似他，人工撰写一个DAG的YAML文件（其实可以有环，但更不安全），然后搞一套 Runtime 去自动化完成这个 DAG，CC 的这个新设计，也没有那么领先；后面淚笑捣鼓出来的[intentlang](https://github.com/l3yx/intentlang)更加符合我们的出发点，让专家经验更多的进入硬约束，但让专家不用研究这越来越卷的 Agent 概念。**
+
+之所以最初的 YAML 构想被放弃，也是因为他的表达能力不足，容易写着写着变 DSL ，然后人工写起来坐牢，AI 写起来费 token，intentlang 处理了这个问题，靠新发明编程语言，dynamic-workflows 也解决了这个问题，靠 JS 和一套解析 JS 的 Runtime。 其实换个其他图灵完备的高度可并发语言也一样，还能狠狠的利用成熟语言的各个高级功能如各种中间态文件。不过捣鼓这种东西的时候，要注意配置 Subagent 权限，当初不做他是因为容易翻车，现在模型变强了，但仍旧有风险，控制 Subagent 能力能够避免翻大车。
 
 因此程序记忆既是稳定性的来源，也是僵化和技术债务的来源。Workflow、LangGraph 的 StateGraph、Dify 的工作流、n8n 的自动化流程，本质上都是在把一部分决策逻辑写入程序记忆。而更接近 MAS 的系统，则会把程序记忆从硬约束更多退回到软约束。
 
