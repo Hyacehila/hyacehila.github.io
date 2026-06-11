@@ -2,7 +2,7 @@
 layout: blog-post
 title: Context is All You Need：智能体的上下文工程
 title_en: "Context Is All You Need: Context Engineering for Agents"
-date: 2026-03-23 12:00:00 +0800
+date: 2026-06-11 12:00:00 +0800
 categories: [Agent 系统]
 tags: [Agents, Context Engineering]
 author: Hyacehila
@@ -16,29 +16,31 @@ math: false
 
 ## 引言：从地图到手册
 
-在[《从记忆形成到记忆治理：Agent Memory 的全景图》](/blog/2026/03/21/agent-memory-panorama/)里，我把 Agent Memory 拆成了三层结构：L1 全上下文（知识直接在当前窗口里，靠长上下文与 KV-cache 支撑）、L2 外部记忆（向量库、文件系统、知识图谱里的外接非参数记忆）、L3 参数记忆（编码进权重的隐式知识）。那篇文章的主角是 L2，也就是长期记忆如何形成、组织、更新和失效。L1 这部分，我当时只留下了一个入口：当前推理现场里，信息到底怎么选择、压缩、隔离和调度。
+在[《从记忆形成到记忆治理：Agent Memory 的全景图》](/blog/2026/03/21/agent-memory-panorama/)里，我把 Agent Memory 拆成了三层结构：L1 全上下文（知识直接在当前窗口里，靠长上下文与 KV-cache 支撑）、L2 外部记忆（向量库、文件系统、知识图谱里的外接非参数记忆）、L3 参数记忆（编码进权重的隐式知识）。
 
-这篇文章接着讲这个入口。Memory 全景图更像一张地图，回答的是"长期记忆都在研究什么"；本文换成一个更工程化的问题：在真实的 Agent runtime 里，注意力预算有限，信息怎么读进来、怎么留住、又怎么从当前窗口里换出去？
+那篇文章的主角是 L2，也就是长期记忆如何形成、组织、更新和失效。L1 这部分，我当时只留下了一个简单的解释：**当前推理现场里，信息到底怎么选择、压缩、隔离和调度。**
 
-## 写在正文开始之前
+这篇文章接着讲这个入口。Memory 全景图更像一张地图，回答的是"长期记忆都在研究什么"；本文换成一个更工程化的问题：在真实的 Agent runtime 里，注意力预算有限，信息怎么读进来、怎么留住、又怎么从当前窗口里离开？
 
-正文会从存储结构讲到运行时手法。先把几件事讲清楚：本文在整个系列里处在哪一层，"上下文工程"在这里具体指什么，以及为什么上下文应该被当成一种需要调度的有限资源。
+## 正文开始之前
+
+正文会从存储结构讲到运行时手法。先把几件事讲清楚：本文在整个系列里处在哪一层，上下文工程在这里具体指什么，以及为什么上下文应该被当成一种需要调度的有限资源。
 
 ### 三篇的分工：地图、手册、拆解
 
 这篇文章和前后两篇是一组，但分工不同：《Agent Memory 全景图》偏研究视角，讨论长期记忆怎么形成、组织、更新、失效和评估。本文偏工程落地，讨论在一个 runtime 里，有限注意力预算下信息怎么进出当前窗口。《Agent Runtime Teardown》偏产品和框架拆解，讨论市面上常见的 Agent Runtime 和独立记忆系统怎么装配这些方案。
 
-所以本文会停在"工程方案"这一层，把常见手法讲清楚，但不逐个产品横评。读到某个机制时，如果你想知道某个具体系统怎么实现，代码的每一行是怎么写的，答案在 teardown 篇里。
+所以本文会停在工程实现，把常见手法讲清楚，但不逐个产品横评。读到某个机制时，如果你想知道某个具体系统怎么实现，代码的每一行是怎么写的，答案在 teardown 篇里。
 
-按 CoALA 的语言（见[《从智能体的认知结构到智能体框架》](/blog/2026/03/03/cognitive-architecture-to-agent-framework/)），本文讨论的基本都是 Working Memory 的工程化管理：什么该进场，什么该留在场上，什么该退场，什么要在需要时重新召回。只要底层还是 attention 机制和有限窗口，这几个动作就绕不开。
-
-为了更好的理解记忆调度问题，我们也必须对 Memory 所使用的数据结构进行一定的介绍，广义的 RAG 以及一些工程上的 Context 调度手段是本文的后面将要讨论的核心。
+按 CoALA 的语言（见[《从智能体的认知结构到智能体框架》](/blog/2026/03/03/cognitive-architecture-to-agent-framework/)），本文讨论的基本都是 Working Memory 的工程化管理：什么该进场，什么该留在场上，什么该退场，什么要在需要时重新召回，以及他们的附属需求和一些使用的 trick。只要底层还是 attention 机制和有限窗口，这几个动作就绕不开。
 
 ### 严格区分 LLM Memory 与 Agent Memory
 
-讨论运行时调度前，先拆开一个常见混淆：KV-Cache、RoPE、Attention 变种、长上下文架构，解决的是模型如何更高效地利用窗口；Agent Memory 解决的是智能体如何跨任务积累、检索、更新和遗忘知识。前者是推理基础设施，后者是系统设计。解决他们的思路完全不同，相关研究也大相径庭。
+讨论运行时调度前，先拆开一个常见混淆：KV-Cache、RoPE、Attention 变种、长上下文架构，这些 LLM Memory 解决的是模型如何拥有更长更有效的上下文窗口；Agent Memory 解决的是智能体如何跨任务积累、检索、更新和遗忘知识。前者是推理基础设施，后者是系统设计。解决他们的思路完全不同，相关研究也大相径庭。
 
-这条区分对本文尤其重要，因为本文谈的正好是 L1。L1 的物理基底确实是 LLM Memory：窗口能放多少、prompt cache 命中率多高、decode 多贵，都由模型架构和推理基础设施决定。但本文不展开这层成本机理。为什么 output token 比 input 贵、prefill 与 decode 的不对称、KV-Cache 如何吃掉显存和调度槽位，以及怎么把上下文组织得 KV-Cache 友好，我在[《为什么 Output Token 更贵：从 KV Cache 到 Agent 成本工程》](/blog/2026/04/26/output-token-pricing-kv-cache-agent-cost/)里已经单独讲过。本文接受这些基础设施约束，只讨论 Agent 在约束之上怎么组织上下文。简单说：LLM Memory 决定工作台有多大、多贵；Agent Context Engineering 决定工作台上该放什么。
+L1 的物理基底是 LLM Memory：窗口能放多少、prompt cache 命中率多高、decode 多贵，都由模型架构和推理基础设施决定。为什么 output token 比 input 贵、prefill 与 decode 的不对称、KV-Cache 如何吃掉显存和调度槽位，以及怎么把上下文组织得 KV-Cache 友好，我在[《为什么 Output Token 更贵：从 KV Cache 到 Agent 成本工程》](/blog/2026/04/26/output-token-pricing-kv-cache-agent-cost/)里已经单独聊过。
+
+L2 是 Agent 附属结构，但它与 L1 需要产生信息交换才能发挥作用，任何信息都必须进入推理的上下文窗口。如何在恰当的时候让信息进入，如何让 L1 的信息迁出。当我们讨论 Agent Memory 的时候，要接受 L1 这些基础设施约束。讨论 Agent 在约束之上怎么组织上下文。简单说：LLM Memory 决定工作台有多大、多贵；Agent Context Engineering 决定工作台上该放什么。
 
 ### 上下文是有限资源：Context Rot 与注意力预算
 
@@ -46,9 +48,9 @@ Context Engineering 的动机很直接：上下文是有限资源，而且退化
 
 更大的窗口不等于更好的利用。早在 [Lost in the Middle](https://arxiv.org/abs/2307.03172) 里就有一个被反复验证的现象：模型对长上下文不同位置的信息利用并不均匀，开头和结尾的信息更容易被用上，中间的信息经常被忽略，即便是长上下文模型也一样。
 
-Chroma 的 [Context Rot](https://www.trychroma.com/research/context-rot) 报告测了 18 个模型，结论相当一致：性能会随输入长度增长而退化，而且退化不均匀，常常出现在很意外的位置。大海捞针（NIAH）测试不一定能够准确反应LLM的长上下文能力，性能退化可能远比我们想象的更早。更反直觉的是，他们发现结构连贯的 haystack 反而不如打乱顺序的 haystack。也就是说，让上下文"读起来更顺"有时会损害检索性能。这说明问题没有一个简单的"装满就崩"阈值，内容呈现方式也会影响模型取用信息。（P.s. 这家公司是做 Vector Retrival Infra 的，好用）
+Chroma 的 [Context Rot](https://www.trychroma.com/research/context-rot) 报告测了 18 个模型，结论相当一致：性能会随输入长度增长而退化，而且退化不均匀，常常出现在很意外的位置。大海捞针（NIAH）测试不一定能够准确反应LLM的长上下文能力，性能退化可能远比我们想象的更早。更反直觉的是，他们发现结构连贯的 haystack 反而不如打乱顺序的 haystack。也就是说，让上下文读起来更顺有时会损害检索性能。没有一个简单的装满就崩阈值，注意力的召回是一个非常难以预测的问题。
 
-Anthropic 在 [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) 里把这件事拆成两个协作的概念：模型在充足的信息中受益，受限于 Transformer 的结构产生上下文腐烂。那么无论是压缩，笔记还是 Subagent 他们都是为了找到能最大化目标达成概率的、最小的高信号 token 集合。
+Anthropic 在 [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) 里把这件事拆成两个拮抗的概念：模型在充足的信息中受益，但受限于 Transformer 的结构产生上下文腐烂。那么无论是Compact，Notes 还是 Subagent 他们都是为了找到能最大化目标达成概率的、最小的高信号 token 集合。
 
 这就是后面所有方案的前提。上下文会腐化，注意力有预算，所以"信息放在哪""怎么取出来""怎么写进去""什么时候隔离"都不是锦上添花。而是处理复杂任务的必需。我们将分别讨论记忆的结构，检索与写入的手段，和一些工程上的有趣 tricks。
 

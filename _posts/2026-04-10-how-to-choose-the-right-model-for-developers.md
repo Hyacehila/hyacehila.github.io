@@ -187,5 +187,5 @@ OpenAI 对 `Codex` 的叙事则更偏另一侧。无论是 `Codex app`、`GPT-5.
 
 - [Model Is Good Enough：2026 年，AI 真正稀缺的是应用而不是更大的模型](/blog/2026/03/18/model-is-good-enough/)
 - [从智能体的认知结构到智能体框架：CoALA 之后，Framework 还重要吗？](/blog/2026/03/03/cognitive-architecture-to-agent-framework/)
-- [Context is All You Need：智能体的上下文工程](/blog/2026/03/23/agent-context-engineering/)
+- [Context is All You Need：智能体的上下文工程](/blog/2026/06/11/agent-context-engineering/)
 - [从 MCP 到 Agent Skills：为什么 Agent 又需要一种新的上下文工程协议？](/blog/2026/03/10/from-mcp-to-agent-skills/)

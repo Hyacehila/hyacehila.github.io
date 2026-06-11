@@ -22,7 +22,7 @@ math: false
 
 - **CoALA 的记忆层次**（工作记忆 / 情景 / 语义 / 程序记忆），来自认知结构篇；
 - **L1/L2/L3 三层成本框架**（全上下文 / 外部记忆 / 参数记忆），来自[《Agent Memory 全景图》](/blog/2026/03/21/agent-memory-panorama/)；
-- **运行时上下文手法**（compaction、reset、subagent、checkpoint、外部化、recitation），来自[《Context is All You Need》](/blog/2026/03/23/agent-context-engineering/)；
+- **运行时上下文手法**（compaction、reset、subagent、checkpoint、外部化、recitation），来自[《Context is All You Need》](/blog/2026/06/11/agent-context-engineering/)；
 - **harness 三分**（工程 / 产品 / 用户友好外壳），来自 harness 篇。
 
 这篇文章要做的，就是**把这套坐标系盖到真实系统上**，回答两个前几篇没回答的问题：第一，当 L1 + L2 + L3 + 工具 + 隔离 + 治理被**装配进一个具体系统**时，接缝长什么样、谁和谁打架？第二，对照坐标系，**哪些格子是理论说该有、而某个产品没做的**？
@@ -99,7 +99,7 @@ math: false
 
 - [《从智能体的认知结构到智能体框架》](/blog/2026/03/03/cognitive-architecture-to-agent-framework/)
 - [《从记忆形成到记忆治理：Agent Memory 的全景图》](/blog/2026/03/21/agent-memory-panorama/)
-- [《Context is All You Need：智能体的上下文工程》](/blog/2026/03/23/agent-context-engineering/)
+- [《Context is All You Need：智能体的上下文工程》](/blog/2026/06/11/agent-context-engineering/)
 - [《给 LLM 戴上确定性枷锁的外围工程：从 Claude Code 看 Agent Harness》](/blog/2026/03/20/building-agent-deterministic-constraints/)
 - [《Harness 到底是什么：从 model + harness 到工程、产品与用户友好外壳》](/blog/2026/04/04/understanding-agent-harness/)
 - TODO：Mem0 / Letta / Zep / LangGraph / OpenAI Agents SDK / Claude Code 官方文档链接，读后补全
