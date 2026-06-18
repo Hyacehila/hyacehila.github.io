@@ -75,7 +75,7 @@ math: false
 
 - **记忆更新策略**：手动编辑（Letta）vs 自动去重（Mem0）vs 时间失效（Zep）vs 确定性快照（LangGraph）——"谁/什么来更新记忆，为什么"的根本分歧。
 - **长上下文换出策略**：DB 分页 / 压缩 / 时间剪枝 / checkpoint / 模型侧 compaction，各自的代价。
-- **多智能体取舍**：这里承接 Context 篇留下的 Anthropic-vs-Cognition 辩论，但落在"产品实际怎么选"上。
+- **多智能体取舍**：这里承接认知结构篇 “MAS or Single Agent and Dynamic Workflow” 留下的边界讨论，但落在“产品实际怎么选”上。
 
 ## 对比维度表（骨架）
 
