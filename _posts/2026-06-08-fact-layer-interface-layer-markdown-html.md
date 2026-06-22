@@ -16,7 +16,7 @@ math: false
 
 最近有个说法挺容易让人心动：AI 以后不该再输出 Markdown ，而应该直接给 HTML。
 
-这话不是纯粹为了造梗。Claude Code 团队的 Thariq Shihipar 写了《Using Claude Code: The unreasonable effectiveness of HTML》，Simon Willison 又转述了一次。那篇文章的例子很实在：代码审查、调研报告、图表、交互式编辑器、PR 说明，都可以做成一个能在浏览器里打开的 `.html` 文件。和一长串 Markdown 比，它确实更像一个可以上手用的工作台。
+这话不是纯粹为了造梗。Claude Code 团队的 Thariq Shihipar 写了《Using Claude Code: The unreasonable effectiveness of HTML》，Simon Willison 又转述了一次，然后 Karpathy 又来吹了吹。那篇文章的例子很实在：代码审查、调研报告、图表、交互式编辑器、PR 说明，都可以做成一个能在浏览器里打开的 `.html` 文件。和一长串 Markdown 比，它确实更像一个可以上手用的工作台。
 
 看起来挺让人心动的，应该有不少人都遇到过手机打不开`.md`的问题。
 
@@ -92,6 +92,10 @@ John Gruber 当年对 Markdown 的定位其实很清楚：HTML 是 publishing fo
 > Markdown 负责事实，HTML 负责理解。源文件不变，视图可丢，结论回流。
 
 Skill 没有取代 MCP，CLI 不会取代 GUI，HTML 也不会取代 Markdown， AI Agent 改变很多东西，但炒作的强度比现实的变化更猛。
+
+p.s. 为什么 Anthropic 的团队总是喜欢给我们搞一堆更烧 token 的方案，HTML 意味着我们需要为每一个 `<>` 付钱，多智能体和 Dynamic Workflow 也是 token 消耗大户，吹这玩意是为了赚我钱？
+
+p.s. 从 `.md ` 到 `.html` 背后还有一个更宏伟的概念，等到脑机接口成熟以后，我们应该直接输出表征流（视频流），交互速度直接拉满，`.html` 也只是临时中间体。
 
 ## 参考资料
 
