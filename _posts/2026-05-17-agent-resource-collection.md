@@ -66,4 +66,20 @@ Web Video Presentation 更像一套把文章变成视频分享的编辑流程。
 
 所以我会把它们放在同一个条目里，而不是拆开收藏。Remotion 解决的是怎么把 React 代码可靠地渲染成视频；Web Video Presentation 解决的是怎么把一篇文章组织成值得录下来的讲解。一个偏底层工程，一个偏内容导演。它们不是互斥关系，更像上下游：先用 Web Video Presentation 的方法把博客拆成口播、章节和视觉节拍，再在需要更稳定导出时，把这些中间产物迁到 Remotion 里做最终渲染。打造一个属于自己的视频生成工作流，需要不同能力的整合而不是 All in One。
 
-当我们想把一篇技术 blog 改为一个视频进行分享的时候，视频生成模型往往不是好的选择，他们昂贵且不精确，适合输出情绪而非技术细节。把内容、脚本、节拍、画面、音频、字幕、导出分层。Web Video Presentation 给了很好的内容层和协作节奏，Remotion 给了更可靠的视频工程出口。做单条技术分享时，前者会更顺手；做系列化、模板化、自动化导出时，后者更值得投入。这里聊到他们，是因为我也在捣鼓让 AI 去生成视频的工作流，来为创建的 blog 提供一个新的技术分发渠道。
+当我们想把一篇技术 blog 改为一个视频进行分享的时候，视频生成模型往往不是好的选择，他们昂贵且不精确，适合输出情绪而非技术细节。把内容、脚本、节拍、画面、音频、字幕、导出分层。Web Video Presentation 给了很好的内容层和协作节奏，Remotion 给了更可靠的视频工程出口。做单条技术分享时，前者会更顺手；做系列化、模板化、自动化导出时，后者更值得投入。
+
+我也在捣鼓让 AI 去生成视频的工作流，来为创建的 blog 提供一个新的技术分发渠道。
+
+### [yinyo-image2-prompt](https://github.com/xiaoshiyilangzhao1996-droid/yinyo-image2-prompt) / [GPT Image 2 Skill](https://github.com/ConardLi/garden-skills/blob/main/skills/gpt-image-2/SKILL.md)
+
+**类型：Skill**
+
+这两个 skills 都围绕同一个问题：怎么让 Agent 更稳定地使用 GPT Image 2 生图和改图，而不是每次临时堆一段提示词。新一代图像模型对“8K、ultra detailed、masterpiece”这类旧咒语已经不太吃了，真正影响结果的反而是主体顺序、场景结构、文字约束、镜头语言、编辑时哪些要变和哪些不能变。它们处理的就是这层翻译工作：把人的模糊想法，变成模型更容易执行的视觉指令。
+
+yinyo-image2-prompt 小而专。它把 GPT Image 2 的常见任务拆成 35 个子模板，用 5-Phase 流程引导用户先判断场景、再补足关键参数，背后还整理了 33 组盲评和几组 PK 赛的经验。它会提醒你什么时候不要套模板：App UI、Logo、编辑工作流这种结构强的任务，模板很有帮助；Pixar 3D、概念插画这类更靠叙事和画面感的任务，过度工程化反而会把模型的自由度压坏。这个判断比单纯多塞几个 prompt 更有用。
+
+ConardLi 的 GPT Image 2 Skill 则更像一条生图生产线。它不只负责写 prompt，还把运行环境分成三种模式：本地有 API key 时可以直接调用脚本出图并落盘；宿主 Agent 自带图像工具时，就把渲染好的 prompt 委托给宿主；如果什么图像工具都没有，它也能退化成纯 prompt 顾问。它还带有 `check-mode.js`、`generate.js`、`edit.js` 这些脚本，模板库按 UI、产品、信息图、学术图、技术图、编辑工作流等目录展开，prompt 和图片也会分别归档，适合真正接进 Agent 的工作流里反复使用。
+
+yinyo-image2-prompt 更适合用来学习和优化 GPT Image 2 的提示词判断：该问什么、该省什么、什么场景别过度写。GPT Image 2 Skill 更适合作为工程入口：让 Agent 先判断模式，再选模板、渲染 prompt、保存产物，必要时直接出图。前者像脑子，后者像手脚；真正想把生图变成稳定工作流时，两个放在一起看会更完整。
+
+生图得玩，感觉拿来搞钱还是很有前景的。
