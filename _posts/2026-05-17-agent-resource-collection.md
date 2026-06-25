@@ -32,6 +32,16 @@ math: false
 
 它也要和 [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) 区分开。`vercel-labs/skills` 是 CLI / 分发工具，像基础设施；`vercel-labs/agent-skills` 才是 Vercel 官方维护的内容型 skills 集合。前者管怎么装，后者管装什么。这两个仓库放在一起看，能看出 Vercel 不只想写几份好用的 `SKILL.md`，也想把分发这件事做顺。Vercel 官方也写了一些关于他们在 Skills 方面研究的 blogs，他们的观点是值得参考的。
 
+### [ClawHub](https://github.com/openclaw/clawhub)
+
+**类型：Skill / Plugin 注册表 / 分发目录**
+
+ClawHub 是 OpenClaw 生态里的公共 skill registry。它把围绕 `SKILL.md` 和配套文件的发布、版本、搜索、安装、评论、收藏和审查收进同一套目录里。具体任务怎么做，仍然交给各个 skill 自己；ClawHub 关心的是这些 skills 和 plugins 怎么被发现、更新和治理。
+
+把它和 `vercel-labs/skills` 放在一起看会更清楚。`vercel-labs/skills` 偏安装和迁移：从 GitHub、本地目录或 git source 把 skill 放到合适的位置。ClawHub 偏 OpenClaw 自己的 registry 和 package catalog：既有技能目录，也开始覆盖 code plugins、bundle plugins 这类更重的扩展单元。对于 OpenClaw 来说，它承担的是公共市场和索引层的角色。
+
+用这类注册表时，别只看名字就装。安装前先 inspect：来源、版本、changelog、metadata、扫描状态和 moderation 状态都值得扫一眼。Skill 的门槛低是好事，但它会把脚本、环境变量、外部服务和本地权限一起带进 Agent 工作流里。越顺手，越要先看清楚。
+
 ### [Remotion Agent Skills](https://www.remotion.dev/docs/ai/skills)
 
 **类型：Skill**
