@@ -1,0 +1,5 @@
+| [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs) | 通用科研技能库 | Orchestra Research | AI/ML 研究 | 选题、训练、评测、写作、部署 | 目前最像“AI 研究技能树”的原生仓库。 |
+| [K-Dense-AI/claude-scientific-skills](https://github.com/K-Dense-AI/claude-scientific-skills) | 通用科研技能库 | K-Dense | 生物、医学、化学、材料、地学、金融 | 检索、数据、分析、写作、部分建模 | 跨学科范围最广，像一个科学数据库与工作流技能总库。 |
+| [ClawBio/ClawBio](https://github.com/ClawBio/ClawBio) | 垂直学科技能库 | ClawBio | 生物信息学、基因组学、单细胞、药物基因组学 | 数据获取、分析管线、复现、文献综合 | 我见到的最像“bioinformatics-native” 的原生技能库。 |
+| [FreedomIntelligence/OpenClaw-Medical-Skills](https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills) | 聚合型垂直技能包 | Freedom Intelligence / OpenClaw 生态 | 临床、基因组学、药物发现、医学设备 | 检索、临床文书、omics 管线、合规 | 更像一个医疗超大集合包，价值在聚合，不完全在原创。 |
+| [HeshamFS/materials-simulation-skills](https://github.com/HeshamFS/materials-simulation-skills) | 垂直学科技能库 | Hesham F. S. | 材料科学、数值模拟、HPC | 建模、仿真、验证、作业提交 | 这是我最看重的 AI4S / 传统科学计算例子。 |
