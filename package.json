@@ -1,0 +1,31 @@
+{
+  "name": "hyacehila-blog",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Hyacehila's personal blog, migrated to Hexo + Redefine",
+  "scripts": {
+    "clean": "hexo clean",
+    "build": "hexo generate",
+    "server": "hexo server"
+  },
+  "hexo": {
+    "version": "8.1.2"
+  },
+  "dependencies": {
+    "hexo": "^8.1.2",
+    "hexo-filter-katex": "^1.1.0",
+    "hexo-filter-mermaid-diagrams": "^1.0.5",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-feed": "^4.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-searchdb": "^1.5.0",
+    "hexo-generator-sitemap": "^3.0.1",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.1",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0",
+    "hexo-theme-redefine": "^2.9.0"
+  }
+}
