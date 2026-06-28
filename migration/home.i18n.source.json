@@ -139,7 +139,16 @@
     "university-xidian": "Xidian University",
     "travel-map-title": "Travel Footprints",
     "map-toggle-china": "China",
-    "map-toggle-world": "World"
+    "map-toggle-world": "World",
+    "portfolio-intro": "Presented as cases: problem · approach · tech stack · results · links.",
+    "about-aggregator-lead": "A drawer of odds and ends: murmurs, CV, footprints, friends and contact. The formal intro lives on <a href=\"/me/\">Me</a>.",
+    "about-murmur-title": "Murmurs",
+    "about-cv-title": "CV",
+    "about-cv-download": "Download PDF",
+    "about-cv-placeholder": "The CV is being put together and will be uploaded soon.",
+    "map-legend-study": "Study",
+    "map-legend-travel": "Travel",
+    "map-legend-home": "Home"
   },
   "zh": {
     "nav-home": "主页",
@@ -277,6 +286,19 @@
     "university-xidian": "西安电子科技大学",
     "travel-map-title": "旅行足迹",
     "map-toggle-china": "中国",
-    "map-toggle-world": "世界"
+    "map-toggle-world": "世界",
+    "about-text-1": "hyacehila 是我长期使用的网络 ID。它源自我最喜欢的植物——风信子（hyacinth），后来我把它改写成更轻、更像名字的形式：hyacehila。结尾的 -hila / -ila 让它带上一点轻盈、空灵、虚构的质感，所以对我而言，它不只是一个用户名，更像一只栖息在复杂结构之中的风信子精灵。",
+    "about-text-2": "这个 ID 也贴近我对技术的理解：在密集的系统、工具链、工作流与不确定的环境中穿行，去寻找一条自然、可解释、真正能解决问题的路径。我关注通用的问题解决范式，也关注技术能否在真实场景之间迁移与泛化。",
+    "about-text-3": "现在我主要专注于 AI Agent 的落地与评估（Evaluation），在我看来，这是把大模型带入工程实践与工业流水线最重要的两项技术。我同时研究 Single-Agent 与 Multi-Agent 系统：它们如何被设计、评估、约束，并最终嵌入真实业务流程，而不是停留在 benchmark 层面。写商业小说是我的副业爱好。",
+    "about-text-4": "你可以叫我 Julian 或 Jules。",
+    "portfolio-intro": "以案例结构呈现：问题背景 · 我的方案 · 技术栈 · 结果产出 · 链接。",
+    "about-aggregator-lead": "这里是零碎内容的集合：碎碎念、CV、足迹、朋友与联系方式。正式的自我介绍在 <a href=\"/me/\">Me</a>。",
+    "about-murmur-title": "碎碎念",
+    "about-cv-title": "CV",
+    "about-cv-download": "下载 PDF",
+    "about-cv-placeholder": "CV 正在整理中，稍后上传。",
+    "map-legend-study": "学习",
+    "map-legend-travel": "旅游",
+    "map-legend-home": "家"
   }
 }
