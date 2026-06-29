@@ -71,19 +71,23 @@ npx hexo publish draft "标题"     # 草稿转正式
 ```yaml
 ---
 title: "标题"
+title_en: "English title"   # 切到 EN 时列表/归档/分类/标签里显示的英文标题
 date: 2026-06-25 10:00:00
 categories: [随笔与观察]
 tags: [Agents, Design]
 excerpt: "摘要"
+excerpt_en: "English excerpt"  # 切到 EN 时首页卡片显示的英文摘要
 mathjax: false      # 数学渲染由 KaTeX 全站处理，此字段保留但不再依赖
+archived: false     # true => 不在首页文章流显示，但仍进归档/分类/标签
 ---
 ```
 
 约定：
 - **不要在正文开头写 `# 标题`**；标题只写在 front-matter 的 `title:`，主题会渲染页面标题。
+- **归档/隐藏首页**：给文章加 `archived: true`，它就不再出现在 Home 文章流，但仍保留在 `/archives/`、分类、标签里，单篇链接也不变。
+- **双语**：除博客正文（仅中文）外全站支持 EN/中 切换。列表/归档/分类/标签里的文章标题与首页摘要会用 `title_en`/`excerpt_en`；个人页用 `data-i18n`；导航/侧栏/页脚等主题文案也会翻译。选择持久化在 localStorage。
 - 数学公式：`$...$` 行内、`$$...$$` 块级，构建期由 `hexo-filter-katex` 渲染为静态 HTML。
 - 流程图：` ```mermaid ` 代码块。
-- 双语：个人页通过 `data-i18n="key"` 复用 `migration/home.i18n.source.json` 字典；右下角按钮切换 EN/中，并同步翻译导航/侧栏/页脚等主题文案，选择持久化在 localStorage。
 
 ### 更新碎碎念 / 友链
 

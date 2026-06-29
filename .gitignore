@@ -58,3 +58,4 @@ temp/
 
 # Optional eslint cache
 .eslintcache
+migration/*.html

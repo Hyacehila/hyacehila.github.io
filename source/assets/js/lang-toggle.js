@@ -101,6 +101,70 @@
     });
   }
 
+  // Blog list i18n: swap post titles/excerpts to their English fields in EN
+  // mode (Home feed, archives, categories, tags). Data comes from a generated
+  // map {url: {title_en, excerpt_en}} so no theme-template edits are needed.
+  var POST_I18N = null;
+  var POST_I18N_PENDING = false;
+
+  function normUrl(href) {
+    if (!href) return "";
+    // strip origin, query/hash; ensure single leading slash + trailing slash
+    href = href.replace(/^https?:\/\/[^/]+/, "").split(/[?#]/)[0];
+    if (href.charAt(0) !== "/") href = "/" + href;
+    if (href.charAt(href.length - 1) !== "/") href += "/";
+    return href;
+  }
+
+  function swapPostTitles(lang) {
+    if (!POST_I18N) return;
+    var links = document.querySelectorAll('a[href*="/blog/"]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var rec = POST_I18N[normUrl(a.getAttribute("href"))];
+      if (!rec || !rec.title_en) continue;
+      // skip "阅读全文"/"read more" links (they carry a hidden seo span)
+      if (a.querySelector(".seo-reader-text")) continue;
+      // The title text may live directly in the <a> (home cards) or in a child
+      // .article-title span (archives / category / tag list). Pick the element
+      // that actually holds the title text and swap only that.
+      var el = a.querySelector(".article-title") || a;
+      // skip links that wrap non-title content (e.g. a thumbnail image only)
+      if (el === a && (!a.textContent.trim() || a.querySelector("img"))) continue;
+      if (el.dataset.zhTitle === undefined) el.dataset.zhTitle = el.textContent.trim();
+      var target = lang === "en" ? rec.title_en : el.dataset.zhTitle;
+      if (target && el.textContent.trim() !== target) el.textContent = target;
+    }
+    // Home card excerpts: each card's title link gives the URL; the excerpt is
+    // the sibling .home-article-content in the same article item.
+    var items = document.querySelectorAll(".home-article-item");
+    for (var j = 0; j < items.length; j++) {
+      var item = items[j];
+      var titleLink = item.querySelector(".home-article-title a");
+      var exc = item.querySelector(".home-article-content");
+      if (!titleLink || !exc) continue;
+      var r = POST_I18N[normUrl(titleLink.getAttribute("href"))];
+      if (!r || !r.excerpt_en) continue;
+      if (exc.dataset.zhHtml === undefined) exc.dataset.zhHtml = exc.innerHTML;
+      if (lang === "en") {
+        exc.innerHTML = "<p>" + r.excerpt_en + "</p>";
+      } else if (exc.dataset.zhHtml !== undefined) {
+        exc.innerHTML = exc.dataset.zhHtml;
+      }
+    }
+  }
+
+  function applyPostI18n(lang) {
+    if (POST_I18N) { swapPostTitles(lang); return; }
+    if (POST_I18N_PENDING) return;
+    POST_I18N_PENDING = true;
+    fetch("/assets/data/post-i18n.json")
+      .then(function (r) { return r.json(); })
+      .then(function (m) { POST_I18N = m || {}; swapPostTitles(getLang()); })
+      .catch(function () { POST_I18N = {}; })
+      .then(function () { POST_I18N_PENDING = false; });
+  }
+
   function applyI18n() {
     var dict = window.I18N;
     if (!dict) return;
@@ -128,6 +192,10 @@
     // Translate the theme chrome (navbar / sidebar / footer) so the toggle has a
     // visible effect on Home and every page, where there are no [data-i18n] nodes.
     applyChrome(lang);
+
+    // Swap blog titles/excerpts in lists (Home / archives / categories / tags)
+    // to their English fields when in EN mode. Post bodies stay Chinese.
+    applyPostI18n(lang);
 
     // Notify dependent modules (e.g. the globe tooltips).
     if (typeof window.updateGlobeLanguage === "function") {

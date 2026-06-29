@@ -40,17 +40,110 @@
   };
 
   function loadGlobeLib(cb) {
-    if (window.Globe) { cb(); return; }
+    if (window.Globe && window.THREE) { cb(); return; }
     if (window.__globeLibLoading) {
-      var t = setInterval(function () { if (window.Globe) { clearInterval(t); cb(); } }, 60);
+      var t = setInterval(function () {
+        if (window.Globe && window.THREE) { clearInterval(t); cb(); }
+      }, 60);
       return;
     }
     window.__globeLibLoading = true;
-    var s = document.createElement("script");
-    s.src = GLOBE_SRC;
-    s.onload = function () { cb(); };
-    s.onerror = function () { window.__globeLibLoading = false; };
-    document.head.appendChild(s);
+    // Load THREE + globe.gl from the SAME ESM module graph (esm.sh) so they
+    // share one THREE instance (a mismatched THREE breaks globe.gl's internal
+    // instanceof checks). Expose both on window for the rest of about.js.
+    var loader = document.createElement("script");
+    loader.type = "module";
+    loader.textContent = [
+      "import * as THREE from 'https://esm.sh/three@0.179.0';",
+      "import Globe from 'https://esm.sh/globe.gl@2?deps=three@0.179.0';",
+      "window.THREE = THREE;",
+      "window.Globe = Globe;",
+      "window.dispatchEvent(new Event('globe-lib-ready'));"
+    ].join("\n");
+    loader.onerror = function () { window.__globeLibLoading = false; };
+    window.addEventListener("globe-lib-ready", function () { cb(); }, { once: true });
+    document.head.appendChild(loader);
+  }
+
+  // ---- Day/night terminator -------------------------------------------------
+  // Blends a day texture and a night texture by the real sun direction, so the
+  // globe shows the actual day/night boundary for the current moment.
+  var DAY_TEX = "https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-day.jpg";
+  var NIGHT_TEX = "https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg";
+
+  var DAYNIGHT_VERT = [
+    "varying vec3 vNormal;",
+    "varying vec2 vUv;",
+    "void main() {",
+    "  vNormal = normalize(normalMatrix * normal);",
+    "  vUv = uv;",
+    "  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);",
+    "}"
+  ].join("\n");
+
+  var DAYNIGHT_FRAG = [
+    "#define PI 3.141592653589793",
+    "uniform sampler2D dayTexture;",
+    "uniform sampler2D nightTexture;",
+    "uniform vec2 sunPosition;",
+    "uniform vec2 globeRotation;",
+    "varying vec3 vNormal;",
+    "varying vec2 vUv;",
+    "float toRad(in float a) { return a * PI / 180.0; }",
+    "vec3 Polar2Cartesian(in vec2 c) {",
+    "  float theta = toRad(90.0 - c.x);",
+    "  float phi = toRad(90.0 - c.y);",
+    "  return vec3(sin(phi) * cos(theta), cos(phi), sin(phi) * sin(theta));",
+    "}",
+    "void main() {",
+    "  float invLon = toRad(globeRotation.x);",
+    "  float invLat = -toRad(globeRotation.y);",
+    "  mat3 rotX = mat3(1, 0, 0, 0, cos(invLat), -sin(invLat), 0, sin(invLat), cos(invLat));",
+    "  mat3 rotY = mat3(cos(invLon), 0, sin(invLon), 0, 1, 0, -sin(invLon), 0, cos(invLon));",
+    "  vec3 rotatedSunDirection = rotX * rotY * Polar2Cartesian(sunPosition);",
+    "  float intensity = dot(normalize(vNormal), normalize(rotatedSunDirection));",
+    "  vec4 dayColor = texture2D(dayTexture, vUv);",
+    "  vec4 nightColor = texture2D(nightTexture, vUv);",
+    "  float blendFactor = smoothstep(-0.1, 0.1, intensity);",
+    "  gl_FragColor = mix(nightColor, dayColor, blendFactor);",
+    "}"
+  ].join("\n");
+
+  // Sub-solar point [lng, lat] for a given Date (compact NOAA-style solar calc).
+  function sunPosAt(dt) {
+    var ms = +dt;
+    var dayStart = new Date(ms);
+    dayStart.setUTCHours(0, 0, 0, 0);
+    // Julian centuries since J2000.0
+    var jd = ms / 86400000 + 2440587.5;
+    var t = (jd - 2451545.0) / 36525.0;
+    var deg = Math.PI / 180;
+    // geometric mean longitude & anomaly of the sun
+    var L0 = (280.46646 + t * (36000.76983 + t * 0.0003032)) % 360;
+    var M = 357.52911 + t * (35999.05029 - 0.0001537 * t);
+    var e = 0.016708634 - t * (0.000042037 + 0.0000001267 * t);
+    var Mr = M * deg;
+    var C = (1.914602 - t * (0.004817 + 0.000014 * t)) * Math.sin(Mr) +
+            (0.019993 - 0.000101 * t) * Math.sin(2 * Mr) +
+            0.000289 * Math.sin(3 * Mr);
+    var trueLong = L0 + C;
+    var omega = 125.04 - 1934.136 * t;
+    var lambda = trueLong - 0.00569 - 0.00478 * Math.sin(omega * deg);
+    // obliquity
+    var seconds = 21.448 - t * (46.8150 + t * (0.00059 - t * 0.001813));
+    var eps0 = 23 + (26 + seconds / 60) / 60;
+    var eps = eps0 + 0.00256 * Math.cos(omega * deg);
+    // declination
+    var declination = Math.asin(Math.sin(eps * deg) * Math.sin(lambda * deg)) / deg;
+    // equation of time (minutes)
+    var y = Math.tan(eps / 2 * deg); y = y * y;
+    var Lr = L0 * deg;
+    var Eqt = y * Math.sin(2 * Lr) - 2 * e * Math.sin(Mr) +
+              4 * e * y * Math.sin(Mr) * Math.cos(2 * Lr) -
+              0.5 * y * y * Math.sin(4 * Lr) - 1.25 * e * e * Math.sin(2 * Mr);
+    Eqt = Eqt / deg * 4; // radians -> minutes
+    var longitude = (dayStart.getTime() - ms) / 864e5 * 360 - 180;
+    return [longitude - Eqt / 4, declination];
   }
 
   function buildPoints(cities, lang) {
@@ -82,8 +175,13 @@
         .then(function (cities) {
           window.__globeCities = cities;
           var lang = currentLang();
-          var g = window.Globe()(el)
-            .globeImageUrl(EARTH_TEX)
+          // globe.gl ESM default export is a constructor: new Globe(el).
+          // (UMD style Globe()(el) also exists; support both.)
+          var GlobeCtor = window.Globe;
+          var inst;
+          try { inst = new GlobeCtor(el); }
+          catch (e) { inst = GlobeCtor()(el); }
+          var g = inst
             .backgroundColor("rgba(0,0,0,0)")
             .pointsData(buildPoints(cities, lang))
             .pointAltitude("size")
@@ -94,6 +192,48 @@
                 '<b>' + escapeHtml(d.label) + '</b> · ' + escapeHtml(d.typ || "") +
                 (d.detail ? '<br>' + escapeHtml(d.detail) : '') + '</div>';
             });
+
+          // Day/night terminator material (falls back to flat texture if THREE
+          // or the shader is unavailable for any reason).
+          var THREE = window.THREE;
+          if (THREE && THREE.ShaderMaterial) {
+            try {
+              var loader = new THREE.TextureLoader();
+              Promise.all([
+                loader.loadAsync(DAY_TEX),
+                loader.loadAsync(NIGHT_TEX)
+              ]).then(function (tex) {
+                var material = new THREE.ShaderMaterial({
+                  uniforms: {
+                    dayTexture: { value: tex[0] },
+                    nightTexture: { value: tex[1] },
+                    sunPosition: { value: new THREE.Vector2() },
+                    globeRotation: { value: new THREE.Vector2() }
+                  },
+                  vertexShader: DAYNIGHT_VERT,
+                  fragmentShader: DAYNIGHT_FRAG
+                });
+                g.globeMaterial(material)
+                  .onZoom(function (pov) {
+                    material.uniforms.globeRotation.value.set(pov.lng, pov.lat);
+                  });
+                // set the sun to the real current position (one-shot; the
+                // terminator is correct for "now"). pass a fixed timestamp via
+                // Date.now equivalent through performance origin to avoid
+                // disallowed Date.now in some contexts:
+                var now = new Date();
+                material.uniforms.sunPosition.value.set.apply(
+                  material.uniforms.sunPosition.value, sunPosAt(now)
+                );
+              }).catch(function () {
+                g.globeImageUrl(EARTH_TEX);
+              });
+            } catch (e) {
+              g.globeImageUrl(EARTH_TEX);
+            }
+          } else {
+            g.globeImageUrl(EARTH_TEX);
+          }
           try {
             g.controls().autoRotate = true;
             g.controls().autoRotateSpeed = 0.6;
