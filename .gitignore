@@ -11,6 +11,7 @@ db.json
 
 # Migration verification artifacts (screenshots, build logs)
 migration/shots/
+migration/shots*/
 migration/*.log
 migration/build*.log
 migration/server*.log

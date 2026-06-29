@@ -10,8 +10,6 @@ excerpt_en: "Treating context as a finite resource: from context rot and attenti
 permalink: '/blog/2026/06/11/agent-context-engineering/'
 ---
 
-# Context is All You Need：智能体的上下文工程
-
 ## 引言：从地图到手册
 
 在[《从记忆形成到记忆治理：Agent Memory 的全景图》](/blog/2026/03/21/agent-memory-panorama/)里，我把 Agent Memory 拆成了三层结构：L1 全上下文（知识直接在当前窗口里，靠长上下文与 KV-cache 支撑）、L2 外部记忆（向量库、文件系统、知识图谱里的外接非参数记忆）、L3 参数记忆（编码进权重的隐式知识）。

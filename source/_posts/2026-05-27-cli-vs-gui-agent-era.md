@@ -10,8 +10,6 @@ excerpt_en: "Agentic coding has pushed many developers back to the terminal. The
 permalink: '/blog/2026/05/27/cli-vs-gui-agent-era/'
 ---
 
-# 我们又回到了 CLI：Agent 时代 CLI 与 GUI 的选型
-
 CLI 在 Agent 时代重新成了一种受关注的交互方式。
 
 这有点反直觉。过去十几年，开发工具的大方向一直是把复杂命令藏进界面里：Vim、Emacs 之后有 VS Code、JetBrains，`git` 命令之外也有 diff 面板、分支图和冲突解决器。我们花了很长时间，把写代码从黑框里搬进编辑器，还顺手补上了插件、调试器和重构工具。

@@ -11,8 +11,6 @@ mathjax: true
 permalink: '/blog/2026/02/09/belief-network-learning/'
 ---
 
-# 贝叶斯网络：从概率图到因果推断
-
 ## 引言：从相关性到结构化推断
 
 在统计学与机器学习中，一个常见挑战是表示和处理多变量之间的复杂关系。当变量达到成百上千个时，直接对联合概率分布 $P(X_1, X_2, \dots, X_n)$ 建模通常不可行，因为参数空间会随着变量数量呈指数级爆炸（Curse of Dimensionality）。

@@ -11,8 +11,6 @@ mathjax: true
 permalink: '/blog/2026/01/14/anscombes-quartet/'
 ---
 
-# 安斯库姆四重奏：可视化的力量与统计错觉
-
 
 ## 引言：数值的欺骗性
 

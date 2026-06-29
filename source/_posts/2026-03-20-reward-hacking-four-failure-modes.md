@@ -11,8 +11,6 @@ mathjax: true
 permalink: '/blog/2026/03/20/reward-hacking-four-failure-modes/'
 ---
 
-# Reward Hacking：当奖励信号被优化器反向搜索
-
 [上一篇文章](/blog/2026/03/19/reward-design-evolution-from-rlhf-to-rlvr/)讲的是 reward 自己怎样被生产出来：从人工偏好、神经 reward model、PRM、RLVR、LLM as Judge、rubric，一路到开放 agent 里的 tournament ranking。那篇文章的主线是：**reward 不只是一个分数，也是一套把目标转成训练信号的接口链路。**
 
 但只讲 reward 怎样生产还不够。reward hacking 不是 reward production 的一个阶段，而是任何 reward signal 被强优化以后都可能暴露出的风险。只要 reward 被接进 optimizer，它就会从一个评估接口变成一个被主动搜索、主动放大、主动利用的目标。模型不是被动接受奖励，而是在训练中持续试探奖励系统的边界。于是 reward design 里最需要提前防范的问题就出现了：

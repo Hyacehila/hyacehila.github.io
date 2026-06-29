@@ -10,8 +10,6 @@ excerpt_en: "Agent Skills are popular because they package capabilities with low
 permalink: '/blog/2026/03/10/from-mcp-to-agent-skills/'
 ---
 
-# 从 MCP 到 Agent Skills：为什么 Agent 又需要一种新的上下文工程协议？
-
 2024 年 11 月 25 日 Anthropic 推出了 Model Context Protocol（MCP），很多人以为 Agent 世界终于有了统一接口，后面的事情无非是补生态、补客户端、补分发。
 
 但现实并没有这么线性。

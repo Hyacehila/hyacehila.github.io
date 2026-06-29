@@ -11,8 +11,6 @@ mathjax: true
 permalink: '/blog/2026/03/22/reward-and-training-in-agent-k-paperbench-amap/'
 ---
 
-# Reward 与 Training 在真实 Agent 中如何闭环：从数据治理到在线 RL
-
 前两篇系列文分别在讲两件事：一篇讲 reward 自己是怎样被生产出来的，另一篇讲这些 reward 进入训练以后，又怎样一路变成 `advantage`、`update` 和 agentic RL 的闭环。但只讲到那里还不够，因为读者最容易卡住的并不是“某个公式怎么推”，而是更工程化的问题：**真实 agent 系统通常从哪些环节开始搭起来？**
 
 答案通常不是“先写一个奖励函数”。更真实的顺序是：先有原始数据和历史 query，再有数据治理和环境构造；环境跑起来以后，系统才会产生日志、tests、数据库状态、工具输出和用户交互；这些反馈再被组织成 verifier、judge、rubric 或 outcome reward；接着才轮到 verified trajectories、SFT、curriculum 和 online RL；最后 benchmark 还要回过头来审计，我们到底有没有在优化正确的目标。

@@ -10,8 +10,6 @@ excerpt_en: "ComfyUI has outgrown the label of an image-generation UI. It is clo
 permalink: '/blog/2026/06/18/comfyui-video-workflow-orchestration/'
 ---
 
-# 从 ComfyUI 到 LibTV：视频生成时代，工作流编排应该长出什么能力？
-
 过去两年，图片生成里最常见的动作，大概就是抽卡。
 
 原因倒也朴素：生成模型本来就带有试错味道。换一个 seed，换一点提示词，换一个 LoRA，换一张参考图，甚至什么都不换，结果就可能从普通变成可用。Stable Diffusion、SDXL、Flux 这些模型让很多人习惯了「批量出图、挑一张、再局部重绘、再放大」的流程。ComfyUI 能在这个阶段变得重要，也和这件事有关。它把生成过程拆成节点和连线，把原本一次次点按钮的事情，变成了可以保存、修改和复用的工作流。

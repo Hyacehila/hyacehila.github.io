@@ -11,8 +11,6 @@ mathjax: true
 permalink: '/blog/2026/01/26/neural-scaling-laws/'
 ---
 
-# Neural Scaling Laws：从 Kaplan 到 Chinchilla
-
 > 我并不研究Deep Learning Theory，对相关的内容也并不熟悉；以下的内容仅仅是一个理论领域的小白简单学习后的总结。随便写着玩玩。
 
 ## Neural Scaling Laws 的从0到1

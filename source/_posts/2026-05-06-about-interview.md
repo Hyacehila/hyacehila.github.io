@@ -10,8 +10,6 @@ excerpt_en: "Some interim notes on job hunting and interview preparation. They a
 permalink: '/blog/2026/05/06/about-interview/'
 ---
 
-# About Interview and Job Hunting
-
 ## 写在前面：这篇文章还会继续更新
 
 这篇文章不是一份已经完善的求职指南，而是我对求职、面试准备和反向提问的一些阶段性整理。它会随着后续投递、面试反馈、岗位理解和个人选择继续更新，所以现在更像一个持续打磨中的 blog，而不是最终版本。事实上本博客站点中的大部分文章都是不断更新调整的，所以经常见到补丁痕迹和不定时的重构。

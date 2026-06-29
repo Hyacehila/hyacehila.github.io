@@ -10,8 +10,6 @@ excerpt_en: "A series guide to The Epitaph Protocol: how epitaphs, final letters
 permalink: '/blog/2026/05/10/epitaph-protocol-00-series-concept/'
 ---
 
-# 墓志协议 00｜何为墓志协议
-
 《墓志协议》是一个关于过去的科幻短篇系列。
 
 更准确地说，它从一个简单的判断开始：**墓志不是结尾，而是锁。**

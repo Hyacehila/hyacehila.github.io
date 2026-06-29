@@ -10,8 +10,6 @@ excerpt_en: "On a rainy night, the Wordless Stele at Qianling reveals to each re
 permalink: '/blog/2026/05/10/epitaph-protocol-01-wordless-stele/'
 ---
 
-# 墓志协议 01｜无字碑
-
 ## 无字之证
 
 雨夜，乾陵。

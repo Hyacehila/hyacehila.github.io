@@ -10,8 +10,6 @@ excerpt_en: "What makes agents deliverable is not only the core loop, but the su
 permalink: '/blog/2026/03/20/building-agent-deterministic-constraints/'
 ---
 
-# 给 LLM 戴上确定性枷锁的外围工程：从 Claude Code 看 Agent Harness
-
 如果今天要研究怎么给 `LLM` 戴上确定性枷锁，我现在更愿意先从 Claude Code 谈起。原因不是它把问题都解决了，而是它把 Harness 里的关键结构件直接暴露给了开发者：`MCP`、`CLAUDE.md` 与 `rules`、`hooks`、`subagents`、`checkpointing`、`permission modes`、`plugins`、`Agent SDK`。在一个真实可用的系统里，你几乎可以直接观察语言约束如何被逐步固化为系统约束。
 
 把 Agent 变成可交付系统的，往往不是核心 loop 本身，而是围绕 `LLM` 不确定性搭出来的一整套外围工程。核心循环当然重要，但它只是最短的一段。

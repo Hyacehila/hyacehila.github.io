@@ -10,8 +10,6 @@ excerpt_en: "Model routing breaks every agent call into cost, latency, tool stab
 permalink: '/blog/2026/04/25/llm-semantic-routing-compound-ai-systems/'
 ---
 
-# 模型路由到底在解决什么：从 Agent 成本、延迟到推理控制
-
 如果你写过一个稍微复杂一点的 Agent，很容易经历同一种变化。
 
 一开始，为了让它尽快跑起来，我们会把所有步骤都交给最强模型：理解用户需求、拆任务、写工具参数、读工具结果、总结、反思、再生成最终答案。这样做很直觉，也很适合 demo。模型越强，出错越少，工程心智负担也越低。

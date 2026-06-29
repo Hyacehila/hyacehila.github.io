@@ -10,8 +10,6 @@ excerpt_en: "SWE-bench, SWE-agent, and Tau-bench show that agent development can
 permalink: '/blog/2026/03/16/aenvironment-everything-as-environment/'
 ---
 
-# AEnvironment：Agent Dev 为什么需要交互环境层？
-
 这个 Agent 系列写到现在，绕来绕去其实一直在问同一个问题：Agent 到底怎样接触外部世界。
 
 MCP 讨论协议，Skills 讨论能力封装，认知架构讨论决策循环，RL Agent 那几篇讨论训练和反馈。它们看起来像不同主题，但放在一起看，会发现中间少了一层：agent 运行的那个环境本身。

@@ -11,8 +11,6 @@ mathjax: true
 permalink: '/blog/2026/03/23/mineclip-visual-reward-appendix/'
 ---
 
-# MineCLIP、视觉信号与奖励函数
-
 Minecraft Agent 的最终目标往往很清楚：milk a cow、craft an iron pickaxe、dig a hole。麻烦在中间过程。任务完成以前，环境很难给出有价值的反馈信号。RL 知道终点，却不知道刚才那一步有没有更接近终点。
 
 把长程任务拆成技能以后，问题会小一点，但不会消失。`find a cow`、`harvest milk_bucket`、`place crafting_table` 比完整任务短，仍然需要反馈。给每个技能手写 dense reward，很快会变成一堆脆弱规则。MineCLIP 的入口就在这里：用玩家视频和字幕训练视觉-语言模型，让它判断最近这段画面像不像这个技能描述。

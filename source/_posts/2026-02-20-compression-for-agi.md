@@ -11,8 +11,6 @@ mathjax: true
 permalink: '/blog/2026/02/20/compression-for-agi/'
 ---
 
-# Compression for AGI：压缩即智能
-
 **主题：压缩即智能：为什么 ChatGPT 拥有智能？** 本文观点来自 OpenAI 研发人员 Jack Rae 的主题分享《Compression for AGI》。文章讨论的主线是：**基础模型训练可以理解为尽可能无损地压缩有效信息。**
 
 ## 关于通用人工智能

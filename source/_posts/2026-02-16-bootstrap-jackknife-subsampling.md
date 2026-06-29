@@ -10,8 +10,6 @@ excerpt_en: "How can we estimate statistical uncertainty without heavy distribut
 permalink: '/blog/2026/02/16/bootstrap-jackknife-subsampling/'
 ---
 
-# 统计推断的计算革命：详解 Jackknife, Bootstrap 与 Subsampling
-
 ## 1. 引言：应用中的推断危机
 
 在今天的数据科学应用中，常见场景是：你设计了一个业务指标来衡量算法效果，或者训练了一个深度神经网络模型。除了得到一个点估计值（比如 CTR 提升了 2%，或者模型准确率为 85%），业务方或科研审稿人往往还会追问：

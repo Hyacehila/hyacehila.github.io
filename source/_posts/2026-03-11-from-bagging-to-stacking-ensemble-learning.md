@@ -11,8 +11,6 @@ mathjax: true
 permalink: '/blog/2026/03/11/from-bagging-to-stacking-ensemble-learning/'
 ---
 
-# 从 Bagging 到 Stacking：集成学习学习笔记
-
 在上一篇关于表格数据与树模型的文章里，我已经提到过 Random Forest、GBDT、XGBoost、LightGBM 和 CatBoost。但如果只记住“它们都是许多棵树的组合”，就会漏掉一个更值得追问的问题：**为什么它们都在做集成，训练逻辑却完全不同？**
 
 Random Forest 的思路是“并行地制造多样性，然后平均”；GBDT 的思路却是“串行地把前一轮没学好的部分继续学下去”。再往后走，Stacking 甚至不要求基模型是同一种算法，它更像是在问：**我能不能再训练一个模型，专门学习‘什么时候该信谁’？**

@@ -10,8 +10,6 @@ excerpt_en: "BettaFish/MiroFish and OpenClaw push agents against two trust bound
 permalink: '/blog/2026/04/12/agent-trust-boundary-openclaw-bettafish/'
 ---
 
-# BettaFish、MiroFish、OpenClaw 与 Agent 的信任边界
-
 语言模型智能体的边界，不只是能力边界，更是委托边界。
 
 只问模型能不能规划、能不能调用工具、能不能看浏览器、能不能长期记忆，还没有碰到 Agent 的核心。更关键的是：用户愿意把什么交给它。

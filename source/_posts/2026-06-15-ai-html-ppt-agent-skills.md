@@ -10,8 +10,6 @@ excerpt_en: "AI-generated HTML PPTs become interesting when Skills encode design
 permalink: '/blog/2026/06/15/ai-html-ppt-agent-skills/'
 ---
 
-# AI 自动生成 HTML PPT Skills
-
 前几天我写过一篇[《事实层与界面层：Markdown 与 HTML 不是替代关系》](/blog/2026/06/08/fact-layer-interface-layer-markdown-html/)，里面顺手提了一句：HTML 拿来做 PPT 也挺好用。
 
 这里稍微展开一下。相关项目现在确实很实用：学习成本低，出片快，效果也不差。更重要的是，它不像很多 AI 小工具那样只热闹一阵。只要浏览器还适合展示，只要 Agent 还擅长写前端，它就有继续存在的理由。

@@ -10,8 +10,6 @@ excerpt_en: "A survey of LLM tool-use research, from Toolformer's self-supervisi
 permalink: '/blog/2026/03/05/llm-tool-use-evolution/'
 ---
 
-# LLM 工具使用的技术演进：从 Toolformer 到 ToolLLM
-
 ## 为什么关注工具使用
 
 大语言模型在不少经典 NLP 领域表现突出，但在算术问题和事实回答等场景上仍不稳定——模型无法及时更新内部参数，也存在幻觉问题。让 LLM 使用外部工具，可以使其访问实时、准确的知识库，并完成计算任务。

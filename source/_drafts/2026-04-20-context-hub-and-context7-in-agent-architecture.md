@@ -7,8 +7,6 @@ author: Hyacehila
 excerpt: 它们不是又两种“更强的 MCP”，而是在 Agent 时代把文档、技能与外部知识做成可注入上下文的供给层。
 ---
 
-# 从文档检索到上下文供给层：Context Hub 与 Context7 在 Agent 架构里到底做什么
-
 这篇文章想讨论两个名字很像、但气质并不完全相同的东西：`Context7` 和 Andrew Ng 团队推出的 `Context Hub`。
 
 它们都围绕同一个问题展开：**为什么今天模型已经这么强了，写代码时仍然经常在 API、SDK、框架版本和私有文档上翻车？**

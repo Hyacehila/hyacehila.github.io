@@ -10,8 +10,6 @@ excerpt_en: "R-squared is not a simple model error function. Its definition hide
 permalink: '/blog/2026/02/08/why-im-not-a-fan-of-r-squared/'
 ---
 
-# 统计学常用评估指标R方，它从不衡量模型与真实世界的拟合程度
-
 > 本文核心观点翻译自 John Myles White 的文章 [Why I'm Not a Fan of R-Squared](https://www.johnmyleswhite.com/notebook/2016/07/23/why-im-not-a-fan-of-r-squared/)
 
 ## Take Home Message

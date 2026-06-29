@@ -10,8 +10,6 @@ excerpt_en: "HTML is tempting. It can turn long AI-generated documents into some
 permalink: '/blog/2026/06/08/fact-layer-interface-layer-markdown-html/'
 ---
 
-# 事实层与界面层：Markdown 与 HTML 不是替代关系
-
 最近有个说法挺容易让人心动：AI 以后不该再输出 Markdown ，而应该直接给 HTML。
 
 这话不是纯粹为了造梗。Claude Code 团队的 Thariq Shihipar 写了《Using Claude Code: The unreasonable effectiveness of HTML》，Simon Willison 又转述了一次，然后 Karpathy 又来吹了吹。那篇文章的例子很实在：代码审查、调研报告、图表、交互式编辑器、PR 说明，都可以做成一个能在浏览器里打开的 `.html` 文件。和一长串 Markdown 比，它确实更像一个可以上手用的工作台。

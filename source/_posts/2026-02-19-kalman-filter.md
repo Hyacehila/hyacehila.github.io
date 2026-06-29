@@ -10,8 +10,6 @@ excerpt_en: "State estimation is a foundation of modern technology. This post in
 mathjax: true
 permalink: '/blog/2026/02/19/kalman-filter/'
 ---
-# 卡尔曼滤波：从阿波罗登月到全球气象预报
-
 ## 卡尔曼滤波 (Kalman Filter)
 
 ### 为什么需要卡尔曼滤波

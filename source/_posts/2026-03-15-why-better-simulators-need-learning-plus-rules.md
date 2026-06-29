@@ -11,8 +11,6 @@ mathjax: true
 permalink: '/blog/2026/03/15/why-better-simulators-need-learning-plus-rules/'
 ---
 
-# 为什么更好的 Simulator 往往是 Learning + Rules：从 PDE、光线追踪到 DLSS
-
 tldr ：**更好的 simulator 很少来自把规则丢掉、让模型自己理解，而更常来自把现实世界已经知道的结构写进去，让 learning 去补那些我们算得慢、建模差、或根本写不清的部分。**
 
 很多经典计算问题没有被 data driven 整体替代，而是被 **重新分解** 了。过去我们把整个系统都写成规则；现在我们更愿意把其中的一部分交给学习器，比如 closure、surrogate、逆问题、重建、降噪、超分辨、近似求解。与此同时，状态空间、几何关系、守恒约束、边界条件和可行解范围这些结构变得更重要，因为它们决定学习器到底能在哪个空间里工作。

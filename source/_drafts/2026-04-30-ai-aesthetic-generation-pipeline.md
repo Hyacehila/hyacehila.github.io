@@ -7,8 +7,6 @@ author: Hyacehila
 excerpt: AI 参与美学创作的关键，不只是生成一张图或一个模型，而是把创作空间变成可搜索空间，再用几何约束、审美判别器、偏好模型和人类判断一起筛选候选结果。
 ---
 
-# 从莫兰迪静物到 AI 美学生成管线
-
 最近读到一篇很有意思的交叉学科文章：[A Machine Learning Application Based on Giorgio Morandi Still-Life Paintings to Assist Artists in the Choice of 3D Compositions](https://research.gold.ac.uk/id/eprint/31665/)。它发表在 *Leonardo* 55(1)，作者是 Guido Salimbeni、Frederic Fol Leymarie 和 William Latham，DOI 是 [10.1162/leon_a_02073](https://doi.org/10.1162/leon_a_02073)。这篇文章不算今天意义上的大模型论文，规模也不大，但它很好地抓住了一个到现在仍然关键的问题：**AI 在艺术创作里到底应该负责什么？**
 
 如果只看表面，它像是在做“莫兰迪风格的 3D 静物构图生成”。但我觉得它真正有价值的地方，是把艺术创作拆成了一条很清楚的生成管线：

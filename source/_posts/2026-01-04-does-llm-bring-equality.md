@@ -10,8 +10,6 @@ excerpt_en: "LLMs make access to knowledge, explanation, translation, and expres
 permalink: '/blog/2026/01/04/does-llm-bring-equality/'
 ---
 
-# LLM 是否带来技术平权？(Does LLM Bring Equality?)
-
 ## 承诺与现实
 
 自 ChatGPT 发布以来，生成式 AI 最动人的叙事之一，就是 **知识民主化**。过去需要导师、学校、英语环境、专业社群和长期训练才能获得的帮助，现在似乎都被压缩进了一个对话框。它可以解释概念，翻译论文，改写文章，生成代码，扮演面试官，也可以把一段艰深材料拆成适合初学者理解的版本。

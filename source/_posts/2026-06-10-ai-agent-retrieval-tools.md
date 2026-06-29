@@ -10,8 +10,6 @@ excerpt_en: "A systems view of how web information enters agent context, from bu
 permalink: '/blog/2026/06/10/ai-agent-retrieval-tools/'
 ---
 
-# AI Agent 如何从互联网获取信息：检索、抓取与结构化清洗工具的演进
-
 把 Tavily、Exa、Firecrawl、Crawl4AI、Jina Reader、Nimble、GPT Researcher、Open Deep Research 这些名字排成一列，很容易写成工具百科。每个工具一小节，讲功能、价格、适用场景。读完能认一堆名词，但还是不知道自己到底该接哪一层。
 
 我更想换个问法：AI Agent 到底怎样从互联网里拿到可用信息？

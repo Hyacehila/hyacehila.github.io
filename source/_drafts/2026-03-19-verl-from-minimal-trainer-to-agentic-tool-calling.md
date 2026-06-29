@@ -7,8 +7,6 @@ author: Hyacehila
 excerpt: "从手写最小 PPO/GRPO-style trainer 的心智模型切入，解释 verl 为什么适合做 agentic RL、multi-turn rollout 与工具使用优化。"
 ---
 
-# 从最小 PPO/GRPO Trainer 到 Agentic Tool Calling：读懂 verl 的训练主线
-
 很多人第一次看 `verl`，会觉得它有点“怪”：它不是那种把 agent、tool、memory、workflow 全都包成黑盒的一站式框架，但它也不是只会跑单轮 PPO 的训练脚手架。它更像一个故意把训练链路拆开的 RL runtime：你可以从最小 trainer 的角度读它，也可以一路读到 async rollout、multi-turn tool use、Agent Loop 乃至 ReTool 这样的 recipe。
 
 这篇文章的目标，就是把这条线串起来。

@@ -10,8 +10,6 @@ excerpt_en: "The appeal of point clouds in TouchDesigner is that they can turn s
 permalink: '/blog/2026/04/21/touchdesigner-point-clouds-and-3d-gaussian-splatting/'
 ---
 
-# TouchDesigner 点云与 3D Gaussian Splatting
-
 点云是个很好玩的艺术形式。它既像现实世界被扫描之后留下的残影，也像被重新抽象过的粒子雕塑：远看像雾，近看却是密密麻麻、各自占据空间的一批点。它不是传统意义上完整、光滑、封闭的模型，所以总带着一点不稳定的感觉；但也正因为这种不稳定，它特别适合被拿来做视觉表达，尤其适合那些想同时保留“真实感”和“数字感”的迷幻作品。
 
 如果说 Blender 或 Houdini 更像是在精细地构造一个三维对象，那 TouchDesigner 给我的感觉更像是在组织一套实时视觉系统。它关心的不只是一个模型最后长什么样，还包括这个模型如何被驱动、如何被扭曲、如何跟声音、传感器、时间、天气甚至现场空间一起工作。点云刚好很适合这种思路：它不是死的表面，而是一堆可以被实时操纵的数据。

@@ -10,8 +10,6 @@ excerpt_en: "Every fall, Matt Might explains what a Ph.D. means to new doctoral 
 permalink: '/blog/2026/01/31/the-illustrated-guide-to-a-phd/'
 ---
 
-# 图解博士学位 (The Illustrated Guide to a Ph.D.)
-
 > 这是一篇广为流传的关于博士学位的图解指南，作者是犹他大学的计算机科学教授 Matt Might。他用一组简单的圆圈生动地诠释了从小学到博士毕业的知识积累过程，以及博士学位对人类知识边界的微小贡献。
 > 
 > *原文地址：[The Illustrated Guide to a Ph.D.](http://matt.might.net/articles/phd-school-in-pictures/) by [Matt Might](http://matt.might.net/)*

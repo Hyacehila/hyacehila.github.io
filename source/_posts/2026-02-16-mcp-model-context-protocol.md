@@ -10,8 +10,6 @@ excerpt_en: "An introduction to MCP's Host, Client, and Server layers, stdio and
 permalink: '/blog/2026/02/16/mcp-model-context-protocol/'
 ---
 
-# 关于MCP
-
 MCP 起源于 2024 年 11 月 25 日  [Anthropic 发布的文章](https://www.anthropic.com/news/model-context-protocol) 
 
 本文参考了一篇 [知乎文章](https://zhuanlan.zhihu.com/p/29001189476)，部分介绍与代码源自此文。

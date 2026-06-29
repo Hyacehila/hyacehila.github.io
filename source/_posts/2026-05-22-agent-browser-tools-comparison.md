@@ -10,8 +10,6 @@ excerpt_en: "A discussion of how browser-agent tools evolved from official host-
 permalink: '/blog/2026/05/22/agent-browser-tools-comparison/'
 ---
 
-# 让 Agent 操作浏览器：从自动化脚本到浏览器基础设施的演进
-
 如果把 Codex Chrome extension、Claude in Chrome、Playwright、Chrome DevTools MCP、Browser-Use、Vercel agent-browser、Stagehand、Skyvern、Lightpanda、Browserbase、Steel.dev、MultiOn 这些工具排成一列，很容易写成工具百科：每个工具一小节，讲功能、场景和限制。这样能帮人认名词，但解释不了一个更有意思的问题：这些工具为什么会这样演进？
 
 让我们按照用户解除的顺序来展开：先看官方宿主如何把真实浏览器、登录态、权限确认和安全边界打包成开箱即用的能力，再让浏览器能被稳定控制，让网页状态能被模型读懂，然后让行动可以缓存、验证和编排，最后把浏览器本身变成可承载的运行时资源。

@@ -10,8 +10,6 @@ excerpt_en: "Word Salad Chopper does more than trim repetitive reasoning text. I
 permalink: '/blog/2026/04/26/newline-hidden-states-word-salad/'
 ---
 
-# 从 `\n\n` 看模型状态：Word Salad Chopper 带来的一个小启发
-
 最近看到一篇 paper：[Word Salad Chopper: Reasoning Models Waste A Ton Of Decoding Budget On Useless Repetitions, Self-Knowingly](https://aclanthology.org/2025.emnlp-main.1705/)。
 
 它表面上讲的是一件很工程的问题：reasoning model 在生成长推理链时，经常会浪费大量 token 在重复、空转、看似还在思考但其实没有新增信息的片段上。作者把这种现象叫作 `word salad`，也就是那种不断重复相似表达、消耗上下文和预算、但对最终答案没有什么帮助的推理废话。

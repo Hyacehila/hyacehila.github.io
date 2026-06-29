@@ -10,8 +10,6 @@ excerpt_en: "Before LLM agents became popular, game NPCs had already formed a pr
 permalink: '/blog/2026/06/20/game-npc-agents-before-llm/'
 ---
 
-# 生成式 AI 之前，游戏 NPC 是怎样成为 Agent 的
-
 最近聊 NPC 智能时，很多人的第一反应已经变成了 LLM 对话、角色扮演、长期记忆、会自己接任务的数字伙伴。这符合最近的流行趋势，我想大部分研究游戏 NPC 的人目前应该都在做这个。但如果把视角稍微往前挪一点，游戏行业很早就已经在做一种非常经典的 Agent 系统：一个 NPC 观察世界，维护自己的内部状态，选择下一步行动，再通过移动、攻击、交易、对话、逃跑或协作去改变世界。LLM 才出来几年，但游戏 AI 至少已经十几年了。
 
 只是这套传统游戏 AI 通常不叫 Agent。它可能叫敌人 AI、战斗 AI、队友 AI、怪物行为、Boss 逻辑、NPC Brain，或者干脆叫行为树。但从系统结构上看，它非常符合 Agent 的基本定义：它被放在一个环境里，有可观察的信息，有目标或偏好，有可执行动作，也会因为环境反馈而改变下一步行为。

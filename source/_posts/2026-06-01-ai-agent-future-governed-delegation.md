@@ -10,8 +10,6 @@ excerpt_en: "The future of AI agents will not begin with full autonomy replacing
 permalink: '/blog/2026/06/01/ai-agent-future-governed-delegation/'
 ---
 
-# AI Agent 的未来不是完全自治，而是可治理的委托
-
 Agent 这个词已经快被用烂了。
 
 浏览器里能点按钮的是 Agent，IDE 里能改代码的是 Agent，客服后台里能分单的是 Agent，手机里能替你打开 App 的也是 Agent。再往远处说，就变成完全自主智能体、AGI、ASI。故事听起来很顺：模型继续变强，工具越接越多，某一天它自然从聊天窗口里站起来，接管人类手里的大部分工作。

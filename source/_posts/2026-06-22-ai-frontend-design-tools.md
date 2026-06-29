@@ -10,8 +10,6 @@ excerpt_en: "A practical survey for technical vibe coders choosing AI frontend t
 permalink: '/blog/2026/06/22/ai-frontend-design-tools/'
 ---
 
-# AI 前端工具盘点：怎么选工具避免一眼 AI 味
-
 Vibe 写前端最容易翻车的起点，是一句帮我做一个好看的 dashboard。
 
 这句话太空。模型会自己补行业、用户、信息密度、配色和布局，最后端出一张互联网平均脸。用 Claude Code 或其他 Coding Agent 写过几次前端的人，应该都见过那种熟悉的味道：蓝紫色渐变、发光边框、暖色纸质感、圆角卡片一层套一层。不能说完全不好看，但很难说它属于这个产品。

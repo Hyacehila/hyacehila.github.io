@@ -10,8 +10,6 @@ excerpt_en: "When LLMs move from answering questions to acting in environments, 
 permalink: '/blog/2026/03/21/from-sft-to-agentic-rl-training-loop/'
 ---
 
-# Agentic RL：为什么训练闭环比训练算法更重要
-
 [上一篇](/blog/2026/03/19/reward-design-evolution-from-rlhf-to-rlvr/)的结论是：reward 不只是一个模型吐出来的一行分数，而是一套把目标转成训练信号的接口链路。这一篇要追问的是：**当这条链路接到 agent 的训练循环里，训练系统需要补上哪些环节。**
 
 过去一年里，很多在 agent 方向取得实质进展的团队，都走向了类似路线：不能只把 RL 接到工具调用上，还要从数据、环境、反馈到训练，把整条链重新接起来。**Agentic RL 要处理的不是单个算法问题，而是一个系统问题：你能不能把任务整理、环境合同、反馈栈、冷启动、在线探索和部署回流接成一个能持续迭代的训练闭环。**

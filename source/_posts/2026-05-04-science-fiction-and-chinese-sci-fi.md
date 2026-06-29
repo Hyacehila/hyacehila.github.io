@@ -10,8 +10,6 @@ excerpt_en: "Science fiction is not a technical report about new technologies. T
 permalink: '/blog/2026/05/04/science-fiction-and-chinese-sci-fi/'
 ---
 
-# 科幻文学与未来
-
 很多科幻作品的设定足够夺目，飞船庞大，AI 强悍，脑机接口繁复，文明尺度一路延伸到宇宙尽头，但读完之后却像看完一场产品发布会。新技术被一项项摆出来，世界似乎也变得很先进，可人物仍像设定说明书里的附录，只负责向读者说明证明世界观成立。
 
 这当然不是说技术设定不重要。很多好科幻恰恰依赖一个足够强的设定，才能逼出真正尖锐的问题。机器人三定律不是装饰，心理史学不是背景，黑暗森林也不是随便贴上的名词。

@@ -10,8 +10,6 @@ excerpt_en: "Generative AI expands not only productivity, but also the boundary 
 permalink: '/blog/2026/05/11/from-engineer-to-builder-opc-product-thinking/'
 ---
 
-# 从 Engineer 到 Builder：AI 时代的一人公司与产品思维
-
 在上一篇关于生成式 AI 的文章里，我写过一个判断：AI 不会简单终结工作，它更可能先重排劳动，再放大需求。把视角缩小到程序员身上，这个变化会更具体：代码、文案、资料研究、设计草稿和 demo 的成本都在下降，但成本下降不会自然让人少做事，反而会释放出更多精力，也让过去被时间和能力挡住的想法开始变得可行动。
 
 传统意义上的 Software Engineer 正在向 Builder 靠近。过去的软件工程被组织分工定义：产品定需求，设计定交互，工程师负责实现，测试负责质量，运营和销售负责触达用户。工程师多数时候是在解决别人已经定义好的问题。

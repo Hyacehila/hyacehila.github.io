@@ -11,8 +11,6 @@ mathjax: true
 permalink: '/blog/2026/03/05/peft-parameter-efficient-fine-tuning/'
 ---
 
-# 参数高效微调（PEFT）：从 Adapter 到 LoRA 的技术演进
-
 ## 为什么需要参数高效微调
 
 大语言模型的全量微调（Full Fine-Tuning）通常效果不错，但计算和存储开销会随着模型规模快速增长。为了在有限资源下适配下游任务，研究者们提出了参数高效微调（Parameter-Efficient Fine-Tuning, PEFT）技术：冻结大部分预训练参数，只训练少量新引入或重参数化的模块，用更低成本接近全量微调的效果。

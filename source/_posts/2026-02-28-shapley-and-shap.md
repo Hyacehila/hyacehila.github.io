@@ -11,8 +11,6 @@ mathjax: true
 permalink: '/blog/2026/02/28/shapley-and-shap/'
 ---
 
-# Shapley 与 SHAP——模型解释性的 SOTA 工具
-
 ## Shapley Value 来自博弈论的公平分配
 
 Shapley 值通过假设实例的每个特征值是游戏中的 “玩家” 来解释预测，其中预测目标是总⽀出。Shapley 值是联盟博弈论的⼀种⽅法，它将告诉我们如何在特征之间公平地分配总⽀出。我们要通过一个简单的例子，来从理论上理解 Shapley Value，方便将其应用到所需的领域。

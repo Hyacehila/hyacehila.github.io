@@ -74,9 +74,30 @@ fontawesome:
   sharp_solid: false
 
 
-# HOME BANNER — disabled so Home is a clean Redefine article stream.
+# HOME BANNER — fixed cover with landscape image + gaussian-blur text backing.
+# The blog feed scrolls over the fixed, blurred banner. Title = ID, no subtitle.
 home_banner:
-  enable: false
+  enable: true
+  style: fixed # static or fixed
+  image:
+    light: /images/wallhaven-wqery6-light.webp
+    dark: /images/wallhaven-wqery6-dark.webp
+  title: Hyacehila
+  subtitle:
+    text: [] # blank subtitle
+    hitokoto:
+      enable: false
+  text_color:
+    light: "#fff"
+    dark: "#d1d1b6"
+  text_style:
+    title_size: 3.2rem
+    subtitle_size: 1.5rem
+    line_height: 1.2
+  custom_font:
+    enable: false
+  social_links:
+    enable: false
 
 
 # NAVIGATION BAR — top nav: Home / Archives / Me / Project / About
@@ -103,8 +124,13 @@ navbar:
       path: /projects/
       icon: fa-regular fa-diagram-project
     About:
-      path: /about/
       icon: fa-regular fa-circle-info
+      submenus:
+        碎碎念: /murmur/
+        Footprints: /footprints/
+        Friends: /friends/
+        CV: /cv/
+        Contact: /contact/
   # Local search. Requires hexo-generator-searchdb.
   search:
     enable: true

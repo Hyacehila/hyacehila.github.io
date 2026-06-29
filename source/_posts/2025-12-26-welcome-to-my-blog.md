@@ -10,8 +10,6 @@ excerpt_en: "The first post on this blog, and a small example of the writing con
 permalink: '/blog/2025/12/26/welcome-to-my-blog/'
 ---
 
-# 第一篇博客（An Example）
-
 这是一篇示例文章：既作为博客开篇，也记录后续写作的一些约定。
 
 ## 项目背景

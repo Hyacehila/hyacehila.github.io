@@ -7,8 +7,6 @@ author: Hyacehila
 excerpt: "Prompt-CAM 把类别提示、分类依据和注意力热图绑定在同一套 ViT 结构中，为细粒度视觉分类提供了一种轻量而直接的可解释性路径。"
 ---
 
-# 从可解释性看 Prompt-CAM：让 ViT 看见细粒度特征
-
 在计算机视觉中，Interpretability 研究关注的不只是模型“预测了什么”，更关注模型“凭什么做出预测”。尤其是在医学影像、生态物种识别、工业质检等高风险或高精度场景中，一个分类结果如果无法说明依据，就很难被研究者、医生或业务系统真正信任。随着 Vision Transformer 成为视觉大模型的重要架构，如何解释 ViT 的内部决策，也成为可解释性研究中的关键问题。
 
 [Prompt-CAM](https://openaccess.thecvf.com/content/CVPR2025/html/Chowdhury_Prompt-CAM_Making_Vision_Transformers_Interpretable_for_Fine-Grained_Analysis_CVPR_2025_paper.html)，即 Prompt Class Attention Map，来自 CVPR 2025 论文《Prompt-CAM: Making Vision Transformers Interpretable for Fine-Grained Analysis》。它面向预训练 ViT，重点解决细粒度视觉分类 FGVC 中的解释问题，例如区分外观相近的鸟类、鱼类、昆虫、真菌、汽车或食物类别。此类任务的难点在于，真正决定类别的往往不是整体轮廓，而是局部 trait：一小块羽毛颜色、斑纹形状、鳍部结构，或车辆某个细节部件。

@@ -10,8 +10,6 @@ excerpt_en: "Models have crossed the good-enough threshold. In 2026, the scarce 
 permalink: '/blog/2026/03/18/model-is-good-enough/'
 ---
 
-# Model Is Good Enough：2026 年，AI 真正稀缺的是应用而不是更大的模型
-
 最近重新翻到 LiMu 在 SJTU 的一次讲座草稿，我印象最深的不是某个参数规模，也不是某个模型排行榜，而是一句简单的判断：**Model is good enough.**
 
 这句话当然不是说模型研究结束了，更不是说底层能力不再要紧。它刺中的，是另一个更不舒服的事实：**对绝大多数研究者、创业者和应用团队来说，继续把主要注意力押在 Better Model 上，边际回报已经没那么高了。**

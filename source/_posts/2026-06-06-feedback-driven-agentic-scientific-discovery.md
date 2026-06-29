@@ -10,8 +10,6 @@ excerpt_en: "The cosmic string case and Trae Agent come from different domains, 
 permalink: '/blog/2026/06/06/feedback-driven-agentic-scientific-discovery/'
 ---
 
-# 从反馈回路看 Agent 如何把生成变成搜索
-
 Shunyu Yao 在 [The Second Half](https://ysymyth.github.io/The-Second-Half/) 里有个判断我一直记得：AI 的下半场会从解决问题转向定义问题，evaluation 与 RL 的 generalization 会比训练算法更重要。放到 Agent 上，我们可以再往前推一步：定义问题，给系统搭一个能不断返回信号的环境，Agent 就能在不进行参数训练的同时解决新的问题。
 
 模型已经很会说、会写、会联想，也能在很多问题上快速给出候选方案。可是一旦没有反馈，这些候选很容易停在“看起来合理的解释”。把问题放进一个能验证、能比较、能回滚的系统里，生成才会慢慢变成搜索。

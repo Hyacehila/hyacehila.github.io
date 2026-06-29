@@ -10,8 +10,6 @@ excerpt_en: "Hypothesis testing is powerful but assumption-bound; statistical si
 permalink: '/blog/2026/01/24/the-statistical-crisis-in-science/'
 ---
 
-# The Statistical Crisis in Science
-
 > 本文主要观点整理自 Andrew Gelman 的一次讲座，即The Statistical Crisis in Science，部分内容来自Kamoun, S. (2022). Death by Statistics. Zenodo以及一些自己的思考。
 
 统计学研究数据：我们希望“数据会说话”，告诉我们它们代表什么。数据也许真的会说话，但人无法直接理解，统计学便承担了翻译的角色。

@@ -7,8 +7,6 @@ author: Hyacehila
 excerpt: "语言不是智能本体，但在今天的 VLA 路线里，它仍然是最便宜的任务接口、语义压缩层和 web-scale 先验迁移通道。真正需要拆开的，是语言在机器人里的角色，以及动作后训练为何会伤害、又如何保住这些由语言模型继承来的能力。"
 ---
 
-# 语言即智能？VLA 中语言的必要性、边界与动作后训练遗忘
-
 > 这篇草稿要回答的，不是“机器人要不要用大模型”这种太宽的问题，而是更窄也更关键的一句：**当我们把一个强大的视觉/语言模型接上动作输出时，语言到底是在提供智能本身，还是只是在提供当下最有效的任务表征接口？**
 >
 > 截至 **2026 年 3 月 18 日**，我主要核对的一手材料包括 [RT-2](https://arxiv.org/abs/2307.15818)、[Diffusion Policy](https://arxiv.org/abs/2303.04137)、[ACT](https://arxiv.org/abs/2304.13705)、[Octo](https://arxiv.org/abs/2405.12213)、[OpenVLA](https://arxiv.org/abs/2406.09246)、[π0](https://arxiv.org/abs/2410.24164)、[Gemini Robotics](https://arxiv.org/abs/2503.20020)、[Fine-Tuning Vision-Language-Action Models: Optimizing Speed and Success](https://arxiv.org/abs/2502.19645)、[Knowledge Insulating Vision-Language-Action Models: Train Fast, Run Fast, Generalize Better](https://arxiv.org/abs/2505.23705)、[Pretrained Vision-Language-Action Models are Surprisingly Resistant to Forgetting in Continual Learning](https://arxiv.org/abs/2603.03818)，以及 [Let’s Talk About Language! Investigating Linguistic Diversity in Embodied AI Datasets](https://openreview.net/forum?id=wWWKPNz6GJ)。文中所有强判断都尽量绑定到论文或官方技术报告；如果是我从多篇材料中抽出来的工程判断，我会明确写成“归纳判断”。

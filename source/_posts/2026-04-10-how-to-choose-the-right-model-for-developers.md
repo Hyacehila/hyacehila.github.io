@@ -10,8 +10,6 @@ excerpt_en: "A developer-facing review of Claude and GPT coding differences, and
 permalink: '/blog/2026/04/10/how-to-choose-the-right-model-for-developers/'
 ---
 
-# Claude Code or Codex：编码模型差异如何变成产品体验的不同
-
 当我们把 `Claude Code` 和 `Codex` 放在一起使用并比较的时候，有时候会产生一种更微妙的感觉：**这两个东西看起来根本不像同一种产品。**
 
 `Claude Code` 更像一个被放进仓库和终端里的 agent。它会读 repo，会跑命令，会围绕计划、记忆、工具和权限边界持续推进任务。另一些时候，你又会觉得 `Codex` 的气质完全不同。它更像一个执行感很强的 coding engine：任务一旦给定，推进的稳定程度、局部实现和结果返回都显得更直接。

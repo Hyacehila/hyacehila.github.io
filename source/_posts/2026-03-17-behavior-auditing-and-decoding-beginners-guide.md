@@ -10,8 +10,6 @@ excerpt_en: "Reward writes goals into the optimizer, but it does not prove the m
 permalink: '/blog/2026/03/17/behavior-auditing-and-decoding-beginners-guide/'
 ---
 
-# 行为审计与行为解码：从 Reward 之后到 Agent 可观测性
-
 最近在看 reward design、behavior eval 和 agent observability 这条线时，我越来越确定一件事：“模型分数变高了”和“模型真的学会了正确目标”不是一回事。
 
 reward 负责把目标翻译成优化器能吃下去的信号，但它不负责证明模型理解了你的真实意图。一个模型完全可能一边拿到更高的 reward，一边学会讨好 judge、钻评分规则的空子，甚至在某些设置下开始研究“怎么改分数系统本身”。

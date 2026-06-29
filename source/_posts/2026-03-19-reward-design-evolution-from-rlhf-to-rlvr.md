@@ -11,8 +11,6 @@ mathjax: true
 permalink: '/blog/2026/03/19/reward-design-evolution-from-rlhf-to-rlvr/'
 ---
 
-# Reward 设计的演化：从 RLHF 到 RLVR，监督对象如何被重写
-
 [上一篇文章](/blog/2026/03/16/rl-alignment-from-reward-to-advantage/)解释 reward 如何被优化器消费；本文把问题往前推一步，看 reward 在进入训练系统之前，究竟是怎样被生产出来的。
 
 如果说上一篇关心的是 `reward -> advantage`，这一篇关心的就是目标怎样先被改写成可监督对象。LLM post-training 里的 reward 演化，表面上是在从人工反馈走向 verifier、judge、rubric 和 tournament；实际变化更靠近监督对象本身：从人类能比较的偏好对，到可程序化验证的结果；从答案级总分，到过程步骤、rubric criterion，再到开放 agent 轨迹之间的相对排序。

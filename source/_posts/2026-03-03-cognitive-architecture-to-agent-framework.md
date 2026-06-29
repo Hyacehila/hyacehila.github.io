@@ -10,8 +10,6 @@ excerpt_en: "Starting from CoALA's cognitive architecture, this post discusses W
 permalink: '/blog/2026/03/03/cognitive-architecture-to-agent-framework/'
 ---
 
-# 从智能体的认知结构到智能体框架
-
 ## 引言：Building an LLM Agent
 
 从 2025 年开始，语言模型智能体从论文和 Demo 进入了更多工程场景。学术界在讨论认知结构、记忆和多智能体协作，工业界则更关心工具调用、权限、状态恢复和可观测性。Agent 不再只是“模型多轮对话”，而是开始承担一部分原本很难稳定交付的开放式任务。

@@ -10,8 +10,6 @@ excerpt_en: "Memory is not an external database but the lifecycle management of 
 permalink: '/blog/2026/03/21/agent-memory-panorama/'
 ---
 
-# 从记忆形成到记忆治理：Agent Memory 的全景图
-
 长期记忆不是简单存档，它更接近持续学习的工程入口。
 
 很长一段时间里，Agent Memory 总是被等价于一个外接数据库问题。这抓住了局部，却错过了重点。Memory 从来不只是存储层，而是一套让长期认知状态形成、激活、行动后再更新的循环机制。

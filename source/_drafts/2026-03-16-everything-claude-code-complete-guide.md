@@ -7,8 +7,6 @@ author: Hyacehila
 excerpt: "以 ECC 官方中文 README 与两份官方教程为线索，拆开 commands、agents、rules、hooks、scripts 与 Codex 迁移路径，解释它到底怎样把 Claude Code 变成长期系统。"
 ---
 
-# Everything Claude Code 中文上手与实现拆解：它到底给 Claude Code 加了什么？
-
 如果你第一次看到 Everything Claude Code（后文简称 **ECC**），最容易产生两个误解：
 
 - 它是不是一个新的 agent 产品？

@@ -10,8 +10,6 @@ excerpt_en: "A discussion of why statistics drifted away from applied settings w
 permalink: '/blog/2026/02/14/application-of-statistics-and-applied-statistics/'
 ---
 
-# 统计学的应用与应用的统计学
-
 > "Statistics represents the science of learning from data."  
 > 统计学本应是关于从数据中学习的科学。
 

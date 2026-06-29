@@ -8,8 +8,6 @@ excerpt: "从 CNCC2025 的大模型智能体社会模拟讲座出发，沿着个
 mathjax: true
 ---
 
-# 从个体到社会：LLM Agent 社会模拟的三层研究脉络
-
 这篇文章整理自我在 **CNCC2025 中国计算机大会 Tutorial“基于大模型智能体的社会模拟”** 中听到的一场讲座笔记。讲座中，复旦大学魏忠钰教授团队围绕 LLM Agent 社会模拟的研究进展做了系统梳理，其中一条非常清晰的主线是：**Individual Simulation -> Scenario Simulation -> Society Simulation**。也就是说，研究者首先要让模型能够模拟一个具体的人，再让多个被模拟的人在具体场景中互动，最后才可能讨论大规模社会系统中的舆论、选举、运动、市场和制度实验。
 
 这个脉络和复旦 DISC 团队的综述论文 [From Individual to Society: A Survey on Social Simulation Driven by Large Language Model-based Agents](https://arxiv.org/abs/2412.03563) 高度一致。综述把 LLM Agent 驱动的社会模拟划分为三层：个体模拟、场景模拟和社会模拟。三层之间不是简单的应用分类，而是一个逐渐放大的建模尺度：从“一个人是否像他自己”，到“多个人是否能在一个规则清楚的场景中产生合理互动”，再到“一个由大量异质个体组成的系统是否能涌现出接近真实世界的宏观现象”。

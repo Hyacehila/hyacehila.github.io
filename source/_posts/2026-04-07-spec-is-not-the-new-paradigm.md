@@ -10,8 +10,6 @@ excerpt_en: "AI-era software engineering is not moving toward spec-first. As cod
 permalink: '/blog/2026/04/07/spec-is-not-the-new-paradigm/'
 ---
 
-# Spec 不是新范式：Vibe Coding、SDD 与 AI 时代的软件工程转向
-
 如果今天要讨论 AI 时代的软件工程是否出现了新的主导范式，答案大概率不会是 Spec。
 
 这不是因为 `Specification`、`contract`、`ADR`、`acceptance criteria` 这些东西不重要。恰恰相反，它们在很多高风险系统里仍然重要，甚至比过去更重要。我反对的，是把它们抬升成新的时代中心，仿佛只要把需求和设计写得足够完整，AI 就会像一个听话的编译器一样，把复杂系统稳定地推导出来。

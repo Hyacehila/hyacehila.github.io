@@ -10,8 +10,6 @@ excerpt_en: "Designer training also works for AI Agent builders: see more real s
 permalink: '/blog/2026/06/25/from-designer-to-agent-builder/'
 ---
 
-# 从设计师到 Agent Builder：看、做、想
-
 刚看完罗子雄的[《如何成为一名优秀的设计师》](https://www.youtube.com/watch?v=ocReynMrkms)。这个 talk 不长，它也没有给人一种听完就掌握设计秘诀的错觉，反而把话说得很老实：多看，多做，多想。先模仿，再借鉴，最后慢慢长出自己的判断。
 
 我不是严格意义上的设计师（事实上我的审美能力目前一塌糊涂）。可看完以后，脑子里冒出来的反而是 AI Agent。做 Agent 当然不是做平面，也不是做交互稿，但两件事都很依赖一种手感：知道什么是好，知道哪里不对，知道自己为什么这么改。工具和框架变得很快，一个人怎么从不会到会、从会一点到真的有判断，绕来绕去还是这些笨办法。

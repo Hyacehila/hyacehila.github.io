@@ -10,8 +10,6 @@ excerpt_en: "Chat is one way we package generative models, not the natural shape
 permalink: '/blog/2026/06/23/joyai-vl-interaction/'
 ---
 
-# JoyAI-VL-Interaction：从 Chat 回到连续交互的视觉语言模型
-
 最近看到 [JoyAI-VL-Interaction](https://joyai-vl-video-future-academy-jd.github.io/JoyAI-VL-Interaction/)，一开始只觉得它挺好玩：能看视频流，能判断什么时候说话，还能把复杂问题委派给后台模型或 agent。但再想一层，它其实碰到了一个更基础的问题：Chat 真的是生成式模型天然的交互形态吗？
 
 ## Chat 不是模型的天生形态

@@ -10,8 +10,6 @@ excerpt_en: "An agent infrastructure overview that maps the backend capabilities
 permalink: '/blog/2026/04/19/from-ai-agent-demo-to-large-scale-service-backend-capability-map/'
 ---
 
-# 从 AI Agent Demo 到大规模服务：后端能力全景图
-
 把 `AI Agent` 从 Demo 变成大规模服务，难点通常不在把模型接口包成 API，而在补齐一整套后端能力栈。
 
 当我在本地把 prompt、tool calling、memory、RAG、workflow 等组件接起来，Agent 也许已经能完成任务，于是很容易产生一个错觉：剩下的只是上线相关工作。

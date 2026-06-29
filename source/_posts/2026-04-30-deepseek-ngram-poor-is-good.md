@@ -10,8 +10,6 @@ excerpt_en: "A Zhihu answer offers a useful reminder: in large-model engineering
 permalink: '/blog/2026/04/30/deepseek-ngram-poor-is-good/'
 ---
 
-# 差就是好：从 DeepSeek 未采用 n-gram 结构说起
-
 > 本文是对原[知乎回答](https://www.zhihu.com/question/2031512824917267006/answer/2032447961972597290?share_code=1dybiBtxsSsmS&utm_psn=2032984959640711218)的摘记与轻度整理。
 
 这篇回答把大模型结构设计里的一个反直觉规律说得很直白：**差就是好**。

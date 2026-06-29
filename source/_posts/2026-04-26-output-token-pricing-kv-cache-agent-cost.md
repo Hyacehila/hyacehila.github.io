@@ -10,8 +10,6 @@ excerpt_en: "Output tokens are expensive mainly because decoding is serial, KV c
 permalink: '/blog/2026/04/26/output-token-pricing-kv-cache-agent-cost/'
 ---
 
-# 为什么 Output Token 更贵：从 KV Cache 到 Agent 成本工程
-
 本文源自一个简单的面试题：
 
 **为什么大模型 API 里，input token 的价格通常远低于 output token？从技术上看，这个定价合理吗？**

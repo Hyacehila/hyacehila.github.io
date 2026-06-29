@@ -10,8 +10,6 @@ excerpt_en: "LangChain's agent equals model plus harness framing is useful only 
 permalink: '/blog/2026/04/04/understanding-agent-harness/'
 ---
 
-# Harness 到底是什么：从 model + harness 到工程、产品与用户友好外壳
-
 上一篇 [《把 LLM 关回笼子里：从 Claude Code 看 Harness 如何把概率 Agent 固化为系统约束》](/blog/2026/03/20/building-agent-deterministic-constraints/) 讨论的是工程事实：为什么 `MCP`、`skills`、`hooks`、`subagents` 这些外壳，会比继续往 `CLAUDE.md` 里堆规则更重要。
 
 这一篇不再重讲那些机制，而只回答一个词的问题：**为什么今天大家开始把这整圈东西叫作 `harness`，这个词到底该怎么用。**

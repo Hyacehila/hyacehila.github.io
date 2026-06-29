@@ -64,6 +64,69 @@
   font-size: 0.92rem;
   opacity: 0.85;
 }
+.focus-card .focus-icon {
+  font-size: 1.5rem;
+  color: var(--primary-color, #5b8cff);
+  margin-bottom: 0.5rem;
+}
+
+/* ---- Timeline (Education / Experience) ---- */
+.timeline {
+  list-style: none;
+  margin: 1.2rem 0;
+  padding: 0 0 0 1.4rem;
+  border-left: 2px solid rgba(91, 140, 255, 0.25);
+}
+.timeline-item {
+  position: relative;
+  padding: 0 0 1.6rem 0.6rem;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-dot {
+  position: absolute;
+  left: calc(-1.4rem - 6px);
+  top: 0.4rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary-color, #5b8cff);
+  box-shadow: 0 0 0 4px var(--background-color, #fff);
+}
+.timeline-body h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+}
+.timeline-body p {
+  margin: 0.3rem 0;
+  font-size: 0.92rem;
+  opacity: 0.88;
+  line-height: 1.6;
+}
+
+/* ---- Research (enumerated) ---- */
+.research-list {
+  margin: 1.2rem 0;
+  padding-left: 1.4rem;
+}
+.research-list > li {
+  margin-bottom: 1.4rem;
+  padding-left: 0.4rem;
+}
+.research-list > li::marker {
+  color: var(--primary-color, #5b8cff);
+  font-weight: 700;
+}
+.research-list h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+}
+.research-list p {
+  margin: 0.3rem 0;
+  font-size: 0.92rem;
+  opacity: 0.88;
+  line-height: 1.6;
+}
+.award-list { line-height: 1.9; }
 
 /* ---- Project case cards ---- */
 .project-card {

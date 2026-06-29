@@ -10,8 +10,6 @@ excerpt_en: "A review of 60 years of data science, from John Tukey's prediction 
 permalink: '/blog/2026/02/13/60-years-of-data-science/'
 ---
 
-# 数据科学的第60年
-
 这是一个宏大的话题。本文的主要思路来自 David Donoho 的 50 Years of Data Science ，也会加入一些我觉得有意思的内容。距离 Donoho 发表本文又过去了将近10年，生成式人工智能的浪潮正在改变整个社会，数据科学也不例外。
 
 > 在撰写此文档时参考了以下内容，在本文的其余地方将不会额外强调内容的来源：

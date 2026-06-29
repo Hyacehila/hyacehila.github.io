@@ -10,8 +10,6 @@ excerpt_en: "World models matter less as beautiful video generators than as inte
 mathjax: true
 ---
 
-# 世界模型应该是什么样子，又该如何被利用？
-
 ## 为什么要搞世界模型？
 
 LLM 的成功，很大程度上来自一个简单而强的目标：预测下一个词。可是智能体面对真实环境时，只预测下一个词不够。它需要知道如果自己往左走会发生什么，如果把杯子倾斜水会不会洒，如果现在安慰一个正在哭的人，对方会停止哭泣、继续崩溃，还是把这种安慰理解成打扰。

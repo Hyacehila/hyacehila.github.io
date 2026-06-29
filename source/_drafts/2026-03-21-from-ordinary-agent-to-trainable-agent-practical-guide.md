@@ -6,8 +6,6 @@ author: Hyacehila
 excerpt: "不从 PPO 开始，而是用一个最小代码修复 Agent 讲清：怎样先收原料、切轨迹、搭 feedback stack，再把系统整理成可训练对象。"
 ---
 
-# 从普通 Agent 到可训练 Agent：一篇实战讲清 ART、AgentFlow、Verlog、RULER 与 ARPO
-
 前面几篇文章里，我已经分别讲过三件事：[Reward 自己是怎样被生产出来的](/blog/2026/03/19/reward-design-evolution-from-rlhf-to-rlvr/)、[为什么 Agentic RL 真正重要的是训练闭环而不是单个算法](/blog/2026/03/21/from-sft-to-agentic-rl-training-loop/)，以及[真实系统里的数据治理、环境与 feedback stack 怎样长出来](/blog/2026/03/22/reward-and-training-in-agent-k-paperbench-amap/)。但如果你是从 Agent 进入这个方向，而不是从强化学习算法进入，读到这里通常还会卡住一个非常现实的问题：
 
 **这些概念我都知道了，可我手里已经有一个会调用工具的 Agent，我到底要怎样把它整理成“可训练对象”？**

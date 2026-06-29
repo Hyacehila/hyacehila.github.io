@@ -10,8 +10,6 @@ excerpt_en: "A rolling collection of resources you can plug into agents and codi
 permalink: '/blog/2026/05/17/agent-resource-collection/'
 ---
 
-# Agent 外接资源收藏册：Skills、MCP Server、插件与实用工具
-
 这篇文章就是一个收藏夹，放一些我喜欢的、可以外接给 Agent / Coding CLI 的资源。
 
 它们不一定很大，也不一定值得单独写一篇文章。可能是一套 Skills，一个 MCP Server，一个插件，或者某段脚本、某份提示词结构、某个看起来有点奇怪、但确实能省事的小办法。共同点是：都能挂到 Agent 或 Coding CLI 上，让它多一点能力。
