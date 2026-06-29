@@ -295,7 +295,7 @@ window.I18N = {
     "about-text-3": "现在我主要专注于 AI Agent 的落地与评估（Evaluation），在我看来，这是把大模型带入工程实践与工业流水线最重要的两项技术。我同时研究 Single-Agent 与 Multi-Agent 系统：它们如何被设计、评估、约束，并最终嵌入真实业务流程，而不是停留在 benchmark 层面。写商业小说是我的副业爱好。",
     "about-text-4": "你可以叫我 Julian 或 Jules。",
     "portfolio-intro": "以案例结构呈现：问题背景 · 我的方案 · 技术栈 · 结果产出 · 链接。",
-    "about-aggregator-lead": "这里是零碎内容的集合：碎碎念、CV、足迹、朋友与联系方式。正式的自我介绍在 <a href=\"/me/\">Me</a>。",
+    "about-aggregator-lead": "这里是零碎内容的集合：碎碎念、CV、足迹、朋友与联系方式。正式的自我介绍在 <a href=\"/me/\">我</a>。",
     "about-murmur-title": "碎碎念",
     "about-cv-title": "CV",
     "about-cv-download": "下载 PDF",

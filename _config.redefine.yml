@@ -117,10 +117,10 @@ navbar:
     Archives:
       path: /archives/
       icon: fa-regular fa-box-archive
-    Me:
+    我:
       path: /me/
       icon: fa-regular fa-user
-    Project:
+    项目:
       path: /projects/
       icon: fa-regular fa-diagram-project
     About:

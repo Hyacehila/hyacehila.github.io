@@ -43,8 +43,8 @@
   var NAV_LABELS = {
     "/": { zh: "首页", en: "Home" },
     "/archives/": { zh: "归档", en: "Archives" },
-    "/me/": { zh: "Me", en: "Me" },
-    "/projects/": { zh: "Project", en: "Project" },
+    "/me/": { zh: "我", en: "Me" },
+    "/projects/": { zh: "项目", en: "Project" },
     "/murmur/": { zh: "碎碎念", en: "Murmurs" },
     "/footprints/": { zh: "Footprints", en: "Footprints" },
     "/friends/": { zh: "Friends", en: "Friends" },
@@ -62,6 +62,10 @@
     { zh: "总访问量", en: "Views" },
     { zh: "主题", en: "Theme" }
   ];
+  var PAGE_LABELS = {
+    "/me/": { zh: "我", en: "Me" },
+    "/projects/": { zh: "项目", en: "Project" }
+  };
 
   function setLeafText(el, text) {
     // replace only the trailing text node (preserve any leading <i> icon)
@@ -98,6 +102,37 @@
           break;
         }
       }
+    });
+  }
+
+  function getCurrentPath() {
+    var path = window.location.pathname || "/";
+    return path.charAt(path.length - 1) === "/" ? path : path + "/";
+  }
+
+  function applyPageLabel(lang) {
+    var map = PAGE_LABELS[getCurrentPath()];
+    if (!map) return;
+    var target = map[lang];
+    var titles = [map.zh, map.en];
+
+    document.querySelectorAll(".page-template-content > h1").forEach(function (h1) {
+      var cur = h1.textContent.trim();
+      if (cur === map.zh || cur === map.en) h1.textContent = target;
+    });
+
+    var currentTitle = document.title.trim();
+    for (var i = 0; i < titles.length; i++) {
+      var prefix = titles[i] + " |";
+      if (currentTitle.indexOf(prefix) === 0) {
+        document.title = target + currentTitle.slice(titles[i].length);
+        break;
+      }
+    }
+
+    document.querySelectorAll('meta[property="og:title"], meta[name="twitter:title"]').forEach(function (meta) {
+      var content = meta.getAttribute("content");
+      if (content === map.zh || content === map.en) meta.setAttribute("content", target);
     });
   }
 
@@ -192,6 +227,7 @@
     // Translate the theme chrome (navbar / sidebar / footer) so the toggle has a
     // visible effect on Home and every page, where there are no [data-i18n] nodes.
     applyChrome(lang);
+    applyPageLabel(lang);
 
     // Swap blog titles/excerpts in lists (Home / archives / categories / tags)
     // to their English fields when in EN mode. Post bodies stay Chinese.
