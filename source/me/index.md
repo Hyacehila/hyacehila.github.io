@@ -3,6 +3,7 @@ title: Me
 date: 2026-06-28 00:00:00
 permalink: /me/
 comment: false
+comments: false
 ---
 
 <div class="me-page">

@@ -3,6 +3,7 @@ title: About
 date: 2026-06-28 00:00:00
 permalink: /about/
 comment: false
+comments: false
 ---
 
 <div class="about-page" id="about-root">

@@ -3,6 +3,7 @@ title: Project
 date: 2026-06-28 00:00:00
 permalink: /projects/
 comment: false
+comments: false
 ---
 
 <div class="projects-page">
