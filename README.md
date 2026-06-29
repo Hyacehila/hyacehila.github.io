@@ -9,29 +9,41 @@
 
 | 路径 | 说明 |
 |------|------|
-| `/` | Redefine 默认文章流（全部文章 + 分类 / 标签 / 搜索 / 侧栏） |
-| `/archives/` | 时间线归档 |
-| `/me/` | 正式自我介绍 |
+| `/` | 固定封面 banner（山水图 + 高斯模糊，标题为 ID）+ Redefine 默认文章流（分类 / 标签 / 搜索 / 侧栏） |
+| `/archives/` | 时间线归档（全部文章的完整索引） |
+| `/me/` | 正式自我介绍：专注领域卡片 · 教育/经历 Timeline · 研究枚举 · 奖项 |
 | `/projects/` | 案例式项目介绍 |
-| `/about/` | 杂物间：碎碎念 · CV · 足迹(Globe.gl) · 友链 · 联系方式 |
+| **About（顶栏下拉）** | 下拉菜单，包含以下子页： |
+| &nbsp;&nbsp;`/murmur/` | 碎碎念（Redefine 原生「说说」时间线） |
+| &nbsp;&nbsp;`/footprints/` | 旅行足迹（Globe.gl 3D 地球） |
+| &nbsp;&nbsp;`/friends/` | 友情链接（Redefine 原生「友链」模板） |
+| &nbsp;&nbsp;`/cv/` | CV（PDF 预览 + 下载，缺文件时优雅占位） |
+| &nbsp;&nbsp;`/contact/` | 邮箱 / GitHub / LinkedIn |
 | `/categories/` `/tags/` | 分类 / 标签索引（不在顶栏，从文章卡片进入） |
 
+顶栏：**Home / Archives / Me / Project / About（下拉）**。
 旧文章外链保持不变：`/blog/:year/:month/:day/:title/`。
 
 ## 项目结构
 
 ```
 _config.yml             # Hexo 站点配置
-_config.redefine.yml    # Redefine 主题配置
+_config.redefine.yml    # Redefine 主题配置（banner / 导航下拉 / inject 等）
 package.json            # 依赖（含主题与插件）
 source/
-  _posts/               # 已发布文章
+  _posts/               # 已发布文章（正文不含开头 # 标题，标题只在 front-matter）
   _drafts/              # 草稿（不发布，但随仓库 git 同步）
-  _data/projects.yml    # 项目数据（规范记录）
-  me/ projects/ about/  # 个人页（含 categories/ tags/ 索引页）
+  _data/
+    essays.yml          # 碎碎念数据（说说模板消费）
+    links.yml           # 友链数据（友链模板消费）
+    projects.yml        # 项目数据（规范记录）
+  me/ projects/         # 个人页（结构化 HTML + data-i18n）
+  murmur/ footprints/   # About 下拉子页
+  friends/ cv/ contact/
+  categories/ tags/     # 分类 / 标签索引页
   assets/
-    css/ js/            # 自定义样式与脚本（i18n 切换、Globe.gl、murmur）
-    data/               # 客户端读取的数据（cities.json, murmur.json）
+    css/ js/            # 自定义样式与脚本（i18n 切换、Globe.gl、CV 占位）
+    data/               # 客户端读取的数据（cities.json）
     images/             # 文章图片资产
 code/                   # 杂物：训练器代码片段、写作/环境笔记（不发布）
 .github/workflows/      # GitHub Actions 自动构建 + 发布
@@ -67,9 +79,16 @@ mathjax: false      # 数学渲染由 KaTeX 全站处理，此字段保留但不
 ---
 ```
 
+约定：
+- **不要在正文开头写 `# 标题`**；标题只写在 front-matter 的 `title:`，主题会渲染页面标题。
 - 数学公式：`$...$` 行内、`$$...$$` 块级，构建期由 `hexo-filter-katex` 渲染为静态 HTML。
 - 流程图：` ```mermaid ` 代码块。
-- 双语：个人页通过 `data-i18n="key"` 复用 `migration/home.i18n.source.json` 中的字典，右下角按钮切换 EN/中，选择持久化在 localStorage。
+- 双语：个人页通过 `data-i18n="key"` 复用 `migration/home.i18n.source.json` 字典；右下角按钮切换 EN/中，并同步翻译导航/侧栏/页脚等主题文案，选择持久化在 localStorage。
+
+### 更新碎碎念 / 友链
+
+- 碎碎念：编辑 `source/_data/essays.yml`（字段 `content` + `date`）。
+- 友链：编辑 `source/_data/links.yml`（`links_category` → `list`，每项 `name/link/description/avatar`）。
 
 ## 部署（GitHub Actions）
 
