@@ -1,5 +1,5 @@
 ---
-title: 碎碎念
+title: 说说
 type: shuoshuo
 date: 2026-06-28 00:00:00
 permalink: /murmur/
