@@ -1,0 +1,237 @@
+/* Custom styles for personal pages (Me / Projects / About) + language toggle.
+   Scoped to hand-authored markup; does not override theme internals. */
+
+/* ---- Language toggle button (fixed, bottom-left) ---- */
+.lang-toggle-btn {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 1200;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  background: linear-gradient(135deg, #5b8cff, #9b5bff);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(91, 140, 255, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.lang-toggle-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(91, 140, 255, 0.45);
+}
+
+/* ---- Generic section blocks on personal pages ---- */
+.page-section {
+  margin: 2.2rem 0;
+}
+.page-section > h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.section-lead {
+  opacity: 0.85;
+  margin-bottom: 1rem;
+}
+
+/* ---- Me / Project intro grid of focus areas ---- */
+.focus-grid,
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+.focus-card,
+.info-card {
+  padding: 1.1rem 1.2rem;
+  border-radius: 14px;
+  background: var(--card-bg, rgba(127, 127, 127, 0.06));
+  border: 1px solid rgba(127, 127, 127, 0.12);
+}
+.focus-card h3,
+.info-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.02rem;
+}
+.focus-card p,
+.info-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  opacity: 0.85;
+}
+
+/* ---- Project case cards ---- */
+.project-card {
+  padding: 1.3rem 1.4rem;
+  margin: 1.2rem 0;
+  border-radius: 16px;
+  background: var(--card-bg, rgba(127, 127, 127, 0.06));
+  border: 1px solid rgba(127, 127, 127, 0.12);
+}
+.project-card h3 {
+  margin: 0 0 0.2rem;
+}
+.project-card .project-meta {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 0.8rem;
+}
+.project-card .project-field {
+  margin: 0.6rem 0;
+}
+.project-card .project-field > strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--primary-color, #5b8cff);
+  font-size: 0.9rem;
+}
+.project-card .project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+.project-card .project-stack span {
+  padding: 2px 10px;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  background: rgba(91, 140, 255, 0.12);
+  color: var(--primary-color, #5b8cff);
+}
+.project-card .project-links a {
+  display: inline-block;
+  margin-right: 0.8rem;
+  font-size: 0.88rem;
+}
+
+/* ---- About: murmur timeline ---- */
+.murmur-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid rgba(91, 140, 255, 0.25);
+}
+.murmur-item {
+  position: relative;
+  padding: 0.5rem 0 1.1rem 1.3rem;
+}
+.murmur-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0.75rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #5b8cff;
+}
+.murmur-text {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+.murmur-meta {
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  opacity: 0.65;
+}
+.murmur-mood {
+  display: inline-block;
+  padding: 1px 8px;
+  margin-left: 0.3rem;
+  border-radius: 999px;
+  background: rgba(155, 91, 255, 0.14);
+  color: #9b5bff;
+  font-size: 0.74rem;
+}
+
+/* ---- About: CV ---- */
+.cv-frame {
+  width: 100%;
+  height: 70vh;
+  min-height: 480px;
+  border: 1px solid rgba(127, 127, 127, 0.2);
+  border-radius: 12px;
+}
+.cv-actions {
+  margin: 0.8rem 0;
+}
+.cv-actions a {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: var(--primary-color, #5b8cff);
+  color: #fff !important;
+  font-size: 0.9rem;
+}
+.cv-placeholder {
+  padding: 2rem;
+  text-align: center;
+  border: 1px dashed rgba(127, 127, 127, 0.3);
+  border-radius: 12px;
+  opacity: 0.7;
+}
+
+/* ---- About: globe ---- */
+#globe-container {
+  width: 100%;
+  min-height: 340px;
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 1rem;
+}
+.globe-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 0.6rem;
+}
+.globe-legend .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+/* ---- About: friends + contact ---- */
+.friend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.9rem;
+}
+.friend-card {
+  display: block;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: var(--card-bg, rgba(127, 127, 127, 0.06));
+  border: 1px solid rgba(127, 127, 127, 0.12);
+  text-decoration: none !important;
+}
+.friend-card strong { display: block; }
+.friend-card span { font-size: 0.84rem; opacity: 0.7; }
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+.contact-list li {
+  margin: 0.5rem 0;
+}
+.contact-list i {
+  width: 1.4rem;
+  color: var(--primary-color, #5b8cff);
+}
+
+@media (max-width: 600px) {
+  .cv-frame { height: 60vh; }
+  .lang-toggle-btn { left: 12px; bottom: 12px; }
+}

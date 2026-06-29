@@ -1,57 +1,107 @@
-# GitHub Pages configuration
-# 不使用远程主题，使用自定义布局
-# theme: jekyll-theme-minimal
-title: Hyacehila - Personal Portfolio
-description: Data Scientist & ML Engineer Portfolio
-baseurl: ""
-url: "https://hyacehila.github.io"
+# Hexo Configuration — https://hexo.io/docs/configuration
+# Migrated from Jekyll. Theme: Redefine (hexo-theme-redefine).
 
-# 博客访问计数配置
-counter:
-  enabled: true
-  provider: busuanzi
-  api_url: "https://cdn.busuanzi.cc/api.php"
-  timeout_ms: 4500
-  show_site_summary: true
-  show_post_pv: true
-  show_post_uv: true
+# Site
+title: Hyacehila
+subtitle: ''
+description: 'AI Agent · Evaluation · Agentic RL · Data Science'
+keywords:
+author: Hyacehila
+language: zh-CN
+timezone: Asia/Shanghai
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    block:
-      line_numbers: false
+# URL
+## Site served at the domain root (user pages repo).
+url: https://hyacehila.github.io
+root: /
+## Preserve legacy Jekyll post URLs. Legacy 104 posts carry an explicit
+## per-post `permalink:`; this pattern is only the fallback for future posts.
+permalink: /blog/:year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true   # keep .../index.html so output matches Jekyll _site
+  trailing_html: true
 
-# 显示未来日期的文章（生产环境建议关闭）
-future: false
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - 'assets/**/*.json'   # never let Hexo tag-parse data files
+  - 'assets/**/*.js'
 
-# 显示未发布的草稿（生产环境建议关闭）
-show_drafts: false
+# Writing
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+filename_case: 0          # MUST stay 0 — preserves LLM/SOTA/Re0HF case in URLs
+render_drafts: false      # drafts stay in repo (source/_drafts) but are NOT published
+post_asset_folder: false
+relative_link: false
+future: true              # all posts are past-dated; render them all
+highlight:
+  enable: false           # Redefine ships its own highlighter
+prismjs:
+  enable: false
 
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
+# Home page index
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
 
-# 博客配置
-collections:
-  posts:
-    output: true
-    permalink: /blog/:year/:month/:day/:title/
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
 
-# Exclude files from processing
-exclude:
-  - README.md
-  - LICENSE
-  - .gitignore
-  - Gemfile
-  - Gemfile.lock
-  - temp-gitbook-theme/
+# Pagination
+per_page: 10
+pagination_dir: page
 
-# Include files
-include:
-  - _layouts/
-  - _includes/
+# Extensions
+theme: redefine
+
+# Markdown renderer (hexo-renderer-marked)
+marked:
+  gfm: true
+  breaks: false
+  prependRoot: true
+  postAsset: false
+  lazyload: false
+
+# KaTeX (hexo-filter-katex) — build-time LaTeX -> static HTML+CSS (swup-safe,
+# stateless, fast). Renders $...$ inline and $$...$$ display on all posts;
+# CSS is auto-injected into <head>. The legacy `mathjax: true` front-matter
+# flag is harmless/ignored.
+katex:
+  render_options:
+    throwOnError: false
+    strict: false
+
+# Local search (hexo-generator-searchdb)
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
+
+# Atom feed (hexo-generator-feed) — replaces jekyll-feed
+feed:
+  type: atom
+  path: feed.xml
+  limit: 20
+  hub:
+  content: true
+
+# Sitemap (hexo-generator-sitemap) — replaces jekyll-sitemap
+sitemap:
+  path: sitemap.xml

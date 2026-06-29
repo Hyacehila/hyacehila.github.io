@@ -1,0 +1,37 @@
+# Canonical project records. The /projects/ page is authored as structured
+# HTML reusing the i18n keys from _data/i18n/home.json (mirrored here for
+# maintenance reference). Add new projects here AND in source/projects/index.md.
+
+- key: novel-eval
+  title_zh: "Novel Evaluation：基于 LLM Rubric 的小说结构化评测系统"
+  title_en: "Novel Evaluation: LLM Rubric for Structured Fiction Assessment"
+  type: 个人研究项目 / Personal Research Project
+  status: completed
+  problem_i18n: project-novel-eval-problem
+  solution_i18n: project-novel-eval-solution
+  stack: [Python, FastAPI, SQLite, "LLM as Judge", "Prompt/Schema Eval"]
+  links:
+    - label: Code
+      url: https://github.com/Hyacehila/novel_evaluation
+
+- key: mental-health
+  title_zh: "基于可穿戴设备技术的心理健康检测方案"
+  title_en: "Mental Health Monitoring via Wearable Tech"
+  type: 国家级大学生创新创业训练计划 / National Innovation Training Program
+  status: completed
+  background_i18n: project-mental-background
+  implementation_i18n: project-mental-implementation
+  results_i18n: project-mental-results
+  stack: [MICE, BoxCox, PCA, ElasticNet, RandomForest, XGBoost, Stacking]
+  links: []
+
+- key: health-metrics
+  title_zh: "中国现代化下人民健康状况测度与影响因素"
+  title_en: "Public Health Metrics in Modern China"
+  type: 全国大学生统计建模大赛 / National Statistical Modeling Competition
+  status: completed
+  background_i18n: project-health-background
+  implementation_i18n: project-health-implementation
+  results_i18n: project-health-results
+  stack: [PCA, "LASSO Regression", "Grid Search", "Web Scraping"]
+  links: []

@@ -4,6 +4,17 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Hexo build outputs
+public/
+db.json
+.deploy_git/
+
+# Migration verification artifacts (screenshots, build logs)
+migration/shots/
+migration/*.log
+migration/build*.log
+migration/server*.log
+
 # Build outputs
 dist/
 build/

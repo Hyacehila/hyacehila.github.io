@@ -1,0 +1,253 @@
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
+# THEME REDEFINE CONFIGURATION FILE V2
+# Customized for hyacehila.github.io (migrated from Jekyll)
+# DOCUMENTATION: https://redefine-docs.ohevan.com
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
+
+
+# BASIC INFORMATION
+info:
+  title: Hyacehila
+  subtitle: AI Agent · Evaluation · Agentic RL · Data Science
+  author: Hyacehila
+  url: https://hyacehila.github.io
+
+
+# IMAGE CONFIGURATION
+defaults:
+  favicon: /assets/images/logo.png
+  logo:
+  avatar: /assets/images/logo.png
+
+
+# COLORS
+colors:
+  primary: "#5b8cff"
+  secondary:
+  default_mode: light # light, dark
+
+
+# SITE CUSTOMIZATION
+global:
+  fonts:
+    chinese:
+      enable: false
+    english:
+      enable: false
+    title:
+      enable: false
+  content_max_width: 1000px
+  sidebar_width: 210px
+  hover:
+    shadow: true
+    scale: false
+  scroll_progress:
+    bar: true
+    percentage: true
+  website_counter:
+    url: https://cn.vercount.one/js
+    enable: true
+    site_pv: true
+    site_uv: true
+    post_pv: true
+  # Keep swup single-page navigation ON. Custom About JS is swup-safe
+  # (page:view re-init + visit:start teardown). See source/about/index.md.
+  single_page: true
+  preloader:
+    enable: false
+  side_tools:
+    gear_rotation: true
+    auto_expand: false
+  open_graph:
+    enable: true
+    image:
+    description: AI Agent · Evaluation · Agentic RL · Data Science
+  google_analytics:
+    enable: false
+
+
+# FONTAWESOME
+fontawesome:
+  thin: false
+  light: false
+  duotone: false
+  sharp_solid: false
+
+
+# HOME BANNER — disabled so Home is a clean Redefine article stream.
+home_banner:
+  enable: false
+
+
+# NAVIGATION BAR — top nav: Home / Archives / Me / Project / About
+navbar:
+  auto_hide: false
+  color:
+    left: "#5b8cff"
+    right: "#9b5bff"
+    transparency: 35
+  width:
+    home: 1200px
+    pages: 1000px
+  links:
+    Home:
+      path: /
+      icon: fa-regular fa-house
+    Archives:
+      path: /archives/
+      icon: fa-regular fa-box-archive
+    Me:
+      path: /me/
+      icon: fa-regular fa-user
+    Project:
+      path: /projects/
+      icon: fa-regular fa-diagram-project
+    About:
+      path: /about/
+      icon: fa-regular fa-circle-info
+  # Local search. Requires hexo-generator-searchdb.
+  search:
+    enable: true
+    preload: true
+
+
+# HOME PAGE ARTICLE SETTINGS
+home:
+  sidebar:
+    enable: true
+    position: left
+    first_item: menu
+    announcement:
+    show_on_mobile: true
+    links:
+      Archives:
+        path: /archives/
+        icon: fa-regular fa-box-archive
+      Categories:
+        path: /categories/
+        icon: fa-regular fa-folder
+      Tags:
+        path: /tags/
+        icon: fa-regular fa-tags
+  article_date_format: YYYY-MM-DD
+  excerpt_length: 200
+  categories:
+    enable: true
+    limit: 3
+  tags:
+    enable: true
+    limit: 3
+
+
+# ARTICLE
+articles:
+  style:
+    font_size: 16px
+    line_height: 1.6
+    image_border_radius: 14px
+    image_alignment: center
+    image_caption: false
+    link_icon: true
+    delete_mask: false
+    title_alignment: left
+    headings_top_spacing:
+      h1: 3.2rem
+      h2: 2.4rem
+      h3: 1.9rem
+      h4: 1.6rem
+      h5: 1.4rem
+      h6: 1.3rem
+  word_count:
+    enable: false
+    count: false
+    min2read: false
+  author_label:
+    enable: false
+    auto: false
+    list: []
+  code_block:
+    copy: true
+    style: mac
+    highlight_theme:
+      light: github
+      dark: vs2015
+    font:
+      enable: false
+  toc:
+    enable: true
+    max_depth: 3
+    number: false
+    expand: true
+    init_open: true
+  copyright:
+    enable: true
+    default: cc_by_nc_sa
+  lazyload: true
+  pangu_js: false
+  recommendation:
+    enable: false
+
+
+# COMMENT — disabled for now.
+comment:
+  enable: false
+  system: waline
+
+
+# FOOTER
+footer:
+  runtime: true
+  icon: '<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>'
+  start: 2025/12/26 00:00:00
+  statistics: true
+  customize:
+  icp:
+    enable: false
+
+
+# INJECT — self-contained EN/ZH toggle (no theme template edits).
+#   i18n.js     : the EN/ZH dictionary (embedded from _data/i18n/home.json)
+#   lang-toggle.js : applies [data-i18n], persists choice, swup-aware
+inject:
+  enable: true
+  head:
+    - '<link rel="stylesheet" href="/assets/css/custom.css">'
+    - '<script src="/assets/js/i18n.js"></script>'
+    - '<script src="/assets/js/lang-toggle.js"></script>'
+    - '<script src="/assets/js/about.js"></script>'
+  footer:
+    - '<button id="language-toggle" class="lang-toggle-btn" type="button" aria-label="Switch language">EN / 中</button>'
+
+
+# PLUGINS
+plugins:
+  feed:
+    enable: true
+  aplayer:
+    enable: false
+  mermaid:
+    enable: true
+    version: "11.4.1"
+    theme:
+      light: "default"
+      dark: "dark"
+
+
+# PAGE TEMPLATES
+page_templates:
+  friends_column: 2
+  tags_style: blur
+  masonry:
+    batch_size: 12
+    initial_batch_size: 24
+
+
+# CDN
+cdn:
+  enable: false
+  provider: npmmirror
+
+
+# DEVELOPER MODE
+developer:
+  enable: false
