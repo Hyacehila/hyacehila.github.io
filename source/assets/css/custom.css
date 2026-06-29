@@ -1,6 +1,23 @@
 /* Custom styles for personal pages (Me / Projects / About) + language toggle.
    Scoped to hand-authored markup; does not override theme internals. */
 
+/* ---- Navbar: frosted glass instead of the purple gradient ----
+   Replace the tinted linear-gradient with a neutral translucent backing so the
+   navbar reads as frosted glass over the (now sharp) cover. The theme's own
+   backdrop-filter: blur(10px) on .navbar-container stays in effect.
+   var(--background-color-transparent) auto-switches light/dark. */
+.navbar-container {
+  background: var(--background-color-transparent) !important;
+}
+
+/* ---- Cover banner: keep it sharp (remove the 15px blur on scroll) ----
+   The theme blurs the fixed background via an inline <style> once you scroll
+   (home-background). Drop that blur so the landscape stays clear; the frosted
+   navbar provides the only glass effect. */
+.home-banner-background {
+  filter: none !important;
+}
+
 /* ---- Language toggle button (fixed, bottom-left) ---- */
 .lang-toggle-btn {
   position: fixed;
