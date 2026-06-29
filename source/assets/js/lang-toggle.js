@@ -64,7 +64,8 @@
   ];
   var PAGE_LABELS = {
     "/me/": { zh: "我", en: "Me" },
-    "/projects/": { zh: "项目", en: "Project" }
+    "/projects/": { zh: "项目", en: "Project" },
+    "/murmur/": { zh: "碎碎念", en: "Murmur" }
   };
 
   function setLeafText(el, text) {
@@ -116,7 +117,7 @@
     var target = map[lang];
     var titles = [map.zh, map.en];
 
-    document.querySelectorAll(".page-template-content > h1").forEach(function (h1) {
+    document.querySelectorAll(".page-template-content > h1, .page-title-header").forEach(function (h1) {
       var cur = h1.textContent.trim();
       if (cur === map.zh || cur === map.en) h1.textContent = target;
     });
