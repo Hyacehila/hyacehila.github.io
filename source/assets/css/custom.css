@@ -283,6 +283,10 @@
 }
 
 /* ---- About: friends + contact ---- */
+.friends-link-container > div:has(> h2:empty) {
+  display: none;
+}
+
 .friend-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

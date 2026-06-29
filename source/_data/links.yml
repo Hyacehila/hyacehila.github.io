@@ -1,21 +1,17 @@
 # Friend links consumed by the native Redefine 友链/links template
-# via source/friends/index.md (type: links).
-- links_category: 朋友们
+# via source/friends/index.md (template: links).
+- links_category: ""
   has_thumbnail: false
   list:
     - name: Shimmer
       link: https://shimmer0007.github.io
       description: 数据分析师
-      avatar: https://shimmer0007.github.io/assets/images/logo.png
     - name: CY
       link: https://xducy.github.io
       description: 计算机视觉算法工程师
-      avatar: https://xducy.github.io/assets/images/logo.png
     - name: XiaofeiXu
       link: https://xiaofei-xu.github.io/
       description: 研究员
-      avatar: https://xiaofei-xu.github.io/assets/images/logo.png
     - name: XiaofeiZhao
       link: https://jszy.whu.edu.cn/zhaoxiaofei/zh_CN/index/1220200/list/index.htm
       description: 教授
-      avatar: /images/redefine-avatar.svg
