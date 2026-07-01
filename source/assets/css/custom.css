@@ -1,31 +1,111 @@
-/* Custom styles for personal pages (Me / Projects / About) + language toggle.
-   Scoped to hand-authored markup; does not override theme internals. */
+/* Custom styles for the site glass layer, personal pages, and home controls. */
 
-/* ---- Navbar: frosted glass instead of the purple gradient ----
-   Replace the tinted linear-gradient with a neutral translucent backing so the
-   navbar reads as frosted glass over the (now sharp) cover. The theme's own
-   backdrop-filter: blur(10px) on .navbar-container stays in effect.
-   var(--background-color-transparent) auto-switches light/dark. */
+:root {
+  --site-bg-image: url("/images/wallhaven-wqery6-light.webp");
+  --site-page-scrim: rgba(248, 250, 252, 0.18);
+  --site-glass-bg: rgba(255, 255, 255, 0.62);
+  --site-glass-bg-strong: rgba(255, 255, 255, 0.82);
+  --site-glass-bg-subtle: rgba(255, 255, 255, 0.42);
+  --site-glass-border: rgba(255, 255, 255, 0.38);
+  --site-glass-shadow: 0 14px 40px rgba(15, 23, 42, 0.14);
+  --site-glass-blur: 18px;
+  --card-bg: rgba(255, 255, 255, 0.34);
+}
+
+.dark {
+  --site-bg-image: url("/images/wallhaven-wqery6-dark.webp");
+  --site-page-scrim: rgba(10, 12, 18, 0.34);
+  --site-glass-bg: rgba(32, 33, 36, 0.58);
+  --site-glass-bg-strong: rgba(32, 33, 36, 0.82);
+  --site-glass-bg-subtle: rgba(32, 33, 36, 0.42);
+  --site-glass-border: rgba(255, 255, 255, 0.12);
+  --site-glass-shadow: 0 14px 44px rgba(0, 0, 0, 0.32);
+  --card-bg: rgba(32, 33, 36, 0.42);
+}
+
+html,
+body,
+.page-container {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+body {
+  min-height: 100%;
+  isolation: isolate;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  z-index: -2;
+  background-image: var(--site-bg-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(7px) saturate(1.08);
+  transform: scale(1.04);
+}
+
+body::after {
+  z-index: -1;
+  background: var(--site-page-scrim);
+}
+
+.navbar-container,
+.home-content-container .home-article-list .home-article-item,
+.home-sidebar-container .sidebar-content,
+.home-sidebar-container .sidebar-links,
+.page-template-container,
+.archive-container,
+.tag-container,
+.post-page-container .article-content-container,
+.post-page-container .toc-content-container,
+.side-tools-container .right-bottom-tools,
+.paginator a.page-number,
+.paginator span.page-number,
+.paginator a.prev,
+.paginator a.next,
+footer.footer,
+.navbar-container .right .desktop .navbar-list .navbar-item .sub-menu {
+  background: var(--site-glass-bg) !important;
+  background-color: var(--site-glass-bg) !important;
+  border-color: var(--site-glass-border) !important;
+  box-shadow: var(--site-glass-shadow) !important;
+  -webkit-backdrop-filter: blur(var(--site-glass-blur)) saturate(1.18);
+  backdrop-filter: blur(var(--site-glass-blur)) saturate(1.18);
+}
+
 .navbar-container {
-  background: var(--background-color-transparent) !important;
+  border-bottom: 1px solid var(--site-glass-border);
 }
 
-body:has(.home-banner-container) .navbar-container {
-  background: linear-gradient(
-    120deg,
-    rgba(47, 122, 170, 0.42) 0%,
-    rgba(55, 102, 158, 0.32) 100%
-  ) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: none;
+.home-sidebar-container .sidebar-links .links:hover,
+.navbar-container .right .desktop .navbar-list .navbar-item .sub-menu li a:hover {
+  background: var(--site-glass-bg-subtle) !important;
+  background-color: var(--site-glass-bg-subtle) !important;
 }
 
-/* ---- Cover banner: keep it sharp (remove the 15px blur on scroll) ----
-   The theme blurs the fixed background via an inline <style> once you scroll
-   (home-background). Drop that blur so the landscape stays clear; the frosted
-   navbar provides the only glass effect. */
-.home-banner-background {
-  filter: none !important;
+.navbar-drawer,
+.search-pop-overlay .search-popup,
+.code-container,
+.markdown-body blockquote:not(.not-markdown) {
+  background: var(--site-glass-bg-strong) !important;
+  background-color: var(--site-glass-bg-strong) !important;
+  border-color: var(--site-glass-border) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(1.08);
+  backdrop-filter: blur(12px) saturate(1.08);
+}
+
+.code-container,
+.markdown-body blockquote:not(.not-markdown) {
+  box-shadow: var(--redefine-box-shadow-flat);
 }
 
 /* ---- Home banner action layer + language toggle ---- */
