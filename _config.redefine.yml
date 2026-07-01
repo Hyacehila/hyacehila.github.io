@@ -287,8 +287,9 @@ page_templates:
 
 # CDN
 cdn:
-  enable: false
-  provider: npmmirror
+  enable: true
+  provider: aliyun
+  custom_url:
 
 
 # DEVELOPER MODE
