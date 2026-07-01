@@ -8,6 +8,10 @@
   var DEFAULT_LANG = "en";
   var DEFAULT_LANG_MIGRATION_KEY = "lang-default-migration";
   var DEFAULT_LANG_MIGRATION = "en-gear-tools-2026-07";
+  var ENGLISH_ONLY_PATHS = {
+    "/cv/": true,
+    "/friends/": true
+  };
 
   function getLang() {
     try {
@@ -61,6 +65,14 @@
 
   function getCurrentPath() {
     return normPath(window.location.pathname || "/");
+  }
+
+  function isEnglishOnlyPage() {
+    return ENGLISH_ONLY_PATHS[getCurrentPath()] === true;
+  }
+
+  function isFixedEnglishPage() {
+    return getCurrentPath() === "/me/" || isEnglishOnlyPage();
   }
 
   function setLeafText(el, text) {
@@ -303,7 +315,7 @@
       .then(function (r) { return r.json(); })
       .then(function (m) {
         POST_I18N = m || {};
-        var current = getLang();
+        var current = isFixedEnglishPage() ? DEFAULT_LANG : getLang();
         swapPostTitles(current);
         applyPostPageI18n(current);
       })
@@ -312,7 +324,7 @@
   }
 
   function ensureToggleButton() {
-    if (getCurrentPath() === "/me/") {
+    if (isFixedEnglishPage()) {
       var existing = document.getElementById("language-toggle");
       if (existing) existing.remove();
       return null;
@@ -368,7 +380,7 @@
   }
 
   function applyI18n() {
-    var lang = getCurrentPath() === "/me/" ? DEFAULT_LANG : getLang();
+    var lang = isFixedEnglishPage() ? DEFAULT_LANG : getLang();
     stampHtml(lang);
     applyDataI18n(lang);
     updateToggleButton(lang);
@@ -406,7 +418,7 @@
     applyI18n();
   }
 
-  stampHtml(getLang());
+  stampHtml(isFixedEnglishPage() ? DEFAULT_LANG : getLang());
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
