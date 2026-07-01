@@ -47,7 +47,6 @@ source/
     images/             # 文章图片资产
 code/                   # 杂物：训练器代码片段、写作/环境笔记（不发布）
 .github/workflows/      # GitHub Actions 自动构建 + 发布
-migration/              # 一次性迁移脚本与校验工具（i18n 字典源等）
 ```
 
 ## 本地预览
