@@ -7,7 +7,7 @@ comments: false
 
 <div class="me-page">
 <section class="me-section me-about-section" aria-labelledby="me-about-title">
-  <h2 id="me-about-title" class="me-section-title">About Me</h2>
+  <h2 id="me-about-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-seedling"></i></span><span>About Me</span></h2>
   <div class="me-prose">
     <p>hyacehila is my long-term online ID. It comes from hyacinth, my favorite plant. I later reshaped it into a lighter, more name-like form: hyacehila. The ending -hila / -ila gives it a small, airy, fictional texture, so to me it is not only a username, but also a hyacinth sprite living inside complex structures.</p>
     <p>This ID is close to how I understand technology: moving through dense systems, toolchains, workflows, and uncertain environments to find a natural, explainable path that actually solves the problem. I care about general problem-solving patterns and about whether technology can transfer and generalize across real scenarios.</p>
@@ -17,11 +17,11 @@ comments: false
 </section>
 
 <section class="me-section" aria-labelledby="me-intern-title">
-  <h2 id="me-intern-title" class="me-section-title">Intern</h2>
-  <div class="me-timeline">
-    <article class="me-timeline-item">
-      <h3>Algorithm Researcher (Intern) | NSFOCUS Technology (Wuhan)</h3>
-      <p class="me-timeline-meta">Security Data Pipeline / CodeQL Review Agent / RL Baseline</p>
+  <h2 id="me-intern-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></span><span>Intern</span></h2>
+  <div class="me-entry-list">
+    <article class="me-entry">
+      <h3>Algorithm Researcher (Intern)</h3>
+      <p class="me-entry-company">NSFOCUS Technology (Wuhan)</p>
       <ul class="me-detail-list">
         <li><strong>Security Data Pipeline:</strong> Built a security data preprocessing and feature extraction pipeline over GitHub repositories and internal databases; extracted and validated 8,000+ CVE instances, distilled about 4,000 high-quality samples, and produced multi-dimensional CWE/OWASP labels.</li>
         <li><strong>Sample Mixing for Training Targets:</strong> Mixed samples to align vulnerability-type and programming-language distributions with training targets.</li>
@@ -30,9 +30,9 @@ comments: false
         <li><strong>RL Baseline &amp; Alignment Roadmap:</strong> Completed a rule-based reward design and the initial RL training pipeline using high-quality taint-flow supervision, then proposed a next-stage alignment roadmap combining Faiss+LSH vector sampling, curriculum-style difficulty control, and an LLM-as-Judge reward system for long-horizon taint analysis.</li>
       </ul>
     </article>
-    <article class="me-timeline-item">
-      <h3>LLM Agent Algorithm Intern | CAS</h3>
-      <p class="me-timeline-meta">MCP Architecture / Concurrency / Hallucination Suppression / System Delivery</p>
+    <article class="me-entry">
+      <h3>LLM Agent Algorithm Intern</h3>
+      <p class="me-entry-company">Institute of Geographic Sciences and Natural Resources Research, CAS</p>
       <ul class="me-detail-list">
         <li><strong>Architecture Design:</strong> Designed and developed a multi-agent public opinion analysis system based on MCP, enabling hot-swappable tool extensions through a decoupled Server/Client architecture and reducing coupling in traditional Agent tool calling.</li>
         <li><strong>Concurrency Optimization:</strong> Restructured the data processing pipeline using Async/BatchAPI and MapReduce for large-scale concurrent semantic understanding and cleaning of 100k+ blog posts, significantly improving throughput while keeping room for scale-out by data volume and concurrency limits.</li>
@@ -44,10 +44,11 @@ comments: false
 </section>
 
 <section class="me-section" aria-labelledby="me-research-title">
-  <h2 id="me-research-title" class="me-section-title">Research</h2>
+  <h2 id="me-research-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-microscope"></i></span><span>Research</span></h2>
   <ul class="me-research-list">
     <li>
       <span class="me-paper-title">Unveiling the Drivers of PTSD: An Interpretable Machine Learning Approach with SHAP</span>
+      <span class="me-paper-venue">International Conference on Intelligent Computing and Data Analysis 2025 ; EI</span>
       <span class="me-link-row">
         <a href="https://dl.acm.org/doi/10.1145/3772726.3772849" target="_blank" rel="noopener">Paper</a>
         <a href="https://doi.org/10.1145/3772726.3772849" target="_blank" rel="noopener">DOI</a>
@@ -57,7 +58,7 @@ comments: false
 </section>
 
 <section class="me-section" aria-labelledby="me-awards-title">
-  <h2 id="me-awards-title" class="me-section-title">Awards &amp; Certificates</h2>
+  <h2 id="me-awards-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-trophy"></i></span><span>Awards &amp; Certificates</span></h2>
   <ul class="me-awards-list">
     <li>First Prize in Shaanxi Province, National College Students Statistical Modeling Competition</li>
     <li>Third Prize National, SAS China University Data Analysis Competition</li>

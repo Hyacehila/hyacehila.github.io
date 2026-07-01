@@ -174,7 +174,6 @@ body:has(.me-page) .page-template-content > h1 {
   --me-ink: var(--default-text-color, #1f2933);
   --me-muted: var(--second-text-color, #52616f);
   --me-border: rgba(92, 111, 128, 0.18);
-  --me-rail: rgba(79, 159, 186, 0.34);
   --me-cyan: #4f9fba;
   --me-amber: #b7791f;
   max-width: 920px;
@@ -237,17 +236,25 @@ body:has(.me-page) .page-template-content > h1 {
   font-weight: 820;
 }
 
-.me-section-title::before {
-  content: "";
+.me-section-icon {
+  display: inline-flex;
   flex: 0 0 34px;
+  align-items: center;
+  justify-content: center;
   width: 34px;
   height: 34px;
   border: 1px solid var(--me-border);
   border-radius: 8px;
+  color: var(--me-cyan);
   background:
     linear-gradient(135deg, rgba(79, 159, 186, 0.18), transparent 58%),
     rgba(255, 255, 255, 0.18);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.me-section-icon i {
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 .me-about-section {
@@ -267,68 +274,54 @@ body:has(.me-page) .page-template-content > h1 {
   line-height: 1.78;
 }
 
-.me-timeline {
-  position: relative;
+.me-entry-list {
   display: grid;
-  gap: 1.65rem;
-  margin: 0.25rem 0 0 0.15rem;
-  padding-left: 1.85rem;
+  gap: 1.35rem;
+  margin: 0.2rem 0 0;
 }
 
-.me-timeline::before {
-  content: "";
-  position: absolute;
-  top: 0.42rem;
-  bottom: 0.55rem;
-  left: 0.47rem;
-  width: 2px;
-  border-radius: 999px;
-  background: var(--me-rail);
-}
-
-.me-timeline-item {
-  position: relative;
+.me-entry {
   min-width: 0;
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid var(--me-border);
 }
 
-.me-timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -1.82rem;
-  top: 0.38rem;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #f0bf5a;
-  border: 3px solid rgba(255, 255, 255, 0.72);
-  box-shadow: 0 0 0 1px rgba(183, 121, 31, 0.18);
+.me-entry:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
-.me-timeline-item h3 {
-  margin: 0 0 0.24rem;
-  font-size: 1.05rem;
-  line-height: 1.35;
+.page-template-container .page-template-content .me-page .me-entry > h3:first-child {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.28;
   font-weight: 800;
 }
 
-.me-timeline-meta {
-  margin: 0 0 0.62rem;
-  color: var(--me-amber);
-  font-size: 0.9rem;
-  font-weight: 720;
-  line-height: 1.45;
+.markdown-body .me-page .me-entry-company {
+  margin: 0.12rem 0 0.68rem;
+  color: var(--me-ink);
+  font-size: 0.98rem;
+  font-weight: 780;
+  line-height: 1.32;
+  opacity: 0.84;
 }
 
 .me-detail-list,
 .me-research-list,
 .me-awards-list {
   margin: 0;
-  padding-left: 1.1rem;
+  padding-left: 0;
 }
 
-.me-detail-list {
+.markdown-body .me-page .me-detail-list,
+.markdown-body .me-page .me-research-list,
+.markdown-body .me-page .me-awards-list {
   display: grid;
   gap: 0.5rem;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
 }
 
 .me-detail-list li,
@@ -340,10 +333,29 @@ body:has(.me-page) .page-template-content > h1 {
   padding-left: 0.18rem;
 }
 
-.me-detail-list li::marker,
-.me-research-list li::marker,
-.me-awards-list li::marker {
-  color: var(--me-cyan);
+.markdown-body .me-page .me-detail-list li,
+.markdown-body .me-page .me-research-list li,
+.markdown-body .me-page .me-awards-list li {
+  --me-bullet-top: 0.83em;
+  position: relative;
+  margin-left: 0;
+  padding-left: 1.18rem;
+  list-style: none;
+  line-height: 1.68;
+}
+
+.markdown-body .me-page .me-detail-list li::before,
+.markdown-body .me-page .me-research-list li::before,
+.markdown-body .me-page .me-awards-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.1rem;
+  top: var(--me-bullet-top);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--me-cyan);
+  transform: translateY(-50%);
 }
 
 .me-detail-list strong {
@@ -356,17 +368,30 @@ body:has(.me-page) .page-template-content > h1 {
   gap: 0.8rem;
 }
 
+.me-research-list li {
+  min-width: 0;
+}
+
 .me-paper-title {
+  display: block;
   color: var(--me-ink);
   font-weight: 760;
+}
+
+.me-paper-venue {
+  display: block;
+  margin-top: 0.16rem;
+  color: var(--me-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .me-link-row {
   display: inline-flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin-left: 0.45rem;
-  vertical-align: baseline;
+  margin: 0.46rem 0 0;
+  vertical-align: top;
 }
 
 .me-link-row a {
@@ -394,10 +419,10 @@ body:has(.me-page) .page-template-content > h1 {
   --me-ink: var(--default-text-color, #f2f5f7);
   --me-muted: rgba(226, 232, 240, 0.72);
   --me-border: rgba(226, 232, 240, 0.14);
-  --me-rail: rgba(240, 191, 90, 0.34);
 }
 
-.dark .me-section-title::before {
+.dark .me-section-icon {
+  color: #f0bf5a;
   background:
     linear-gradient(135deg, rgba(240, 191, 90, 0.16), transparent 58%),
     rgba(255, 255, 255, 0.05);
@@ -417,19 +442,21 @@ body:has(.me-page) .page-template-content > h1 {
     margin-bottom: 1rem !important;
   }
 
-  .me-section-title::before {
+  .me-section-icon {
     flex-basis: 30px;
     width: 30px;
     height: 30px;
     border-radius: 7px;
   }
 
-  .me-timeline {
-    padding-left: 1.45rem;
+  .me-section-icon i {
+    font-size: 0.84rem;
   }
 
-  .me-timeline-item::before {
-    left: -1.42rem;
+  .markdown-body .me-page .me-detail-list li,
+  .markdown-body .me-page .me-research-list li,
+  .markdown-body .me-page .me-awards-list li {
+    --me-bullet-top: 0.78em;
   }
 
   .me-link-row {
