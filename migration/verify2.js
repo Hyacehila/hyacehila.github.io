@@ -1,7 +1,30 @@
 const { chromium } = require('playwright');
+const fs = require('fs');
+const path = require('path');
+const yaml = require('js-yaml');
 const BASE = 'http://localhost:4000';
 const results = [];
 function check(name, ok, extra) { results.push(ok); console.log((ok ? 'PASS ' : 'FAIL ') + name + (extra ? '  :: ' + extra : '')); }
+
+function normalizeHref(href) {
+  try {
+    const url = new URL(href);
+    url.hash = '';
+    url.search = '';
+    return url.href.replace(/\/$/, '');
+  } catch (e) {
+    return String(href || '').replace(/\/$/, '');
+  }
+}
+
+function loadFriendLinks() {
+  const linksPath = path.join(__dirname, '..', 'source', '_data', 'links.yml');
+  const groups = yaml.load(fs.readFileSync(linksPath, 'utf8')) || [];
+  return groups.flatMap(group => Array.isArray(group.list) ? group.list : [])
+    .map(friend => friend && friend.link)
+    .filter(Boolean)
+    .map(normalizeHref);
+}
 
 (async () => {
   const browser = await chromium.launch();
@@ -43,11 +66,15 @@ function check(name, ok, extra) { results.push(ok); console.log((ok ? 'PASS ' : 
   await page.waitForTimeout(500);
   check('murmur 13 entries', await page.locator('#shuoshuo-content').count() === 13, await page.locator('#shuoshuo-content').count() + ' entries');
 
-  // friends native renders 4
+  // friends native renders all links from source/_data/links.yml
   await page.goto(BASE + '/friends/', { waitUntil: 'networkidle' });
   await page.waitForTimeout(500);
-  const friendLinks = await page.locator('a[href*="shimmer"], a[href*="xducy"], a[href*="xiaofei"], a[href*="zhaoxiaofei"]').count();
-  check('friends 4 links', friendLinks >= 4, friendLinks + ' links');
+  const expectedFriendLinks = loadFriendLinks();
+  const renderedFriendLinks = (await page.locator('a[href]').evaluateAll(els =>
+    els.map(a => a.href))).map(normalizeHref);
+  const missingFriendLinks = expectedFriendLinks.filter(link => !renderedFriendLinks.includes(link));
+  check('friends links match data', expectedFriendLinks.length > 0 && missingFriendLinks.length === 0,
+    expectedFriendLinks.length + ' expected, missing: ' + (missingFriendLinks.join(', ') || 'none'));
 
   // footprints globe
   await page.goto(BASE + '/footprints/', { waitUntil: 'networkidle' });

@@ -1,12 +1,35 @@
 // Browser verification of the migrated Hexo site (http://localhost:4000).
 // Drives Chromium through the acceptance checklist and prints PASS/FAIL lines.
 const { chromium } = require('playwright');
+const fs = require('fs');
+const path = require('path');
+const yaml = require('js-yaml');
 
 const BASE = 'http://localhost:4000';
 const results = [];
 function check(name, ok, extra) {
   results.push({ name, ok: !!ok, extra: extra || '' });
   console.log((ok ? 'PASS ' : 'FAIL ') + name + (extra ? '  :: ' + extra : ''));
+}
+
+function normalizeHref(href) {
+  try {
+    const url = new URL(href);
+    url.hash = '';
+    url.search = '';
+    return url.href.replace(/\/$/, '');
+  } catch (e) {
+    return String(href || '').replace(/\/$/, '');
+  }
+}
+
+function loadFriendLinks() {
+  const linksPath = path.join(__dirname, '..', 'source', '_data', 'links.yml');
+  const groups = yaml.load(fs.readFileSync(linksPath, 'utf8')) || [];
+  return groups.flatMap(group => Array.isArray(group.list) ? group.list : [])
+    .map(friend => friend && friend.link)
+    .filter(Boolean)
+    .map(normalizeHref);
 }
 
 (async () => {
@@ -116,7 +139,7 @@ function check(name, ok, extra) {
   const globeCanvas = await page.locator('#globe-container canvas').count();
   check('About globe canvas present', globeCanvas > 0, globeCanvas + ' canvas');
   const friendCards = await page.locator('.friend-card').count();
-  check('About friends cards', friendCards === 4, friendCards + ' friends');
+  check('About friends cards render', friendCards > 0, friendCards + ' friends');
   const cvFrame = await page.locator('iframe.cv-frame').count();
   check('About CV iframe present', cvFrame === 1);
   // CV placeholder shows when pdf missing (expected now)
@@ -143,6 +166,16 @@ function check(name, ok, extra) {
   // 8. SEARCH data
   const searchResp = await page.goto(BASE + '/search.xml', { waitUntil: 'load' });
   check('search.xml 200', searchResp && searchResp.status() === 200);
+
+  // Friends page is data-driven: every link in source/_data/links.yml should render.
+  await page.goto(BASE + '/friends/', { waitUntil: 'networkidle' });
+  await page.waitForTimeout(500);
+  const expectedFriendLinks = loadFriendLinks();
+  const renderedFriendLinks = (await page.locator('a[href]').evaluateAll(els =>
+    els.map(a => a.href))).map(normalizeHref);
+  const missingFriendLinks = expectedFriendLinks.filter(link => !renderedFriendLinks.includes(link));
+  check('Friends page links match data', expectedFriendLinks.length > 0 && missingFriendLinks.length === 0,
+    expectedFriendLinks.length + ' expected, missing: ' + (missingFriendLinks.join(', ') || 'none'));
 
   // console errors summary. Excluded as known-benign:
   //  - cv.pdf 404 (intended placeholder until a real CV is added)
