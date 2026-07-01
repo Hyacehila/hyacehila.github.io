@@ -7,7 +7,7 @@
 
 # BASIC INFORMATION
 info:
-  title: Hyacehila
+  title: "Hyacehila's Blog"
   subtitle: AI Agent · Evaluation · Agentic RL · Data Science
   author: Hyacehila
   url: https://hyacehila.github.io
@@ -82,7 +82,7 @@ home_banner:
   image:
     light: /images/wallhaven-wqery6-light.webp
     dark: /images/wallhaven-wqery6-dark.webp
-  title: Hyacehila
+  title: "Hyacehila's Blog"
   subtitle:
     text: [] # blank subtitle
     hitokoto:
@@ -126,7 +126,6 @@ navbar:
     About:
       icon: fa-regular fa-circle-info
       submenus:
-        碎碎念: /murmur/
         Footprints: /footprints/
         Friends: /friends/
         CV: /cv/
@@ -149,6 +148,9 @@ home:
       Archives:
         path: /archives/
         icon: fa-regular fa-box-archive
+      碎碎念:
+        path: /murmur/
+        icon: fa-regular fa-comment-dots
       Categories:
         path: /categories/
         icon: fa-regular fa-folder

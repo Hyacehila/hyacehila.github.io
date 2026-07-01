@@ -45,7 +45,7 @@
     "/archives/": { zh: "归档", en: "Archives" },
     "/me/": { zh: "我", en: "Me" },
     "/projects/": { zh: "项目", en: "Project" },
-    "/murmur/": { zh: "碎碎念", en: "Murmurs" },
+    "/murmur/": { zh: "碎碎念", en: "Murmur" },
     "/footprints/": { zh: "Footprints", en: "Footprints" },
     "/friends/": { zh: "Friends", en: "Friends" },
     "/cv/": { zh: "CV", en: "CV" },
