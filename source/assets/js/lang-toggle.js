@@ -150,6 +150,10 @@
   // map {url: {title_en, excerpt_en}} so no theme-template edits are needed.
   var POST_I18N = null;
   var POST_I18N_PENDING = false;
+  var READ_MORE_LABELS = {
+    zh: "\u9605\u8bfb\u5168\u6587",
+    en: "Read more"
+  };
 
   function normUrl(href) {
     if (!href) return "";
@@ -196,6 +200,27 @@
         exc.innerHTML = exc.dataset.zhHtml;
       }
     }
+  }
+
+  function setReadMoreText(a, text) {
+    var seo = a.querySelector(".seo-reader-text");
+    if (!seo) return;
+    for (var i = 0; i < a.childNodes.length; i++) {
+      var n = a.childNodes[i];
+      if (n === seo) break;
+      if (n.nodeType === 3) {
+        n.textContent = text;
+        return;
+      }
+    }
+    a.insertBefore(document.createTextNode(text), seo);
+  }
+
+  function applyReadMoreLinks(lang) {
+    var label = READ_MORE_LABELS[lang] || READ_MORE_LABELS.en;
+    document.querySelectorAll(".home-article-meta-info-container > a").forEach(function (a) {
+      if (a.querySelector(".seo-reader-text")) setReadMoreText(a, label);
+    });
   }
 
   function applyPostI18n(lang) {
@@ -329,6 +354,7 @@
     // Swap blog titles/excerpts in lists (Home / archives / categories / tags)
     // to their English fields when in EN mode. Post bodies stay Chinese.
     applyPostI18n(lang);
+    applyReadMoreLinks(lang);
 
     // Notify dependent modules (e.g. the globe tooltips).
     if (typeof window.updateGlobeLanguage === "function") {

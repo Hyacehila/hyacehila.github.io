@@ -2,7 +2,7 @@
 title: {{ title }}
 date: {{ date }}
 title_en: ""
-categories: []
+categories: []  # Use English names, e.g. ["Foundation Models"]
 tags: []
 excerpt: ""
 excerpt_en: ""

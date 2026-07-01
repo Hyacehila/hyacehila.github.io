@@ -1,7 +1,7 @@
 ---
 title: "从个体到社会：CNCC2025 讲座中的 LLM Agent 社会模拟研究脉络"
 date: 2026-04-26 20:00:00 +0800
-categories: [智能体系统]
+categories: ["Agent Systems"]
 tags: [LLM Agent, Social Simulation, Multi-Agent System, Agent-Based Modeling]
 author: Hyacehila
 excerpt: "从 CNCC2025 的大模型智能体社会模拟讲座出发，沿着个体模拟、场景模拟、社会模拟三层脉络，梳理 LLM Agent 如何进入计算社会科学。"

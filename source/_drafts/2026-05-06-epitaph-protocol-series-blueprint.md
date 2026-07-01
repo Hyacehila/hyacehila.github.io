@@ -1,7 +1,7 @@
 ---
 title: "《墓志协议》第一季创作蓝图（内部）"
 date: 2026-05-06 20:00:00 +0800
-categories: [小说时间]
+categories: ["Fiction"]
 tags: [Sci-Fi, Alternate History, Epitaph, Worldbuilding]
 author: Hyacehila
 excerpt: "《墓志协议》第一季的内部创作蓝图，保留篇章卡、史料边界、写作模板、核验清单和验收标准。"
@@ -328,7 +328,7 @@ layout: blog-post
 title: "墓志协议 01｜无字碑"
 date: 2026-05-10 20:00:00 +0800
 permalink: /blog/2026/05/10/epitaph-protocol-01-wordless-stele/
-categories: [小说时间]
+categories: ["Fiction"]
 tags: [Sci-Fi, Alternate History, Epitaph, Fiction]
 author: Hyacehila
 excerpt: "一句适合博客卡片的一句话摘要，不写 Markdown。"

@@ -2,7 +2,7 @@
 title: "差就是好：从 DeepSeek 未采用 n-gram 结构说起"
 title_en: "Bad Is Good: Why DeepSeek Did Not Use an n-Gram Structure"
 date: 2026-04-30 00:00:00 +0800
-categories: [基础模型]
+categories: ["Foundation Models"]
 tags: [Model Mechanics, Pre-Training]
 author: Hyacehila
 excerpt: "一个知乎回答提醒我们：在大模型工程里，精巧结构未必胜过简单结构。能稳定吃满显卡、顺着矩阵乘法流水线运行的设计，往往更容易留下来。"

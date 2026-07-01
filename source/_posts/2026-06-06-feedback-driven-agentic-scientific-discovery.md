@@ -2,7 +2,7 @@
 title: "从反馈回路看 Agent 如何把生成变成搜索"
 title_en: "Feedback Loops for Agentic Search"
 date: 2026-06-06 20:00:00 +0800
-categories: [Agent 系统]
+categories: ["Agent Systems"]
 tags: [Agents, Evaluation, Methodology]
 author: Hyacehila
 excerpt: "宇宙弦积分和 Trae Agent 分别来自科学发现和编码任务，却都指向同一件事：LLM 生成候选以后，系统要能搜索、验证、剪枝和选择。"

@@ -1,7 +1,7 @@
 ---
 title: "为什么现代大模型不再频繁跳语言：从分词器、表示空间到激活动态"
 date: 2026-04-26 22:00:00 +0800
-categories: [AI, Research]
+categories: ["AI", "Research"]
 tags: [research, llm, multilingual, tokenizer, interpretability, language-drift]
 author: Hyacehila
 excerpt: "现代大模型很少在中文对话中突然切到英文，并不只是因为系统提示词写了“请用中文回答”。更底层的解释要同时看 tokenizer 成本、跨语言表示空间、语言特异性激活与解码阶段的控制。"

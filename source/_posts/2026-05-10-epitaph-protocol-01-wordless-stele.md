@@ -2,7 +2,7 @@
 title: "墓志协议 01｜无字碑"
 title_en: "Epitaph Protocol 01: Wordless Stele"
 date: 2026-05-10 20:00:00 +0800
-categories: [小说时间]
+categories: ["Fiction"]
 tags: [Sci-Fi, Fiction]
 author: Hyacehila
 excerpt: "乾陵无字碑在雨夜吐出每个读者各自相信的正史；一个负债石匠必须用自己的名字补上一道旧裂。"

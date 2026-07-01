@@ -1,7 +1,7 @@
 ---
 title: "Everything Claude Code 中文上手与实现拆解：它到底给 Claude Code 加了什么？"
 date: 2026-03-16 20:00:00 +0800
-categories: [智能体系统]
+categories: ["Agent Systems"]
 tags: [Claude Code, Everything Claude Code, Codex, Agent, Hooks, Rules, Skills, MCP]
 author: Hyacehila
 excerpt: "以 ECC 官方中文 README 与两份官方教程为线索，拆开 commands、agents、rules、hooks、scripts 与 Codex 迁移路径，解释它到底怎样把 Claude Code 变成长期系统。"

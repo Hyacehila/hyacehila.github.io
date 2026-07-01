@@ -2,7 +2,7 @@
 title: 第一篇博客（An Example）
 title_en: "First Blog Post (An Example)"
 date: 2025-12-26 19:00:00 +0800
-categories: [随笔与观察]
+categories: ["Essays"]
 tags: [Methodology, Society]
 author: Hyacehila
 excerpt: 这是博客的第一篇文章，也是后续写作规范的一个示例与说明。
@@ -38,7 +38,7 @@ layout: blog-post
 title: 欢迎来到我的博客
 date: 2025-12-26 10:00:00 +0800
 series: 不知道在写什么
-categories: [生活, 随笔]
+categories: ["Essays"]
 tags: [Methodology, Society]
 author: Hyacehila
 excerpt: 这是我博客的第一篇文章，欢迎大家来访！

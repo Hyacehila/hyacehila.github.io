@@ -2,7 +2,7 @@
 title: AI Agent 如何从互联网获取信息：检索、抓取与结构化清洗工具的演进
 title_en: "How AI Agents Get Information from the Web: Search, Crawling, and Structured Extraction"
 date: 2026-06-10 12:00:00 +0800
-categories: [Agent 基础设施]
+categories: ["Agent Infrastructure"]
 tags: [Agents, Retrieval, Data Curation]
 author: Hyacehila
 excerpt: "这篇文章不做 Tavily、Exa、Firecrawl、Crawl4AI 的横评清单，而是顺着信息进入 Agent 上下文的路径，看模型内联网、托管检索 API、网页解析与抓取清洗、Deep Research 和商业抓取平台各自卡在哪里。"

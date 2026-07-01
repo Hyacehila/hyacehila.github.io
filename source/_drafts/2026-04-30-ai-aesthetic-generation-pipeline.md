@@ -1,7 +1,7 @@
 ---
 title: "从莫兰迪静物到 AI 美学生成管线"
 date: 2026-04-30 22:00:00 +0800
-categories: [AI与艺术]
+categories: ["AI & Art"]
 tags: [AIGC, Computational Aesthetics, 3D Generation, Preference Model, Generative Design]
 author: Hyacehila
 excerpt: AI 参与美学创作的关键，不只是生成一张图或一个模型，而是把创作空间变成可搜索空间，再用几何约束、审美判别器、偏好模型和人类判断一起筛选候选结果。

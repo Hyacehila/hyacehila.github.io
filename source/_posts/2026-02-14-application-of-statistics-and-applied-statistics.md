@@ -2,7 +2,7 @@
 title: 统计学的应用与应用的统计学
 title_en: "The Application of Statistics and Statistics of Application"
 date: 2026-02-14 12:00:00 +0800
-categories: [数据科学]
+categories: ["Data Science"]
 tags: [Methodology, Statistical Inference]
 author: Hyacehila
 excerpt: 讨论统计学在追求理论完备的过程中为什么逐渐远离应用现场，以及数据科学与机器学习如何在大数据时代重新接上“从数据中学习”的问题。

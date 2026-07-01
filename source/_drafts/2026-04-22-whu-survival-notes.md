@@ -1,8 +1,8 @@
 ---
 title: "WHU生存记"
 date: 2026-04-22 20:00:00 +0800
-categories: [随笔]
-tags: [WHU, 研究生, 应用统计, 教育]
+categories: ["Essays"]
+tags: ["WHU", "Graduate School", "Applied Statistics", "Education"]
 author: Hyacehila
 excerpt: 这是一篇准备逐步完成的研究生两年回顾：我想从过去留下的流水账继续总结，把课程、导师、毕业设计与同学这些真正构成这两年的部分，慢慢写清楚。
 ---

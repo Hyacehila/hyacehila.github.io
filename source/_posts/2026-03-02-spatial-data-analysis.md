@@ -2,7 +2,7 @@
 title: 空间数据分析
 title_en: "Spatial Data Analysis"
 date: 2026-03-02 12:13:58 +0800
-categories: [数据科学]
+categories: ["Data Science"]
 tags: [Statistical Inference, Methodology]
 author: Hyacehila
 excerpt: 对空间数据分析的基本概念、空间总体特性、抽样和插值方法进行了系统的整理和详细介绍。

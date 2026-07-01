@@ -2,7 +2,7 @@
 title: 数据科学的第60年
 title_en: "The 60th Year of Data Science"
 date: 2026-02-13 12:00:00 +0800
-categories: [数据科学]
+categories: ["Data Science"]
 tags: [Methodology, Society]
 author: Hyacehila
 excerpt: 回顾数据科学60年的发展历程，从 John Tukey 的预言到 David Donoho 的广义数据科学。讨论统计学、计算机科学与机器学习如何合流，以及数据科学为什么需要同时处理推断、计算和现实问题。

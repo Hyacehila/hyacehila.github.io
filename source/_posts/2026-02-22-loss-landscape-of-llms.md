@@ -2,7 +2,7 @@
 title: 大模型的 Loss Landscape 是什么样的？
 title_en: "What Does the Loss Landscape of LLMs Look Like?"
 date: 2026-02-22 20:00:00 +0800
-categories: [基础模型]
+categories: ["Foundation Models"]
 tags: [Fine-Tuning, Alignment, Model Mechanics]
 author: Hyacehila
 excerpt: 基于论文 Unveiling the Basin-Like Loss Landscape in Large Language Models，解读大模型 loss landscape 的 basin 现象及其对微调、对齐、越狱与预训练的启示。

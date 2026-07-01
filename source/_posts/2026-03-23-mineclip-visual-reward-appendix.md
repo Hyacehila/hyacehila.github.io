@@ -2,7 +2,7 @@
 title: MineCLIP、视觉信号与奖励函数
 title_en: "MineCLIP, Visual Signals, and Reward Design"
 date: 2026-03-23 21:00:00 +0800
-categories: [基础模型]
+categories: ["Foundation Models"]
 tags: [Reward Modeling, Vision-Language Models, Reinforcement Learning]
 author: Hyacehila
 excerpt: Minecraft agent 的目标往往很清楚，麻烦在于中间步骤没有奖励。MineCLIP 把视频片段和任务文本的相似度变成 dense reward，Plan4MC 则展示了这种视觉奖励在技能训练里怎样被使用。

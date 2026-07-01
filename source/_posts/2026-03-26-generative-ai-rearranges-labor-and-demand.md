@@ -2,7 +2,7 @@
 title: 生成式 AI 不会直接终结工作，它先重排劳动，再放大需求
 title_en: "Generative AI Will Not End Work Directly; It Rearranges Labor and Expands Demand First"
 date: 2026-03-26 20:00:00 +0800
-categories: [随笔与观察]
+categories: ["Essays"]
 tags: [Society, Methodology]
 author: Hyacehila
 excerpt: 凯恩斯低估的不是生产率，而是人类欲望与社会分工的弹性。生成式 AI 更可能压缩旧任务、重排劳动结构，并催生新的服务与需求，而不是直接让劳动消失。

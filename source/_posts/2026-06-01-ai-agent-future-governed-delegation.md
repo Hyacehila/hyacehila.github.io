@@ -2,7 +2,7 @@
 title: "AI Agent 的未来不是完全自治，而是可治理的委托"
 title_en: "The Future of AI Agents Is Governed Delegation, Not Full Autonomy"
 date: 2026-06-01 21:00:00 +0800
-categories: [随笔与观察]
+categories: ["Essays"]
 tags: [Agents, Society, AI Safety]
 author: Hyacehila
 excerpt: "Agent 的未来不会从全自主替代人类开始，而会先变成一套可治理的委托关系：人设目标、控权限、看后果，AI 承担越来越多执行。"

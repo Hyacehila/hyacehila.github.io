@@ -1,7 +1,7 @@
 ---
 title: "AI 能听懂谐音梗吗：从 Tokenizer 到后训练"
 date: 2026-04-30 20:00:00 +0800
-categories: [基础模型]
+categories: ["Foundation Models"]
 tags: [LLM, Tokenizer, Humor, Metaphor, Post-training]
 author: Hyacehila
 excerpt: "大模型不是完全不懂谐音梗和比喻，而是经常把这种理解建立在文本记忆、表层相似和上下文猜测上。真正难的地方，是让模型同时看到字形、字义、字音和文化语境。"

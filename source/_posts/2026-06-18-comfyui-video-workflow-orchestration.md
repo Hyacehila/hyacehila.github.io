@@ -2,7 +2,7 @@
 title: "从 ComfyUI 到 LibTV：视频生成时代，工作流编排应该长出什么能力？"
 title_en: "From ComfyUI to LibTV: What Workflow Orchestration Needs in the Video Generation Era"
 date: 2026-06-18 15:00:00 +0800
-categories: [Agent 基础设施]
+categories: ["Agent Infrastructure"]
 tags: [ComfyUI, AI Video, Workflow]
 author: Hyacehila
 excerpt: "ComfyUI 早已从生图 UI 长成开放的生成式 workflow/runtime。视频生成把问题推高了一层：长视频要靠分段生成、素材继承、批量抽卡、质量核验和长任务编排一起撑起来。"

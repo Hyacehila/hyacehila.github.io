@@ -2,7 +2,7 @@
 title: "从 Engineer 到 Builder：AI 时代的一人公司与产品思维"
 title_en: "From Engineer to Builder: One-Person Companies and Product Thinking in the AI Era"
 date: 2026-05-11 14:00:00 +0800
-categories: [随笔与观察]
+categories: ["Essays"]
 tags: [Society, Product, Software Engineering]
 author: Hyacehila
 excerpt: "生成式 AI 放大的不只是生产力，还有个人的行动边界与可尝试范围。代码越来越便宜之后，工程师需要补上的，是产品思维、分发能力和面向真实痛点的验证闭环。"

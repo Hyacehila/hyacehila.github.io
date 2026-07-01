@@ -1,7 +1,7 @@
 ---
 title: "数据也会撒谎：如何守住准确性和可靠性底线"
 date: 2026-04-26 19:40:00 +0800
-categories: [数据科学]
+categories: ["Data Science"]
 tags: [Data Quality, Data Engineering, Observability]
 author: Hyacehila
 excerpt: "数据可靠性不是跑通脚本就结束，而是要把测试、数据契约、可观测性和产品自洽性放进同一套防御性数据工程体系。"

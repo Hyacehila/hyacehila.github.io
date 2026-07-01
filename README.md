@@ -73,7 +73,7 @@ npx hexo publish draft "标题"     # 草稿转正式
 title: "标题"
 title_en: "English title"   # 切到 EN 时列表/归档/分类/标签里显示的英文标题
 date: 2026-06-25 10:00:00
-categories: [随笔与观察]
+categories: ["Essays"]
 tags: [Agents, Design]
 excerpt: "摘要"
 excerpt_en: "English excerpt"  # 切到 EN 时首页卡片显示的英文摘要

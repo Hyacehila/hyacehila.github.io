@@ -2,7 +2,7 @@
 title: "游戏行业如何引入 AI Agent"
 title_en: "How the Game Industry Can Introduce AI Agents"
 date: 2026-05-05 20:00:00 +0800
-categories: [Agent 系统]
+categories: ["Agent Systems"]
 tags: [Agents, Product]
 author: Hyacehila
 excerpt: "AI Agent 的价值，不是替团队自动做游戏，而是把模型、工具、内容生成和反馈流程接进能检查、能回滚、能审计的生产链路。"

@@ -1,5 +1,6 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
+categories: []  # Use English names, e.g. ["Foundation Models"]
+tags: []
 ---

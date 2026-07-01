@@ -1,7 +1,7 @@
 ---
 title: "从海量数据中提取价值：不要先问模型，先问问题"
 date: 2026-04-26 19:00:00 +0800
-categories: [数据科学]
+categories: ["Data Science"]
 tags: [Data Science, Methodology, Data Analysis]
 author: Hyacehila
 excerpt: "海量数据不会自动变成价值。真正重要的是把业务问题转化为可验证的数据问题，并用证据链、模型和行动闭环把信息变成决策。"

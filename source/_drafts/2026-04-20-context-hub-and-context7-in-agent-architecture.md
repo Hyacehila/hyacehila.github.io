@@ -1,7 +1,7 @@
 ---
 title: "从文档检索到上下文供给层：Context Hub 与 Context7 在 Agent 架构里到底做什么"
 date: 2026-04-20 20:00:00 +0800
-categories: [智能体系统]
+categories: ["Agent Systems"]
 tags: [Agents, Context Engineering, Documentation, Tooling]
 author: Hyacehila
 excerpt: 它们不是又两种“更强的 MCP”，而是在 Agent 时代把文档、技能与外部知识做成可注入上下文的供给层。

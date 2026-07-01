@@ -1,7 +1,7 @@
 ---
 title: "数据处理的真实挑战：非结构化、稀疏性与技术自嗨"
 date: 2026-04-26 19:20:00 +0800
-categories: [数据科学]
+categories: ["Data Science"]
 tags: [Data Engineering, Feature Engineering, Machine Learning]
 author: Hyacehila
 excerpt: "真实数据处理很少像教程数据集那样干净。非结构化数据、稀疏特征和脱离产品价值的技术优化，往往才是数据项目真正的难点。"

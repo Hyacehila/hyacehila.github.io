@@ -1,7 +1,7 @@
 ---
 title: "从最小 PPO/GRPO Trainer 到 Agentic Tool Calling：读懂 verl 的训练主线"
 date: 2026-03-19 22:00:00 +0800
-categories: [AI, Research]
+categories: ["AI", "Research"]
 tags: [verl, Agentic RL, Tool Use, PPO, GRPO, ReTool]
 author: Hyacehila
 excerpt: "从手写最小 PPO/GRPO-style trainer 的心智模型切入，解释 verl 为什么适合做 agentic RL、multi-turn rollout 与工具使用优化。"

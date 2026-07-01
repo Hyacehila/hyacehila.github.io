@@ -1,6 +1,6 @@
 ---
 title: "从普通 Agent 到可训练 Agent：一篇实战讲清 ART、AgentFlow、Verlog、RULER 与 ARPO"
-categories: [基础模型]
+categories: ["Foundation Models"]
 tags: [Agents, Reinforcement Learning, Data Curation, Evaluation]
 author: Hyacehila
 excerpt: "不从 PPO 开始，而是用一个最小代码修复 Agent 讲清：怎样先收原料、切轨迹、搭 feedback stack，再把系统整理成可训练对象。"

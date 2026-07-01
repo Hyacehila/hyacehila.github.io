@@ -1,7 +1,7 @@
 ---
 title: "从 Token 拟合到概念学习：DFT/RL 现象如何进入大模型可解释性讨论"
 date: 2026-04-30 21:00:00 +0800
-categories: [基础模型]
+categories: ["Foundation Models"]
 tags: [LLM, DFT, RLHF, Interpretability, Post-training]
 author: Hyacehila
 excerpt: "DFT/RL 并不是简单地让模型少说连接词，而是在削弱逐 token 仿写的均匀压力。真正值得解释的是：后训练是否让模型少为表面 token 付费，多为概念状态和推理分叉付费。"

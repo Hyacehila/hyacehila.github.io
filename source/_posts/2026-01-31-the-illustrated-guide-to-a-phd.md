@@ -2,7 +2,7 @@
 title: The Illustrated Guide to a Ph.D.
 title_en: "The Illustrated Guide to a Ph.D."
 date: 2026-01-31 23:55:00 +0800
-categories: [随笔与观察]
+categories: ["Essays"]
 tags: [Society, Methodology]
 author: Hyacehila
 excerpt: 每年秋天，Matt Might 都要向新一批博士生解释什么是博士学位。用来描绘从小学到博士毕业的知识积累过程。
@@ -71,5 +71,4 @@ permalink: '/blog/2026/01/31/the-illustrated-guide-to-a-phd/'
 本文转载自 <a href="http://matt.might.net/">Matt Might</a> 的文章 <a href="http://matt.might.net/articles/phd-school-in-pictures/">The Illustrated Guide to a Ph.D.</a>。
 
 This work is licensed under the [Creative Commons Attribution-NonCommercial 2.5 License](http://creativecommons.org/licenses/by-nc/2.5/).
-
 

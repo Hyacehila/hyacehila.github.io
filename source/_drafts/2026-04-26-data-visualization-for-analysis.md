@@ -1,7 +1,7 @@
 ---
 title: "让数据开口说话：可视化不只是汇报工具"
 date: 2026-04-26 20:00:00 +0800
-categories: [数据科学]
+categories: ["Data Science"]
 tags: [Data Visualization, EDA, Machine Learning]
 author: Hyacehila
 excerpt: "数据可视化不只是给结果做包装，它是建立直觉、发现异常、解释模型行为和组织沟通的分析工具。"

@@ -61,6 +61,17 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  "Foundation Models": foundation-models
+  "Data Science": data-science
+  "Machine Learning": machine-learning
+  "Agent Systems": agent-systems
+  "Agent Infrastructure": agent-infrastructure
+  "Essays": essays
+  "Fiction": fiction
+  "AI & Art": ai-art
+  "Deep Learning": deep-learning
+  "AI": ai
+  "Research": research
 tag_map:
 
 # Pagination

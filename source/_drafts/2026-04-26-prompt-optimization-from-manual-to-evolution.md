@@ -1,7 +1,7 @@
 ---
 title: "从 Prompt Optimizer 到 Harness Optimizer：Agent 时代如何优化给模型看的系统"
 date: 2026-04-26 18:00:00 +0800
-categories: [智能体系统]
+categories: ["Agent Systems"]
 tags: [Prompt Optimization, Harness, Agent Evaluation, MCP]
 author: Hyacehila
 excerpt: "提示词优化没有消失，而是迁移到 Agent Harness：工具描述、Skills、服务器说明、环境反馈、验证器与工作流结构都成了可优化对象。"

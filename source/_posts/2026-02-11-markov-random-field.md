@@ -2,7 +2,7 @@
 title: 马尔可夫随机场：无向图模型与空间相关性
 title_en: "Markov Random Fields: Undirected Graphical Models and Spatial Dependence"
 date: 2026-02-11 12:00:00 +0800
-categories: [数据科学]
+categories: ["Data Science"]
 tags: [Graphical Models, Statistical Inference]
 author: Hyacehila
 excerpt: 当变量间的关系不再具有明确的方向性，而是呈现出对称的空间相关性时，我们需要无向图模型。本文详细阐述了马尔可夫随机场的数学定义、Hammersley-Clifford 定理、吉布斯分布以及其在图像与物理领域的应用。
