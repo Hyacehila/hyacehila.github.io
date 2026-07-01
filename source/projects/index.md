@@ -8,12 +8,17 @@ comments: false
 
 <div class="projects-page">
 
-<p class="section-lead" data-i18n="portfolio-intro">Presented as cases: problem · approach · tech stack · results · links.</p>
-
 <!-- Project 1: Novel Evaluation -->
 <div class="project-card">
-  <h3 data-i18n="project-novel-eval-title"></h3>
-  <div class="project-meta" data-i18n="project-novel-eval-desc"></div>
+  <div class="project-header">
+    <div class="project-title-block">
+      <h3 data-i18n="project-novel-eval-title"></h3>
+      <div class="project-meta" data-i18n="project-novel-eval-desc"></div>
+    </div>
+    <div class="project-links">
+      <a class="project-link" href="https://github.com/Hyacehila/novel_evaluation" target="_blank" rel="noopener" aria-label="Code" title="Code"><i class="fa-brands fa-github" aria-hidden="true"></i><span class="sr-only" data-i18n="link-code">Code</span></a>
+    </div>
+  </div>
   <div class="project-field">
     <strong data-i18n="project-novel-eval-problem-title">Core Problem:</strong>
     <span data-i18n="project-novel-eval-problem"></span>
@@ -28,15 +33,16 @@ comments: false
       <span>Python</span><span>FastAPI</span><span>SQLite</span><span>LLM as Judge</span><span>Prompt / Schema Eval</span>
     </div>
   </div>
-  <div class="project-links">
-    <a href="https://github.com/Hyacehila/novel_evaluation" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> <span data-i18n="link-code">Code</span></a>
-  </div>
 </div>
 
 <!-- Project 2: Mental Health -->
 <div class="project-card">
-  <h3 data-i18n="project-mental-title"></h3>
-  <div class="project-meta" data-i18n="project-mental-desc"></div>
+  <div class="project-header">
+    <div class="project-title-block">
+      <h3 data-i18n="project-mental-title"></h3>
+      <div class="project-meta" data-i18n="project-mental-desc"></div>
+    </div>
+  </div>
   <div class="project-field">
     <strong data-i18n="project-background">Project Background:</strong>
     <span data-i18n="project-mental-background"></span>
@@ -59,8 +65,12 @@ comments: false
 
 <!-- Project 3: Public Health Metrics -->
 <div class="project-card">
-  <h3 data-i18n="project-health-title"></h3>
-  <div class="project-meta" data-i18n="project-health-desc"></div>
+  <div class="project-header">
+    <div class="project-title-block">
+      <h3 data-i18n="project-health-title"></h3>
+      <div class="project-meta" data-i18n="project-health-desc"></div>
+    </div>
+  </div>
   <div class="project-field">
     <strong data-i18n="project-background">Project Background:</strong>
     <span data-i18n="project-health-background"></span>

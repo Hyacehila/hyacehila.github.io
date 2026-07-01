@@ -474,47 +474,106 @@ body:has(.home-banner-container) .social-contacts {
 .award-list { line-height: 1.9; }
 
 /* ---- Project case cards ---- */
-.project-card {
-  padding: 1.3rem 1.4rem;
-  margin: 1.2rem 0;
-  border-radius: 16px;
-  background: var(--card-bg, rgba(127, 127, 127, 0.06));
-  border: 1px solid rgba(127, 127, 127, 0.12);
+.projects-page {
+  margin-top: 1.05rem;
+  color: var(--default-text-color, #1f2933);
 }
-.project-card h3 {
-  margin: 0 0 0.2rem;
+.project-card {
+  padding: 1.15rem 1.25rem 1.2rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  background: var(--card-bg, rgba(127, 127, 127, 0.05));
+  border: 1px solid rgba(127, 127, 127, 0.1);
+  color: var(--default-text-color, #1f2933);
+}
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+.project-title-block {
+  min-width: 0;
+}
+.projects-page .project-title-block h3 {
+  margin: 0 !important;
+  padding-bottom: 0;
+  border-bottom: 0;
+  font-size: 1.34rem;
+  line-height: 1.22;
 }
 .project-card .project-meta {
-  font-size: 0.85rem;
-  opacity: 0.7;
-  margin-bottom: 0.8rem;
+  color: var(--second-text-color, currentColor);
+  margin-top: 0.36rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  opacity: 0.82;
 }
 .project-card .project-field {
   margin: 0.6rem 0;
+  font-size: 0.94rem;
+  line-height: 1.68;
+  color: var(--default-text-color, #1f2933);
 }
 .project-card .project-field > strong {
-  display: block;
-  margin-bottom: 0.2rem;
-  color: var(--primary-color, #5b8cff);
-  font-size: 0.9rem;
+  display: inline;
+  margin: 0 0.35rem 0 0;
+  color: inherit;
+  font-size: 0.88em;
+  font-weight: 700;
+}
+.project-card .project-field > span {
+  display: inline;
+  color: inherit;
 }
 .project-card .project-stack {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.4rem;
+  vertical-align: middle;
+  gap: 0.35rem 0.45rem;
+  margin: 0 0 0 0.35rem;
 }
 .project-card .project-stack span {
-  padding: 2px 10px;
-  font-size: 0.78rem;
+  padding: 2px 8px;
+  font-size: 0.76rem;
+  line-height: 1.55;
   border-radius: 999px;
-  background: rgba(91, 140, 255, 0.12);
-  color: var(--primary-color, #5b8cff);
+  color: var(--default-text-color, #1f2933);
+  background: rgba(127, 127, 127, 0.06);
+  border: 1px solid rgba(127, 127, 127, 0.16);
+  opacity: 0.9;
 }
-.project-card .project-links a {
-  display: inline-block;
-  margin-right: 0.8rem;
-  font-size: 0.88rem;
+.project-links {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.02rem;
+}
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  color: inherit !important;
+  background: rgba(127, 127, 127, 0.06);
+  border: 1px solid rgba(127, 127, 127, 0.12);
+  opacity: 0.48;
+  text-decoration: none !important;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease, transform 0.15s ease;
+}
+.project-link:hover {
+  background: rgba(91, 140, 255, 0.1);
+  border-color: rgba(91, 140, 255, 0.28);
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.project-link i {
+  font-size: 1.05rem;
+  line-height: 1;
 }
 
 /* ---- About: murmur timeline ---- */
@@ -639,6 +698,32 @@ body:has(.home-banner-container) .social-contacts {
 
 @media (max-width: 600px) {
   .cv-frame { height: 60vh; }
+  .projects-page {
+    margin-top: 0.9rem;
+  }
+  .project-card {
+    padding: 1rem;
+    margin: 0.9rem 0;
+  }
+  .project-header {
+    gap: 0.75rem;
+    margin-bottom: 0.65rem;
+  }
+  .projects-page .project-title-block h3 {
+    font-size: 1.12rem;
+  }
+  .project-card .project-field {
+    margin: 0.64rem 0;
+    font-size: 0.94rem;
+  }
+  .project-card .project-stack {
+    display: flex;
+    margin: 0.28rem 0 0;
+  }
+  .project-link {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
   body:has(.home-banner-container) {
     --home-actions-bottom: calc(10vh + 4rem);
     --home-actions-height: 50px;
