@@ -20,24 +20,20 @@ comments: false
   <h2 id="me-intern-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></span><span>Intern</span></h2>
   <div class="me-entry-list">
     <article class="me-entry">
-      <h3>Algorithm Researcher (Intern)</h3>
-      <p class="me-entry-company">NSFOCUS Technology (Wuhan)</p>
+      <h3>AI Agent R&amp;D Engineer (Intern)</h3>
+      <p class="me-entry-company">NetEase Interactive Entertainment (Shanghai) · May 2026 -- Present</p>
       <ul class="me-detail-list">
-        <li><strong>Security Data Pipeline:</strong> Built a security data preprocessing and feature extraction pipeline over GitHub repositories and internal databases; extracted and validated 8,000+ CVE instances, distilled about 4,000 high-quality samples, and produced multi-dimensional CWE/OWASP labels.</li>
-        <li><strong>Sample Mixing for Training Targets:</strong> Mixed samples to align vulnerability-type and programming-language distributions with training targets.</li>
-        <li><strong>CodeQL Review Agent:</strong> Built a single-agent workflow for CodeQL-based code review, covering information retrieval, repository navigation, taint analysis, and engine-backed validation. Added reflection from real execution feedback to improve self-correction and long-horizon decision-making.</li>
-        <li><strong>SFT &amp; RL Data Synthesis:</strong> Analyzed 500 raw CVEs to distill 2,500 structured SFT trajectories with high-confidence tool-use patterns and 300 verified taint-flow examples for cold start and downstream RL training.</li>
-        <li><strong>RL Baseline &amp; Alignment Roadmap:</strong> Completed a rule-based reward design and the initial RL training pipeline using high-quality taint-flow supervision, then proposed a next-stage alignment roadmap combining Faiss+LSH vector sampling, curriculum-style difficulty control, and an LLM-as-Judge reward system for long-horizon taint analysis.</li>
+        <li><strong>Game UI Production-Chain Agent:</strong> Researching an agent tool around the planning GUI, UIP, and engineering development workflow to generate NeoX-side .uiprefab files from Figma/PSD designs. The system uses multimodal embedding retrieval, project template libraries, and development guidelines to inject component hierarchy, asset binding, naming conventions, and engine-validity constraints, enabling UI reconstruction and UIP integration within existing project conventions while continuing to tackle state combinations, animation consistency, and complex-interface coherence.</li>
+        <li><strong>UI Program Automation &amp; Real Feedback Loop:</strong> Developed Agent Skills for the NeoX engine and internal UI editor, connecting project knowledge, server-side MCP, and client-side MCP to turn one-shot code generation into a multi-turn generate-run-observe-fix loop. Through simulated clicks and real UI feedback, the agent can locate UI logic, asset binding, and interaction issues, allowing planners to complete initial UI programming without reading code while engineers focus on review and final merge control.</li>
+        <li><strong>Project-Level Knowledge Base &amp; Intelligent Q&amp;A:</strong> Designed and implemented a self-evolving knowledge base based on LLM Wiki and Agentic RAG to address stale documentation and implicit knowledge loss caused by long-term iteration of the in-house engine and UI editor. The system converts scattered and orally transferred project experience into a searchable, traceable, and dynamic context layer, substantially lowering onboarding cost and technical communication overhead inside the project team.</li>
       </ul>
     </article>
     <article class="me-entry">
-      <h3>LLM Agent Algorithm Intern</h3>
-      <p class="me-entry-company">Institute of Geographic Sciences and Natural Resources Research, CAS</p>
+      <h3>Algorithm Researcher (Intern)</h3>
+      <p class="me-entry-company">NSFOCUS Technology (Wuhan) · Dec 2025 -- Mar 2026</p>
       <ul class="me-detail-list">
-        <li><strong>Architecture Design:</strong> Designed and developed a multi-agent public opinion analysis system based on MCP, enabling hot-swappable tool extensions through a decoupled Server/Client architecture and reducing coupling in traditional Agent tool calling.</li>
-        <li><strong>Concurrency Optimization:</strong> Restructured the data processing pipeline using Async/BatchAPI and MapReduce for large-scale concurrent semantic understanding and cleaning of 100k+ blog posts, significantly improving throughput while keeping room for scale-out by data volume and concurrency limits.</li>
-        <li><strong>Hallucination Suppression:</strong> Designed a three-stage decoupled workflow across cleaning, analysis, and reporting; used Chain-of-Thought tracing and template-based prompt engineering to reduce hallucination in generated reports and improve source verifiability.</li>
-        <li><strong>System Implementation:</strong> Independently handled end-to-end system development from data ingestion to visualization report generation, delivered the result to business teams, supported multimodal inputs, and allowed partial workflow activation for standalone cleaning or report generation.</li>
+        <li><strong>Vulnerability Mining Agent &amp; CodeQL Verification Loop:</strong> Built a single-agent harness for code vulnerability discovery, organizing vulnerability-intelligence retrieval, source-code localization, taint-flow modeling, CodeQL query generation, and engine validation into a traceable multi-round analysis loop. The work emphasized state representation, tool-calling protocols, and verification feedback over preset multi-role decomposition, enabling the model to iterate around candidate source/sink pairs, failed paths, tool outputs, and validation results while reducing path dependence and false-positive conclusions in long-chain analysis. CodeQL taint-analysis results served as the external verifier that provided final feedback.</li>
+        <li><strong>Training Data &amp; Agent Trajectory Curation:</strong> Built a vulnerability-data cleaning, entity verification, and annotation pipeline from GitHub open-source projects and internal databases; extracted and verified 8,000+ CVE entities, cleaned about 4,000 high-quality samples, completed multi-dimensional CWE/OWASP labeling, and controlled the language and vulnerability-type mix. From agent executions, distilled 2,500 high-confidence tool-use SFT trajectories and 300 verified taint-flow records for cold start, evaluation-set construction, reward design, and follow-up RL training exploration.</li>
       </ul>
     </article>
   </div>
@@ -50,7 +46,6 @@ comments: false
       <span class="me-paper-title">Unveiling the Drivers of PTSD: An Interpretable Machine Learning Approach with SHAP</span>
       <span class="me-paper-venue">International Conference on Intelligent Computing and Data Analysis 2025 ; EI</span>
       <span class="me-link-row">
-        <a href="https://dl.acm.org/doi/10.1145/3772726.3772849" target="_blank" rel="noopener">Paper</a>
         <a href="https://doi.org/10.1145/3772726.3772849" target="_blank" rel="noopener">DOI</a>
       </span>
     </li>
