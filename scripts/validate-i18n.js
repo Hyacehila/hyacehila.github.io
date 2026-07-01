@@ -52,10 +52,13 @@ function validateDictionary() {
     .filter(file => /\.(md|html|ejs)$/.test(file))
     .filter(file => !rel(file).startsWith('source/_posts/'))
     .filter(file => !rel(file).startsWith('source/_drafts/'));
+  const generatedTemplateFiles = [
+    path.join(root, 'scripts/home-sidebar-identity.js')
+  ].filter(file => fs.existsSync(file));
 
   const used = new Map();
   const re = /data-i18n=["']([^"']+)["']/g;
-  sourceFiles.forEach(file => {
+  sourceFiles.concat(generatedTemplateFiles).forEach(file => {
     const src = fs.readFileSync(file, 'utf8');
     let m;
     while ((m = re.exec(src))) {

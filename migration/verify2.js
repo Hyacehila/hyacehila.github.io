@@ -17,6 +17,10 @@ function check(name, ok, extra) { results.push(ok); console.log((ok ? 'PASS ' : 
   await page.waitForTimeout(800);
   check('home banner present', await page.locator('.home-banner, [class*=banner]').count() > 0);
   check('banner title = Hyacehila', (await page.locator('body').innerText()).includes('Hyacehila'));
+  check('home identity sidebar present', await page.locator('.home-identity-sidebar .home-identity-card').count() === 1);
+  check('home identity focus items (5)', await page.locator('.home-identity-focus-item').count() === 5);
+  check('home sidebar nav links restored', await page.locator('.home-sidebar-container .sidebar-links .links').count() === 4);
+  check('home statistics are static', await page.locator('.home-identity-statistics a').count() === 0 && await page.locator('.home-identity-statistics .item').count() === 3);
 
   // toggle works on Home (navbar 首页 -> Home)
   const navBefore = (await page.locator('header').innerText());
@@ -53,7 +57,8 @@ function check(name, ok, extra) { results.push(ok); console.log((ok ? 'PASS ' : 
   // me page layouts
   await page.goto(BASE + '/me/', { waitUntil: 'networkidle' });
   await page.waitForTimeout(500);
-  check('me: focus cards (4)', await page.locator('.focus-card').count() === 4);
+  check('me: focus cards removed', await page.locator('.focus-card').count() === 0);
+  check('me: education is first section', await page.locator('.me-page .page-section h2').first().getAttribute('data-i18n') === 'education-title');
   check('me: timeline (2 lists)', await page.locator('.timeline').count() === 2, await page.locator('.timeline-item').count() + ' items');
   check('me: research enumerated', await page.locator('.research-list > li').count() === 2);
   check('me: no comment heading', await page.locator('.comments-container').count() === 0);

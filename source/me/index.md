@@ -13,32 +13,6 @@ comments: false
 <p class="section-lead" data-i18n="about-text-4"></p>
 
 <section class="page-section">
-<h2 data-i18n="service-title">Current Work & Interests</h2>
-<div class="focus-grid">
-  <div class="focus-card">
-    <div class="focus-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-    <h3 data-i18n="service-data-science-title">Data Mining</h3>
-    <p data-i18n="service-data-science-text"></p>
-  </div>
-  <div class="focus-card">
-    <div class="focus-icon"><i class="fa-solid fa-robot"></i></div>
-    <h3 data-i18n="service-llm-agents-title">LLM Agents</h3>
-    <p data-i18n="service-llm-agents-text"></p>
-  </div>
-  <div class="focus-card">
-    <div class="focus-icon"><i class="fa-solid fa-ruler-combined"></i></div>
-    <h3 data-i18n="service-llm-eval-title">LLM Evaluation</h3>
-    <p data-i18n="service-llm-eval-text"></p>
-  </div>
-  <div class="focus-card">
-    <div class="focus-icon"><i class="fa-solid fa-display"></i></div>
-    <h3 data-i18n="service-apps-title">Client-Side Dev</h3>
-    <p data-i18n="service-apps-text"></p>
-  </div>
-</div>
-</section>
-
-<section class="page-section">
 <h2 data-i18n="education-title">Education</h2>
 <ul class="timeline">
   <li class="timeline-item">

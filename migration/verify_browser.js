@@ -33,9 +33,25 @@ function check(name, ok, extra) {
   const navLinks = await page.locator('header a, nav a, .navbar a, #navbar a').evaluateAll(els =>
     els.map(a => a.getAttribute('href')).filter(Boolean));
   const hrefs = navLinks.join('|');
-  check('navbar links to /archives/ /me/ /projects/ /about/',
-    hrefs.includes('/archives/') && hrefs.includes('/me/') && hrefs.includes('/projects/') && hrefs.includes('/about/'),
+  check('navbar links to /archives/ /me/ /projects/ and About children',
+    hrefs.includes('/archives/') && hrefs.includes('/me/') && hrefs.includes('/projects/') &&
+      hrefs.includes('/footprints/') && hrefs.includes('/friends/') && hrefs.includes('/cv/'),
     [...new Set(navLinks)].join(', ').slice(0, 160));
+  check('home identity sidebar present', (await page.locator('.home-identity-sidebar .home-identity-card').count()) === 1);
+  check('home identity focus items', (await page.locator('.home-identity-focus-item').count()) === 5);
+  check('home sidebar nav links restored', (await page.locator('.home-sidebar-container .sidebar-links .links').count()) === 4);
+  check('home statistics are static',
+    (await page.locator('.home-identity-statistics a').count()) === 0 &&
+      (await page.locator('.home-identity-statistics .item').count()) === 3);
+  const homeToggle = page.locator('#language-toggle');
+  const focusBefore = await page.locator('.home-identity-focus-item [data-i18n="service-data-science-title"]').first().textContent();
+  if (await homeToggle.count() > 0) {
+    await homeToggle.click();
+    await page.waitForTimeout(400);
+    const focusAfter = await page.locator('.home-identity-focus-item [data-i18n="service-data-science-title"]').first().textContent();
+    check('Home identity focus toggles language', focusBefore && focusAfter && focusBefore.trim() !== focusAfter.trim(),
+      'before="' + (focusBefore || '').trim() + '" after="' + (focusAfter || '').trim() + '"');
+  }
 
   // 2. ARTICLE with CJK permalink + math + mermaid
   const cjkUrl = BASE + '/blog/2026/01/22/' + encodeURIComponent('表格数据上仍旧是SOTA-基于Tree的模型') + '/';
@@ -77,20 +93,14 @@ function check(name, ok, extra) {
   const tagResp = await page.goto(BASE + '/tags/', { waitUntil: 'networkidle' });
   check('tags 200', tagResp && tagResp.status() === 200, 'status=' + (tagResp && tagResp.status()));
 
-  // 5. ME page + i18n toggle
+  // 5. ME page
   await page.goto(BASE + '/me/', { waitUntil: 'networkidle' });
   await page.waitForTimeout(600);
-  const zhText = await page.locator('[data-i18n="service-data-science-title"]').first().textContent();
-  check('Me page i18n applied (zh default)', zhText && zhText.trim().length > 0, 'first focus card="' + (zhText || '').trim() + '"');
-  // toggle to EN
-  const toggle = page.locator('#language-toggle');
-  check('language toggle button present', (await toggle.count()) > 0);
-  if (await toggle.count() > 0) {
-    await toggle.click();
-    await page.waitForTimeout(400);
-    const enText = await page.locator('[data-i18n="service-data-science-title"]').first().textContent();
-    check('toggle switches to EN', enText && /Data Mining/i.test(enText), 'now="' + (enText || '').trim() + '"');
-  }
+  check('Me page focus cards removed', (await page.locator('.focus-card').count()) === 0);
+  check('Me page starts with Education',
+    (await page.locator('.me-page .page-section h2').first().getAttribute('data-i18n')) === 'education-title');
+  const intro = await page.locator('[data-i18n="about-text-1"]').first().textContent();
+  check('Me page i18n intro applied', intro && intro.trim().length > 10);
 
   // 6. PROJECTS
   await page.goto(BASE + '/projects/', { waitUntil: 'networkidle' });

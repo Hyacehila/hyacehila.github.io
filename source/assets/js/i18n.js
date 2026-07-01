@@ -1,6 +1,6 @@
 // Auto-generated from the legacy Jekyll _data/i18n/home.json dictionary.
 // Provides window.I18N = { en: {...}, zh: {...} } for the EN/ZH toggle.
-// Keys are referenced via [data-i18n="key"] on the Me / Projects / About pages.
+// Keys are referenced via [data-i18n="key"] on Home / Me / Projects / About pages.
 window.I18N = {
   "en": {
     "nav-home": "Home",
@@ -11,15 +11,11 @@ window.I18N = {
     "about-text-2": "This ID is close to how I understand technology: moving through dense systems, toolchains, workflows, and uncertain environments to find a natural, explainable path that actually solves the problem. I care about general problem-solving patterns and about whether technology can transfer and generalize across real scenarios.",
     "about-text-3": "Today I mainly focus on AI Agent deployment and Evaluation, which I see as two of the most important technologies for bringing large models into engineering practice and industrial pipelines. I study both Single-Agent and Multi-Agent systems: how they are designed, evaluated, constrained, and eventually embedded in real business workflows rather than left at the benchmark level. Writing commercial fiction is a side interest.",
     "about-text-4": "You can call me Julian or Jules.",
-    "service-title": "Current Work & Interests",
-    "service-data-science-title": "Data Mining",
-    "service-data-science-text": "Discovering hidden patterns in large-scale data and turning them into practical insights that guide better decisions.",
+    "service-data-science-title": "Data Science",
     "service-llm-agents-title": "LLM Agents",
-    "service-llm-agents-text": "Building LLM-powered agents that plan, use tools, and automate complex workflows with reliable task execution.",
-    "service-llm-eval-title": "LLM Evaluation",
-    "service-llm-eval-text": "Measuring how model outputs align with human expectations and turning feedback into signals for better training.",
-    "service-apps-title": "Client-Side Dev",
-    "service-apps-text": "Building client-side apps that turn user needs into clear, responsive interfaces and practical product experiences.",
+    "service-llm-eval-title": "Evaluation/Benchmark",
+    "service-ios-dev-title": "iOS Dev",
+    "service-game-client-title": "Game Client Dev",
     "blog-title": "Blog Posts (Chinese Only)",
     "blog-view-all": "View all blog posts",
     "blog-view-all-title": "View All Blogs",
@@ -153,15 +149,11 @@ window.I18N = {
     "nav-resume": "简历",
     "nav-portfolio": "项目",
     "about-title": "关于我",
-    "service-title": "当前专注领域",
-    "service-data-science-title": "数据挖掘",
-    "service-data-science-text": "从海量数据中发现隐藏的、有价值的模式，并将其转化为支持决策的洞察。",
-    "service-llm-agents-title": "语言模型智能体",
-    "service-llm-agents-text": "开发基于大语言模型的智能体，实现复杂任务的自动化处理。",
-    "service-llm-eval-title": "语言模型评估",
-    "service-llm-eval-text": "量化模型输出与人类期望的对齐程度，并将其转化为驱动强化学习训练的奖励信号，从而引导模型持续优化。",
-    "service-apps-title": "客户端开发",
-    "service-apps-text": "致力于构建能够解决真实用户问题的移动应用，通过深入挖掘用户痛点，创造实用的解决方案。",
+    "service-data-science-title": "数据科学",
+    "service-llm-agents-title": "LLM 智能体",
+    "service-llm-eval-title": "评估/基准",
+    "service-ios-dev-title": "iOS 开发",
+    "service-game-client-title": "游戏客户端",
     "blog-title": "博客文章",
     "blog-view-all": "浏览所有博客文章",
     "blog-view-all-title": "浏览所有博客",
