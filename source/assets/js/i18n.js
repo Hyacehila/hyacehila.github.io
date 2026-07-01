@@ -163,7 +163,7 @@ window.I18N = {
     "friend-xiaofeizhao": "教授.",
     "resume-title": "简历",
     "education-title": "教育背景",
-    "education-wuhan": "现于应用统计专业攻读硕士学位，主要研究领域为LLM Agent, Evaluation 与Agentic Reinforecement Learning。构建Powerful的LLM AI Agent，解决现实存在的问题。",
+    "education-wuhan": "现于应用统计专业攻读硕士学位，主要研究领域为 LLM Agent、Evaluation 与 Agentic Reinforcement Learning。希望构建能真正解决现实问题的 LLM AI Agent。",
     "education-xidian": "于西安电子科技大学获得统计学学士学位。系统学习了统计学基础理论，深耕机器学习、数据分析与数据挖掘等应用领域。综合排名2/30，推荐免试至武汉大学攻读硕士学位。",
     "experience-title": "工作经历",
     "experience-nsfocus-title-company": "算法研究员（实习） | 绿盟科技（武汉）",

@@ -312,6 +312,12 @@
   }
 
   function ensureToggleButton() {
+    if (getCurrentPath() === "/me/") {
+      var existing = document.getElementById("language-toggle");
+      if (existing) existing.remove();
+      return null;
+    }
+
     var list = document.querySelector(".hidden-tools-list");
     if (!list) return null;
 
@@ -362,7 +368,7 @@
   }
 
   function applyI18n() {
-    var lang = getLang();
+    var lang = getCurrentPath() === "/me/" ? DEFAULT_LANG : getLang();
     stampHtml(lang);
     applyDataI18n(lang);
     updateToggleButton(lang);

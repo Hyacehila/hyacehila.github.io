@@ -41,6 +41,7 @@ hexo.extend.filter.register('before_generate', function () {
         <div class="sidebar-content home-identity-card">
             <%- partial("components/sidebar/avatar") %>
             <%- partial("components/sidebar/author") %>
+            <div class="home-identity-school">XDU -&gt; WHU</div>
 
             <div class="home-identity-focus" aria-label="Research interests">
                 <div class="home-identity-focus-list">
