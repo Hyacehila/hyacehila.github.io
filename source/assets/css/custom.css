@@ -116,6 +116,7 @@ body:has(.home-banner-container) {
   --home-social-x-padding: 1.35rem;
   --home-social-gap: 1rem;
   --home-social-icon-target: 34px;
+  --home-actions-z: 1004;
   --home-actions-top: calc(100vh - var(--home-actions-bottom) - var(--home-actions-height));
   --home-layout-width: 1316px;
   --home-actions-left-inline: max(1.5rem, calc((100vw - var(--home-layout-width)) / 2 + 31px));
@@ -134,7 +135,7 @@ body:has(.home-banner-container) {
   padding-left: 0 !important;
   padding-right: 0 !important;
   transform: none !important;
-  z-index: 1100;
+  z-index: var(--home-actions-z, 1004);
   pointer-events: none;
 }
 
@@ -186,7 +187,7 @@ body:has(.home-banner-container) .right-side-tools-container.hide {
   position: fixed;
   left: 18px;
   bottom: 18px;
-  z-index: 1200;
+  z-index: var(--home-actions-z, 1004);
   display: none;
   align-items: center;
   justify-content: center;
@@ -268,7 +269,7 @@ body:has(.home-banner-container) .social-contacts {
   right: var(--home-actions-right-inline) !important;
   top: var(--home-actions-top) !important;
   bottom: auto !important;
-  z-index: 1190;
+  z-index: var(--home-actions-z, 1004);
   min-height: var(--home-actions-height);
   padding: 0 var(--home-social-x-padding) !important;
   gap: var(--home-social-gap) !important;
