@@ -34,10 +34,23 @@
 
   // ---- Globe.gl footprints -------------------------------------------------
   var TYPE_COLORS = {
-    "学习": "#5b8cff", "Study": "#5b8cff",
-    "旅游": "#ffb347", "Travel": "#ffb347",
-    "家": "#f54545", "Home": "#f54545"
+    "学习": "#6EA8FF", "Study": "#6EA8FF",
+    "旅游": "#FFC857", "Travel": "#FFC857",
+    "家": "#FF5A7A", "Home": "#FF5A7A",
+    "工作": "#2EE6A6", "Work": "#2EE6A6"
   };
+  var ROTATE_LABEL_KEYS = {
+    pause: "globe-rotation-pause",
+    resume: "globe-rotation-resume"
+  };
+
+  function i18nText(key, fallback) {
+    var lang = currentLang();
+    var dict = window.I18N || {};
+    var table = dict[lang] || {};
+    var en = dict.en || {};
+    return table[key] || en[key] || fallback;
+  }
 
   function loadGlobeLib(cb) {
     if (window.Globe && window.THREE) { cb(); return; }
@@ -152,13 +165,85 @@
       var label = lang === "en" ? (c.nameEn || c.name) : (c.name || c.nameEn);
       var typ = lang === "en" ? (c.typeEn || c.type) : (c.type || c.typeEn);
       var detail = lang === "en" ? (c.detailsEn || c.details) : (c.details || c.detailsEn);
-      var visits = c.visits;
+      var isHome = c.type === "家" || c.typeEn === "Home";
+      var isStudy = c.type === "学习" || c.typeEn === "Study";
+      var isWork = c.type === "工作" || c.typeEn === "Work";
+      var markerOffset = { x: 0, y: 0 };
+      if (c.nameEn === "Zhengzhou") markerOffset = { x: 7, y: 5 };
+      if (c.nameEn === "Jiaozuo") markerOffset = { x: -7, y: -5 };
       return {
         lat: v[1], lng: v[0],
-        size: typeof visits === "number" ? Math.min(0.25, 0.07 + visits * 0.03) : 0.12,
-        color: TYPE_COLORS[c.type] || TYPE_COLORS[c.typeEn] || "#5b8cff",
+        markerSize: isHome ? 12 : (isStudy || isWork ? 10 : 9),
+        markerOffsetX: markerOffset.x,
+        markerOffsetY: markerOffset.y,
+        color: TYPE_COLORS[c.type] || TYPE_COLORS[c.typeEn] || "#6EA8FF",
         label: label, typ: typ, detail: detail
       };
+    });
+  }
+
+  function buildGlowMarker(d) {
+    var marker = document.createElement("span");
+    var accessibleLabel = d.label + (d.typ ? " · " + d.typ : "") + (d.detail ? " — " + d.detail : "");
+    var tooltip = document.createElement("span");
+    var title = document.createElement("strong");
+    var type = document.createElement("span");
+    var detail = document.createElement("span");
+    marker.className = "globe-marker";
+    marker.style.setProperty("--marker-color", d.color);
+    marker.style.setProperty("--marker-size", d.markerSize + "px");
+    marker.style.setProperty("--marker-offset-x", (d.markerOffsetX || 0) + "px");
+    marker.style.setProperty("--marker-offset-y", (d.markerOffsetY || 0) + "px");
+    marker.setAttribute("aria-label", accessibleLabel);
+    marker.setAttribute("tabindex", "0");
+
+    tooltip.className = "globe-marker-tooltip";
+    title.textContent = d.label;
+    type.className = "globe-marker-type";
+    type.textContent = d.typ || "";
+    detail.className = "globe-marker-detail";
+    detail.textContent = d.detail || "";
+
+    tooltip.appendChild(title);
+    if (d.typ) tooltip.appendChild(type);
+    if (d.detail) tooltip.appendChild(detail);
+    marker.appendChild(tooltip);
+    return marker;
+  }
+
+  function setRotateButtonState(isRotating) {
+    var btn = document.getElementById("globe-rotate-toggle");
+    if (!btn) return;
+    var label = isRotating
+      ? i18nText(ROTATE_LABEL_KEYS.pause, "Pause rotation")
+      : i18nText(ROTATE_LABEL_KEYS.resume, "Resume rotation");
+    var icon = btn.querySelector("i");
+    var hidden = btn.querySelector(".sr-only");
+    btn.setAttribute("aria-label", label);
+    btn.setAttribute("title", label);
+    btn.setAttribute("aria-pressed", isRotating ? "false" : "true");
+    btn.dataset.rotating = isRotating ? "1" : "0";
+    if (icon) icon.className = isRotating ? "fa-solid fa-pause" : "fa-solid fa-play";
+    if (hidden) {
+      hidden.textContent = label;
+      hidden.setAttribute("data-i18n", isRotating ? ROTATE_LABEL_KEYS.pause : ROTATE_LABEL_KEYS.resume);
+    }
+  }
+
+  function bindRotateToggle(g) {
+    var btn = document.getElementById("globe-rotate-toggle");
+    if (!btn) return;
+    window.__globeRotating = true;
+    setRotateButtonState(true);
+    if (btn.dataset.bound === "1") return;
+    btn.dataset.bound = "1";
+    btn.addEventListener("click", function () {
+      if (!window.__globe) return;
+      window.__globeRotating = !(window.__globeRotating === true);
+      try {
+        window.__globe.controls().autoRotate = window.__globeRotating;
+      } catch (e) {}
+      setRotateButtonState(window.__globeRotating);
     });
   }
 
@@ -181,17 +266,16 @@
           var inst;
           try { inst = new GlobeCtor(el); }
           catch (e) { inst = GlobeCtor()(el); }
+          var points = buildPoints(cities, lang);
           var g = inst
             .backgroundColor("rgba(0,0,0,0)")
-            .pointsData(buildPoints(cities, lang))
-            .pointAltitude("size")
-            .pointColor("color")
-            .pointRadius(0.32)
-            .pointLabel(function (d) {
-              return '<div style="text-align:left;font-size:12px;line-height:1.5">' +
-                '<b>' + escapeHtml(d.label) + '</b> · ' + escapeHtml(d.typ || "") +
-                (d.detail ? '<br>' + escapeHtml(d.detail) : '') + '</div>';
-            });
+            .pointsData([])
+            .htmlElementsData(points)
+            .htmlLat("lat")
+            .htmlLng("lng")
+            .htmlAltitude(0.012)
+            .htmlElement(buildGlowMarker)
+            .htmlTransitionDuration(600);
 
           // Day/night terminator material (falls back to flat texture if THREE
           // or the shader is unavailable for any reason).
@@ -236,8 +320,9 @@
           }
           try {
             g.controls().autoRotate = true;
-            g.controls().autoRotateSpeed = 0.6;
+            g.controls().autoRotateSpeed = 0.35;
           } catch (e) {}
+          bindRotateToggle(g);
           var w = el.clientWidth || 600;
           g.width(w).height(Math.min(480, Math.max(320, w * 0.7)));
           g.pointOfView({ lat: 30, lng: 110, altitude: 2.2 }, 0);
@@ -249,7 +334,9 @@
 
   function updateGlobeLanguage(lang) {
     if (!window.__globe || !window.__globeCities) return;
-    window.__globe.pointsData(buildPoints(window.__globeCities, lang || currentLang()));
+    var points = buildPoints(window.__globeCities, lang || currentLang());
+    window.__globe.pointsData([]).htmlElementsData(points);
+    setRotateButtonState(window.__globeRotating !== false);
   }
   window.updateGlobeLanguage = updateGlobeLanguage;
 
@@ -266,7 +353,12 @@
   function initPage() {
     checkCv();
     initGlobe();
+    setRotateButtonState(window.__globeRotating !== false);
   }
+
+  document.addEventListener("i18n:applied", function () {
+    setRotateButtonState(window.__globeRotating !== false);
+  });
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initPage);

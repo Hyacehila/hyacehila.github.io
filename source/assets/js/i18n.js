@@ -138,10 +138,13 @@ window.I18N = {
     "about-cv-title": "CV",
     "about-cv-download": "Download PDF",
     "about-cv-placeholder": "The CV is being put together and will be uploaded soon.",
-    "footprints-lead": "Places I have been, colored by study, travel, and home. Drag the globe to explore.",
+    "footprints-lead": "Places I have been, colored by study, travel, home, and work. Drag the globe, or pause the slow spin.",
     "map-legend-study": "Study",
     "map-legend-travel": "Travel",
-    "map-legend-home": "Home"
+    "map-legend-home": "Home",
+    "map-legend-work": "Work",
+    "globe-rotation-pause": "Pause rotation",
+    "globe-rotation-resume": "Resume rotation"
   },
   "zh": {
     "nav-home": "主页",
@@ -279,9 +282,12 @@ window.I18N = {
     "about-cv-title": "CV",
     "about-cv-download": "下载 PDF",
     "about-cv-placeholder": "CV 正在整理中，稍后上传。",
-    "footprints-lead": "走过的地方，按学习 / 旅游 / 家分色。拖动地球查看。",
+    "footprints-lead": "走过的地方按学习、旅游、家和工作分色。拖动地球查看，也可以暂停自转。",
     "map-legend-study": "学习",
     "map-legend-travel": "旅游",
-    "map-legend-home": "家"
+    "map-legend-home": "家",
+    "map-legend-work": "工作",
+    "globe-rotation-pause": "暂停自转",
+    "globe-rotation-resume": "继续自转"
   }
 };

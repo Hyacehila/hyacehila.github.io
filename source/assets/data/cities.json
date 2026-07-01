@@ -362,5 +362,47 @@
         "typeEn": "Travel",
         "details": "神秘的地方",
         "detailsEn": "A mysterious place."
+    },
+    {
+        "name": "上海",
+        "nameEn": "Shanghai",
+        "province": "上海",
+        "value": [
+            121.4737,
+            31.2304
+        ],
+        "visits": 1,
+        "type": "工作",
+        "typeEn": "Work",
+        "details": "沪币确实是沪币",
+        "detailsEn": "The Shanghai price tag is real."
+    },
+    {
+        "name": "郑州",
+        "nameEn": "Zhengzhou",
+        "province": "河南",
+        "value": [
+            113.6253,
+            34.7466
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "每次旅途的中转地而非目的地。",
+        "detailsEn": "A transfer point for every journey rather than the destination."
+    },
+    {
+        "name": "焦作",
+        "nameEn": "Jiaozuo",
+        "province": "河南",
+        "value": [
+            113.2391,
+            35.2392
+        ],
+        "visits": 1,
+        "type": "旅游",
+        "typeEn": "Travel",
+        "details": "神农山作为爬山锻炼身体还是不错的",
+        "detailsEn": "Shennong Mountain is pretty good for hiking and getting some exercise."
     }
 ]
