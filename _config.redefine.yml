@@ -97,7 +97,16 @@ home_banner:
   custom_font:
     enable: false
   social_links:
-    enable: false
+    enable: true
+    style: default
+    links:
+      - icon: github
+        url: https://github.com/Hyacehila
+      - icon: email
+        url: hyacehila@126.com
+      - icon: linkedin
+        url: https://www.linkedin.com/in/hyacehila
+    qrs: []
 
 
 # NAVIGATION BAR — top nav: Home / Archives / Me / Project / About
@@ -129,7 +138,6 @@ navbar:
         Footprints: /footprints/
         Friends: /friends/
         CV: /cv/
-        Contact: /contact/
   # Local search. Requires hexo-generator-searchdb.
   search:
     enable: true
@@ -244,7 +252,7 @@ inject:
     - '<script src="/assets/js/lang-toggle.js"></script>'
     - '<script src="/assets/js/about.js"></script>'
   footer:
-    - '<button id="language-toggle" class="lang-toggle-btn" type="button" aria-label="Switch language">EN / 中</button>'
+    - '<div class="home-banner-left-controls" aria-label="Home controls"><button class="home-scroll-control" type="button" onclick="scrollToMain()" aria-label="Scroll to posts" title="Scroll to posts"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button><button id="language-toggle" class="lang-toggle-btn" type="button" aria-label="Switch language" title="Switch language"><i class="fa-solid fa-globe" aria-hidden="true"></i><span class="sr-only">Switch language</span></button></div>'
 
 
 # PLUGINS

@@ -6,7 +6,7 @@
 //   - window.I18N (from i18n.js) holds { en:{key:val}, zh:{key:val} }.
 //   - Elements carry data-i18n="key"; we swap their innerHTML on apply.
 //   - data-i18n-force-lang="en" pins an element to English regardless of mode.
-//   - Choice persists in localStorage['lang'] ('en' | 'zh'); default 'zh'.
+//   - Choice persists in localStorage['lang'] ('en' | 'zh'); default 'en'.
 //   - Re-applied on DOMContentLoaded and on every swup page:view.
 //
 // The toggle only affects hand-authored [data-i18n] nodes (Me/Projects/About).
@@ -15,11 +15,20 @@
   "use strict";
 
   var STORAGE_KEY = "lang";
-  var DEFAULT_LANG = "zh";
+  var DEFAULT_LANG = "en";
+  var DEFAULT_LANG_MIGRATION_KEY = "lang-default-migration";
+  var DEFAULT_LANG_MIGRATION = "en-home-controls-2026-07";
 
   function getLang() {
     try {
       var v = localStorage.getItem(STORAGE_KEY);
+      if (localStorage.getItem(DEFAULT_LANG_MIGRATION_KEY) !== DEFAULT_LANG_MIGRATION) {
+        localStorage.setItem(DEFAULT_LANG_MIGRATION_KEY, DEFAULT_LANG_MIGRATION);
+        if (v !== "en") {
+          localStorage.setItem(STORAGE_KEY, DEFAULT_LANG);
+          return DEFAULT_LANG;
+        }
+      }
       return v === "en" || v === "zh" ? v : DEFAULT_LANG;
     } catch (e) {
       return DEFAULT_LANG;
@@ -48,8 +57,7 @@
     "/murmur/": { zh: "碎碎念", en: "Murmur" },
     "/footprints/": { zh: "Footprints", en: "Footprints" },
     "/friends/": { zh: "Friends", en: "Friends" },
-    "/cv/": { zh: "CV", en: "CV" },
-    "/contact/": { zh: "Contact", en: "Contact" }
+    "/cv/": { zh: "CV", en: "CV" }
   };
   // Dropdown parent "About/关于" has no single href; match by text.
   var TEXT_LABELS = [
@@ -201,6 +209,95 @@
       .then(function () { POST_I18N_PENDING = false; });
   }
 
+  function updateToggleButton(lang) {
+    var btn = document.getElementById("language-toggle");
+    if (!btn) return;
+    var label = lang === "en" ? "Switch to Chinese" : "Switch to English";
+    btn.setAttribute("aria-label", label);
+    btn.setAttribute("title", label);
+    btn.setAttribute("data-current-lang", lang);
+    var hiddenText = btn.querySelector(".sr-only");
+    if (hiddenText) hiddenText.textContent = label;
+  }
+
+  var homeActionsResizeBound = false;
+  var homeActionsRaf = 0;
+
+  function scheduleHomeActionAlignment() {
+    if (homeActionsRaf) cancelAnimationFrame(homeActionsRaf);
+    homeActionsRaf = requestAnimationFrame(updateHomeActionAlignment);
+  }
+
+  function updateHomeActionAlignment() {
+    homeActionsRaf = 0;
+    if (!document.body) return;
+
+    var homeBanner = document.querySelector(".home-banner-container");
+    if (!homeBanner) {
+      document.body.style.removeProperty("--home-actions-left-inline");
+      document.body.style.removeProperty("--home-actions-right-inline");
+      return;
+    }
+
+    var article = document.querySelector(".home-article-item");
+    if (!article) return;
+
+    var articleRect = article.getBoundingClientRect();
+    var leftRect = articleRect;
+    var sidebar = document.querySelector(".home-sidebar-container");
+    if (sidebar) {
+      var sidebarRect = sidebar.getBoundingClientRect();
+      var sidebarStyle = window.getComputedStyle(sidebar);
+      if (sidebarStyle.display !== "none" && sidebarRect.width > 0 && sidebarRect.height > 0) {
+        leftRect = sidebarRect;
+      }
+    }
+
+    var viewportWidth = document.body.clientWidth || document.documentElement.clientWidth || window.innerWidth;
+    var leftInset = Math.max(0, leftRect.left);
+    var rightInset = Math.max(0, viewportWidth - articleRect.right);
+
+    document.body.style.setProperty("--home-actions-left-inline", leftInset.toFixed(2) + "px");
+    document.body.style.setProperty("--home-actions-right-inline", rightInset.toFixed(2) + "px");
+  }
+
+  function bindHomeActionAlignment() {
+    if (homeActionsResizeBound) return;
+    homeActionsResizeBound = true;
+    window.addEventListener("resize", scheduleHomeActionAlignment, { passive: true });
+    window.addEventListener("orientationchange", scheduleHomeActionAlignment, { passive: true });
+  }
+
+  function syncHomeBannerControls() {
+    var homeBanner = document.querySelector(".home-banner-container");
+    var moved = document.querySelector("body > .home-social-controls");
+    var inBanner = document.querySelector(".home-banner-container .social-contacts");
+    var leftControls = document.querySelector(".home-banner-left-controls");
+
+    if (!homeBanner) {
+      if (moved) moved.remove();
+      if (document.body) {
+        document.body.style.removeProperty("--home-actions-left-inline");
+        document.body.style.removeProperty("--home-actions-right-inline");
+      }
+      return;
+    }
+
+    if (!inBanner && !moved) return;
+    if (moved && moved !== inBanner) moved.remove();
+    var social = inBanner || moved;
+    social.classList.add("home-social-controls");
+    document.body.appendChild(social);
+    if (leftControls && leftControls.parentElement !== document.body) {
+      document.body.appendChild(leftControls);
+    }
+
+    bindHomeActionAlignment();
+    scheduleHomeActionAlignment();
+    setTimeout(scheduleHomeActionAlignment, 120);
+    setTimeout(scheduleHomeActionAlignment, 700);
+  }
+
   function applyI18n() {
     var dict = window.I18N;
     if (!dict) return;
@@ -221,9 +318,8 @@
       if (val != null) node.innerHTML = val;
     }
 
-    // Update the toggle button label to show the OTHER language as the action.
-    var btn = document.getElementById("language-toggle");
-    if (btn) btn.textContent = lang === "en" ? "中文" : "EN";
+    // Keep the toggle icon-only; expose the action through accessible labels.
+    updateToggleButton(lang);
 
     // Translate the theme chrome (navbar / sidebar / footer) so the toggle has a
     // visible effect on Home and every page, where there are no [data-i18n] nodes.
@@ -259,6 +355,7 @@
   }
 
   function init() {
+    syncHomeBannerControls();
     bindButton();
     applyI18n();
   }
