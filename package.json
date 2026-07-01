@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "hexo clean",
     "build": "hexo generate",
+    "check:i18n": "node scripts/validate-i18n.js",
     "server": "hexo server"
   },
   "hexo": {

@@ -103,7 +103,7 @@ home_banner:
       - icon: github
         url: https://github.com/Hyacehila
       - icon: email
-        url: hyacehila@126.com
+        url: hyacehila@qq.com
       - icon: linkedin
         url: https://www.linkedin.com/in/hyacehila
     qrs: []
@@ -126,10 +126,10 @@ navbar:
     Archives:
       path: /archives/
       icon: fa-regular fa-box-archive
-    我:
+    Me:
       path: /me/
       icon: fa-regular fa-user
-    项目:
+    Project:
       path: /projects/
       icon: fa-regular fa-diagram-project
     About:
@@ -156,7 +156,7 @@ home:
       Archives:
         path: /archives/
         icon: fa-regular fa-box-archive
-      碎碎念:
+      Murmur:
         path: /murmur/
         icon: fa-regular fa-comment-dots
       Categories:
@@ -252,7 +252,7 @@ inject:
     - '<script src="/assets/js/lang-toggle.js"></script>'
     - '<script src="/assets/js/about.js"></script>'
   footer:
-    - '<div class="home-banner-left-controls" aria-label="Home controls"><button class="home-scroll-control" type="button" onclick="scrollToMain()" aria-label="Scroll to posts" title="Scroll to posts"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button><button id="language-toggle" class="lang-toggle-btn" type="button" aria-label="Switch language" title="Switch language"><i class="fa-solid fa-globe" aria-hidden="true"></i><span class="sr-only">Switch language</span></button></div>'
+    - '<div class="home-banner-left-controls" aria-label="Home controls"><button class="home-scroll-control" type="button" onclick="scrollToMain()" aria-label="Scroll to posts" title="Scroll to posts"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button></div>'
 
 
 # PLUGINS

@@ -12,8 +12,8 @@
   function currentLang() {
     try {
       var v = localStorage.getItem("lang");
-      return v === "en" ? "en" : "zh";
-    } catch (e) { return "zh"; }
+      return v === "zh" ? "zh" : "en";
+    } catch (e) { return "en"; }
   }
 
   function escapeHtml(s) {

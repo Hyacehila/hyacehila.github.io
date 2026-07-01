@@ -142,6 +142,41 @@ body:has(.home-banner-container) .right-side-tools-container {
   right: 0.25rem;
 }
 
+body:has(.home-banner-container) .right-side-tools-container.hide {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tool-language-toggle {
+  position: relative;
+  gap: 0;
+}
+
+.tool-language-toggle i {
+  transform: translate(-2px, -1px);
+}
+
+.tool-language-toggle .lang-toggle-mark {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  min-width: 16px;
+  height: 13px;
+  padding: 0 3px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 13px;
+  text-align: center;
+  color: var(--background-color, #fff);
+  background: var(--primary-color, #5b8cff);
+}
+
+.tool-language-toggle:hover .lang-toggle-mark {
+  color: var(--primary-color, #5b8cff);
+  background: var(--background-color, #fff);
+}
+
 .home-banner-left-controls {
   position: fixed;
   left: 18px;

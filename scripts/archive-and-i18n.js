@@ -5,6 +5,31 @@ const pagination = require('hexo-pagination');
 
 const fmtNum = num => num.toString().padStart(2, '0');
 const isArchived = post => post.archived === true;
+const isEnglishDefault = config => {
+  const lang = config && config.language;
+  if (Array.isArray(lang)) return lang[0] === 'en';
+  return String(lang || '').split(/[-_]/)[0] === 'en';
+};
+
+// Keep post bodies as authored, but make article chrome English-first at build
+// time. The original zh title/excerpt stay on the post model for the runtime
+// language switcher.
+hexo.extend.filter.register('before_post_render', function (data) {
+  if (!isEnglishDefault(this.config)) return data;
+
+  if (data.title_en) {
+    if (!data.title_zh && data.title) data.title_zh = data.title;
+    data.title = data.title_en;
+  }
+
+  if (data.excerpt_en) {
+    if (!data.excerpt_zh && data.excerpt) data.excerpt_zh = data.excerpt;
+    data.excerpt = data.excerpt_en;
+    data.description = data.description_en || data.excerpt_en;
+  }
+
+  return data;
+});
 
 // 1) Home and Archives intentionally form a split:
 //    Home shows non-archived posts; Archives shows archived posts only.
@@ -161,7 +186,7 @@ hexo.extend.filter.register('before_generate', function () {
   <% if (archivePosts.length) { %>
     <%- partial('utils/posts-list', {posts: archivePosts}) %>
   <% } else { %>
-    <div class="archive-empty px-6 py-10 text-third-text-color text-center">&#26242;&#26080;&#24402;&#26723;&#25991;&#31456;</div>
+    <div class="archive-empty px-6 py-10 text-third-text-color text-center">No archived posts yet.</div>
   <% } %>
 </div>
 `);
@@ -172,15 +197,35 @@ hexo.extend.filter.register('before_generate', function () {
 //    (Home / archives / categories / tags) without theme-template edits.
 hexo.extend.generator.register('post_i18n_map', function (locals) {
   const map = {};
+
+  function addRecord(key, rec) {
+    if (!key) return;
+    key = '/' + String(key).replace(/^\/+/, '').replace(/index\.html$/, '');
+    if (key[key.length - 1] !== '/') key += '/';
+    map[key] = rec;
+  }
+
   locals.posts.forEach(p => {
     if (p.title_en || p.excerpt_en) {
       // Normalize to a single leading slash, no trailing index.html; this
-      // matches the <a href> the theme renders for each post.
+      // matches the <a href> the theme renders for each post. CJK permalinks
+      // may appear encoded in DOM hrefs, so emit both raw and encoded forms.
       let key = String(p.path).replace(/index\.html$/, '');
       key = '/' + key.replace(/^\/+/, '');
-      map[key] = {};
-      if (p.title_en) map[key].title_en = String(p.title_en);
-      if (p.excerpt_en) map[key].excerpt_en = String(p.excerpt_en);
+      const rec = {};
+      if (p.title_zh) rec.title_zh = String(p.title_zh);
+      else if (p.title && p.title !== p.title_en) rec.title_zh = String(p.title);
+      if (p.title_en) rec.title_en = String(p.title_en);
+      if (p.excerpt_zh) rec.excerpt_zh = String(p.excerpt_zh);
+      if (p.excerpt_en) rec.excerpt_en = String(p.excerpt_en);
+      addRecord(key, rec);
+      try {
+        const decoded = decodeURIComponent(key);
+        addRecord(decoded, rec);
+        addRecord(encodeURI(decoded), rec);
+      } catch (e) {
+        addRecord(encodeURI(key), rec);
+      }
     }
   });
   return {

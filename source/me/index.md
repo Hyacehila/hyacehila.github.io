@@ -1,5 +1,5 @@
 ---
-title: 我
+title: Me
 date: 2026-06-28 00:00:00
 permalink: /me/
 comments: false
@@ -13,45 +13,45 @@ comments: false
 <p class="section-lead" data-i18n="about-text-4"></p>
 
 <section class="page-section">
-<h2 data-i18n="service-title">当前专注领域</h2>
+<h2 data-i18n="service-title">Current Work & Interests</h2>
 <div class="focus-grid">
   <div class="focus-card">
     <div class="focus-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-    <h3 data-i18n="service-data-science-title">数据挖掘</h3>
+    <h3 data-i18n="service-data-science-title">Data Mining</h3>
     <p data-i18n="service-data-science-text"></p>
   </div>
   <div class="focus-card">
     <div class="focus-icon"><i class="fa-solid fa-robot"></i></div>
-    <h3 data-i18n="service-llm-agents-title">语言模型智能体</h3>
+    <h3 data-i18n="service-llm-agents-title">LLM Agents</h3>
     <p data-i18n="service-llm-agents-text"></p>
   </div>
   <div class="focus-card">
     <div class="focus-icon"><i class="fa-solid fa-ruler-combined"></i></div>
-    <h3 data-i18n="service-llm-eval-title">语言模型评估</h3>
+    <h3 data-i18n="service-llm-eval-title">LLM Evaluation</h3>
     <p data-i18n="service-llm-eval-text"></p>
   </div>
   <div class="focus-card">
     <div class="focus-icon"><i class="fa-solid fa-display"></i></div>
-    <h3 data-i18n="service-apps-title">客户端开发</h3>
+    <h3 data-i18n="service-apps-title">Client-Side Dev</h3>
     <p data-i18n="service-apps-text"></p>
   </div>
 </div>
 </section>
 
 <section class="page-section">
-<h2 data-i18n="education-title">教育背景</h2>
+<h2 data-i18n="education-title">Education</h2>
 <ul class="timeline">
   <li class="timeline-item">
     <div class="timeline-dot"></div>
     <div class="timeline-body">
-      <h3 data-i18n="university-wuhan">武汉大学</h3>
+      <h3 data-i18n="university-wuhan">Wuhan University</h3>
       <p data-i18n="education-wuhan"></p>
     </div>
   </li>
   <li class="timeline-item">
     <div class="timeline-dot"></div>
     <div class="timeline-body">
-      <h3 data-i18n="university-xidian">西安电子科技大学</h3>
+      <h3 data-i18n="university-xidian">Xidian University</h3>
       <p data-i18n="education-xidian"></p>
     </div>
   </li>
@@ -59,7 +59,7 @@ comments: false
 </section>
 
 <section class="page-section">
-<h2 data-i18n="experience-title">工作经历</h2>
+<h2 data-i18n="experience-title">Experience</h2>
 <ul class="timeline">
   <li class="timeline-item">
     <div class="timeline-dot"></div>
@@ -84,7 +84,7 @@ comments: false
 </section>
 
 <section class="page-section">
-<h2 data-i18n="research-title">研究</h2>
+<h2 data-i18n="research-title">Research</h2>
 <ol class="research-list">
   <li>
     <h3 data-i18n="research-ptsd-title"></h3>
@@ -104,7 +104,7 @@ comments: false
 </section>
 
 <section class="page-section">
-<h2 data-i18n="awards-title">奖项与证书</h2>
+<h2 data-i18n="awards-title">Awards & Certificates</h2>
 <ul class="award-list">
   <li data-i18n="award-modeling"></li>
   <li data-i18n="award-sas"></li>

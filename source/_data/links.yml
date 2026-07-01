@@ -5,13 +5,13 @@
   list:
     - name: Shimmer
       link: https://shimmer0007.github.io
-      description: 数据分析师
+      description: Data Analyst
     - name: CY
       link: https://xducy.github.io
-      description: 计算机视觉算法工程师
+      description: Computer Vision Engineer
     - name: XiaofeiXu
       link: https://xiaofei-xu.github.io/
-      description: 研究员
+      description: Researcher
     - name: XiaofeiZhao
       link: https://jszy.whu.edu.cn/zhaoxiaofei/zh_CN/index/1220200/list/index.htm
-      description: 教授
+      description: Professor
