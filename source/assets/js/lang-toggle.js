@@ -315,10 +315,6 @@
     var list = document.querySelector(".hidden-tools-list");
     if (!list) return null;
 
-    document.querySelectorAll(".home-banner-left-controls #language-toggle").forEach(function (el) {
-      el.remove();
-    });
-
     var btn = document.getElementById("language-toggle");
     if (!btn || btn.parentElement !== list) {
       if (btn) btn.remove();
@@ -347,84 +343,6 @@
     if (mark) mark.textContent = lang === "en" ? "EN" : "中";
     var hiddenText = btn.querySelector(".sr-only");
     if (hiddenText) hiddenText.textContent = label;
-  }
-
-  var homeActionsResizeBound = false;
-  var homeActionsRaf = 0;
-
-  function scheduleHomeActionAlignment() {
-    if (homeActionsRaf) cancelAnimationFrame(homeActionsRaf);
-    homeActionsRaf = requestAnimationFrame(updateHomeActionAlignment);
-  }
-
-  function updateHomeActionAlignment() {
-    homeActionsRaf = 0;
-    if (!document.body) return;
-
-    var homeBanner = document.querySelector(".home-banner-container");
-    if (!homeBanner) {
-      document.body.style.removeProperty("--home-actions-left-inline");
-      document.body.style.removeProperty("--home-actions-right-inline");
-      return;
-    }
-
-    var article = document.querySelector(".home-article-item");
-    if (!article) return;
-
-    var articleRect = article.getBoundingClientRect();
-    var leftRect = articleRect;
-    var sidebar = document.querySelector(".home-sidebar-container");
-    if (sidebar) {
-      var sidebarRect = sidebar.getBoundingClientRect();
-      var sidebarStyle = window.getComputedStyle(sidebar);
-      if (sidebarStyle.display !== "none" && sidebarRect.width > 0 && sidebarRect.height > 0) {
-        leftRect = sidebarRect;
-      }
-    }
-
-    var viewportWidth = document.body.clientWidth || document.documentElement.clientWidth || window.innerWidth;
-    var leftInset = Math.max(0, leftRect.left);
-    var rightInset = Math.max(0, viewportWidth - articleRect.right);
-
-    document.body.style.setProperty("--home-actions-left-inline", leftInset.toFixed(2) + "px");
-    document.body.style.setProperty("--home-actions-right-inline", rightInset.toFixed(2) + "px");
-  }
-
-  function bindHomeActionAlignment() {
-    if (homeActionsResizeBound) return;
-    homeActionsResizeBound = true;
-    window.addEventListener("resize", scheduleHomeActionAlignment, { passive: true });
-    window.addEventListener("orientationchange", scheduleHomeActionAlignment, { passive: true });
-  }
-
-  function syncHomeBannerControls() {
-    var homeBanner = document.querySelector(".home-banner-container");
-    var moved = document.querySelector("body > .home-social-controls");
-    var inBanner = document.querySelector(".home-banner-container .social-contacts");
-    var leftControls = document.querySelector(".home-banner-left-controls");
-
-    if (!homeBanner) {
-      if (moved) moved.remove();
-      if (document.body) {
-        document.body.style.removeProperty("--home-actions-left-inline");
-        document.body.style.removeProperty("--home-actions-right-inline");
-      }
-      return;
-    }
-
-    if (!inBanner && !moved) return;
-    if (moved && moved !== inBanner) moved.remove();
-    var social = inBanner || moved;
-    social.classList.add("home-social-controls");
-    document.body.appendChild(social);
-    if (leftControls && leftControls.parentElement !== document.body) {
-      document.body.appendChild(leftControls);
-    }
-
-    bindHomeActionAlignment();
-    scheduleHomeActionAlignment();
-    setTimeout(scheduleHomeActionAlignment, 120);
-    setTimeout(scheduleHomeActionAlignment, 700);
   }
 
   function applyDataI18n(lang) {
@@ -478,7 +396,6 @@
   }
 
   function init() {
-    syncHomeBannerControls();
     bindButton();
     applyI18n();
   }

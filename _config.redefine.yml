@@ -8,7 +8,7 @@
 # BASIC INFORMATION
 info:
   title: "Hyacehila's Blog"
-  subtitle: AI Agent · Evaluation · Agentic RL · Data Science
+  subtitle: Essays of a Boring Person
   author: Hyacehila
   url: https://hyacehila.github.io
 
@@ -22,7 +22,7 @@ defaults:
 
 # COLORS
 colors:
-  primary: "#5b8cff"
+  primary: "#7FAEC2"
   secondary:
   default_mode: light # light, dark
 
@@ -61,7 +61,7 @@ global:
   open_graph:
     enable: true
     image:
-    description: AI Agent · Evaluation · Agentic RL · Data Science
+    description: Essays of a Boring Person
   google_analytics:
     enable: false
 
@@ -74,8 +74,7 @@ fontawesome:
   sharp_solid: false
 
 
-# HOME BANNER — fixed cover with landscape image + gaussian-blur text backing.
-# The blog feed scrolls over the fixed, blurred banner. Title = ID, no subtitle.
+# HOME BANNER
 home_banner:
   enable: true
   style: fixed # static or fixed
@@ -84,9 +83,18 @@ home_banner:
     dark: /images/wallhaven-wqery6-dark.webp
   title: "Hyacehila's Blog"
   subtitle:
-    text: [] # blank subtitle
+    text:
+      - Welcome to my blog.
+      - Stay awhile; there are small ideas being assembled here.
+      - What I cannot create, I do not understand. - Richard Feynman
     hitokoto:
       enable: false
+    typing_speed: 100
+    backing_speed: 80
+    starting_delay: 500
+    backing_delay: 1500
+    loop: true
+    smart_backspace: true
   text_color:
     light: "#fff"
     dark: "#d1d1b6"
@@ -113,8 +121,8 @@ home_banner:
 navbar:
   auto_hide: false
   color:
-    left: "#5b8cff"
-    right: "#9b5bff"
+    left: "#6F9CAF"
+    right: "#B8A7D9"
     transparency: 35
   width:
     home: 1200px
@@ -251,8 +259,7 @@ inject:
     - '<script src="/assets/js/i18n.js"></script>'
     - '<script src="/assets/js/lang-toggle.js"></script>'
     - '<script src="/assets/js/about.js"></script>'
-  footer:
-    - '<div class="home-banner-left-controls" aria-label="Home controls"><button class="home-scroll-control" type="button" onclick="scrollToMain()" aria-label="Scroll to posts" title="Scroll to posts"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button></div>'
+  footer: []
 
 
 # PLUGINS
