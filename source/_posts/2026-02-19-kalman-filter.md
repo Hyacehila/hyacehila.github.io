@@ -5,6 +5,7 @@ date: 2026-02-19 20:00:00 +0800
 categories: ["Data Science"]
 tags: [Time Series, Statistical Inference]
 author: Hyacehila
+archived: true
 excerpt: 状态估计是现代科技的基石。本文深入浅出地介绍了卡尔曼滤波(KF)、扩展卡尔曼滤波(EKF)、无迹卡尔曼滤波(UKF)以及集合卡尔曼滤波(EnKF)的原理与应用。
 excerpt_en: "State estimation is a foundation of modern technology. This post introduces Kalman filters, extended Kalman filters, unscented Kalman filters, and ensemble Kalman filters."
 mathjax: true

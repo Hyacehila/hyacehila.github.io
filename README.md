@@ -10,7 +10,7 @@
 | 路径 | 说明 |
 |------|------|
 | `/` | 固定封面 banner（山水图 + 高斯模糊，标题为 ID）+ Redefine 默认文章流（分类 / 标签 / 搜索 / 侧栏） |
-| `/archives/` | 时间线归档（全部文章的完整索引） |
+| `/archives/` | 时间线归档（不在 Home 的历史文章） |
 | `/me/` | 正式自我介绍：专注领域卡片 · 教育/经历 Timeline · 研究枚举 · 奖项 |
 | `/projects/` | 案例式项目介绍 |
 | **About（顶栏下拉）** | 下拉菜单，包含以下子页： |
@@ -78,13 +78,13 @@ tags: [Agents, Design]
 excerpt: "摘要"
 excerpt_en: "English excerpt"  # 切到 EN 时首页卡片显示的英文摘要
 mathjax: false      # 数学渲染由 KaTeX 全站处理，此字段保留但不再依赖
-archived: false     # true => 不在首页文章流显示，但仍进归档/分类/标签
+archived: false     # true => 不在 Home 显示，进入 Archives；Categories/Tags 保持全量可发现
 ---
 ```
 
 约定：
 - **不要在正文开头写 `# 标题`**；标题只写在 front-matter 的 `title:`，主题会渲染页面标题。
-- **归档/隐藏首页**：给文章加 `archived: true`，它就不再出现在 Home 文章流，但仍保留在 `/archives/`、分类、标签里，单篇链接也不变。
+- **归档/隐藏首页**：给文章加 `archived: true`，它就不再出现在 Home 文章流，而会进入 `/archives/`；分类、标签仍保持全量索引，单篇链接也不变。
 - **双语**：除博客正文（仅中文）外全站支持 EN/中 切换。列表/归档/分类/标签里的文章标题与首页摘要会用 `title_en`/`excerpt_en`；个人页用 `data-i18n`；导航/侧栏/页脚等主题文案也会翻译。选择持久化在 localStorage。
 - 数学公式：`$...$` 行内、`$$...$$` 块级，构建期由 `hexo-filter-katex` 渲染为静态 HTML。
 - 流程图：` ```mermaid ` 代码块。

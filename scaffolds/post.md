@@ -7,5 +7,5 @@ tags: []
 excerpt: ""
 excerpt_en: ""
 mathjax: false
-archived: false   # true => 不在首页文章流显示，但仍进归档/分类/标签
+archived: false   # true => 不在 Home 显示，进入 Archives；Categories/Tags 保持全量可发现
 ---
