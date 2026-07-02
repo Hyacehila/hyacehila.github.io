@@ -7,7 +7,7 @@ tags: [Statistical Inference, Methodology]
 author: Hyacehila
 excerpt: 无需繁冗的分布假设，如何估计统计量的误差？本文深入剖析 Jackknife、Bootstrap 与 Subsampling 三种重抽样方法，从数学原理到渐进性质，探讨计算力如何替代解析推导成为统计推断的新引擎。
 excerpt_en: "How can we estimate statistical uncertainty without heavy distributional assumptions? This post explains Jackknife, Bootstrap, and Subsampling from principles to asymptotic behavior."
-archived: true
+hidden: true
 permalink: '/blog/2026/02/16/bootstrap-jackknife-subsampling/'
 ---
 

@@ -8,7 +8,7 @@ author: Hyacehila
 excerpt: 当变量间的关系不再具有明确的方向性，而是呈现出对称的空间相关性时，我们需要无向图模型。本文详细阐述了马尔可夫随机场的数学定义、Hammersley-Clifford 定理、吉布斯分布以及其在图像与物理领域的应用。
 excerpt_en: "When relationships between variables are symmetric rather than directional, undirected graphical models are needed. This post explains Markov random fields, Gibbs distributions, and applications."
 mathjax: true
-archived: true
+hidden: true
 permalink: '/blog/2026/02/11/markov-random-field/'
 ---
 

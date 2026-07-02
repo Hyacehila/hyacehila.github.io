@@ -8,7 +8,7 @@ author: Hyacehila
 excerpt: 对空间数据分析的基本概念、空间总体特性、抽样和插值方法进行了系统的整理和详细介绍。
 excerpt_en: "A systematic overview of spatial data analysis, including core concepts, population properties, sampling, and interpolation methods."
 mathjax: true
-archived: true
+hidden: true
 permalink: '/blog/2026/03/02/spatial-data-analysis/'
 ---
 

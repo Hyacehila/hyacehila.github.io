@@ -10,7 +10,7 @@
 | 路径 | 说明 |
 |------|------|
 | `/` | 固定封面 banner（山水图 + 高斯模糊，标题为 ID）+ Redefine 默认文章流（分类 / 标签 / 搜索 / 侧栏） |
-| `/archives/` | 时间线归档（不在 Home 的历史文章） |
+| `/archives/` | 时间线归档（全部已发布文章的完整索引） |
 | `/me/` | 正式自我介绍：教育/经历 Timeline · 研究枚举 · 奖项 |
 | `/projects/` | 案例式项目介绍 |
 | **About（顶栏下拉）** | 下拉菜单，包含以下子页： |
@@ -77,13 +77,13 @@ tags: [Agents, Design]
 excerpt: "摘要"
 excerpt_en: "English excerpt"  # 切到 EN 时首页卡片显示的英文摘要
 mathjax: false      # 数学渲染由 KaTeX 全站处理，此字段保留但不再依赖
-archived: false     # true => 不在 Home 显示，进入 Archives；Categories/Tags 保持全量可发现
+hidden: false       # true => 不在 Home 显示；Archives/Categories/Tags 保持全量可发现
 ---
 ```
 
 约定：
 - **不要在正文开头写 `# 标题`**；标题只写在 front-matter 的 `title:`，主题会渲染页面标题。
-- **归档/隐藏首页**：给文章加 `archived: true`，它就不再出现在 Home 文章流，而会进入 `/archives/`；分类、标签仍保持全量索引，单篇链接也不变。
+- **隐藏首页**：给文章加 `hidden: true`，它就不再出现在 Home 文章流；`/archives/`、分类、标签仍保持全量索引，单篇链接也不变。
 - **语言策略**：英文是系统 UI 默认语言；博客正文、碎碎念等可以作为中文内容岛保留。列表/归档/分类/标签里的文章标题与首页摘要会用 `title_en`/`excerpt_en`；个人页用 `data-i18n`；导航、侧栏、页脚、工具入口等 UI 文案跟随语言切换。语言入口位于右侧小齿轮工具栏，选择持久化在 localStorage。
 - **i18n 校验**：提交前运行 `npm run check:i18n`，检查 `data-i18n` key、文章英文标题/摘要、英文默认 UI 中文残留和 CJK permalink 映射。
 - 数学公式：`$...$` 行内、`$$...$$` 块级，构建期由 `hexo-filter-katex` 渲染为静态 HTML。
