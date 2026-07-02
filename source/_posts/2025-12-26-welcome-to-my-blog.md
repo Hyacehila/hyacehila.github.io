@@ -2,8 +2,8 @@
 title: 第一篇博客（An Example）
 title_en: "First Blog Post (An Example)"
 date: 2025-12-26 19:00:00 +0800
-categories: ["Essays"]
-tags: [Methodology, Society]
+categories: ["Work & Society", "Career & Learning"]
+tags: ["Blogging", "Writing System", "Site Notes"]
 author: Hyacehila
 excerpt: 这是博客的第一篇文章，也是后续写作规范的一个示例与说明。
 excerpt_en: "The first post on this blog, and a small example of the writing conventions used later."

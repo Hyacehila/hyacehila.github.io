@@ -2,8 +2,8 @@
 title: "电子游戏类型分类：从树状分类到玩法标签"
 title_en: "Video Game Genre Classification: From Genre Trees to Gameplay Tags"
 date: 2026-06-26 16:10:00 +0800
-categories: ["Essays"]
-tags: [Game Design, Classification, Game Genres]
+categories: ["Creative Media & Games", "Game Design"]
+tags: ["Game Design", "Game Genres", "Classification Systems", "Gameplay Tags", "Player Skills", "Learning Notes"]
 author: Hyacehila
 excerpt: "一篇关于电子游戏类型分类的学习笔记：游戏类型不是一棵严丝合缝的树，而是一套帮助我们描述玩法、玩家技能、平台和体验预期的语言。"
 excerpt_en: "A study note on video game genre classification, covering genre trees, gameplay tags, player skills, platform constraints, and hybrid genres."

@@ -2,8 +2,8 @@
 title: "从 Engineer 到 Builder：AI 时代的一人公司与产品思维"
 title_en: "From Engineer to Builder: One-Person Companies and Product Thinking in the AI Era"
 date: 2026-05-11 14:00:00 +0800
-categories: ["Essays"]
-tags: [Society, Product, Software Engineering]
+categories: ["Work & Society", "Builder & Product Thinking"]
+tags: ["Builder Mindset", "Product Thinking", "One-Person Company", "Software Engineering", "AI Product"]
 author: Hyacehila
 excerpt: "生成式 AI 放大的不只是生产力，还有个人的行动边界与可尝试范围。代码越来越便宜之后，工程师需要补上的，是产品思维、分发能力和面向真实痛点的验证闭环。"
 excerpt_en: "Generative AI expands not only productivity, but also the boundary of individual action and experimentation. As code gets cheaper, engineers need product thinking, distribution, and validation."

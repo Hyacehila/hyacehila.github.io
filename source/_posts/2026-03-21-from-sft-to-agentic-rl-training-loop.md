@@ -2,8 +2,8 @@
 title: Agentic RL：为什么训练闭环比训练算法更重要
 title_en: "Agentic RL: Why the Training Loop Matters More Than the Algorithm"
 date: 2026-03-21 22:00:00 +0800
-categories: ["Foundation Models"]
-tags: [Reinforcement Learning, Agents, Data Curation]
+categories: ["AI & Agents", "Training & Alignment"]
+tags: ["Agentic RL", "Training Loop", "Data Curation", "Environment Design", "Online RL", "Distillation"]
 author: Hyacehila
 excerpt: 当 LLM 从回答问题变成在环境中持续行动，真正决定系统上限的往往不是某个 loss 的名字，而是从数据治理、环境合同、反馈栈到 online RL 再到蒸馏回流的这条训练闭环有没有被接对。
 excerpt_en: "When LLMs move from answering questions to acting in environments, the upper bound is often set by the training loop across data governance, environment contracts, feedback, RL, and distillation."

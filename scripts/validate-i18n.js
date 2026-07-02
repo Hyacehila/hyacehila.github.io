@@ -7,6 +7,39 @@ const vm = require('vm');
 
 const root = path.resolve(__dirname, '..');
 const errors = [];
+const allowedCategoryPairs = new Set([
+  'AI & Agents > Foundation Model Mechanics',
+  'AI & Agents > Training & Alignment',
+  'AI & Agents > Agent Architecture',
+  'AI & Agents > Agent Evaluation & Governance',
+  'AI & Agents > Agent Infrastructure',
+  'Data Science & Statistics > Statistical Thinking',
+  'Data Science & Statistics > Statistical Modeling & Inference',
+  'Data Science & Statistics > Probabilistic Graphical Models',
+  'Data Science & Statistics > Time Series & Spatial Data',
+  'Data Science & Statistics > Data Practice',
+  'Machine Learning > Classical ML & AutoML',
+  'Machine Learning > Representation & Explainability',
+  'Machine Learning > Forecasting, Simulation & Imbalance',
+  'Work & Society > AI Engineering Workflows',
+  'Work & Society > Builder & Product Thinking',
+  'Work & Society > Career & Learning',
+  'Work & Society > AI & Society',
+  'Creative Media & Games > Game AI & Production',
+  'Creative Media & Games > Game Design',
+  'Creative Media & Games > Generative Media Tools',
+  'Fiction & Literature > Speculative Fiction',
+  'Fiction & Literature > Sci-Fi & Literature Notes'
+]);
+const categoryNames = new Set(
+  Array.from(allowedCategoryPairs).flatMap(pair => pair.split(' > '))
+);
+const retiredTags = new Set(['Agents', 'Methodology', 'Society', 'Fiction']);
+const tagAliases = new Map([
+  ['VLM', 'Vision-Language Models'],
+  ['Long-Term Memory', 'Agent Memory'],
+  ['Backend', 'Backend Engineering']
+]);
 
 function rel(file) {
   return path.relative(root, file).replace(/\\/g, '/');
@@ -35,6 +68,31 @@ function fmValue(fm, key) {
   const m = fm.match(re);
   if (!m) return '';
   return m[1].replace(/^['"]|['"]$/g, '').trim();
+}
+
+function stripQuotes(s) {
+  return s.replace(/^['"]|['"]$/g, '').trim();
+}
+
+function fmArray(fm, key) {
+  const re = new RegExp('^' + key + ':\\s*(.*?)\\s*$', 'm');
+  const m = fm.match(re);
+  if (!m) return [];
+  const raw = m[1].trim();
+  if (!raw || raw === '[]') return [];
+  if (raw.startsWith('[') && raw.endsWith(']')) {
+    try {
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed.map(String) : [];
+    } catch {
+      return raw
+        .slice(1, -1)
+        .split(',')
+        .map(stripQuotes)
+        .filter(Boolean);
+    }
+  }
+  return [stripQuotes(raw)];
 }
 
 function hasCjk(s) {
@@ -84,7 +142,40 @@ function validatePosts() {
     const fm = frontMatter(fs.readFileSync(path.join(postsDir, name), 'utf8'));
     if (!fmValue(fm, 'title_en')) errors.push(`${name} is missing title_en`);
     if (!fmValue(fm, 'excerpt_en')) errors.push(`${name} is missing excerpt_en`);
+
+    const categories = fmArray(fm, 'categories');
+    if (categories.length !== 2) {
+      errors.push(`${name} must use exactly two category levels`);
+    } else if (!allowedCategoryPairs.has(categories.join(' > '))) {
+      errors.push(`${name} has unknown category path: ${categories.join(' > ')}`);
+    }
+
+    const tags = fmArray(fm, 'tags');
+    if (!tags.length) errors.push(`${name} must have at least one tag`);
+    const seenTags = new Set();
+    tags.forEach(tag => {
+      if (seenTags.has(tag)) errors.push(`${name} has duplicate tag "${tag}"`);
+      seenTags.add(tag);
+      if (retiredTags.has(tag)) errors.push(`${name} uses retired broad tag "${tag}"`);
+      if (tagAliases.has(tag)) {
+        errors.push(`${name} uses alias tag "${tag}"; use "${tagAliases.get(tag)}"`);
+      }
+    });
   });
+}
+
+function validateTaxonomyConfig() {
+  const config = read('_config.yml');
+  categoryNames.forEach(name => {
+    if (!config.includes(`"${name}":`)) {
+      errors.push(`_config.yml category_map is missing "${name}"`);
+    }
+  });
+
+  const redefine = read('_config.redefine.yml');
+  if (!/\n  tags:\r?\n    enable:\s*true\r?\n    limit:\s*0\b/.test(redefine)) {
+    errors.push('_config.redefine.yml home.tags.limit must be 0 so tags are not truncated');
+  }
 }
 
 function validateUiCjk() {
@@ -124,6 +215,7 @@ function validatePostI18nGenerator() {
 
 validateDictionary();
 validatePosts();
+validateTaxonomyConfig();
 validateUiCjk();
 validatePostI18nGenerator();
 

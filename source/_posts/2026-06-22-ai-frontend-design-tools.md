@@ -2,8 +2,8 @@
 title: "AI 前端工具盘点：怎么选工具避免一眼 AI 味"
 title_en: "AI Frontend Tools: Choosing the Right Stack to Avoid Generic AI UI"
 date: 2026-06-22 15:00:00 +0800
-categories: ["Agent Infrastructure"]
-tags: [Agents, UI Design, Frontend]
+categories: ["Work & Society", "AI Engineering Workflows"]
+tags: ["Frontend", "UI Design", "Design Tools", "Component Systems", "AI Coding", "Product Design"]
 author: Hyacehila
 excerpt: "这篇文章写给技术出身的 Vibe Coder：会接住 AI 生成的代码，也愿意继续改，但不想先补一整套 UI/UX 课程。重点看几类真正能改善 AI 前端质量的工具：UI 生成器、视觉原型工作台、组件库、Skill/MCP 和反馈闭环。"
 excerpt_en: "A practical survey for technical vibe coders choosing AI frontend tools: UI generators, visual workbenches, component systems, skills, MCPs, and feedback loops that reduce generic AI-looking UI."

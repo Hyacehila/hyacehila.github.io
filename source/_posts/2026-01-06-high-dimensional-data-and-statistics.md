@@ -2,8 +2,8 @@
 title: 高维数据与高维统计：挑战、理论与方法
 title_en: "High-Dimensional Data and Statistics: Challenges, Theory, and Methods"
 date: 2026-01-06 12:00:00 +0800
-categories: ["Data Science"]
-tags: [Statistical Inference, Methodology]
+categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
+tags: ["High-Dimensional Statistics", "Sparsity", "Regularization", "Dimensionality Reduction", "Statistical Inference"]
 author: Hyacehila
 excerpt: 在大数据时代，数据的维度常常远超样本量，这种“高维小样本”情形会让传统统计方法失稳。本文讨论高维数据带来的计算、感知与统计三类问题，并介绍降维、正则化与稀疏性假设等处理思路。
 excerpt_en: "In the big data era, feature dimensions often exceed sample sizes, making traditional statistical methods unstable. This post discusses computational, perceptual, and statistical challenges in high-dimensional data."

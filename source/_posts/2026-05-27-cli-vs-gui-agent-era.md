@@ -2,8 +2,8 @@
 title: 我们又回到了 CLI：Agent 时代 CLI 与 GUI
 title_en: "Back to the CLI: Choosing Between CLI and GUI in the Agent Era"
 date: 2026-05-27 22:00:00 +0800
-categories: ["Agent Systems"]
-tags: [Software Engineering, Agents, Tool Use]
+categories: ["Work & Society", "AI Engineering Workflows"]
+tags: ["CLI", "GUI", "Coding Agents", "Developer Tools", "Tool Use", "Workflows"]
 author: Hyacehila
 excerpt: Agentic Coding 让很多开发者重新打开终端。CLI 现在确实顺手：轻、能脚本化，也方便 Agent 直接接管工具。但这不代表 GUI 已经过时。本文从 worktree、Ghostty、Zellij、Neovim 这套终端组合讲起，再看桌面端、浏览器插件和 Computer Use 为什么会重新变重要。我的结论是：CLI 更适合留在工具复用层，人这边的编排和 review 还是会回到 GUI。
 excerpt_en: "Agentic coding has pushed many developers back to the terminal. The CLI is convenient today because it is light, scriptable, and easy for agents to drive. That does not mean the GUI is dead. This post starts from a terminal-centered workflow and argues that CLI belongs in the tool-composition layer, while review and orchestration will move back to GUI."

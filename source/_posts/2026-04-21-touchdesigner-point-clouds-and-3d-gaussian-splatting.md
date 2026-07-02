@@ -2,8 +2,8 @@
 title: "TouchDesigner 点云与 3D Gaussian Splatting"
 title_en: "TouchDesigner Point Clouds and 3D Gaussian Splatting"
 date: 2026-04-21 09:00:00 +0800
-categories: ["Essays"]
-tags: [Multimodality, Methodology]
+categories: ["Creative Media & Games", "Generative Media Tools"]
+tags: ["TouchDesigner", "Point Clouds", "3D Gaussian Splatting", "Generative Media", "Real-Time Graphics"]
 author: Hyacehila
 excerpt: TouchDesigner 处理点云的魅力，在于它能把扫描到的现实、生成式动画和实时系统揉成同一种视觉语言。
 excerpt_en: "The appeal of point clouds in TouchDesigner is that they can turn scanned reality, generative animation, and realtime systems into one visual language."

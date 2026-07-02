@@ -1,6 +1,6 @@
 ---
 title: {{ title }}
 date: {{ date }}
-categories: []  # Use English names, e.g. ["Foundation Models"]
+categories: []  # Use two English levels, e.g. ["AI & Agents", "Training & Alignment"]
 tags: []
 ---

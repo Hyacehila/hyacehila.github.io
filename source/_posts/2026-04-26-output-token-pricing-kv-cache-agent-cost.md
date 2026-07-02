@@ -2,8 +2,8 @@
 title: "为什么 Output Token 更贵：从 KV Cache 到 Agent 成本工程"
 title_en: "Why Output Tokens Are More Expensive: From KV Cache to Agent Cost Engineering"
 date: 2026-04-26 15:00:00 +0800
-categories: ["Agent Infrastructure"]
-tags: [Agents, Backend, Model Mechanics]
+categories: ["AI & Agents", "Agent Infrastructure"]
+tags: ["Cost Engineering", "KV Cache", "Decoding", "Backend Engineering", "Inference Serving", "Agent Economics"]
 author: Hyacehila
 excerpt: "Output token 贵，主要因为 decode 串行、KV Cache 占显存和调度槽位；Agent 成本优化要控制输出预算和稳定前缀。"
 excerpt_en: "Output tokens are expensive mainly because decoding is serial, KV cache consumes memory, and generation occupies scheduler slots. Agent cost optimization requires controlling output budgets."

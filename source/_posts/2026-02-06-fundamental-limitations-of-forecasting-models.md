@@ -2,8 +2,8 @@
 title: 基础预测模型的基本限制：多模态与严谨评估的必要性
 title_en: "Fundamental Limits of Foundation Forecasting Models: Multimodality and Rigorous Evaluation"
 date: 2026-02-06 12:00:00 +0800
-categories: ["Machine Learning"]
-tags: [Time Series, Methodology]
+categories: ["Machine Learning", "Forecasting, Simulation & Imbalance"]
+tags: ["Forecasting", "Time Series", "Evaluation", "Multimodality", "Model Limitations"]
 author: Hyacehila
 excerpt: 深度学习在时间序列预测中真的总是有效吗？本文基于 Christoph Bergmeir 在 NeurIPS 2024 的演讲，讨论基础预测模型的局限性、评估中的陷阱，以及为什么时间序列预测需要引入多模态上下文。
 excerpt_en: "Are deep learning methods always effective for time-series forecasting? Based on Christoph Bergmeir's NeurIPS 2024 talk, this post discusses model limits and evaluation traps."

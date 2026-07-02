@@ -2,8 +2,8 @@
 title: "从反馈回路看 Agent 如何把生成变成搜索"
 title_en: "Feedback Loops for Agentic Search"
 date: 2026-06-06 20:00:00 +0800
-categories: ["Agent Systems"]
-tags: [Agents, Evaluation, Methodology]
+categories: ["AI & Agents", "Agent Evaluation & Governance"]
+tags: ["Feedback Loops", "Evaluation", "Scientific Discovery", "Search", "Verification", "Agent Evaluation"]
 author: Hyacehila
 excerpt: "宇宙弦积分和 Trae Agent 分别来自科学发现和编码任务，却都指向同一件事：LLM 生成候选以后，系统要能搜索、验证、剪枝和选择。"
 excerpt_en: "The cosmic string case and Trae Agent come from different domains, but both ask the same design question: after an LLM generates candidates, how does the system search, verify, prune, and choose?"

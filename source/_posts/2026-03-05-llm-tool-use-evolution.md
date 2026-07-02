@@ -2,8 +2,8 @@
 title: LLM 工具使用的技术演进：从 Toolformer 到 ToolLLM
 title_en: "The Evolution of LLM Tool Use: From Toolformer to ToolLLM"
 date: 2026-03-05 13:20:00 +0800
-categories: ["Agent Infrastructure"]
-tags: [Agents, Tool Use]
+categories: ["AI & Agents", "Agent Infrastructure"]
+tags: ["Tool Use", "Toolformer", "ToolLLM", "Retrieval", "Runtime", "Survey"]
 author: Hyacehila
 excerpt: 梳理 LLM Tool Use 领域的研究脉络：Toolformer 的自监督学习、Gorilla 的微调+检索、Tulip Agent 的递归分解、ToolLLM 的大规模框架，以及这条路线如何转向协议、运行时和工程实践。
 excerpt_en: "A survey of LLM tool-use research, from Toolformer's self-supervision and Gorilla's fine-tuning plus retrieval to Tulip Agent and ToolLLM."

@@ -2,8 +2,8 @@
 title: "Harness 到底是什么：从 model + harness 到工程、产品与用户友好外壳"
 title_en: "What Is Harness? From Model Plus Harness to Engineering, Product, and User-Friendly Shells"
 date: 2026-04-04 23:20:00 +0800
-categories: ["Agent Systems"]
-tags: [Agents, Harness, Evaluation]
+categories: ["AI & Agents", "Agent Architecture"]
+tags: ["Agent Harness", "Task Interface", "Product Design", "Evaluation", "Reliability Engineering"]
 author: Hyacehila
 excerpt: LangChain 关于 agent = model + harness 的说法只在粗粒度上成立；真实工程里更有解释力的是工程、产品、用户友好外壳与 task interface。
 excerpt_en: "LangChain's agent equals model plus harness framing is useful only at a coarse level. In real engineering, harness is better understood through engineering, product, and task interfaces."

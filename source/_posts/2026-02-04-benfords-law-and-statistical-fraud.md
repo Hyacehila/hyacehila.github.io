@@ -2,8 +2,8 @@
 title: 数字不会撒谎，但撒谎的人会编数字：从本福特定律聊聊统计造假识别
 title_en: "Benford's Law and Statistical Fraud Detection"
 date: 2026-02-04 23:00:00 +0800
-categories: ["Data Science"]
-tags: [Statistical Inference, Methodology]
+categories: ["Data Science & Statistics", "Statistical Thinking"]
+tags: ["Benford's Law", "Fraud Detection", "Statistical Thinking", "Data Quality"]
 author: Hyacehila
 excerpt: 当数据看起来太过“完美”时，往往意味着它可能偏离了真实。本文将从本福特定律开始，揭示那些隐藏在造假数据背后的统计学指纹。
 excerpt_en: "When data looks too perfect, it may have drifted away from reality. Starting from Benford's Law, this post reveals statistical fingerprints hidden in fabricated data."

@@ -2,8 +2,8 @@
 title: 为什么更好的 Simulator 往往是 Learning + Rules：从 PDE、光线追踪到 DLSS
 title_en: "Why Better Simulators Often Combine Learning and Rules: From PDEs and Ray Tracing to DLSS"
 date: 2026-03-15 21:00:00 +0800
-categories: ["Machine Learning"]
-tags: [Model Mechanics, Methodology]
+categories: ["Machine Learning", "Forecasting, Simulation & Imbalance"]
+tags: ["Simulation", "Inductive Bias", "Physics-Informed Learning", "Rendering", "DLSS", "Learning Systems"]
 author: Hyacehila
 excerpt: 更好的 simulator 往往来自明确分工：把守恒、几何、因果、边界条件与渲染/求解结构当作归纳偏置，再让 learning 去补昂贵、模糊或难解析的部分。
 excerpt_en: "Better simulators often come from a clear division of labor: encode conservation, geometry, causality, boundaries, and rendering structure, then let learning cover expensive or fuzzy parts."

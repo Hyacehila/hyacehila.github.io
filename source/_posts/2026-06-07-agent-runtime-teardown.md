@@ -2,8 +2,8 @@
 title: "Agent Memory 与 Runtime 技术盘点：外挂记忆、运行时研究与框架内建能力"
 title_en: "Agent Memory and Runtime Atlas: External Memory, Runtime Systems, and Framework Memory"
 date: 2026-06-07 17:00:00 +0800
-categories: ["Agent Systems"]
-tags: [Agent Memory, Agent Runtime, Context Engineering]
+categories: ["AI & Agents", "Agent Architecture"]
+tags: ["Agent Memory", "Agent Runtime", "Context Engineering", "Frameworks", "Survey"]
 author: Hyacehila
 excerpt: "本文暂时只保留结构占位。后续会按外挂 Memory、Agent Runtime、框架内建记忆能力三类，逐个拆解真实系统的工作机理。"
 excerpt_en: "A placeholder structure for future technical teardowns of external memory systems, agent runtimes, and framework-provided memory capabilities."

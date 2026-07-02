@@ -2,8 +2,8 @@
 title: Model Is Good Enough：2026 年，AI 真正稀缺的是应用而不是更大的模型
 title_en: "Model Is Good Enough: In 2026, Applications Are Scarcer Than Bigger Models"
 date: 2026-03-18 20:00:00 +0800
-categories: ["Essays"]
-tags: [Society, Agents]
+categories: ["Work & Society", "Builder & Product Thinking"]
+tags: ["AI Applications", "Product Market Fit", "Feedback Loops", "Product Thinking", "AI Product"]
 author: Hyacehila
 excerpt: Model 已经跨过够用阈值。2026 年更稀缺的，不是下一个更大的基模，而是那些能进入工作流与生活、并反过来生产数据与反馈的应用。
 excerpt_en: "Models have crossed the good-enough threshold. In 2026, the scarce resource is not the next bigger foundation model, but applications that enter workflows and daily life."

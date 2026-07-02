@@ -2,8 +2,8 @@
 title: 从 MCP 到 Agent Skills：为什么 Agent 又需要一种新的上下文工程协议？
 title_en: "From MCP to Agent Skills: Why Agents Need a New Context Engineering Protocol"
 date: 2026-03-10 20:00:00 +0800
-categories: ["Agent Infrastructure"]
-tags: [MCP, Agents, Context Engineering]
+categories: ["AI & Agents", "Agent Infrastructure"]
+tags: ["MCP", "Agent Skills", "Context Engineering", "Protocols", "Capability Packaging"]
 author: Hyacehila
 excerpt: Agent Skills 的流行主要来自低摩擦的能力封装。它是上下文工程中有价值的一层，但不是新的统一协议，也不是 Agent 的终局。
 excerpt_en: "Agent Skills are popular because they package capabilities with low friction. They are a useful layer of context engineering, but not a new universal protocol or final agent form."

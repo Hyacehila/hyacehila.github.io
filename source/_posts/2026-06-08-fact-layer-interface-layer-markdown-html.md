@@ -2,8 +2,8 @@
 title: "事实层与界面层：Markdown 与 HTML 不是替代关系"
 title_en: "The Fact Layer and the Interface Layer: Markdown and HTML Aren't Rivals"
 date: 2026-06-08 20:00:00 +0800
-categories: ["Agent Systems"]
-tags: [Software Engineering, Methodology, Tool Use]
+categories: ["Work & Society", "AI Engineering Workflows"]
+tags: ["Markdown", "HTML", "Documentation", "Interface Design", "Knowledge Management", "Software Engineering"]
 author: Hyacehila
 excerpt: "HTML 很诱人。它能把 AI 生成的长文档变成一个能读、能点、能分享的界面。但我不想让 HTML 慢慢堆成事实源。对我来说，Markdown 负责留下可 diff、可 grep、可追溯的记录；HTML 负责把复杂系统变得更容易读懂。"
 excerpt_en: "HTML is tempting. It can turn long AI-generated documents into something readable, clickable, and shareable. But I do not want HTML to quietly become the source of truth. Markdown should keep the diffable, searchable, auditable record; HTML should make complex systems easier to read."

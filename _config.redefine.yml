@@ -180,7 +180,7 @@ home:
     limit: 3
   tags:
     enable: true
-    limit: 3
+    limit: 0
 
 
 # ARTICLE
