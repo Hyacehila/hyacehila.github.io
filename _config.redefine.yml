@@ -15,9 +15,9 @@ info:
 
 # IMAGE CONFIGURATION
 defaults:
-  favicon: /assets/images/logo.png
-  logo:
-  avatar: /assets/images/logo.png
+  favicon: /assets/images/hyacehila-logo.png
+  logo: /assets/images/hyacehila-logo.png
+  avatar: /assets/images/hyacehila-avatar.webp
 
 
 # COLORS
@@ -60,7 +60,7 @@ global:
     auto_expand: false
   open_graph:
     enable: true
-    image:
+    image: /assets/images/hyacehila-og.jpg
     description: Essays of a Boring Person
   google_analytics:
     enable: false
@@ -79,8 +79,8 @@ home_banner:
   enable: true
   style: fixed # static or fixed
   image:
-    light: /images/wallhaven-wqery6-light.webp
-    dark: /images/wallhaven-wqery6-dark.webp
+    light: /images/hyacehila-home-light.webp
+    dark: /images/hyacehila-home-dark.webp
   title: "Hyacehila's Blog"
   subtitle:
     text:
