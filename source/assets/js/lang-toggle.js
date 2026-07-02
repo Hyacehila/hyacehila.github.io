@@ -46,6 +46,7 @@
   function normPath(href) {
     if (!href) return "";
     href = href.replace(/^https?:\/\/[^/]+/, "").split(/[?#]/)[0];
+    if (!href) return "";
     if (href.charAt(0) !== "/") href = "/" + href;
     if (href.charAt(href.length - 1) !== "/") href += "/";
     return href;
@@ -117,7 +118,7 @@
     "/murmur/": { zh: "碎碎念", en: "Murmur" },
     "/footprints/": { zh: "Footprints", en: "Footprints" },
     "/friends/": { zh: "Friends", en: "Friends" },
-    "/cv/": { zh: "CV", en: "CV" },
+    "/cv/": { zh: "Resume", en: "Resume" },
     "/categories/": { zh: "分类", en: "Categories" },
     "/tags/": { zh: "标签", en: "Tags" }
   };
