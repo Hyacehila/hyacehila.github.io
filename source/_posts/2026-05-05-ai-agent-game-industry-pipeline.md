@@ -3,7 +3,7 @@ title: "游戏行业如何引入 AI Agent"
 title_en: "How the Game Industry Can Introduce AI Agents"
 date: 2026-05-05 20:00:00 +0800
 categories: ["Creative Media & Games", "Game AI & Production"]
-tags: ["Game Production", "Agent Workflow", "Content Pipeline", "Product Thinking", "AI Tools"]
+tags: ["Product Thinking"]
 author: Hyacehila
 excerpt: "AI Agent 的价值，不是替团队自动做游戏，而是把模型、工具、内容生成和反馈流程接进能检查、能回滚、能审计的生产链路。"
 excerpt_en: "AI agents matter less as a way to make games automatically and more as a way to connect models, tools, content generation, and feedback loops to production workflows that can be checked, rolled back, and audited."

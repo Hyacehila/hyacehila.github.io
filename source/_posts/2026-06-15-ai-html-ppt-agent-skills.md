@@ -3,7 +3,7 @@ title: AI 自动生成 HTML PPT Skills
 title_en: "AI-Generated HTML PPT Skills"
 date: 2026-06-15 12:00:00 +0800
 categories: ["Work & Society", "AI Engineering Workflows"]
-tags: ["HTML", "Presentation Tools", "Agent Skills", "Design Systems", "Workflow", "Content Generation"]
+tags: ["HTML", "Agent Skills", "Workflow"]
 author: Hyacehila
 excerpt: "AI 生成 HTML PPT 的问题，已经从多写几段 CSS，转向把设计规则、叙事顺序和领域判断交给 Skill。通用 Skill 管视觉和演示体验，专用 Skill 管教学、汇报这类场景里的内容组织。"
 excerpt_en: "AI-generated HTML PPTs become interesting when Skills encode design rules, narrative sequencing, and domain judgment. General Skills handle visual quality and stage behavior; specialized Skills encode how different domains organize a talk."

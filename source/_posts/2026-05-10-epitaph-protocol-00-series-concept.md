@@ -3,7 +3,7 @@ title: "墓志协议 00｜何为墓志协议"
 title_en: "Epitaph Protocol 00: What Is the Epitaph Protocol?"
 date: 2026-05-10 00:00:00 +0800
 categories: ["Fiction & Literature", "Speculative Fiction"]
-tags: ["Sci-Fi", "Speculative Fiction", "Worldbuilding", "Series", "Epitaph Protocol"]
+tags: ["Sci-Fi", "Speculative Fiction", "Series", "Epitaph Protocol"]
 author: Hyacehila
 excerpt: "《墓志协议》的系列导览：墓志、绝笔、陵墓和纪念公式如何成为历史分支的封存、校验与延迟机制。"
 excerpt_en: "A series guide to The Epitaph Protocol: how epitaphs, final letters, tombs, and memorial formulas become mechanisms for sealing, verifying, and delaying historical branches."

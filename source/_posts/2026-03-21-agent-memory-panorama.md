@@ -4,7 +4,7 @@ title_en: "From Memory Formation to Governance: A Panorama of Agent Memory"
 date: 2026-03-21 20:00:00 +0800
 author: Hyacehila
 categories: ["AI & Agents", "Agent Architecture"]
-tags: ["Agent Memory", "Memory Governance", "Memory Evaluation", "Context Engineering", "Survey"]
+tags: ["Agent Memory", "Context Engineering", "Survey"]
 excerpt: "Memory 不是外挂数据库，而是长期认知状态的形成、激活、更新与治理问题。本文梳理 Agent Memory 的全景：五种记忆类型、激活与写入两端、研究演化脉络，以及为什么评测仍跟不上方法演进——难点在写入正确性、时间有效性、冲突消解、遗忘和系统级评测。"
 excerpt_en: "Memory is not an external database but the lifecycle management of long-term cognitive state—its formation, activation, update, and governance. This piece maps the panorama of agent memory: five memory types, the activation/write ends, how the field evolved, and why evaluation still lags behind methods, with hard problems in write correctness, temporal validity, conflict resolution, forgetting, and system-level evaluation."
 permalink: '/blog/2026/03/21/agent-memory-panorama/'

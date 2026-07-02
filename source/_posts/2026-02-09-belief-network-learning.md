@@ -3,7 +3,7 @@ title: 贝叶斯网络：从概率图到因果推断
 title_en: "Bayesian Networks: From Probabilistic Graphs to Causal Inference"
 date: 2026-02-09 12:00:00 +0800
 categories: ["Data Science & Statistics", "Probabilistic Graphical Models"]
-tags: ["Bayesian Networks", "Causal Inference", "Graphical Models", "Statistical Inference"]
+tags: ["Graphical Models", "Statistical Inference"]
 author: Hyacehila
 excerpt: 贝叶斯网络作为一种概率图模型，通过有向无环图将概率与因果关系结合，成为实现因果推断的重要工具。本文深入探讨了其结构表示、条件独立性原理以及参数与结构的学习算法。
 excerpt_en: "Bayesian networks combine probability and causality through directed acyclic graphs. This post covers representation, conditional independence, and parameter and structure learning algorithms."

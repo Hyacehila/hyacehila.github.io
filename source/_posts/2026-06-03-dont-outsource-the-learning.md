@@ -3,7 +3,7 @@ title: "Don't Outsource the Learning（Addy Osmani）"
 title_en: "Don't Outsource the Learning"
 date: 2026-06-03 10:00:00 +0800
 categories: ["Work & Society", "Career & Learning"]
-tags: ["Learning", "AI Coding", "Deliberate Practice", "Developer Skills", "Translation/Repost"]
+tags: ["Learning", "AI Coding", "Translation/Repost"]
 author: Hyacehila
 excerpt: 转载 Addy Osmani 的一篇文章：默认的 Agentic Coding Loop 优化的是“完成编码任务”，而非“增加开发者能力”。将任务完全委托给 AI 总会有失效的一天，而解药藏在你怎么提问里。
 excerpt_en: "A Chinese translation and commentary of Addy Osmani's essay: the default AI coding loop is optimized for closing tasks, not for keeping you sharp."

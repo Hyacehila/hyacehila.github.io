@@ -3,7 +3,7 @@ title: Claude Code or Codex：编码模型差异如何变成产品体验的不�
 title_en: "Claude Code or Codex: How Coding Model Differences Become Product Experience"
 date: 2026-04-10 20:00:00 +0800
 categories: ["Work & Society", "AI Engineering Workflows"]
-tags: ["Coding Agents", "Claude Code", "Codex", "Model Selection", "Product Experience", "Developer Tools"]
+tags: ["Coding Agents", "Claude Code", "Developer Tools"]
 author: Hyacehila
 excerpt: 一篇面向开发者的研究综述：从 Claude 系列与 GPT 系列在编码场景中的能力差异出发，理解这些差异如何投射到 Claude Code 与 Codex 的 agent runtime、任务执行边界、上下文组织和工作流体验中。
 excerpt_en: "A developer-facing review of Claude and GPT coding differences, and how those differences show up in agent runtimes, task boundaries, context organization, and workflow experience."

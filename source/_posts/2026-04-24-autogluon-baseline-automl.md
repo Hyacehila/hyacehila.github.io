@@ -3,7 +3,7 @@ title: AutoGluon：把机器学习 Baseline 简化到几行代码
 title_en: "AutoGluon: Simplifying Machine Learning Baselines to a Few Lines of Code"
 date: 2026-04-24 21:45:00 +0800
 categories: ["Machine Learning", "Classical ML & AutoML"]
-tags: ["AutoML", "Baselines", "Tabular Data", "Workflow", "Software Engineering"]
+tags: ["Baselines", "Tabular Data", "Workflow", "Software Engineering"]
 author: Hyacehila
 excerpt: AutoGluon 不只是在减少代码量，它把强 baseline 方法论固化成统一、可比较、可迁移的机器学习工作流。
 excerpt_en: "AutoGluon does more than reduce code; it turns strong baseline methodology into a unified, comparable, and portable machine-learning workflow."

@@ -3,7 +3,7 @@ title: "Embedding Atlas：用可视化理解 RAG 的嵌入空间"
 title_en: "Embedding Atlas: Visualizing Embedding Spaces for Better RAG"
 date: 2026-05-29 20:00:00 +0800
 categories: ["AI & Agents", "Agent Infrastructure"]
-tags: ["RAG", "Retrieval", "Embeddings", "Visualization", "Data Curation", "Dimensionality Reduction"]
+tags: ["RAG", "Retrieval", "Embeddings", "Data Curation", "Dimensionality Reduction"]
 author: Hyacehila
 excerpt: "Embedding 可视化的用处不在于画一张好看的 UMAP 图，而是把 RAG 的召回、覆盖、混淆、chunk 和数据质量问题放到同一个几何空间里看。"
 excerpt_en: "Embedding visualization is not just a pretty UMAP plot; it is a diagnostic layer for RAG retrieval, coverage, chunking, confusion, and data quality."

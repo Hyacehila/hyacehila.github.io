@@ -3,7 +3,7 @@ title: "JoyAI-VL-Interaction：从 Chat 回到连续交互的视觉语言模型"
 title_en: "JoyAI-VL-Interaction: From Chat Back to Continuous Interaction"
 date: 2026-06-23 20:00:00 +0800
 categories: ["AI & Agents", "Foundation Model Mechanics"]
-tags: ["Vision-Language Models", "Multimodality", "Interaction Model", "Continuous Interaction", "Model Interface"]
+tags: ["Vision-Language Models", "Multimodality"]
 author: Hyacehila
 excerpt: "Chat 只是我们给生成式模型套上的一种使用方式，不是模型天然的形状。Interaction Model 看起来很新，但也可以理解成把模型重新放回连续 token、连续感知和连续行动里。JoyAI-VL-Interaction 正好给了一个视觉语言方向的具体例子。"
 excerpt_en: "Chat is one way we package generative models, not the natural shape of the model itself. Interaction models return models to continuous tokens, perception, and action, with JoyAI-VL-Interaction as a concrete vision-language example."

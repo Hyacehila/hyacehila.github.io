@@ -3,7 +3,7 @@ title: 如何与统计学家分享数据 (How to Share Data with a Statistician)
 title_en: "How to Share Data with a Statistician"
 date: 2026-02-17 12:00:00 +0800
 categories: ["Data Science & Statistics", "Data Practice"]
-tags: ["Data Curation", "Tidy Data", "Code Book", "Reproducibility", "Translation/Repost"]
+tags: ["Data Curation", "Reproducibility", "Translation/Repost"]
 author: Hyacehila
 excerpt: 本文转载自 Jeff Leek 的经典文章，详细介绍了在与统计学家合作分析数据前，应该如何准备和整理数据（Raw Data, Tidy Data, Code Book）。
 excerpt_en: "A repost of Jeff Leek's classic guide to preparing and organizing data before working with a statistician, covering raw data, tidy data, and code books."

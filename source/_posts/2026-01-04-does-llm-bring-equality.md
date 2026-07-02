@@ -3,7 +3,7 @@ title: LLM 是否带来技术平权？(Does LLM Bring Equality?)
 title_en: "Does LLM Bring Equality?"
 date: 2026-01-04 18:00:00 +0800
 categories: ["Work & Society", "AI & Society"]
-tags: ["AI Literacy", "Technical Equality", "Education", "Learning", "Social Impact"]
+tags: ["Learning", "Social Impact"]
 author: Hyacehila
 excerpt: LLM 让知识接触、解释、翻译和表达变得前所未有地便宜，但答案入口的平权并不等于理解、判断和学习路径的平权。问题在于，AI 能否帮助人获得能力，而不只是更快拿到答案。
 excerpt_en: "LLMs make access to knowledge, explanation, translation, and expression cheaper than ever, but equal access to answers is not the same as equal understanding, judgment, or learning paths."

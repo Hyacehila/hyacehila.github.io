@@ -3,7 +3,7 @@ title: "生成式 AI 之前，游戏 NPC 是怎样成为 Agent 的"
 title_en: "How Game NPCs Became Agents Before Generative AI"
 date: 2026-06-20 12:00:00 +0800
 categories: ["Creative Media & Games", "Game AI & Production"]
-tags: ["Game AI", "NPC", "Decision Making", "Behavior Trees", "GOAP", "HTN"]
+tags: ["Survey"]
 author: Hyacehila
 excerpt: "在 LLM Agent 流行之前，游戏 NPC 早已围绕感知、状态、决策和行动形成了一套传统 Agent 工程。本文从小白视角介绍 FSM、行为树、Utility、GOAP、HTN 等 NPC 决策技术，留作个人的学习笔记而非任何权威参考。"
 excerpt_en: "Before LLM agents became popular, game NPCs had already formed a practical agent architecture around perception, state, decision making, and action."

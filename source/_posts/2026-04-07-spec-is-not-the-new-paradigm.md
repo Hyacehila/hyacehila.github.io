@@ -3,7 +3,7 @@ title: "Spec 不是新范式：Vibe Coding、SDD 与 AI 时代的软件工程转
 title_en: "Spec Is Not the New Paradigm: Vibe Coding, SDD, and Software Engineering in the AI Era"
 date: 2026-04-07 20:00:00 +0800
 categories: ["Work & Society", "AI Engineering Workflows"]
-tags: ["Software Engineering", "Vibe Coding", "Specification", "Feedback Loops", "ADR", "AI Coding"]
+tags: ["Software Engineering", "Feedback Loops", "AI Coding"]
 author: Hyacehila
 excerpt: AI 时代的软件工程并没有走向 Spec-first，而是在代码生成成本坍塌后转向 feedback-first：先用原型和集成反馈发现真实需求，再把已结晶的约束反向提炼成活文档、契约与 ADR。
 excerpt_en: "AI-era software engineering is not moving toward spec-first. As code generation costs collapse, it shifts toward feedback-first through prototypes, integration feedback, and living constraints."

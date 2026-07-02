@@ -3,7 +3,7 @@ title: "BettaFish、MiroFish、OpenClaw 与 Agent 的信任边界"
 title_en: "BettaFish, MiroFish, OpenClaw, and Agent Trust Boundaries"
 date: 2026-04-12 20:00:00 +0800
 categories: ["AI & Agents", "Agent Evaluation & Governance"]
-tags: ["Trust Boundaries", "Security", "Product Design", "Agent Safety", "Human Control"]
+tags: ["Security", "Product Design", "Human Control"]
 author: Hyacehila
 excerpt: "BettaFish/MiroFish 和 OpenClaw 分别把 Agent 推到两条信任边界上：我们能相信 AI 说到什么程度，以及我们愿意让 AI 在自己的环境里做到什么程度。"
 excerpt_en: "BettaFish/MiroFish and OpenClaw push agents against two trust boundaries: how much we can trust what AI says, and how much we let AI do inside our environments."

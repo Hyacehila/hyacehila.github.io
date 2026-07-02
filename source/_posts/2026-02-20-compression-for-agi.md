@@ -3,7 +3,7 @@ title: Compression for AGI：压缩即智能
 title_en: "Compression for AGI: Compression as Intelligence"
 date: 2026-02-20 20:00:00 +0800
 categories: ["AI & Agents", "Foundation Model Mechanics"]
-tags: ["Compression", "AGI", "Pre-Training", "Generalization", "Model Mechanics", "Paper Notes"]
+tags: ["Pre-Training", "Model Mechanics", "Paper Notes"]
 author: Hyacehila
 excerpt: 整理 Jack Rae 在《Compression for AGI》中的观点：基础模型训练可以理解为对有效信息的无损压缩；压缩率越高（loss 越低），模型越可能呈现更强的泛化行为。
 excerpt_en: "A summary of Jack Rae's Compression for AGI: foundation-model training as lossless compression of useful information, and why lower loss can imply stronger generalization."

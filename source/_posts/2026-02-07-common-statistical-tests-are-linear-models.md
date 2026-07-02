@@ -3,7 +3,7 @@ title: 常见的统计检验本质上都是线性模型 (Common statistical test
 title_en: "Common Statistical Tests Are Linear Models"
 date: 2026-02-07 12:00:00 +0800
 categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
-tags: ["Linear Models", "Statistical Tests", "ANOVA", "Regression", "Translation/Repost"]
+tags: ["Linear Models", "Translation/Repost"]
 author: Hyacehila
 excerpt: 转载自 Jonas Kristoffer Lindeløv 的文章。揭示了 t 检验、ANOVA、卡方检验等常用统计方法背后的统一线性模型原理。
 excerpt_en: "A repost of Jonas Kristoffer Lindelov's classic article showing the unified linear-model logic behind t-tests, ANOVA, chi-square tests, and other common methods."

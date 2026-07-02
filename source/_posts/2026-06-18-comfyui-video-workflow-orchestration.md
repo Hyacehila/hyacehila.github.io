@@ -3,7 +3,7 @@ title: "从 ComfyUI 到 LibTV：视频生成时代，工作流编排应该长出
 title_en: "From ComfyUI to LibTV: What Workflow Orchestration Needs in the Video Generation Era"
 date: 2026-06-18 15:00:00 +0800
 categories: ["Creative Media & Games", "Generative Media Tools"]
-tags: ["ComfyUI", "AI Video", "Workflow Orchestration", "Generative Media", "Long-Running Jobs"]
+tags: ["Generative Media"]
 author: Hyacehila
 excerpt: "ComfyUI 早已从生图 UI 长成开放的生成式 workflow/runtime。视频生成把问题推高了一层：长视频要靠分段生成、素材继承、批量抽卡、质量核验和长任务编排一起撑起来。"
 excerpt_en: "ComfyUI has outgrown the label of an image-generation UI. It is closer to an open generative workflow/runtime, and video generation now exposes what that runtime still needs: segments, inherited assets, candidate sampling, evaluation, and long-running orchestration."
