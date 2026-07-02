@@ -8,6 +8,7 @@ author: Hyacehila
 excerpt: 作为概率图模型的集大成者，LDA 将贝叶斯先验与潜变量模型完美融合，破解了非结构化文本背后的“主题结构”。本文利用 Plate Notation 细致剖析了其生成过程，并推导了基于折叠吉布斯采样的推断算法。
 excerpt_en: "LDA combines Bayesian priors and latent variables to uncover topic structure in unstructured text. This post uses plate notation and collapsed Gibbs sampling to explain the model."
 mathjax: true
+archived: true
 permalink: '/blog/2026/02/12/topic-model-lda/'
 ---
 

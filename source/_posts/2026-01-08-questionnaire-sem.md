@@ -8,6 +8,7 @@ author: Hyacehila
 excerpt: 在问卷研究中，信度和效度是衡量问卷质量的两个标准。本文介绍信度分析、效度分析以及验证性因子分析（CFA）与结构方程模型（SEM）的基本概念与流程。
 excerpt_en: "In questionnaire research, reliability and validity are two key standards for measurement quality. This post introduces reliability analysis, validity analysis, confirmatory factor analysis, and SEM."
 mathjax: true
+archived: true
 permalink: '/blog/2026/01/08/questionnaire-sem/'
 ---
 

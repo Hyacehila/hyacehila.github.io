@@ -7,6 +7,7 @@ tags: [Multimodality, Methodology]
 author: Hyacehila
 excerpt: TouchDesigner 处理点云的魅力，在于它能把扫描到的现实、生成式动画和实时系统揉成同一种视觉语言。
 excerpt_en: "The appeal of point clouds in TouchDesigner is that they can turn scanned reality, generative animation, and realtime systems into one visual language."
+archived: true
 permalink: '/blog/2026/04/21/touchdesigner-point-clouds-and-3d-gaussian-splatting/'
 ---
 

@@ -7,6 +7,7 @@ tags: [Methodology, Software Engineering]
 author: Hyacehila
 excerpt: AutoGluon 不只是在减少代码量，它把强 baseline 方法论固化成统一、可比较、可迁移的机器学习工作流。
 excerpt_en: "AutoGluon does more than reduce code; it turns strong baseline methodology into a unified, comparable, and portable machine-learning workflow."
+archived: true
 permalink: '/blog/2026/04/24/autogluon-baseline-automl/'
 ---
 

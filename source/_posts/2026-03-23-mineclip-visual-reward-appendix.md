@@ -8,6 +8,7 @@ author: Hyacehila
 excerpt: Minecraft agent 的目标往往很清楚，麻烦在于中间步骤没有奖励。MineCLIP 把视频片段和任务文本的相似度变成 dense reward，Plan4MC 则展示了这种视觉奖励在技能训练里怎样被使用。
 excerpt_en: "A short appendix on MineCLIP as a vision-language reward model for Minecraft skill learning, and how Plan4MC uses this idea in its reward stack."
 mathjax: true
+archived: true
 permalink: '/blog/2026/03/23/mineclip-visual-reward-appendix/'
 ---
 

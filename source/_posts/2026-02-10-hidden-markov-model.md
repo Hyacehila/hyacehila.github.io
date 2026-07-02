@@ -8,6 +8,7 @@ author: Hyacehila
 excerpt: 当概率图模型遇上时间序列，便诞生了能够描述动态系统的隐马尔可夫模型 (HMM)。本文深入解析了 HMM 的双重随机过程结构，并详细推导了解决评估、解码与学习这三大核心问题的数学算法。
 excerpt_en: "When probabilistic graphical models meet time series, hidden Markov models emerge. This post explains their dual stochastic process and derives evaluation, decoding, and learning algorithms."
 mathjax: true
+archived: true
 permalink: '/blog/2026/02/10/hidden-markov-model/'
 ---
 
