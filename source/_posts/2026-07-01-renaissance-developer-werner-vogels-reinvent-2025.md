@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Werner Vogels 的最后一课：AI 时代的文艺复兴开发者"
 title_en: "Werner Vogels' Last Lesson: The Renaissance Developer in the AI Era"
 date: 2026-07-01 15:30:00 +0800
