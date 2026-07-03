@@ -9,6 +9,25 @@ const isEnglishDefault = config => {
   if (Array.isArray(lang)) return lang[0] === 'en';
   return String(lang || '').split(/[-_]/)[0] === 'en';
 };
+const toList = value => {
+  if (!value) return [];
+  if (Array.isArray(value)) return value;
+  if (Array.isArray(value.data)) return value.data;
+  if (typeof value.toArray === 'function') return value.toArray();
+  return [value];
+};
+const toKeywordList = value => {
+  return toList(value)
+    .map(item => {
+      if (!item) return '';
+      if (typeof item === 'string') return item;
+      if (item.name) return item.name;
+      if (item.data && item.data.name) return item.data.name;
+      return String(item);
+    })
+    .map(item => item.trim())
+    .filter(Boolean);
+};
 
 // Keep post bodies as authored, but make article chrome English-first at build
 // time. The original zh title/excerpt stay on the post model for the runtime
@@ -25,7 +44,14 @@ hexo.extend.filter.register('before_post_render', function (data) {
     if (!data.excerpt_zh && data.excerpt) data.excerpt_zh = data.excerpt;
     data.excerpt = data.excerpt_en;
     data.description = data.description_en || data.excerpt_en;
+    data.og_description = data.og_description || data.description;
   }
+
+  const keywords = Array.from(new Set([
+    ...toKeywordList(data.tags),
+    ...toKeywordList(data.categories)
+  ]));
+  if (keywords.length && !data.keywords) data.keywords = keywords.join(', ');
 
   return data;
 });

@@ -639,7 +639,7 @@ KEY=value npx @modelcontextprotocol/inspector python main.py
 
 
 
-运行成功后，终端会显示一个本地网址（通常是 http://localhost:5173），浏览器会自动打开这个页面。这就是MCP Inspector。 **在使用MCP Inspector命令的时候，需要严格注意目录的问题，只有启动命令本身可以执行，才能够使用MCP Inspector正确解析，否则则无法连接**
+运行成功后，终端会显示一个本地网址（通常是 `http://localhost:5173`），浏览器会自动打开这个页面。这就是MCP Inspector。 **在使用MCP Inspector命令的时候，需要严格注意目录的问题，只有启动命令本身可以执行，才能够使用MCP Inspector正确解析，否则则无法连接**
 
 
 
