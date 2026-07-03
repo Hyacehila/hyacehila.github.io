@@ -8,6 +8,7 @@ author: Hyacehila
 excerpt: "这篇文章不做 Tavily、Exa、Firecrawl、Crawl4AI 的横评清单，而是顺着信息进入 Agent 上下文的路径，看模型内联网、托管检索 API、网页解析与抓取清洗、Deep Research 和商业抓取平台各自卡在哪里。"
 excerpt_en: "A systems view of how web information enters agent context, from built-in web search and search APIs to scraping, structured extraction, deep research workflows, and commercial web data platforms."
 permalink: '/blog/2026/06/10/ai-agent-retrieval-tools/'
+hidden: true
 ---
 
 把 Tavily、Exa、Firecrawl、Crawl4AI、Jina Reader、Nimble、GPT Researcher、Open Deep Research 这些名字排成一列，很容易写成工具百科。每个工具一小节，讲功能、价格、适用场景。读完能认一堆名词，但还是不知道自己到底该接哪一层。

@@ -8,6 +8,7 @@ author: Hyacehila
 excerpt: "AI 生成 HTML PPT 的问题，已经从多写几段 CSS，转向把设计规则、叙事顺序和领域判断交给 Skill。通用 Skill 管视觉和演示体验，专用 Skill 管教学、汇报这类场景里的内容组织。"
 excerpt_en: "AI-generated HTML PPTs become interesting when Skills encode design rules, narrative sequencing, and domain judgment. General Skills handle visual quality and stage behavior; specialized Skills encode how different domains organize a talk."
 permalink: '/blog/2026/06/15/ai-html-ppt-agent-skills/'
+hidden: true
 ---
 
 前几天我写过一篇[《事实层与界面层：Markdown 与 HTML 不是替代关系》](/blog/2026/06/08/fact-layer-interface-layer-markdown-html/)，里面顺手提了一句：HTML 拿来做 PPT 也挺好用。
