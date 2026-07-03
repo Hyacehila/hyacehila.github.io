@@ -805,6 +805,124 @@ body:has(.me-page) .page-template-content > h1 {
   background: #fff;
 }
 
+/* ---- About: comments ---- */
+.comments-page {
+  max-width: 820px;
+  margin: 0.25rem auto 0;
+  color: var(--default-text-color, #1f2933);
+}
+
+body:has(.comments-page) .page-template-content > h1 {
+  display: none;
+}
+
+.comments-hero {
+  position: relative;
+  display: grid;
+  gap: 0.62rem;
+  padding: 0.05rem 0 1.05rem;
+  margin-bottom: 0.95rem;
+  border-bottom: 1px solid rgba(127, 127, 127, 0.16);
+}
+
+.comments-hero h2 {
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: 0 !important;
+  color: inherit;
+  font-size: clamp(1.8rem, 3.4vw, 2.45rem);
+  line-height: 1.16;
+  font-weight: 820;
+  letter-spacing: 0;
+}
+
+.comments-hero p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--second-text-color, #52616f);
+  font-size: 1rem;
+  line-height: 1.68;
+}
+
+body:has(.comments-page) .page-template-comments {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 1rem 1rem 0.55rem;
+  border: 1px solid var(--site-glass-border);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(127, 174, 194, 0.12), rgba(184, 167, 217, 0.1)),
+    var(--site-glass-bg-subtle);
+  box-shadow: var(--site-glass-shadow);
+  -webkit-backdrop-filter: blur(14px) saturate(1.14);
+  backdrop-filter: blur(14px) saturate(1.14);
+  overflow: hidden;
+}
+
+body:has(.comments-page) .page-template-comments::before {
+  content: "Discussion";
+  display: block;
+  margin: 0 0 0.25rem;
+  color: var(--default-text-color, #1f2933);
+  font-size: 1.04rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+body:has(.comments-page) .page-template-comments::after {
+  content: "The comment box is loaded from utterances. If it asks you to sign in, GitHub authorization is required before posting.";
+  display: block;
+  margin: 0.18rem 0 0.15rem;
+  color: var(--second-text-color, #52616f);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  opacity: 0.78;
+}
+
+body:has(.comments-page) .comments-container {
+  margin-top: 0 !important;
+}
+
+body:has(.comments-page) #comment-anchor,
+body:has(.comments-page) .comment-area-title {
+  display: none !important;
+}
+
+body:has(.comments-page) #utterances-container,
+body:has(.comments-page) .utterances {
+  width: 100%;
+  max-width: 100%;
+}
+
+body:has(.comments-page) #utterances-container {
+  margin-top: 0;
+}
+
+body:has(.comments-page) .utterances {
+  margin: 0.2rem 0 0 !important;
+}
+
+body:has(.comments-page) iframe.utterances-frame {
+  border-radius: 8px;
+  background: transparent;
+}
+
+.dark .comments-hero {
+  border-bottom-color: rgba(226, 232, 240, 0.14);
+}
+
+.dark .comments-hero p,
+.dark body:has(.comments-page) .page-template-comments::after {
+  color: rgba(226, 232, 240, 0.72);
+}
+
+@media (max-width: 600px) {
+  body:has(.comments-page) .page-template-comments {
+    padding: 0.8rem 0.7rem 0.45rem;
+  }
+}
+
 /* ---- About: globe ---- */
 .footprints-page {
   max-width: 920px;

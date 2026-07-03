@@ -10,7 +10,8 @@
   var DEFAULT_LANG_MIGRATION = "en-gear-tools-2026-07";
   var ENGLISH_ONLY_PATHS = {
     "/cv/": true,
-    "/friends/": true
+    "/friends/": true,
+    "/comments/": true
   };
 
   function getLang() {
@@ -106,6 +107,7 @@
     "/murmur/": { zh: "碎碎念", en: "Murmur" },
     "/footprints/": { zh: "Footprints", en: "Footprints" },
     "/friends/": { zh: "Friends", en: "Friends" },
+    "/comments/": { zh: "Comments", en: "Comments" },
     "/cv/": { zh: "CV", en: "CV" },
     "/categories/": { zh: "分类", en: "Categories" },
     "/tags/": { zh: "标签", en: "Tags" }
@@ -118,6 +120,7 @@
     "/murmur/": { zh: "碎碎念", en: "Murmur" },
     "/footprints/": { zh: "Footprints", en: "Footprints" },
     "/friends/": { zh: "Friends", en: "Friends" },
+    "/comments/": { zh: "Comments", en: "Comments" },
     "/cv/": { zh: "Resume", en: "Resume" },
     "/categories/": { zh: "分类", en: "Categories" },
     "/tags/": { zh: "标签", en: "Tags" }

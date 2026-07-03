@@ -145,6 +145,7 @@ navbar:
       submenus:
         Footprints: /footprints/
         Friends: /friends/
+        Comments: /comments/
         CV: /cv/
   # Local search. Requires hexo-generator-searchdb.
   search:
@@ -232,10 +233,18 @@ articles:
     enable: false
 
 
-# COMMENT — disabled for now.
+# COMMENT
 comment:
-  enable: false
-  system: waline
+  enable: true
+  system: utterances
+  config:
+    utterances:
+      repo: Hyacehila/hyacehila.github.io
+      issue_term: pathname
+      issue_number:
+      label:
+      theme_light: github-light
+      theme_dark: dark-blue
 
 
 # FOOTER
