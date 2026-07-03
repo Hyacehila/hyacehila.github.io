@@ -8,6 +8,7 @@ author: Hyacehila
 excerpt: "这篇文章写给技术出身的 Vibe Coder：会接住 AI 生成的代码，也愿意继续改，但不想先补一整套 UI/UX 课程。重点看几类真正能改善 AI 前端质量的工具：UI 生成器、视觉原型工作台、组件库、Skill/MCP 和反馈闭环。"
 excerpt_en: "A practical survey for technical vibe coders choosing AI frontend tools: UI generators, visual workbenches, component systems, skills, MCPs, and feedback loops that reduce generic AI-looking UI."
 permalink: '/blog/2026/06/22/ai-frontend-design-tools/'
+hidden: true
 ---
 
 Vibe 写前端最容易翻车的起点，是一句帮我做一个好看的 dashboard。

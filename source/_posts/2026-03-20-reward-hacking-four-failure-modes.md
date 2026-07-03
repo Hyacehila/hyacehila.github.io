@@ -9,6 +9,7 @@ excerpt: 当 policy 的探索能力超过 reward signal 的判别和泛化能力
 excerpt_en: "When a policy's exploration exceeds the reward signal's discrimination and generalization, sustained optimization pressure can turn reward hacking from occasional errors into systemic risk."
 mathjax: true
 permalink: '/blog/2026/03/20/reward-hacking-four-failure-modes/'
+hidden: true
 ---
 
 [上一篇文章](/blog/2026/03/19/reward-design-evolution-from-rlhf-to-rlvr/)讲的是 reward 自己怎样被生产出来：从人工偏好、神经 reward model、PRM、RLVR、LLM as Judge、rubric，一路到开放 agent 里的 tournament ranking。那篇文章的主线是：**reward 不只是一个分数，也是一套把目标转成训练信号的接口链路。**

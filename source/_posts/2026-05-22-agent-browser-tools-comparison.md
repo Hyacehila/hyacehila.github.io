@@ -8,6 +8,7 @@ author: Hyacehila
 excerpt: 从 Codex Chrome extension、Claude in Chrome 到 Playwright、Chrome DevTools MCP、Browser-Use、Stagehand、Skyvern 和云端浏览器基础设施，梳理浏览器 Agent 工具如何围绕官方宿主边界、确定性控制、可读感知、行动编排和生产化承载逐步演进。
 excerpt_en: "A discussion of how browser-agent tools evolved from official host-native browser bridges to automation scripts and browser infrastructure, covering Codex Chrome extension, Claude in Chrome, Playwright, Chrome DevTools MCP, Browser-Use, Stagehand, Skyvern, Lightpanda, and cloud browser platforms."
 permalink: '/blog/2026/05/22/agent-browser-tools-comparison/'
+hidden: true
 ---
 
 如果把 Codex Chrome extension、Claude in Chrome、Playwright、Chrome DevTools MCP、Browser-Use、Vercel agent-browser、Stagehand、Skyvern、Lightpanda、Browserbase、Steel.dev、MultiOn 这些工具排成一列，很容易写成工具百科：每个工具一小节，讲功能、场景和限制。这样能帮人认名词，但解释不了一个更有意思的问题：这些工具为什么会这样演进？
