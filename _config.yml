@@ -78,6 +78,8 @@ category_map:
   "Web Frontend": web-frontend
   "Data & Databases": data-databases
   "Backend Engineering": backend-engineering
+  "R": r
+  "C & C++": c-cpp
   "Applied Machine Learning & AutoML": applied-machine-learning-automl
   "Forecasting & Simulation": forecasting-simulation
   "Work & Society": work-society

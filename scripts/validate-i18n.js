@@ -24,6 +24,8 @@ const allowedCategoryPairs = new Set([
   'Programming > Web Frontend',
   'Programming > Data & Databases',
   'Programming > Backend Engineering',
+  'Programming > R',
+  'Programming > C & C++',
   'Work & Society > AI Engineering Workflows',
   'Work & Society > Builder & Product Thinking',
   'Work & Society > Career & Learning',
