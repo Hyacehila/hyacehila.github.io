@@ -78,10 +78,8 @@ category_map:
   "Web Frontend": web-frontend
   "Data & Databases": data-databases
   "Backend Engineering": backend-engineering
-  "Machine Learning": machine-learning
-  "Classical ML & AutoML": classical-ml-automl
-  "Representation & Explainability": representation-explainability
-  "Forecasting, Simulation & Imbalance": forecasting-simulation-imbalance
+  "Applied Machine Learning & AutoML": applied-machine-learning-automl
+  "Forecasting & Simulation": forecasting-simulation
   "Work & Society": work-society
   "AI Engineering Workflows": ai-engineering-workflows
   "Builder & Product Thinking": builder-product-thinking

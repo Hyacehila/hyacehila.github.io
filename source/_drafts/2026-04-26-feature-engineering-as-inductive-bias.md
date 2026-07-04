@@ -1,7 +1,7 @@
 ---
 title: "从特征工程到归纳偏置：聚类特征、特征加权与 DeepFM"
 date: 2026-04-26 18:30:00 +0800
-categories: ["Machine Learning"]
+categories: ["Data Science & Statistics", "Applied Machine Learning & AutoML"]
 tags: [Feature Engineering, Tabular ML, DeepFM, Inductive Bias]
 author: Hyacehila
 excerpt: "很多表格机器学习技巧并不是孤立技巧，而是在把群体身份、业务先验和稀疏交叉关系转化成模型更容易学习的特征表示。"

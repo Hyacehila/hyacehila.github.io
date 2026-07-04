@@ -2,7 +2,7 @@
 title: Shapley 与 SHAP——模型解释性的 SOTA 工具
 title_en: "Shapley and SHAP: State-of-the-Art Tools for Model Interpretability"
 date: 2026-02-28 00:00:00 +0800
-categories: ["Machine Learning", "Representation & Explainability"]
+categories: ["Data Science & Statistics", "Applied Machine Learning & AutoML"]
 tags: ["Interpretability", "Model Evaluation"]
 author: Hyacehila
 excerpt: 本文介绍 Shapley 值的理论基础及其在机器学习中的应用 SHAP，讨论它适合解释什么、容易被误读在哪里，以及工程使用时该怎样选择背景数据。

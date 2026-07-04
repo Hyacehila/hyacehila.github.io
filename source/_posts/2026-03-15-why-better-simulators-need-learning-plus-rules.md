@@ -2,7 +2,7 @@
 title: 为什么更好的 Simulator 往往是 Learning + Rules：从 PDE、光线追踪到 DLSS
 title_en: "Why Better Simulators Often Combine Learning and Rules: From PDEs and Ray Tracing to DLSS"
 date: 2026-03-15 21:00:00 +0800
-categories: ["Machine Learning", "Forecasting, Simulation & Imbalance"]
+categories: ["Data Science & Statistics", "Forecasting & Simulation"]
 tags: ["Survey"]
 author: Hyacehila
 excerpt: 更好的 simulator 往往来自明确分工：把守恒、几何、因果、边界条件与渲染/求解结构当作归纳偏置，再让 learning 去补昂贵、模糊或难解析的部分。
