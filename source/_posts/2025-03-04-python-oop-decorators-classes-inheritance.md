@@ -1,6 +1,6 @@
 ---
-title: "Python 面向对象与装饰器学习笔记"
-title_en: "Python Object-Oriented Programming and Decorators Study Notes"
+title: "Python 面向对象与装饰器：类、继承、property 与闭包"
+title_en: "Python Object-Oriented Programming and Decorators: Classes, Inheritance, property, and Closures"
 date: 2025-03-04 17:10:22 +0800
 categories: ["Programming", "Python"]
 tags: ["Learning Notes", "Python", "Object-Oriented Programming"]

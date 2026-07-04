@@ -1,6 +1,6 @@
 ---
-title: "C 语言程序设计基础学习笔记"
-title_en: "C Programming Basics Learning Notes"
+title: "C 语言程序设计基础：类型、控制流、数组与指针"
+title_en: "C Programming Basics: Types, Control Flow, Arrays, and Pointers"
 date: 2023-03-23 23:35:43 +0800
 categories: ["Programming", "C & C++"]
 tags: ["Learning Notes", "C"]

@@ -1,6 +1,6 @@
 ---
-title: "R 时间序列分析学习笔记"
-title_en: "R Time Series Analysis Learning Notes"
+title: "R 时间序列分析：ts、zoo、xts、ARIMA 与 VAR"
+title_en: "R Time Series Analysis: ts, zoo, xts, ARIMA, and VAR"
 date: 2024-05-04 21:38:03 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "Time Series"]

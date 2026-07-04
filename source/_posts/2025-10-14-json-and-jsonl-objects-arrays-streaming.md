@@ -1,6 +1,6 @@
 ---
 title: "JSON 与 JSONL 速成"
-title_en: "JSON and JSONL Quick Notes"
+title_en: "JSON and JSONL: Objects, Arrays, and Streaming Records"
 date: 2025-10-14 23:54:21 +0800
 categories: ["Programming", "Data & Databases"]
 tags: ["Learning Notes", "JSON"]

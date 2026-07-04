@@ -1,6 +1,6 @@
 ---
-title: "R 非参数统计学习笔记"
-title_en: "R Nonparametric Statistics Learning Notes"
+title: "R 非参数统计：符号检验、Wilcoxon 与多总体比较"
+title_en: "R Nonparametric Statistics: Sign Tests, Wilcoxon, and Multi-Sample Comparison"
 date: 2024-09-06 22:23:58 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "Nonparametric Statistics"]

@@ -1,6 +1,6 @@
 ---
-title: "R mlr3verse 学习笔记"
-title_en: "R mlr3verse Learning Notes"
+title: "R mlr3verse：任务、学习器、评估与调参"
+title_en: "R mlr3verse: Tasks, Learners, Evaluation, and Tuning"
 date: 2024-04-06 20:28:48 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "Machine Learning"]

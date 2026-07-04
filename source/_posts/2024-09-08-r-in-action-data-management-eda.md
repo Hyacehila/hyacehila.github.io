@@ -1,6 +1,6 @@
 ---
-title: "R in Action 学习笔记"
-title_en: "R in Action Learning Notes"
+title: "R in Action：数据导入、数据管理与 EDA"
+title_en: "R in Action: Data Import, Data Management, and EDA"
 date: 2024-09-08 22:33:29 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "Data Management"]

@@ -1,6 +1,6 @@
 ---
-title: "R ggplot2 学习笔记"
-title_en: "R ggplot2 Learning Notes"
+title: "R ggplot2：几何对象、标度、分面与主题"
+title_en: "R ggplot2: Geoms, Scales, Facets, and Themes"
 date: 2024-10-10 17:21:49 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "ggplot2"]

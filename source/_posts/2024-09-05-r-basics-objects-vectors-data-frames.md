@@ -1,6 +1,6 @@
 ---
-title: "R 基础学习笔记"
-title_en: "R Basics Learning Notes"
+title: "R 基础：对象、向量、数据框与函数"
+title_en: "R Basics: Objects, Vectors, Data Frames, and Functions"
 date: 2024-09-05 10:29:12 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R"]

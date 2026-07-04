@@ -1,6 +1,6 @@
 ---
-title: "SQL 基础学习笔记"
-title_en: "SQL Basics Study Notes"
+title: "SQL 基础：查询、聚合、JOIN 与窗口函数"
+title_en: "SQL Basics: Queries, Aggregation, JOINs, and Window Functions"
 date: 2024-07-29 22:29:30 +0800
 categories: ["Programming", "Data & Databases"]
 tags: ["Learning Notes", "SQL"]

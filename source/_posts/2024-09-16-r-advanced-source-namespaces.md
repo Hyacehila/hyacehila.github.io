@@ -1,6 +1,6 @@
 ---
-title: "R 进阶学习笔记"
-title_en: "R Advanced Learning Notes"
+title: "R 进阶：帮助系统、源码查看与命名空间"
+title_en: "R Advanced: Help Systems, Source Inspection, and Namespaces"
 date: 2024-09-16 19:09:37 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R"]

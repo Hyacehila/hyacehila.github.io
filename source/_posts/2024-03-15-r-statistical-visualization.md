@@ -1,6 +1,6 @@
 ---
-title: "R 统计可视化学习笔记"
-title_en: "R Statistical Visualization Learning Notes"
+title: "R 统计可视化：单变量、多变量与函数型数据图形"
+title_en: "R Statistical Visualization: Univariate, Multivariate, and Functional Data Graphics"
 date: 2024-03-15 16:54:45 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "Data Visualization"]

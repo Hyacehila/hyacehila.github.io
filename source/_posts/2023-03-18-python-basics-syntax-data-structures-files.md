@@ -1,6 +1,6 @@
 ---
-title: "Python 基础学习笔记"
-title_en: "Python Basics Study Notes"
+title: "Python 基础：语法、数据结构与文件处理"
+title_en: "Python Basics: Syntax, Data Structures, and File Handling"
 date: 2023-03-18 21:32:22 +0800
 categories: ["Programming", "Python"]
 tags: ["Learning Notes", "Python"]

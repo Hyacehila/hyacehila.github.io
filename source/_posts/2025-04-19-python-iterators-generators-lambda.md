@@ -1,6 +1,6 @@
 ---
-title: "Python 迭代器、生成器与 Lambda 学习笔记"
-title_en: "Python Iterators, Generators, and Lambda Study Notes"
+title: "Python 迭代器、生成器与 Lambda：惰性计算和函数式工具"
+title_en: "Python Iterators, Generators, and Lambda: Lazy Evaluation and Functional Tools"
 date: 2025-04-19 19:53:29 +0800
 categories: ["Programming", "Python"]
 tags: ["Learning Notes", "Python", "Iterators"]

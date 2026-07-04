@@ -1,6 +1,6 @@
 ---
-title: "R 统计图形学习笔记"
-title_en: "R Statistical Graphics Learning Notes"
+title: "R 统计图形：base、lattice 与 ggplot2"
+title_en: "R Statistical Graphics: base, lattice, and ggplot2"
 date: 2024-09-16 22:32:48 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "Data Visualization"]

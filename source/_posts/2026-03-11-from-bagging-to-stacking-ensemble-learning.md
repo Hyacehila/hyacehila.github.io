@@ -1,6 +1,6 @@
 ---
-title: 从 Bagging 到 Stacking：集成学习学习笔记
-title_en: "From Bagging to Stacking: Notes on Ensemble Learning"
+title: 从 Bagging 到 Stacking：集成学习方法图谱
+title_en: "From Bagging to Stacking: A Map of Ensemble Learning Methods"
 date: 2026-03-11 22:30:00 +0800
 categories: ["Data Science & Statistics", "Applied Machine Learning & AutoML"]
 tags: ["XGBoost", "Learning Notes"]

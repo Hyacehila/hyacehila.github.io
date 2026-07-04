@@ -1,6 +1,6 @@
 ---
-title: "R 经典统计学习笔记"
-title_en: "R Classical Statistics Learning Notes"
+title: "R 经典统计：估计、检验、线性模型与 GLM"
+title_en: "R Classical Statistics: Estimation, Tests, Linear Models, and GLMs"
 date: 2024-09-05 12:20:32 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "Classical Statistics"]
