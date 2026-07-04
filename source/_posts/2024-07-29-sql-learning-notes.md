@@ -2,7 +2,7 @@
 title: "SQL 基础学习笔记"
 title_en: "SQL Basics Study Notes"
 date: 2024-07-29 22:29:30 +0800
-categories: ["Data Science & Statistics", "Data Practice"]
+categories: ["Programming", "Data & Databases"]
 tags: ["Learning Notes", "SQL"]
 author: Hyacehila
 excerpt: "一篇 SQL 基础学习笔记，覆盖数据库与 SQL 语句基础、创建和更新、查询排序、聚合分组、视图、子查询、函数、谓词、CASE、集合运算、JOIN 和窗口函数。"

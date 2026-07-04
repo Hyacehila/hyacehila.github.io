@@ -2,7 +2,7 @@
 title: "JSON 与 JSONL 速成"
 title_en: "JSON and JSONL Quick Notes"
 date: 2025-10-14 23:54:21 +0800
-categories: ["Data Science & Statistics", "Data Practice"]
+categories: ["Programming", "Data & Databases"]
 tags: ["Learning Notes", "JSON"]
 author: Hyacehila
 excerpt: "一篇关于 JSON 与 JSONL 的学习笔记，整理对象、数组、流式处理，以及 Python 中 json.load、json.loads、dump、dumps 的基本用法。"

@@ -73,6 +73,11 @@ category_map:
   "Probabilistic Graphical Models": probabilistic-graphical-models
   "Time Series & Spatial Data": time-series-spatial-data
   "Data Practice": data-practice
+  "Programming": programming
+  "Python": python
+  "Web Frontend": web-frontend
+  "Data & Databases": data-databases
+  "Backend Engineering": backend-engineering
   "Machine Learning": machine-learning
   "Classical ML & AutoML": classical-ml-automl
   "Representation & Explainability": representation-explainability
