@@ -2,7 +2,7 @@
 title: 从智能体的认知结构到智能体框架
 title_en: "From Agent Cognitive Architecture to Agent Frameworks"
 date: 2026-03-03 23:36:00 +0800
-categories: ["AI & Agents", "Agent Architecture"]
+categories: ["Agent Systems", "Agent Architecture"]
 tags: ["Tool Use", "Context Engineering"]
 author: Hyacehila
 excerpt: 本文从 CoALA 的认知结构出发，讨论 Workflow、Agent、Supervisor、Agent Team 与 MAS 的边界，并分析 LangGraph 等框架的工程价值、抽象代价和未来框架应该提供的基础设施。

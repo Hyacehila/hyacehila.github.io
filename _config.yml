@@ -61,12 +61,14 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
-  "AI & Agents": ai-agents
-  "Foundation Model Mechanics": foundation-model-mechanics
+  "Foundation Models": foundation-models
+  "Model Mechanics": model-mechanics
   "Training & Alignment": training-alignment
+  "Agent Systems": agent-systems
   "Agent Architecture": agent-architecture
   "Agent Evaluation & Governance": agent-evaluation-governance
   "Agent Infrastructure": agent-infrastructure
+  "Agent Training": agent-training
   "Data Science & Statistics": data-science-statistics
   "Statistical Thinking": statistical-thinking
   "Statistical Modeling & Inference": statistical-modeling-inference

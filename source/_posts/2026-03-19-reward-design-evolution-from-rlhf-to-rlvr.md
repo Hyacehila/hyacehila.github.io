@@ -2,7 +2,7 @@
 title: Reward 设计的演化：从 RLHF 到 RLVR，监督对象如何被重写
 title_en: "The Evolution of Reward Design: From RLHF to RLVR"
 date: 2026-03-19 20:00:00 +0800
-categories: ["AI & Agents", "Training & Alignment"]
+categories: ["Foundation Models", "Training & Alignment"]
 tags: ["Reward Modeling", "Alignment", "Survey"]
 author: Hyacehila
 excerpt: 梳理 reward 如何从偏好对、可验证结果、过程监督、rubric 到开放 agent 排序，逐步把“好回答”改写成更稳的监督对象。

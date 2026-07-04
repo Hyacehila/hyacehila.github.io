@@ -8,11 +8,12 @@ const vm = require('vm');
 const root = path.resolve(__dirname, '..');
 const errors = [];
 const allowedCategoryPairs = new Set([
-  'AI & Agents > Foundation Model Mechanics',
-  'AI & Agents > Training & Alignment',
-  'AI & Agents > Agent Architecture',
-  'AI & Agents > Agent Evaluation & Governance',
-  'AI & Agents > Agent Infrastructure',
+  'Foundation Models > Model Mechanics',
+  'Foundation Models > Training & Alignment',
+  'Agent Systems > Agent Architecture',
+  'Agent Systems > Agent Evaluation & Governance',
+  'Agent Systems > Agent Infrastructure',
+  'Agent Systems > Agent Training',
   'Data Science & Statistics > Statistical Thinking',
   'Data Science & Statistics > Statistical Modeling & Inference',
   'Data Science & Statistics > Probabilistic Graphical Models',

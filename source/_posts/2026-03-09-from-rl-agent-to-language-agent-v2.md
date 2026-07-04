@@ -2,7 +2,7 @@
 title: 从 RL Agent 到 LLM Agent：The Second Half 之后的范式转移与不确定性建模
 title_en: "From RL Agents to LLM Agents: Paradigm Shift and Uncertainty Modeling After The Second Half"
 date: 2026-03-09 12:00:00 +0800
-categories: ["AI & Agents", "Agent Architecture"]
+categories: ["Agent Systems", "Agent Architecture"]
 tags: ["Reinforcement Learning", "Memory", "Evaluation"]
 author: Hyacehila
 excerpt: 从RL Agent到LLM Agent的演进不是简单的模型替换，而是学习信号从数值空间迁移到语言空间的范式转换。The Second Half 之后，开放世界研究、语言空间推理与混合架构共同证明：预训练先验、评估与记忆正在重写智能体的主范式

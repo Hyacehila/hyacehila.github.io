@@ -2,7 +2,7 @@
 title: "Agent 外接资源收藏册：Skills、MCP Server、插件与实用工具"
 title_en: "An Agent Resource Collection: Skills, MCP Servers, Plugins, and Handy Tools"
 date: 2026-05-17 21:00:00 +0800
-categories: ["AI & Agents", "Agent Infrastructure"]
+categories: ["Agent Systems", "Agent Infrastructure"]
 tags: ["Agent Skills", "MCP", "Tool Use"]
 author: Hyacehila
 excerpt: "一篇长期滚动更新的收藏册，记录可以给 Agent / Coding CLI 外接的各种资源：Skills、MCP Server、插件，以及顺手好用的小工具。"

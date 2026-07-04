@@ -2,7 +2,7 @@
 title: "让 Agent 操作浏览器：从自动化脚本到浏览器基础设施的演进"
 title_en: "Letting Agents Use Browsers: From Automation Scripts to Browser Infrastructure"
 date: 2026-05-22 17:00:00 +0800
-categories: ["AI & Agents", "Agent Infrastructure"]
+categories: ["Agent Systems", "Agent Infrastructure"]
 tags: ["MCP", "Tool Use"]
 author: Hyacehila
 excerpt: 从 Codex Chrome extension、Claude in Chrome 到 Playwright、Chrome DevTools MCP、Browser-Use、Stagehand、Skyvern 和云端浏览器基础设施，梳理浏览器 Agent 工具如何围绕官方宿主边界、确定性控制、可读感知、行动编排和生产化承载逐步演进。

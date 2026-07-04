@@ -1,7 +1,7 @@
 ---
 title: "从可解释性看 Prompt-CAM：让 ViT 看见细粒度特征"
 date: 2026-04-30 21:30:00 +0800
-categories: ["Deep Learning"]
+categories: ["Foundation Models", "Model Mechanics"]
 tags: [Interpretability, Computer Vision, Vision Transformer, Prompt-CAM, FGVC]
 author: Hyacehila
 excerpt: "Prompt-CAM 把类别提示、分类依据和注意力热图绑定在同一套 ViT 结构中，为细粒度视觉分类提供了一种轻量而直接的可解释性路径。"

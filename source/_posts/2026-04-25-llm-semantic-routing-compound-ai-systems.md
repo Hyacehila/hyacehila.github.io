@@ -2,7 +2,7 @@
 title: "模型路由到底在解决什么：从 Agent 成本、延迟到推理控制"
 title_en: "What Does Model Routing Actually Solve? From Agent Cost and Latency to Reasoning Control"
 date: 2026-04-25 20:00:00 +0800
-categories: ["AI & Agents", "Agent Infrastructure"]
+categories: ["Agent Systems", "Agent Infrastructure"]
 tags: ["Cost Engineering", "Backend Engineering"]
 author: Hyacehila
 excerpt: "模型路由把 Agent 的每次调用拆成成本、延迟、工具稳定性和失败升级决策；重点不是选最强模型，而是分配预算。"

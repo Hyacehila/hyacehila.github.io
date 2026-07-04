@@ -2,7 +2,7 @@
 title: 世界模型应该是什么样子，又该如何被利用？
 title_en: "What Should World Models Be, and How Should We Use Them?"
 date: 2026-06-12 00:00:00 +0800
-categories: ["Foundation Models"]
+categories: ["Foundation Models", "Model Mechanics"]
 tags: [World Models, Multimodality, Model Mechanics]
 author: Hyacehila
 excerpt: "世界模型最有价值的部分，是让智能体在行动前模拟未来。本文从几条路线的差异讲到 JEPA，再回到 Critiques of World Models 与 PAN。"

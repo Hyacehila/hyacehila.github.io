@@ -1,7 +1,7 @@
 ---
 title: "从进程、线程到协程与异步：后端并发与竞争问题入门"
 date: 2026-04-20 12:30:00 +0800
-categories: ["Agent Systems"]
+categories: ["Programming", "Backend Engineering"]
 tags: [Backend, Concurrency, Threads, Async, Go, Java, Python, Node.js]
 author: Hyacehila
 excerpt: 后端并发并不只是“同时处理很多请求”，它真正要解决的是等待、调度、共享状态与竞争问题。本文从进程、线程、协程、异步事件循环讲起，解释主流后端框架如何处理并发，以及为什么锁、原子操作、事务和幂等会成为后端正确性的核心。

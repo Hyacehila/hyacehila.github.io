@@ -2,7 +2,7 @@
 title: Why Language Models Hallucinate
 title_en: "Why Language Models Hallucinate"
 date: 2026-02-24 20:00:00 +0800
-categories: ["AI & Agents", "Foundation Model Mechanics"]
+categories: ["Foundation Models", "Model Mechanics"]
 tags: ["Evaluation", "Training Dynamics", "Model Behavior", "Paper Notes"]
 author: Hyacehila
 excerpt: 基于 OpenAI 团队论文《Why Language Models Hallucinate》：幻觉并非单纯源于数据噪声或模型缺陷，也和现代训练范式与二元评估机制带来的统计压力有关。

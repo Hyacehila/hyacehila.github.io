@@ -2,7 +2,7 @@
 title: Context is All You Need：智能体的上下文工程
 title_en: "Context Is All You Need: Context Engineering for Agents"
 date: 2026-06-11 12:00:00 +0800
-categories: ["AI & Agents", "Agent Architecture"]
+categories: ["Agent Systems", "Agent Architecture"]
 tags: ["Context Engineering", "Retrieval", "Memory"]
 author: Hyacehila
 excerpt: 把上下文当成有限资源来调度：从 context rot 与注意力预算出发，讨论存储结构、检索 pipeline、写入时的时间对齐与版本治理，以及 compaction、reset、subagent、checkpoint 等运行时手法。

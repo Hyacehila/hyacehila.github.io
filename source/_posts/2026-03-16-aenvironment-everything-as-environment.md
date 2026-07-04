@@ -2,7 +2,7 @@
 title: AEnvironment：Agent Dev 为什么需要交互环境层？
 title_en: "AEnvironment: Why Agent Development Needs an Interaction Environment Layer"
 date: 2026-03-16 21:00:00 +0800
-categories: ["AI & Agents", "Agent Architecture"]
+categories: ["Agent Systems", "Agent Architecture"]
 tags: ["Verifiers", "Evaluation", "Environment Design"]
 author: Hyacehila
 excerpt: SWE-bench、SWE-agent 和 Tau-bench 都在提醒一件事：Agent Dev 不能只盯模型和框架。任务、工具、用户、状态、规则和验证器怎样被组织成环境，会直接影响 agent 能不能工作。

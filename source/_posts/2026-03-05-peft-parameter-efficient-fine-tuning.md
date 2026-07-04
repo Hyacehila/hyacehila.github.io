@@ -2,7 +2,7 @@
 title: 参数高效微调（PEFT）：从 Adapter 到 LoRA 的技术演进
 title_en: "Parameter-Efficient Fine-Tuning (PEFT): From Adapter to LoRA"
 date: 2026-03-05 13:00:00 +0800
-categories: ["AI & Agents", "Training & Alignment"]
+categories: ["Foundation Models", "Training & Alignment"]
 tags: ["LoRA", "Fine-Tuning", "Survey"]
 author: Hyacehila
 excerpt: 梳理参数高效微调（PEFT）领域的代表性方法——从 Adapter、Prefix-Tuning 到 LoRA、Prompt Tuning、P-Tuning v2 与 AdaLoRA，理解不同技术路线的设计思路与适用场景。

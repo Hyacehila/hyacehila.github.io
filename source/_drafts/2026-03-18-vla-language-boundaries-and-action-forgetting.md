@@ -1,7 +1,7 @@
 ---
 title: "语言即智能？VLA 中语言的必要性、边界与动作后训练遗忘"
 date: 2026-03-18 23:20:00 +0800
-categories: ["AI", "Research"]
+categories: ["Foundation Models", "Model Mechanics"]
 tags: [Embodied AI, Robotics, VLA, RT-2, OpenVLA, pi0, Gemini Robotics, Catastrophic Forgetting, Continual Learning]
 author: Hyacehila
 excerpt: "语言不是智能本体，但在今天的 VLA 路线里，它仍然是最便宜的任务接口、语义压缩层和 web-scale 先验迁移通道。真正需要拆开的，是语言在机器人里的角色，以及动作后训练为何会伤害、又如何保住这些由语言模型继承来的能力。"

@@ -1,7 +1,7 @@
 ---
 title: "把模型当作新生物来研究：从 AI 孪生脑、激活组件到可解释性显微镜"
 date: 2026-05-02 20:30:00 +0800
-categories: ["Foundation Models"]
+categories: ["Foundation Models", "Model Mechanics"]
 tags: [LLM, Interpretability, Mechanistic-Interpretability, Neuroscience, MoE, Prompt-Engineering]
 author: Hyacehila
 excerpt: "神经科学和大模型可解释性正在靠近同一种方法：先训练一个能完成任务的代理系统，再通过扰动、激活、路由和低维投影去观察它。真正值得研究的不是模型把思考大声说出来的文本，而是内部组件何时亮起、信息如何流动、抽象概念如何被压缩，以及这些结构怎样影响幻觉、置信和 prompt 工程。"
