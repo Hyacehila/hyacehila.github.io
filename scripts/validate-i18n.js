@@ -21,6 +21,7 @@ const allowedCategoryPairs = new Set([
   'Data Science & Statistics > Data Practice',
   'Data Science & Statistics > Applied Machine Learning & AutoML',
   'Data Science & Statistics > Forecasting & Simulation',
+  'Programming > Computer Science Fundamentals',
   'Programming > Python',
   'Programming > Web Frontend',
   'Programming > Data & Databases',
