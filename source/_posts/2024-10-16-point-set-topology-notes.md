@@ -1,12 +1,12 @@
 ---
-title: "点集拓扑学学习笔记"
-title_en: "Point-Set Topology Notes"
+title: "点集拓扑学：拓扑空间、连续性与子空间"
+title_en: "Point-Set Topology: Topological Spaces, Continuity, and Subspaces"
 date: 2024-10-16 23:06:09 +0800
 categories: ["Mathematics", "Geometry & Topology"]
 tags: ["Learning Notes", "Mathematics", "Topology"]
 author: Hyacehila
-excerpt: "一篇点集拓扑学学习笔记，整理拓扑空间、连续性、子空间、积空间、商空间、连通性和紧致性等内容。"
-excerpt_en: "A study note on point-set topology, covering topological spaces, continuity, subspaces, product spaces, quotient spaces, connectedness, and compactness."
+excerpt: "整理拓扑空间、连续性、子空间、积空间、商空间、连通性和紧致性等内容。"
+excerpt_en: "Covers topological spaces, continuity, subspaces, product spaces, quotient spaces, connectedness, and compactness."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/10/16/point-set-topology-notes/'

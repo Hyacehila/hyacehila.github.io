@@ -5,7 +5,7 @@ date: 2026-07-01 15:30:00 +0800
 categories: ["Work & Society", "Builder & Product Thinking"]
 tags: ["Software Engineering"]
 author: Hyacehila
-excerpt: "Werner Vogels 在 re:Invent 2025 的最后一场 keynote 里谈到文艺复兴开发者：保持好奇心、系统性思维、有效沟通、主人翁精神与博学。对我来说，这更像是一份 AI 时代开发者如何继续保留判断力和责任感的笔记。"
+excerpt: "Werner Vogels 在 re:Invent 2025 的最后一场 keynote 里谈到文艺复兴开发者：保持好奇心、系统性思维、有效沟通、主人翁精神与博学。本文讨论 AI 时代开发者如何继续保留判断力和责任感。"
 excerpt_en: "Werner Vogels' final re:Invent keynote framed the AI-era developer as a Renaissance Developer: curious, systemic, communicative, responsible, and polymathic."
 mathjax: false
 ---

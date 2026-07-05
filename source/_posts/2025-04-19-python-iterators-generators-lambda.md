@@ -5,8 +5,8 @@ date: 2025-04-19 19:53:29 +0800
 categories: ["Programming", "Python"]
 tags: ["Learning Notes", "Python", "Iterators"]
 author: Hyacehila
-excerpt: "一篇 Python 进阶基础学习笔记，整理可迭代对象、迭代器、map、filter、生成器、排序 key 参数和 lambda 函数。"
-excerpt_en: "A study note on intermediate Python basics, covering iterables, iterators, map, filter, generators, sort key functions, and lambda functions."
+excerpt: "整理可迭代对象、迭代器、map、filter、生成器、排序 key 参数和 lambda 函数。"
+excerpt_en: "Covers iterables, iterators, map, filter, generators, sort key functions, and lambda functions."
 mathjax: false
 hidden: true
 permalink: '/blog/2025/04/19/python-iterators-generators-lambda-learning-notes/'

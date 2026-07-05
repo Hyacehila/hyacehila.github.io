@@ -1,12 +1,12 @@
 ---
-title: "高等代数：线性变换与欧式空间学习笔记"
-title_en: "Advanced Algebra: Linear Transformations and Euclidean Spaces Notes"
+title: "高等代数：线性变换与欧式空间"
+title_en: "Advanced Algebra: Linear Transformations and Euclidean Spaces"
 date: 2024-12-07 16:19:23 +0800
 categories: ["Mathematics", "Algebra & Matrix Theory"]
 tags: ["Learning Notes", "Mathematics", "Linear Algebra"]
 author: Hyacehila
-excerpt: "一篇高等代数线性变换与欧式空间学习笔记，整理线性变换、特征值、Jordan 标准型、欧式空间、酉空间和正交变换。"
-excerpt_en: "A study note on linear transformations and Euclidean spaces, covering linear transformations, eigenvalues, Jordan normal form, Euclidean spaces, unitary spaces, and orthogonal transformations."
+excerpt: "整理线性变换、特征值、Jordan 标准型、欧式空间、酉空间和正交变换。"
+excerpt_en: "Covers linear transformations, eigenvalues, Jordan normal form, Euclidean spaces, unitary spaces, and orthogonal transformations."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/12/07/advanced-algebra-linear-transformations-euclidean-spaces-notes/'

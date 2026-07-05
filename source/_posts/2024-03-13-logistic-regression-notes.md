@@ -1,12 +1,12 @@
 ---
-title: "Logistic 回归学习笔记"
-title_en: "Logistic Regression Notes"
+title: "Logistic 回归：二分类因变量、线性概率模型与Logit 模型"
+title_en: "Logistic Regression: Binary Responses, Linear Probability Models, and Logit Models"
 date: 2024-03-13 13:23:55 +0800
 categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
 tags: ["Learning Notes", "Statistics", "Regression", "Logistic Regression"]
 author: Hyacehila
-excerpt: "一篇 Logistic 回归学习笔记，整理二分类因变量、线性概率模型、Logit 模型、参数估计、模型解释和相关扩展。"
-excerpt_en: "A study note on logistic regression, covering binary response variables, linear probability models, logit models, parameter estimation, interpretation, and related extensions."
+excerpt: "整理二分类因变量、线性概率模型、Logit 模型、参数估计、模型解释和相关扩展。"
+excerpt_en: "Covers binary response variables, linear probability models, logit models, parameter estimation, interpretation, and related extensions."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/03/13/logistic-regression-notes/'

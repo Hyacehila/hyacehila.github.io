@@ -1,12 +1,12 @@
 ---
-title: "数据结构导论学习笔记"
-title_en: "Introduction to Data Structures Learning Notes"
+title: "数据结构导论：线性表、树、图与查找排序"
+title_en: "Introduction to Data Structures: Linear Lists, Trees, Graphs, and Search"
 date: 2025-05-12 22:24:30 +0800
 categories: ["Programming", "Computer Science Fundamentals"]
 tags: ["Learning Notes", "Data Structures"]
 author: Hyacehila
-excerpt: "一篇数据结构导论学习笔记，整理数据结构基本概念、线性表、栈、队列、树、图、查找和排序等程序设计基础。"
-excerpt_en: "A study note introducing data structures, covering core concepts, linear lists, stacks, queues, trees, graphs, search, sorting, and programming fundamentals."
+excerpt: "整理数据结构基本概念、线性表、栈、队列、树、图、查找和排序等程序设计基础。"
+excerpt_en: "Introduces data structures through core concepts, linear lists, stacks, queues, trees, graphs, search, sorting, and programming fundamentals."
 mathjax: false
 hidden: true
 permalink: '/blog/2025/05/12/data-structures-introduction/'

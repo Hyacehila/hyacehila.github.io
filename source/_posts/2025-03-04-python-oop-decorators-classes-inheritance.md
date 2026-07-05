@@ -5,8 +5,8 @@ date: 2025-03-04 17:10:22 +0800
 categories: ["Programming", "Python"]
 tags: ["Learning Notes", "Python", "Object-Oriented Programming"]
 author: Hyacehila
-excerpt: "一篇 Python 面向对象学习笔记，整理类、实例、私有化、property、slots、静态方法、类方法、继承、多态、导入类和装饰器。"
-excerpt_en: "A study note on Python object-oriented programming, covering classes, instances, private attributes, property, slots, static methods, class methods, inheritance, polymorphism, imports, and decorators."
+excerpt: "整理类、实例、私有化、property、slots、静态方法、类方法、继承、多态、导入类和装饰器。"
+excerpt_en: "Covers classes, instances, private attributes, property, slots, static methods, class methods, inheritance, polymorphism, imports, and decorators."
 mathjax: false
 hidden: true
 permalink: '/blog/2025/03/04/python-oop-and-decorators-learning-notes/'

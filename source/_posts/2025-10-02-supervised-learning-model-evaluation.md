@@ -1,12 +1,12 @@
 ---
-title: "监督学习性能评估学习笔记"
-title_en: "Supervised Learning Model Evaluation Notes"
+title: "监督学习性能评估：交叉验证、分类指标与 ROC 曲线"
+title_en: "Supervised Learning Model Evaluation: Cross-Validation, Classification Metrics, and ROC Curves"
 date: 2025-10-02 16:04:00 +0800
 categories: ["Data Science & Statistics", "Applied Machine Learning & AutoML"]
 tags: ["Learning Notes", "Machine Learning", "Model Evaluation", "Supervised Learning"]
 author: Hyacehila
-excerpt: "一篇监督学习性能评估学习笔记，整理模型评估方法、交叉验证、自助法、多模型比较、分类指标、PR 曲线、ROC/AUC 和回归指标。"
-excerpt_en: "A study note on supervised learning model evaluation, covering evaluation methods, cross-validation, bootstrapping, model comparison, classification metrics, PR curves, ROC/AUC, and regression metrics."
+excerpt: "整理模型评估方法、交叉验证、自助法、多模型比较、分类指标、PR 曲线、ROC/AUC 和回归指标。"
+excerpt_en: "Covers evaluation methods, cross-validation, bootstrapping, model comparison, classification metrics, PR curves, ROC/AUC, and regression metrics."
 mathjax: true
 hidden: true
 permalink: '/blog/2025/10/02/supervised-learning-model-evaluation/'

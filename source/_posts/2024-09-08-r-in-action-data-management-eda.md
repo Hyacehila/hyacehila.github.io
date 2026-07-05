@@ -5,8 +5,8 @@ date: 2024-09-08 22:33:29 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "Data Management"]
 author: Hyacehila
-excerpt: "一篇 R in Action 学习笔记，围绕数据导入、数据管理、缺失值处理和探索性数据分析整理实践要点。"
-excerpt_en: "A study note inspired by R in Action, organizing practical notes on data import, data management, missing data handling, and exploratory data analysis."
+excerpt: "围绕数据导入、数据管理、缺失值处理和探索性数据分析整理实践要点。"
+excerpt_en: "A overview inspired by R in Action, organizing practical material on data import, data management, missing data handling, and exploratory data analysis."
 mathjax: false
 hidden: true
 permalink: '/blog/2024/09/08/r-in-action-learning-notes/'

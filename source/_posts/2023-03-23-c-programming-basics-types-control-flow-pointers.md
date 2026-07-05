@@ -5,8 +5,8 @@ date: 2023-03-23 23:35:43 +0800
 categories: ["Programming", "C & C++"]
 tags: ["Learning Notes", "C"]
 author: Hyacehila
-excerpt: "一篇 C 语言程序设计基础学习笔记，整理语言概览、编译环境、关键词、数据类型、运算符、语句、循环、数组、函数和指针。"
-excerpt_en: "A study note on C programming basics, covering language overview, compilation environments, keywords, data types, operators, statements, loops, arrays, functions, and pointers."
+excerpt: "整理语言概览、编译环境、关键词、数据类型、运算符、语句、循环、数组、函数和指针。"
+excerpt_en: "Covers language overview, compilation environments, keywords, data types, operators, statements, loops, arrays, functions, and pointers."
 mathjax: false
 hidden: true
 permalink: '/blog/2023/03/23/c-programming-basics-learning-notes/'

@@ -1,12 +1,12 @@
 ---
-title: "解析几何学习笔记"
-title_en: "Analytic Geometry Notes"
+title: "解析几何：向量、坐标与平面与直线"
+title_en: "Analytic Geometry: Vectors, Coordinates, and Planes"
 date: 2024-12-12 15:47:21 +0800
 categories: ["Mathematics", "Geometry & Topology"]
 tags: ["Learning Notes", "Mathematics", "Analytic Geometry"]
 author: Hyacehila
-excerpt: "一篇解析几何学习笔记，整理向量、坐标、平面与直线、曲面、二次曲面和空间解析几何基础。"
-excerpt_en: "A study note on analytic geometry, covering vectors, coordinates, planes and lines, surfaces, quadrics, and foundations of spatial analytic geometry."
+excerpt: "整理向量、坐标、平面与直线、曲面、二次曲面和空间解析几何基础。"
+excerpt_en: "Covers vectors, coordinates, planes and lines, surfaces, quadrics, and foundations of spatial analytic geometry."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/12/12/analytic-geometry-notes/'

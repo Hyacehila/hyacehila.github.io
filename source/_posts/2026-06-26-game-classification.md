@@ -5,8 +5,8 @@ date: 2026-06-26 16:10:00 +0800
 categories: ["Creative Media & Games", "Game Design"]
 tags: ["Learning Notes"]
 author: Hyacehila
-excerpt: "一篇关于电子游戏类型分类的学习笔记：游戏类型不是一棵严丝合缝的树，而是一套帮助我们描述玩法、玩家技能、平台和体验预期的语言。"
-excerpt_en: "A study note on video game genre classification, covering genre trees, gameplay tags, player skills, platform constraints, and hybrid genres."
+excerpt: "电子游戏类型不是一棵严丝合缝的树，而是一套帮助我们描述玩法、玩家技能、平台和体验预期的语言。"
+excerpt_en: "Covers video game genre classification through genre trees, gameplay tags, player skills, platform constraints, and hybrid genres."
 permalink: '/blog/2026/06/26/game-classification/'
 hidden: true
 ---

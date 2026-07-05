@@ -6,7 +6,7 @@ categories: ["Agent Systems", "Agent Infrastructure"]
 tags: ["OCR", "Document Parsing", "AI Engineering"]
 author: Hyacehila
 excerpt: "借 Unlimited OCR 的发布，简单聊聊 OCR 技术的两条演进路线：MinerU2.5-Pro 把模型放进一套工程化文档解析系统里，Unlimited OCR 则把长文档连续解析做进模型本身。"
-excerpt_en: "A short note on two OCR directions: MinerU2.5-Pro as an engineering-oriented document parsing system, and Unlimited OCR as a long-horizon OCR model."
+excerpt_en: "A short look at two OCR directions: MinerU2.5-Pro as an engineering-oriented document parsing system, and Unlimited OCR as a long-horizon OCR model."
 mathjax: false
 ---
 

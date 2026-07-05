@@ -1,12 +1,12 @@
 ---
-title: "多元统计分析学习笔记"
-title_en: "Multivariate Statistical Analysis Notes"
+title: "多元统计分析：判别分析、主成分分析与因子分析"
+title_en: "Multivariate Statistical Analysis: Discriminant Analysis, PCA, and Factor Analysis"
 date: 2024-01-30 23:46:10 +0800
 categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
 tags: ["Learning Notes", "Statistics", "Multivariate Statistics"]
 author: Hyacehila
-excerpt: "一篇多元统计分析学习笔记，整理判别分析、主成分分析、因子分析、聚类分析、对应分析和列联表分析。"
-excerpt_en: "A study note on multivariate statistical analysis, covering discriminant analysis, PCA, factor analysis, clustering, correspondence analysis, and contingency table analysis."
+excerpt: "整理判别分析、主成分分析、因子分析、聚类分析、对应分析和列联表分析。"
+excerpt_en: "Covers discriminant analysis, PCA, factor analysis, clustering, correspondence analysis, and contingency table analysis."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/01/30/multivariate-statistical-analysis-notes/'

@@ -1,12 +1,12 @@
 ---
-title: "数据库系统概念学习笔记"
-title_en: "Database Systems Concepts Learning Notes"
+title: "数据库系统概念：数据模型、事务与查询处理"
+title_en: "Database Systems Concepts: Data Models, Transactions, and Query Processing"
 date: 2024-12-23 19:42:58 +0800
 categories: ["Programming", "Computer Science Fundamentals"]
 tags: ["Learning Notes", "Database Systems", "Relational Databases"]
 author: Hyacehila
-excerpt: "一篇数据库系统概念学习笔记，梳理数据库系统目标、数据视图、数据模型、关系模型、E-R 模型、规范化、事务、存储与查询处理等基础内容。"
-excerpt_en: "A study note on database systems concepts, covering DBMS goals, data views, data models, relational models, E-R modeling, normalization, transactions, storage, and query processing."
+excerpt: "梳理数据库系统目标、数据视图、数据模型、关系模型、E-R 模型、规范化、事务、存储与查询处理等基础内容。"
+excerpt_en: "Covers DBMS goals, data views, data models, relational models, E-R modeling, normalization, transactions, storage, and query processing."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/12/23/database-systems-concepts/'
@@ -124,7 +124,7 @@ permalink: '/blog/2024/12/23/database-systems-concepts/'
 查询语言表示那些用户从数据库中请求获取信息的语言，一般可以分为过程化的和非过程化的
 * 过程化语言需要我们给出查询的具体过程
 * 非过程化的语言需要我们给出想要的具体信息
-实际使用的查询语言会同时包括过程化和非过程化的内容，具体可以参考[SQL 基础笔记](/blog/2024/07/29/sql-learning-notes/)
+实际使用的查询语言会同时包括过程化和非过程化的内容，具体可以参考[SQL 基础](/blog/2024/07/29/sql-learning-notes/)
 
 所有的过程化关系查询语言都提供一组运算，这些运算可以施加在单个关系上，也可以施加在一对关系上，这些运算有一个共同的性质 **运算的结果总是单个关系** 因此人们可以组合这些常见的运算，得到想要的数据。
 
@@ -136,7 +136,7 @@ permalink: '/blog/2024/12/23/database-systems-concepts/'
 
 由于本质上关系就是元组的集合，因此那些适用于集合的并 交 补运算也适用于关系，这是一种纵向的，调整行而不是列的合并方法。
 
-我们这里介绍到的关系都可以在 [SQL 基础笔记](/blog/2024/07/29/sql-learning-notes/) 里面见到真实的操作实践。
+我们这里介绍到的关系都可以在 [SQL 基础](/blog/2024/07/29/sql-learning-notes/) 里面见到真实的操作实践。
 
 ### 事务
 事务（transaction）由查询和（或）更新语句组成，我们所完成的，称得上是一个整体的SQL代码都可以称为一个事务。

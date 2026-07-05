@@ -1,12 +1,12 @@
 ---
-title: "广义线性回归学习笔记"
-title_en: "Generalized Linear Regression Notes"
+title: "广义线性回归：分类自变量、虚拟变量与固定效应"
+title_en: "Generalized Linear Regression: Categorical Predictors, Dummy Variables, and Fixed Effects"
 date: 2024-05-24 17:32:12 +0800
 categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
 tags: ["Learning Notes", "Statistics", "Regression", "Generalized Linear Models"]
 author: Hyacehila
-excerpt: "一篇广义线性回归学习笔记，整理分类自变量、虚拟变量、固定效应、工具变量、稳健回归和 GLM 相关内容。"
-excerpt_en: "A study note on generalized linear regression, covering categorical predictors, dummy variables, fixed effects, instrumental variables, robust regression, and GLM-related topics."
+excerpt: "整理分类自变量、虚拟变量、固定效应、工具变量、稳健回归和 GLM 相关内容。"
+excerpt_en: "Covers categorical predictors, dummy variables, fixed effects, instrumental variables, robust regression, and GLM-related topics."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/05/24/generalized-linear-regression-notes/'

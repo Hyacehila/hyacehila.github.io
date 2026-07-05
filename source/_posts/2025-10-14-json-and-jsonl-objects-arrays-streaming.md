@@ -5,8 +5,8 @@ date: 2025-10-14 23:54:21 +0800
 categories: ["Programming", "Data & Databases"]
 tags: ["Learning Notes", "JSON"]
 author: Hyacehila
-excerpt: "一篇关于 JSON 与 JSONL 的学习笔记，整理对象、数组、流式处理，以及 Python 中 json.load、json.loads、dump、dumps 的基本用法。"
-excerpt_en: "A study note on JSON and JSONL, covering objects, arrays, streaming processing, and basic Python json.load, json.loads, dump, and dumps usage."
+excerpt: "整理对象、数组、流式处理，以及 Python 中 json.load、json.loads、dump、dumps 的基本用法。"
+excerpt_en: "Covers objects, arrays, streaming processing, and basic Python json.load, json.loads, dump, and dumps usage."
 mathjax: false
 hidden: true
 permalink: '/blog/2025/10/14/json-and-jsonl-learning-notes/'

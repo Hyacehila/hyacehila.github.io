@@ -1,12 +1,12 @@
 ---
-title: "初等概率论学习笔记"
-title_en: "Elementary Probability Notes"
+title: "初等概率论：随机事件、概率模型与随机变量"
+title_en: "Elementary Probability: Random Events, Probability Models, and Random Variables"
 date: 2023-03-18 21:28:02 +0800
 categories: ["Data Science & Statistics", "Probability & Statistical Foundations"]
 tags: ["Learning Notes", "Statistics", "Probability"]
 author: Hyacehila
-excerpt: "一篇初等概率论学习笔记，整理随机事件、概率模型、随机变量、常见分布、数字特征、大数定律和中心极限定理。"
-excerpt_en: "A study note on elementary probability, covering random events, probability models, random variables, common distributions, numerical characteristics, laws of large numbers, and central limit theorems."
+excerpt: "整理随机事件、概率模型、随机变量、常见分布、数字特征、大数定律和中心极限定理。"
+excerpt_en: "Covers random events, probability models, random variables, common distributions, numerical characteristics, laws of large numbers, and central limit theorems."
 mathjax: true
 hidden: true
 permalink: '/blog/2023/03/18/elementary-probability-notes/'

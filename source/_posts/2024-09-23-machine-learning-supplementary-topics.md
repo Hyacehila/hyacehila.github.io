@@ -1,12 +1,12 @@
 ---
-title: "机器学习补充知识学习笔记"
-title_en: "Machine Learning Supplementary Topics Notes"
+title: "机器学习补充主题：多分类、类别不平衡与聚类评估"
+title_en: "Machine Learning Supplementary Topics: Multiclass Learning, Class Imbalance, and Clustering Evaluation"
 date: 2024-09-23 22:22:06 +0800
 categories: ["Data Science & Statistics", "Applied Machine Learning & AutoML"]
 tags: ["Learning Notes", "Machine Learning", "Clustering", "Class Imbalance"]
 author: Hyacehila
-excerpt: "一篇机器学习补充知识学习笔记，整理多分类学习、类别不平衡问题，以及聚类模型的外部、内部和相对性能度量。"
-excerpt_en: "A study note on supplementary machine learning topics, covering multiclass learning, class imbalance, and external, internal, and relative evaluation metrics for clustering."
+excerpt: "整理多分类学习、类别不平衡问题，以及聚类模型的外部、内部和相对性能度量。"
+excerpt_en: "Covers multiclass learning, class imbalance, and external, internal, and relative evaluation metrics for clustering."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/09/23/machine-learning-supplementary-topics/'

@@ -1,12 +1,12 @@
 ---
-title: "描述性统计与可视化学习笔记"
-title_en: "Descriptive Statistics and Visualization Notes"
+title: "描述性统计与可视化：数据测度、距离与相关分析"
+title_en: "Descriptive Statistics and Visualization: Measurement, Distances, and Statistical Graphics"
 date: 2023-11-05 00:21:21 +0800
 categories: ["Data Science & Statistics", "Data Practice"]
 tags: ["Learning Notes", "Statistics", "Data Visualization", "Descriptive Statistics"]
 author: Hyacehila
-excerpt: "一篇描述性统计与可视化学习笔记，整理数据测度、距离、相关分析、分布描述、稳健统计量和常见统计图形。"
-excerpt_en: "A study note on descriptive statistics and visualization, covering measurement, distances, association analysis, distribution summaries, robust statistics, and common statistical graphics."
+excerpt: "整理数据测度、距离、相关分析、分布描述、稳健统计量和常见统计图形。"
+excerpt_en: "Covers measurement, distances, association analysis, distribution summaries, robust statistics, and common statistical graphics."
 mathjax: true
 hidden: true
 permalink: '/blog/2023/11/05/descriptive-statistics-and-visualization-notes/'

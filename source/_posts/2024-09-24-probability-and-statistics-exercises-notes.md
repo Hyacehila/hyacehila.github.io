@@ -1,12 +1,12 @@
 ---
-title: "概率与统计例题学习笔记"
-title_en: "Probability and Statistics Exercises Notes"
+title: "概率与统计例题：抽样分布、参数估计与统计量性质"
+title_en: "Probability and Statistics Exercises: Sampling Distributions, Estimation, and Statistics"
 date: 2024-09-24 00:14:54 +0800
 categories: ["Data Science & Statistics", "Probability & Statistical Foundations"]
 tags: ["Learning Notes", "Statistics", "Probability", "Exercises"]
 author: Hyacehila
-excerpt: "一篇概率与数理统计例题学习笔记，整理古典概型、抽样分布、矩估计、极大似然估计和统计量性质等例题。"
-excerpt_en: "A study note of probability and statistics exercises, covering classical probability, sampling distributions, moment estimation, maximum likelihood estimation, and properties of statistics."
+excerpt: "整理古典概型、抽样分布、矩估计、极大似然估计和统计量性质等例题。"
+excerpt_en: "A overview of probability and statistics exercises, covering classical probability, sampling distributions, moment estimation, maximum likelihood estimation, and properties of statistics."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/09/24/probability-and-statistics-exercises-notes/'

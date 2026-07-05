@@ -1,12 +1,12 @@
 ---
-title: "贝叶斯统计：推断与决策学习笔记"
-title_en: "Bayesian Statistics: Inference and Decision Notes"
+title: "贝叶斯统计：推断与决策"
+title_en: "Bayesian Statistics: Inference and Decision"
 date: 2025-08-27 00:18:46 +0800
 categories: ["Data Science & Statistics", "Probability & Statistical Foundations"]
 tags: ["Learning Notes", "Statistics", "Bayesian Statistics", "Statistical Decision"]
 author: Hyacehila
-excerpt: "一篇贝叶斯统计推断与决策学习笔记，整理条件方法、贝叶斯估计、假设检验、多假设问题和决策理论。"
-excerpt_en: "A study note on Bayesian inference and decision, covering conditional methods, Bayesian estimation, hypothesis testing, multiple hypotheses, and decision theory."
+excerpt: "整理条件方法、贝叶斯估计、假设检验、多假设问题和决策理论。"
+excerpt_en: "Covers conditional methods, Bayesian estimation, hypothesis testing, multiple hypotheses, and decision theory."
 mathjax: true
 hidden: true
 permalink: '/blog/2025/08/27/bayesian-statistics-inference-and-decision-notes/'
@@ -380,7 +380,7 @@ $$B^\pi(\boldsymbol{x})=\frac{\alpha_0/\alpha_1}{\pi_0/\pi_1}=\frac{f(\boldsymbo
 
 设从正态总体$\mathbb{N}(0,1)$中随机抽取一个容量为$10$的样本x，算得样本均值 $\overline{x}=1.5$, 试对如下两个假设进行检验：
 $$
-{H}_0{}\text{ θ≤1, H}_1{}\text{ θ>1}
+H_0:\theta\leq 1,\quad H_1:\theta>1
 $$
 $\text{取}\theta\text{的共轭先验分布为N}(0.5,2)\text{}$
 

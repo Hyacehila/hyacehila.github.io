@@ -1,12 +1,12 @@
 ---
-title: "最优化导论学习笔记"
-title_en: "Optimization Introduction Notes"
+title: "最优化导论：最优化问题、向量范数与凸集"
+title_en: "Optimization: Problems, Vector Norms, and Convex Sets"
 date: 2023-03-18 21:27:45 +0800
 categories: ["Mathematics", "Optimization"]
 tags: ["Learning Notes", "Mathematics", "Optimization", "Gradient Descent"]
 author: Hyacehila
-excerpt: "一篇最优化导论学习笔记，整理最优化问题、向量范数、凸集、凸函数、线性规划、单纯形法和梯度下降等内容。"
-excerpt_en: "A study note on introductory optimization, covering optimization problems, vector norms, convex sets, convex functions, linear programming, simplex methods, and gradient descent."
+excerpt: "整理最优化问题、向量范数、凸集、凸函数、线性规划、单纯形法和梯度下降等内容。"
+excerpt_en: "Covers optimization problems, vector norms, convex sets, convex functions, linear programming, simplex methods, and gradient descent."
 mathjax: true
 hidden: true
 permalink: '/blog/2023/03/18/optimization-introduction-notes/'

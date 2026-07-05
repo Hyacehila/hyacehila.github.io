@@ -1,12 +1,12 @@
 ---
-title: "高等代数：代数学基础学习笔记"
-title_en: "Advanced Algebra: Algebra Foundations Notes"
+title: "高等代数：代数学基础"
+title_en: "Advanced Algebra: Algebra Foundations"
 date: 2023-03-17 11:02:24 +0800
 categories: ["Mathematics", "Algebra & Matrix Theory"]
 tags: ["Learning Notes", "Mathematics", "Algebra"]
 author: Hyacehila
-excerpt: "一篇高等代数基础学习笔记，整理多项式、行列式、高斯消元、线性方程组和相关代数基础。"
-excerpt_en: "A study note on advanced algebra foundations, covering polynomials, determinants, Gaussian elimination, systems of linear equations, and related algebraic basics."
+excerpt: "整理多项式、行列式、高斯消元、线性方程组和相关代数基础。"
+excerpt_en: "Covers polynomials, determinants, Gaussian elimination, systems of linear equations, and related algebraic basics."
 mathjax: true
 hidden: true
 permalink: '/blog/2023/03/17/advanced-algebra-foundations-notes/'

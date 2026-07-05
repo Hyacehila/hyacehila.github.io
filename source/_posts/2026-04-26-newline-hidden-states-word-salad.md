@@ -1,6 +1,6 @@
 ---
 title: '从 `\n\n` 看模型状态：Word Salad Chopper 带来的一个小启发'
-title_en: "Reading Model States Through Newline Tokens: A Note from Word Salad Chopper"
+title_en: "Reading Model States Through Newline Tokens: What Word Salad Chopper Reveals"
 date: 2026-04-26 16:00:00 +0800
 categories: ["Foundation Models", "Model Mechanics"]
 tags: ["Interpretability", "Reasoning", "Model Behavior"]

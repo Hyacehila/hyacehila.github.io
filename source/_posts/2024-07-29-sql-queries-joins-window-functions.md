@@ -5,8 +5,8 @@ date: 2024-07-29 22:29:30 +0800
 categories: ["Programming", "Data & Databases"]
 tags: ["Learning Notes", "SQL"]
 author: Hyacehila
-excerpt: "一篇 SQL 基础学习笔记，覆盖数据库与 SQL 语句基础、创建和更新、查询排序、聚合分组、视图、子查询、函数、谓词、CASE、集合运算、JOIN 和窗口函数。"
-excerpt_en: "A study note on SQL basics, covering database concepts, SQL statements, table creation and updates, querying, aggregation, views, subqueries, functions, predicates, CASE, set operations, JOINs, and window functions."
+excerpt: "覆盖数据库与 SQL 语句基础、创建和更新、查询排序、聚合分组、视图、子查询、函数、谓词、CASE、集合运算、JOIN 和窗口函数。"
+excerpt_en: "Covers database concepts, SQL statements, table creation and updates, querying, aggregation, views, subqueries, functions, predicates, CASE, set operations, JOINs, and window functions."
 mathjax: false
 hidden: true
 permalink: '/blog/2024/07/29/sql-learning-notes/'

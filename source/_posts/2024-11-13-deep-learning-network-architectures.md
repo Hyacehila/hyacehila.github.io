@@ -1,12 +1,12 @@
 ---
-title: "深度学习基本网络架构学习笔记"
-title_en: "Deep Learning Network Architectures Notes"
+title: "深度学习网络架构：CNN、RNN 与 Seq2Seq"
+title_en: "Deep Learning Network Architectures: CNNs, RNNs, and Seq2Seq"
 date: 2024-11-13 14:26:58 +0800
 categories: ["Data Science & Statistics", "Deep Learning"]
 tags: ["Learning Notes", "Machine Learning", "Deep Learning", "Neural Networks"]
 author: Hyacehila
-excerpt: "一篇深度学习网络架构学习笔记，整理 CNN、循环神经网络、序列输入、独热编码、BPTT 和 Seq2Seq 等基础结构。"
-excerpt_en: "A study note on deep learning network architectures, covering CNNs, recurrent neural networks, sequence inputs, one-hot encoding, BPTT, and Seq2Seq."
+excerpt: "整理 CNN、循环神经网络、序列输入、独热编码、BPTT 和 Seq2Seq 等基础结构。"
+excerpt_en: "Covers CNNs, recurrent neural networks, sequence inputs, one-hot encoding, BPTT, and Seq2Seq."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/11/13/deep-learning-network-architectures/'

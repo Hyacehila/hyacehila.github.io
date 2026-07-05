@@ -1,12 +1,12 @@
 ---
-title: "自注意力机制与 Transformer 架构学习笔记"
-title_en: "Self-Attention and Transformer Architecture Notes"
+title: "自注意力机制与 Transformer 架构：BERT、GPT 与多头注意力"
+title_en: "Self-Attention and Transformer Architecture: BERT, GPT, and Multi-Head Attention"
 date: 2024-11-14 22:50:47 +0800
 categories: ["Data Science & Statistics", "Deep Learning"]
 tags: ["Learning Notes", "Machine Learning", "Deep Learning", "Transformer", "Attention"]
 author: Hyacehila
-excerpt: "一篇自注意力机制与 Transformer 架构学习笔记，整理自监督学习、BERT、GPT、自注意力、多头注意力、编码器和解码器结构。"
-excerpt_en: "A study note on self-attention and Transformer architecture, covering self-supervised learning, BERT, GPT, self-attention, multi-head attention, encoders, and decoders."
+excerpt: "整理自监督学习、BERT、GPT、自注意力、多头注意力、编码器和解码器结构。"
+excerpt_en: "Covers self-supervised learning, BERT, GPT, self-attention, multi-head attention, encoders, and decoders."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/11/14/self-attention-and-transformer-architecture/'

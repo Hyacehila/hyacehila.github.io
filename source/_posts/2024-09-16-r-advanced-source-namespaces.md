@@ -5,8 +5,8 @@ date: 2024-09-16 19:09:37 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R"]
 author: Hyacehila
-excerpt: "一篇 R 进阶学习笔记，整理帮助系统、函数源代码查看、类函数与非类函数以及命名空间访问方式。"
-excerpt_en: "An advanced R study note covering the help system, source inspection, functions versus methods, and namespace access patterns."
+excerpt: "整理帮助系统、函数源代码查看、类函数与非类函数以及命名空间访问方式。"
+excerpt_en: "An advanced R overview covering the help system, source inspection, functions versus methods, and namespace access patterns."
 mathjax: false
 hidden: true
 permalink: '/blog/2024/09/16/r-advanced-learning-notes/'

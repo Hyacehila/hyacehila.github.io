@@ -1,12 +1,12 @@
 ---
-title: "多元统计引论学习笔记"
-title_en: "Multivariate Statistics Introduction Notes"
+title: "多元统计引论：随机向量、协方差矩阵与多元正态分布"
+title_en: "Multivariate Statistics Introduction: Random Vectors, Covariance Matrices, and Multivariate Normal Distributions"
 date: 2024-09-11 18:36:49 +0800
 categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
 tags: ["Learning Notes", "Statistics", "Multivariate Statistics"]
 author: Hyacehila
-excerpt: "一篇多元统计引论学习笔记，整理随机向量、协方差矩阵、多元正态分布、广义方差、距离和相关基础概念。"
-excerpt_en: "A study note introducing multivariate statistics, covering random vectors, covariance matrices, multivariate normal distributions, generalized variance, distances, and core concepts."
+excerpt: "整理随机向量、协方差矩阵、多元正态分布、广义方差、距离和相关基础概念。"
+excerpt_en: "Introduces multivariate statistics through random vectors, covariance matrices, multivariate normal distributions, generalized variance, distances, and core concepts."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/09/11/multivariate-statistics-introduction-notes/'

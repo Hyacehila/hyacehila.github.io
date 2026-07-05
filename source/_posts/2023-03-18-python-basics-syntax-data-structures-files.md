@@ -5,8 +5,8 @@ date: 2023-03-18 21:32:22 +0800
 categories: ["Programming", "Python"]
 tags: ["Learning Notes", "Python"]
 author: Hyacehila
-excerpt: "一篇 Python 基础学习笔记，整理变量、字符串、列表、分支、集合、字典、循环、函数、正则表达式、文件异常与测试等入门内容。"
-excerpt_en: "A study note on Python basics, covering variables, strings, lists, branches, sets, dictionaries, loops, functions, regular expressions, files, exceptions, and testing."
+excerpt: "整理变量、字符串、列表、分支、集合、字典、循环、函数、正则表达式、文件异常与测试等入门内容。"
+excerpt_en: "Covers variables, strings, lists, branches, sets, dictionaries, loops, functions, regular expressions, files, exceptions, and testing."
 mathjax: false
 hidden: true
 permalink: '/blog/2023/03/18/python-basics-learning-notes/'

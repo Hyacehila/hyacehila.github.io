@@ -1,12 +1,12 @@
 ---
-title: "实变函数学习笔记"
-title_en: "Real Analysis Notes"
+title: "实变函数：集合与点集、测度与可测函数"
+title_en: "Real Analysis: Sets, Point Sets, and Measure Theory"
 date: 2023-03-18 21:27:38 +0800
 categories: ["Mathematics", "Mathematical Analysis"]
 tags: ["Learning Notes", "Mathematics", "Real Analysis", "Measure Theory"]
 author: Hyacehila
-excerpt: "一篇实变函数学习笔记，整理集合与点集、测度、可测函数、Lebesgue 积分、积分与微分等内容。"
-excerpt_en: "A study note on real analysis, covering sets and point sets, measures, measurable functions, Lebesgue integration, integration, and differentiation."
+excerpt: "整理集合与点集、测度、可测函数、Lebesgue 积分、积分与微分等内容。"
+excerpt_en: "Covers sets and point sets, measures, measurable functions, Lebesgue integration, integration, and differentiation."
 mathjax: true
 hidden: true
 permalink: '/blog/2023/03/18/real-analysis-notes/'

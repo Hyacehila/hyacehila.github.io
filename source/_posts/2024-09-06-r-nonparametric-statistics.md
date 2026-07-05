@@ -5,8 +5,8 @@ date: 2024-09-06 22:23:58 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "Nonparametric Statistics"]
 author: Hyacehila
-excerpt: "一篇 R 非参数统计学习笔记，整理符号检验、Wilcoxon 检验、分布一致性检验、两总体比较和多总体非参数检验。"
-excerpt_en: "A study note on nonparametric statistics in R, covering sign tests, Wilcoxon tests, goodness-of-fit checks, two-sample comparisons, and multi-sample tests."
+excerpt: "整理符号检验、Wilcoxon 检验、分布一致性检验、两总体比较和多总体非参数检验。"
+excerpt_en: "Covers sign tests, Wilcoxon tests, goodness-of-fit checks, two-sample comparisons, and multi-sample tests."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/09/06/r-nonparametric-statistics-learning-notes/'

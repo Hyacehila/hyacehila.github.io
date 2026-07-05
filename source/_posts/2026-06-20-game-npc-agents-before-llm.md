@@ -5,7 +5,7 @@ date: 2026-06-20 12:00:00 +0800
 categories: ["Creative Media & Games", "Game AI & Production"]
 tags: ["Survey"]
 author: Hyacehila
-excerpt: "在 LLM Agent 流行之前，游戏 NPC 早已围绕感知、状态、决策和行动形成了一套传统 Agent 工程。本文从小白视角介绍 FSM、行为树、Utility、GOAP、HTN 等 NPC 决策技术，留作个人的学习笔记而非任何权威参考。"
+excerpt: "在 LLM Agent 流行之前，游戏 NPC 早已围绕感知、状态、决策和行动形成了一套传统 Agent 工程。本文从小白视角介绍 FSM、行为树、Utility、GOAP、HTN 等 NPC 决策技术。"
 excerpt_en: "Before LLM agents became popular, game NPCs had already formed a practical agent architecture around perception, state, decision making, and action."
 permalink: '/blog/2026/06/20/game-npc-agents-before-llm/'
 ---

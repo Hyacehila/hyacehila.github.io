@@ -1,12 +1,12 @@
 ---
-title: "试验设计方法学习笔记"
-title_en: "Experimental Design Methods Notes"
+title: "试验设计方法：方差分析、单因素试验与多因素试验"
+title_en: "Experimental Design Methods: ANOVA, one-factor experiments, and multi-factor experiments"
 date: 2024-02-29 21:54:06 +0800
 categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
 tags: ["Learning Notes", "Statistics", "Experimental Design"]
 author: Hyacehila
-excerpt: "一篇试验设计方法学习笔记，整理方差分析、单因素试验、多因素试验、正交试验设计和实验数据分析方法。"
-excerpt_en: "A study note on experimental design methods, covering ANOVA, one-factor experiments, multi-factor experiments, orthogonal designs, and experimental data analysis."
+excerpt: "整理方差分析、单因素试验、多因素试验、正交试验设计和实验数据分析方法。"
+excerpt_en: "Covers ANOVA, one-factor experiments, multi-factor experiments, orthogonal designs, and experimental data analysis."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/02/29/experimental-design-methods-notes/'

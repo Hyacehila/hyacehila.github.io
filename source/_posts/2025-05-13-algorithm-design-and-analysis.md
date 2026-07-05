@@ -1,12 +1,12 @@
 ---
-title: "算法设计与分析学习笔记"
-title_en: "Algorithm Design and Analysis Learning Notes"
+title: "算法设计与分析：分治、动态规划与图算法"
+title_en: "Algorithm Design and Analysis: Divide and Conquer, Dynamic Programming, and Graph Algorithms"
 date: 2025-05-13 18:32:25 +0800
 categories: ["Programming", "Computer Science Fundamentals"]
 tags: ["Learning Notes", "Algorithms", "Dynamic Programming", "Greedy Algorithms"]
 author: Hyacehila
-excerpt: "一篇算法设计与分析学习笔记，围绕分治、动态规划、贪心、摊还分析、图算法与复杂度分析整理问题建模和算法思路。"
-excerpt_en: "A study note on algorithm design and analysis, covering divide and conquer, dynamic programming, greedy methods, amortized analysis, graph algorithms, and complexity reasoning."
+excerpt: "围绕分治、动态规划、贪心、摊还分析、图算法与复杂度分析整理问题建模和算法思路。"
+excerpt_en: "Covers divide and conquer, dynamic programming, greedy methods, amortized analysis, graph algorithms, and complexity reasoning."
 mathjax: true
 hidden: true
 permalink: '/blog/2025/05/13/algorithm-design-and-analysis/'

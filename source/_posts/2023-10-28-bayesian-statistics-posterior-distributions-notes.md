@@ -1,12 +1,12 @@
 ---
-title: "贝叶斯统计：后验分布学习笔记"
-title_en: "Bayesian Statistics: Posterior Distributions Notes"
+title: "贝叶斯统计：后验分布"
+title_en: "Bayesian Statistics: Posterior Distributions"
 date: 2023-10-28 17:36:48 +0800
 categories: ["Data Science & Statistics", "Probability & Statistical Foundations"]
 tags: ["Learning Notes", "Statistics", "Bayesian Statistics"]
 author: Hyacehila
-excerpt: "一篇贝叶斯统计学习笔记，整理 Bayes 公式、先验分布、后验分布、边缘分布、共轭先验和贝叶斯计算基础。"
-excerpt_en: "A study note on Bayesian statistics, covering Bayes formula, priors, posteriors, marginal distributions, conjugate priors, and Bayesian computation basics."
+excerpt: "整理 Bayes 公式、先验分布、后验分布、边缘分布、共轭先验和贝叶斯计算基础。"
+excerpt_en: "Covers Bayes formula, priors, posteriors, marginal distributions, conjugate priors, and Bayesian computation basics."
 mathjax: true
 hidden: true
 permalink: '/blog/2023/10/28/bayesian-statistics-posterior-distributions-notes/'

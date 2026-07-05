@@ -42,7 +42,7 @@ const allowedCategoryPairs = new Set([
   'Creative Media & Games > Game Design',
   'Creative Media & Games > Generative Media Tools',
   'Fiction & Literature > Speculative Fiction',
-  'Fiction & Literature > Sci-Fi & Literature Notes'
+  'Fiction & Literature > Science Fiction & Literary Criticism'
 ]);
 const categoryNames = new Set(
   Array.from(allowedCategoryPairs).flatMap(pair => pair.split(' > '))

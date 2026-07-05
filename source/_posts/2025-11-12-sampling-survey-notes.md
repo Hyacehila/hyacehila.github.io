@@ -1,12 +1,12 @@
 ---
-title: "抽样调查学习笔记"
-title_en: "Sampling Survey Notes"
+title: "抽样调查：抽样调查基础、抽样设计与估计方法"
+title_en: "Sampling Survey: Sampling Design, Estimation Methods, and Data Quality"
 date: 2025-11-12 16:04:37 +0800
 categories: ["Data Science & Statistics", "Data Practice"]
 tags: ["Learning Notes", "Statistics", "Sampling", "Survey Methods"]
 author: Hyacehila
-excerpt: "一篇抽样调查学习笔记，整理抽样调查基础、抽样设计、估计方法、误差控制和调查数据质量问题。"
-excerpt_en: "A study note on sampling surveys, covering survey foundations, sampling design, estimation methods, error control, and survey data quality."
+excerpt: "整理抽样调查基础、抽样设计、估计方法、误差控制和调查数据质量问题。"
+excerpt_en: "Covers survey foundations, sampling design, estimation methods, error control, and survey data quality."
 mathjax: true
 hidden: true
 permalink: '/blog/2025/11/12/sampling-survey-notes/'

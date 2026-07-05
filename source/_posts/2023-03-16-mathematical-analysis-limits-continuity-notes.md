@@ -1,12 +1,12 @@
 ---
-title: "数学分析：极限与连续理论学习笔记"
-title_en: "Mathematical Analysis: Limits and Continuity Notes"
+title: "数学分析：极限与连续理论"
+title_en: "Mathematical Analysis: Limits and Continuity"
 date: 2023-03-16 00:10:49 +0800
 categories: ["Mathematics", "Mathematical Analysis"]
 tags: ["Learning Notes", "Mathematics", "Mathematical Analysis"]
 author: Hyacehila
-excerpt: "一篇数学分析极限与连续理论学习笔记，整理集合、函数、数列极限、函数极限、连续性和相关基础概念。"
-excerpt_en: "A study note on limits and continuity in mathematical analysis, covering sets, functions, sequence limits, function limits, continuity, and related foundations."
+excerpt: "整理集合、函数、数列极限、函数极限、连续性和相关基础概念。"
+excerpt_en: "Covers sets, functions, sequence limits, function limits, continuity, and related foundations."
 mathjax: true
 hidden: true
 permalink: '/blog/2023/03/16/mathematical-analysis-limits-continuity-notes/'

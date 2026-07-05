@@ -1,12 +1,12 @@
 ---
-title: "生成模型与扩散模型学习笔记"
-title_en: "Generative and Diffusion Models Notes"
+title: "生成模型与扩散模型：GAN、条件生成与扩散训练"
+title_en: "Generative and Diffusion Models: GANs, Conditional Generation, and Diffusion Training"
 date: 2024-11-14 22:51:39 +0800
 categories: ["Data Science & Statistics", "Deep Learning"]
 tags: ["Learning Notes", "Machine Learning", "Deep Learning", "Generative Models", "Diffusion Models"]
 author: Hyacehila
-excerpt: "一篇生成模型与扩散模型学习笔记，整理生成器、判别器、GAN、条件生成、扩散模型和相关训练思路。"
-excerpt_en: "A study note on generative and diffusion models, covering generators, discriminators, GANs, conditional generation, diffusion models, and related training ideas."
+excerpt: "整理生成器、判别器、GAN、条件生成、扩散模型和相关训练思路。"
+excerpt_en: "Covers generators, discriminators, GANs, conditional generation, diffusion models, and related training ideas."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/11/14/generative-and-diffusion-models/'

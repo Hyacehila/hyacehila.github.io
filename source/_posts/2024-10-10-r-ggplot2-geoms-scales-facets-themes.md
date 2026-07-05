@@ -5,8 +5,8 @@ date: 2024-10-10 17:21:49 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "ggplot2"]
 author: Hyacehila
-excerpt: "一篇 R ggplot2 学习笔记，整理几何对象、统计量、标度、坐标系、分面、主题、保存以及常见外观调整。"
-excerpt_en: "A study note on ggplot2 in R, covering geoms, statistics, scales, coordinate systems, facets, themes, saving plots, and common appearance adjustments."
+excerpt: "整理几何对象、统计量、标度、坐标系、分面、主题、保存以及常见外观调整。"
+excerpt_en: "Covers geoms, statistics, scales, coordinate systems, facets, themes, saving plots, and common appearance adjustments."
 mathjax: false
 hidden: true
 permalink: '/blog/2024/10/10/r-ggplot2-learning-notes/'

@@ -1,12 +1,12 @@
 ---
-title: "一元金融时间序列分析学习笔记"
-title_en: "Univariate Financial Time Series Analysis Notes"
+title: "一元金融时间序列分析：资产收益率、ARCH/GARCH 效应与波动率建模和"
+title_en: "Univariate Financial Time Series Analysis: Asset Returns, ARCH/GARCH Effects, and Volatility Modeling"
 date: 2024-05-06 23:07:47 +0800
 categories: ["Data Science & Statistics", "Time Series & Spatial Data"]
 tags: ["Learning Notes", "Statistics", "Time Series", "Financial Time Series"]
 author: Hyacehila
-excerpt: "一篇一元金融时间序列分析学习笔记，整理资产收益率、ARCH/GARCH 效应、波动率建模和相关模型检验方法。"
-excerpt_en: "A study note on univariate financial time series analysis, covering asset returns, ARCH/GARCH effects, volatility modeling, and related model diagnostics."
+excerpt: "整理资产收益率、ARCH/GARCH 效应、波动率建模和相关模型检验方法。"
+excerpt_en: "Covers asset returns, ARCH/GARCH effects, volatility modeling, and related model diagnostics."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/05/06/univariate-financial-time-series-analysis-notes/'

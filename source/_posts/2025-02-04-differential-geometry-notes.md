@@ -1,12 +1,12 @@
 ---
-title: "微分几何学习笔记"
-title_en: "Differential Geometry Notes"
+title: "微分几何：几何学分类、曲线论与曲面论"
+title_en: "Differential Geometry: Curves, Surfaces, and Metrics"
 date: 2025-02-04 13:35:34 +0800
 categories: ["Mathematics", "Geometry & Topology"]
 tags: ["Learning Notes", "Mathematics", "Differential Geometry"]
 author: Hyacehila
-excerpt: "一篇微分几何学习笔记，整理几何学分类、曲线论、曲面论、曲面度量和相关微分几何基础。"
-excerpt_en: "A study note on differential geometry, covering geometry classifications, curve theory, surface theory, surface metrics, and related foundations."
+excerpt: "整理几何学分类、曲线论、曲面论、曲面度量和相关微分几何基础。"
+excerpt_en: "Covers geometry classifications, curve theory, surface theory, surface metrics, and related foundations."
 mathjax: true
 hidden: true
 permalink: '/blog/2025/02/04/differential-geometry-notes/'

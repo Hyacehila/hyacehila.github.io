@@ -5,8 +5,8 @@ date: 2024-04-06 20:28:48 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "Machine Learning"]
 author: Hyacehila
-excerpt: "一篇 R mlr3verse 学习笔记，整理 mlr3 的任务、学习器、预测、评估、重抽样、基准实验、调参与分类评估等内容。"
-excerpt_en: "A study note on the R mlr3verse, covering tasks, learners, prediction, evaluation, resampling, benchmarking, tuning, and classification metrics."
+excerpt: "整理 mlr3 的任务、学习器、预测、评估、重抽样、基准实验、调参与分类评估等内容。"
+excerpt_en: "Covers tasks, learners, prediction, evaluation, resampling, benchmarking, tuning, and classification metrics."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/04/06/r-mlr3verse-learning-notes/'

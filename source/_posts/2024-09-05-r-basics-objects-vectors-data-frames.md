@@ -5,8 +5,8 @@ date: 2024-09-05 10:29:12 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R"]
 author: Hyacehila
-excerpt: "一篇 R 基础学习笔记，整理 R 基本原理、对象、向量、矩阵、数据框、列表、时间序列、函数、循环和数据读写。"
-excerpt_en: "A study note on R basics, covering core concepts, objects, vectors, matrices, data frames, lists, time series, functions, loops, and data I/O."
+excerpt: "整理 R 基本原理、对象、向量、矩阵、数据框、列表、时间序列、函数、循环和数据读写。"
+excerpt_en: "Covers core concepts, objects, vectors, matrices, data frames, lists, time series, functions, loops, and data I/O."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/09/05/r-basic-learning-notes/'

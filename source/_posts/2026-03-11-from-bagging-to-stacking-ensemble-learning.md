@@ -5,8 +5,8 @@ date: 2026-03-11 22:30:00 +0800
 categories: ["Data Science & Statistics", "Applied Machine Learning & AutoML"]
 tags: ["XGBoost", "Learning Notes"]
 author: Hyacehila
-excerpt: 把 Random Forest、GBDT、XGBoost 与 Stacking 放回同一张图里：一篇集成学习学习笔记。
-excerpt_en: "A study note that puts Random Forest, GBDT, XGBoost, and Stacking back onto the same conceptual map."
+excerpt: "把 Random Forest、GBDT、XGBoost 与 Stacking 放回同一张图里，梳理集成学习的核心脉络。"
+excerpt_en: "Maps Random Forest, GBDT, XGBoost, and Stacking onto the same conceptual frame."
 mathjax: true
 hidden: true
 permalink: '/blog/2026/03/11/from-bagging-to-stacking-ensemble-learning/'

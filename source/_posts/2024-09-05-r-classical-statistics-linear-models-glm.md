@@ -5,8 +5,8 @@ date: 2024-09-05 12:20:32 +0800
 categories: ["Programming", "R"]
 tags: ["Learning Notes", "R", "Classical Statistics"]
 author: Hyacehila
-excerpt: "一篇 R 经典统计学习笔记，整理描述性统计、参数估计、假设检验、线性模型、方差分析、非线性回归和 GLM。"
-excerpt_en: "A study note on classical statistics in R, covering descriptive statistics, estimation, hypothesis testing, linear models, ANOVA, nonlinear regression, and GLMs."
+excerpt: "整理描述性统计、参数估计、假设检验、线性模型、方差分析、非线性回归和 GLM。"
+excerpt_en: "Covers descriptive statistics, estimation, hypothesis testing, linear models, ANOVA, nonlinear regression, and GLMs."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/09/05/r-classical-statistics-learning-notes/'

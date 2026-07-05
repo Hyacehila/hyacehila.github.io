@@ -1,12 +1,12 @@
 ---
-title: "线性回归进阶学习笔记"
-title_en: "Advanced Linear Regression Notes"
+title: "线性回归进阶：拟合优度、模型选择与共线性"
+title_en: "Advanced Linear Regression: Goodness of Fit, Model Selection, and Collinearity"
 date: 2025-09-23 12:02:07 +0800
 categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
 tags: ["Learning Notes", "Statistics", "Regression", "Linear Models"]
 author: Hyacehila
-excerpt: "一篇线性回归进阶学习笔记，整理拟合优度、模型选择、共线性、异方差、自相关、稳健标准误和相关回归扩展问题。"
-excerpt_en: "A study note on advanced linear regression, covering goodness of fit, model selection, collinearity, heteroskedasticity, autocorrelation, robust standard errors, and related regression extensions."
+excerpt: "整理拟合优度、模型选择、共线性、异方差、自相关、稳健标准误和相关回归扩展问题。"
+excerpt_en: "Covers goodness of fit, model selection, collinearity, heteroskedasticity, autocorrelation, robust standard errors, and related regression extensions."
 mathjax: true
 hidden: true
 permalink: '/blog/2025/09/23/advanced-linear-regression-notes/'

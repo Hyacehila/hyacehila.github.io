@@ -1,12 +1,12 @@
 ---
-title: "统计决策学习笔记"
-title_en: "Statistical Decision Theory Notes"
+title: "统计决策：决策问题、风险型决策与不确定型决策"
+title_en: "Statistical Decision Theory: Risk, Uncertainty, and Multi-Objective Decisions"
 date: 2024-01-01 15:06:22 +0800
 categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
 tags: ["Learning Notes", "Statistics", "Statistical Decision"]
 author: Hyacehila
-excerpt: "一篇统计决策学习笔记，整理决策问题、风险型决策、不确定型决策、多目标决策和层次分析法。"
-excerpt_en: "A study note on statistical decision theory, covering decision problems, risky decisions, uncertain decisions, multi-objective decisions, and analytic hierarchy process."
+excerpt: "整理决策问题、风险型决策、不确定型决策、多目标决策和层次分析法。"
+excerpt_en: "Covers decision problems, risky decisions, uncertain decisions, multi-objective decisions, and analytic hierarchy process."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/01/01/statistical-decision-theory-notes/'

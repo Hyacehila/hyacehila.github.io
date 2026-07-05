@@ -1,12 +1,12 @@
 ---
-title: "随机过程基础学习笔记"
-title_en: "Stochastic Process Basics Notes"
+title: "随机过程基础：随机过程定义、数字特征与平稳过程"
+title_en: "Stochastic Processes: Definitions, Stationarity, and Markov Foundations"
 date: 2023-03-18 21:28:17 +0800
 categories: ["Data Science & Statistics", "Time Series & Spatial Data"]
 tags: ["Learning Notes", "Statistics", "Stochastic Processes"]
 author: Hyacehila
-excerpt: "一篇随机过程基础学习笔记，整理随机过程定义、数字特征、平稳过程、泊松过程、布朗运动和马尔可夫过程基础。"
-excerpt_en: "A study note on stochastic process basics, covering definitions, numerical characteristics, stationary processes, Poisson processes, Brownian motion, and Markov process foundations."
+excerpt: "整理随机过程定义、数字特征、平稳过程、泊松过程、布朗运动和马尔可夫过程基础。"
+excerpt_en: "Covers definitions, numerical characteristics, stationary processes, Poisson processes, Brownian motion, and Markov process foundations."
 mathjax: true
 hidden: true
 permalink: '/blog/2023/03/18/stochastic-process-basics-notes/'

@@ -1,12 +1,12 @@
 ---
-title: "高等代数：矩阵和线性空间学习笔记"
-title_en: "Advanced Algebra: Matrices and Linear Spaces Notes"
+title: "高等代数：矩阵和线性空间"
+title_en: "Advanced Algebra: Matrices and Linear Spaces"
 date: 2023-06-17 23:01:45 +0800
 categories: ["Mathematics", "Algebra & Matrix Theory"]
 tags: ["Learning Notes", "Mathematics", "Linear Algebra"]
 author: Hyacehila
-excerpt: "一篇高等代数矩阵和线性空间学习笔记，整理矩阵运算、初等变换、矩阵的秩、逆矩阵、线性空间和二次型等内容。"
-excerpt_en: "A study note on matrices and linear spaces in advanced algebra, covering matrix operations, elementary transformations, rank, inverse matrices, linear spaces, and quadratic forms."
+excerpt: "整理矩阵运算、初等变换、矩阵的秩、逆矩阵、线性空间和二次型等内容。"
+excerpt_en: "Covers matrix operations, elementary transformations, rank, inverse matrices, linear spaces, and quadratic forms."
 mathjax: true
 hidden: true
 permalink: '/blog/2023/06/17/advanced-algebra-matrices-linear-spaces-notes/'

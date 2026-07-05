@@ -1,12 +1,12 @@
 ---
-title: "Markov Chain 学习笔记"
-title_en: "Markov Chain Notes"
+title: "Markov Chain：转移概率、状态分类与平稳分布"
+title_en: "Markov Chains: Transition Probabilities, State Classification, and Stationary Distributions"
 date: 2025-09-11 22:53:52 +0800
 categories: ["Data Science & Statistics", "Time Series & Spatial Data"]
 tags: ["Learning Notes", "Statistics", "Stochastic Processes", "Markov Chains"]
 author: Hyacehila
-excerpt: "一篇 Markov Chain 学习笔记，整理离散时间马尔可夫链、转移概率、状态分类、平稳分布和相关基础性质。"
-excerpt_en: "A study note on Markov chains, covering discrete-time Markov chains, transition probabilities, state classification, stationary distributions, and core properties."
+excerpt: "整理离散时间马尔可夫链、转移概率、状态分类、平稳分布和相关基础性质。"
+excerpt_en: "Covers discrete-time Markov chains, transition probabilities, state classification, stationary distributions, and core properties."
 mathjax: true
 hidden: true
 permalink: '/blog/2025/09/11/markov-chain-notes/'

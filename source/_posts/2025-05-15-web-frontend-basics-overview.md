@@ -5,8 +5,8 @@ date: 2025-05-15 17:16:45 +0800
 categories: ["Programming", "Web Frontend"]
 tags: ["Learning Notes", "HTML", "CSS"]
 author: Hyacehila
-excerpt: "一篇 Web 前端基础学习笔记，整理 HTML 页面结构、常见元素、链接、图像、表格、表单、meta 信息、音视频、CSS 颜色、文本和盒模型。"
-excerpt_en: "A study note on web frontend basics, covering HTML structure, common elements, links, images, tables, forms, meta information, audio and video, CSS colors, text, and the box model."
+excerpt: "整理 HTML 页面结构、常见元素、链接、图像、表格、表单、meta 信息、音视频、CSS 颜色、文本和盒模型。"
+excerpt_en: "Covers HTML structure, common elements, links, images, tables, forms, meta information, audio and video, CSS colors, text, and the box model."
 mathjax: false
 hidden: true
 permalink: '/blog/2025/05/15/web-frontend-basics-overview/'

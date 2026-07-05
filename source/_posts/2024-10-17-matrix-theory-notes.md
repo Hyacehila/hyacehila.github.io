@@ -1,12 +1,12 @@
 ---
-title: "矩阵论学习笔记"
-title_en: "Matrix Theory Notes"
+title: "矩阵论：矩阵范数、谱半径与Hermite 矩阵"
+title_en: "Matrix Theory: Matrix Norms, Spectral Radius, and Hermitian Matrices"
 date: 2024-10-17 15:24:42 +0800
 categories: ["Mathematics", "Algebra & Matrix Theory"]
 tags: ["Learning Notes", "Mathematics", "Matrix Theory", "Linear Algebra"]
 author: Hyacehila
-excerpt: "一篇矩阵论学习笔记，整理矩阵范数、谱半径、Hermite 矩阵、矩阵分解、矩阵函数和相关矩阵理论。"
-excerpt_en: "A study note on matrix theory, covering matrix norms, spectral radius, Hermitian matrices, matrix decompositions, matrix functions, and related matrix theory."
+excerpt: "整理矩阵范数、谱半径、Hermite 矩阵、矩阵分解、矩阵函数和相关矩阵理论。"
+excerpt_en: "Covers matrix norms, spectral radius, Hermitian matrices, matrix decompositions, matrix functions, and related matrix theory."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/10/17/matrix-theory-notes/'

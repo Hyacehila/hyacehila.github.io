@@ -1,12 +1,12 @@
 ---
-title: "线性回归基础学习笔记"
-title_en: "Linear Regression Basics Notes"
+title: "线性回归基础：线性模型、最小二乘估计与回归诊断"
+title_en: "Linear Regression Basics: Linear Models, Least Squares, and Diagnostics"
 date: 2023-09-04 23:00:57 +0800
 categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
 tags: ["Learning Notes", "Statistics", "Regression", "Linear Models"]
 author: Hyacehila
-excerpt: "一篇线性回归基础学习笔记，整理线性模型、最小二乘估计、回归诊断、模型评价、方差分析和广义最小二乘。"
-excerpt_en: "A study note on linear regression basics, covering linear models, least squares estimation, regression diagnostics, model evaluation, ANOVA, and generalized least squares."
+excerpt: "整理线性模型、最小二乘估计、回归诊断、模型评价、方差分析和广义最小二乘。"
+excerpt_en: "Covers linear models, least squares estimation, regression diagnostics, model evaluation, ANOVA, and generalized least squares."
 mathjax: true
 hidden: true
 permalink: '/blog/2023/09/04/linear-regression-basics-notes/'
@@ -204,7 +204,7 @@ $$r_{ij}=\frac{\sum_{k=1}^{n}(x_{ki}-\overline{x}_{i})(x_{kj}-\overline{x}_{j})}
 当$e\sim N(0,\sigma^2I)$ 时 给出定理
 * $\hat{\beta}\sim N(\beta,\sigma^2(X^{\prime}X)^{-1});$
 * $\frac{\mathrm{RSS}}{\sigma^2}\sim\chi_{n-p}^2;$
-* $\text{β与 RSS 相互独立.}$
+* $\beta\text{ 与 RSS 相互独立.}$
 
 对于中心化后的线性回归模型
 * $E\left(\stackrel{\wedge}{\alpha}\right)=\alpha,\quad E\left(\hat{\beta}\right)=\beta,$ $\text{这里 }\hat{\alpha}=\overline{y},\hat{\beta}=(X_{c}^{\prime}X_{c})^{-1}X_{c}^{\prime}\mathbf{y}.$
