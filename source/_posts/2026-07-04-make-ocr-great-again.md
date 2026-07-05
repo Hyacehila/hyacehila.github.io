@@ -2,7 +2,7 @@
 title: "让 OCR 再次伟大"
 title_en: "Make OCR Great Again"
 date: 2026-07-04 23:30:00 +0800
-categories: ["Work & Society", "AI Engineering Workflows"]
+categories: ["Agent Systems", "Agent Infrastructure"]
 tags: ["OCR", "Document Parsing", "AI Engineering"]
 author: Hyacehila
 excerpt: "借 Unlimited OCR 的发布，简单聊聊 OCR 技术的两条演进路线：MinerU2.5-Pro 把模型放进一套工程化文档解析系统里，Unlimited OCR 则把长文档连续解析做进模型本身。"

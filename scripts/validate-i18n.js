@@ -20,6 +20,7 @@ const allowedCategoryPairs = new Set([
   'Data Science & Statistics > Time Series & Spatial Data',
   'Data Science & Statistics > Data Practice',
   'Data Science & Statistics > Applied Machine Learning & AutoML',
+  'Data Science & Statistics > Deep Learning',
   'Data Science & Statistics > Forecasting & Simulation',
   'Programming > Computer Science Fundamentals',
   'Programming > Python',
