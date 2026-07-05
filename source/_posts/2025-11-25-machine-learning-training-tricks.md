@@ -109,3 +109,7 @@ permalink: '/blog/2025/11/25/machine-learning-training-tricks/'
 4. mixup，也是个神级idea，输入上a类+b类混合一下，然后label也变成a+b混合，基本也是无脑增强，必定涨点
 	
 5. 对比学习大神器，核心就看如何构造正样本和负样本。有个惊艳的idea，同一个输入foward两次，因为dropout不同，就可以当正样本，也是无脑涨点
+
+## 参考资料
+
+- [深度学习调参指南中文版](/assets/docs/deep-learning-tuning-guide-zh.pdf)
