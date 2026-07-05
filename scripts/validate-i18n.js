@@ -16,6 +16,7 @@ const allowedCategoryPairs = new Set([
   'Agent Systems > Agent Training',
   'Data Science & Statistics > Statistical Thinking',
   'Data Science & Statistics > Statistical Modeling & Inference',
+  'Data Science & Statistics > Probability & Statistical Foundations',
   'Data Science & Statistics > Probabilistic Graphical Models',
   'Data Science & Statistics > Time Series & Spatial Data',
   'Data Science & Statistics > Data Practice',
