@@ -76,6 +76,11 @@ category_map:
   "Time Series & Spatial Data": time-series-spatial-data
   "Data Practice": data-practice
   "Deep Learning": deep-learning
+  "Mathematics": mathematics
+  "Mathematical Analysis": mathematical-analysis
+  "Algebra & Matrix Theory": algebra-matrix-theory
+  "Geometry & Topology": geometry-topology
+  "Optimization": optimization
   "Programming": programming
   "Computer Science Fundamentals": computer-science-fundamentals
   "Python": python
