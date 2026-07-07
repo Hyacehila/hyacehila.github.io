@@ -192,7 +192,6 @@ function validateTaxonomyConfig() {
 
 function validateUiCjk() {
   const checked = [
-    '_config.yml',
     '_config.redefine.yml',
     'source/me/index.md',
     'source/projects/index.md',
