@@ -2,7 +2,7 @@
 title: "Markov Chain：转移概率、状态分类与平稳分布"
 title_en: "Markov Chains: Transition Probabilities, State Classification, and Stationary Distributions"
 date: 2025-09-11 22:53:52 +0800
-categories: ["Data Science & Statistics", "Time Series & Spatial Data"]
+categories: ["Data Science", "Time Series & Spatial Data"]
 tags: ["Learning Notes", "Statistics", "Stochastic Processes", "Markov Chains"]
 author: Hyacehila
 excerpt: "整理离散时间马尔可夫链、转移概率、状态分类、平稳分布和相关基础性质。"

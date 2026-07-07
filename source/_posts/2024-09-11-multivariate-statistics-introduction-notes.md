@@ -2,7 +2,7 @@
 title: "多元统计引论：随机向量、协方差矩阵与多元正态分布"
 title_en: "Multivariate Statistics Introduction: Random Vectors, Covariance Matrices, and Multivariate Normal Distributions"
 date: 2024-09-11 18:36:49 +0800
-categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
+categories: ["Data Science", "Statistical Modeling & Inference"]
 tags: ["Learning Notes", "Statistics", "Multivariate Statistics"]
 author: Hyacehila
 excerpt: "整理随机向量、协方差矩阵、多元正态分布、广义方差、距离和相关基础概念。"

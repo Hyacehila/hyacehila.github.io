@@ -2,7 +2,7 @@
 title: "线性回归进阶：拟合优度、模型选择与共线性"
 title_en: "Advanced Linear Regression: Goodness of Fit, Model Selection, and Collinearity"
 date: 2025-09-23 12:02:07 +0800
-categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
+categories: ["Data Science", "Statistical Modeling & Inference"]
 tags: ["Learning Notes", "Statistics", "Regression", "Linear Models"]
 author: Hyacehila
 excerpt: "整理拟合优度、模型选择、共线性、异方差、自相关、稳健标准误和相关回归扩展问题。"

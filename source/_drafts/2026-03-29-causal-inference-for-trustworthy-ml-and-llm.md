@@ -1,7 +1,7 @@
 ---
 title: 从相关到因果：因果推断如何支撑可信机器学习与大模型
 date: 2026-03-29 19:00:00 +0800
-categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
+categories: ["Data Science", "Statistical Modeling & Inference"]
 tags: [Causal Inference, LLM, CLIP, Multimodality, LimiX]
 author: Hyacehila
 excerpt: 从相关、虚假关联和混杂控制出发，梳理因果推断如何为可信机器学习、大语言模型、CLIP 式多模态系统与结构化数据大模型 LimiX 提供方法论支撑。

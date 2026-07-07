@@ -2,7 +2,7 @@
 title: "贝叶斯统计：后验分布"
 title_en: "Bayesian Statistics: Posterior Distributions"
 date: 2023-10-28 17:36:48 +0800
-categories: ["Data Science & Statistics", "Probability & Statistical Foundations"]
+categories: ["Data Science", "Probability & Statistical Foundations"]
 tags: ["Learning Notes", "Statistics", "Bayesian Statistics"]
 author: Hyacehila
 excerpt: "整理 Bayes 公式、先验分布、后验分布、边缘分布、共轭先验和贝叶斯计算基础。"

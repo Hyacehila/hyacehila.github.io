@@ -2,7 +2,7 @@
 title: 卡尔曼滤波：从阿波罗登月到全球气象预报
 title_en: "Kalman Filtering: From Apollo Landings to Global Weather Forecasting"
 date: 2026-02-19 20:00:00 +0800
-categories: ["Data Science & Statistics", "Time Series & Spatial Data"]
+categories: ["Data Science", "Time Series & Spatial Data"]
 tags: ["Time Series"]
 author: Hyacehila
 hidden: true

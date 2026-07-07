@@ -2,7 +2,7 @@
 title: "多元金融时间序列分析：向量自回归、协整与状态空间模型"
 title_en: "Multivariate Financial Time Series Analysis: VAR, cointegration, and state space models"
 date: 2025-09-27 18:50:29 +0800
-categories: ["Data Science & Statistics", "Time Series & Spatial Data"]
+categories: ["Data Science", "Time Series & Spatial Data"]
 tags: ["Learning Notes", "Statistics", "Time Series", "Financial Time Series"]
 author: Hyacehila
 excerpt: "整理向量自回归、协整、状态空间模型、卡尔曼滤波和多元波动建模。"

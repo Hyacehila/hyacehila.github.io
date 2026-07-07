@@ -2,7 +2,7 @@
 title: "统计计算：随机数生成、随机变量模拟与蒙特卡洛方法"
 title_en: "Statistical Computing: Random Number Generation, Simulation, and Monte Carlo"
 date: 2023-09-12 18:43:25 +0800
-categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
+categories: ["Data Science", "Statistical Modeling & Inference"]
 tags: ["Learning Notes", "Statistics", "Statistical Computing", "Simulation"]
 author: Hyacehila
 excerpt: "整理随机数生成、随机变量模拟、蒙特卡洛方法、抽样算法和数值计算相关内容。"

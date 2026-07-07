@@ -2,7 +2,7 @@
 title: 问卷的信效度分析与结构方程模型 (SEM)
 title_en: "Questionnaire Reliability, Validity, and Structural Equation Modeling (SEM)"
 date: 2026-01-08 12:00:00 +0800
-categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
+categories: ["Data Science", "Statistical Modeling & Inference"]
 tags: ["Linear Models"]
 author: Hyacehila
 excerpt: 在问卷研究中，信度和效度是衡量问卷质量的两个标准。本文介绍信度分析、效度分析以及验证性因子分析（CFA）与结构方程模型（SEM）的基本概念与流程。

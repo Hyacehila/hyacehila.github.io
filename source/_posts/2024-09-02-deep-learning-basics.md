@@ -2,7 +2,7 @@
 title: "深度学习基础：神经网络、优化方法与归一化"
 title_en: "Deep Learning Basics: Neural Networks, Optimization, and Normalization"
 date: 2024-09-02 22:28:33 +0800
-categories: ["Data Science & Statistics", "Deep Learning"]
+categories: ["Machine Learning", "Deep Learning"]
 tags: ["Learning Notes", "Machine Learning", "Deep Learning", "Neural Networks"]
 author: Hyacehila
 excerpt: "整理神经网络、损失函数、优化方法、学习率、分类、批量归一化、残差网络等基础概念。"

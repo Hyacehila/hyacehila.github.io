@@ -2,7 +2,7 @@
 title: "描述性统计与可视化：数据测度、距离与相关分析"
 title_en: "Descriptive Statistics and Visualization: Measurement, Distances, and Statistical Graphics"
 date: 2023-11-05 00:21:21 +0800
-categories: ["Data Science & Statistics", "Data Practice"]
+categories: ["Data Science", "Data Practice"]
 tags: ["Learning Notes", "Statistics", "Data Visualization", "Descriptive Statistics"]
 author: Hyacehila
 excerpt: "整理数据测度、距离、相关分析、分布描述、稳健统计量和常见统计图形。"

@@ -69,14 +69,16 @@ category_map:
   "Agent Evaluation & Governance": agent-evaluation-governance
   "Agent Infrastructure": agent-infrastructure
   "Agent Training": agent-training
-  "Data Science & Statistics": data-science-statistics
+  "Data Science": data-science
   "Statistical Thinking": statistical-thinking
   "Statistical Modeling & Inference": statistical-modeling-inference
   "Probability & Statistical Foundations": probability-statistical-foundations
-  "Probabilistic Graphical Models": probabilistic-graphical-models
   "Time Series & Spatial Data": time-series-spatial-data
   "Data Practice": data-practice
+  "Machine Learning": machine-learning
+  "Classical Machine Learning": classical-machine-learning
   "Deep Learning": deep-learning
+  "Probabilistic Graphical Models": probabilistic-graphical-models
   "Mathematics": mathematics
   "Mathematical Analysis": mathematical-analysis
   "Algebra & Matrix Theory": algebra-matrix-theory
@@ -89,8 +91,6 @@ category_map:
   "Data & Databases": data-databases
   "R": r
   "C & C++": c-cpp
-  "Applied Machine Learning & AutoML": applied-machine-learning-automl
-  "Forecasting & Simulation": forecasting-simulation
   "Work & Society": work-society
   "AI Engineering Workflows": ai-engineering-workflows
   "Builder & Product Thinking": builder-product-thinking

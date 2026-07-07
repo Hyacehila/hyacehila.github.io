@@ -2,7 +2,7 @@
 title: "高等概率论：概率空间、随机变量与测度基础"
 title_en: "Advanced Probability: Probability Spaces, Random Variables, and Measure-Theoretic Foundations"
 date: 2024-10-09 21:29:48 +0800
-categories: ["Data Science & Statistics", "Probability & Statistical Foundations"]
+categories: ["Data Science", "Probability & Statistical Foundations"]
 tags: ["Learning Notes", "Statistics", "Probability", "Measure Theory"]
 author: Hyacehila
 excerpt: "整理概率空间、随机变量、测度基础、收敛性、独立性、条件期望和相关概率理论。"

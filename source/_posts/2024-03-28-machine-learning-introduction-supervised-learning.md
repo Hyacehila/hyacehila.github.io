@@ -2,7 +2,7 @@
 title: "机器学习导论：监督学习、模型评估与贝叶斯方法"
 title_en: "Machine Learning Introduction: Supervised Learning, Model Evaluation, and Bayesian Methods"
 date: 2024-03-28 18:22:50 +0800
-categories: ["Data Science & Statistics", "Applied Machine Learning & AutoML"]
+categories: ["Machine Learning", "Classical Machine Learning"]
 tags: ["Learning Notes", "Machine Learning", "Supervised Learning"]
 author: Hyacehila
 excerpt: "整理机器学习基本概念、模型评估、决策树、支持向量机、核方法、贝叶斯分类器和贝叶斯网。"

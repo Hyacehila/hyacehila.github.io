@@ -2,7 +2,7 @@
 title: "机器学习炼丹技术备忘"
 title_en: "Machine Learning Training Tricks Memo"
 date: 2025-11-25 12:33:02 +0800
-categories: ["Data Science & Statistics", "Applied Machine Learning & AutoML"]
+categories: ["Machine Learning", "Deep Learning"]
 tags: ["Learning Notes", "Machine Learning", "Model Training", "Research Methods"]
 author: Hyacehila
 excerpt: "一篇机器学习训练和实验技巧备忘，整理算力、超参数、小修小改、增量设计、测试方法和常见炼丹套路。"

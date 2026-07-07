@@ -2,7 +2,7 @@
 title: "自编码器与变分自编码器：重参数化、KL 散度与 ELBO"
 title_en: "Autoencoders and Variational Autoencoders: Reparameterization, KL Divergence, and ELBO"
 date: 2026-01-17 23:58:14 +0800
-categories: ["Data Science & Statistics", "Deep Learning"]
+categories: ["Machine Learning", "Deep Learning"]
 tags: ["Learning Notes", "Machine Learning", "Deep Learning", "Autoencoders", "Variational Autoencoders"]
 author: Hyacehila
 excerpt: "整理 AE、DAE、SAE、VAE、重参数化技巧、KL 散度和 ELBO 等内容。"

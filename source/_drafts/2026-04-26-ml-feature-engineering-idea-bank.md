@@ -1,7 +1,7 @@
 ---
 title: "ML 经验想法库：从聚类特征、特征加权到 DeepFM"
 date: 2026-04-26 18:00:00 +0800
-categories: ["Data Science & Statistics", "Applied Machine Learning & AutoML"]
+categories: ["Machine Learning", "Classical Machine Learning"]
 tags: [Feature Engineering, Tabular ML, Recommender Systems, Methodology]
 author: Hyacehila
 excerpt: "一份围绕结构化机器学习经验的草稿库：如何把无监督结构、领域先验和稀疏交叉关系变成模型真正可学习的特征表示。"

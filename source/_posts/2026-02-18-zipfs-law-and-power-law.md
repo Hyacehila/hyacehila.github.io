@@ -2,7 +2,7 @@
 title: 聊聊齐普夫定律：从伏尼契手稿到外星文明
 title_en: "Zipf's Law: From the Voynich Manuscript to Alien Civilizations"
 date: 2026-02-18 20:00:00 +0800
-categories: ["Data Science & Statistics", "Statistical Thinking"]
+categories: ["Data Science", "Statistical Thinking"]
 tags: ["Statistical Thinking"]
 author: Hyacehila
 excerpt: 伏尼契手稿是胡乱涂鸦还是失落的语言？外星人信号长什么样？这一切都指向同一个统计学定律。

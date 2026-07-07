@@ -2,7 +2,7 @@
 title: 从 Bagging 到 Stacking：集成学习方法图谱
 title_en: "From Bagging to Stacking: A Map of Ensemble Learning Methods"
 date: 2026-03-11 22:30:00 +0800
-categories: ["Data Science & Statistics", "Applied Machine Learning & AutoML"]
+categories: ["Machine Learning", "Classical Machine Learning"]
 tags: ["XGBoost", "Learning Notes"]
 author: Hyacehila
 excerpt: "把 Random Forest、GBDT、XGBoost 与 Stacking 放回同一张图里，梳理集成学习的核心脉络。"

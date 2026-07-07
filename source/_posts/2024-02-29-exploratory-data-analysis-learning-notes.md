@@ -2,7 +2,7 @@
 title: "探索性数据分析：描述统计、可视化与数据预处理"
 title_en: "Exploratory Data Analysis: Descriptive Statistics, Visualization, and Preprocessing"
 date: 2024-02-29 21:41:47 +0800
-categories: ["Data Science & Statistics", "Data Practice"]
+categories: ["Data Science", "Data Practice"]
 tags: ["Learning Notes", "Exploratory Data Analysis", "Data Preprocessing"]
 author: Hyacehila
 excerpt: "整理 EDA 的基本思想、描述性统计、数据可视化、数据预处理、数据清洗、数据融合、数据转换和 Box-Cox 变换。"

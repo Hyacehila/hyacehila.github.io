@@ -2,7 +2,7 @@
 title: "统计预测：定性预测、定量预测与趋势外推"
 title_en: "Statistical Forecasting: Qualitative Methods, Quantitative Methods, and Error Evaluation"
 date: 2024-01-01 15:06:38 +0800
-categories: ["Data Science & Statistics", "Forecasting & Simulation"]
+categories: ["Data Science", "Time Series & Spatial Data"]
 tags: ["Learning Notes", "Statistics", "Forecasting"]
 author: Hyacehila
 excerpt: "整理定性预测、定量预测、趋势外推、平滑预测和预测误差评估等基础方法。"

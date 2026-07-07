@@ -2,7 +2,7 @@
 title: "线性回归基础：线性模型、最小二乘估计与回归诊断"
 title_en: "Linear Regression Basics: Linear Models, Least Squares, and Diagnostics"
 date: 2023-09-04 23:00:57 +0800
-categories: ["Data Science & Statistics", "Statistical Modeling & Inference"]
+categories: ["Data Science", "Statistical Modeling & Inference"]
 tags: ["Learning Notes", "Statistics", "Regression", "Linear Models"]
 author: Hyacehila
 excerpt: "整理线性模型、最小二乘估计、回归诊断、模型评价、方差分析和广义最小二乘。"

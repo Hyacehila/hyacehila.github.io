@@ -2,7 +2,7 @@
 title: LDA主题模型：文本数据的生成密码
 title_en: "LDA Topic Models: The Generative Code of Text"
 date: 2026-02-12 12:00:00 +0800
-categories: ["Data Science & Statistics", "Probabilistic Graphical Models"]
+categories: ["Machine Learning", "Probabilistic Graphical Models"]
 tags: ["Graphical Models"]
 author: Hyacehila
 excerpt: 作为概率图模型的集大成者，LDA 将贝叶斯先验与潜变量模型完美融合，破解了非结构化文本背后的“主题结构”。本文利用 Plate Notation 细致剖析了其生成过程，并推导了基于折叠吉布斯采样的推断算法。
