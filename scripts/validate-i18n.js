@@ -36,6 +36,7 @@ const allowedCategoryPairs = new Set([
   'Work & Society > Builder & Product Thinking',
   'Work & Society > Career & Learning',
   'Work & Society > AI & Society',
+  'Work & Society > Research Practice',
   'Creative Media & Games > Game AI & Production',
   'Creative Media & Games > Game Design',
   'Creative Media & Games > Generative Media Tools',
