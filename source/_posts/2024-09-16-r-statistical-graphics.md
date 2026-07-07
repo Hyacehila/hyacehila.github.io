@@ -3,7 +3,7 @@ title: "R 统计图形：base、lattice 与 ggplot2"
 title_en: "R Statistical Graphics: Base Graphics, lattice, and ggplot2"
 date: 2024-09-16 22:32:48 +0800
 categories: ["Programming", "R"]
-tags: ["Learning Notes", "R", "Data Visualization"]
+tags: ["R", "Data Visualization"]
 author: Hyacehila
 excerpt: "整理经典统计图形、作图经验、base R 作图系统、lattice 和 ggplot2 的基础思路。"
 excerpt_en: "Covers classic graphics, plotting principles, base R graphics, lattice, and ggplot2 basics."

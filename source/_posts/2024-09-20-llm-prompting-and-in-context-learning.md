@@ -3,7 +3,7 @@ title: "提示学习与上下文学习：设计原则、思维链与角色扮演
 title_en: "Prompting and In-Context Learning: Design Principles, Chain-of-Thought, and Role-Playing"
 date: 2024-09-20 20:00:00 +0800
 categories: ["Foundation Models", "Model Mechanics"]
-tags: ["Learning Notes","LLM","Prompt Engineering","In-Context Learning","CoT"]
+tags: ["LLM", "Prompt Engineering", "In-Context Learning", "CoT"]
 author: Hyacehila
 excerpt: "整理基础提示设计的四要素与原则、上下文学习（zero/few-shot）、思维链提示以及角色扮演与情景提示策略。"
 excerpt_en: "Covers the four key prompt design elements, in-context learning (zero/few-shot), chain-of-thought prompting, and role-playing/situational prompting strategies."

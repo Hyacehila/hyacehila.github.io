@@ -3,7 +3,7 @@ title: "JSON 与 JSONL 速成"
 title_en: "JSON and JSONL: Objects, Arrays, and Streaming Records"
 date: 2025-10-14 23:54:21 +0800
 categories: ["Programming", "Data & Databases"]
-tags: ["Learning Notes", "JSON"]
+tags: ["JSON", "Data Engineering"]
 author: Hyacehila
 excerpt: "整理对象、数组、流式处理，以及 Python 中 json.load、json.loads、dump、dumps 的基本用法。"
 excerpt_en: "Covers objects, arrays, streaming processing, and basic Python json.load, json.loads, dump, and dumps usage."

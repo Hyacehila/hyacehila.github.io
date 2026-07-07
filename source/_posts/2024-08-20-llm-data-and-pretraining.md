@@ -3,7 +3,7 @@ title: "大语言模型数据工程与预训练：数据、分词与训练策略
 title_en: "LLM Data Engineering and Pretraining: Data, Tokenization, and Training Strategies"
 date: 2024-08-20 20:00:00 +0800
 categories: ["Foundation Models", "Training & Alignment"]
-tags: ["Learning Notes","LLM","Pretraining","Tokenization","Data Engineering"]
+tags: ["LLM", "Pre-Training", "Tokenization", "Data Engineering"]
 author: Hyacehila
 excerpt: "整理预训练数据的来源与预处理流程、分词方法、解码器架构变体、预训练任务设计以及可扩展训练技术。"
 excerpt_en: "Covers pretraining data sources and preprocessing, tokenization methods, decoder architecture variants, pretraining task design, and scalable training techniques."

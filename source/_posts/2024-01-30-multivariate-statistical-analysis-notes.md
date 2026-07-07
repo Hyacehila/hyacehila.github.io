@@ -3,7 +3,7 @@ title: "多元统计分析：判别分析、主成分分析与因子分析"
 title_en: "Multivariate Statistical Analysis: Discriminant Analysis, PCA, and Factor Analysis"
 date: 2024-01-30 23:46:10 +0800
 categories: ["Data Science", "Statistical Modeling & Inference"]
-tags: ["Learning Notes", "Statistics", "Multivariate Statistics"]
+tags: ["Statistics", "Multivariate Statistics"]
 author: Hyacehila
 excerpt: "整理判别分析、主成分分析、因子分析、聚类分析、对应分析和列联表分析。"
 excerpt_en: "Covers discriminant analysis, PCA, factor analysis, clustering, correspondence analysis, and contingency table analysis."

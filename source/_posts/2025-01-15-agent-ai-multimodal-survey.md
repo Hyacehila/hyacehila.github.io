@@ -3,7 +3,7 @@ title: "多模态 Agent AI 综述：范式、学习机制与应用"
 title_en: "Multimodal Agent AI Survey: Paradigms, Learning Mechanisms, and Applications"
 date: 2025-01-15 20:00:00 +0800
 categories: ["Agent Systems", "Agent Architecture"]
-tags: ["Learning Notes","Agent","Multimodal","Embodied AI","Survey"]
+tags: ["Multimodality", "Embodied AI", "Survey"]
 author: Hyacehila
 excerpt: "基于 2024 年综述论文，整理 Agent AI 的范式设计、Agent Transformer 架构、学习机制（RL/IL/上下文学习）以及跨领域应用。"
 excerpt_en: "Based on a 2024 survey paper, covers Agent AI paradigm design, Agent Transformer architecture, learning mechanisms (RL/IL/in-context), and cross-domain applications."

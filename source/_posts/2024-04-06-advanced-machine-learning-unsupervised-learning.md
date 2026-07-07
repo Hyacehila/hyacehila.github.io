@@ -3,7 +3,7 @@ title: "机器学习进阶：无监督学习、稀疏学习与半监督学习"
 title_en: "Advanced Machine Learning: Unsupervised Learning, Sparse Learning, and Semi-Supervised Learning"
 date: 2024-04-06 01:38:58 +0800
 categories: ["Machine Learning", "Classical Machine Learning"]
-tags: ["Learning Notes", "Machine Learning", "Unsupervised Learning", "Semi-Supervised Learning"]
+tags: ["Machine Learning", "Unsupervised Learning", "Semi-Supervised Learning"]
 author: Hyacehila
 excerpt: "整理聚类、核密度估计、谱聚类、图聚类、异常检测、特征选择、稀疏学习和半监督学习。"
 excerpt_en: "Covers clustering, kernel density estimation, spectral and graph clustering, anomaly detection, feature selection, sparse learning, and semi-supervised learning."

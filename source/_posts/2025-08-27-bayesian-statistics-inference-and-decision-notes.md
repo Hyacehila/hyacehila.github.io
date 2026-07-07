@@ -3,7 +3,7 @@ title: "贝叶斯统计：推断与决策"
 title_en: "Bayesian Statistics: Inference and Decision"
 date: 2025-08-27 00:18:46 +0800
 categories: ["Data Science", "Probability & Statistical Foundations"]
-tags: ["Learning Notes", "Statistics", "Bayesian Statistics", "Statistical Decision"]
+tags: ["Statistics", "Bayesian Statistics", "Statistical Decision"]
 author: Hyacehila
 excerpt: "整理条件方法、贝叶斯估计、假设检验、多假设问题和决策理论。"
 excerpt_en: "Covers conditional methods, Bayesian estimation, hypothesis testing, multiple hypotheses, and decision theory."

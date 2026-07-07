@@ -3,7 +3,7 @@ title: "数学分析：极限与连续理论"
 title_en: "Mathematical Analysis: Limits and Continuity"
 date: 2023-03-16 00:10:49 +0800
 categories: ["Mathematics", "Mathematical Analysis"]
-tags: ["Learning Notes", "Mathematics", "Mathematical Analysis"]
+tags: ["Mathematical Analysis"]
 author: Hyacehila
 excerpt: "整理集合、函数、数列极限、函数极限、连续性和相关基础概念。"
 excerpt_en: "Covers sets, functions, sequence limits, function limits, continuity, and related foundations."

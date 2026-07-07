@@ -3,7 +3,7 @@ title: "数据结构导论：线性表、树、图与查找排序"
 title_en: "Introduction to Data Structures: Linear Lists, Trees, Graphs, and Search"
 date: 2025-05-12 22:24:30 +0800
 categories: ["Programming", "Computer Science Fundamentals"]
-tags: ["Learning Notes", "Data Structures"]
+tags: ["Data Structures", "Algorithms"]
 author: Hyacehila
 excerpt: "整理数据结构基本概念、线性表、栈、队列、树、图、查找和排序等程序设计基础。"
 excerpt_en: "Introduces data structures through core concepts, linear lists, stacks, queues, trees, graphs, search, sorting, and programming fundamentals."

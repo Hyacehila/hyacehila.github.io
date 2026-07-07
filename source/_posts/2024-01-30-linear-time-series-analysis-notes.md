@@ -3,7 +3,7 @@ title: "线性时间序列分析：平稳序列、ARMA与ARIMA"
 title_en: "Linear Time Series Analysis: Stationarity, ARMA, and ARIMA"
 date: 2024-01-30 23:46:29 +0800
 categories: ["Data Science", "Time Series & Spatial Data"]
-tags: ["Learning Notes", "Statistics", "Time Series"]
+tags: ["Statistics", "Time Series"]
 author: Hyacehila
 excerpt: "整理平稳序列、ARMA、ARIMA、模型识别、参数估计、残差诊断和含时间序列误差的回归。"
 excerpt_en: "Covers stationarity, ARMA, ARIMA, model identification, parameter estimation, residual diagnostics, and regression with time series errors."

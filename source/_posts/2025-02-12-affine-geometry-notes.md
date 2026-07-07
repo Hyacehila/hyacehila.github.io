@@ -3,7 +3,7 @@ title: "仿射空间几何学：仿射空间、坐标变换与几何量"
 title_en: "Affine Geometry: Affine Spaces, Coordinate Transformations, and Geometric Quantities"
 date: 2025-02-12 18:22:33 +0800
 categories: ["Mathematics", "Geometry & Topology"]
-tags: ["Learning Notes", "Mathematics", "Affine Geometry"]
+tags: ["Affine Geometry"]
 author: Hyacehila
 excerpt: "整理仿射空间、坐标变换、几何量、向量场、导数、曲线与曲面等内容。"
 excerpt_en: "Covers affine spaces, coordinate transformations, geometric quantities, vector fields, derivatives, curves, and surfaces."

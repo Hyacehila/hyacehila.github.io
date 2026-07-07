@@ -3,7 +3,7 @@ title: "非线性回归：内在线性模型、内在非线性模型与多项式
 title_en: "Nonlinear Regression: Intrinsic Nonlinearity, Polynomial Models, and Nonlinear Least Squares"
 date: 2025-09-23 12:00:46 +0800
 categories: ["Data Science", "Statistical Modeling & Inference"]
-tags: ["Learning Notes", "Statistics", "Regression", "Nonlinear Regression"]
+tags: ["Statistics", "Regression", "Nonlinear Regression"]
 author: Hyacehila
 excerpt: "整理内在线性模型、内在非线性模型、多项式回归、正交多项式回归和非线性最小二乘。"
 excerpt_en: "Covers intrinsically linear and nonlinear models, polynomial regression, orthogonal polynomial regression, and nonlinear least squares."

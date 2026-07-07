@@ -3,7 +3,7 @@ title: "大语言模型微调实践：显存估算、数据格式与框架选择
 title_en: "LLM Fine-Tuning Practice: Memory Estimation, Dataset Formats, and Framework Selection"
 date: 2024-12-01 20:00:00 +0800
 categories: ["Foundation Models", "Training & Alignment"]
-tags: ["Learning Notes","LLM","Fine-tuning","LoRA","Unsloth","HuggingFace"]
+tags: ["LLM", "Fine-Tuning", "LoRA", "Unsloth", "Hugging Face"]
 author: Hyacehila
 excerpt: "整理微调显存估算方法、各类微调数据集格式（ChatML/Alpaca/ShareGPT）、常用框架（Unsloth/HuggingFace/PyTorch）及公开数据集。"
 excerpt_en: "Covers fine-tuning memory estimation, dataset formats (ChatML/Alpaca/ShareGPT), common frameworks (Unsloth/HuggingFace/PyTorch), and public datasets."

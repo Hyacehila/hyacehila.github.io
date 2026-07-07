@@ -3,7 +3,7 @@ title: "科学写作指南"
 title_en: "Scientific Writing Guide"
 date: 2025-10-09 12:00:00 +0800
 categories: ["Work & Society", "Research Practice"]
-tags: ["Research Methods", "Academic Writing", "Learning Notes"]
+tags: ["Research Methods", "Academic Writing"]
 author: Hyacehila
 excerpt: "结合 Stanford 科学写作课程与 Hilary Glasman-Deal 的写作指南，系统整理科学写作的核心原则——清晰有效高于优雅风格、大胆删改、主动语态、动词驱动，以及从预写作到投稿的全流程技巧。"
 excerpt_en: "A systematic guide to scientific writing, combining Stanford's science writing course with Hilary Glasman-Deal's book, covering core principles, active voice, strong verbs, manuscript structure, and the full writing process from prewriting to submission."

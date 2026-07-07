@@ -3,7 +3,7 @@ title: "R 进阶：帮助系统、源码查看与命名空间"
 title_en: "R Advanced: Help Systems, Source Inspection, and Namespaces"
 date: 2024-09-16 19:09:37 +0800
 categories: ["Programming", "R"]
-tags: ["Learning Notes", "R"]
+tags: ["R"]
 author: Hyacehila
 excerpt: "整理帮助系统、函数源代码查看、类函数与非类函数以及命名空间访问方式。"
 excerpt_en: "An advanced R overview covering the help system, source inspection, functions versus methods, and namespace access patterns."

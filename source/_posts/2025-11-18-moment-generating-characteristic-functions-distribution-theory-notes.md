@@ -3,7 +3,7 @@ title: "矩母函数、特征函数与分布理论：生成函数视角下的概
 title_en: "Moment Generating Functions, Characteristic Functions, and Distribution Theory"
 date: 2025-11-18 21:52:54 +0800
 categories: ["Data Science", "Probability & Statistical Foundations"]
-tags: ["Learning Notes", "Statistics", "Probability", "Distribution Theory"]
+tags: ["Statistics", "Probability", "Distribution Theory"]
 author: Hyacehila
 excerpt: "整理生成函数视角下的概率分布研究方法。"
 excerpt_en: "A overview on generating functions, moment generating functions, characteristic functions, and distribution theory from a probabilistic distribution perspective."

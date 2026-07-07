@@ -3,7 +3,7 @@ title: "科研数据集指南"
 title_en: "A Practical Guide to Research Databases"
 date: 2025-09-18 12:00:00 +0800
 categories: ["Work & Society", "Research Practice"]
-tags: ["Research Methods", "Data Curation", "Learning Notes"]
+tags: ["Research Methods", "Data Curation"]
 author: Hyacehila
 excerpt: "梳理科研常用公开数据库：Kaggle、DBpedia、NHANES、UK Biobank、CHARLS、GBD，包括各数据库的数据类型、访问方式、研究思路与分析方法要点。"
 excerpt_en: "A practical guide to commonly used research databases: Kaggle, DBpedia, NHANES, UK Biobank, CHARLS, and GBD, covering data types, access methods, research strategies, and analytical considerations."

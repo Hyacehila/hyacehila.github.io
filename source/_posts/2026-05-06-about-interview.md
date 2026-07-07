@@ -3,7 +3,7 @@ title: "About Interview and Job Hunting"
 title_en: "About Interview and Job Hunting"
 date: 2026-05-06 20:00:00 +0800
 categories: ["Work & Society", "Career & Learning"]
-tags: ["Learning Notes"]
+tags: ["Interview", "Career"]
 author: Hyacehila
 excerpt: "一些关于求职和面试准备的阶段性整理，目前还不完善，会随着后续经历和反馈继续更新。"
 excerpt_en: "A work-in-progress record of job hunting and interview preparation that will keep evolving with applications, interviews, feedback, and role research."

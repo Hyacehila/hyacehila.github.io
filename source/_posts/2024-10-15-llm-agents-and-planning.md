@@ -3,7 +3,7 @@ title: "大语言模型智能体与规划：从任务分解到多智能体协作
 title_en: "LLM Agents and Planning: From Task Decomposition to Multi-Agent Collaboration"
 date: 2024-10-15 20:00:00 +0800
 categories: ["Agent Systems", "Agent Architecture"]
-tags: ["Learning Notes","LLM","Agent","Planning","Multi-Agent","MCP"]
+tags: ["LLM", "Planning", "Multi-Agent", "MCP"]
 author: Hyacehila
 excerpt: "整理基于 LLM 的任务规划方法、智能体架构（记忆/规划/执行）、多智能体协作机制以及典型应用案例。"
 excerpt_en: "Covers LLM-based task planning, agent architecture (memory/planning/execution), multi-agent collaboration mechanisms, and representative applications."

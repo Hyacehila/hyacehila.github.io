@@ -3,7 +3,7 @@ title: "R in Action：数据导入、数据管理与 EDA"
 title_en: "R in Action: Data Import, Data Management, and EDA"
 date: 2024-09-08 22:33:29 +0800
 categories: ["Programming", "R"]
-tags: ["Learning Notes", "R", "Data Management"]
+tags: ["R", "Data Management"]
 author: Hyacehila
 excerpt: "围绕数据导入、数据管理、缺失值处理和探索性数据分析整理实践要点。"
 excerpt_en: "A overview inspired by R in Action, organizing practical material on data import, data management, missing data handling, and exploratory data analysis."

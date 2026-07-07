@@ -3,7 +3,7 @@ title: "金融随机分析：金融衍生品、二叉树定价与无套利理论
 title_en: "Financial Stochastic Analysis: Derivatives, Binomial Pricing, and No-Arbitrage Theory"
 date: 2024-10-17 15:19:25 +0800
 categories: ["Data Science", "Time Series & Spatial Data"]
-tags: ["Learning Notes", "Statistics", "Stochastic Processes", "Financial Mathematics"]
+tags: ["Statistics", "Stochastic Processes", "Financial Mathematics"]
 author: Hyacehila
 excerpt: "整理金融衍生品、二叉树定价、无套利理论、风险中性测度、鞅和连续时间金融模型。"
 excerpt_en: "Covers derivatives, binomial pricing, no-arbitrage theory, risk-neutral measures, martingales, and continuous-time financial models."

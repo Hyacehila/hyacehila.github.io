@@ -3,7 +3,7 @@ title: "概率与统计例题：抽样分布、参数估计与统计量性质"
 title_en: "Probability and Statistics Exercises: Sampling Distributions, Estimation, and Statistics"
 date: 2024-09-24 00:14:54 +0800
 categories: ["Data Science", "Probability & Statistical Foundations"]
-tags: ["Learning Notes", "Statistics", "Probability", "Exercises"]
+tags: ["Statistics", "Probability"]
 author: Hyacehila
 excerpt: "整理古典概型、抽样分布、矩估计、极大似然估计和统计量性质等例题。"
 excerpt_en: "A overview of probability and statistics exercises, covering classical probability, sampling distributions, moment estimation, maximum likelihood estimation, and properties of statistics."

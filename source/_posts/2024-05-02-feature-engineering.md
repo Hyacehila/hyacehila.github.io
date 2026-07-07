@@ -3,7 +3,7 @@ title: "特征工程：特征选择、特征构造与降维"
 title_en: "Feature Engineering: Feature Selection, Feature Construction, and Dimensionality Reduction"
 date: 2024-05-02 15:24:00 +0800
 categories: ["Machine Learning", "Classical Machine Learning"]
-tags: ["Learning Notes", "Machine Learning", "Feature Engineering", "Data Preprocessing"]
+tags: ["Machine Learning", "Feature Engineering", "Data Preprocessing"]
 author: Hyacehila
 excerpt: "整理特征工程基本概念、特征选择、特征构造、数据降维、迁移学习和自动化特征工程。"
 excerpt_en: "Covers core concepts, feature selection, feature construction, dimensionality reduction, transfer learning, and automated feature engineering."

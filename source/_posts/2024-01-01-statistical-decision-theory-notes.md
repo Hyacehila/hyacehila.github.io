@@ -3,7 +3,7 @@ title: "统计决策：决策问题、风险型决策与不确定型决策"
 title_en: "Statistical Decision Theory: Risk, Uncertainty, and Multi-Objective Decisions"
 date: 2024-01-01 15:06:22 +0800
 categories: ["Data Science", "Statistical Modeling & Inference"]
-tags: ["Learning Notes", "Statistics", "Statistical Decision"]
+tags: ["Statistics", "Statistical Decision"]
 author: Hyacehila
 excerpt: "整理决策问题、风险型决策、不确定型决策、多目标决策和层次分析法。"
 excerpt_en: "Covers decision problems, risky decisions, uncertain decisions, multi-objective decisions, and analytic hierarchy process."

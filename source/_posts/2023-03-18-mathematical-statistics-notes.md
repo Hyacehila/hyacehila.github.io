@@ -3,7 +3,7 @@ title: "数理统计：总体与样本、统计量与抽样分布"
 title_en: "Mathematical Statistics: Populations, Samples, and Sampling Distributions"
 date: 2023-03-18 21:28:08 +0800
 categories: ["Data Science", "Probability & Statistical Foundations"]
-tags: ["Learning Notes", "Statistics", "Mathematical Statistics", "Statistical Inference"]
+tags: ["Statistics", "Mathematical Statistics", "Statistical Inference"]
 author: Hyacehila
 excerpt: "整理总体与样本、统计量、抽样分布、参数估计、假设检验、方差分析和常见检验方法。"
 excerpt_en: "Covers populations and samples, statistics, sampling distributions, parameter estimation, hypothesis testing, ANOVA, and common tests."

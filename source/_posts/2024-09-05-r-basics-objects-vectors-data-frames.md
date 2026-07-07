@@ -3,7 +3,7 @@ title: "R 基础：对象、向量、数据框与函数"
 title_en: "R Basics: Objects, Vectors, Data Frames, and Functions"
 date: 2024-09-05 10:29:12 +0800
 categories: ["Programming", "R"]
-tags: ["Learning Notes", "R"]
+tags: ["R"]
 author: Hyacehila
 excerpt: "整理 R 基本原理、对象、向量、矩阵、数据框、列表、时间序列、函数、循环和数据读写。"
 excerpt_en: "Covers core concepts, objects, vectors, matrices, data frames, lists, time series, functions, loops, and data I/O."

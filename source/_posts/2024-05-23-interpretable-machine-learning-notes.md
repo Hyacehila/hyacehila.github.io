@@ -3,7 +3,7 @@ title: "可解释机器学习：模型解释、SHAP 与反事实方法"
 title_en: "Interpretable Machine Learning: Model Explanations, SHAP, and Counterfactual Methods"
 date: 2024-05-23 23:00:06 +0800
 categories: ["Machine Learning", "Classical Machine Learning"]
-tags: ["Learning Notes", "Machine Learning", "Interpretability", "SHAP"]
+tags: ["Machine Learning", "Interpretability", "SHAP"]
 author: Hyacehila
 excerpt: "整理可解释性概念、可解释模型、模型无关解释方法、SHAP、基于样本的解释、反事实解释和影响函数。"
 excerpt_en: "Covers interpretability concepts, interpretable models, model-agnostic explanations, SHAP, example-based explanations, counterfactuals, and influence functions."

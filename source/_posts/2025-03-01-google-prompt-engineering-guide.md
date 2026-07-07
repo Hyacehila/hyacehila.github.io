@@ -3,7 +3,7 @@ title: "Google 提示工程实践指南：角色、任务、上下文与格式"
 title_en: "Google Prompt Engineering Guide: Roles, Tasks, Context, and Format"
 date: 2025-03-01 20:00:00 +0800
 categories: ["Work & Society", "AI Engineering Workflows"]
-tags: ["Learning Notes","Prompt Engineering","Google","Gemini","Practical Guide"]
+tags: ["Prompt Engineering", "Gemini", "Tutorial"]
 author: Hyacehila
 excerpt: "整理 Google 官方提示词编写指南的核心框架（角色/任务/上下文/格式）与多场景实践示例，附带 Gemini 提示词双语手册。"
 excerpt_en: "Covers Google's official prompt writing framework (Role/Task/Context/Format) with multi-scenario examples, plus the Gemini prompting bilingual handbook."

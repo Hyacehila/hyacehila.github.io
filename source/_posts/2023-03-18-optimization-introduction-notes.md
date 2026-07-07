@@ -3,7 +3,7 @@ title: "最优化导论：最优化问题、向量范数与凸集"
 title_en: "Optimization: Problems, Vector Norms, and Convex Sets"
 date: 2023-03-18 21:27:45 +0800
 categories: ["Mathematics", "Optimization"]
-tags: ["Learning Notes", "Mathematics", "Optimization", "Gradient Descent"]
+tags: ["Optimization", "Gradient Descent"]
 author: Hyacehila
 excerpt: "整理最优化问题、向量范数、凸集、凸函数、线性规划、单纯形法和梯度下降等内容。"
 excerpt_en: "Covers optimization problems, vector norms, convex sets, convex functions, linear programming, simplex methods, and gradient descent."

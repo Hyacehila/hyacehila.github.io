@@ -3,7 +3,7 @@ title: "文本嵌入：从词袋模型到 Qwen3 Embedding"
 title_en: "Text Embedding: From Bag-of-Words to Qwen3 Embedding"
 date: 2024-09-25 20:00:00 +0800
 categories: ["Machine Learning", "Classical Machine Learning"]
-tags: ["Learning Notes","NLP","Embedding","Word2Vec","BERT","Information Retrieval"]
+tags: ["NLP", "Embeddings", "Word2Vec", "BERT", "Retrieval"]
 author: Hyacehila
 excerpt: "梳理文本嵌入技术的发展脉络：词袋模型、TF-IDF、Word2Vec、BERT 动态嵌入、GPT 自回归嵌入到 Qwen3 Embedding。"
 excerpt_en: "Traces text embedding evolution: Bag-of-Words, TF-IDF, Word2Vec, BERT dynamic embeddings, GPT autoregressive embeddings, to Qwen3 Embedding."

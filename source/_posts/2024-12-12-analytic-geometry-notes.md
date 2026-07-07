@@ -3,7 +3,7 @@ title: "解析几何：向量、坐标与平面与直线"
 title_en: "Analytic Geometry: Vectors, Coordinates, and Planes"
 date: 2024-12-12 15:47:21 +0800
 categories: ["Mathematics", "Geometry & Topology"]
-tags: ["Learning Notes", "Mathematics", "Analytic Geometry"]
+tags: ["Analytic Geometry"]
 author: Hyacehila
 excerpt: "整理向量、坐标、平面与直线、曲面、二次曲面和空间解析几何基础。"
 excerpt_en: "Covers vectors, coordinates, planes and lines, surfaces, quadrics, and foundations of spatial analytic geometry."

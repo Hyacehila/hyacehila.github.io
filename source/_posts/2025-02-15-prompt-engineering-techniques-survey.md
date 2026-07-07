@@ -3,7 +3,7 @@ title: "提示工程综述：从思维链到自我优化的技术全景"
 title_en: "Prompt Engineering Survey: From Chain-of-Thought to Self-Optimization"
 date: 2025-02-15 20:00:00 +0800
 categories: ["Foundation Models", "Model Mechanics"]
-tags: ["Learning Notes","Prompt Engineering","CoT","RAG","Survey"]
+tags: ["Prompt Engineering", "CoT", "RAG", "Survey"]
 author: Hyacehila
 excerpt: "基于 2025 年综述，系统整理推理增强提示（CoT/ToT/GoT/Self-Consistency）、幻觉缓解提示（RAG/ReAct/CoVe）和代码相关提示技术。"
 excerpt_en: "Based on a 2025 survey, systematically covers reasoning-enhancing prompts (CoT/ToT/GoT/Self-Consistency), hallucination-reduction prompts (RAG/ReAct/CoVe), and code-related prompting techniques."

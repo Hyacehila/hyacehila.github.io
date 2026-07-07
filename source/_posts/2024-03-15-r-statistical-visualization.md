@@ -3,7 +3,7 @@ title: "R 统计可视化：单变量、多变量与函数型数据图形"
 title_en: "R Statistical Visualization: Univariate, Multivariate, and Functional Data Graphics"
 date: 2024-03-15 16:54:45 +0800
 categories: ["Programming", "R"]
-tags: ["Learning Notes", "R", "Data Visualization"]
+tags: ["R", "Data Visualization"]
 author: Hyacehila
 excerpt: "按单变量、双变量、多变量和函数型数据整理常见统计图形及 base R、ggplot2 实现。"
 excerpt_en: "A overview on statistical visualization in R, organizing common graphics for univariate, bivariate, multivariate, and functional data with base R and ggplot2 examples."

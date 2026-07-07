@@ -3,7 +3,7 @@ title: "指令微调与人类对齐：SFT、LoRA 与 RLHF"
 title_en: "Instruction Tuning and Human Alignment: SFT, LoRA, and RLHF"
 date: 2024-11-01 20:00:00 +0800
 categories: ["Foundation Models", "Training & Alignment"]
-tags: ["Learning Notes","LLM","SFT","LoRA","RLHF","Alignment"]
+tags: ["LLM", "SFT", "LoRA", "RLHF", "Alignment"]
 author: Hyacehila
 excerpt: "整理指令数据构建方法、SFT 训练策略、LoRA 等高效微调技术、RLHF 人类对齐原理以及非强化学习对齐方法。"
 excerpt_en: "Covers instruction data construction, SFT training strategies, efficient fine-tuning like LoRA, RLHF alignment principles, and non-RL alignment methods."

@@ -3,7 +3,7 @@ title: "R ggplot2：几何对象、标度、分面与主题"
 title_en: "R ggplot2: Geoms, Scales, Facets, and Themes"
 date: 2024-10-10 17:21:49 +0800
 categories: ["Programming", "R"]
-tags: ["Learning Notes", "R", "ggplot2"]
+tags: ["R", "ggplot2"]
 author: Hyacehila
 excerpt: "整理几何对象、统计量、标度、坐标系、分面、主题、保存以及常见外观调整。"
 excerpt_en: "Covers geoms, statistics, scales, coordinate systems, facets, themes, saving plots, and common appearance adjustments."

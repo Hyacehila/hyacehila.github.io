@@ -3,7 +3,7 @@ title: "数据库系统概念：数据模型、事务与查询处理"
 title_en: "Database Systems Concepts: Data Models, Transactions, and Query Processing"
 date: 2024-12-23 19:42:58 +0800
 categories: ["Programming", "Computer Science Fundamentals"]
-tags: ["Learning Notes", "Database Systems", "Relational Databases"]
+tags: ["Database Systems", "Relational Databases"]
 author: Hyacehila
 excerpt: "梳理数据库系统目标、数据视图、数据模型、关系模型、E-R 模型、规范化、事务、存储与查询处理等基础内容。"
 excerpt_en: "Covers DBMS goals, data views, data models, relational models, E-R modeling, normalization, transactions, storage, and query processing."

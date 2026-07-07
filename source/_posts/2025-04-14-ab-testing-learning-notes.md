@@ -3,7 +3,7 @@ title: "A/B 测试：实验设计、样本量与上线决策"
 title_en: "A/B Testing: Experiment Design, Sample Size, and Launch Decisions"
 date: 2025-04-14 15:32:28 +0800
 categories: ["Data Science", "Statistical Modeling & Inference"]
-tags: ["Learning Notes", "A/B Testing", "Statistical Inference"]
+tags: ["AB Testing", "Statistical Inference"]
 author: Hyacehila
 excerpt: "整理实验设计、随机分流、指标体系、样本量与功效、常见统计检验、实验风险和上线决策。"
 excerpt_en: "Covers experiment design, random traffic allocation, metric systems, sample size and power, statistical tests, common risks, and launch decisions."

@@ -3,7 +3,7 @@ title: "泛函分析：度量空间、紧性与可分性"
 title_en: "Functional Analysis: Metric Spaces, Compactness, and Banach Spaces"
 date: 2023-09-11 21:36:59 +0800
 categories: ["Mathematics", "Mathematical Analysis"]
-tags: ["Learning Notes", "Mathematics", "Functional Analysis", "Metric Spaces"]
+tags: ["Functional Analysis", "Metric Spaces"]
 author: Hyacehila
 excerpt: "整理度量空间、紧性、可分性、完备性、线性赋范空间、Banach 空间和线性算子等内容。"
 excerpt_en: "Covers metric spaces, compactness, separability, completeness, normed linear spaces, Banach spaces, and linear operators."

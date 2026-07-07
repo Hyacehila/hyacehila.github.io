@@ -3,7 +3,7 @@ title: "高等代数：线性变换与欧式空间"
 title_en: "Advanced Algebra: Linear Transformations and Euclidean Spaces"
 date: 2024-12-07 16:19:23 +0800
 categories: ["Mathematics", "Algebra & Matrix Theory"]
-tags: ["Learning Notes", "Mathematics", "Linear Algebra"]
+tags: ["Linear Algebra"]
 author: Hyacehila
 excerpt: "整理线性变换、特征值、Jordan 标准型、欧式空间、酉空间和正交变换。"
 excerpt_en: "Covers linear transformations, eigenvalues, Jordan normal form, Euclidean spaces, unitary spaces, and orthogonal transformations."

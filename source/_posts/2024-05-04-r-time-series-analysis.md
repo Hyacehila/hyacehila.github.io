@@ -3,7 +3,7 @@ title: "R 时间序列分析：ts、zoo、xts、ARIMA 与 VAR"
 title_en: "R Time Series Analysis: Time Series Objects, ARIMA, and VAR"
 date: 2024-05-04 21:38:03 +0800
 categories: ["Programming", "R"]
-tags: ["Learning Notes", "R", "Time Series"]
+tags: ["R", "Time Series"]
 author: Hyacehila
 excerpt: "整理 ts、zoo、xts、金融时间序列、ARIMA、VAR、状态空间模型与 MARSS 的基础用法。"
 excerpt_en: "Covers ts, zoo, xts, financial time series, ARIMA, VAR, state space models, and MARSS."

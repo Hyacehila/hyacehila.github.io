@@ -3,7 +3,7 @@ title: 从黑盒预测器到可追溯医疗 Agent：医疗AI的未来
 title_en: "From Black-Box Predictors to Traceable Medical Agents: The Future of Medical AI"
 date: 2026-03-18 20:00:00 +0800
 categories: ["Agent Systems", "Agent Evaluation & Governance"]
-tags: ["Interpretability", "Multimodality", "Agent Evaluation"]
+tags: ["Interpretability", "Multimodality", "Evaluation"]
 author: Hyacehila
 excerpt: 按技术演进梳理医疗 AI 如何从黑盒预测器走向可追溯医疗 Agent。
 excerpt_en: "A technical evolution map for medical AI, from black-box predictors toward traceable medical agents."

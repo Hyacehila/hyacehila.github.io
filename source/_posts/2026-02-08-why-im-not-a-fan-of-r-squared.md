@@ -3,7 +3,7 @@ title: 统计学常用评估指标R方，它从不衡量模型与真实世界的
 title_en: "Why I Am Not a Fan of R-Squared"
 date: 2026-02-08 12:00:00 +0800
 categories: ["Data Science", "Statistical Thinking"]
-tags: ["Linear Models", "Model Evaluation", "Statistical Thinking"]
+tags: ["Linear Models", "Evaluation", "Statistical Thinking"]
 author: Hyacehila
 excerpt: R 方不是单纯的模型误差函数，它的定义中还隐含了两个模型的比较：一个是当前被分析的模型，一个是所谓的常数模型，即只利用因变量均值进行预测的模型。基于此，R 方从不衡量模型与真实世界的拟合程度。
 excerpt_en: "R-squared is not a simple model error function. Its definition hides a comparison against a constant model, so it never directly measures fit to the real world."

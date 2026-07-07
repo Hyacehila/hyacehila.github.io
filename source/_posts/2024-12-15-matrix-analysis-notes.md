@@ -3,7 +3,7 @@ title: "矩阵分析：广义逆、特殊矩阵与特殊积"
 title_en: "Matrix Analysis: Generalized Inverses, Special Matrices, and Matrix Products"
 date: 2024-12-15 00:42:23 +0800
 categories: ["Mathematics", "Algebra & Matrix Theory"]
-tags: ["Learning Notes", "Mathematics", "Matrix Analysis", "Linear Algebra"]
+tags: ["Matrix Analysis", "Linear Algebra"]
 author: Hyacehila
 excerpt: "整理广义逆、特殊矩阵、特殊积、Kronecker 积和矩阵分析中的常用结论。"
 excerpt_en: "Covers generalized inverses, special matrices, special products, Kronecker products, and common results in matrix analysis."

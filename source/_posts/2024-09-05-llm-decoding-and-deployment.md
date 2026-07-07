@@ -3,7 +3,7 @@ title: "大语言模型解码策略与低资源部署：从贪心搜索到模型
 title_en: "LLM Decoding Strategies and Low-Resource Deployment: From Greedy Search to Model Quantization"
 date: 2024-09-05 20:00:00 +0800
 categories: ["Agent Systems", "Agent Infrastructure"]
-tags: ["Learning Notes","LLM","Decoding","Quantization","Deployment"]
+tags: ["LLM", "Decoding", "Quantization", "Deployment"]
 author: Hyacehila
 excerpt: "整理自回归解码策略（贪心、束搜索、温度采样、Top-k/Top-p）、模型量化（INT8/INT4/QLoRA）及其他模型压缩方法。"
 excerpt_en: "Covers autoregressive decoding strategies (greedy, beam search, temperature, Top-k/Top-p), model quantization (INT8/INT4/QLoRA), and other compression methods."

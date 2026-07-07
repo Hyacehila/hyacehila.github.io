@@ -3,7 +3,7 @@ title: "PocketFlow 源码解读：用百行代码理解 Agent Flow 抽象"
 title_en: "PocketFlow Source Walkthrough: Understanding Agent Flow Abstractions in 100 Lines"
 date: 2025-11-12 21:49:13 +0800
 categories: ["Agent Systems", "Agent Architecture"]
-tags: ["PocketFlow", "Agent Frameworks", "Source Code", "Python"]
+tags: ["PocketFlow", "Python"]
 author: Hyacehila
 excerpt: "从 PocketFlow 的 BaseNode、Node、Flow、Batch 与 Async 实现出发，梳理一个极简 LLM Agent 框架如何用图、共享存储和节点协议组织工作流。"
 excerpt_en: "Walks through PocketFlow's BaseNode, Node, Flow, Batch, and Async implementations to explain how a minimal LLM agent framework organizes workflows with graphs, shared state, and node protocols."

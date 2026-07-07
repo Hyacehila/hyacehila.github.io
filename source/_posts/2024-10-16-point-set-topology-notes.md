@@ -3,7 +3,7 @@ title: "点集拓扑学：拓扑空间、连续性与子空间"
 title_en: "Point-Set Topology: Topological Spaces, Continuity, and Subspaces"
 date: 2024-10-16 23:06:09 +0800
 categories: ["Mathematics", "Geometry & Topology"]
-tags: ["Learning Notes", "Mathematics", "Topology"]
+tags: ["Topology"]
 author: Hyacehila
 excerpt: "整理拓扑空间、连续性、子空间、积空间、商空间、连通性和紧致性等内容。"
 excerpt_en: "Covers topological spaces, continuity, subspaces, product spaces, quotient spaces, connectedness, and compactness."

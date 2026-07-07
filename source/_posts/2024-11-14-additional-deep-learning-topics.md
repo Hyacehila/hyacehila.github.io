@@ -3,7 +3,7 @@ title: "深度学习补充主题：迁移学习、模型压缩与异常检测"
 title_en: "Additional Deep Learning Topics: Transfer Learning, Model Compression, and Anomaly Detection"
 date: 2024-11-14 22:53:20 +0800
 categories: ["Machine Learning", "Deep Learning"]
-tags: ["Learning Notes", "Machine Learning", "Deep Learning", "Transfer Learning"]
+tags: ["Machine Learning", "Transfer Learning"]
 author: Hyacehila
 excerpt: "整理迁移学习、领域自适应、领域泛化、终身学习、网络压缩和异常检测等主题。"
 excerpt_en: "Covers transfer learning, domain adaptation, domain generalization, lifelong learning, network compression, and anomaly detection."

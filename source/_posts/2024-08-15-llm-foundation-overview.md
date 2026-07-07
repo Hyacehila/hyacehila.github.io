@@ -3,7 +3,7 @@ title: "大语言模型基础：发展历程、能力特点与关键技术"
 title_en: "LLM Foundations: Development History, Capabilities, and Key Technologies"
 date: 2024-08-15 20:00:00 +0800
 categories: ["Foundation Models", "Model Mechanics"]
-tags: ["Learning Notes","LLM","Scaling Law","GPT","Foundation Models"]
+tags: ["LLM", "Scaling Law", "GPT"]
 author: Hyacehila
 excerpt: "梳理大语言模型的发展历程、能力特点、关键技术以及 GPT 系列模型的技术演变，包括开源模型与常用数据资源。"
 excerpt_en: "Covers LLM development history, capabilities, key technologies, GPT series evolution, and common open-source models and datasets."
