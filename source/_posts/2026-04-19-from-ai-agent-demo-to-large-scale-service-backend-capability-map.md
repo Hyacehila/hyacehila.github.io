@@ -2,7 +2,7 @@
 title: "从 AI Agent Demo 到大规模服务"
 title_en: "From AI Agent Demo to Large-Scale Service"
 date: 2026-04-19 21:30:00 +0800
-categories: ["Programming", "Backend Engineering"]
+categories: ["Programming", "全栈开发"]
 tags: ["Backend Engineering", "Reliability Engineering"]
 author: Hyacehila
 excerpt: 这是一篇 Agent 基础设施总览，梳理 AI Agent 从 Demo 走向大规模服务时依赖的能力，以及这些能力分别解决的工程问题。

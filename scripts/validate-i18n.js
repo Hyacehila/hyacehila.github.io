@@ -29,9 +29,8 @@ const allowedCategoryPairs = new Set([
   'Mathematics > Optimization',
   'Programming > Computer Science Fundamentals',
   'Programming > Python',
-  'Programming > Web Frontend',
+  'Programming > 全栈开发',
   'Programming > Data & Databases',
-  'Programming > Backend Engineering',
   'Programming > R',
   'Programming > C & C++',
   'Work & Society > AI Engineering Workflows',
@@ -193,7 +192,6 @@ function validateTaxonomyConfig() {
 
 function validateUiCjk() {
   const checked = [
-    '_config.yml',
     '_config.redefine.yml',
     'source/me/index.md',
     'source/projects/index.md',

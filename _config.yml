@@ -85,9 +85,8 @@ category_map:
   "Programming": programming
   "Computer Science Fundamentals": computer-science-fundamentals
   "Python": python
-  "Web Frontend": web-frontend
+  "全栈开发": full-stack-development
   "Data & Databases": data-databases
-  "Backend Engineering": backend-engineering
   "R": r
   "C & C++": c-cpp
   "Applied Machine Learning & AutoML": applied-machine-learning-automl
