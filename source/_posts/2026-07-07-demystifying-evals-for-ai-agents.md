@@ -349,5 +349,3 @@ Written by Mikaela Grace, Jeremy Hadfield, Rodrigo Olivares, and Jiri De Jonghe.
 
 许多团队组合使用多个 tool，自己构建 eval framework，或者仅仅使用简单的 eval 脚本作为起点。我们发现，虽然 framework 可以成为加速进展和标准化的宝贵方式，但它们的好坏取决于你通过它们运行的 eval task。通常最好的做法是快速选择一个适合你工作流程的 framework，然后将精力投入到 eval 本身——迭代高质量的 test case 和 grader。
 
-## 在正文结束之后
-
