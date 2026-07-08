@@ -1,8 +1,8 @@
 ---
-title: "拆解 AI Agent 的 Eval — Anthropic"
+title: "Demystifying evals for AI agents — Anthropic"
 title_en: "Demystifying evals for AI agents — Anthropic"
 date: 2026-07-07 23:30:00 +0800
-categories: ["Agent Systems", "Agent Training"]
+categories: ["Agent Systems", "Agent Evaluation & Governance"]
 tags: ["Agent Evaluation", "Evals", "AI Engineering", "LLM"]
 author: Hyacehila
 excerpt: "让 agent 变得有用的那些能力，也让它们变得难以 eval。跨部署行之有效的策略会组合多种技术，以匹配它们所衡量系统的复杂度。"
