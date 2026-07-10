@@ -46,6 +46,9 @@ coverage/
 tmp/
 temp/
 
+# Playwright MCP
+.playwright-mcp/
+
 # Optional npm cache directory
 .npm
 
