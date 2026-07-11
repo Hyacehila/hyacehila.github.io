@@ -7,6 +7,7 @@ tags: ["Research Methods", "Literature Review", "Survey", "Paper Notes"]
 author: Hyacehila
 excerpt: "本文截取自 Hannah Snyder 撰写的 Literature review as a research methodology: An overview and guidelines，系统介绍系统性综述、半系统性综述与整合性综述三种方法及其适用场景，以及开展高质量文献综述的完整流程与常见误区。"
 excerpt_en: "A structured summary of Hannah Snyder's paper on literature review methodology, covering systematic, semi-systematic, and integrative approaches, their appropriate use cases, the full review process, and common pitfalls to avoid."
+hidden: true
 permalink: '/blog/2025/09/18/literature-review-methodology-guideline/'
 ---
 

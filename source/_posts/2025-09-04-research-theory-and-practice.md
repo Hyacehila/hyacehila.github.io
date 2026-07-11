@@ -7,6 +7,7 @@ tags: ["Research Methods", "Academic Writing"]
 author: Hyacehila
 excerpt: "整理科研入门方法论与实践经验：从文献阅读与身份转变到研究节奏把控，从论文撰写基本结构到深度学习模块化创新思路，以及综合排名与数据美化等实用技巧。"
 excerpt_en: "A collection of research methodology notes and practical experience: from literature reading and identity transition to research rhythm, paper structure basics, deep learning modular innovation patterns, and practical metrics design techniques."
+hidden: true
 permalink: '/blog/2025/09/04/research-theory-and-practice/'
 ---
 
