@@ -1,46 +1,42 @@
 ---
-title: 第一篇博客（An Example）
-title_en: "First Blog Post (An Example)"
-date: 2025-12-26 19:00:00 +0800
+title: 这个博客是怎么变成现在这样的
+title_en: "How This Blog Became What It Is Today"
+date: 2025-11-12 21:49:12 +0800
 categories: ["Work & Society", "Career & Learning"]
 tags: ["Personal", "Blog"]
 author: Hyacehila
-excerpt: 这是博客的第一篇文章，也是后续写作规范的一个示例与说明。
-excerpt_en: "The first post on this blog, and a small example of the writing conventions used later."
+excerpt: 这篇旧文章记录了本站从 Jekyll/GitBook 风格博客迁移到 Hexo + Redefine，以及内容和分类逐步整理成现在样子的过程。
+excerpt_en: "This old post records how the site moved from a Jekyll/GitBook-style blog to Hexo + Redefine, and how its content and taxonomy took their current shape."
+hidden: true
 permalink: '/blog/2025/12/26/welcome-to-my-blog/'
 ---
 
-这是一篇示例文章：既作为博客开篇，也记录后续写作的一些约定。
+这篇文章原来真的叫《第一篇博客（An Example）》。它一半是开场白，一半是 Markdown 写作说明。现在回头看，那些说明大多已经过时了，但我还是想把这个入口留下来，顺便记下网站是怎么一点点变成现在这样的。
 
-## 项目背景
+## 从一个能用的博客开始
 
-2025 年 12 月 26 日， Claude Code、GLM4.7 与 Cursor（Opus 4.5）完成了站点组件的搭建。之后只要编写 `.md` 文档，Jekyll 就能将其渲染为 HTML。
+从仓库历史看，博客是在 2025 年 12 月 26 日搭起来的。当时的网站使用 Jekyll，页面里还带着一套 GitBook 风格的布局和资源。目标很直接：把 Markdown 放进 `_posts`，让 GitHub Pages 生成可以访问的文章。
 
-## 关于这个博客
+然后这篇文章被改成了一份示例。正文写着文件该怎么命名、Front Matter 有哪些字段，也记录了 Claude Code、GLM4.7 和 Cursor 参与搭建的过程。那时它更像一份留给自己的操作手册，还谈不上完整的个人站。
 
-这里记录技术笔记、项目复盘，也偶尔写点随想。
+随后几个月，文章数量增加，首页和分类也反复调整。旧系统能继续工作，但站点的内容已经不只是零散博客，原来的结构开始显得局促。
 
-## 技术栈
+## 换成 Hexo 和 Redefine
 
-- **Jekyll**：静态站点生成器
-- **Markdown**：内容编写格式
+2026 年 6 月 28 日，博客从 Jekyll 迁到了 Hexo，并采用 Redefine 主题。文章移到 `source/_posts`，站点配置、主题资源和独立页面也一起重建。原来发布过的文章继续保留 `/blog/:year/:month/:day/:title/` 形式的链接，避免旧地址失效。
 
-## 如何写一篇新的文章
+第二天，首页横幅、导航、About 菜单和个人页面又做了一轮调整，中英文界面的处理也补上了。网站从一个附带个人介绍的博客，慢慢变成了个人主页和技术博客共用的一套站点。感谢公司的 AI ，省的自己花钱搞这个。
 
-1. 在 `_posts/` 下新建文件，命名为 `YYYY-MM-DD-title.md`。
-2. 在文件顶部添加 YAML Front Matter（如下）。`tags` 和`categories`会被筛选系统使用；二级标题（`##`）建议用于组织正文结构。
-3. 正文直接使用 Markdown 编写：支持代码块语法高亮、常见 LaTeX 公式与 Mermaid 图表。
-   - 公式里尽量不要直接使用 `|` 作为分隔符；需要“竖线”时用 `\mid`，避免被误判为表格。
+## 内容整理比换主题更花时间
 
-```yaml
----
-layout: blog-post
-title: 欢迎来到我的博客
-date: 2025-12-26 10:00:00 +0800
-series: 不知道在写什么
-categories: ["Essays"]
-tags: [Methodology, Society]
-author: Hyacehila
-excerpt: 这是我博客的第一篇文章，欢迎大家来访！
----
-```
+迁移完成后，真正费时间的是文章本身。2026 年 7 月初，分类名称统一为英文，随后重新设计了分类层级，并把标签从两百多个压缩到一百八十多个。界面以英文为主，但正文不限制语言；中文笔记和英文元数据可以同时存在。
+
+7 月 4 日到 7 日，过去积累的学习笔记被集中迁入，包括计算机科学、机器学习、可解释机器学习、深度学习、数学、概率统计和数据分析。这些文章让归档完整了许多，也让首页一下子变得太拥挤。站点后来增加了隐藏文章的处理：旧笔记可以留在归档、分类和标签页面里，但不必全部出现在首页。7 月 11 日又有一批导入的研究笔记采用了同样的方式。
+
+现在这里既有较完整的技术文章，也有学习笔记、项目复盘和偶尔的随想。分类和标签仍会调整，不过基本原则已经清楚：首页保留近期想公开展示的内容，归档负责保存其余记录。
+
+## 为什么还保留这篇文章
+
+它已经不是写作模板，也不会出现在首页。保留它主要是因为旧链接仍然存在，而且这段历史确实发生过。直接访问原地址，或者从归档、分类和标签页面进入，仍然可以看到这篇文章。
+
+我把它的文章日期放在当前最早一篇未隐藏文章之前。这样按时间查看时，它仍是公开写作开始前的那一页，只是安静地待在归档里。
