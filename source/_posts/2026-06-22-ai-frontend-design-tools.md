@@ -15,59 +15,59 @@ Vibe 写前端最容易翻车的起点，是一句帮我做一个好看的 dashb
 
 这句话太空。模型会自己补行业、用户、信息密度、配色和布局，最后端出一张互联网平均脸。用 Claude Code 或其他 Coding Agent 写过几次前端的人，应该都见过那种熟悉的味道：蓝紫色渐变、发光边框、暖色纸质感、圆角卡片一层套一层。不能说完全不好看，但很难说它属于这个产品。
 
-这篇文章不做模型排行榜，也不从 Figma、设计系统、UI/UX 流程讲起。这里默认读者是技术出身的 Vibe Coder：能一定程度理解 AI 写出来的代码，能改组件、接数据、跑项目（哪怕靠 AI），但没有系统学过视觉设计。
+这篇文章面向技术出身的 Vibe Coder：能看懂和修改 AI 生成的代码，也能把项目跑起来，但没有系统学过视觉设计。这里不做模型排行榜，而是比较工具能否提供视觉参考、工程可用的组件、明确约束和可验证的预览。
 
-因此本文不关注那些给设计师使用的 no-code 产品，而是侧重于帮助一个原本的前端/客户端/算法出身的技术人员去完成一些简单的前端或者全栈设计。哪些工具能帮 coding agent 生成可用、可看、还能继续改的界面？哪些工具真的能改善视觉方向、组件质量和生成美学？哪些工具虽然很火，但更适合放到附录里，仅供参考但不展开。
+讨论重点是技术人员如何借助 coding agent 完成简单的前端或全栈界面。正文选择能改善视觉方向、组件质量和后续可维护性的工具；更偏完整应用生成、no-code 或设计稿转代码的产品放在附录中。
 
 成熟工具和一句 prompt 的差别，通常在上下文：真实组件、设计系统、视觉参考、风格约束、可运行预览和反馈循环。让模型少猜一点，页面就会少一点 AI 平均值。
 
 ## 生成可用的界面
 
-对技术型用户来说，最有价值的第一步经常是先拿到一版能放进工程里的 UI。后端、部署和数据库可以后面再接；页面长什么样、组件怎么组织、视觉方向是否站得住，反而要尽早看见。后端是对错分明的，但 UI 和审美息息相关。
+对技术型用户来说，第一步通常是拿到一版能放进工程里继续修改的 UI。后端、部署和数据库可以稍后接入，但页面结构、组件组织和视觉方向需要尽早验证。它们不像编译错误那样有明确提示，方向偏了之后再返工，成本并不低。
 
-[v0](https://v0.dev/) 是一个不错的开始。它是较早把 AI 生成 UI 做出声量的产品，更像一个高质量 UI 起草器：快速给出 React、Tailwind、shadcn/ui 生态里的页面和组件代码。按钮、表单、卡片、空状态、布局这些基础件的下限很高，技术用户也容易把结果接回自己的项目。
+[v0](https://v0.dev/) 适合用来起草 React、Tailwind 和 shadcn/ui 生态里的页面与组件。它生成的按钮、表单、卡片、空状态和常见布局通常可以直接放进项目继续修改，技术用户不必先处理一套完全陌生的工程结构。
 
-v0 的问题是默认气质太强。用多了会出现大家都长得像 v0的熟悉感。它适合生成某个页面、组件或交互片段，再由开发者继续改信息结构、视觉节奏和品牌细节；不适合把完整产品判断、信息架构和审美方向都交给它。v0 也一直在变，但 Vercel 作为一个有历史积累的 Web 应用平台，他们很难走向 All in AI 而抛弃前端开发者与设计师对前端系统的介入。
+v0 的默认风格很明显，用多了容易出现熟悉的组件组合和页面节奏。它适合生成单个页面、组件或交互片段，再由开发者调整信息结构和品牌细节；完整产品的信息架构和审美方向仍然需要人工判断。
 
-[Claude Design](https://claude.com/product/design) 更像是 coding 前的视觉工作台。它不负责把整个前端工程搭好，而是先把一个模糊的页面想法变成可看的原型、页面方向或设计 artifact。对技术出身的 Vibe Coder 来说，这一步很有用：你不必在代码里猜高级一点到底是什么，可以先看到一个界面，再判断信息密度、布局节奏和视觉气质对不对。然后根据自己的感觉进行下一步 Vibe Designing。
+[Claude Design](https://claude.com/product/design) 更像是 coding 前的视觉工作台。它不负责搭建完整前端工程，而是先把模糊的页面想法变成可看的原型或设计 artifact。技术用户可以先比较信息密度、布局节奏和视觉气质，再决定怎样实现，而不是在代码里反复猜“高级一点”具体指什么。
 
 它的工作逻辑不是让模型凭空画 UI，而是尽量先吃上下文。官方资料里提到，Claude Design 可以从代码库、设计文件、上传素材里提取 design system，包括组件、颜色、字体和已有模式，再用这些东西生成新的设计。换成开发者语言，就是先把项目里的视觉约束喂给模型，减少它现场发明按钮、卡片和配色的机会。
 
-所以 Claude Design 最适合做三类事：探索首页或 dashboard 的视觉方向，做一个能点击/能评审的交互原型，或者把一个产品想法整理成演示（HTML Slides）和交接材料（文档材料或网页完成的动画）。它可以和 Claude Code 衔接，例如同步 design system，或者把更清楚的设计方向交给 coding agent 实现。但它不是生产级前端本身。真正落地时，还是要回到工程项目里处理组件抽象、状态、数据、响应式和浏览器验收。Claude Design 也带有一层内部校验：它会把生成结果和导入的 design system 对照，在你看到之前做一轮修正，他的任务是进行迭代的美学和设计优化，而不是代码本身。
+Claude Design 可以探索首页或 dashboard 的视觉方向，也可以制作可点击的交互原型、HTML Slides 和交接材料。它能把 design system 和更明确的设计方向交给 Claude Code 或其他 coding agent，但生成的 artifact 不是生产级前端。落地时仍要在工程项目中处理组件抽象、状态、数据、响应式和浏览器验收。官方资料还描述了一层设计校验：系统会把生成结果与导入的 design system 对照，并在展示前进行修正。它优化的是设计结果，不替代工程实现。
 
-[Open Design](https://github.com/nexu-io/open-design) 是更接近 Claude Design 替代品的开源项目。README 直接写自己是 open-source Claude Design alternative，local-first、native desktop app，并把 skills、`DESIGN.md` design systems、plugins、sandboxed iframe preview、HTML/PDF/PPTX/MP4 导出、多 agent/CLI 接入放到一个本地工作台里。我们输入 brief 并选择大致希望的设计模式，通过内部辅助材料的拼接，然后调度 Coding Agent 去生成所需的前端系统。虽然支持多种导出格式，但 HTML 依旧是这个系统的核心。
+[Open Design](https://github.com/nexu-io/open-design) 是一个更接近 Claude Design 的开源替代。它把 design system、skills、插件、隔离预览和多 agent/CLI 接入放进本地工作台。用户输入 brief 和设计方向后，系统组织相关上下文，再调度 coding agent 生成 HTML。PDF、PPTX 和 MP4 等导出是补充能力，核心交付仍然是 HTML。
 
-这类工具的价值，是把 Claude Design 机制做成一套本地工作台。想找 Claude Design 开源替代，又希望把 agent 和设计系统放在本地流程里，Open Design 值得试。风险也很直接：项目变化快，最好先拿一个小页面或原型试，当然对于一个 Vibe Designer 来说，手里其实也没有什么已经上线的生产项目，往往是一些个人玩具或 Startup 尝试，能够低成本获得一套不错的前端这是个很好的选择，不至于被 Claude Design 彻底套牢。
+Open Design 的价值在于把 agent、设计系统和预览留在本地流程里。项目仍在快速变化，适合先用一个小页面或原型测试生成质量、导出结果和维护成本，再决定是否放进长期工作流。
 
-[Huashu Design](https://github.com/alchaincyf/huashu-design) 则在前面的基础上都向后退了一步。它不是 Open Design 那种桌面/网页设计工作台，也不是生产 Web App 框架。更准确的说法是：它把 Claude Design 的一些思路 Skill 化了，包括设计上下文、品牌资产协议、反 AI slop、设计变体、评审和导出。从而方便我们在不同的 Coding Agent 产品里利用这些能力。OpenDesign 明确吸收了 Huashu Design，两者整体在解决问题形态类似但产品风格不同。
+[Huashu Design](https://github.com/alchaincyf/huashu-design) 采用了不同的产品形态。它不是 Open Design 那样的桌面或网页工作台，也不是生产 Web App 框架，而是把设计上下文、品牌资产协议、反 AI slop、设计变体、评审和导出整理成 Skill，方便在不同的 coding agent 中使用。Open Design 吸收了其中一些思路，但两者的交互方式和交付流程不同。
 
-Huashu Design 的 README 和 `SKILL.md` 把定位写得很清楚：用 HTML 做高保真原型、交互 demo、幻灯片、动画、设计变体、设计方向顾问和专家评审。仓库里有 Playwright、pptxgenjs、sharp、pdf-lib，脚本覆盖 PDF/PPTX/MP4/GIF 导出，references 里有品牌资产协议、反 AI slop、设计风格、critique guide、动画和验证流程。它还专门对比了 Claude Design 与 huashu-design：前者是浏览器里的图形产品，后者是 agent 里的 Skill，交付物也从画布/Figma 导出转向 HTML、MP4、GIF、可编辑 PPTX 和 PDF。所以它更像 Claude Design 思路的开源 Skill 化旁路。用它做生产前端并不合适，但拿它来探索视觉方向、生成 PPT、动画、信息图、原型和设计评审材料，很有参考价值。
+Huashu Design 用 HTML 制作高保真原型、交互 demo、幻灯片、动画和设计变体，也包含设计评审与多格式导出流程。它与 Claude Design 的主要区别不在输出格式数量，而在使用位置：Claude Design 是浏览器里的图形产品，Huashu Design 是 agent 可以读取和执行的 Skill。它适合探索视觉方向和制作评审材料，不适合直接承担生产前端工程。
 
 [screenshot-to-code](https://github.com/abi/screenshot-to-code) 解决的是另一个实际问题：说不清想要什么，但能指着图说「像这个」。README 支持 screenshots、mockups、Figma designs、screen recordings 到 HTML/Tailwind、React/Tailwind、Vue/Tailwind 等代码；源码里有 React/Vite 前端、FastAPI 后端、prompt pipeline 和 Playwright screenshot preview。
 
-它的价值是把视觉参考变成硬约束。真实参考页面、竞品截图、手绘草图，都比「高级一点」「现代一点」这种 prompt 更可靠。短板也明显：越接近还原截图，越可能得到难维护的布局。生成后还要整理组件、状态和响应式。当然前面的产品也都支持了类似的功能，screenshot-to-code 目前更像是一个历史遗物。
+它的价值是把视觉参考变成具体约束。真实页面、竞品截图和手绘草图，都比「高级一点」「现代一点」这类 prompt 更明确。短板也很直接：越追求像素级还原，越可能得到难维护的布局，生成后仍要整理组件、状态和响应式。现在不少工具都支持类似能力，但 screenshot-to-code 仍适合研究这条技术路线或处理明确的截图还原任务。
 
 ## 给 coding agent 加审美约束
 
-AI 做出来的页面经常不是大结构全错，而是细节的局部疏漏。按钮状态、表单间距、弹窗层级、hover、focus、loading、empty、error，单独看都小，叠起来就是质感。审美约束不只是风格好看，也包括别让模型每次都从空白 CSS 开始编。
+AI 生成的页面经常不是整体结构出错，而是遗漏局部细节。按钮状态、表单间距、弹窗层级，以及 hover、focus、loading、empty、error 等状态单独看都不大，合在一起却会直接影响使用感受。审美约束既包括视觉风格，也包括让模型复用成熟的基础实现。
 
-[shadcn/ui](https://ui.shadcn.com/) 现在几乎绕不开。它的 README 说得很清楚：Open Source、Open Code，用它来 build your own component library。它不是黑盒 npm 组件库，而是通过 registry/CLI 把组件源码放进你的项目。button、dialog 等组件基于 Radix、Tailwind、class-variance-authority，状态、focus ring、disabled、ARIA、dark mode 都有现成处理。shadcn/ui 能把 AI 从现场发明基础控件拉回来。短板是同质化。如果什么都用默认 shadcn，页面稳定的像以前见过的东西。更好的用法是把它当底座，再在排版、信息密度、颜色和少量关键组件上做差异。
+[shadcn/ui](https://ui.shadcn.com/) 是常见的基础选择。它不是黑盒 npm 组件库，而是通过 registry/CLI 把组件源码放进项目。button、dialog 等组件基于 Radix、Tailwind 和 class-variance-authority，已经处理了 focus ring、disabled、ARIA 和 dark mode 等状态。这样可以减少模型临时编写基础控件的机会。它的短板是默认风格容易同质化，更合适的用法是保留交互和可访问性实现，再调整排版、信息密度、颜色和少量关键组件。
 
-另一半问题是审美判断 Skill 。它们不会替代设计师，但能把很多本来靠经验的约束写进 agent 的工作方式里。
+另一个问题是如何把审美判断写进 Skill。它们不会替代设计师，但能让 agent 在生成前检查受众、用途、风格和布局约束。
 
-[frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) 是 Anthropic skills 仓库里的前端设计 Skill。它的 `SKILL.md` 要求先把 subject、audience、single job、palette、type、layout、signature 想清楚，再写代码；还会提醒模型避开暖色奶油背景、黑底荧光点、报纸式排版这些默认套路。它不提供组件，重点是把不要太模板写进 agent 的工作方式。landing page、产品页、品牌页，或者任何从零开始的页面，都可以先让它介入，只要我们需要一些风格参考。
+[frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) 是 Anthropic skills 仓库里的前端设计 Skill。它要求模型在写代码前明确页面主题、受众、主要任务、配色、字体、布局和标志性视觉元素，也会提醒模型避开常见的默认套路。它不提供组件，主要作用是把设计判断放到生成之前，适合从零制作 landing page、产品页和品牌页。
 
 [web-design-engineer](https://github.com/ConardLi/garden-skills/tree/main/skills/web-design-engineer) 更像一位 HTML-first 的设计工程师。`SKILL.md` 里有事实验证、设计上下文、风格 recipe、设计系统声明、v0 草稿、浏览器验证、五维评审和反套路清单。它比 frontend-design 更重，也更像完整工作流。页面、dashboard、原型、slide deck、可视化都适合；小改按钮时用它会显得过度。
 
 Huashu Design 也可以放在这一类里理解。它一方面能生成 HTML 视觉 artifact，另一方面也提供了品牌资产协议、反 AI slop、设计评审和风格探索规则。对技术用户来说，它的价值还在于把怎样避免一眼 AI 味写成了 agent 能执行的清单。
 
-## 总结
+## 怎么选
 
-上面这些工具名字很多，但问题并不复杂：它们都在减少 AI 的自由发挥。
+这些工具解决的是同一个问题：减少模型需要临场猜测的部分。
 
-v0 让 AI 从成熟组件和前端代码出发；Claude Design、Open Design、Huashu Design 让视觉方向先变成可观察的 artifact；screenshot-to-code 把真实参考图变成约束；shadcn/ui 提供基础组件底座；frontend-design 和 web-design-engineer 把审美判断前置。
+v0 和 shadcn/ui 提供工程可用的代码与组件；Claude Design、Open Design 和 Huashu Design 用于先确认视觉方向；screenshot-to-code 把参考图转成更具体的约束；frontend-design 和 web-design-engineer 则把设计检查放进 agent 的工作流程。
 
-生成闭环也很重要。成熟工具通常不会让 AI 写完代码就结束，而是提供预览、截图、点击、控制台、网络请求和响应式检查的入口。浏览器里的反馈非常关键，但本文不展开这类工具。这里只需要记住一点：能看见、能点击、能截图、能报错，才有机会把页面从像代码生成的改成真实可用的。
+选择工具时还要看它是否支持运行和验证。预览、截图、点击测试、控制台、网络请求和响应式检查可以暴露静态代码中看不见的问题。没有这类反馈入口，模型很难判断页面是否真的可用。
 
 如果目标是生成一个能放进工程里继续改的页面或组件草稿，优先看 v0。它的下限高，适合技术用户快速拿到 React/Tailwind/shadcn 生态里的可改代码。
 
@@ -75,7 +75,7 @@ v0 让 AI 从成熟组件和前端代码出发；Claude Design、Open Design、H
 
 如果界面已经能跑，但总有廉价感，先检查基础组件和状态。shadcn/ui 可以做底座；frontend-design 和 web-design-engineer 把设计判断前置。
 
-真正要避免一眼 AI 味，不要把希望押在一句更长的 prompt 上。真实参考、明确场景、稳定组件、风格约束、可运行预览和浏览器反馈，这些东西比形容词管用。本文提到的这些工具，就是在帮助一个不了解设计的人，能够完成这些工作
+避免一眼 AI 味，不能只依赖更长的 prompt。先给出真实参考和明确场景，再使用稳定组件，并通过可运行预览检查结果，通常比增加“高级”“现代”之类的形容词有效。本文介绍的工具分别覆盖了这些环节。
 
 ## 附录：不作为本文主线的工具
 
