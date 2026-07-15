@@ -130,13 +130,6 @@ katex:
     throwOnError: false
     strict: false
 
-# Local search (hexo-generator-searchdb)
-search:
-  path: search.xml
-  field: post
-  content: true
-  format: html
-
 # Atom feed (hexo-generator-feed) — replaces jekyll-feed
 feed:
   type: atom

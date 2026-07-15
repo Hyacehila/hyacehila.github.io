@@ -12,6 +12,9 @@ db.json
 # Build outputs
 dist/
 build/
+!source/js/build/
+!source/js/build/tools/
+!source/js/build/tools/localSearch.js
 
 # IDE files
 .vscode/

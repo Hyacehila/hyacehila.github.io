@@ -147,7 +147,7 @@ navbar:
         Friends: /friends/
         Comments: /comments/
         CV: /cv/
-  # Local search. Requires hexo-generator-searchdb.
+  # Static MiniSearch full-text search.
   search:
     enable: true
     preload: true
@@ -296,7 +296,7 @@ page_templates:
 
 # CDN
 cdn:
-  enable: true
+  enable: false
   provider: aliyun
   custom_url:
 
