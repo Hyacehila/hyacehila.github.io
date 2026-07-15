@@ -7,7 +7,7 @@ tags: ["Dimensionality Reduction", "Statistics"]
 author: Hyacehila
 excerpt: 深入剖析从线性保持(PCA/MDS)到非线性流形(t-SNE/UMAP)的降维技术演进,探讨这些方法背后的数学直觉与技术细节
 excerpt_en: "A deep dive from linear-preserving methods such as PCA and MDS to nonlinear manifold methods such as t-SNE and UMAP, with their mathematical intuition and technical tradeoffs."
-permalink: '/blog/2026/01/16/详解降维技术/'
+permalink: '/blog/2026/01/16/dimensionality-reduction-high-dimensional-data/'
 ---
 
 现代数据科学与机器学习常常要处理成百上千甚至更高维度的数据。要理解这些数据，**降维（Dimensionality Reduction）** 几乎绕不开：它既能压缩数据，也能缓解“维数灾难”，帮助我们寻找数据背后的潜在结构。

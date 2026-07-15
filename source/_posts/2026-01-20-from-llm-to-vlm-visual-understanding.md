@@ -7,7 +7,7 @@ tags: ["Vision-Language Models", "Multimodality", "Model Architecture", "Survey"
 author: Hyacehila
 excerpt: 梳理从纯语言模型到视觉-语言模型的技术路线，说明 CLIP、VLM、扩散模型与原生多模态在输入表示、训练目标和推理方式上的差异。
 excerpt_en: "A technical overview of the path from language-only models to vision-language models, covering CLIP, VLMs, diffusion guidance, and native multimodal tokenization."
-permalink: '/blog/2026/01/20/从-LLM-到-VLM,语言模型如何实现视觉理解/'
+permalink: '/blog/2026/01/20/from-llm-to-vlm-visual-understanding/'
 ---
 
 多模态大模型的发展大致沿着一条技术路径展开：从纯语言 LLM 开始，到 CLIP 实现视觉-语言对齐，再到生成式 VLM，以及更原生的多模态建模方式。本文梳理这条技术脉络，分析各类模型的基本原理与架构差异。

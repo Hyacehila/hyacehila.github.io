@@ -8,7 +8,7 @@ author: Hyacehila
 excerpt: 你是否经常觉得，自己等公交的时间总是比官方公布的平均间隔长？或者学校宣传的“平均小班授课”，到了自己身上却总是上百人的大课？这其实并非你的运气糟糕，而是一个普遍存在于统计学中的陷阱——检查悖论（Inspection Paradox）
 excerpt_en: "Why does your wait for a bus often feel longer than the published average interval? This post explains the inspection paradox, a common statistical trap behind such intuitions."
 mathjax: true
-permalink: '/blog/2026/02/26/检查时间悖论/'
+permalink: '/blog/2026/02/26/inspection-paradox/'
 ---
 
 
@@ -57,4 +57,3 @@ $$E[Y] = \frac{\mu^2 + \sigma^2}{\mu} = \mu + \frac{\sigma^2}{\mu}$$
 * **警惕构建 AI 训练集时的结构性偏差：** 假设你正在从 GitHub 等开源库中抓取代码来构建 AI Agent 的训练集（例如用于安全漏洞分析的模型）。如果你随机抽取代码行数或函数，你会有很高概率抽中那些庞大、臃肿的代码仓库或巨型文件。这会导致你的模型训练数据严重偏向特定的大型项目风格，而忽略了小巧精悍的模块化代码。
 * **引入逆概率加权法（IPW）：** 如果你手中的数据集已经被检查悖论污染（例如只能获取到用户视角的观测数据），在进行统计推断或模型微调时，可以给每个观测值赋予一个与其大小（或频次）成反比的权重（$w_i = 1/x_i$），以此来在数学上还原真实的底层分布。
 * **多用中位数，慎用均值：** 既然均值极易受到方差和长尾数据的扭曲，在面对具有不对称性或高方差的业务场景时，中位数（Median）或百分位数（如 P50, P90）往往是比平均数更稳健的指标。
-

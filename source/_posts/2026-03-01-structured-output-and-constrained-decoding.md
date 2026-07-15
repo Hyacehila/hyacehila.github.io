@@ -8,12 +8,14 @@ author: Hyacehila
 excerpt: 介绍 Agent 中结构化输出为什么难，以及提示词、JSON Mode、受限解码和底层推理引擎分别解决了哪些问题。
 excerpt_en: "Why is structured output hard for agents? This post explains what prompts, JSON mode, constrained decoding, and inference engines each solve."
 mathjax: true
-permalink: '/blog/2026/03/01/语言模型的结构化输出/'
+permalink: '/blog/2026/03/01/structured-output-and-constrained-decoding/'
 ---
 
 大语言模型（Large Language Models, LLMs）在充当智能体（Agent）的控制中枢时，必须和传统软件系统交互。这类交互通常要求模型输出严格格式的数据，比如 JSON Schema、XML 或特定领域语言的 AST。问题在于，模型按 token 自回归采样，而软件系统要求整个对象一次性合法。
 
 要求模型只靠提示词稳定输出复杂结构，会遇到两个问题：长序列里的格式错误会累积，格式约束也会占用本该用于任务推理的上下文和注意力。当模型既要做语义推理，又要记住括号、字段、枚举值和闭合规则时，失败率会随输出长度上升。
+
+如果需要先补齐模型生成阶段的整体位置，可以参考[《LLM 生命周期总览》](/blog/2024/08/15/llm-lifecycle-overview/)；如果关注任务、示例和输出契约怎样写，则从[《提示工程与上下文学习》](/blog/2024/09/20/prompt-engineering-and-in-context-learning/)开始。本文只讨论格式约束怎样从 Prompt 下沉到 API 和推理引擎。
 
 Agent 需要稳定的结构化输出，因为工具调用、状态更新和后端接口都依赖它。只靠提示词约束和失败后重试，成本高，也容易让 Agent loop 卡在同一个错误上。现在更可用的做法，是把一部分格式约束下沉到 API 层或推理引擎层。
 

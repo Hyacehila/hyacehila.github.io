@@ -13,6 +13,8 @@ permalink: '/blog/2026/01/26/neural-scaling-laws/'
 
 > 我并不研究Deep Learning Theory，对相关的内容也并不熟悉；以下的内容仅仅是一个理论领域的小白简单学习后的总结。随便写着玩玩。
 
+如果你希望先看到 Scaling Law 在数据、预训练、后训练和部署之间的位置，可以先读[《LLM 生命周期总览》](/blog/2024/08/15/llm-lifecycle-overview/)；本文只展开规模规律本身。
+
 ## Neural Scaling Laws 的从0到1
 
 神经缩放定律（Neural Scaling Laws） 是理解大规模深度学习（特别是大语言模型 LLM）时很常用的一组经验规律。它描述了**模型性能与计算资源、数据量和参数量之间的幂律（Power Law）关系。**
