@@ -9,7 +9,7 @@ excerpt: "从会聊天的角色、能理解世界的 NPC，到会在玩家离开
 excerpt_en: "From conversational characters and world-aware NPCs to worlds that continue evolving after the player leaves, AI is becoming part of gameplay itself. This essay explores what AI-native games can offer players, and how memory, emergence, and generative freedom must remain grounded in game design."
 mathjax: false
 permalink: '/blog/2026/07/12/ai-native-game/'
-hidden: true
+hidden: false
 ---
 
 其实应该在两个月前，我就写了一篇关于 AI Agent 与游戏的 Blog，不过当时其实更多的是站在游戏研发的视角，主要考虑如何让 AI Agent 帮我们去更好的生产出一款游戏。我在里面提到了一些观点，不过当时我对游戏行业确实接触的还比较浅，有些想法基于行业报告以及和一些游戏开发者的闲聊，所以现在看有些观点可能略显偏颇，更有些观点显得理想丰满而难以落地。以及我挖了一个坑，那篇文章刻意略写了关于 AI 介入游戏体验和玩法的事情，今天也算是学了更多，趁着有点外部压力，让我来把这个歌坑填上吧。
