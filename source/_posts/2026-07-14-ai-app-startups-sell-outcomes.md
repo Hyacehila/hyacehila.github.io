@@ -11,7 +11,7 @@ mathjax: false
 permalink: '/blog/2026/07/14/ai-app-startups-sell-outcomes/'
 ---
 
-> The next $1T company will be a software company masquerading as a services firm.
+> The next 1T dollar company will be a software company masquerading as a services firm.
 
 最近看了 Sequoia 合伙人 Julien Bek 的《[Services: The New Software](https://sequoiacap.com/article/services-the-new-software/)》。这篇文章当然在找投资机会，但它问的问题很直接：模型越来越强以后，AI 应用还应该卖什么？当 Claude 或 ChatGPT 的下一次升级把我做的工具变成一项功能，工具的护城河还剩什么？
 
