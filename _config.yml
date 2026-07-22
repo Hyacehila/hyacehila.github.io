@@ -47,6 +47,7 @@ render_drafts: false      # drafts stay in repo (source/_drafts) but are NOT pub
 post_asset_folder: false
 relative_link: false
 future: true              # all posts are past-dated; render them all
+updated_option: empty     # only expose each post's authored date, never filesystem mtime
 highlight:
   enable: false           # Redefine ships its own highlighter
 prismjs:
