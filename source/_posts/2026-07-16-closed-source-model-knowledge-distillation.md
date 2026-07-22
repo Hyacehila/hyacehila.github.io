@@ -8,7 +8,7 @@ author: Hyacehila
 excerpt: "闭源模型能否被蒸馏，要看教师实际提供什么信号、学生在拟合什么目标，以及这条训练链路是否获得授权；重点是训练链路怎么设计，而不是模型开源与否。"
 excerpt_en: "Whether a closed-source model can be distilled depends on the signal it exposes, the student's training objective, and the authorization of the training pipeline—not simply on whether the model is open or closed."
 mathjax: false
-hidden: false
+hidden: true
 permalink: '/blog/2026/07/16/closed-source-model-knowledge-distillation/'
 ---
 
