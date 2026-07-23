@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">企业 AI 从任务到价值的运行闭环</title>
+  <desc id="desc">六个依次相连的环节：任务选择、上下文连接、权限与委托、验收与例外、业务测量、经验沉淀。最后一环反馈至任务选择，构成持续学习的闭环。</desc>
+  <style>
+    .title { font: 700 38px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#172033; }
+    .sub { font: 400 20px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#64748b; }
+    .num { font: 700 20px Arial,sans-serif; fill:#fff; }
+    .head { font: 700 24px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#172033; }
+    .body { font: 400 17px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#4b5a70; }
+    .footer { font: 400 18px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#5b6980; }
+  </style>
+  <rect width="1400" height="760" rx="32" fill="#f8fafc"/>
+  <text x="78" y="82" class="title">企业 AI 的交付物，是一段可运行、可检查、可学习的工作</text>
+  <text x="78" y="122" class="sub">模型负责其中一部分执行；其余环节决定能力能否进入生产并持续兑现价值。</text>
+
+  <path d="M233 337 H288 M443 337 H498 M653 337 H708 M863 337 H918 M1073 337 H1128" stroke="#aebed1" stroke-width="6" stroke-linecap="round"/>
+  <path d="M279 324 L296 337 L279 350 M434 324 L451 337 L434 350 M644 324 L661 337 L644 350 M854 324 L871 337 L854 350 M1064 324 L1081 337 L1064 350" fill="none" stroke="#aebed1" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(68 206)">
+    <rect width="165" height="258" rx="24" fill="#e9e7ff"/>
+    <circle cx="42" cy="43" r="22" fill="#6956d6"/><text x="35" y="51" class="num">1</text>
+    <text x="24" y="100" class="head">任务选择</text>
+    <text x="24" y="142" class="body">高频、真实痛点</text>
+    <text x="24" y="172" class="body">成功标准明确</text>
+    <text x="24" y="202" class="body">错误可恢复</text>
+  </g>
+  <g transform="translate(288 206)">
+    <rect width="165" height="258" rx="24" fill="#e3f0ff"/>
+    <circle cx="42" cy="43" r="22" fill="#3478c7"/><text x="35" y="51" class="num">2</text>
+    <text x="24" y="100" class="head">连接上下文</text>
+    <text x="24" y="142" class="body">数据与系统状态</text>
+    <text x="24" y="172" class="body">业务规则与知识</text>
+    <text x="24" y="202" class="body">最小必要访问</text>
+  </g>
+  <g transform="translate(508 206)">
+    <rect width="165" height="258" rx="24" fill="#fff0dc"/>
+    <circle cx="42" cy="43" r="22" fill="#e38a27"/><text x="35" y="51" class="num">3</text>
+    <text x="24" y="100" class="head">权限与委托</text>
+    <text x="24" y="142" class="body">起草、建议或执行</text>
+    <text x="24" y="172" class="body">动作边界清楚</text>
+    <text x="24" y="202" class="body">审计记录完整</text>
+  </g>
+  <g transform="translate(728 206)">
+    <rect width="165" height="258" rx="24" fill="#fde4e8"/>
+    <circle cx="42" cy="43" r="22" fill="#c24c68"/><text x="35" y="51" class="num">4</text>
+    <text x="24" y="100" class="head">验收与例外</text>
+    <text x="24" y="142" class="body">什么叫完成</text>
+    <text x="24" y="172" class="body">何时交回给人</text>
+    <text x="24" y="202" class="body">能否补救与回滚</text>
+  </g>
+  <g transform="translate(948 206)">
+    <rect width="165" height="258" rx="24" fill="#dff4f1"/>
+    <circle cx="42" cy="43" r="22" fill="#1d9b8d"/><text x="35" y="51" class="num">5</text>
+    <text x="24" y="100" class="head">业务测量</text>
+    <text x="24" y="142" class="body">质量、速度、风险</text>
+    <text x="24" y="172" class="body">客户与收入结果</text>
+    <text x="24" y="202" class="body">不只看使用次数</text>
+  </g>
+  <g transform="translate(1168 206)">
+    <rect width="165" height="258" rx="24" fill="#eef2f7"/>
+    <circle cx="42" cy="43" r="22" fill="#64748b"/><text x="35" y="51" class="num">6</text>
+    <text x="24" y="100" class="head">经验沉淀</text>
+    <text x="24" y="142" class="body">修订与异常回流</text>
+    <text x="24" y="172" class="body">评估、规则、知识</text>
+    <text x="24" y="202" class="body">进入下一轮系统</text>
+  </g>
+
+  <path d="M1252 510 C1252 620 1140 648 700 648 C260 648 148 620 148 510" fill="none" stroke="#91a4ba" stroke-width="5" stroke-linecap="round"/>
+  <path d="M136 521 L148 500 L160 521" fill="none" stroke="#91a4ba" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="700" y="694" text-anchor="middle" class="footer">被验证过的经验回到下一轮任务设计，AI 才会从一次试验变成组织的学习能力。</text>
+</svg>
