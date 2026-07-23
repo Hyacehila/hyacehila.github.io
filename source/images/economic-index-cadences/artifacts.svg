@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 570" role="img" aria-labelledby="title desc">
+  <title id="title">Claude 会话中的常见产物</title>
+  <desc id="desc">93%的 Claude Chat 和 Cowork 会话产生可识别产物，最常见的三类是解释、文档报告和建议指导。</desc>
+  <style>
+    .title { font: 700 34px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#172033; }
+    .sub { font: 400 18px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#627087; }
+    .label { font: 700 22px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#172033; }
+    .body { font: 400 17px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#4d5b71; }
+    .big { font: 700 58px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#6956d6; }
+    .tiny { font: 400 14px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#718096; }
+  </style>
+  <rect width="1200" height="570" rx="28" fill="#f8fafc"/>
+  <text x="72" y="76" class="title">用户离开时，带走的是“产物”</text>
+  <text x="72" y="112" class="sub">报告把一段会话的主要输出分类为 artifact。它不是采用率，也不是最终业务价值。</text>
+
+  <circle cx="250" cy="319" r="135" fill="#ebe9ff"/>
+  <circle cx="250" cy="319" r="101" fill="#f8fafc"/>
+  <text x="250" y="306" text-anchor="middle" class="big">93%</text>
+  <text x="250" y="340" text-anchor="middle" class="body">会话产生</text>
+  <text x="250" y="367" text-anchor="middle" class="body">可识别产物</text>
+
+  <text x="510" y="196" class="label">解释</text>
+  <rect x="510" y="219" width="530" height="42" rx="21" fill="#e3e8f1"/>
+  <rect x="510" y="219" width="510" height="42" rx="21" fill="#6956d6"/>
+  <text x="1062" y="249" class="label">17%</text>
+
+  <text x="510" y="302" class="label">文档和报告</text>
+  <rect x="510" y="325" width="530" height="42" rx="21" fill="#e3e8f1"/>
+  <rect x="510" y="325" width="450" height="42" rx="21" fill="#887de4"/>
+  <text x="1062" y="355" class="label">15%</text>
+
+  <text x="510" y="408" class="label">建议和指导</text>
+  <rect x="510" y="431" width="530" height="42" rx="21" fill="#e3e8f1"/>
+  <rect x="510" y="431" width="330" height="42" rx="21" fill="#aea7ee"/>
+  <text x="1062" y="461" class="label">11%</text>
+
+  <text x="72" y="530" class="tiny">来源：Anthropic Economic Index report: Cadences（2026），p. 9。三类具体产物不构成完整分布。</text>
+</svg>

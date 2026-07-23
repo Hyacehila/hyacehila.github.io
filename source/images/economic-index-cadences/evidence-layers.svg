@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">理解 AI 与工作影响的三层证据</title>
+  <desc id="desc">从使用日志、现场任务研究到劳动市场结果，三类证据依次回答不同问题。</desc>
+  <style>
+    .title { font: 700 34px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#172033; }
+    .subtitle { font: 400 19px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#60708a; }
+    .label { font: 700 25px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#172033; }
+    .body { font: 400 18px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#4e5b70; }
+    .small { font: 400 16px 'Noto Sans SC','Microsoft YaHei',sans-serif; fill:#60708a; }
+  </style>
+  <rect width="1200" height="520" rx="28" fill="#f8fafc"/>
+  <text x="72" y="75" class="title">别把三类证据混成一句话</text>
+  <text x="72" y="112" class="subtitle">它们都在谈 AI 与工作，但回答的是不同问题。</text>
+
+  <path d="M376 276 H432" stroke="#a7b5c9" stroke-width="5" stroke-linecap="round"/>
+  <path d="M424 264 L442 276 L424 288" fill="none" stroke="#a7b5c9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M768 276 H824" stroke="#a7b5c9" stroke-width="5" stroke-linecap="round"/>
+  <path d="M816 264 L834 276 L816 288" fill="none" stroke="#a7b5c9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="54" y="166" width="320" height="218" rx="22" fill="#e9e7ff"/>
+  <circle cx="102" cy="218" r="23" fill="#6956d6"/>
+  <text x="95" y="226" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#fff">1</text>
+  <text x="143" y="227" class="label">使用日志</text>
+  <text x="86" y="279" class="body">谁在何时、以何种方式</text>
+  <text x="86" y="309" class="body">把什么任务交给 AI？</text>
+  <text x="86" y="350" class="small">例：Anthropic 的使用与产物数据</text>
+
+  <rect x="440" y="166" width="320" height="218" rx="22" fill="#fff0dc"/>
+  <circle cx="488" cy="218" r="23" fill="#e58a22"/>
+  <text x="481" y="226" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#fff">2</text>
+  <text x="529" y="227" class="label">任务与现场研究</text>
+  <text x="472" y="279" class="body">同一种工作有没有更快、</text>
+  <text x="472" y="309" class="body">更好，或更容易出错？</text>
+  <text x="472" y="350" class="small">例：客服、写作、编程等具体场景</text>
+
+  <rect x="826" y="166" width="320" height="218" rx="22" fill="#dff4f1"/>
+  <circle cx="874" cy="218" r="23" fill="#1d9b8d"/>
+  <text x="867" y="226" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#fff">3</text>
+  <text x="915" y="227" class="label">劳动市场结果</text>
+  <text x="858" y="279" class="body">工资、工时、招聘和就业</text>
+  <text x="858" y="309" class="body">到底有没有发生变化？</text>
+  <text x="858" y="350" class="small">需要更长时间与更强识别设计</text>
+
+  <rect x="72" y="431" width="1056" height="50" rx="16" fill="#eef2f7"/>
+  <text x="600" y="464" text-anchor="middle" class="body">前两层出现变化，不等于第三层已经得出结论。</text>
+</svg>
