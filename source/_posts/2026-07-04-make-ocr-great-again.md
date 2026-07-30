@@ -10,13 +10,13 @@ excerpt_en: "A retrieval-oriented view of production OCR: structuring and enrich
 mathjax: false
 ---
 
-我并不研究 OCR。以前提到 OCR，我脑子里想到的还是从图片里把字“抠”出来，比如各大手机厂商相册里的文字提取功能，已经相当好用。
+我并不研究 OCR。以前提到它，我脑子里想到的还是从图片里把字“抠”出来，比如各大手机相册里的文字提取，已经相当好用。
 
-后来开始研究 Agent，我才发现 OCR 有时会成为整个系统的关键一环。现实世界的数据没有那么干净，`.png`、`.pdf`、`.docx` 和各种奇怪的格式都是系统必须处理的输入。科研可以直接使用清洗好的数据集，但工程不行，我们得去做点什么。
+后来开始研究 Agent，我才发现 OCR 有时会卡在整个系统最前面。现实世界的数据没那么干净，`.png`、`.pdf`、`.docx` 和各种奇怪格式都是系统必须处理的输入。科研可以直接使用清洗好的数据集，工程不行，我们得把这些东西接进来。
 
-文档麻烦的地方通常不止是字。表格在哪里，公式怎么保留，标题和正文是什么关系，阅读顺序有没有乱，图和图注要不要放在一起，页面里的图片是要裁掉、描述，还是留一个引用。这些问题以前更像后处理，现在慢慢成了 OCR 本身的一部分。
+文档麻烦的地方通常不止是字。表格在哪里，公式怎么保留，标题和正文是什么关系，阅读顺序有没有乱，图和图注要不要放在一起，页面里的图片是裁掉、描述，还是留一个引用。这些以前更像后处理的问题，现在慢慢成了 OCR 本身的一部分。
 
-这也是我最近看 MinerU 和 Unlimited OCR 时比较感兴趣的地方。它们不是同一类东西。MinerU 是一套文档解析工程框架，MinerU2.5-Pro-2605-1.2B 是它在 VLM 与 hybrid 后端中使用的模型之一；Unlimited OCR 则把长文档连续解析放进模型架构里，试图少依赖逐页循环。
+这也是我最近看 MinerU 和 Unlimited OCR 时最感兴趣的地方。它们不是同一类东西。MinerU 是一套文档解析工程框架，MinerU2.5-Pro-2605-1.2B 是它在 VLM 与 hybrid 后端中使用的模型之一；Unlimited OCR 则把长文档连续解析放进模型架构里，试图少依赖逐页循环。
 
 两条路都挺有意思。
 
@@ -26,13 +26,13 @@ mathjax: false
 
 OCR 重新变得有意思，是因为我们开始把文档当作一种结构化对象看。页面不是一串字符，而是正文、标题、公式、表格、图片、脚注、页眉页脚和阅读顺序混在一起的东西。模型如果只吐一段文本，后面还要花很多力气猜它来自哪里。
 
-所以现在的文档 OCR 更像 "document parsing"。它要把页面拆开，再尽量拼回一个机器能用、人也能读的结果。Markdown 是一个好出口，但不是唯一出口。真正有价值的，是 Markdown 形式自带的结构信息与其本身双重可读的特性。
+所以现在的文档 OCR 更像 "document parsing"。它要把页面拆开，再尽量拼回一个机器能用、人也能读的结果。Markdown 是一个好出口，但不是唯一出口。更有价值的是它保留下来的结构信息，以及人和机器都能继续读的形式。
 
 ## 模型之外：交付水平的 OCR 应该产出什么
 
 如果下游是搜索、RAG 或 Agent，OCR 的交付物就不能只是一份看起来正确的 Markdown。Markdown 更像预览层，真正应该交付的是一份可以被追踪、切分、增强和索引的文档对象。
 
-[Google Document AI Layout Parser](https://cloud.google.com/document-ai/docs/layout-parse-chunk) 会保留标题、表格、公式、列表和层级关系，再生成带祖先标题信息的 context-aware chunks,同时为图片和表格增加元素批注（或解释）方便检索系统工作；[Azure Content Understanding 的 Markdown 表示](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/markdown) 也会显式保存章节、表格、公式、图片、页码（页面元数据符号）与目录。它们背后的共同判断是：纯 OCR 文本会把阅读顺序和上下文压平，而检索系统需要知道一段内容属于哪一节、来自哪一页、和哪张图或哪张表相连。
+[Google Document AI Layout Parser](https://cloud.google.com/document-ai/docs/layout-parse-chunk) 会保留标题、表格、公式、列表和层级关系，再生成带祖先标题信息的 context-aware chunks，同时为图片和表格增加元素批注（或解释），方便检索系统继续工作；[Azure Content Understanding 的 Markdown 表示](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/markdown) 也会显式保存章节、表格、公式、图片、页码（页面元数据符号）与目录。它们背后的共同判断是：纯 OCR 文本会把阅读顺序和上下文压平，而检索系统需要知道一段内容属于哪一节、来自哪一页、和哪张图或哪张表相连。
 
 ### 先交付一个可追踪的文档对象
 
@@ -135,9 +135,9 @@ MinerU 也把这些信息放进结果里。`content_list.json` 里有内容类�
 
 ## Unlimited OCR：让模型连续读下去
 
-Unlimited OCR 就不太一样了。
+Unlimited OCR 走的是另一条路。
 
-它关注的不是怎样把一套文档解析系统打磨完整，而是一个更模型侧的问题：OCR 能不能像连续转写一样处理长文档，而不是每页都从头开始。
+它关心的不是怎样把一套文档解析系统打磨完整，而是一个更模型侧的问题：OCR 能不能像连续转写一样处理长文档，而不是每页都从头开始。
 
 传统多页 OCR 通常是逐页处理。第一页跑完，第二页再跑。工程上很自然，也容易并行。但这种方式会把文档切成很多独立小任务。跨页段落、跨页表格、连续编号、上下文延续，都要靠外部系统补回来。补得好就是工程能力，补不好就会出现很奇怪的断裂。
 
@@ -161,7 +161,7 @@ Unlimited OCR 依赖 DeepSeek-OCR 路线里的 DeepEncoder，把高分辨率页�
 
 这两个项目放在一起看，会发现 OCR 的用户价值已经变了。
 
-以前用户要的是文字。现在用户更想要一份可用的文档对象：正文有顺序，标题有层级，公式是 LaTeX，表格能继续解析，图片被裁出来，坐标还在，必要时能回到原页检查。最好还有调试文件，能告诉我哪里识别错了，而不是只给一份看似完整的 Markdown。
+以前用户要的是文字。现在用户更想要一份可用的文档对象：正文有顺序，标题有层级，公式是 LaTeX，表格能继续解析，图片被裁出来，坐标还在，必要时能回到原页检查。最好还有调试文件，告诉我哪里识别错了，而不是只给一份看似完整的 Markdown。
 
 MinerU 3.4 更擅长把这些能力组织成系统，MinerU2.5-Pro 则负责其中的 VLM 解析能力。它让我想到以前写过的事实层和界面层：Markdown 是给人读的，JSON 和中间文件才是后续系统继续工作的事实层。你可以用 Markdown 做展示和索引，用 `content_list.json` 做 chunk，用 `middle.json` 做固定版本下的二次开发，用 `layout.pdf` 做通用版面检查，再在 pipeline 后端使用 `span.pdf` 排查文本片段问题。`content_list_v2.json` 值得关注，但在格式稳定前不宜成为下游系统唯一依赖的接口。
 
@@ -173,15 +173,15 @@ Unlimited OCR 更像是在模型层面补一个长期缺口。长文档不是很
 
 数字 PDF 能直接抽文本就不要 OCR。扫描件、复杂版面、低质量图片页，再交给 OCR/VLM。MinerU 适合做文档解析主流程，但要认真看输出文件和 backend 差异。Unlimited OCR 适合长文档专项评测，尤其是几十页连续解析，但不能忽略 prompt、special token、no-repeat n-gram 和上下文上限。
 
-更现实的做法，可能是混合管线。普通文档用成熟解析系统处理，长文档和复杂页交给更强的 VLM/OCR 模型；输出统一落到 Markdown 和 JSON，再加一层质量检查。但混合管线的开发成本和维护成本都很高，MinerU 与 Unlimited OCR 这种开箱即用的工具能为我们节省 AI 时代最宝贵的时间。随着推理成本继续下降，更多文档处理步骤可能会交给统一模型，但是否跳过复杂度分流，仍然要由质量、延迟和成本共同决定。
+更现实的做法，可能是混合管线。普通文档用成熟解析系统处理，长文档和复杂页交给更强的 VLM/OCR 模型；输出统一落到 Markdown 和 JSON，再加一层质量检查。混合管线的开发和维护成本都不低，开箱即用的工具能为我们节省 AI 时代最宝贵的时间。是否跳过复杂度分流，还是要由质量、延迟和成本共同决定。
 
-MinerU 3.4 让我看到 OCR 的工程化价值，MinerU2.5-Pro 则说明模型侧的数据工程同样重要。不是所有能力都要塞进模型里，文档解析本来就需要文件处理、版面分析、后处理、输出协议和调试工具；反过来，框架也需要持续吸收更强的模型能力。
+MinerU 3.4 让我看到 OCR 的工程化价值，MinerU2.5-Pro 则说明模型侧的数据工程同样重要。不是所有能力都要塞进模型里，文档解析本来就需要文件处理、版面分析、后处理、输出协议和调试工具；反过来，框架也得持续吸收更强的模型能力。
 
-Unlimited OCR 提醒我们，模型结构仍然能改变工作流。长文档解析不一定永远是逐页循环加外部拼接。也许以后真正好用的 OCR 系统，会一边有 MinerU 这样的工程外壳，一边吸收 Unlimited OCR 这种长文档模型能力。
+Unlimited OCR 提醒我们，模型结构仍然能改写工作流。长文档解析不一定永远是逐页循环加外部拼接。以后真正好用的 OCR 系统，或许会一边有 MinerU 这样的工程外壳，一边吸收 Unlimited OCR 这种长文档模型能力。
 
-当进入真实的工程实践中，[Amazon Textract](https://docs.aws.amazon.com/textract/latest/dg/what-is.html)， [Google Document AI Layout Parser](https://cloud.google.com/document-ai/docs/layout-parse-chunk)，[Azure Document Content Understanding: Markdown Representation](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/markdown)。都提供相关能力，OCR 早已经成为了一项平台化的基础服务。
+到了真实工程里，[Amazon Textract](https://docs.aws.amazon.com/textract/latest/dg/what-is.html)、[Google Document AI Layout Parser](https://cloud.google.com/document-ai/docs/layout-parse-chunk) 和 [Azure Document Content Understanding: Markdown Representation](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/document/markdown) 都提供了相关能力。OCR 早已经是一项平台化的基础服务。
 
-OCR 以前负责把字认出来。现在它开始负责把文档还原成可以继续使用的结构。对于需要处理真实文档的 Agent，OCR 是离不开的一环，MOGA。
+OCR 以前负责把字认出来。现在它开始负责把文档还原成可以继续使用的结构。对于需要处理真实文档的 Agent，OCR 是离不开的一环。MOGA。
 
 ## 参考资料
 
