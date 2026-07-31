@@ -960,6 +960,50 @@ plot.design(warpbreaks, fun = median, col = "blue",
             xlab = "因素", ylab = "断裂数目中值")
 ```
 
+### 森林图
+
+森林图（Forest Plot）这个名字有一点陌生，但是实际上我们已经在很多地方使用过它，而没有进行专门的介绍。
+
+#### 基本介绍
+
+森林图用于可视化比较多个研究结果的效应大小和置信区间，通常用于汇总和比较不同研究的结果，特别是在荟萃分析（Meta-Analysis）中。当然，我们之前构建过的 Cox 比例风险回归模型也可以用森林图展示结果。
+
+从定义可以看出，一切需要比较效应大小的地方都可以有森林图。图中每一行代表一个研究或一个模型变量：点表示效应估计，横向线段表示置信区间；所有结果沿纵向排列，形成一片像森林树木一样的视觉效果。对于 HR、OR 和 RR 这类比值指标，参考线通常位于 `1`；对于均值差等差值指标，参考线通常位于 `0`。
+
+在荟萃分析中，每一行通常对应一项研究，整体效应还可以用菱形表示；在回归模型中，每一行则对应一个自变量。单因素的森林图现在使用得较少，基本上都以多因素森林图为主：它可以同时展示模型中各变量的方向、效应量以及估计的不确定性。具体的绘制方法可以在使用时再继续查询，原理上并不复杂。
+
+#### 图形示例
+![多因素 Cox 比例风险回归的森林图](/assets/images/r-learning-notes/r-language-stat-visualization-47.png)
+
+上图模拟了一组多因素 Cox 回归结果。蓝点为风险比（Hazard Ratio，HR）的估计值，横线为 `95% CI`，虚线表示无效应的 `HR = 1`。置信区间完全落在参考线一侧时，说明效应方向较为明确；如果区间穿过参考线，则这一变量的效应仍存在较大的不确定性。
+
+#### base R
+```r
+## 基础作图法绘制多因素 Cox 回归结果的森林图
+forest_data = data.frame(
+  variable = c("年龄（每增加 10 岁）", "男性（相对女性）",
+               "III–IV 期（相对 I–II 期）", "接受治疗（相对未治疗）",
+               "肿瘤大小 ≥ 5 cm", "吸烟史"),
+  hr = c(1.32, 1.18, 2.41, 0.63, 1.47, 1.09),
+  lower = c(1.08, 0.86, 1.71, 0.45, 1.03, 0.78),
+  upper = c(1.61, 1.62, 3.39, 0.88, 2.09, 1.52)
+)
+forest_data = forest_data[nrow(forest_data):1, ]
+positions = seq_len(nrow(forest_data))
+
+par(mar = c(4, 11, 0.5, 0.5))
+plot(forest_data$hr, positions, type = "n", log = "x",
+     xlim = c(0.4, 4), ylim = c(0.5, nrow(forest_data) + 0.5),
+     xaxt = "n", yaxt = "n",
+     xlab = "风险比（HR，95% CI）", ylab = "")
+axis(1, at = c(0.5, 1, 2, 4), labels = c("0.5", "1", "2", "4"))
+axis(2, at = positions, labels = forest_data$variable, las = 1)
+abline(v = 1, lty = 2, col = "grey50")
+arrows(forest_data$lower, positions, forest_data$upper, positions,
+       angle = 90, code = 3, length = 0.05, col = "#1f77b4")
+points(forest_data$hr, positions, pch = 19, col = "#1f77b4")
+```
+
 ### 交互效应图
 在回归模型或方差分析中，我们常遇到交互效应的概念；交互效应图一般针对分类变量之间的交互
 
