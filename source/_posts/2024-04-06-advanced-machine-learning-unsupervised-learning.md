@@ -1,12 +1,12 @@
 ---
-title: "机器学习进阶：无监督学习、稀疏学习与半监督学习"
-title_en: "Advanced Machine Learning: Unsupervised Learning, Sparse Learning, and Semi-Supervised Learning"
+title: "机器学习进阶：无监督学习与半监督学习"
+title_en: "Advanced Machine Learning: Unsupervised and Semi-Supervised Learning"
 date: 2024-04-06 01:38:58 +0800
 categories: ["Machine Learning", "Classical Machine Learning"]
 tags: ["Machine Learning", "Unsupervised Learning", "Semi-Supervised Learning"]
 author: Hyacehila
-excerpt: "整理聚类、核密度估计、谱聚类、图聚类、异常检测、特征选择、稀疏学习和半监督学习。"
-excerpt_en: "Covers clustering, kernel density estimation, spectral and graph clustering, anomaly detection, feature selection, sparse learning, and semi-supervised learning."
+excerpt: "整理聚类、核密度估计、谱聚类、图聚类、异常检测和半监督学习。"
+excerpt_en: "Covers clustering, kernel density estimation, spectral and graph clustering, anomaly detection, and semi-supervised learning."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/04/06/advanced-machine-learning-unsupervised-learning/'
@@ -251,30 +251,6 @@ $$\boldsymbol{M}=\begin{pmatrix}&1&2&3&4&5&6&7\\1&0&0&0&1&0&0&0\\2&0&0&0&1&0&0&0
 事实上，监督学习和异常检测使用两种完全不同的思路去理解数据，后者去建模正常数据的模型，然后将其中不正常发现。后者则是通过监督学习的方式识别不正常的样本，当这类样本过少的时候，他难以学习到所有的不正常模式，而异常检测可以避免这个问题。也就是监督学习对没见过的内容难以泛化，这由其算法本身限制。
 
 异常检测更加依赖特征的选择，需要更加缜密的判断各个特征的价值以及其分布情况是否符合模型的需要，比监督学习要求更多。需要根据个人在这个领域的经验构造更加精妙的特征，剔除那些不必要的特征。
-
-
-
-
-## 特征选择与稀疏学习
-
-考虑最基本的数据框形式 
-
-*特征选择所考虑的问题是特征具有“稀疏性”，即矩阵中的许多列与当前学习任务无关，通过特征选择去除这些列，提高模型效果 可解释度 降低训练的难度；*
-
-现在我们来考虑另一种稀疏性：$D$所对应的矩阵中存在很多零元素，但这些零元素并不是以整列、整行形式存在的
-
-当样本具有这样的稀疏表达形式时,对学习任务来说会有不少好处，高度的稀疏性，使大多数问题变得线性可分 所以SVM在这种数据中会有着很好的效果同时,稀疏样本并不会造成存储上的巨大负担，因为稀疏矩阵已有很多高效的存储方法. 所以现在 这种稀疏性 是我们在追求的
-
-**我们发现 这种适当的稀疏 对我们进行模型的构建是有好处的** （当然过度的稀疏数据是不好的） 那么，若给定数据集$D$是稠密的，即普通非稀疏数据，能否将其转化为“稀疏表示 "（sparse representation）形式 从而享受稀疏的好处
-
-显然，在一般的学习任务中(例如图像分类)并没有《现代汉语常用字表》 可用，我们需学习出这样一个“字典”. 为普通稠密表达的样本找到合适的字典，将样本转化为合适的稀疏表示形式，从而使学习任务得以简化，模型复杂度得以降低，
-
-这通常称为“字典学习”(dictionary learning),亦称“稀疏编码”(sparse coding)
-
-给定数据集$\{x_1,x_2,\ldots,x_m\}$,字典学习最简单的形式为
-$$\min_{\mathbf{B},\alpha_i}\sum_{i=1}^m\|x_i-\mathbf{B}\alpha_i\|_2^2+\lambda\sum_{i=1}^m\|\alpha_i\|_1\:,$$
-其中$\mathbf{B}\in\mathbb{R}^d\times k$为字典矩阵，$k$称为字典的词汇量，通常由用户指定$,\boldsymbol{\alpha}_i\in\mathbb{R}^k$则是样本$x_i\in\mathbb{R}^d$的稀疏表示.显然，优化式第一项是希望由$\boldsymbol\alpha_i$能很好地重构$x_i$,第二项则是希望$\alpha_i$尽量稀疏
-
 
 ## 半监督学习
 ### 未标记样本
