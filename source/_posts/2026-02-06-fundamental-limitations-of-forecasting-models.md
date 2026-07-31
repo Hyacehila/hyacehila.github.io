@@ -14,8 +14,6 @@ permalink: '/blog/2026/02/06/fundamental-limitations-of-forecasting-models/'
 >
 > Christoph Bergmeir 教授是莫纳什大学时间序列预测库 (Monash Time Series Forecasting Repository) 的主要维护者之一。
 
-# Fundamental limitations of foundational forecasting models - The need for multimodality and rigorous evaluation
-
 ## 引言：从随机游走谈起
 
 时间序列预测是数据科学中最基础但也最棘手的话题之一。不同于图像或自然语言处理，时间序列往往面临着信噪比极低的问题。
