@@ -1,60 +1,22 @@
 ---
-title: "机器学习补充主题：多分类、类别不平衡与聚类评估"
-title_en: "Machine Learning Supplementary Topics: Multiclass Learning, Class Imbalance, and Clustering Evaluation"
-date: 2024-09-23 22:22:06 +0800
+title: "聚类模型的性能度量：外部、内部与相对指标"
+title_en: "Clustering Model Evaluation: External, Internal, and Relative Metrics"
+date: 2026-07-31 20:00:00 +0800
 categories: ["Machine Learning", "Classical Machine Learning"]
-tags: ["Machine Learning", "Clustering", "Class Imbalance"]
+tags: ["Machine Learning", "Clustering", "Evaluation"]
 author: Hyacehila
-excerpt: "整理多分类学习、类别不平衡问题，以及聚类模型的外部、内部和相对性能度量。"
-excerpt_en: "Covers multiclass learning, class imbalance, and external, internal, and relative evaluation metrics for clustering."
+excerpt: "整理聚类模型的外部、内部和相对性能度量，包括纯度、NMI、VI、RI、FMI、Hubert 统计量、DBI、Dunn、BetaCV、CH、聚类稳定性与 Hopkins 统计量。"
+excerpt_en: "An overview of external, internal, and relative validity measures for clustering models, covering purity, NMI, VI, RI, FMI, Hubert statistics, DBI, Dunn, BetaCV, CH, cluster stability, and the Hopkins statistic."
 mathjax: true
 hidden: true
-permalink: '/blog/2024/09/23/machine-learning-supplementary-topics/'
+permalink: '/blog/2026/07/31/clustering-model-evaluation/'
 ---
-我们讨论一些相对独立的机器学习知识，他们很重要，值得被单独挑出来进行一些研究。
-## 多分类学习
-对于多分类学习 我们之前没有进行过系统性的介绍 在Logit回归中介绍了多项式Logit回归简单介绍了一点 但是是很不全面的 这里我们详细的解释如何从最常用的二分类模型构建多分类问题模型
-
-我们的核心思想是 **把多分类问题拆解成多个二分类问题来处理**
-#### One vs. One(O v O)
-把$N$分类数据集进行二分类配对 产生$N(N-1)/2$ 个分类器 分别把数据放入分类器中进行训练 最后对于我们要进行的分类任务：新样本将同时提交给所有分类器，于是我们将得到$N(N-1)/2$个分类结果,最终结果通过投票产生
-#### One vs. Rest(OvR)
-每次将一个类的样例作为正例、所有其他类的样例作为反例来
-
-训练$N$个分类器.在测试时若仅有一个分类器预测为正类，则对应的类别标记作为最终分类结果，所示.若有多个分类器预测为正类，则通常考虑各分类器的预测置信度，选择置信度最大的类别标记作为分类结果
-#### Many vs. Many (MvM)
-MvM是绛次将若干个类作为正类,若干个其他类作为反类 容易看出 前面两个方法都是它的特例 容易看出 我们需要一种方法来构造正反类了 最常用的技术为 纠错输出码（Error Correcting Output Codes,简称 ECOC）
-
-它有着一定的纠错能力
-
-ECOC的过程主要分类两步
-* 编码：对 N 个类别做河次划分，每次划分将一部分类别划为正类，一部分划为反类,从而形成一个二分类训练集；这样一共产生M 个训练集,可训练出M 个分类器
-* 解码：M 个分类器分别对测试样本进行预测，这些预测标记组成一个编码.将这个预测编码与每个类别各自的编码进行比较,返回其中距离最小的类别作为最终预测结果
-
-一种常用的编码矩阵 (coding matrix)形式为
-![多分类编码矩阵示意](/assets/images/machine-learning-notes/ml-supplementary-coding-matrix.png)
-## 类别不平衡问题
-类别不平衡(class-imbalance)就是指分类任务中不同类别的训练样例数目差别很大的情况
-
-在现实的分类学习任务中，我们经常会遇到类别不平衡，例如在通过拆分法解决多分类问题时，即使原始问题中不同类别的训练样例数目相当，在使
-用OvR、MvM策略后产生的二分类任务仍可能出现类别不平衡现象
-
-一种最基本的类别不平衡处理方法是再缩放 他通过按照正反例比例来再缩放我们的分类阈值实现  遗憾的是 再缩放的前提是 **训练集是真实样本总体的无偏采样** 这往往并不是真实的（尤其是我们进行了多分类学习调整） 因此我们还有更加一般的处理手段
-
-现有技术大体上有三类做法：第一类是直接对训练集里的反类样例进行“欠采样”(undersampling),即去除一些反例使得正、反例数目接近，然后再进行学习；第二类是对训练集里的正类样例进行“过采样" (oversampling),即增加一些正例使得正、反例数目接近，然后再进行学习
-
-注意 过采样手法不能简单地对初始正例样本进行重复采样，否则会招致严重的过拟合 一般要采用插值手法来得到额外的正例
-
-欠采样法的代表性算法EasyEnsemble 则是利用集成学习机制，将反例划分为若干个集合供不同学习器使用，这样对每个学习器来看都进行了欠采样，但在全局来看却不会丢失重要信息
-
-
-
-
-
 ## 聚类模型的性能度量
 聚类是一种相对特殊的机器学习任务类型 我们也需要给出一些略显不同的有效性指标(validity index) 
 
 聚类的目标是什么？ 直观上看，我们希望 “物以类聚”，即同一簇的样本尽可能彼此相似，不同簇的样本尽可能不同.换言之，聚类结果的“簇内相似度”(intra-cluster similarity)高 且 “簇间相似度”(inter-cluster similarity)低.
+
+聚类算法本身的介绍见[机器学习进阶与无监督学习：谱聚类与图聚类](/blog/2024/04/06/advanced-machine-learning-unsupervised-learning/)。
 ### 外部指标
 顾名思义，外部验证度量假设事先知道准确的或真实的聚类。真实的分簇标签(即外部信息)用于评估一个给定的聚类。通常我们是不知道准确的聚类的；但外部度量可以用于测试和验证不同的聚类方法。
 

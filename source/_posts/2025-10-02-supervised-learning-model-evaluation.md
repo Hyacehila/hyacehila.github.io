@@ -1,12 +1,12 @@
 ---
-title: "监督学习性能评估：交叉验证、分类指标与 ROC 曲线"
-title_en: "Supervised Learning Model Evaluation: Cross-Validation, Classification Metrics, and ROC Curves"
+title: "监督学习性能评估：交叉验证、分类指标、多分类与 ROC 曲线"
+title_en: "Supervised Learning Model Evaluation: Cross-Validation, Classification Metrics, Multiclass Learning, and ROC Curves"
 date: 2025-10-02 16:04:00 +0800
 categories: ["Machine Learning", "Classical Machine Learning"]
 tags: ["Machine Learning", "Evaluation", "Supervised Learning"]
 author: Hyacehila
-excerpt: "整理模型评估方法、交叉验证、自助法、多模型比较、分类指标、PR 曲线、ROC/AUC 和回归指标。"
-excerpt_en: "Covers evaluation methods, cross-validation, bootstrapping, model comparison, classification metrics, PR curves, ROC/AUC, and regression metrics."
+excerpt: "整理模型评估方法、交叉验证、自助法、多模型比较、分类指标、PR 曲线、ROC/AUC、多分类学习、不平衡指标选择和回归指标。"
+excerpt_en: "Covers evaluation methods, cross-validation, bootstrapping, model comparison, classification metrics, PR curves, ROC/AUC, multiclass learning, imbalanced metric selection, and regression metrics."
 mathjax: true
 hidden: true
 permalink: '/blog/2025/10/02/supervised-learning-model-evaluation/'
@@ -210,17 +210,17 @@ $$F=\frac{1}{k}\sum_{i=1}^{k}F_i$$
 
 #### 错误率与精度（二分类）
 
-错误预测的比例，和[机器学习补充知识：错误率与精度](/blog/2024/09/23/machine-learning-supplementary-topics/)一样：
+错误预测的比例，如前文"错误率与精度"一节所述：
 
 $$\mathrm{Error~Rate}=\frac{\mathrm{FP}+\mathrm{FN}}{n}$$
 
-正确预测的比例与此相同（见[机器学习补充知识：错误率与精度](/blog/2024/09/23/machine-learning-supplementary-topics/)）：
+正确预测的比例与此相同（见前文"错误率与精度"一节）：
 
 $$\mathrm{Accuracy}=\frac{\mathrm{TP}+\mathrm{TN}}{n}$$
 
 #### 查准率与查全率
 
-分类的精度，和[机器学习补充知识：精度](/blog/2024/09/23/machine-learning-supplementary-topics/)一样：
+分类的精度，如前文"精度"一节所述：
 
 $$\mathrm{prec}_{P}=\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FP}}=\frac{\mathrm{TP}}{m_1};\quad\mathrm{prec}_{N}=\frac{\mathrm{TN}}{\mathrm{TN}+\mathrm{FN}}=\frac{\mathrm{TN}}{m_2}$$
 
@@ -228,11 +228,11 @@ $$\mathrm{prec}_{P}=\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FP}}=\frac{\mathrm{TP
 
 #### 敏感性与特异性
 
-正类样本被正确预测的比例，就是[机器学习补充知识：覆盖率](/blog/2024/09/23/machine-learning-supplementary-topics/)：
+正类样本被正确预测的比例，就是前文"覆盖率"一节定义的召回率：
 
 $$\mathrm{TPR}=\mathrm{recall}_P=\frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FN}}=\frac{\mathrm{TP}}{n_1}$$
 
-负类样本被正确预测的比例，就是[机器学习补充知识：覆盖率](/blog/2024/09/23/machine-learning-supplementary-topics/)：
+负类样本被正确预测的比例，就是前文"覆盖率"一节定义的特异性：
 
 $$\mathrm{TNR}=\text{specificity}=\mathrm{recall}_N=\frac{\mathrm{TN}}{\mathrm{FP}+\mathrm{TN}}=\frac{\mathrm{TN}}{n_2}$$
 
@@ -246,7 +246,7 @@ $$\mathrm{FPR}=\frac{\mathrm{FP}}{\mathrm{FP}+\mathrm{TN}}=\frac{\mathrm{FP}}{n_
 
 ### 综合性的度量方法
 
-这里仍基于二分类的混淆矩阵。当存在类不平衡时，混淆矩阵中的绝对数可能不太有用，因此引入下面的方法，它们旨在给出更综合的分类模型性能评价。
+这里仍基于二分类的混淆矩阵。当存在类不平衡时，混淆矩阵中的绝对数可能不太有用，因此引入下面的方法，它们旨在给出更综合的分类模型性能评价。关于不平衡场景下的处理手段，参见[样本不均衡的实践处理](/blog/2026/03/14/training-imbalance-solutions/)。
 
 #### PR 曲线
 
@@ -254,7 +254,7 @@ $$\mathrm{FPR}=\frac{\mathrm{FP}}{\mathrm{FP}+\mathrm{TN}}=\frac{\mathrm{FP}}{n_
 
 $$\begin{aligned}P&=\frac{TP}{TP+FP},\\\\R&=\frac{TP}{TP+FN}.\end{aligned}$$
 
-它们就是[机器学习补充知识：查准率与查全率](/blog/2024/09/23/machine-learning-supplementary-topics/)。
+它们就是前文"查准率与查全率"一节定义的 $P$ 与 $R$。
 
 很多情形下，可以根据学习器的预测结果对样例排序，排在前面的被认为是最可能的正例，排在最后的是最不可能的正例。按这个顺序逐个把样本当作正例预测，每次都能算出一组当前的查全率、查准率。
 
@@ -264,7 +264,7 @@ P-R 图直观地展示学习器在样本总体上的查全率、查准率。比�
 
 #### F Measure
 
-完全包住的情况还是太少，交叉才是 P-R 曲线的常态，因此还需要引入新的度量。最常用的是 F1 度量，这里继承自[机器学习补充知识：F1](/blog/2024/09/23/machine-learning-supplementary-topics/)：
+完全包住的情况还是太少，交叉才是 P-R 曲线的常态，因此还需要引入新的度量。最常用的是 F1 度量，这里沿用前文"F1"一节的记号：
 
 $$F_1=\frac{2\times P\times R}{P+R}=\frac{2\times TP}{\text{样例总数}+TP-TN}$$
 
@@ -292,7 +292,7 @@ ROC 曲线的纵轴是真正例率(True Positive Rate，简称 TPR)，横轴是�
 
 $$\begin{aligned}\text{TPR}&=\frac{TP}{TP+FN}\\\\\text{FPR}&=\frac{FP}{TN+FP}\end{aligned}$$
 
-它们就是[机器学习补充知识：敏感性与特异性](/blog/2024/09/23/machine-learning-supplementary-topics/)。
+它们就是前文"敏感性与特异性"一节定义的 TPR 与 FPR。
 
 比较学习器时，与 P-R 图类似，若一个学习器的 ROC 曲线被另一个学习器的曲线完全包住，可以断言后者的性能优于前者；
 
@@ -309,13 +309,71 @@ $$\mathrm{AUC}=\frac{1}{2}\sum_{i=1}^{m-1}(x_{i+1}-x_{i})\cdot(y_{i}+y_{i+1})$$
 
 ROC-AUC 是最常用的分类性能评价指标，很实用，对类别不均衡的情况也不敏感。
 
+#### 不平衡场景下的指标选择
+
+类别分布严重失衡时，上述指标各有各的盲区，实践中的取舍要点如下：
+
+| 指标 | 回答什么问题 | 在不均衡下何时会误导 |
+|------|------|------|
+| Accuracy | 总体预测对了多少 | 正例极少时会被多数类"冲高" |
+| AUROC | 正例是否整体排在负例前面 | 负例极多时可能看起来很好，但业务上仍会产生大量误报 |
+| PR 曲线 / AUPRC | 预测为正的样本里有多少是真的，以及召回损失如何变化 | 基线随 prevalence 改变，跨数据集比较需报告先验 |
+| Balanced Accuracy | 各类 recall 的平均值 | 不反映概率校准，也不反映误报成本 |
+| MCC | 混淆矩阵四格整体是否平衡 | 仍无法替代 per-class 指标和阈值分析 |
+| Macro-F1 | tail 类是否也被看见 | 对阈值和小类样本数敏感 |
+| Brier / ECE | 概率输出是否可信 | 排序差的模型即便校准后也不一定可用 |
+
+在强不均衡二分类里，PR 曲线往往比 ROC 更能体现实际压力：ROC 把大量真负例也算进来，很多模型会显得"挺不错"，而 PR 空间更直接地暴露误报成本。不过 PR 的基线受 prevalence 约束，跨数据集比较 AUPRC 必须同时报告正例比例。
+
+多分类长尾任务里，Micro 指标会天然贴近 head class 的整体表现，容易把问题藏起来。要判断 tail class 是否真的被改善，至少要同时给出 macro 指标、per-class 指标、混淆矩阵以及 head/medium/tail 分层结果。更系统的处理手段见[样本不均衡的实践处理](/blog/2026/03/14/training-imbalance-solutions/)。
+
+### 多分类学习
+
+对于多分类问题，之前没有系统性地介绍过如何构建多分类模型，在 Logistic 回归里只简单提到了多项式 Logit。这里介绍最常用的思路：**把多分类问题拆解成多个二分类问题来处理**。
+
+One vs. One（OvO） 把 $N$ 分类数据集两两配对，产生 $N(N-1)/2$ 个分类器分别训练。预测时把新样本提交给所有分类器，得到 $N(N-1)/2$ 个二分类结果，最终结果通过投票产生。
+
+One vs. Rest（OvR） 每次将一个类的样例作为正例、其余所有类的样例作为反例，训练 $N$ 个分类器。测试时若仅有一个分类器预测为正类，就以对应的类别作为最终结果；若有多个分类器预测为正类，则比较各分类器的预测置信度，取置信度最大的类别作为分类结果。
+
+Many vs. Many（MvM）每次将若干个类作为正类、若干个其他类作为反类，OvO 与 OvR 都是它的特例。构造正反类划分最常用的技术是纠错输出码（Error Correcting Output Codes，简称 ECOC），它有一定的纠错能力。ECOC 分两步：
+
+* 编码：对 $N$ 个类别做多次划分，每次划分将一部分类别划为正类、一部分划为反类，从而形成一个二分类训练集；共产生 $M$ 个训练集，训练出 $M$ 个分类器。
+* 解码：$M$ 个分类器分别对测试样本预测，预测标记组成一个编码，与每个类别各自的编码比较，返回距离最小的类别作为最终预测结果。
+
+一种常用的编码矩阵（coding matrix）形式为：
+
+![多分类编码矩阵示意](/assets/images/machine-learning-notes/ml-supplementary-coding-matrix.png)
+
+注意：无论 OvR 还是 MvM，拆分出的二分类任务都可能重新引入类别不平衡，处理方式见[样本不均衡的实践处理](/blog/2026/03/14/training-imbalance-solutions/)。
+
+上面的拆分思路是经典的通用框架，但如今主流库大多走**原生多分类**路线，并不真的训练若干独立的二分类模型：
+
+- 树模型（决策树、随机森林）用多类不纯度直接分裂，天然多分类；
+- GBDT（XGBoost 的 `multi:softprob`、LightGBM 的 `multiclass`）每轮为每个类各训练一棵树，用 softmax 交叉熵联合优化，一个集成直接输出 $K$ 类概率；
+- 逻辑回归的多项式形式就是 softmax 回归，单模型、$K$ 组权重；
+- 神经网络用 softmax 输出层加交叉熵损失。
+
+仍然保留拆分思路的场合是核 SVM（libsvm 内部做 OvO）和 sklearn 的 `OneVsRest`/`OneVsOne` 包装器。不过拆分视角在多分类评估时依然重要——下面一节对 ROC 的扩展就是逐类 OvR 展开的。
+
 ### 多分类下的性能评估
 
-对多分类问题，也可以使用 ROC 曲线、AUC 和混淆矩阵等评估方法，但需要进行适当的扩展或调整。下面分别说明：
+对多分类问题，混淆矩阵、准确率、逐类指标、PR/ROC 都可以用，但都需要做适当的扩展。下面按指标说明多分类下怎么算、怎么看。
 
-混淆矩阵（Confusion Matrix）天然适用于多分类，可以直接看出各类别的分类表现，比如哪些类别容易混淆。
+**混淆矩阵**是 $K\times K$ 的：第 $i$ 行第 $j$ 列是真实类别为 $i$、预测为 $j$ 的样本数，对角线是各类预测正确的数目。看的时候重点找**非对角线上数值大的位置**——那就是最容易互相混淆的类别对。
 
-ROC 曲线和 AUC 最初是为二分类设计的，多分类时可以通过 One vs. Rest（OvR）策略扩展：按照 OvR 策略训练 $C$ 个二分类模型，得到 $C$ 条 ROC 曲线，再把曲线下面积做等权或按样本数加权的平均。
+**准确率（Accuracy）**就是对角线元素之和除以样本总数。盲区在于类别不均衡时会被多数类主导，少数类全错也可能拿到很高的 Accuracy。
+
+**逐类 Precision / Recall / F1**：把每个类轮流当作"正类"、其余类当作"反类"（OvR 视角），每个类就有一组 precision、recall 和 F1。这是判断 tail 类是否被照顾的基础。
+
+**宏平均、微平均与加权平均**——把逐类指标聚合成一个数时的三种方式：
+
+- **宏平均（Macro）**：直接对各类指标求平均，每类等权，对样本少的类更敏感；
+- **微平均（Micro）**：把所有类的统计量合并成一张表再统一计算，等于按样本量加权，天然贴近样本多的类（对多分类来说 Micro-F1 恰好等于 Accuracy）；
+- **加权平均（Weighted）**：按各类样本占比对逐类指标加权，介于两者之间（sklearn 的 `average='weighted'`）。
+
+多分类长尾任务里 Micro 指标通常很漂亮，但往往只是 head 类表现好；要看 tail 类是否真的被改善，需要同时报告 Macro 指标、逐类指标和混淆矩阵。
+
+**ROC / AUC**：逐类做 OvR 展开，每类得一条 ROC 曲线，AUC 再取宏平均或按样本数加权平均。类别不均衡时，逐类 OvR 后的 PR 曲线往往比 ROC 更能反映少数类的实际表现，具体取舍见前面"不平衡场景下的指标选择"一节。
 
 ## 回归模型性能度量
 

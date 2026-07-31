@@ -69,9 +69,9 @@ $$P(2\mid1)=P(1\mid2)=\Phi\left(-\frac\Delta2\right)$$
 $$\hat{P}(2\mid1)=\frac{n(2\mid1)}{n_{1}},\quad\hat{P}(1\mid2)=\frac{n(1\mid2)}{n_{2}}$$
 这种方法的效果一般并不好 而且是偏低的 但是在训练用样本量非常大的时候 一般就比较可用了
 ###### 划分训练样本
-参考[机器学习补充知识](/blog/2024/09/23/machine-learning-supplementary-topics/) 的“留出法”一节
+参考[监督学习性能评估](/blog/2025/10/02/supervised-learning-model-evaluation/) 的“留出法”一节
 ###### 交叉验证
-机器学习领域的基本方法 是对划分训练样本的一种改进 [机器学习补充知识](/blog/2024/09/23/machine-learning-supplementary-topics/) 的“交叉验证法”一节
+机器学习领域的基本方法 是对划分训练样本的一种改进 [监督学习性能评估](/blog/2025/10/02/supervised-learning-model-evaluation/) 的“交叉验证法”一节
 在判别分析领域 我们一般使用$N$折交叉验证 
 #### 多分类的判别分析
 我们还是非常自然的 寻找那个马氏距离最小的总体 
@@ -268,6 +268,8 @@ $$D_{MJ}^{2}=\alpha_{K}D_{\bar{K}J}^{2}+\alpha_{L}D_{\bar{L}J}^{2}+\beta D_{\bar
 * 观测树形图 主观给出
 * 观测散点图 主观给出
 * 基于离差平方和构造统计量 基本思路就是类内的离差平方和要尽可能的控制小，合并的类如果离差平方和增加的太多就不是好的合并
+
+更系统地选择簇数的方法（CH 指数、聚类稳定性、Hopkins 统计量），参见[聚类模型的性能度量](/blog/2026/07/31/clustering-model-evaluation/)。
 ### 动态聚类法
 动态聚类法的特点是 某个样品所属的类别可以改变 
 

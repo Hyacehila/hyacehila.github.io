@@ -21,7 +21,7 @@ permalink: '/blog/2024/04/06/advanced-machine-learning-unsupervised-learning/'
 聚类既能作为一个单独过程，用于找寻数据内在的分布结构，也可作为分
 类等其他学习任务的前驱过程.
 ### 聚类性能度量
-参考 [机器学习补充知识：聚类模型的性能度量](/blog/2024/09/23/machine-learning-supplementary-topics/)
+参考 [聚类模型的性能度量](/blog/2026/07/31/clustering-model-evaluation/)
 ### 层次聚类
 我们在多元统计中已经介绍过了 这里不进行重复的叙述 而是更换新的角度来阐述聚类的思想 多元统计分析中的系统聚类法
 
