@@ -1,12 +1,12 @@
 ---
-title: "机器学习导论：监督学习、模型评估与贝叶斯方法"
-title_en: "Machine Learning Introduction: Supervised Learning, Model Evaluation, and Bayesian Methods"
+title: "机器学习导论：监督学习与贝叶斯方法"
+title_en: "Machine Learning Introduction: Supervised Learning and Bayesian Methods"
 date: 2024-03-28 18:22:50 +0800
 categories: ["Machine Learning", "Classical Machine Learning"]
 tags: ["Machine Learning", "Supervised Learning"]
 author: Hyacehila
-excerpt: "整理机器学习基本概念、模型评估、决策树、支持向量机、核方法、贝叶斯分类器和贝叶斯网。"
-excerpt_en: "Covers core concepts, model evaluation, decision trees, SVMs, kernel methods, Bayesian classifiers, and Bayesian networks."
+excerpt: "整理机器学习基本概念、决策树、支持向量机、核方法、贝叶斯分类器和贝叶斯网。"
+excerpt_en: "Covers core concepts, decision trees, SVMs, kernel methods, Bayesian classifiers, and Bayesian networks."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/03/28/machine-learning-introduction-supervised-learning/'
@@ -65,21 +65,9 @@ permalink: '/blog/2024/03/28/machine-learning-introduction-supervised-learning/'
 
 在机器学习领域里面，除了回归跟分类以外，还有**结构化学习**（structured learning）。机器不只是要做选择题或输出一个数字，而是产生一个有结构的物体，比如让机器画一张图，写一篇文章。这种叫机器产生有结构的东西的问题称为结构化学习。
 
-当然，无监督的**聚类和降维**也是重要的机器学习技巧，经常和监督学习配合使用
-## 模型评估与选择
-现在 我们已经了解了基本术语 知道了机器学习在研究什么 非常自然的 我们希望知道如何评估现有的模型 无论是对原始数据上的拟合能力还是泛化能力 它将是后面整个学习阶段的基础
+当然，无监督的**聚类和降维**也是重要的机器学习技巧，经常和监督学习配合使用。
 
-### 误差与过拟合
-[监督学习的性能评估：误差与过拟合](/blog/2025/10/02/supervised-learning-model-evaluation/)
-
-### ML模型的评估
-[监督学习的性能评估：传统的ML模型](/blog/2025/10/02/supervised-learning-model-evaluation/)
-
-### DL模型的评估
-[监督学习的性能评估：较为新颖的DL模型](/blog/2025/10/02/supervised-learning-model-evaluation/)
-
-### 性能度量
-[监督学习的性能评估：模型性能度量](/blog/2025/10/02/supervised-learning-model-evaluation/)
+关于模型评估与选择，请参阅[监督学习的性能评估](/blog/2025/10/02/supervised-learning-model-evaluation/)。
 
 ## 决策树
 ### 基本定义
