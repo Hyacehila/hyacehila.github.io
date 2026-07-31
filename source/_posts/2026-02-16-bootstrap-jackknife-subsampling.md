@@ -107,7 +107,9 @@ Efron 证明了，在相当广泛的条件下，Bootstrap 世界中 $\hat{\theta
 
 对于对精度要求极高的场景（如生物制药），我们还可以使用 **BCa (Bias-Corrected and accelerated) 方法**。它利用 Jackknife 估计出的偏度和偏差信息，对分位数进行精细校准，从而获得二阶准确度（Second-order Accuracy）。
 
-Bootstrap 极大地解放了数据科学家的生产力，成为了现代统计推断这一“瑞士军刀”般的标准工具。
+Bootstrap 极大地解放了数据科学家的生产力，成为了现代统计推断这一”瑞士军刀”般的标准工具。
+
+这里补充它的另一面：在机器学习模型评估中，Bootstrap 还被用作数据划分策略——用有放回采样出的 $D'$ 训练、用未出现过的约 36.8% 样本（包外样本，out-of-bag）测试，适合小数据集和集成学习。这条用法与本节的推断视角互相补充，更系统的模型评估方法见《[监督学习性能评估](/blog/2025/10/02/supervised-learning-model-evaluation/)》的”自助法”一节。
 
 ## 4. Subsampling：极端情况下的最后防线
 
