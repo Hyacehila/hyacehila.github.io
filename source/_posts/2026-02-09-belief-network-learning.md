@@ -1,54 +1,55 @@
 ---
-title: 贝叶斯网络：从概率图到因果推断
-title_en: "Bayesian Networks: From Probabilistic Graphs to Causal Inference"
+title: 概率图模型基础：贝叶斯网络、隐马尔可夫模型与马尔可夫随机场
+title_en: "Probabilistic Graphical Models: Bayesian Networks, Hidden Markov Models, and Markov Random Fields"
 date: 2026-02-09 12:00:00 +0800
 categories: ["Machine Learning", "Probabilistic Graphical Models"]
-tags: ["Graphical Models", "Statistical Inference"]
+tags: ["Graphical Models"]
 author: Hyacehila
-excerpt: 贝叶斯网络作为一种概率图模型，通过有向无环图将概率与因果关系结合，成为实现因果推断的重要工具。本文深入探讨了其结构表示、条件独立性原理以及参数与结构的学习算法。
-excerpt_en: "Bayesian networks combine probability and causality through directed acyclic graphs. This post covers representation, conditional independence, and parameter and structure learning algorithms."
+excerpt: 以贝叶斯网络、隐马尔可夫模型和马尔可夫随机场为主线，理解有向、动态与无向概率图模型如何表达条件独立性，并完成推断与学习。
+excerpt_en: "Introduces Bayesian networks, hidden Markov models, and Markov random fields as the directed, dynamic, and undirected foundations of probabilistic graphical models."
 mathjax: true
 hidden: true
 permalink: '/blog/2026/02/09/belief-network-learning/'
 ---
 
-## 引言：从相关性到结构化推断
+## 引言：用图表达概率结构
 
-在统计学与机器学习中，一个常见挑战是表示和处理多变量之间的复杂关系。当变量达到成百上千个时，直接对联合概率分布 $P(X_1, X_2, \dots, X_n)$ 建模通常不可行，因为参数空间会随着变量数量呈指数级爆炸（Curse of Dimensionality）。
+当变量达到成百上千个时，直接建模联合概率分布 $P(X_1, X_2, \dots, X_n)$ 往往不可行：参数数量会随变量数呈指数增长。**概率图模型**（Probabilistic Graphical Models, PGM）用图表达变量间的结构，用概率量化依赖强度，从而把高维联合分布拆成局部、可解释的部分。
 
-**概率图模型 (Probabilistic Graphical Models, PGM)** 提供了一种优雅的解决方案。它利用图论中的**图**来表示变量间的依赖关系，利用概率论来量化这些依赖的强度。
+如果想先从分类任务中的条件独立假设进入这个主题，可回顾[机器学习导论与监督学习：贝叶斯分类器](/blog/2024/03/28/machine-learning-introduction-supervised-learning/)。朴素贝叶斯、半朴素贝叶斯到贝叶斯网络，正是一条逐步放松属性独立性假设的路线。
 
-其中，**贝叶斯网络 (Bayesian Networks)** 是 PGM 的有向图分支。它能简化计算，其**有向边**也常对应我们认知中的**因果关系**。因此，贝叶斯网络成为连接传统统计关联与因果推断 (Causal Inference) 的桥梁。
+本文把三个基础模型放到同一框架中：
 
-## 结构表示：有向无环图 (DAG)
+| 模型 | 图结构 | 主要处理对象 | 条件独立性的表达 |
+| --- | --- | --- | --- |
+| 贝叶斯网络（BN） | 有向无环图（DAG） | 静态的变量依赖 | 给定父节点后的局部独立性 |
+| 隐马尔可夫模型（HMM） | 沿时间展开的有向图 | 序列与隐状态 | 当前状态只依赖前一状态 |
+| 马尔可夫随机场（MRF） | 无向图 | 对称的空间或邻域关系 | 图分离后的条件独立性 |
 
-贝叶斯网络由两部分组成：定性的图结构 $\mathcal{G}$ 和定量的参数 $\Theta$。
+三者共享“图结构决定如何分解概率分布”的思想，但图中的边不具有同一种语义。特别是，**DAG 中的一条有向边首先表示建模中的条件依赖与分解方向；只有加入结构因果模型、干预语义和足够的领域假设后，才可以把它解释为因果关系。**
 
-### 因子分解定理
+## 有向静态图：贝叶斯网络
 
-贝叶斯网络的拓扑结构是一个**有向无环图 (Directed Acyclic Graph, DAG)**。图中的每个节点 $X_i$ 表示一个随机变量，有向边 $X_j \to X_i$ 表示变量间的依赖。
+### 结构与因子分解
 
-贝叶斯网络的核心假设是**局部马尔可夫性质 (Local Markov Property)**：
-> 给定父节点 $Pa(X_i)$，节点 $X_i$ 条件独立于其所有非后代节点。
+贝叶斯网络（Bayesian Network）也称信念网络（Belief Network），由定性的图结构 $\mathcal{G}$ 和定量的参数 $\Theta$ 组成。图是一个**有向无环图**（Directed Acyclic Graph, DAG）：每个节点 $X_i$ 是随机变量，边 $X_j \to X_i$ 表示 $X_j$ 是 $X_i$ 的父节点之一。
 
-基于此性质，联合概率分布可以分解为一系列条件概率的乘积，这就是**链式法则 (Chain Rule)** 的图模型版本：
+其核心是假设**局部马尔可夫性质**：给定父节点 $Pa(X_i)$ 后，节点 $X_i$ 与所有非后代节点条件独立。
 
-$$ 
-P(X_1, \dots, X_n) = \prod_{i=1}^{n} P(X_i \mid Pa(X_i)) 
+因此，联合分布可以写成局部条件分布的乘积：
+
+$$
+P(X_1, \dots, X_n) = \prod_{i=1}^{n} P(X_i \mid Pa(X_i)).
 $$
 
-这种分解极大地减少了所需的参数数量。
+这种因子分解把难以直接表示的高维联合分布，转化为若干条件概率表（Conditional Probability Table, CPT）或条件密度函数。
 
-### 防盗报警器示例 (The Burglar Alarm Network)
+![贝叶斯网示意](/assets/images/machine-learning-notes/ml-bayesian-network-example.png)
 
-经典的 Pearl (1988) 案例：
-*   $E$: 地震 (Earthquake)
-*   $B$: 盗窃 (Burglary)
-*   $A$: 报警器响 (Alarm)
-*   $J$: 邻居约翰打电话 (JohnCalls)
-*   $M$: 邻居玛丽打电话 (MaryCalls)
+### 防盗报警器示例
 
-其结构如下：
+经典的防盗报警器网络可用五个变量描述：地震 $E$、盗窃 $B$、报警器 $A$、约翰来电 $J$ 与玛丽来电 $M$。
+
 ```mermaid
 graph TD
     E[Earthquake] --> A[Alarm]
@@ -57,96 +58,249 @@ graph TD
     A --> M[MaryCalls]
 ```
 
-联合分布可以分解为：
-$$ P(E, B, A, J, M) = P(E) \cdot P(B) \cdot P(A|E,B) \cdot P(J|A) \cdot P(M|A) $$
+这个网络的联合分布为：
 
-只需指定上述 5 个局部条件概率表 (CPT)，即可完整描述整个系统。
+$$
+P(E, B, A, J, M) = P(E)P(B)P(A \mid E, B)P(J \mid A)P(M \mid A).
+$$
 
-## 推断基础：D-划分与条件独立性
+只要指定五组局部概率，就能刻画整个系统。更重要的是，图还告诉我们哪些变量可以在给定证据后被忽略。
 
-理解贝叶斯网络，需要看清**信息如何在图中流动**。给定某些观测证据，另一些变量之间是否独立，取决于路径是否被“阻断”。
+### D-划分与条件独立性
 
-**D-划分 (D-Separation)** 是判断条件独立性的图形化法则。主要有三种基本结构：
+**D-划分**（D-Separation）是 DAG 中判断条件独立性的图形规则。它围绕三种基本结构展开：
 
-### 顺连 (Serial Connection)
-$$ X \to Y \to Z $$
-*   **依赖性**：$X$ 影响 $Y$，$Y$ 影响 $Z$，信息可以通过。
-*   **独立性**：若 $Y$ 被观测（给定），则路径被阻断，$X \perp Z \mid Y$。即知道中间结果后，起因与后续结果无关。
+![贝叶斯网依赖结构示意](/assets/images/machine-learning-notes/ml-bayesian-network-dependencies.png)
 
-### 分连 (Diverging Connection)
-$$ X \leftarrow Y \to Z $$
-*   $Y$ 是 $X$ 和 $Z$ 的**共因 (Common Cause)**。
-*   **依赖性**：未观测 $Y$ 时，$X$ 和 $Z$ 相关（由共因导致的相关）。
-*   **独立性**：若 $Y$ 被观测，则路径被阻断，$X \perp Z \mid Y$。控制了共因，结果之间不再相关。
+#### 顺连
 
-### 汇连 (Converging Connection / V-Structure)
-$$ X \to Y \leftarrow Z $$
-*   $X$ 和 $Z$ 是 $Y$ 的共同原因。这是最特殊的结构。
-*   **独立性**：若 $Y$ **未**被观测（且其后代也未被观测），则 $X$ 和 $Z$ 边缘独立 ($X \perp Z$)。原因之间互不影响。
-*   **依赖性**：若 $Y$ (或其后代) **被观测**，则路径被**激活**，$X$ 和 $Z$ 变得相关。
+$$X \to Y \to Z$$
 
-**因果消除 (Explaining Away)**：这是一种常见推理模式。例如，已知报警 ($Y$ 发生)，若我们随后发现发生了地震 ($Z$ 发生)，那么盗窃 ($X$ 发生) 的概率会**降低**。因为地震已经“解释”了报警的原因，盗窃的必要性随之下降。
+未给定 $Y$ 时，信息可以沿路径传递；给定 $Y$ 后，路径被阻断，因此 $X \perp Z \mid Y$。
 
-## 学习 (Learning)：从数据反推网络
+#### 分连
 
-贝叶斯网络的学习包含两个层次：
-1.  **参数学习 (Parameter Learning)**：已知图结构，学习 CPT 参数。
-2.  **结构学习 (Structure Learning)**：图结构未知，从数据中推断最优 DAG。
+$$X \leftarrow Y \to Z$$
 
-### 参数学习
+$Y$ 是 $X$ 与 $Z$ 的共同原因。未观测 $Y$ 时，两者通常相关；控制 $Y$ 后，$X \perp Z \mid Y$。
 
-假设数据 $D$ 包含 $M$ 个样本。
+#### 汇连
 
-*   **最大似然估计 (MLE)**：
-    利用频率估计概率。对于离散变量，即统计计数：
-    $$ \theta_{ijk}^{MLE} = \frac{N_{ijk}}{\sum_k N_{ijk}} $$
-    其中 $N_{ijk}$ 表示节点 $i$ 的父节点取第 $j$ 种组合时，节点 $i$ 取第 $k$ 个值的次数。
-    *   *缺点*：数据稀疏时易过拟合，若某情况未出现，概率估计为 0。
+$$X \to Y \leftarrow Z$$
 
-*   **贝叶斯估计 (Bayesian Estimation)**：
-    引入先验分布来平滑。通常使用 **Dirichlet 分布** 作为多项式分布的共轭先验：
-    $$ \theta_{ijk}^{Bayes} = \frac{N_{ijk} + \alpha_{ijk}}{\sum_k (N_{ijk} + \alpha_{ijk})} $$
-    其中 $\alpha_{ijk}$ 是超参数（伪计数）。当 $\alpha=1$ 时，对应拉普拉斯平滑。
+在没有观测 $Y$ 及其后代时，$X$ 和 $Z$ 边缘独立；一旦观测到 $Y$，路径反而被激活，两个原因会相关。这种现象称为**因果消除**（Explaining Away）：例如已知报警发生后，如果发现地震已经发生，盗窃导致报警的必要性就会下降。
 
-### 结构学习 (Structure Learning)
+### 学习与推断
 
-这是一个 NP-Hard 问题，常见方法有三类：
+贝叶斯网络的学习分为两层：
 
-#### 基于约束的方法 (Constraint-based)
-通过统计独立性检验（如 $\chi^2$ 检验、互信息）来判断边是否存在。
+1. **参数学习**：已知图结构时，估计每个节点的条件概率表。离散变量可通过计数得到最大似然估计：
 
-代表算法：**PC 算法** (Peter-Clark)。
+   $$
+   \theta_{ijk}^{MLE}=\frac{N_{ijk}}{\sum_k N_{ijk}}.
+   $$
 
-1.  从全连接无向图开始。
-2.  移除所有边缘条件独立的边（条件集大小从 0 递增）。
-3.  确定骨架 (Skeleton) 后，利用 V-结构 (Collider) 确定部分边的方向 ($X-Z-Y$ 变为 $X \to Z \leftarrow Y$)。
-4.  利用规则定向剩余的边，防止产生环或新的 V-结构。
+   数据稀疏时，可用 Dirichlet 先验平滑：
 
-#### 基于评分的方法 (Score-based)
-定义一个评分函数 $Score(\mathcal{G} \mid D)$，搜索得分最高的图。
+   $$
+   \theta_{ijk}^{Bayes}=\frac{N_{ijk}+\alpha_{ijk}}{\sum_k(N_{ijk}+\alpha_{ijk})}.
+   $$
 
-**评分函数**：通常由似然度 (Likelihood) 和罚项 (Penalty) 组成，用于平衡拟合优度与模型复杂度。
+2. **结构学习**：图结构未知时，从数据中寻找合适的 DAG。这是 NP-Hard 问题，常见路线包括：
+   - 基于约束的方法：利用条件独立检验构造骨架，例如 PC 算法；
+   - 基于评分的方法：用 BIC、BDeu 等评分函数配合爬山法或 Tabu Search 搜索；
+   - 混合方法：先用约束法缩小候选边集合，再用评分法定向，例如 MMHC。
 
-*   **BIC (Bayesian Information Criterion)**:
-    $$ BIC(\mathcal{G} \mid D) = \log P(D \mid \hat{\theta}, \mathcal{G}) - \frac{d}{2} \log M $$
-    其中 $d$ 是独立参数个数，$M$ 是样本量。
-*   **BDeu** (Bayesian Dirichlet equivalent uniform): 贝叶斯评分，考虑了参数的后验分布积。
+在推断阶段，目标通常是计算证据条件下的查询概率，例如 $P(\mathbf{Q}=\mathbf{q}\mid\mathbf{E}=\mathbf{e})$。网络较小时可精确求解；网络稠密或规模较大时，常用 Gibbs 采样等近似方法。
 
-**搜索策略**：由于搜索空间巨大，常用启发式搜索。
-*   **爬山法 (Hill Climbing)**：每次局部进行加边、删边、转边操作，直到分数不再提升。
-*   **Tabu Search**: 设置禁忌表跳出局部最优。
+## 有向动态图：隐马尔可夫模型
 
-#### 混合方法 (Hybrid Methods)
-结合上述两者。例如 **MMHC (Max-Min Hill-Climbing)**：
-1.  **Max-Min Parents and Children (MMPC)**：使用约束法确定骨架（候选父子节点集合）。
-2.  **Hill-Climbing**：在骨架约束下进行评分搜索定向。
-这是处理中大规模网络的常用高效方法。
+静态贝叶斯网络把一组变量放在同一时刻讨论，而许多数据天然具有时间顺序。**隐马尔可夫模型**（Hidden Markov Model, HMM）是动态贝叶斯网络最经典、最受限的形式：它用一条隐状态链生成观测序列。
+
+### 模型定义
+
+HMM 包含两层随机过程：
+
+1. **隐状态序列** $Q=\{q_1,q_2,\dots,q_T\}$：系统的真实状态，通常不可直接观测；
+2. **观测序列** $O=\{o_1,o_2,\dots,o_T\}$：每个时刻可以看到的数据。
+
+一个离散 HMM 通常记为 $\lambda=(N,M,A,B,\pi)$：
+
+- 状态集合 $S=\{s_1,\dots,s_N\}$；
+- 观测集合 $V=\{v_1,\dots,v_M\}$；
+- 状态转移矩阵 $A=[a_{ij}]$，其中
+
+  $$a_{ij}=P(q_{t+1}=s_j\mid q_t=s_i);$$
+
+- 发射概率矩阵 $B=[b_j(k)]$，其中
+
+  $$b_j(k)=P(o_t=v_k\mid q_t=s_j);$$
+
+- 初始状态分布 $\pi=[\pi_i]$，其中 $\pi_i=P(q_1=s_i)$。
+
+它依赖两个关键假设：
+
+1. **齐次马尔可夫假设**：当前隐状态只依赖前一时刻的隐状态，
+
+   $$
+   P(q_t\mid q_{t-1},o_{t-1},\dots,q_1,o_1)=P(q_t\mid q_{t-1});
+   $$
+
+2. **观测独立性假设**：当前观测只依赖当前隐状态，
+
+   $$
+   P(o_t\mid q_T,o_T,\dots,q_1,o_1)=P(o_t\mid q_t).
+   $$
+
+### 三个核心问题
+
+#### 概率计算：前向算法
+
+给定模型和观测序列，计算 $P(O\mid\lambda)$。直接枚举所有隐状态序列的复杂度为 $O(N^T\cdot T)$，前向算法将其降至 $O(N^2\cdot T)$。
+
+定义前向概率：
+
+$$
+\alpha_t(i)=P(o_1,\dots,o_t,q_t=s_i\mid\lambda).
+$$
+
+递推为：
+
+$$
+\alpha_1(i)=\pi_i b_i(o_1),
+$$
+
+$$
+\alpha_{t+1}(j)=\left[\sum_{i=1}^N\alpha_t(i)a_{ij}\right]b_j(o_{t+1}),
+$$
+
+$$
+P(O\mid\lambda)=\sum_{i=1}^N\alpha_T(i).
+$$
+
+#### 解码：维特比算法
+
+给定观测序列，寻找最可能的隐状态路径：
+
+$$
+Q^*=\arg\max_Q P(Q\mid O,\lambda).
+$$
+
+维特比算法保留到达每个状态的最优路径。令 $\delta_t(i)$ 表示在时刻 $t$ 处于 $s_i$ 的最大路径概率，则：
+
+$$
+\delta_1(i)=\pi_i b_i(o_1),
+$$
+
+$$
+\delta_t(j)=\max_{1\le i\le N}[\delta_{t-1}(i)a_{ij}]b_j(o_t).
+$$
+
+同时记录每一步的最优前驱 $\psi_t(j)$，在终点取得最大值后回溯，就能恢复整条状态序列。
+
+#### 学习：Baum-Welch 算法
+
+如果只有观测序列而没有隐状态标注，需要估计 $A$、$B$ 与 $\pi$。由于模型含有隐变量，无法直接完成普通的极大似然估计；HMM 使用 EM 算法的特例——**Baum-Welch 算法**。
+
+E 步计算：
+
+- $\xi_t(i,j)$：时刻 $t$ 为状态 $i$ 且 $t+1$ 为状态 $j$ 的后验概率；
+- $\gamma_t(i)=\sum_j\xi_t(i,j)$：时刻 $t$ 处于状态 $i$ 的后验概率。
+
+M 步按期望计数更新转移概率与发射概率：
+
+$$
+\hat{a}_{ij}=\frac{\sum_{t=1}^{T-1}\xi_t(i,j)}{\sum_{t=1}^{T-1}\gamma_t(i)},
+$$
+
+$$
+\hat{b}_j(k)=\frac{\sum_{t=1,o_t=v_k}^{T}\gamma_t(j)}{\sum_{t=1}^{T}\gamma_t(j)}.
+$$
+
+### 例子：词性标注
+
+在词性标注中，单词序列是观测值，词性标签是隐状态。训练时估计词性之间的转移概率和词性产生单词的概率；预测时，使用维特比算法从句子中恢复最可能的词性序列。虽然许多现代任务已使用 RNN、LSTM 或 Transformer，HMM 仍然是理解序列概率建模、动态规划与隐变量学习的重要起点。
+
+## 无向图：马尔可夫随机场
+
+当变量关系是对称的、没有明确的因果方向时，无向图更自然。**马尔可夫随机场**（Markov Random Field, MRF）尤其适合表达图像像素、空间单元或网络邻居之间的局部相关性。
+
+### 图分离与全局马尔可夫性
+
+MRF 使用无向图 $G=(V,E)$。对节点集合 $A$、$B$、$C$，如果 $C$ 阻断了图中从 $A$ 到 $B$ 的所有路径，那么：
+
+$$
+A\perp B\mid C.
+$$
+
+这称为**全局马尔可夫性质**。与 DAG 的 D-划分不同，无向图中不需要处理 V 型结构是否被观测的问题；图分离本身就给出条件独立性。
+
+### 团、势函数与 Gibbs 分布
+
+无向图通过**团**（Clique）表达局部交互。若一个严格正的分布满足图的马尔可夫性质，Hammersley-Clifford 定理保证它可以写为极大团势函数的乘积：
+
+$$
+P(X)=\frac{1}{Z}\prod_{C\in\mathcal{C}}\psi_C(x_C).
+$$
+
+其中：
+
+- $\mathcal{C}$ 是极大团集合；
+- $\psi_C(x_C)\ge0$ 是势函数，衡量团内变量状态的相容性；
+- $Z$ 是配分函数，负责归一化：
+
+  $$
+  Z=\sum_x\prod_{C\in\mathcal{C}}\psi_C(x_C).
+  $$
+
+若令 $\psi_C(x_C)=\exp(-E_C(x_C))$，便得到能量形式的 Gibbs 分布：
+
+$$
+P(X)=\frac{1}{Z}\exp(-E(x)).
+$$
+
+能量更低的状态具有更高概率，这也连接了概率图模型与统计物理。
+
+### Ising 模型与图像去噪
+
+Ising 模型是最简单的成对 MRF。令每个节点 $x_i\in\{-1,+1\}$，其能量函数可写为：
+
+$$
+E(x)=-\sum_{(i,j)\in E}J_{ij}x_ix_j-\sum_{i\in V}h_ix_i.
+$$
+
+第一项鼓励相邻节点取一致的值，第二项表达单个节点受外部信息影响。用于二值图像去噪时，可令 $y_i$ 为带噪像素、$x_i$ 为待恢复像素：
+
+$$
+E(x,y)=-\beta\sum_{(i,j)\in E}x_ix_j-\eta\sum_{i\in V}x_iy_i.
+$$
+
+最小化能量等价于寻找最大后验概率（MAP）解：既保留图像的局部平滑性，又不脱离观察到的像素。
+
+### 推断与 Gibbs 采样
+
+MRF 的难点在于配分函数 $Z$ 通常需要枚举全部变量配置。若有 $N$ 个二值变量，求和规模为 $2^N$，精确推断很快变得不可行。
+
+MCMC 可以避开直接计算 $Z$。特别是 Gibbs 采样中，一个变量的完全条件概率只依赖其邻居：
+
+$$
+P(x_i\mid x_{-i})=P(x_i\mid x_{\text{neighbors}})=\frac{\exp(-E(x_i,x_{\text{neighbors}}))}{\sum_{x_i'\in Val(x_i)}\exp(-E(x_i',x_{\text{neighbors}}))}.
+$$
+
+配分函数在分子与分母中抵消。实际采样时，从随机初值出发，反复按条件分布更新每个节点；在链收敛后，样本便可近似目标分布。
 
 ## 总结
 
-贝叶斯网络用图论语言描述变量间的条件独立性，并通过因子分解处理高维联合分布。它也是理解 HMM、LDA、VAE 等模型的基础。
+概率图模型的统一思想是：**用图描述结构，用概率量化不确定性**。
 
-*   **推断**是利用已知结构回答概率问题（D-划分是关键）。
-*   **学习**则是从数据中恢复结构（PC 算法、BIC 评分）。
+- 贝叶斯网络用 DAG 表达静态的有向依赖，并通过 D-划分研究证据如何改变独立关系；
+- HMM 把有向结构沿时间展开，用隐状态描述序列生成过程；
+- MRF 用无向图与势函数表达对称的局部相互作用。
 
-在下一篇文章中，我们将引入“时间”维度，探讨贝叶斯网络的动态形式——**隐马尔可夫模型 (HMM)**。
+它们既是不同模型，也为后续的主题模型、状态估计、视觉模型和大量生成式方法提供共同语言。
+
+### 延伸阅读
+
+- [机器学习导论与监督学习：贝叶斯分类器](/blog/2024/03/28/machine-learning-introduction-supervised-learning/)：从朴素/半朴素贝叶斯理解图模型为何要表达属性依赖。
+- [LDA主题模型：文本数据的生成密码](/blog/2026/02/12/topic-model-lda/)：概率图模型在文本主题建模中的典型应用。
+- [卡尔曼滤波家族：KF、EKF、UKF 与 EnKF](/blog/2026/02/19/kalman-filter/)：连续状态空间中的递归估计与滤波路线。
