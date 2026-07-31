@@ -43,7 +43,7 @@ $R^2$ 不是单纯的模型误差函数，它的定义中还隐含了两个模�
 
 基于这些数据，我们尝试使用单变量 OLS 回归来学习 $f(x)$ 的模型，并拟合一个线性模型和一个二次模型。该建模过程的一个示例如下所示：
 
-![Small Range](https://www.johnmyleswhite.com/notebook/2016/07/23/why-im-not-a-fan-of-r-squared/2d43ad38f310b833296bdd4260f01a83.png)
+![小范围示例](/assets/images/statistical-thinking/r-squared-small-range.png)
 
 在这个图中，$f(x)$ 可以很好地被一条直线近似，因此线性模型和二次回归模型都相当接近真实模型。这是因为 $x_{min}$ 和 $x_{max}$ 非常接近，在这一区域内，目标函数可以被线性近似，尤其是在考虑观测值噪声水平时。
 
@@ -55,7 +55,7 @@ $R^2$ 不是单纯的模型误差函数，它的定义中还隐含了两个模�
 
 再看一个具体的例子，其中 $x_{min} = 1$ 且 $x_{max} = 1000$：
 
-![Large Range](https://www.johnmyleswhite.com/notebook/2016/07/23/why-im-not-a-fan-of-r-squared/4f97953a6fe65d5d08ec6c7472de1706.png)
+![大范围示例](/assets/images/statistical-thinking/r-squared-large-range.png)
 
 在这种情况下，通过视觉检查可以清楚地看到，线性模型和二次模型都存在系统性的不准确（因为对数函数显然不是线性的），但它们的 $R^2$ 值却大幅上升了：线性模型的 $R^2 = 0.760$，真实模型的 $R^2 = 0.997$。
 
