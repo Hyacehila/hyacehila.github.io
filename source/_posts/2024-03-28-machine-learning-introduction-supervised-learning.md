@@ -381,3 +381,5 @@ $$P(x_1,x_2,x_3,x_4,x_5)=P(x_1)P(x_2)P(x_3\mid x_1)P(x_4\mid x_1,x_2)P(x_5\mid x
 $$P(\mathbf{Q}=\mathbf{q}\mid\mathbf{E}=\mathbf{e})\simeq\frac{n_q}{T}.$$
 
 事实上，这就是贝叶斯统计中的马尔可夫链蒙特卡洛（MCMC）方法 思想变形，我们不断的变换就是一个马尔可夫链
+
+如果希望继续理解贝叶斯网络如何扩展为动态模型，以及它与无向图模型的区别，可阅读[概率图模型基础：贝叶斯网络、隐马尔可夫模型与马尔可夫随机场](/blog/2026/02/09/belief-network-learning/)。
