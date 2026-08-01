@@ -3,10 +3,10 @@ title: "科研理论与实践经验"
 title_en: "Research Theory and Practical Experience"
 date: 2025-09-04 12:00:00 +0800
 categories: ["Work & Society", "Research Practice"]
-tags: ["Research Methods", "Academic Writing"]
+tags: ["Research Methods", "Academic Writing", "Data Curation"]
 author: Hyacehila
-excerpt: "整理科研入门方法论与实践经验：从文献阅读与身份转变到研究节奏把控，从论文撰写基本结构到深度学习模块化创新思路，以及综合排名与数据美化等实用技巧。"
-excerpt_en: "A collection of research methodology notes and practical experience: from literature reading and identity transition to research rhythm, paper structure basics, deep learning modular innovation patterns, and practical metrics design techniques."
+excerpt: "整理科研入门方法论与实践经验：从文献阅读、研究节奏和数据来源选择，到论文撰写、研究设计与结果组织，并以常用临床与公共卫生数据库说明不同数据的适用边界。"
+excerpt_en: "A collection of research methodology notes and practical experience, covering literature review, research rhythm, data source selection, paper writing, research design, and the tradeoffs of common clinical and public-health databases."
 hidden: true
 permalink: '/blog/2025/09/04/research-theory-and-practice/'
 ---
@@ -88,7 +88,18 @@ permalink: '/blog/2025/09/04/research-theory-and-practice/'
 
 ### 关于数据集
 
-数据集主要包括公开数据集和自己的数据集。公开数据集发文是相对比较有难度的，需要所谓的 SOTA——当然也可以发出更好的文章，而个人数据集可以减少那些比较。
+科研数据既可以来自公开数据库，也可以由研究者自行采集。选择数据源时不能只看规模或使用热度，而应先确定研究问题所需的观察单位、研究设计、时间跨度、抽样机制和可获得变量，再核对访问条件、数据字典与可复现性要求。公开数据库便于复现和比较，自建数据则更容易贴合特定问题；两者都必须正视代表性、测量误差与选择偏差。
+
+#### 临床与公共卫生数据库
+
+| 数据库 | 研究设计与数据粒度 | 访问方式 | 主要限制 |
+| --- | --- | --- | --- |
+| [NHANES](https://www.cdc.gov/nchs/nhanes/) | 重复横断面调查；提供个体级问卷、体检和实验室数据 | 公开下载 | 各调查周期不能直接视为同一批人的纵向随访，合并周期时需要按官方规则调整权重 |
+| [UK Biobank](https://www.ukbiobank.ac.uk/enable-your-research/apply-for-access) | 前瞻性队列；提供个体级长期随访和多模态健康数据 | 研究申请 | 参与者存在选择偏差，将结论外推到一般人群时需要谨慎 |
+| [CHARLS](https://charls.pku.edu.cn/) | 中国 45 岁及以上中老年人的纵向调查；包含个体与家庭数据 | 注册申请 | 跨期研究需要处理追踪失访、变量口径变化和调查权重 |
+| [GBD](https://www.healthdata.org/research-analysis/gbd) | 按地区、时期、疾病和危险因素组织的模型估计汇总数据 | 公开工具与下载 | 不包含个体病例，不能据此进行个体层面推断，并需警惕生态谬误 |
+
+> NHANES 采用复杂的多阶段分层概率抽样，并不是简单随机抽样。进行总体推断时，需要同时使用相应的样本权重、分层变量与主抽样单元（PSU）；使用特定检查或实验室子样本时，还应选择与该模块匹配的权重。
 
 ### 深度学习模块化创新
 
