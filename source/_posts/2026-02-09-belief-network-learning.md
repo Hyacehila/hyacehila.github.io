@@ -1,12 +1,12 @@
 ---
-title: 概率图模型基础：贝叶斯网络、隐马尔可夫模型与马尔可夫随机场
-title_en: "Probabilistic Graphical Models: Bayesian Networks, Hidden Markov Models, and Markov Random Fields"
+title: 概率图模型：从贝叶斯网络到 LDA
+title_en: "Probabilistic Graphical Models: From Bayesian Networks to LDA"
 date: 2026-02-09 12:00:00 +0800
 categories: ["Machine Learning", "Probabilistic Graphical Models"]
 tags: ["Graphical Models"]
 author: Hyacehila
-excerpt: 以贝叶斯网络、隐马尔可夫模型和马尔可夫随机场为主线，理解有向、动态与无向概率图模型如何表达条件独立性，并完成推断与学习。
-excerpt_en: "Introduces Bayesian networks, hidden Markov models, and Markov random fields as the directed, dynamic, and undirected foundations of probabilistic graphical models."
+excerpt: 从贝叶斯网络、隐马尔可夫模型与马尔可夫随机场出发，理解有向、动态和无向图如何分解联合分布，并以 LDA 展示潜变量、共轭先验与近似推断如何共同生成文本主题。
+excerpt_en: "Connects Bayesian networks, hidden Markov models, and Markov random fields to LDA, showing how graphical structure, latent variables, conjugate priors, and approximate inference form a unified probabilistic modeling language."
 mathjax: true
 hidden: true
 permalink: '/blog/2026/02/09/belief-network-learning/'
@@ -18,15 +18,16 @@ permalink: '/blog/2026/02/09/belief-network-learning/'
 
 如果想先从分类任务中的条件独立假设进入这个主题，可回顾[机器学习导论与监督学习：贝叶斯分类器](/blog/2024/03/28/machine-learning-introduction-supervised-learning/)。朴素贝叶斯、半朴素贝叶斯到贝叶斯网络，正是一条逐步放松属性独立性假设的路线。
 
-本文把三个基础模型放到同一框架中：
+本文把四个代表性模型放到同一框架中：
 
 | 模型 | 图结构 | 主要处理对象 | 条件独立性的表达 |
 | --- | --- | --- | --- |
 | 贝叶斯网络（BN） | 有向无环图（DAG） | 静态的变量依赖 | 给定父节点后的局部独立性 |
 | 隐马尔可夫模型（HMM） | 沿时间展开的有向图 | 序列与隐状态 | 当前状态只依赖前一状态 |
 | 马尔可夫随机场（MRF） | 无向图 | 对称的空间或邻域关系 | 图分离后的条件独立性 |
+| 潜在狄利克雷分配（LDA） | 带 Plate 的有向生成图 | 文档与潜在主题 | 给定主题指派后，词只依赖对应主题 |
 
-三者共享“图结构决定如何分解概率分布”的思想，但图中的边不具有同一种语义。特别是，**DAG 中的一条有向边首先表示建模中的条件依赖与分解方向；只有加入结构因果模型、干预语义和足够的领域假设后，才可以把它解释为因果关系。**
+四者共享“图结构决定如何分解概率分布”的思想，但图中的边不具有同一种语义。特别是，**DAG 中的一条有向边首先表示建模中的条件依赖与分解方向；只有加入结构因果模型、干预语义和足够的领域假设后，才可以把它解释为因果关系。**
 
 ## 有向静态图：贝叶斯网络
 
@@ -289,18 +290,152 @@ $$
 
 配分函数在分子与分母中抵消。实际采样时，从随机初值出发，反复按条件分布更新每个节点；在链收敛后，样本便可近似目标分布。
 
-## 总结
+## 文本生成图：LDA 主题模型
+
+前面的三个模型分别展示了静态有向依赖、时间依赖与无向局部相互作用。它们也铺好了理解更复杂生成模型所需的工具：用图分解联合分布，用隐变量表达看不见的结构，再用近似推断恢复这些变量。**潜在狄利克雷分配**（Latent Dirichlet Allocation, LDA）把这些思想带到文本中，也自然构成这条概率图模型路线的最后一站。
+
+### 从词袋到生成式模型
+
+处理文本数据时，最简单的方法是**词袋模型**（Bag-of-Words, BoW）。它忽略词序和语法，只记录文档中出现了哪些词以及各自的频次。BoW 可以把文本转成向量，却无法直接解释文档背后的语义结构。直觉上，一篇文章会同时围绕若干主题展开，而每个主题又倾向于使用一组特定词汇。
+
+**主题模型**（Topic Model）把这种直觉写成生成过程：文档先选择主题，主题再生成词。LDA 是其中的经典模型。它用有向图表示变量间的生成关系，用潜变量承载文档中不可直接观测的主题结构，并用重复板块（Plate）压缩表示整批文档与词的位置。
+
+### 贝叶斯视角：Dirichlet 共轭先验
+
+在进入 LDA 的图结构之前，需要先理解它使用的概率组件。对单个位置的主题或词进行一次采样时，可以使用分类分布（Categorical Distribution）；把多次采样的计数放在一起看，则对应多项式分布（Multinomial Distribution）。两者背后的概率向量都可以使用 **Dirichlet 分布**作为先验。
+
+在 PLSA（Probabilistic Latent Semantic Analysis）中，文档的主题比例通常被当作待估计参数。LDA 则进一步采用贝叶斯建模：文档-主题分布 $\theta_d$ 和主题-词分布 $\phi_k$ 本身也是随机变量，分别服从 Dirichlet 先验。
+
+- **分类/多项式分布**描述在一组离散类别中进行选择，以及多次选择后得到的计数；
+- **Dirichlet 分布**描述这些离散类别所对应的概率向量；
+- Dirichlet 是分类/多项式分布的**共轭先验**，因此后验仍属于 Dirichlet 分布族。
+
+共轭关系并不会让所有后验计算自动变得简单，但它允许我们解析地积分掉部分连续变量，为后面的折叠 Gibbs 采样提供了条件。
+
+### 生成过程与 Plate Notation
+
+LDA 将语料库描述成一个从主题比例到具体词汇的分层生成过程。
+
+#### 核心变量
+
+- **文档**：语料库包含 $D$ 篇文档，第 $d$ 篇文档有 $N_d$ 个词；
+- **主题**：共有 $K$ 个主题，每个主题的词分布 $\phi_k$ 定义在大小为 $V$ 的词汇表上；
+- **文档主题比例**：$\theta_d$ 表示文档 $d$ 对 $K$ 个主题的混合比例；
+- **主题指派**：$z_{d,n}$ 表示文档 $d$ 中第 $n$ 个词位置选择的主题；
+- **观测词**：$w_{d,n}$ 是该位置实际观察到的词。
+
+#### 图结构
+
+```mermaid
+graph TD
+    subgraph Plate_K [K Topics]
+        beta((beta)) --> phi((phi))
+    end
+
+    subgraph Plate_D [D Documents]
+        alpha((alpha)) --> theta((theta))
+        subgraph Plate_N [N_d Words]
+            theta --> z((z))
+            z --> w((w))
+            phi --> w
+        end
+    end
+
+    style w fill:#ddd,stroke:#333,stroke-width:2px
+```
+
+- $w$ 是观测变量，对应语料库中实际出现的词；
+- $z$、$\theta$ 与 $\phi$ 是需要推断的潜变量或未知随机量；
+- $\alpha$ 与 $\beta$ 是控制 Dirichlet 先验的超参数；
+- 两层 Plate 分别表示“对每篇文档”和“对文档中的每个词位置”重复相同的生成步骤。
+
+#### 生成故事
+
+1. 对每个主题 $k \in \{1, \dots, K\}$，从先验 $\operatorname{Dir}(\boldsymbol{\beta})$ 中采样主题-词分布 $\phi_k$。
+2. 对每篇文档 $d \in \{1, \dots, D\}$，从先验 $\operatorname{Dir}(\boldsymbol{\alpha})$ 中采样文档-主题分布 $\theta_d$。
+3. 对文档 $d$ 中的每个词位置 $n$：
+   - 从 $\theta_d$ 中采样主题指派 $z_{d,n}$；
+   - 从该主题对应的词分布 $\phi_{z_{d,n}}$ 中采样观测词 $w_{d,n}$。
+
+由图中的条件依赖关系，完整联合分布可以分解为：
+
+$$
+P(\mathbf{w}, \mathbf{z}, \boldsymbol{\theta}, \boldsymbol{\phi} \mid \boldsymbol{\alpha}, \boldsymbol{\beta})
+= \prod_{k=1}^K P(\phi_k \mid \boldsymbol{\beta})
+  \prod_{d=1}^D \left[
+    P(\theta_d \mid \boldsymbol{\alpha})
+    \prod_{n=1}^{N_d}
+      P(z_{d,n} \mid \theta_d)
+      P(w_{d,n} \mid \phi_{z_{d,n}})
+  \right].
+$$
+
+这里不需要把每个条件关系逐一写进自然语言描述：图和因子分解已经共同给出了生成过程。
+
+### 推断：折叠 Gibbs 采样
+
+训练 LDA 时，真正观察到的只有词 $\mathbf{w}$。目标是根据语料库反推主题指派 $\mathbf{z}$、文档主题比例 $\boldsymbol{\theta}$ 和主题词分布 $\boldsymbol{\phi}$，也就是求后验：
+
+$$
+P(\mathbf{z}, \boldsymbol{\theta}, \boldsymbol{\phi} \mid \mathbf{w}, \boldsymbol{\alpha}, \boldsymbol{\beta}).
+$$
+
+这个后验的归一化常数需要对大量隐变量求和或积分，无法直接计算。与前面 MRF 中的推断类似，LDA 通常依赖近似方法。利用 Dirichlet 共轭关系，可以把连续变量 $\boldsymbol{\theta}$ 和 $\boldsymbol{\phi}$ 解析积分掉，只对离散主题指派 $\mathbf{z}$ 采样，因此称为**折叠 Gibbs 采样**（Collapsed Gibbs Sampling）。
+
+#### 采样公式
+
+为简化记号，假设 $\alpha$ 和 $\beta$ 是对称 Dirichlet 先验的标量参数。给定其他所有词位置的主题指派，当前词 $w_{d,n}$ 被分配给主题 $k$ 的条件概率为：
+
+$$
+P(z_{d,n}=k \mid \mathbf{z}_{\neg(d,n)}, \mathbf{w}, \alpha, \beta)
+\propto
+\left(n_{d,k}^{\neg(d,n)}+\alpha\right)
+\frac{n_{k,w_{d,n}}^{\neg(d,n)}+\beta}
+{n_k^{\neg(d,n)}+V\beta}.
+$$
+
+其中：
+
+- $n_{d,k}^{\neg(d,n)}$ 是排除当前位置后，文档 $d$ 中分配给主题 $k$ 的词数；
+- $n_{k,w_{d,n}}^{\neg(d,n)}$ 是排除当前位置后，词 $w_{d,n}$ 被分配给主题 $k$ 的次数；
+- $n_k^{\neg(d,n)}$ 是排除当前位置后，所有分配给主题 $k$ 的词数；
+- 第一项偏向文档中已经常见的主题，第二项偏向经常生成当前词的主题。
+
+文档侧的完整概率还包含分母 $N_d-1+K\alpha$，但它对所有候选主题 $k$ 都相同，因此在这个正比式中被约去。
+
+#### 算法流程与参数恢复
+
+1. 为语料库中的每个词位置随机分配一个初始主题。
+2. 反复遍历所有词位置：
+   - 从计数中移除当前位置原来的主题指派；
+   - 根据上面的条件概率计算它属于各主题的权重；
+   - 按归一化后的权重采样新主题，并更新计数。
+3. 丢弃尚未收敛的预热样本，再使用后续样本估计主题结构。
+
+采样稳定后，可以由平滑计数恢复文档-主题分布与主题-词分布：
+
+$$
+\hat{\theta}_{d,k}=\frac{n_{d,k}+\alpha}{N_d+K\alpha},
+\qquad
+\hat{\phi}_{k,v}=\frac{n_{k,v}+\beta}{n_k+V\beta}.
+$$
+
+因此，LDA 的结果不只是给每篇文档贴一个主题标签，而是得到文档在多个主题上的混合比例，以及每个主题对词汇表的概率分布。
+
+## 总结：从图结构到生成模型
 
 概率图模型的统一思想是：**用图描述结构，用概率量化不确定性**。
 
-- 贝叶斯网络用 DAG 表达静态的有向依赖，并通过 D-划分研究证据如何改变独立关系；
-- HMM 把有向结构沿时间展开，用隐状态描述序列生成过程；
-- MRF 用无向图与势函数表达对称的局部相互作用。
+- **贝叶斯网络**用 DAG 表达静态的条件依赖与联合分布的分解方向，并通过 D-划分研究证据如何改变独立关系；
+- **HMM**把有向结构沿时间展开，用隐状态描述序列的生成与演化；
+- **MRF**用无向图、团和势函数表达对称的局部相互作用；
+- **LDA**用 Plate 展开重复的有向生成结构，把潜变量、共轭先验与近似推断组合到文本主题建模中。
 
-它们既是不同模型，也为后续的主题模型、状态估计、视觉模型和大量生成式方法提供共同语言。
+这四个模型不是彼此替代的升级版本，而是同一种建模语言在不同数据结构上的展开：静态变量、时间序列、空间邻域和文本集合，都可以先确定条件独立关系，再据此分解联合分布并选择推断算法。
+
+走到 LDA，这条路线也形成了完整的闭环。读懂图、联合分布与后验推断之间的对应关系后，面对新的概率模型，就不必只记住算法名称，而可以追问三个更稳定的问题：哪些变量能够观测，哪些结构被隐藏，数据又是按怎样的依赖关系生成的。LDA 之所以适合作为结尾，正因为它不只是另一个主题算法，而是把概率图模型的核心组件集中放进了同一个例子。
 
 ### 延伸阅读
 
 - [机器学习导论与监督学习：贝叶斯分类器](/blog/2024/03/28/machine-learning-introduction-supervised-learning/)：从朴素/半朴素贝叶斯理解图模型为何要表达属性依赖。
-- [LDA主题模型：文本数据的生成密码](/blog/2026/02/12/topic-model-lda/)：概率图模型在文本主题建模中的典型应用。
 - [卡尔曼滤波家族：KF、EKF、UKF 与 EnKF](/blog/2026/02/19/kalman-filter/)：连续状态空间中的递归估计与滤波路线。
