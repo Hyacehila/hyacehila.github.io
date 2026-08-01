@@ -1,5 +1,5 @@
 ---
-title: 如何与统计学家分享数据 (How to Share Data with a Statistician)
+title: 如何与统计学家分享数据 (Jeff Leek)
 title_en: "How to Share Data with a Statistician"
 date: 2026-02-17 12:00:00 +0800
 categories: ["Work & Society", "Research Practice"]
@@ -10,13 +10,9 @@ excerpt_en: "A repost of Jeff Leek's classic guide to preparing and organizing d
 permalink: '/blog/2026/02/17/how-to-share-data-with-a-statistician/'
 ---
 
-> **译者按**
-> 
 > 本文转载自 Jeff Leek 在 BMC Blog 发表的客座文章 [How to Share Data with a Statistician](https://blogs.biomedcentral.com/bmcblog/2013/11/26/how-to-share-data-with-a-statistician/)，详细指南内容源自其 [GitHub 仓库](https://github.com/jtleek/datasharing)。
-> 
+>
 > 这是一份写给需要与统计学家合作的科研人员、学生和数据整理者的实用指南。它说明了在将数据交给统计分析师之前，数据应整理到什么程度，以减少沟通成本、加快分析进程。
-> 
-> *本文内容遵循 CC BY 4.0 协议许可。*
 
 # 如何与统计学家分享数据
 
@@ -123,7 +119,3 @@ permalink: '/blog/2026/02/17/how-to-share-data-with-a-statistician/'
 3.  他们生成的所有**输出文件/图表**。
 
 这些是你将用于补充材料以建立结果的可重复性和精确性的信息。分析中的每一步都应清楚地解释，如果你不理解分析师做了什么，你应该提问。理解统计分析是统计学家和科学家的共同责任。你可能无法在没有统计学家代码的情况下执行确切的分析，但你应该能够向实验室伙伴/你的首席研究员解释统计学家为什么执行每一步。
-
-**原文链接**：
-*   博客文章：[How to Share Data with a Statistician](https://blogs.biomedcentral.com/bmcblog/2013/11/26/how-to-share-data-with-a-statistician/)
-*   详细指南 (GitHub)：[jtleek/datasharing](https://github.com/jtleek/datasharing)
