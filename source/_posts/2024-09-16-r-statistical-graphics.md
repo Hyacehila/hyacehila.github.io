@@ -3,10 +3,10 @@ title: "R 统计图形：base、lattice 与 ggplot2"
 title_en: "R Statistical Graphics: Base Graphics, lattice, and ggplot2"
 date: 2024-09-16 22:32:48 +0800
 categories: ["Programming", "R"]
-tags: ["R", "Data Visualization"]
+tags: ["R", "Data Visualization", "ggplot2"]
 author: Hyacehila
-excerpt: "整理经典统计图形、作图经验、base R 作图系统、lattice 和 ggplot2 的基础思路。"
-excerpt_en: "Covers classic graphics, plotting principles, base R graphics, lattice, and ggplot2 basics."
+excerpt: "整理经典统计图形、作图经验、base R 作图系统，以及 ggplot2 的图层、几何对象、标度、分面与主题。"
+excerpt_en: "Covers classic graphics, plotting principles, base R graphics, and ggplot2 layers, geoms, scales, facets, and themes."
 mathjax: false
 hidden: true
 permalink: '/blog/2024/09/16/r-graph-learning-notes/'
@@ -680,11 +680,238 @@ R 的 **grDevices** 包 中提供了一系列数学公式的表达符号，他
 如果想向图中添加数学表达式的文本标签，只需要将文本设置为表达式（expression）的类型即可
 
 **tikzDevice** 包也可以帮助我们生成质量更高的数学公式内容 这个扩展包在2020年被发行 对Latex语法更加的友好了
-## ggplot2作图系统简介
-基础图形系统虽然灵活，但它无穷无尽的选项往往让用户感到迷茫
+## ggplot2 作图系统
 
-**ggplot2** 包从易用性出发，以“The Grammar of Graphics”一书 的理论为支撑，构建了一套易用、实用而且美观的图形系统。
+基础图形系统很灵活，但选项多而分散。ggplot2 以 *The Grammar of Graphics* 的理论为基础，把图形拆成可以逐层组合的部件。它扩展了泛型函数 `+`，数据、视觉映射、几何对象和其他设置都可以按层叠加。
 
-ggplot2 的核心概念是“层”，所有的图形都是由层的叠加构成，这是对统计图形的一个非常形象的抽象；另外，它在程序实现上也很巧妙：它扩展了泛型函数 `+` 用多个图层叠加得到我们所需要的图形
+### 基本语法
 
-ggplot2相对独立的系统已经称为了一种单独的程序设计语言 因此我们在基本了解他的工作逻辑后，单独的介绍其各种语言细节 [R ggplot2](/blog/2024/10/10/r-ggplot2-learning-notes/)
+`ggplot()` 负责指定数据和默认的视觉映射，`aes()` 描述变量怎样映射到横轴、纵轴、颜色或形状，`geom_*()` 添加具体的几何对象，`labs()` 则设置标题和标签。一个基本示例如下：
+
+```r
+library(ggplot2)
+
+p <- ggplot(data = mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  labs(
+    title = "Automobile Data",
+    x = "Weight",
+    y = "Miles Per Gallon"
+  )
+
+# 在已有图形上增加平滑曲线
+p + geom_smooth(method = "loess")
+
+# 输出没有平滑曲线的原始图形
+print(p)
+```
+
+ggplot2 会自动调整边距、从调色板中选取颜色，并在需要时生成图例。通常只需要明确数据和映射关系，剩下的细节可以在各个图层中逐步补充。
+
+整个系统主要由几何对象（geom）、统计变换（stat）、标度（scale）、坐标系（coordinate system）、分面（facet）和主题（theme）构成。围绕这套语法还有许多扩展包，可以添加新的图形类型、标度和主题。
+
+### 几何对象
+
+几何对象简称 geom，包括点、条、线、箱线图和文本等。它们与基础图形元素相似，但封装程度更高。例如，箱线图、平滑曲线和平滑带背后都包含统计计算，在 ggplot2 中只需调用相应的 `geom_*()` 函数。
+
+![R 统计可视化-13](/assets/images/r-learning-notes/r-stat-visualization-13.png)
+
+```r
+# 汽车马力与每加仑汽油行驶里程的关系
+library(ggplot2)
+
+p <- ggplot(data = mtcars, aes(x = hp, y = mpg)) +
+  geom_point() +
+  geom_smooth(method = "loess") +
+  labs(x = "马力", y = "每加仑汽油行驶里程")
+
+print(p)
+```
+
+`ggplot()` 指定数据源和变量，几何函数决定这些变量怎样表示为点、条、线或阴影区域。常用函数如下：
+
+| 函数 | 几何对象 |
+| --- | --- |
+| `geom_bar()` | 条形图 |
+| `geom_boxplot()` | 箱线图 |
+| `geom_density()` | 密度图 |
+| `geom_histogram()` | 直方图 |
+| `geom_hline()` | 水平线 |
+| `geom_jitter()` | 抖动点 |
+| `geom_line()` | 线图 |
+| `geom_point()` | 散点图 |
+| `geom_rug()` | 坐标轴须 |
+| `geom_smooth()` | 拟合曲线 |
+| `geom_text()` | 文字注解 |
+| `geom_violin()` | 小提琴图 |
+| `geom_vline()` | 垂线 |
+
+几何函数还接受一组常见参数：
+
+| 参数 | 含义 |
+| --- | --- |
+| `color` | 对象边界或线条的颜色；颜色映射参见[标度与分组](#标度与分组) |
+| `fill` | 对象内部的填充颜色 |
+| `alpha` | 透明度，取值范围为 0 到 1 |
+| `linetype` | 线型，如实线、虚线和点线 |
+| `size` | 点的尺寸；在旧版本 ggplot2 中也用于线宽 |
+| `shape` | 点的形状，参见[基础图形中的点形](#点) |
+| `position` | 条形的排列方式，或点的防重叠方式 |
+| `sides` | 坐标轴须的位置 |
+| `width` | 几何对象的宽度 |
+
+### 统计变换
+
+统计变换指定怎样处理原始数据，再把结果交给几何对象。常见操作包括统计直方图区间频数、计算分位数和估计密度。ggplot2 也支持二维分箱，例如把平面划分为六边形后统计每个区域内的观测数。
+
+![R 统计可视化-14](/assets/images/r-learning-notes/r-stat-visualization-14.png)
+
+```r
+# 钻石重量与价格的蜂巢图
+library(ggplot2)
+
+p <- ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_hex() +
+  labs(x = "重量", y = "价格", fill = "频数")
+
+print(p)
+```
+
+### 标度与分组
+
+标度控制数据怎样映射到颜色、形状、大小和坐标轴等视觉属性。多数情况下，只要在 `aes()` 中指定变量，ggplot2 就会自动选择合适的标度。
+
+![R 统计可视化-15](/assets/images/r-learning-notes/r-stat-visualization-15.png)
+
+```r
+library(ggplot2)
+
+p <- ggplot(
+  data = iris,
+  aes(x = Petal.Length, y = Petal.Width)
+) +
+  geom_point(aes(color = Species, shape = Species)) +
+  labs(
+    x = "花瓣长度",
+    y = "花瓣宽度",
+    color = "种类",
+    shape = "种类"
+  )
+
+print(p)
+```
+
+分组用于在同一幅图中比较两个或更多组的观测值。分组变量一般写在 `aes()` 中；常量则写在 `aes()` 外，以免被解释为数据映射。下面根据职称设置填充颜色，比较不同职称的薪资分布：
+
+```r
+data("Salaries", package = "car")
+library(ggplot2)
+
+ggplot(data = Salaries, aes(x = salary, fill = rank)) +
+  geom_density(alpha = 0.3)
+```
+
+也可以在单独的几何图层中再次调用 `aes()`，让某个映射只影响这一层。
+
+### 坐标系
+
+ggplot2 默认使用笛卡尔坐标系，也提供极坐标系和地图坐标系。`coord_flip()` 可以交换 x 轴和 y 轴。由于图形是按层构造的，可以先保存基础图形，再添加坐标变换。
+
+![R 统计可视化-16](/assets/images/r-learning-notes/r-stat-visualization-16.png)
+
+```r
+# 钻石切工与对数价格的关系
+library(ggplot2)
+library(patchwork)
+
+diamonds_zh <- diamonds
+levels(diamonds_zh$cut) <- c("一般", "良好", "优质", "珍贵", "完美")
+
+p <- ggplot(diamonds_zh, aes(x = cut, y = log(price))) +
+  geom_boxplot() +
+  labs(x = "切工", y = "log(价格)")
+
+print(p / (p + coord_flip()))
+```
+
+### 分面
+
+分面的思想来自 Trellis 图形：先按一个或两个分类变量把数据拆成子集，再用相同的规则分别作图。与把多组数据重叠在同一图中的分组相比，分面更适合观察各组内部的形态。
+
+![R 统计可视化-17](/assets/images/r-learning-notes/r-stat-visualization-17.png)
+
+```r
+# 按切工分面后的钻石重量密度曲线
+library(ggplot2)
+
+diamonds_zh <- diamonds
+levels(diamonds_zh$cut) <- c("一般", "良好", "优质", "珍贵", "完美")
+
+p <- ggplot(diamonds_zh, aes(x = carat)) +
+  geom_density() +
+  labs(x = "重量", y = "分布密度") +
+  facet_grid(cut ~ .)
+
+print(p)
+```
+
+`facet_wrap()` 和 `facet_grid()` 是两个主要的分面函数，其中 `var`、`rowvar` 和 `colvar` 都表示分类变量：
+
+| 函数 | 分面排列方式 |
+| --- | --- |
+| `facet_wrap(~ var, ncol = n)` | 按 `var` 分面并排成 `n` 列 |
+| `facet_wrap(~ var, nrow = n)` | 按 `var` 分面并排成 `n` 行 |
+| `facet_grid(rowvar ~ colvar)` | 按 `rowvar` 分行、`colvar` 分列 |
+| `facet_grid(rowvar ~ .)` | 每个 `rowvar` 水平占一行 |
+| `facet_grid(. ~ colvar)` | 每个 `colvar` 水平占一列 |
+
+### 主题与外观
+
+ggplot2 的默认主题使用灰色背景和网格线。网格线帮助读者对照坐标，灰色背景也能让图形与正文中的黑色文字有所区分。默认样式并非固定要求，可以用 `theme()` 修改单个元素，也可以直接换用其他内置主题或扩展包提供的主题。
+
+基础图形系统的 `par()` 不会影响 ggplot2。坐标轴、图例和背景等外观需要使用 ggplot2 自己的标度与主题函数设置。
+
+#### 坐标轴
+
+| 函数 | 常用选项 |
+| --- | --- |
+| `scale_x_continuous()` 和 `scale_y_continuous()` | `breaks` 指定刻度，`labels` 指定刻度标签，`limits` 控制连续轴显示范围 |
+| `scale_x_discrete()` 和 `scale_y_discrete()` | `breaks` 选择并排列因子水平，`labels` 指定标签，`limits` 控制显示的水平 |
+| `coord_flip()` | 交换横轴与纵轴 |
+
+#### 图例
+
+ggplot2 会根据视觉映射自动生成图例。图例标题通常在 `labs()` 中设置，位置则通过 `theme()` 调整：
+
+```r
+data("Salaries", package = "car")
+library(ggplot2)
+
+ggplot(Salaries, aes(x = rank, y = salary, fill = sex)) +
+  geom_boxplot() +
+  labs(
+    title = "Faculty Salary by Rank and Gender",
+    x = NULL,
+    y = NULL,
+    fill = "Gender"
+  ) +
+  theme(legend.position = c(0.1, 0.8))
+```
+
+图例位置可以设为 `"left"`、`"top"`、`"right"` 或 `"bottom"`，也可以用二元向量指定图内位置。上例表示距左侧边缘 10%、距底部边缘 80% 的位置。使用 `theme(legend.position = "none")` 可以删除图例。
+
+### 保存图形
+
+`ggsave()` 可以把图形保存为文件。文件扩展名决定输出格式，`plot` 指定要保存的图形对象，`width` 和 `height` 设置尺寸。
+
+```r
+myplot <- ggplot(data = mtcars, aes(x = mpg)) +
+  geom_histogram()
+
+ggsave(
+  filename = "mygraph.png",
+  plot = myplot,
+  width = 5,
+  height = 4
+)
+```
