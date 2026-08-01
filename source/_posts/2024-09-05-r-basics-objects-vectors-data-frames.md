@@ -5,8 +5,8 @@ date: 2024-09-05 10:29:12 +0800
 categories: ["Programming", "R"]
 tags: ["R"]
 author: Hyacehila
-excerpt: "整理 R 基本原理、对象、向量、矩阵、数据框、列表、时间序列、函数、循环和数据读写。"
-excerpt_en: "Covers core concepts, objects, vectors, matrices, data frames, lists, time series, functions, loops, and data I/O."
+excerpt: "整理 R 基本原理、对象与数据结构、数据读写、编程与内置函数，并补充帮助系统、S3 方法与函数源码查看。"
+excerpt_en: "Covers R fundamentals, objects and data structures, data I/O, programming and built-in functions, plus the help system, S3 methods, and source inspection."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/09/05/r-basic-learning-notes/'
@@ -642,7 +642,7 @@ y[x != b] <- 1
 ```
 
 向量化就是使用逻辑型变量来控制原本需要循环和分支才能实现的功能，在Python的`numpy` 中，我们依旧大量是使用编写好的向量化语句代替粗糙的循环控制，从而正确的执行多核的运算。在更加复杂的深度学习问题，如`Pytorch`框架，也需要通过类似的操作来调用GPU，相关内容会在Python的相关位置介绍。
-`
+
 ### 程序与函数
 
 大多数R的工作是通过函数来实现的, 而且这些函数的输入参数都放在一个括弧里面. 用户可以编写自己的函数, 并且这些函数和R里面的其它函数有一样的特性 一个函数的例子如下
@@ -668,7 +668,80 @@ foo1(arg3=w, arg2=v, arg1=u)
 foo2 <- function(arg1, arg2 = 5, arg3 = FALSE) {...}
 ```
 
-r函数可以递归 这为很多算法的设计带来的便利 也是比较新的语言的标配
+R函数可以递归 这为很多算法的设计带来的便利 也是比较新的语言的标配
+
+### 帮助系统
+
+R 自带完整的帮助系统。使用下面的命令可以在浏览器中打开帮助首页，其中包含入门手册、参考文档和其他学习资料。
+
+```r
+help.start()
+```
+
+查询函数或具有特殊语法含义的符号时，可以使用 `help()`。默认情况下，它会在已经加载的包中查找；如果需要搜索所有已安装的包，或者限定到某个包，可以分别使用 `try.all.packages` 和 `package` 参数。
+
+```r
+help("lm")
+help("bs", try.all.packages = TRUE)
+help("bs", package = "splines")
+```
+
+部分 R 包还提供介绍设计思路或完整工作流的 vignette 文档，可以用下面的命令查看。
+
+```r
+vignette()
+```
+
+问号是 `help()` 的简写。查询函数时直接写函数名，不需要添加调用括号。
+
+```r
+?lm
+```
+
+### 普通函数、泛型与方法
+
+R 中的函数既包括直接完成计算的普通函数，也包括根据对象类别分派实现的泛型函数。S3 泛型通常通过 `UseMethod()` 选择与对象类别匹配的方法。例如，`mean()` 和 `print()` 都可以根据输入对象的类别调用不同实现。
+
+泛型函数仍然按照普通函数的形式调用，方法分派会自动发生。例如，`mean(x)` 会根据 `class(x)` 选择 `mean.default`、`mean.Date` 等方法，不需要通过对象访问方法。
+
+可以直接输入泛型函数名查看它的定义，并使用 `methods()` 列出已经注册的方法。
+
+```r
+mean
+methods("mean")
+```
+
+典型输出如下：
+
+```text
+function (x, ...)
+UseMethod("mean")
+
+[1] mean.Date     mean.default  mean.difftime mean.POSIXct  mean.POSIXlt
+```
+
+### 查看函数源码
+
+对于由 R 代码实现且当前可见的函数，最简单的查看方式是直接输入函数名而不添加括号。例如：
+
+```r
+lm
+```
+
+查看某个 S3 方法时，可以使用 `getS3method()`，这样不需要依赖该方法是否已经导出或附加到搜索路径。
+
+```r
+getS3method("mean", "default")
+```
+
+`methods()` 的输出可能会用星号标记不可见的方法。此时可以使用 `getAnywhere()` 查找对应对象及其定义位置。
+
+```r
+methods("predict")
+getAnywhere("predict.Arima")
+```
+
+如果函数的核心部分由 C 或 Fortran 实现，直接打印 R 函数通常只能看到调用编译代码的封装层。需要继续追踪实现时，可以从 CRAN 下载对应包的源代码，再查看其中的 C 或 Fortran 文件。
 
 ## 内置函数
 ### 数学函数
