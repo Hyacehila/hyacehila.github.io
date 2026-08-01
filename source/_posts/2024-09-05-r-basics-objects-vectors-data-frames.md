@@ -1,621 +1,651 @@
 ---
-title: "R 基础：对象、向量、数据框与函数"
-title_en: "R Basics: Objects, Vectors, Data Frames, and Functions"
+title: "R 基础：对象、向量、数据框、函数与数据分析"
+title_en: "R Basics: Objects, Vectors, Data Frames, Functions, and Data Analysis"
 date: 2024-09-05 10:29:12 +0800
 categories: ["Programming", "R"]
-tags: ["R"]
+tags: ["R", "Data Management", "Exploratory Data Analysis"]
 author: Hyacehila
-excerpt: "整理 R 基本原理、对象与数据结构、数据读写、编程与内置函数，并补充帮助系统、S3 方法与函数源码查看。"
-excerpt_en: "Covers R fundamentals, objects and data structures, data I/O, programming and built-in functions, plus the help system, S3 methods, and source inspection."
+excerpt: "系统整理 R 的对象、向量、矩阵、数据框、列表、时间序列、函数与常用内置函数，并覆盖数据导入、数据管理、缺失值处理和探索性数据分析。"
+excerpt_en: "A practical guide to R objects, vectors, matrices, data frames, lists, time series, functions, data import, data management, missing-data handling, and exploratory data analysis."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/09/05/r-basic-learning-notes/'
 ---
 
-## R的基本原理
+## R 的基本原理
 
-R是一门非常简单的脚本化编程语言 它的Python非常的接近；和Python一样 我们对R的学习更多的是侧重于各种函数 各种Package中的内容，当然 在这之前我们需要对R 本身有一些了解 并且了解它基本的语法规则；
+R 是一门面向数据分析的编程语言。它的核心并不复杂：对象保存数据，函数处理对象，包则提供更多函数和数据集。这篇笔记从这些基础概念出发，再进入数据导入、整理与探索。
 
-R和Python⼀样 不提供⼀体化的编辑器解决⽅案，建议直接使⽤RStutio，他已经能解决R语⾔的⼏乎所有需求 正如Pycharm和Python的关系
+R 本身包含解释器和标准库，RStudio 是常用的集成开发环境。二者需要分别安装；RStudio 负责编辑代码、管理项目和展示对象，实际计算仍由 R 完成。
 
-R中最重要的部分是R函数 所有的稍微有一点复杂的工作都是靠R函数实现的，**所有的合法的R函数都要表示为一个带有圆括号的形式 直接输入函数名儿没有括号 则是显示一些关于函数本身的内容 是否含有圆括号就是我们区分R函数 和 R对象的方法** 函数中可以没有参数
+函数调用使用圆括号。直接输入函数对象的名字，R 会打印它的定义；加上圆括号才会调用函数。
 
 ```r
-ls()
-ls
+ls       # 查看函数对象
+ls()     # 调用函数
 ```
 
-所有可以被使用的R函数存储在library中 如果需要使用 我们会把函数从packages中加载到library中 然后就可以使用了，我们可以在Rstudio的右侧辅助操作界面帮助我们加载R包
+函数也是对象，因此不能靠“是否带圆括号”判断一个对象是不是函数。需要检查时可以使用 `is.function()`。
 
-研究对象是最基本的操作，输入对象的名字来显示内容（也可以使用R Studio 中的Environment中检查）以及给对象进行赋值了（赋值的方式不止一种，如下）
+```r
+is.function(ls)
+```
+
+R 包安装在本地库（library）中，使用前通过 `library()` 将包加载到当前会话。包只需安装一次，但每次启动新的 R 会话都要重新加载。
+
+```r
+install.packages("readxl")  # 只需安装一次
+library(readxl)             # 每个新会话都要加载
+```
+
+### 对象与赋值
+
+R 常用 `<-` 赋值。`=`、`assign()` 和从右向左的 `->` 也能赋值，但混用会降低可读性。
 
 ```r
 n <- 10
-10 -> n
+n = 10
 assign("n", 10)
-n=10
+10 -> n
 n
 ```
 
-对象的名字必须是以一个字母开头(A-Z 或a-z), 中间可以包含字母、数字(0--9)、点(.)及下划线 R对对象的名字区分大小写，x和X就可以代表两个完全不同的对象.
+对象名区分大小写。常规名称以字母或不跟数字的点开头，后面可以包含字母、数字、点和下划线。`x` 与 `X` 是两个不同对象。
 
-有时候我们也会只进行运算不进行赋值 此时结果不会保存到内存中 只会在Console中显示
-
-R使用#作为注释符号 一个良好的代码 注释和文档都是不可缺少的
+表达式没有赋值时，结果只会打印到控制台，不会自动保存。注释从 `#` 开始，一直延续到行末。
 
 ```r
-## 这是一句注释
-; #这是用来分割代码的符号
-ctrl/command + shift + c #批量注释和批量取消注释
+2 + 3  # 打印 5，但不保存结果
+
+result <- 2 + 3
+result
 ```
 
-## R的数据结构
+## R 的数据结构
 
-我们在前面介绍了 R基于对象和函数来运行 R函数是什么前面已经介绍了 但是R对象的种类并不唯一 所以我们需要逐一的进行介绍
+R 对象既有底层存储类型，也可能带有 `class`、`dim`、`names` 等属性。理解这两层信息，比把所有对象硬分成互斥的“类型”更准确。
 
-### R对象的属性与对象信息
-#### R对象属性
+### 对象属性与信息
 
-任何一个R对象都有两个内在属性：类型和长度.
-
-类型是对象元素的基本种类，共有四种：
-
--   数值型
--   字符型
--   逻辑型
--   复数型（统计分析中少见，不介绍）
--   因子型 （一种比较特殊的类型，我们在对象类型里都会看到它，放在哪里都是正确的）
-
-**R中需要要class属性支持面向对象的操作 class属性的不同可以让不同的对象类进行不同的操作 其实我们在很多地方已经使用这种对象类了 只是没有介绍**
-
-长度是对象中元素的个数 我们可以用下面的函数研究对象的属性
+原子向量常见的底层类型包括逻辑型、整数型、双精度数值型、复数型、字符型和原始字节型。因子不是独立的底层类型，而是带有 `levels` 和 `class = "factor"` 属性的整数向量。
 
 ```r
-x<-1
-mode(x)  #返回类型
-length(x) #返回长度
+x <- 1:5
 
-is.numeric() #这类函数可以进⾏类型判断，返回布尔值
-digits <- as.character(z) #这⼀类函数可以进⾏强制的类型转换
+typeof(x)       # 底层存储类型
+class(x)        # 对象类别
+length(x)       # 元素个数
+attributes(x)   # 对象属性
 ```
 
-R中的对象往往有一些特殊的情况 他们使用一些特殊的符号表示 其中
-
--   NA表示缺失
--   Inf表示无穷
--   NaN表示非数字
-
-字符型的值输入时须加上双引号"，如果需要引用双引号的话，可以让它跟在反斜杠"\\"后面
+`is.*()` 函数用于判断对象，`as.*()` 函数用于显式转换。调用时要传入实际对象。
 
 ```r
-x <- "Double quotes \" delimitate R's strings."
+is.numeric(x)
+digits <- as.character(x)
 ```
 
-R中的对象基本有下面几种
+R 使用几个特殊值描述无法按普通数值处理的情况：
 
-| 对象   | 类型                      | 是否允许对象混合类型 |
-| ---- | ----------------------- | ---------- |
-| 向量   | 数值型，字符型，复数型，逻辑型         | 否          |
-| 因子   | 数值型, 字符型                | 否          |
-| 数组   | 数值型，字符型，复数型，逻辑型         | 否          |
-| 矩阵   | 数值型，字符型，复数型，逻辑型         | 否          |
-| 数据框  | 数值型，字符型，复数型，逻辑型         | 是          |
-| 时间序列 | 数值型，字符型，复数型，逻辑型         | 否          |
-| 列表   | 数值型，字符型，复数型，逻辑型 ，函数，表达式 | 是          |
+- `NA` 表示缺失值。
+- `NaN` 表示未定义的数值结果，例如 `0 / 0`。
+- `Inf` 和 `-Inf` 表示正负无穷。
+- `NULL` 通常表示对象或结果不存在，和长度为一的缺失值 `NA` 不同。
 
-至于R中的运算符 和Python中基本运算符没有什么区别 介绍一些发生了轻微变化和不怎么常用的
+字符值放在单引号或双引号中。字符串内需要同类引号时，可以用反斜杠转义。
 
-| 运算含义 | 运算符号 |
-|----------|----------|
-| 乘方     | \^       |
-| 模       | %%       |
-| 整除     | %/%      |
+```r
+message <- "Double quotes \" delimit R strings."
+```
 
-#### 检查对象信息
+常见数据结构如下：
 
-检查内存中全部对象（不如使用可视化的R studio） 不过它可以检索特定关键词的对象
+| 数据结构 | 主要特点 | 是否允许列或元素具有不同类型 |
+| --- | --- | --- |
+| 向量 | 一维、同质 | 否 |
+| 因子 | 用整数编码分类水平 | 否 |
+| 数组 | 多维、同质 | 否 |
+| 矩阵 | 二维数组 | 否 |
+| 数据框 | 二维表格，每列是一个向量 | 是 |
+| 时间序列 | 带时间索引属性的向量或矩阵 | 否 |
+| 列表 | 可以容纳任意对象 | 是 |
+
+部分常用运算符：
+
+| 运算 | 运算符 |
+| --- | --- |
+| 乘方 | `^` |
+| 取模 | `%%` |
+| 整除 | `%/%` |
+| 矩阵乘法 | `%*%` |
+
+`ls()` 可以列出当前环境中的对象，也可以按名称筛选。`rm()` 用于删除对象。
 
 ```r
 ls()
-ls(pat = "m")
-```
+ls(pattern = "^m")
 
-想要删除对象也是可以的 下面是用于删除对象的函数
-
-```r
 rm(x)
-rm(list=ls(pat="^m"))
+rm(list = ls(pattern = "^m"))
 ```
 
 ### 向量
 
+向量是一组同类型元素。`c()`、`:`、`seq()` 和 `rep()` 是最常用的创建方式。
+
 #### 数值型向量
 
-常用的建立方法都在下面了 还有什么其他的疑问可以使用help
-
 ```r
-1:10 # 等差1序列
-seq(1,5,by=0.5) #等差序列
-rep(2:5,2) #重复某个向量化
-c(42,7,64,9) #直接建立
-scan()  #获取输入
+1:10
+seq(1, 5, by = 0.5)
+rep(2:5, times = 2)
+c(42, 7, 64, 9)
 ```
+
+`scan()` 可以从控制台或文本连接读取数据，但脚本中通常更适合使用明确的数据导入函数。
 
 #### 字符型向量
 
-如下
-
 ```r
-c("green","blue sky","-99")
-paste(c("X","Y"), 1:10, sep="")
-#把两个字符黏合成⼀个 得到一个新的字符
+colors <- c("green", "blue sky", "-99")
+paste(c("X", "Y"), 1:2, sep = "")
 ```
 
-#### 逻辑向量
+`paste()` 会连接字符，`paste0()` 等价于 `paste(..., sep = "")`。
 
-我们一般不会直接建立逻辑型向量 一般选择使用运算给出 结果有 T F NA 三种
+#### 逻辑型向量
+
+逻辑值包括 `TRUE`、`FALSE` 和 `NA`。比较运算通常会生成逻辑向量。
 
 ```r
 x <- c(10.4, 5.6, 3.1, 6.4, 21.7)
-x > 13 # 逐个元素比较
-7!=6
-all(c(1, 2, 3, 4, 5, 6, 7) > 3)
-#判断⼀个逻辑向量是否全为真
-any(c(1, 2, 3, 4, 5, 6, 7) > 3)
-#判断⼀个逻辑向量是否有真
+x > 13
+7 != 6
+
+all(1:7 > 3)
+any(1:7 > 3)
 ```
 
-#### 因子型向量
+`T` 和 `F` 可以被重新赋值，不适合在正式代码中代替 `TRUE` 和 `FALSE`。
 
-因子是一种单独的格式 但是我们还是把它纳入向量中研究了 这样是很自然的 对于那些取离散值的量 我们往往使⽤因⼦factor表示，他的存在可以帮助我们更好的研究分类问题
+#### 因子
 
-一个因子包括分类变量本身以及它的各种水平 建立因子往往是从其他类型中转化的 函数的使用格式如下
+因子用于表示分类变量。它保存观测对应的整数编码，并通过 `levels` 记录类别名称。类别有顺序时，可以设置 `ordered = TRUE`。
 
 ```r
-factor(x, levels = sort(unique(x), na.last = TRUE),
-       labels = levels, exclude = NA,ordered = is.ordered(x))
+colors <- c("green", "blue", "green", "yellow")
+color_factor <- factor(colors)
 
+scores <- factor(
+  c(1, 2, 3, 1),
+  levels = c(1, 2, 3),
+  labels = c("low", "middle", "high"),
+  ordered = TRUE
+)
 ```
 
-其中 x 表示我们引入的向量 levels 指定因子的水平（如果有序的话，这个部分可以帮助我们手工指定水平的顺序） lables指定水平的名字 exclude剔除一些水平 order指定因子是否有着次序
+`gl()` 可以按规则生成因子。`n` 是水平数，`k` 是每个水平连续重复的次数，`length` 是结果长度。
 
-部分的情况下我们可以使用`gl（）`函数生成需要使用的因子
 ```r
-gl(n, k, length = n*k, labels = 1:n, ordered = FALSE)
+gl(n = 3, k = 2, length = 6, labels = c("A", "B", "C"))
 ```
 
-n是水平数 k是水平的重复次数 length是总观测数
-
-下面给出一些基本的转化例子
+检查和汇总因子时常用以下函数：
 
 ```r
-## 生成因子
-a <- c("green", "blue", "green", "yellow")
-factor(a)
-b <- c(1,2,3,1)
-factor(b)
-
-## 重新指定因子水平
-levels(b) <- c("low", "middle", "high")
-b
-```
-
-除了建立 我们也可以对因子进行一些其他形式的检验
-
-```r
-sex <- c("M","F","M","M", "F")
-sexf <- factor(sex)
-
-is.factor(sexf) #检验是不是因⼦变量
-as.factor(sexf) #转换向量为因⼦变量 没有上⾯的函数实⽤
-
-levels(sexf) #得到因⼦的⽔平
-table(sexf) #得到因⼦的频数
-
+sex <- factor(c("M", "F", "M", "M", "F"))
 height <- c(174, 165, 180, 171, 160)
+
+is.factor(sex)
+levels(sex)
+table(sex)
 tapply(height, sex, mean)
-#区分类型的元素 研究在某种因子水平下的数字特征 很实用，不过也可以用其他函数曲线救国实现
 ```
 
-#### 向量的运算
+#### 向量运算与循环补齐
 
-数值型的向量存在运算的概念，作为涉及长度的一个对象 我们需要一套基本的语法规则来处理长度不一样的向量的运算的问题；
-
-如果它们的长度不同,表达式的结果是一个与表达式中最长向量有相同长度的向量, 表达式中较短的向量会根据它的长度被重复使用若干次(不一定是整数次)，直到与长度最长的向量相匹配, 而常数将被不断重复 --- 这一规则称为循环法则(recycling rule)
+向量运算按位置逐元素进行。两个向量长度不同时，较短向量会被重复使用，这称为循环补齐规则（recycling rule）。如果较长向量的长度不是较短向量长度的整数倍，R 通常会给出警告；依赖这种不完整循环补齐容易隐藏错误。
 
 ```r
 x <- c(10.4, 5.6, 3.1, 6.4, 21.7)
-y <- c(x,0,x)
-2*x + y + 1
+x * 2 + 1
+
+c(1, 2, 3, 4) + c(10, 20)
 ```
 
-对于向量和常数的运算 有一些比较自然的规则
+常用汇总函数：
 
--   向量与一个常数的加、减、乘、除为向量的每一个元素与此常数进行加、减、乘、除;
--   向 量 的 乘 方( ˆ )与 开 方(sqrt)为 每 一 个 元 素 的 乘 方 与 开 方, 这 对像`log(), exp(),sin(), cos(),tan()` 等普通的运算函数同样适用
--   同样长度向量的加、减、乘、除等运算为对应元素进行加、减、乘、除等
--   不同长度向量的加、减、乘、除遵从循环法则(recycling rule), 但要注意这种场合通常要求向量的长度为倍数关系,
+| 函数 | 作用 |
+| --- | --- |
+| `min(x)`、`max(x)` | 最小值与最大值 |
+| `which.min(x)`、`which.max(x)` | 最小值与最大值的位置 |
+| `mean(x)`、`median(x)` | 均值与中位数 |
+| `var(x)`、`sd(x)` | 方差与标准差 |
+| `quantile(x)` | 分位数 |
+| `summary(x)` | 根据对象类别返回常用摘要 |
+| `sort(x)` | 排序 |
+| `sum(x)`、`prod(x)` | 求和与连乘 |
+| `cov(x, y)`、`cor(x, y)` | 协方差与相关系数 |
 
-最后 我们简单介绍一些那些非常常用的需要记忆的关于向量的函数 他们的复杂语法规则和那些不常用的函数在需要的时候单独再查询就可以了
+许多汇总函数都有 `na.rm` 参数。数据含有缺失值时，需要明确决定是否排除缺失值，而不是机械地加上 `na.rm = TRUE`。
 
-| 函数                          | 作用              |
-| --------------------------- | --------------- |
-| `max(x) min(x)`             | 返回向量x中最大（最小）的元素 |
-| `which.max(x) which.min(x)` | 返回最大最小元素的下标     |
-| `mean(x)`                   | 均值              |
-| `median(x)`                 | 中位数             |
-| `var(x) sd(x)`              | 方差和标准差          |
-| `quantile(x)`               | 四分位数            |
-| `summary(x)`                | 常用的描述性统计量联合返回   |
-| `sort(x)`                   | 排序              |
-| `sum(x)`                    | 求和              |
-| `cov(x,y)`                  | 协方差             |
-| `cor(x,y)`                  | 相关系数（Pearson）   |
-
-其中的部分函数也不仅仅针对向量进行操作 我们后面会再提到
+```r
+mean(c(1, 2, NA), na.rm = TRUE)
+```
 
 #### 向量元素的提取
 
-我们可以根据索引index来提取向量中的元素 使用方括号来进行 返回的向量长度和用于索引的向量的长度一致；比较特殊的情况是使用逻辑向量提取 此时一般要求两者长度一致 我们只提取逻辑中标记为TRUE的量；我们也可以使用提取这个功能对向量进行修改
-
-修改可以和提取同步进行 负数的提取就是删除对应元素
-
-**R语言的下标逻辑是从1开始的**
+R 的索引从 1 开始。方括号内可以使用正整数、负整数、逻辑向量或名称；正负索引不能混用，`0` 除外。
 
 ```r
-x <- c(42,7,64,9,10,8)
+x <- c(42, 7, 64, 9, 10, 8)
+
 x[1:5]
-x[c(1,4)]
-x[x>10]
-x[x>10] <- 10
-v[-(1:5)]
+x[c(1, 4)]
+x[x > 10]
+x[-(1:5)]
+
+x[x > 10] <- 10
 ```
 
-#### 关于特殊符号
+检查特殊数值时，要把对象传给判断函数：
 
 ```r
-is.na() #检测向量是否有缺失 T意味着这是缺失数据
-is.nan() #检测数据是否是不确定的
-is.finite()  #检测数据是否有限
-is.infinite() #检测数据是否⽆穷
+values <- c(1, NA, NaN, Inf)
+
+is.na(values)
+is.nan(values)
+is.finite(values)
+is.infinite(values)
 ```
 
 ### 数组和矩阵
 
-和其他语言一样的是 我们这里把**数组视为一种多维的向量形式** 因此 我们前面介绍的向量就是一维的数组，而矩阵是二维的数组 是一种比较常用的特殊形式 **对于数组和矩阵 除了我们前面提到的长度和类型以外 还需要维数向量dim来描述**
+数组是带 `dim` 属性的同质向量，矩阵是二维数组。它们只能保存一种底层类型；如果混入字符值，数值通常会被转换为字符。
 
-#### 数组的建立
-
-建立数组往往是使用向量来实现的 向量中含有我们在数组中要使用的元素
-
-**一般使用`c()`建立向量 `array()`建立数组 `matrix()`建立矩阵**
-
-```r
-array(data, dim, dimnames)
-```
-
-其中data是向量 含有我们需要的元素 dim是维数向量 它的元素表示了我们的划分层级 它的长度多一 划分的层级就多了一级 最后的描述各个维的名字 如下
+#### 创建数组和矩阵
 
 ```r
 A <- array(1:8, dim = c(2, 2, 2))
 A
-## 建立了一个三维的数组
+
+X <- matrix(1:8, nrow = 2, ncol = 4)
+X_by_row <- matrix(1:8, nrow = 2, ncol = 4, byrow = TRUE)
+
+diagonal <- diag(c(10, 20, 30))
 ```
 
-#### 矩阵的建立
+R 默认按列填充矩阵。`byrow = TRUE` 会改为按行填充。
 
-矩阵是数组的特例 是二维的数组 不过我们还是建议使用单独的函数来实现建立
+#### 矩阵和数组索引
+
+矩阵使用 `[行, 列]` 索引。省略一个维度表示选择该维度的全部元素。
 
 ```r
-X <- matrix(1, nr = 2, nc = 2) #指定行数和列数
-X <- matrix(1:4, 2, 4, byrow=TRUE) # 是否要从按列排转为按行排
-v <- c(10, 20, 30)
-diag(v) # 建立对角矩阵
+x <- matrix(1:6, nrow = 2, ncol = 3)
+
+x[2, 2]
+x[2, ]
+x[, 3] <- NA
+x[is.na(x)] <- 1
+
+x[-1, ]
+x[, -2]
 ```
 
-#### 矩阵和数组的下标
-
-和向量的一样 我们可以使用数和逻辑向量来提取内容 不过会稍微复杂一点点 整体上还是符合数学的逻辑；使用索引进行修改也是自然的
+单行或单列结果默认可能降维成向量。需要保留矩阵结构时使用 `drop = FALSE`。
 
 ```r
-x <- matrix(1:6, 2, 3) #2行3列
-x[2,2] #第2行第2列
-x[2,]  #只要第二行
-x[,3] <- NA #对第三列操作
-x[is.na(x)] <- 1 #生成矩阵布尔索引，很自然
+x[1, , drop = FALSE]
 ```
 
-想要去除某些行列可以使用负数下标
+#### 矩阵运算
 
 ```r
-x <- matrix(1:6, 2, 3)
-x[-1,]
-x[,-2]
-```
+X <- matrix(1:4, nrow = 2)
 
-#### 矩阵的运算
-
-转置 对角线元素提取 按照行或者列合并
-
-```r
-X <- matrix(1:6, 2, 3)
-t(X) #转置
-
-X <- matrix(1:4, 2, 2)
-diag(X)  #对角线提取
-
-X<-matrix(1:4, 2,2)
-det(X) #行列式
-
-```
-
-对应的元素进行运算方式如下 如果缺失则会按照向量的类似原则进行 行列式
-
-```r
-m2 <- matrix(2, nr = 2, nc = 2)
-m2*m2 #直接乘法不使用矩阵乘法 而是对应元素乘法
+t(X)       # 转置
+diag(X)    # 对角线元素
+det(X)     # 行列式
+X * X      # 对应元素相乘
+X %*% X    # 矩阵乘法
 ```
 
 ### 数据框
 
-data frame 的存在是统计分析中最核心的需要操作的对象类型了；它约定了每一个行是一次观测 每一列是一种变量 显示数据框是告诉我们行和列的编号 列一般还会有名字，他是符合Codd代数第三范式的数据结构 探索性数据分析
+数据框是 R 中最常见的表格结构。每一行通常对应一次观测，每一列对应一个变量。各列长度必须一致，但可以分别保存数值、字符、逻辑值或因子。
 
-#### 数据框的建立
-
-如果我们想在R中建立数据框可以采用下面的方式
+#### 创建与检查数据框
 
 ```r
-x=c(42,7,64,9)
-y=1:4
-z.df=data.frame(INDEX = y, VALUE = x)
-z.df
+measurements <- data.frame(
+  id = 1:4,
+  value = c(42, 7, 64, 9),
+  group = c("A", "A", "B", "B")
+)
+
+str(measurements)
+summary(measurements)
+head(measurements)
 ```
 
-在更多的情况下 **我们依赖从外部导入数据作为统计分析的数据框** 我们后面会单独研究怎么从外部导入数据的问题，所有从外部导入的都使用data frame存储 我们后面单独介绍数据存储的问题 在数据结构之后
+实际分析中，数据框更多来自外部文件。导入方法放在后面的“数据导入、存储与分析准备”一节。
 
-#### 数据框的简单处理
-
-我们用一个例子来说明这个问题
+直接使用 `data$column` 或函数的 `data` 参数，比 `attach()` 更清楚，也不会因为搜索路径中存在同名对象而取错数据。
 
 ```r
-attach(Puromycin)
-#attach函数可以把数据框中的数据直接加载 就不需要用$调用了
-
-summary(Puromycin)
-## 数据框概述
-head(Puromycin)
-## 看看前几行
-
-cor(Puromycin$conc,Puromycin$rate)
-## 计算两个列的相关系数
-
+cor(Puromycin$conc, Puromycin$rate)
 pairs(Puromycin, panel = panel.smooth)
-## 散点图pairs函数
-
-xtabs(~state + conc, data = Puromycin)
-## 交叉表函数 以后用到再详细研究
-
-detach(Puromycin)
-#取消attach的加载
+xtabs(~ state, data = Puromycin)
 ```
 
-#### 数据框元素的提取
+#### 选择行和列
 
-数据框的提取基本和矩阵是相同的 因为他们有着近似的结构 但是由于它有名字 所以有其他的访问方法，我们还有限制条件的访问思路 也就是subset函数
+数据框既支持矩阵式索引，也支持按列名访问。
 
 ```r
-attach(Puromycin)
 Puromycin[1, 1]
-Puromycin[c(1, 3, 5), c(1, 3)]
-## 类似矩阵访问方法
-
+Puromycin[c(1, 3, 5), c("conc", "rate")]
 Puromycin$conc
-Puromycin$state
-## 按照名字访问
 
 subset(Puromycin, state == "treated" & rate > 160)
-## subset是数据框子集提取函数 适用于复杂的子集提取
 ```
 
-#### 在数据框中添加变量
-
-方法并不唯一 下面逐个介绍
+`subset()` 适合交互式分析。编写需要严格控制求值环境的函数时，使用显式的方括号索引更稳妥。
 
 ```r
-#最常用的方法 建立新的列
-Puromycin$iconc <- 1/Puromycin$conc
-
-#with可以从数据框中提取信息 用的不多
-Puromycin$iconc <- with(Puromycin, 1/conc)
-
-#transform是修正数据框用的函数
-Puromycin <- transform(Puromycin, iconc = 1/conc, sqrtconc = sqrt(conc))
+selected <- leadership[
+  leadership$age >= 35 | leadership$age < 24,
+  c("q1", "q2", "q3", "q4")
+]
 ```
 
-#### 数据框的实例标识符
-在病例数据中，病人编号（patientID）用于区分数据集中不同的个体。在R中，实例标识符（case identifier）可通过数据框操作函数中的rowname选项指定，如下
+#### 创建和重命名变量
 
 ```r
-patientdata <- data.frame(patientID, age, diabetes,
-                          status, row.names=patientID)
+Puromycin$inverse_conc <- 1 / Puromycin$conc
+
+Puromycin <- transform(
+  Puromycin,
+  inverse_conc = 1 / conc,
+  sqrt_conc = sqrt(conc)
+)
+
+names(Puromycin)[names(Puromycin) == "rate"] <- "reaction_rate"
 ```
 
-这种的实例标示操作可以帮助很多绘图函数工作，建议进行。
+`with()` 适合读取数据框中的列，但在其中赋值不会自动写回原数据框。`fix()` 会打开交互式编辑器，不利于复现，因此不作为常规的数据管理方法。
+
+#### 合并与追加数据
+
+有共同键的数据框可以用 `merge()` 联结。默认结果是内联结，只保留两边都匹配的键；`all.x = TRUE` 可得到左联结。
+
+```r
+total <- merge(dataframe_a, dataframe_b, by = "ID")
+left_total <- merge(dataframe_a, dataframe_b, by = "ID", all.x = TRUE)
+```
+
+`cbind()` 按当前行顺序横向拼接对象，不会根据键对齐，因此应先确认行数和行顺序一致。`rbind()` 纵向追加数据框，要求列名和列类型能够对应。
+
+```r
+wide <- cbind(dataframe_a, extra_columns)
+long <- rbind(dataframe_a, dataframe_b)
+```
+
+#### 行标识符
+
+行名可以保存实例标识符，但通常更适合把标识符保留为普通列，这样导出、联结和检查重复值都更直接。
+
+```r
+patient_data <- data.frame(
+  patient_id = patient_id,
+  age = age,
+  diabetes = diabetes,
+  status = status
+)
+
+anyDuplicated(patient_data$patient_id)
+```
+
 ### 列表
 
-列表是一类特殊的对象 它被用于比较复杂的数据分析工作 可以包含任何类型的对象 也就是把对象套娃成了一组对象；
-
-列表可以用函 数list( )创 建；列表的下标与子集的提取也与数据框没有本质区别. 数据分析时通常是在提取部分对象后按上面讲述的向量、矩阵或数据框等运算进行,下面仅举一例进行说明.
+列表可以容纳不同类型、不同长度的对象，包括向量、矩阵、数据框、函数和其他列表。许多建模函数会返回列表，因为拟合结果通常同时包含系数、残差和诊断信息。
 
 ```r
-L2 <- list(x = 1:6, y = matrix(1:4, nrow = 2))
-L2
-L2$x
-L2[1]
-```
+results <- list(
+  values = 1:6,
+  matrix = matrix(1:4, nrow = 2)
+)
 
-非常多函数都是返回列表 里面包含着运算的各种结果 因为他兼容并包 可以同时含有很多信息，同时他的语法规则也较为宽松
+results$values
+results[[1]]  # 提取第一个元素本身
+results[1]    # 返回只含第一个元素的子列表
+```
 
 ### 时间序列
 
-时间序列是一种特殊类型的数据 我们可以创建一元或者多元的时间序列 它的特殊之处是元素顺序被赋予了价值；分析时间序列数据是统计学中一个重要的分支，我们会展开单独的研究
+`ts()` 为向量或矩阵添加规则时间索引。它适合等间隔序列；日期不规则或需要时区信息的数据通常要用其他时间对象。
 
-关于TS的一点基本介绍
 ```r
-ts(data = NA, start = 1, end = numeric(0), frequency = 1,
-    deltat = 1, ts.eps = getOption("ts.eps"), class, names)
+ts(
+  data = NA,
+  start = 1,
+  end = numeric(0),
+  frequency = 1,
+  deltat = 1,
+  names = NULL
+)
 ```
 
--   data是被纳入时间序列的数据 可以是向量或者矩阵 体现了一元或者多元的时间序列
--   start是第一个观察值的时间 可以是一个数字 也可以是两个数字组成的向量
--   end 最后一个观察值的时间 规则同上
--   frequency 单位时间观测的频数 （一般取1，4，12意味着年季度月）
--   deltat 两个观测值的间隔 和frequency只能给出一个 是分数
--   class 对象的类型 一般缺省就好
--   names 多元序列中每个一元序列的名字
+- `data` 是一元向量或多元矩阵。
+- `start` 和 `end` 指定首尾观测的位置。
+- `frequency` 表示每个时间单位中的观测数，例如季度数据取 4，月度数据取 12。
+- `deltat` 表示相邻观测的时间间隔，与 `frequency` 二选一。
+- `names` 用于设置多元序列的列名。
 
 ```r
-ts(1:10, start = 1959)
-ts(1:47, frequency = 12, start = c(1959, 2))
-ts(1:10, frequency = 4, start = c(1959, 2))
-ts(matrix(rpois(36,5),12,3), start=c(1961,1),frequency=12)
+annual <- ts(1:10, start = 1959)
+monthly <- ts(1:47, frequency = 12, start = c(1959, 2))
+quarterly <- ts(1:10, frequency = 4, start = c(1959, 2))
+
+multivariate <- ts(
+  matrix(rpois(36, lambda = 5), nrow = 12, ncol = 3),
+  start = c(1961, 1),
+  frequency = 12
+)
 ```
 
-## 日期型变量
-### 存储逻辑
-日期型是一种特殊的类型，我们并没有一种专门的用于导入日期的数据结构，但是他确实非常的常用，因此我们这里进行了单独的补充介绍。
+## 日期与时间
 
-日期值通常以字符串的形式输入到R中，然后转化为以数值形式存储的日期变量。函数`as.Date()`用于执行这种转化。其语法为`as.Date(x, "input_format")`，其中`x`是字符型数据，`input_format`则给出了用于读入日期的适当格式.
+`Date` 对象在底层以数值保存，表示相对 1970-01-01 的天数。字符日期需要用 `as.Date()` 按实际格式转换。
 
-### 格式表
-
-| 符  号 | 含  义    | 示  例    |
-| ---- | ------- | ------- |
-| %d   | 数字表示的日期 | 01~31   |
-| %a   | 缩写的星期名  | Mon     |
-| %A   | 非缩写的星期名 | Monday  |
-| %m   | 月份      | 01-12   |
-| %b   | 缩写的月份   | Jan     |
-| %B   | 非缩写的月份  | January |
-| %y   | 两位数的年份  | 07      |
-| %Y   | 四位数的年份  | 2007    |
-### 示例与日期函数
-一个帮助我们理解的例子有
 ```r
-strDates <- c("01/05/1965", "08/16/1975")
-dates <- as.Date(strDates, "%m/%d/%Y")
+date_strings <- c("01/05/1965", "08/16/1975")
+dates <- as.Date(date_strings, format = "%m/%d/%Y")
 ```
 
-特别的，日期有两个专用的函数有
-```r
-Sys.Date() #返回今天日期
-date() #返回现在的日期和时间
+常用格式符：
 
-#我们可以实现反向的输出
+| 符号 | 含义 | 示例 |
+| --- | --- | --- |
+| `%d` | 两位日期 | `01` 至 `31` |
+| `%a` | 星期缩写 | `Mon` |
+| `%A` | 完整星期名 | `Monday` |
+| `%m` | 两位月份 | `01` 至 `12` |
+| `%b` | 月份缩写 | `Jan` |
+| `%B` | 完整月份名 | `January` |
+| `%y` | 两位年份 | `07` |
+| `%Y` | 四位年份 | `2007` |
+
+获取、格式化和比较日期：
+
+```r
 today <- Sys.Date()
-format(today, format="%B %d %Y")
+now <- Sys.time()
 
-#计算两个时间的间隔
-dob   <- as.Date("1956-10-12")
-difftime(today, dob, units="weeks")
+format(today, format = "%B %d %Y")
+
+dob <- as.Date("1956-10-12")
+difftime(today, dob, units = "weeks")
 ```
-## 数据存储和读取
 
-如果我们只需要在R中进行研究 那么数据就用R的格式就好了 但是我们需要分析的数据一定会来自其他地方 导出的结果也需要提交给其他部分进行分析 所以介绍数据的存储和读取就是必要的了
+`date()` 返回当前日期和时间的字符表示；需要继续计算时应使用 `Sys.Date()` 或 `Sys.time()`。
 
-原则上 所有的数据存储和读取工作都应该在WorkSpace进行 保存至Project 文件移动到Project再读取 不过我们也可以用指定目录的方式来进行
+## 数据导入、存储与分析准备
 
-Rstudio为我们提供可视化的数据读取与读出方法
-### 数据存储
-
-常用的存储格式有
-* 简单的文本文件txt
-* 逗号分隔文本文件csv
-* R数据文件Rdata
+可复现的分析应尽量使用项目目录和相对路径。`getwd()` 可以查看当前工作目录，`file.path()` 能以跨平台方式拼接路径。不要把个人电脑上的绝对路径写进共享脚本。
 
 ```r
-d <- data.frame(obs = c(1, 2, 3), treat = c("A", "B", "A"), weight = c(2.3, NA, 9))
-
-## 写txt
-write.table(d, file = "c:/data/foo.txt", row.names = F, quote = F)
-
-## 写csv
-write.csv(d, file = "c:/data/foo.csv", row.names = F, quote = F)
-
-## 写Rdata
-save(object1, object2, file = "my_data.RData")
+getwd()
+data_path <- file.path("data", "measurements.csv")
 ```
 
-### 基本数据读取
+### 存储数据
 
-经常被读取的文件格式有
-* txt
-* 从Excel中复制的剪贴板数据
-* R中的数据集datasets 其中datasets数据集有加载和外挂两种形式 区别在于是否可以直接访问其中的变量
-* Rdata
+文本、CSV 和 RData 是常见的存储格式。CSV 便于与其他软件交换，RData 可以在一个文件中保存多个 R 对象。
 
 ```r
-read.table(file="houses.txt")
-read.delim("clipboard")
-data(mtcars)
-attach(mtcars)
-load("my_data.RData")
-#我们可以自由的把读取的数据赋给需要的变量
+d <- data.frame(
+  observation = c(1, 2, 3),
+  treatment = c("A", "B", "A"),
+  weight = c(2.3, NA, 9)
+)
+
+write.table(
+  d,
+  file = file.path("data", "observations.txt"),
+  row.names = FALSE,
+  quote = FALSE
+)
+
+write.csv(
+  d,
+  file = file.path("data", "observations.csv"),
+  row.names = FALSE
+)
+
+save(d, file = file.path("data", "objects.RData"))
 ```
 
-### 高级数据读取
+### 读取数据
 
-最常用的包是foreign包 它提供了多种读取其他软件数据的方式 首先介绍几大统计学软件
+基础 R 可以直接读取文本和 CSV 文件，也可以加载随包提供的数据集及 RData 文件。
+
+```r
+houses <- read.table("houses.txt", header = TRUE)
+scores <- read.csv("educ_scores.csv")
+
+data("mtcars")
+load(file.path("data", "objects.RData"))
+```
+
+`read.delim("clipboard")` 在部分桌面环境中可以读取剪贴板，但它依赖操作系统，不适合需要稳定复现的脚本。
+
+读取 SPSS、SAS Transport 和 Stata 等格式时，可以使用 `foreign` 包。它是基础工作流中的传统方案，具体函数对不同格式的支持程度并不完全一致。
 
 ```r
 library(foreign)
-rs <- read.spss("educ_scores.sav") #spss的读取
-rx <- read.xport("educ_scores.xpt") #sas的读取
-rs <- read.S("educ_scores") #s的读取
-rd <- read.dta("educ_scores.dta") #stata的读取
-#除了spss以外 都是使⽤数据框格式
 
-rs<-read.spss("educ_scores.sav", to.data.frame=TRUE) #这样spss读取进来的就是数据框了
+spss_data <- read.spss("educ_scores.sav", to.data.frame = TRUE)
+sas_data <- read.xport("educ_scores.xpt")
+stata_data <- read.dta("educ_scores.dta")
 ```
 
-Excel是比较特殊的统计学软件 它的xls不能被foreign包读取 我们可以在excel中转换为csv文件 或者使用另外的包
+Excel 文件不能由 `foreign` 读取，可以先另存为 CSV，或使用 `readxl`。
 
 ```r
-rc <- read.csv("educ_scores.csv") #csv是最常用的读取方法
 library(readxl)
-so2_df <- read_excel('/Users/sylnne/Desktop/DAMS/Datasets/SO2.xlsx')
+so2_data <- read_excel(file.path("data", "SO2.xlsx"))
 ```
 
-### 在数据的存储与读取最后
-实际上，我们只推荐将数据保存为两种形式
-* R自己的Rdata文件
-* 导出为csv文件，使用 `write.csv()` 函数
-
-我们只推荐一种数据导入的方法，基于Rstudio的可视化界面进行数据的导入，其中 base 类型对应 txt 与 csv 文件。其他类型按照字面对应。
-
-## R编程
-
-### 循环和控制
-
-控制结构是编程语言的必备品 有下面是常用的控制结构的例子 整体的语法结构偏向C 没有python的高度灵活
+导入后先检查结构、行列数和关键变量，再进入数据管理。文件能够读入，并不意味着列类型、缺失值编码和标识符已经正确。
 
 ```r
-#分⽀语句
-if (cond_1)
-  {statement_1}
-else if (cond_2)
-  {statement_2}
-else if (cond_3)
-  {statement_3}
-else
-  {statement_4}
-#还是⽼规矩的if else 结构
-switch (statement, list)
-#根据statement返回的值 决定返回列表的那个值 statemnt只有⼀个 列表可能很⻓ 别忘了他的定义
-#如果找不到这个值 返回NULL  明显的 statement不⼀定是数
-#cond语句和C语⾔⼀致 就跟括号⼀样
+str(so2_data)
+dim(so2_data)
+summary(so2_data)
+```
 
-#循环语句 非常自然的循环写法
+### 缺失数据
+
+真实数据中经常出现缺失值。处理前要先判断缺失发生在哪里、为什么缺失，以及分析方法怎样使用这些观测。`is.na()` 返回逐元素结果，`complete.cases()` 标记完整行。
+
+```r
+is.na(d)
+colSums(is.na(d))
+complete.cases(d)
+```
+
+#### 尝试恢复
+
+如果原始问卷、日志或其他字段能够确定缺失值，可以回到数据来源恢复。例如，总分与分项之间存在确定关系时，缺失分项有时可以据此核对。恢复必须有明确依据，不能把猜测写回原始数据。
+
+#### 完整案例分析
+
+`na.omit()` 会删除包含缺失值的整行。许多统计函数也会通过 `na.action` 采用类似处理。这样做简单，却可能减少样本量；当缺失并非完全随机时，还可能引入偏差。
+
+```r
+complete_data <- na.omit(d)
+```
+
+是否删除行应由缺失机制、缺失比例和后续分析共同决定，而不是作为默认清洗步骤。
+
+#### 多重插补
+
+多重插补会生成多个合理的完整数据集，分别拟合模型，再合并估计值和不确定性。`mice` 包提供了常用实现。
+
+```r
+library(mice)
+
+imp <- mice(data, m = 5, seed = 123)
+
+fits <- with(imp, lm(y ~ x1 + x2))
+pooled <- pool(fits)
+summary(pooled)
+
+completed_data <- complete(imp, action = 1)
+```
+
+其中：
+
+- `data` 是含缺失值的数据框或矩阵。
+- `imp` 保存多个插补数据集和插补过程信息。
+- `with()` 在每个插补数据集上执行同一个分析表达式。
+- `pool()` 按多重插补规则合并模型结果。
+- `complete()` 可以提取某一个完整数据集。
+
+只取一个插补数据集继续做推断，会丢失插补之间的不确定性。如果后续方法无法直接配合 `with()` 和 `pool()`，应明确记录这种限制及采用的合并策略。
+
+### 探索性数据分析
+
+探索性数据分析（EDA）发生在正式建模之前。目标是了解变量分布、异常值、缺失模式和变量之间的关系，并检查数据是否符合研究设计。
+
+```r
+str(data)
+summary(data)
+table(data$group, useNA = "ifany")
+
+numeric_data <- data[vapply(data, is.numeric, logical(1))]
+cor(numeric_data, use = "pairwise.complete.obs")
+```
+
+数值摘要不能替代图形。直方图、箱线图、散点图和分组图经常能暴露均值与相关系数看不到的结构。更完整的统计方法见 [EDA 与描述性统计](/blog/2024/09/05/r-classical-statistics-learning-notes/)，绘图方法见 [R 统计可视化](/blog/2024/03/15/r-visualization-learning-notes/) 和 [R 统计图形](/blog/2024/09/16/r-graph-learning-notes/)。
+
+## R 编程
+
+### 条件与循环
+
+R 提供 `if`、`else`、`switch`、`for`、`while` 和 `repeat` 等控制结构。大括号可以避免多行分支产生歧义。
+
+```r
+if (condition_1) {
+  statement_1
+} else if (condition_2) {
+  statement_2
+} else {
+  statement_3
+}
+
 for (i in 1:5) {
   print(i)
 }
@@ -627,91 +657,95 @@ while (i <= 5) {
 }
 ```
 
-### 向量化
-
-在R在, 很多情况下循环和控制结构可以通过向量化避免(简化): 向量化使得循环隐含在表达式中；
-
-在实际设计中 尽量使用向量化语句而不是循环与分支 原因如下
-
--   代码更简洁
--   在R中使用向量化，R会立即调用C进行运算，并且会在可行的地方进行并行，因而大大提高了计算的效率
+`switch()` 根据字符或位置选择一个分支，适合处理少量固定选项。
 
 ```r
-y[x == b] <- 0
-y[x != b] <- 1
+operation <- "mean"
+
+switch(
+  operation,
+  mean = mean(1:5),
+  sum = sum(1:5),
+  stop("Unknown operation")
+)
 ```
 
-向量化就是使用逻辑型变量来控制原本需要循环和分支才能实现的功能，在Python的`numpy` 中，我们依旧大量是使用编写好的向量化语句代替粗糙的循环控制，从而正确的执行多核的运算。在更加复杂的深度学习问题，如`Pytorch`框架，也需要通过类似的操作来调用GPU，相关内容会在Python的相关位置介绍。
+### 向量化
 
-### 程序与函数
-
-大多数R的工作是通过函数来实现的, 而且这些函数的输入参数都放在一个括弧里面. 用户可以编写自己的函数, 并且这些函数和R里面的其它函数有一样的特性 一个函数的例子如下
+向量化是把逐元素操作交给向量函数或逻辑索引，而不是显式编写循环。它通常更简洁，一些函数也会调用经过优化的底层实现，但向量化本身不等于自动并行。
 
 ```r
-myfun <- function(S, F) {
-  data <- read.table(F)
-  plot(data$V1, data$V2, type="l")
-  title(S)
+y <- numeric(length(x))
+y[x == b] <- 0
+y[x != b] <- 1
+
+y <- ifelse(x == b, 0, 1)
+```
+
+循环并不是错误。操作存在前后依赖、每次迭代返回复杂对象，或没有合适的向量函数时，清楚的循环往往更合适。
+
+### 自定义函数
+
+函数由参数列表和函数体组成。它可以返回任何 R 对象；没有显式调用 `return()` 时，最后一个表达式的值就是返回值。
+
+```r
+plot_file <- function(title_text, file_path) {
+  data <- read.table(file_path, header = TRUE)
+  plot(data[[1]], data[[2]], type = "l")
+  title(title_text)
+
+  invisible(data)
 }
 ```
 
-调用函数可以使用顺序参数也可以用名字
+调用函数时可以按位置或名称传参。命名参数不必遵循定义顺序，但应使用完整名称，避免部分匹配带来的歧义。
 
 ```r
 foo1(u, v, w)
-foo1(arg3=w, arg2=v, arg1=u)
+foo1(arg3 = w, arg2 = v, arg1 = u)
 ```
 
-我们可以对自行定义的函数给出默认设置 这非常的实用
+参数可以有默认值，也可以通过 `...` 接收额外参数。
 
 ```r
-foo2 <- function(arg1, arg2 = 5, arg3 = FALSE) {...}
+foo2 <- function(arg1, arg2 = 5, arg3 = FALSE, ...) {
+  list(arg1 = arg1, arg2 = arg2, arg3 = arg3, extra = list(...))
+}
 ```
 
-R函数可以递归 这为很多算法的设计带来的便利 也是比较新的语言的标配
+R 支持递归函数，但深层递归可能受调用栈限制。许多数据处理任务使用循环或向量函数更直接。
 
 ### 帮助系统
 
-R 自带完整的帮助系统。使用下面的命令可以在浏览器中打开帮助首页，其中包含入门手册、参考文档和其他学习资料。
+R 自带帮助系统。`help.start()` 会打开帮助首页，`help()` 和 `?` 用于查询函数或特殊语法。
 
 ```r
 help.start()
-```
 
-查询函数或具有特殊语法含义的符号时，可以使用 `help()`。默认情况下，它会在已经加载的包中查找；如果需要搜索所有已安装的包，或者限定到某个包，可以分别使用 `try.all.packages` 和 `package` 参数。
-
-```r
 help("lm")
+?lm
+
 help("bs", try.all.packages = TRUE)
 help("bs", package = "splines")
 ```
 
-部分 R 包还提供介绍设计思路或完整工作流的 vignette 文档，可以用下面的命令查看。
+部分包还提供介绍设计思路或完整工作流的 vignette 文档。
 
 ```r
 vignette()
-```
-
-问号是 `help()` 的简写。查询函数时直接写函数名，不需要添加调用括号。
-
-```r
-?lm
+vignette(package = "survival")
 ```
 
 ### 普通函数、泛型与方法
 
-R 中的函数既包括直接完成计算的普通函数，也包括根据对象类别分派实现的泛型函数。S3 泛型通常通过 `UseMethod()` 选择与对象类别匹配的方法。例如，`mean()` 和 `print()` 都可以根据输入对象的类别调用不同实现。
-
-泛型函数仍然按照普通函数的形式调用，方法分派会自动发生。例如，`mean(x)` 会根据 `class(x)` 选择 `mean.default`、`mean.Date` 等方法，不需要通过对象访问方法。
-
-可以直接输入泛型函数名查看它的定义，并使用 `methods()` 列出已经注册的方法。
+普通函数直接执行固定实现，泛型函数则根据对象类别选择方法。S3 泛型常用 `UseMethod()` 分派。例如，`mean()` 会依据 `class(x)` 选择 `mean.default`、`mean.Date` 等实现，调用形式仍然是 `mean(x)`。
 
 ```r
 mean
 methods("mean")
 ```
 
-典型输出如下：
+典型输出会显示泛型定义及已经注册的方法：
 
 ```text
 function (x, ...)
@@ -722,176 +756,182 @@ UseMethod("mean")
 
 ### 查看函数源码
 
-对于由 R 代码实现且当前可见的函数，最简单的查看方式是直接输入函数名而不添加括号。例如：
+对于由 R 代码实现且当前可见的函数，直接输入函数名可以打印定义。
 
 ```r
 lm
 ```
 
-查看某个 S3 方法时，可以使用 `getS3method()`，这样不需要依赖该方法是否已经导出或附加到搜索路径。
+查看 S3 方法时，可以使用 `getS3method()`。`methods()` 输出中的星号表示方法不可见，此时 `getAnywhere()` 可以查找对象及其定义位置。
 
 ```r
 getS3method("mean", "default")
-```
 
-`methods()` 的输出可能会用星号标记不可见的方法。此时可以使用 `getAnywhere()` 查找对应对象及其定义位置。
-
-```r
 methods("predict")
 getAnywhere("predict.Arima")
 ```
 
-如果函数的核心部分由 C 或 Fortran 实现，直接打印 R 函数通常只能看到调用编译代码的封装层。需要继续追踪实现时，可以从 CRAN 下载对应包的源代码，再查看其中的 C 或 Fortran 文件。
+如果函数的核心由 C 或 Fortran 实现，打印 R 函数通常只能看到调用编译代码的封装层。继续追踪时需要查看 R 或对应包的源代码。
 
-## 内置函数
+## 常用内置函数
+
 ### 数学函数
+
 ```r
-abs(x) # 绝对值
-acos(x) # 反余弦函数
-asin(x) # 反正弦函数
-atan(x) # 反正切函数
-atan2(y, x) # 两个参数的反正切函数
-ceil(x) # 向上取整
-cos(x) # 余弦函数
-cosh(x) # 双曲余弦函数
-exp(x) # 指数函数
-floor(x) # 向下取整
-log(x) # 自然对数
-log10(x) # 以10为底的对数
-logb(x, base) # 以base为底的对数
-sin(x) # 正弦函数
-sinh(x) # 双曲正弦函数
-sqrt(x) # 平方根
-tan(x) # 正切函数
-tanh(x) # 双曲正切函数
+abs(x)             # 绝对值
+acos(x)            # 反余弦
+asin(x)            # 反正弦
+atan(x)            # 反正切
+atan2(y, x)        # 根据 x、y 坐标计算反正切
+ceiling(x)         # 向上取整
+floor(x)           # 向下取整
+round(x, digits)   # 四舍五入
+cos(x)             # 余弦
+cosh(x)            # 双曲余弦
+exp(x)             # 指数函数
+log(x)             # 自然对数
+log10(x)           # 以 10 为底的对数
+logb(x, base)      # 指定底数的对数
+sin(x)             # 正弦
+sinh(x)            # 双曲正弦
+sqrt(x)            # 平方根
+tan(x)             # 正切
+tanh(x)            # 双曲正切
 ```
+
 ### 统计函数
-```r
-mean(x) # 计算平均值
-median(x) # 计算中位数
-sum(x) # 计算总和
-min(x) # 计算最小值
-max(x) # 计算最大值
-range(x) # 计算范围（最大值与最小值的差）
-diff(x) # 计算差分（相邻元素的差）
-prod(x) # 计算乘积
-var(x) # 计算方差
-sd(x) # 计算标准差
-cor(x, y) # 计算相关系数
-cov(x, y) # 计算协方差
-quantile(x, probs) # 计算分位数
-t.test(x, y) # 进行t检验
-chisq.test(x) # 进行卡方检验
-cor.test(x, y) # 进行相关性检验
-```
-### 概率函数
-研究密度函数和分布率是概率论中的重要部分 对应的我们还会有CDF函数 程序设计中，我们不区分连续或者离散型不过PDF和CDF都是重要的需要研究的量
-
-R语言对每一种分布提供四种常用的函数 他们分别是 密度函数（PDF）分布函数（CDF）分位数函数 随机数函数 他们和分布的R名称相对应 用修饰词来实现四种功能
-
-我们先给出各种分布的R名称在下表中
-
-| 分布名称             | R名称    | 参数控制            |
-|----------------------|----------|---------------------|
-| beta                 | beta     | shape1, shape2      |
-| binomial             | binom    | size, prob          |
-| Cauchy               | cauchy   | location=0, scale=1 |
-| exponential          | exp      | rate                |
-| chi-sqaured (χ2)     | chisq    | df, ncp             |
-| Fisher--Snedecor (F) | f        | df1, df2, ncp       |
-| gamma                | gamma    | shape, scale=1      |
-| geometric            | geom     | prob                |
-| hypergeometric       | hyper    | m, n, k             |
-| lognormal            | lnorm    | meanlog=0, sdlog=1  |
-| logistic             | logis    | location=0, scale=1 |
-| multinomial          | multinom | size, prob          |
-| normal               | norm     | mean=0, sd=1        |
-| negative binomial    | nbinom   | size, prob          |
-| Poisson              | pois     | lambda              |
-| Student's (t)        | t        | df                  |
-
-对于给定的分布名称 我们使用下面的参数控制
-
--   d 表示 density 指密度函数 PDF
--   p 表示分布函数 CDF
--   q quantile 表示分位数函数
--   r random 表示随机模拟
-
-这四类函数有自身的语法规则
-
--   密度函数 第一个参数是数值向量 返回向量对应点的概率值
--   分布函数 第一个参数是数值向量 返回向量对应点的概率值
--   分位数函数 第一个参数是概率向量 返回CDF对应点的分位数
--   随机模拟 第一个向量是数值向量 返回对应数量的随机数
-
-`p` 和 `q` 两种函数都有`lower.tail`参数控制是从小到大还是从大到小计算 默认为TRUE 从左到右 `log.p`控制是否为对数化 默认为FALSE
-
-### 抽样模拟函数
-概率论在早期是为了研究游戏和赌博中存在的随机现象 了解他们的软件实现当然也是非常必要的了，只需要一个非常简单的函数并且控制一些他们的参数就可以解决关于抽样的各种问题
-
-等可能不放回的抽样 其中x是抽取的向量 n是抽取的个数
 
 ```r
-sample(x, n)
+mean(x)             # 均值
+median(x)           # 中位数
+sum(x)              # 总和
+min(x)              # 最小值
+max(x)              # 最大值
+range(x)            # 返回最小值和最大值
+diff(range(x))      # 极差
+diff(x)             # 相邻元素之差
+prod(x)             # 连乘
+var(x)              # 样本方差
+sd(x)               # 样本标准差
+cor(x, y)           # 相关系数
+cov(x, y)           # 协方差
+quantile(x, probs)  # 分位数
+
+t.test(x, y)
+chisq.test(x)
+cor.test(x, y)
 ```
 
-等可能的有放回的随机抽样:
+### 概率分布函数
+
+R 对常见分布使用统一的命名方式。分布缩写前加 `d`、`p`、`q` 或 `r`，分别得到概率密度或概率质量、累积分布、分位数和随机数函数。少数分布只实现其中一部分，例如多项分布提供 `dmultinom()` 和 `rmultinom()`，但没有对应的 `p*()` 和 `q*()` 函数。
+
+| 分布 | R 缩写 | 常用参数 |
+| --- | --- | --- |
+| Beta | `beta` | `shape1`, `shape2` |
+| 二项 | `binom` | `size`, `prob` |
+| Cauchy | `cauchy` | `location`, `scale` |
+| 指数 | `exp` | `rate` |
+| 卡方 | `chisq` | `df`, `ncp` |
+| F | `f` | `df1`, `df2`, `ncp` |
+| Gamma | `gamma` | `shape`, `rate` 或 `scale` |
+| 几何 | `geom` | `prob` |
+| 超几何 | `hyper` | `m`, `n`, `k` |
+| 对数正态 | `lnorm` | `meanlog`, `sdlog` |
+| Logistic | `logis` | `location`, `scale` |
+| 多项 | `multinom` | `size`, `prob` |
+| 正态 | `norm` | `mean`, `sd` |
+| 负二项 | `nbinom` | `size`, `prob` 或 `mu` |
+| Poisson | `pois` | `lambda` |
+| Student t | `t` | `df` |
+
+以正态分布为例：
 
 ```r
-sample(x, n, replace=TRUE)
+dnorm(0)                    # x = 0 处的密度
+pnorm(1.96)                 # P(X <= 1.96)
+qnorm(0.975)                # 97.5% 分位数
+rnorm(100, mean = 0, sd = 1)  # 生成 100 个随机数
 ```
 
-不等可能的随机抽样 最后的参数用来指定各个元素中出现的概率
+连续分布的 `d*()` 返回密度，离散分布的 `d*()` 返回概率质量。`r*()` 的第一个参数通常是要生成的随机数个数。`p*()` 和 `q*()` 常用 `lower.tail` 控制计算左尾还是右尾，用 `log.p` 控制是否使用对数概率。
 
 ```r
-sample(x, n, replace=TRUE, prob=y)
+pnorm(1.96, lower.tail = FALSE)
+qnorm(log(0.025), log.p = TRUE)
 ```
 
-随机抽样中有一些结果需要排列组合表示 R也提供了对应的计算方法
+### 抽样与组合
+
+`sample()` 从向量中抽样。`size` 是抽取数量，`replace` 控制是否放回，`prob` 可以指定与元素一一对应的抽样权重。
 
 ```r
-#计算阶乘prod还是最方便的 它是向量所有元素的积
+sample(x, size = 5)
+sample(x, size = 5, replace = TRUE)
+sample(x, size = 5, replace = TRUE, prob = weights)
+```
+
+排列组合计算可以使用 `factorial()` 和 `choose()`。
+
+```r
+factorial(5)
+choose(52, 4)
+
+# 从 52 个对象中依次取 4 个且不放回的排列数
 prod(52:49)
-#组合数提供了专门的函数
-choose(52,4)
 ```
 
 ### 字符处理函数
+
 ```r
-nchar(x) # 计算字符串的长度
-substring(x, start, stop) # 提取子字符串
-strsplit(x, split, fixed = FALSE) # 按给定的分隔符分割字符串
-paste(..., sep = " ", collapse = NULL) # 连接字符串
-paste0(..., collapse = NULL) # 连接字符串，不添加分隔符
-sprintf(format, ...) # 格式化字符串
-toupper(x) # 将字符串转换为大写
-tolower(x) # 将字符串转换为小写
-trimws(x) # 去除字符串两端的空白字符
-cat(..., sep = " ", fill = FALSE, labels = NULL, file = "") # 连接并打印字符串
-gsub(pattern, replacement, x) # 替换字符串中的模式
-sub(pattern, replacement, x) # 替换字符串中的第一个匹配模式
-chartr(old, new, x) # 替换字符串中的字符
-strtrim(x, side = "both") # 修剪字符串中的空白
-strsplit(x, split, fixed = FALSE, useBytes = FALSE) # 按给定的分隔符分割字符串
-grep(pattern, x, value = FALSE, fixed = FALSE, perl = FALSE, ...) # 搜索匹配的字符串
-regexpr(pattern, text) # 返回匹配的正则表达式的位置
-gregexpr(pattern, text) # 返回匹配的正则表达式的位置和匹配的字符串
+nchar(x)                          # 字符数
+substr(x, start, stop)            # 提取或替换子串
+substring(x, first, last)         # 向量化的子串操作
+paste(..., sep = " ", collapse = NULL)
+paste0(..., collapse = NULL)
+sprintf(format, ...)              # 格式化字符串
+toupper(x)
+tolower(x)
+trimws(x)                         # 去除两端空白
+strtrim(x, width)                 # 截断到指定显示宽度
+cat(..., sep = "", file = "")    # 连接并输出
+gsub(pattern, replacement, x)     # 替换全部匹配
+sub(pattern, replacement, x)      # 替换首个匹配
+chartr(old, new, x)               # 逐字符替换
+strsplit(x, split, fixed = FALSE)
+grep(pattern, x, value = FALSE)
+regexpr(pattern, text)
+gregexpr(pattern, text)
 ```
-### 将函数应用于矩阵和数据框
-R中提供了一个`apply()`函数，可将一个任意函数“应用”到矩阵、数组、数据框的任何维度上
+
+### 将函数应用到矩阵和数据框
+
+`apply()` 沿矩阵或数组的指定维度调用函数。`MARGIN = 1` 表示行，`MARGIN = 2` 表示列。
 
 ```r
 apply(x, MARGIN, FUN, ...)
+
+apply(matrix_data, 1, mean)
+apply(matrix_data, 2, sd)
 ```
 
-其中，`x`为数据对象，`MARGIN`是维度的下标，`FUN`是由你指定的函数，而...则包括了任何想传递给`FUN`的参数。在矩阵或数据框中，`MARGIN=1`表示行，`MARGIN=2`表示列
-
-在R中使用一个或多个by变量和一个预先定义好的函数来折叠（collapse）数据是比较容易的。调用格式为：
+对混合类型的数据框使用 `apply()` 时，数据框可能先被转换成矩阵，导致列类型被统一。按列处理数据框时，`lapply()` 或 `vapply()` 通常更合适。
 
 ```r
-aggregate(x, by, FUN)
+lapply(dataframe, class)
+vapply(dataframe, is.numeric, logical(1))
 ```
 
-其中`x`是待折叠的数据对象，`by`是一个变量名组成的列表，这些变量将被去掉以形成新的观测，而`FUN`则是用来计算描述性统计量的标量函数，它将被用来计算新观测中的值。`by`中的变量必须在一个列表中
+`aggregate()` 按一个或多个分组变量汇总数值列。
 
-这是一个比较神奇的函数，还不太明白他的用处
+```r
+aggregate(x, by, FUN, ...)
+
+aggregate(
+  reaction_rate ~ state,
+  data = Puromycin,
+  FUN = mean
+)
+```
+
+公式接口会按 `state` 分组，计算每组 `reaction_rate` 的均值。返回值仍是数据框，便于继续联结或绘图。
