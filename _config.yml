@@ -76,6 +76,10 @@ category_map:
   "Probability & Statistical Foundations": probability-statistical-foundations
   "Time Series & Spatial Data": time-series-spatial-data
   "Data Practice": data-practice
+  "Economics & Finance": economics-finance
+  "Economic Foundations": economic-foundations
+  "Financial Markets": financial-markets
+  "Economics & Finance Notes": economics-finance-notes
   "Machine Learning": machine-learning
   "Classical Machine Learning": classical-machine-learning
   "Deep Learning": deep-learning
