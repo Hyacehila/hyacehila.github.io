@@ -11,8 +11,6 @@ hidden: true
 permalink: '/blog/2025/10/09/scientific-writing-guide/'
 ---
 
-本文结合 Stanford 的科学写作课程内容与 Hilary 的写作指南书籍（与本文存放在同一文件夹中）。也可参考写作工具 [Phrase Bank](https://www.phrasebank.manchester.ac.uk)。
-
 ## 引言
 
 ### 什么是好的科学写作
@@ -375,9 +373,11 @@ Review 的主题不能过于庞大，否则文献过多而难以分析，应围�
 2. 研究投稿方式：一般包括邮箱投稿和系统投稿
 3. 选择审稿人：推荐审稿人和推荐避开审稿人，根据情况填写
 
-## 参考书籍
+## 参考资料
 
-本文内容参考了以下书籍，可在此下载：
+本文参考了以下课程、书籍与写作工具：
 
+- [Writing in the Sciences（中英字幕）](https://www.bilibili.com/video/BV1zv41177JQ/)——Stanford 大学 Kristin Sainani 教授的科学写作公开课
 - [The Elements of Style](/assets/docs/the-elements-of-style.pdf)（462KB）——William Strunk Jr. & E.B. White 的经典英文写作指南
 - [Science Research Writing for Native and Non-Native Speakers of English](/assets/docs/science-research-writing-glasman-deal.pdf)（120MB）——Hilary Glasman-Deal 著，面向非英语母语科研人员的写作实用指南
+- [Academic Phrasebank](https://www.phrasebank.manchester.ac.uk)——University of Manchester 提供的学术写作表达参考工具
