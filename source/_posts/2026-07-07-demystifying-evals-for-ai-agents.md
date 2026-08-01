@@ -1,6 +1,6 @@
 ---
 title: "Demystifying evals for AI agents — Anthropic"
-title_en: "Demystifying evals for AI agents — Anthropic"
+title_en: "Demystifying evals for AI agents (Anthropic)"
 date: 2026-07-07 23:30:00 +0800
 categories: ["Agent Systems", "Agent Evaluation & Governance"]
 tags: ["Agent Evaluation", "Evals", "AI Engineering", "LLM"]
