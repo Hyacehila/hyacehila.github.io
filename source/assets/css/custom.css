@@ -126,6 +126,13 @@ footer.footer,
   box-shadow: var(--redefine-box-shadow-flat);
 }
 
+.markdown-body .katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* ---- Right-side language tool ---- */
 .tool-language-toggle {
   position: relative;

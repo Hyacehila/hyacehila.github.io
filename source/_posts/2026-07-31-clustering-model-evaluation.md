@@ -219,10 +219,10 @@ $$\delta_{\min}(\boldsymbol{x}_j)=\min_{\boldsymbol{x}_i\in D,\boldsymbol{x}_i\n
 
 $$\mathrm{HS}_i=\frac{\sum_{y_j\in\mathbf{R}_i}(\delta_{\min}(\boldsymbol{y}_j))^d}{\sum_{y_j\in\mathbf{R}_i}(\delta_{\min}(\boldsymbol{y}_j))^d+\sum_{\boldsymbol{x}_j\in\boldsymbol{D}_i}(\delta_{\min}(\boldsymbol{x}_j))^d}$$
 
-这一统计量将随机生成的数据点的最近邻分布和$D$中数据点的随机子集的最近邻分布进行比较。若数据具有良好的聚类性，我们期望$\delta_\min(x_j)$要小于$\delta_\min(y_j)\text{,且在这种情况下，HS}_i$ 趋向于 1。
+这一统计量将随机生成的数据点的最近邻分布和$D$中数据点的随机子集的最近邻分布进行比较。若数据具有良好的聚类性，我们期望$\delta_{\min}(x_j)$要小于$\delta_{\min}(y_j)\text{,且在这种情况下，HS}_i$ 趋向于 1。
 
 若两个最近邻距离相似，则 HS$_i$取值接近于 0.5,这意味着数据近乎随机且没有明显的聚类性。
 
-最后，若$\delta_\min(x_j)$的值要大于$\delta_\min(y_j)$,则 HS$_i$倾向于 0,这意味着点排斥， 且无聚类。
+最后，若$\delta_{\min}(x_j)$的值要大于$\delta_{\min}(y_j)$,则 HS$_i$倾向于 0,这意味着点排斥， 且无聚类。
 
 根据$t$个不同的 HS$_i$值，可以通过计算该统计量的均值和方差来判断$D$是否可聚类。
