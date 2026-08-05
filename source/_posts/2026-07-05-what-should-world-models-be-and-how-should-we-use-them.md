@@ -8,6 +8,7 @@ author: Hyacehila
 excerpt: "世界模型最有价值的部分，是让智能体在行动前模拟未来。本文从几条路线的差异讲到 JEPA，再回到 Critique of World Model 与 PAN。"
 excerpt_en: "World models matter less as beautiful video generators than as internal simulators for agents. This post compares the main routes, explains why JEPA is appealing, and revisits Critique of World Model and PAN."
 mathjax: true
+permalink: '/blog/2026/07/05/what-should-world-models-be-and-how-should-we-use-them/'
 ---
 
 ## 为什么要搞世界模型？

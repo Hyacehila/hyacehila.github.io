@@ -8,6 +8,7 @@ author: Hyacehila
 excerpt: "从面向检索的交付标准出发，讨论文字、章节、公式、图片和表格应该如何被结构化与增强，再比较 MinerU 3.4 的工程框架和 Unlimited OCR 的长文档模型路线。"
 excerpt_en: "A retrieval-oriented view of production OCR: structuring and enriching text, sections, formulas, images, and tables, followed by a comparison of the MinerU 3.4 framework and Unlimited OCR's long-document model approach."
 mathjax: false
+permalink: '/blog/2026/07/04/make-ocr-great-again/'
 ---
 
 我并不研究 OCR。以前提到它，我脑子里想到的还是从图片里把字“抠”出来，比如各大手机相册里的文字提取，已经相当好用。

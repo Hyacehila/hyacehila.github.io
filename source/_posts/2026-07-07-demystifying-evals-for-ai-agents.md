@@ -8,6 +8,7 @@ author: Hyacehila
 excerpt: "让 agent 变得有用的那些能力，也让它们变得难以 eval。跨部署行之有效的策略会组合多种技术，以匹配它们所衡量系统的复杂度。"
 excerpt_en: "The capabilities that make agents useful also make them difficult to evaluate. The strategies that work across deployments combine techniques to match the complexity of the systems they measure."
 mathjax: false
+permalink: '/blog/2026/07/07/demystifying-evals-for-ai-agents/'
 ---
 
 > 本文转载翻译自 Anthropic Engineering Blog 于 2026 年 1 月 9 日发布的 [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)。这篇文章在今年 1 月发布时我便收藏了，直到 7 月真正动手构建一套 agent eval 系统时才仔细通读全文，读完后深感质量极高——从 eval 的基础概念、不同 agent 类型的 eval 策略，到从零搭建 eval suite 的实操路线图，再到 eval 与其他质量手段（production monitoring、A/B testing 等）的配合关系，体系完整且处处有实战洞见。这里留个记录方便自己后面随时查验。正文只进行了翻译没有进行删改，技术术语不作翻译保证可读性，图片直接引用了原文 CDN 地址，链接均保持原样。
@@ -348,4 +349,3 @@ Written by Mikaela Grace, Jeremy Hadfield, Rodrigo Olivares, and Jiri De Jonghe.
 **[Arize](https://arize.com/)** 提供 Phoenix——一个用于 LLM tracing、debugging 和 offline/online evaluation 的开源平台，以及 AX——一个为 scale、optimization 和 monitoring 扩展 Phoenix 的 SaaS 产品。
 
 许多团队组合使用多个 tool，自己构建 eval framework，或者仅仅使用简单的 eval 脚本作为起点。我们发现，虽然 framework 可以成为加速进展和标准化的宝贵方式，但它们的好坏取决于你通过它们运行的 eval task。通常最好的做法是快速选择一个适合你工作流程的 framework，然后将精力投入到 eval 本身——迭代高质量的 test case 和 grader。
-

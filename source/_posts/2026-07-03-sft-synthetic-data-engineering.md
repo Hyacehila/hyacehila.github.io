@@ -9,6 +9,7 @@ excerpt: "读 NVIDIA 的《On Data Engineering for Scaling LLM Terminal Capabili
 excerpt_en: "Notes on SFT synthetic data engineering, starting from NVIDIA's Terminal-Corpus and connecting it to classic and recent work on instruction synthesis, taxonomy-driven generation, executable tasks, and curation pipelines."
 mathjax: false
 hidden: false
+permalink: '/blog/2026/07/03/sft-synthetic-data-engineering/'
 ---
 
 ## 在正文之前

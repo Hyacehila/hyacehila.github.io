@@ -155,6 +155,7 @@ function validatePosts() {
   const posts = fs.readdirSync(postsDir).filter(name => name.endsWith('.md'));
   posts.forEach(name => {
     const fm = frontMatter(fs.readFileSync(path.join(postsDir, name), 'utf8'));
+    if (!fmValue(fm, 'permalink')) errors.push(`${name} is missing permalink`);
     if (!fmValue(fm, 'title_en')) errors.push(`${name} is missing title_en`);
     if (!fmValue(fm, 'excerpt_en')) errors.push(`${name} is missing excerpt_en`);
 

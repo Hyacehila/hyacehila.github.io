@@ -9,4 +9,5 @@ excerpt: "金融市场基本知识的学习笔记入口。"
 excerpt_en: "An entry point for notes on the fundamentals of financial markets."
 hidden: true
 search: false
+permalink: '/blog/2024/12/30/financial-markets/'
 ---
