@@ -144,7 +144,7 @@ OpenClaw 的争议也正在这里。它把个人 AI 助手做成了一个可以�
 
 下一代 Agent 产品的关键，不只是让 AI 更聪明，而是让用户知道自己交出了什么，并且能够负责地把一部分世界交给它。
 
-## 参考资料与注释
+## 参考资料
 
 - [OpenClaw GitHub 仓库](https://github.com/openclaw/openclaw)
 - [OpenClaw 文档：Architecture](https://docs.openclaw.ai/concepts/architecture)
