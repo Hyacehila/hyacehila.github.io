@@ -1,6 +1,7 @@
 ---
 title: "当我们构建 AI Agent 时，我们究竟在解决什么问题？"
 title_en: "What Problems Are We Really Solving When We Build AI Agents?"
+cover: "/assets/images/agent-framework/what-problems-are-we-really-solving-when-building-ai-agents-cover.webp"
 date: 2026-07-28 20:00:00 +0800
 categories: ["Agent Systems", "Agent Architecture"]
 tags: ["AI Agent", "Agent Architecture", "AI Engineering"]
