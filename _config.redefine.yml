@@ -143,6 +143,7 @@ navbar:
     About:
       icon: fa-regular fa-circle-info
       submenus:
+        Photos: /photos/
         Footprints: /footprints/
         Friends: /friends/
         Comments: /comments/
@@ -168,6 +169,9 @@ home:
       Murmur:
         path: /murmur/
         icon: fa-regular fa-comment-dots
+      Photos:
+        path: /photos/
+        icon: fa-regular fa-images
       Categories:
         path: /categories/
         icon: fa-regular fa-folder

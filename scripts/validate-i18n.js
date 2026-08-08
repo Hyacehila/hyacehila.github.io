@@ -200,6 +200,7 @@ function validateUiCjk() {
     '_config.redefine.yml',
     'source/me/index.md',
     'source/projects/index.md',
+    'source/photos/index.md',
     'source/footprints/index.md',
     'source/cv/index.md',
     'source/friends/index.md',
