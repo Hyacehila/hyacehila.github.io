@@ -7,6 +7,6 @@ comments: false
 
 <div class="cv-page" id="about-root">
 
-<iframe class="cv-frame" id="cv-frame" src="/assets/cv.pdf" title="CV PDF"></iframe>
+<iframe class="cv-frame" id="cv-frame" src="/assets/docs/cv.pdf" title="CV PDF"></iframe>
 
 </div>

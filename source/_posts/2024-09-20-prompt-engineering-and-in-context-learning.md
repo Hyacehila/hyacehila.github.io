@@ -217,7 +217,7 @@ parties, effective_date, termination_date, auto_renewal, payment_cycle, evidence
 
 当对话已经积累了大量废稿和互相冲突的要求，整理一份新的任务说明通常比继续追加一句“再改一下”更稳。这也是上下文工程里 compaction 和 reset 会成为正式操作的原因。
 
-Google 官方英文手册可直接阅读 [Gemini for Workspace Prompting Guide](https://services.google.com/fh/files/misc/gemini_for_workspace_prompt_guide_october_2024_digital_final.pdf)。本站还保留了一份配套的 [Gemini 提示词双语手册](/assets/Gemini_Prompt.pdf)，适合快速查看原有场景示例。
+Google 官方英文手册可直接阅读 [Gemini for Workspace Prompting Guide](https://services.google.com/fh/files/misc/gemini_for_workspace_prompt_guide_october_2024_digital_final.pdf)。本站还保留了一份配套的 [Gemini 提示词双语手册](/assets/docs/Gemini_Prompt.pdf)，适合快速查看原有场景示例。
 
 ## Prompt 解决什么，不解决什么
 

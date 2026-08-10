@@ -27,7 +27,7 @@
     var ph = document.getElementById("cv-placeholder");
     if (!frame || !ph || frame.dataset.checked === "1") return;
     frame.dataset.checked = "1";
-    fetch("/assets/cv.pdf", { method: "HEAD" })
+    fetch("/assets/docs/cv.pdf", { method: "HEAD" })
       .then(function (r) { if (!r.ok) { frame.hidden = true; ph.hidden = false; } })
       .catch(function () { frame.hidden = true; ph.hidden = false; });
   }
