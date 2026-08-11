@@ -1363,7 +1363,8 @@ body:has(.comments-page) iframe.utterances-frame {
   }
 }
 
-.post-page-container .article-title {
+/* Keep the theme's default title layout for posts without a cover. */
+.post-page-container .article-title:has(> img) {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -1372,18 +1373,18 @@ body:has(.comments-page) iframe.utterances-frame {
 }
 
 @media (min-width: 640px) {
-  .post-page-container .article-title {
+  .post-page-container .article-title:has(> img) {
     padding-inline: 1.5rem;
   }
 }
 
 @media (min-width: 768px) {
-  .post-page-container .article-title {
+  .post-page-container .article-title:has(> img) {
     padding-inline: 2rem;
   }
 }
 
-.post-page-container .article-title > img {
+.post-page-container .article-title:has(> img) > img {
   order: 2;
   display: block;
   width: 100%;
@@ -1392,13 +1393,13 @@ body:has(.comments-page) iframe.utterances-frame {
   object-fit: contain;
 }
 
-.post-page-container .article-title > div.absolute {
+.post-page-container .article-title:has(> img) > div.absolute {
   position: static !important;
   order: 1;
   display: block !important;
 }
 
-.post-page-container .article-title-cover {
+.post-page-container .article-title:has(> img) .article-title-cover {
   display: block;
   width: 100%;
   max-width: 100%;
@@ -1418,7 +1419,7 @@ body:has(.comments-page) iframe.utterances-frame {
 }
 
 @media (max-width: 640px) {
-  .post-page-container .article-title-cover {
+  .post-page-container .article-title:has(> img) .article-title-cover {
     font-size: clamp(1.85rem, 9vw, 2.4rem) !important;
     line-height: 1.2 !important;
     letter-spacing: -0.02em;
