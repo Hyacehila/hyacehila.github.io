@@ -1,73 +1,66 @@
 ---
-title: AI 自动生成 HTML PPT Skills
-title_en: "AI-Generated HTML PPT Skills"
+title: AI 自动生成 PPT Skills：HTML Slides 与原生 PPTX
+title_en: "AI-Generated PPT Skills: HTML Slides and Native PPTX"
 date: 2026-06-15 12:00:00 +0800
 categories: ["Work & Society", "AI Engineering Workflows"]
-tags: ["HTML", "Agent Skills", "Workflow"]
+tags: ["HTML", "PPTX", "Agent Skills", "Workflow"]
 author: Hyacehila
-excerpt: "AI 生成 HTML PPT 的问题，已经从多写几段 CSS，转向把设计规则、叙事顺序和领域判断交给 Skill。通用 Skill 管视觉和演示体验，专用 Skill 管教学、汇报这类场景里的内容组织。"
-excerpt_en: "AI-generated HTML PPTs become interesting when Skills encode design rules, narrative sequencing, and domain judgment. General Skills handle visual quality and stage behavior; specialized Skills encode how different domains organize a talk."
+excerpt: "AI 做 PPT 的选择，不只在主题和动效，也在交付物。HTML slides 擅长快速探索视觉与演示体验；原生 PPTX 更适合继续修改、交接和正式交付。领域化 Skill 提供内容组织的思路，但还不能替代人对受众与内容的判断。"
+excerpt_en: "Choosing an AI PPT Skill is not only about themes and effects, but also about the deliverable. HTML slides are strong for visual exploration and presenting; native PPTX is better for editing, handoff, and formal delivery. Domain-specific Skills offer useful content frameworks, but do not replace human judgment about audience and material."
 permalink: '/blog/2026/06/15/ai-html-ppt-agent-skills/'
 hidden: true
 ---
 
 前几天我写过一篇[《事实层与界面层：Markdown 与 HTML 不是替代关系》](/blog/2026/06/08/fact-layer-interface-layer-markdown-html/)，里面顺手提了一句：HTML 拿来做 PPT 也挺好用。
 
-这里稍微展开一下。相关项目现在确实很实用：学习成本低，出片快，效果也不差。更重要的是，它不像很多 AI 小工具那样只热闹一阵。只要浏览器还适合展示，只要 Agent 还擅长写前端，它就有继续存在的理由。
 
-HTML PPT 当然不是新东西。Reveal.js、Slidev、Marp 已经用了很多年，浏览器早就可以当演示播放器。变化发生在 Agent 这一层：Claude Code、Codex、Cursor 这类工具已经能稳定写前端，而 Agent Skills 把风格、叙事顺序和领域习惯写成可复用的说明书、模板、脚本和约束。于是「做一份能看、能讲、符合场景的 slides」开始变成一种可以打包和分享的能力。
+HTML PPT 当然不是新东西。Reveal.js、Slidev、Marp 已经用了很多年，浏览器早就可以当演示播放器。变化发生在 Agent 这一层：Claude Code、Codex、Cursor 这类工具已经能稳定写前端，而 Agent Skills 把风格、版式、演讲体验和部分工作流约束写成可复用的说明书、模板、脚本和约束。原生 PPTX 路线则把同一件事接回传统办公软件的编辑和交付流程。
 
-这篇就看几个相关 Skill 分别在解决生成过程中的哪一环。
+所以，选 Skill 的顺序可以稍微倒过来：先确定最后需要的是 HTML slides 还是原生 PPTX，再看视觉约束、可编辑性和人工复核的成本。这篇就按这个顺序看几个相关 Skill 分别解决了生成过程中的哪一环。
 
-## 通用 Skill：来点艺术风格
+## 通用 Skill：风格、约束与交付格式
 
-通用 HTML PPT Skill 解决的问题是：用户说不清自己想要什么风格，只知道别像 AI 模板。没有约束时，结果很容易滑向紫蓝渐变、圆角卡片、空洞图标和一堆熟悉但没有性格的布局。每个用 AI 生成过前端界面的人能理解这是什么。
+通用 Skill 解决的仍然是最常见的问题：用户说不清自己想要什么风格，只知道别像 AI 模板。没有约束时，结果很容易滑向紫蓝渐变、圆角卡片、空洞图标和一堆熟悉但没有性格的布局。每个用 AI 生成过前端界面的人能理解这是什么。
 
-`frontend-slides`（21,714 stars）算是目前最受欢迎的相关 Skill。它的切入点很聪明。它没有继续堆 CSS，而是把风格选择改成了视觉预览。Agent 会先生成三种真实封面，用户看图来选，不用先在脑子里描述「设计流派」。大多数人说不出自己要哪种风格，但一眼能看出哪张不对味。
+`frontend-slides` 的切入点很聪明。它没有继续堆 CSS，而是把风格选择改成视觉预览：Agent 先生成几种真实封面，用户看图来选，不用先在脑子里描述「设计流派」。大多数人说不出自己要哪种风格，但一眼能看出哪张不对味。
 
-它用多风格模板和用户描述做匹配，再让用户在几个方案里挑。这个流程很省心。项目内置 12 种风格，包括浅色、暗色和四个特殊风格，也支持 beautiful-html-templates 提供的 34 个模板。对多数普通需求来说，`frontend-slides` 已经够用了。
+不过，这更适合作为探索方向的流程，而不是保证一次成稿的生产线。输入材料本身的密度、选中的风格分支，以及后续生成的轮次，都会放大结果差异。短 deck 或前期试稿时，它能快速帮人排除错误方向；直接拿来生成较长、较重要的演示稿，仍然需要逐页验收和返工。这个判断不是说它没有价值，而是把它放回更合适的位置：先帮人找到视觉方向，再决定是否继续投入。
 
-`guizang-ppt-skill`（17,311 stars）更依赖用户主动选择风格。它有两套互不混用的视觉系统：一套是「电子杂志 × 电子墨水」，偏复古和风格化；另一套是瑞士国际主义，强调无衬线与现代简洁。
+`guizang-ppt-skill` 更依赖用户主动选择风格。它有两套互不混用的视觉系统：一套是「电子杂志 × 电子墨水」，偏复古和风格化；另一套是瑞士国际主义，强调无衬线与现代简洁。
 
-两种风格加起来只有 9 套配色，布局也被限制得比较紧。这种强约束不妨碍创作，反而很适合 Agent。模型越自由，越容易发明不存在的结构；deck 越长，风格漂移越明显。`guizang-ppt-skill` 用一部分局部自由换整体稳定性，长稿尤其受益。
+两种风格的配色和布局都被限制得比较紧。这种强约束不妨碍创作，反而很适合 Agent。模型越自由，越容易发明不存在的结构；deck 越长，风格漂移越明显。`guizang-ppt-skill` 用一部分局部自由换整体一致性，长稿尤其受益。
 
-`html-ppt-skill`（6,039 stars）更像一个完整的 HTML PPT 作者系统。它有 36 个主题、15 个完整 deck 模板、31 种单页布局、27 种 CSS 动画和 20 种 Canvas 特效。功能很全，特点没有前两个鲜明。
+`html-ppt-skill` 更像一个完整的 HTML PPT 作者系统。它提供主题、完整 deck 模板、单页布局、CSS 动画和 Canvas 特效，覆盖面很广；按 `S` 还能打开独立的 Presenter Mode，查看当前页、下一页、逐字稿和计时器。它解决的不只是「做出页面」，而是把浏览器演示这件事补成一个比较完整的演讲工具。
 
-它的 Presenter Mode 挺有意思。按 `S` 可以打开独立演讲者窗口，里面有当前页、下一页、逐字稿和计时器。对于演讲者比较实用。
 
-## 专用 Skill：让内容按领域逻辑展开
+HTML 并不是唯一的终点。如果交付物还要进入 PowerPoint 或 WPS 的既有流程，`ppt-master` 值得单独看。它把重点放在原生 PPTX：既可以从材料开始做一份新的 deck，也可以向既有模板填充内容，或者在现成的 PPT 上继续增强。
 
-通用 Skill 解决的是“看起来像一份好的 PPT”。专用 Skill 处理另一个问题：在某个领域里，什么才算讲清楚。
+我更愿意把它当作正式交付时优先尝试的 Skill。它的价值不只在于做出一份看起来不错的 PPT，而在于把成品留在原生文件的编辑链路里：生成之后仍能继续改文案、套公司模板、调整细节、交给其他人接手。HTML slides 和原生 PPTX 并不是高下关系，前者适合浏览器里的演示和视觉探索，后者更适合需要反复修改与交接的文档流程。
 
-教育、科普和正式汇报场景里，`visual-cognition-slides`（70 stars）和 `ppt-director` 很适合放在一起看。它们都先处理同一个问题：这一页为什么成立，观众应该从哪里理解它。当然他们目前做的工具仍旧很有限，是否应该取代讲者对内容的把控将思考也外包给 AI 值得商榷，与此同时他们本身也不怎么好用，能力很是有限。
+## 专用 Skill：有价值的内容框架，但还不是主流程
 
-`visual-cognition-slides` 更偏教学设计。它会先问受众是谁、最后只能记住一件事是什么，再按知识类型选择解释方式：概念性知识用类比动画，程序性知识用步骤动画，关系性知识用连接图，数据性知识用比例和趋势。它的硬规则也很明确：一张 slide 一个认知单元，文字只是标签，图形才是主体。对教育内容来说，这比换一套漂亮主题管用。
+通用 Skill 更关心怎么做出一份能看的 PPT。专用 Skill 想解决的是另一个问题：在某个领域里，什么才算讲清楚。这个方向值得继续尝试，但它们目前更像可借鉴的内容框架和检查清单，还不能替代讲者对材料、受众和叙事的把控。
 
-`ppt-director` 则更像正式汇报里的总导演。它关心受众/评审校准、页面结构导演稿、设计语言对表、HTML 预览和 PPTX 审查门禁；尤其是把不绑定风格的 `页面描述_优化版`，和带画布、坐标、字体字号、组件映射的 `生成就绪导演稿` 分开。前者解决“这页如何被理解”，后者解决“这页如何被生成”。这说明专用 Skill 的价值不只在领域知识，也在把生成前的判断过程固化下来。
+教育、科普场景里的 `visual-cognition-slides` 提供了一个很好的提醒：先明确受众是谁、观众最后只需要记住什么，再按知识类型选择解释方式。概念性知识可以用类比，程序性知识可以用步骤，关系性知识可以用连接图，数据性知识可以用比例和趋势；一张 slide 只承担一个认知单元。它的价值不在于自动替你完成教学设计，而在于让制作 PPT 的人重新检查：这一页到底在帮观众理解什么。
 
-商业汇报里，`KingDee-PPT-Skill`（54 stars）把企业品牌规范和商业模型绑在一起。他的内容分析阶段可以作为参考：识别金字塔/MECE、PDCA、SWOT、黄金圈、5W1H、SCQA、IPD 五看等结构，再映射到对应版式。它也采用 HTML-first 工作流，先做可演示的 HTML deck，再按需要导出 PPTX。
+`ppt-director` 则把正式汇报中的前置思考拆得更细：一份不绑定具体风格的页面描述，和一份带画布、坐标、字体与组件映射的生成稿，分别回答这页如何被理解和这页如何被生成。这套区分很有用，但它更像一层导演稿，而不是任何场景都可以直接拿来生产的默认工作流。
 
-这种 Skill 不需要适合所有公司。它就是为某一类汇报习惯服务的：管理层看到 SWOT、PDCA、IPD，知道该从哪里读、该问什么问题。反过来讲，说服这些细分领域的人接受 HTML 而不是 PPTX，可能比继续打磨 Skill 本身更难。
+这些尝试说明，领域经验当然可以写进 Skill；但把内容按领域逻辑展开做成稳定、易用、可迁移的工作流，离真正成熟还有距离。
 
 ## 结语
 
-把这些项目放在一起看，通用 Skill 和专用 Skill 的分工很清楚。
+AI 做 PPT，最直观的好处是省时间。把大纲丢进去，几分钟后拿到一份能看的 slides。但真正影响后续体验的，往往不是第一次生成得有多快，而是生成之后还能不能继续改、能不能稳定地把关、能不能顺利交给下一个人。
 
-通用 Skill 更像设计总监。它关心主题、字体、动效、舞台、演讲者模式和视觉节奏。它要解决的是空白页恐惧：我有材料，但不知道怎么把它做成一份像样的 PPT。
+所以我现在会先问交付物是什么：需要一份适合浏览器演示和快速探索的 HTML slides，还是一份进入 PowerPoint 或 WPS 流程的原生 PPTX？答案确定后，再选强调视觉风格、强约束一致性或原生编辑能力的 Skill，返工成本会低很多。
 
-专用 Skill 更像领域协作者。它关心受众是否理解、教学内容有没有降低理解成本、商业逻辑是否落进熟悉框架。它主要处理信息组织问题，美观只是入口。
-
-AI 做 PPT，最直观的好处是省时间。把大纲丢进去，几分钟后拿到一份能看的 slides。但 HTML PPT 和 Agent Skills 放在一起，重点不止是快。领域框架可以封装成 Skill，模型开始在受约束的流程里帮人组织表达。
-
-主题当然重要，但主题不会单独存在。不同领域有不同的习惯和范式。以前这些东西要靠人自己学、自己记住，下次做 PPT 的时候再想起来。
-
-如果 Skill 同时封装领域理解和专业风格，AI 生成 HTML PPT 就不只是自动排版。人给出材料和意图，Skill 带来领域规范与风格要求，Agent 再把它编译成一份可以观看、演讲、继续修改的界面。说白了，模板只是外壳，真正有价值的是里面那套可复用的判断。
+专用 Skill 依然值得关注。它们把教学、汇报和企业框架里的隐性经验摊开，让人看见一份 PPT 在排版之前还需要哪些判断。不过在当前阶段，它们更适合作为内容组织的辅助，而不是自动替代人做叙事决策。人提供材料、意图和最后的验收；Skill 负责缩短探索、制作和修改的路径。这已经足够有价值。
 
 ## 参考资料
 
 - [frontend-slides](https://github.com/zarazhangrui/frontend-slides)
 - [guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill)
 - [html-ppt-skill](https://github.com/lewislulu/html-ppt-skill)
+- [ppt-master](https://github.com/hugohe3/ppt-master)
 - [visual-cognition-slides](https://github.com/edu-ai-builders/visual-cognition-slides)
 - [ppt-director](https://github.com/Hermess/ppt-director)
 - [KingDee-PPT-Skill](https://github.com/WayneZhon/KingDee-PPT-Skill)
