@@ -9,6 +9,8 @@
   var DEFAULT_LANG_MIGRATION_KEY = "lang-default-migration";
   var DEFAULT_LANG_MIGRATION = "en-gear-tools-2026-07";
   var ENGLISH_ONLY_PATHS = {
+    "/photos/": true,
+    "/footprints/": true,
     "/cv/": true,
     "/friends/": true,
     "/comments/": true
@@ -105,7 +107,7 @@
     "/me/": { zh: "我", en: "Me" },
     "/projects/": { zh: "项目", en: "Project" },
     "/murmur/": { zh: "碎碎念", en: "Murmur" },
-    "/photos/": { zh: "相册", en: "Photos" },
+    "/photos/": { zh: "Photos", en: "Photos" },
     "/footprints/": { zh: "Footprints", en: "Footprints" },
     "/friends/": { zh: "Friends", en: "Friends" },
     "/comments/": { zh: "Comments", en: "Comments" },
@@ -119,7 +121,7 @@
     "/me/": { zh: "我", en: "Me" },
     "/projects/": { zh: "项目", en: "Project" },
     "/murmur/": { zh: "碎碎念", en: "Murmur" },
-    "/photos/": { zh: "相册", en: "Photos" },
+    "/photos/": { zh: "Photos", en: "Photos" },
     "/footprints/": { zh: "Footprints", en: "Footprints" },
     "/friends/": { zh: "Friends", en: "Friends" },
     "/comments/": { zh: "Comments", en: "Comments" },
