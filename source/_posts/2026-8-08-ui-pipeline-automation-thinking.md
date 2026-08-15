@@ -8,11 +8,13 @@ author: Hyacehila
 excerpt: "同一个模型，写网页界面几分钟就能跑起来，但哪怕有视觉稿的参考，也依旧难以生成可以直接使用的游戏 UI 工程文件。UI 工作流应该如何引入 AI Agent？为什么大多数团队不仅没能简化流程，反而给管线上的其他岗位带来了新的工作？UI 工作流的 AI 化又应该向什么方向、走什么技术路线发展？本文从一些简单的例子出发，聊聊 UI 工作流引入 AI Agent 的核心问题和瓶颈在哪里，以及我们未来应该做些什么。"
 excerpt_en: "The same model spins up a web interface in minutes, yet even with a design mockup in hand, it still struggles to produce a game UI file you can actually use. How should AI agents enter the UI workflow? Why have most teams not only failed to simplify the pipeline, but ended up creating new work for everyone else on it? And in what direction, along which technical path, should AI-assisted UI workflows develop? Starting from a few simple examples, this post looks at where the core problems and bottlenecks really are, and what we should be doing next."
 mathjax: false
-hidden: true
+hidden: false
 permalink: '/blog/2026/08/08/ui-pipeline-automation-thinking/'
 ---
 
 ## 序
+
+这是我在网易实习期间的一次阶段性总结，也是在探索 AI 究竟应该如何介入游戏研发流程。
 
 AI 一句话生成一个网页已经是日常。同一批模型，给它一张完整的视觉稿，让它产出游戏里的一块面板：一张背景、几个按钮、一列奖励格。这件事我做了两个月，到现在也不能说做成了，离网页那种顺畅差得很远。
 
