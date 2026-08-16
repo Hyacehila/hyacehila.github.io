@@ -250,6 +250,7 @@
   function swapPostTitles(lang) {
     if (!POST_I18N) return;
     document.querySelectorAll('a[href*="/blog/"]').forEach(function (a) {
+      if (a.hasAttribute("data-i18n-preserve-label")) return;
       var rec = postRecordFor(a.getAttribute("href"));
       if (!rec || !rec.title_en) return;
       if (a.querySelector(".seo-reader-text")) return;
