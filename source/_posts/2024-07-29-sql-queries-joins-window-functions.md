@@ -2,7 +2,7 @@
 title: "SQL 基础：查询、聚合、JOIN 与窗口函数"
 title_en: "SQL Basics: Queries, Aggregation, JOINs, and Window Functions"
 date: 2024-07-29 22:29:30 +0800
-categories: ["Programming", "Data & Databases"]
+categories: ["Programming", "Computer Science Fundamentals"]
 tags: ["SQL"]
 author: Hyacehila
 excerpt: "覆盖数据库与 SQL 语句基础、创建和更新、查询排序、聚合分组、视图、子查询、函数、谓词、CASE、集合运算、JOIN 和窗口函数。"

@@ -32,7 +32,6 @@ const allowedCategoryPairs = new Set([
   'Programming > Computer Science Fundamentals',
   'Programming > Python',
   'Programming > Full Stack Development',
-  'Programming > Data & Databases',
   'Programming > R',
   'Programming > C & C++',
   'Work & Society > AI Engineering Workflows',
