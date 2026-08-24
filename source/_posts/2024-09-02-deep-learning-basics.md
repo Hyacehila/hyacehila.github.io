@@ -272,26 +272,6 @@ $$\boldsymbol{\theta}_{t+1}^{i}\leftarrow\boldsymbol{\theta}_{t}^{i}-\frac{\eta_
 这个是目前优化的完整的版本，这种优化器除了 Adam 以外，还有各种变形。不过他们都使用不同的方式修正动量 自适应学习率 以及进行 学习率调度
 
 **特别的，动量法和自适应学习率都考虑过去的梯度，但是动量法还考虑他们的方向，而自适应学习率更加侧重于研究其大小**
-### 分类
-分类与回归是深度学习最常见的两种问题。虽然我们在机器学习中已经介绍过他们的区别了，不过在深度学习中由于需要选择激活函数和损失函数进行优化，整体的思路会有所不同，这里进行介绍
-
-当我们进行一个分类问题的时候，一般使用 类似 One-hot 编码之类的方式将 target 改为一个向量，那最基本的思想就是将网络扩展为原来的三倍，将输出一个数值的方法重复三遍。
-
-#### 带有 softmax 的分类
-很显然，前面的方法听起来不像是一个很好的方法，毕竟原来的ReLU和Sigmod函数都无法保证输出 0 1 的二值变量。因此我们一般会选择将网络输出的数进行一层 Softmax 计算公式如下
-$$y_i'=\frac{\exp(y_i)}{\sum_j\exp(y_i)}$$
-我们首先指数化将原始的数据变为正的，然后归一化让大的值跟小的值的差距更大，得到 0-1 之间的变量
-
-**只有两个类的时候，sigmoid 和 softmax 是等价的（我们在Logistic 回归中实际上就是在使用sigmoid）。不过二分类问题在深度学习中研究的比较少，因此Softmax更为常用**
-
-#### 分类损失
-现在我们来看看分类问题如何设置一个合适的损失函数。
-
-在进行Softmax变换以后的数实际上已经很接近0-1了，直接使用MSE和MAE等传统指标实际上就是可行的，不过交叉熵损失在分类问题中更常用，如下，其中$y_i$是真实值 $y_i^{\prime}$ 是经过Softmax变换的预测值
-$$e=-\sum_iy_i\ln y_i^{\prime}$$
-最小化交叉熵其实就是最大化似然（maximize likelihood）
-
-在分类问题中，选择交叉熵作为损失函数有利于我们优化过程的进行。选均方误差的时候，如果没有好的优化器，有非常大的可能性会训练不起来，那么选择Adam之类的优化器自动调大学习率，也会优化的更困难一些
 
 ### 批量归一化
 #### 归一化思想
@@ -430,3 +410,220 @@ ResNet(残差神经网络)在深度学习历史上是里程碑式的模型，在
 深度学习的优化是一个明显的非凸优化问题 (non convex) 但是他使用很简单的优化方法(Adam,SGD等只利用梯度的方法) 往往在实践中可以收敛到很好的结果.
 
 这与现在的随机化初始技术(避免了局部无法跳出),神经网络过参数化(超高维空间避免了局部最优可能),梯度消失(ReLU,Adam,Resnet,Batch Normal,Layer Normal共同解决了). 鞍点(SGD解决了) Loss surface 在这些原因影响下,让一阶优化方法就可以找到近乎全局的最优
+
+## 分类与交叉熵损失
+
+分类与回归是深度学习最常见的两类问题。前面只零散提过交叉熵，这里从负对数损失开始，把二分类、多分类以及工程实现串起来聊一遍。
+
+### 从负对数损失开始
+
+暂时不看模型结构，先把它当作一个黑箱。假设模型已经给出正确类别的概率 $p$，其中 $0<p<1$。我们希望 $p$ 越大，损失越小；最直接的选择就是负对数损失：
+
+$$L=-\log p$$
+
+代码写出来很简单：
+
+```python
+import math
+
+loss = -math.log(p)
+```
+
+### 开始二分类
+
+现在把问题变成二分类。标签只有 0 和 1，用 $y$ 表示真实标签，用 $p$ 表示模型认为 $y=1$ 的概率，那么 $y=0$ 的概率就是 $1-p$。把两种情况写进同一个式子：
+
+$$L=-[y\log p+(1-y)\log(1-p)]$$
+
+这就是二元交叉熵（Binary Cross Entropy，BCE）的来源。
+
+训练通常以 mini-batch 为单位。先计算每个样本的损失，再按照框架的 reduction 设置求和或求平均；常见的默认设置是求平均。为了直观看清公式，先用循环写一遍：
+
+```python
+import math
+
+def binary_cross_entropy(ys, ps):
+    total_loss = 0.0
+
+    for y, p in zip(ys, ps):
+        loss = -(y * math.log(p)
+                 + (1 - y) * math.log(1 - p))
+
+        total_loss += loss
+
+    return total_loss / len(ys)
+```
+
+实际项目会用 NumPy 或张量框架完成向量化计算，不需要手写 `for` 循环。上面的直观实现还假设所有 $p$ 都严格位于 $(0,1)$ 内，否则会遇到 $\log 0$。
+
+二分类标签可以看作服从 Bernoulli 分布。此时负对数似然为：
+
+$$\mathrm{NLL}=-[y\log p+(1-y)\log(1-p)]$$
+
+所以，最小化 BCE 就等价于最小化负对数似然，也就是最大化似然。后面把它推广到多分类和 soft target 时，这条思路仍然成立。
+
+### 从输出的 logit 到概率
+
+上一节一直假设模型已经给出概率 $p$，但神经网络最后的线性层通常输出一个不受范围限制的实数，也就是 logit。二分类中可以写成：
+
+$$z=w^{T}x+b$$
+
+Sigmoid 可以把任意实数映射到 $(0,1)$，因此可以把这个输出解释为概率：
+
+$$p=\sigma(z)=\frac{1}{1+e^{-z}}$$
+
+```python
+import math
+
+def sigmoid(z):
+    return 1 / (1 + math.exp(-z))
+```
+
+把两个阶段拼起来，单样本的 BCE 可以直观地写成：
+
+```python
+import math
+
+def sigmoid(z):
+    return 1 / (1 + math.exp(-z))
+
+def binary_cross_entropy_from_logit(z, y):
+    p = sigmoid(z)
+    return -(y * math.log(p) + (1 - y) * math.log(1 - p))
+```
+
+这段代码对应数学定义，但并不适合直接用于训练：极端 logit 会让 $p$ 在浮点数中舍入为 0 或 1，随后触发 $\log 0$。在 Sigmoid 映射下，logit 也正好是概率的对数几率：
+
+$$z=\log\frac{p}{1-p}$$
+
+### BCEWithLogits
+
+极端 logit 带来的数值不稳定与数学定义无关，但会实实在在影响计算。把 Sigmoid 和 BCE 合在一起，就能绕开先算概率再取对数的问题。
+
+从下面的式子开始：
+
+$$L=-[y\log\sigma(z)+(1-y)\log(1-\sigma(z))]$$
+
+代入 Sigmoid 并化简，可以得到：
+
+$$L=y\log(1+e^{-z})+(1-y)\log(1+e^z)$$
+
+进一步整理为：
+
+$$L=\log(1+e^z)-yz$$
+
+最终可以改写成数值稳定的 BCEWithLogits 形式：
+
+$$L=\max(z,0)-zy+\log(1+e^{-|z|})$$
+
+代码如下：
+
+```python
+import math
+
+def bce_with_logits(z, y):
+    return (
+        max(z, 0)
+        - z * y
+        + math.log1p(math.exp(-abs(z)))
+    )
+```
+
+这也是为什么使用 PyTorch 的 `torch.nn.BCEWithLogitsLoss` 时，应该直接传入 logits，而不是先做 Sigmoid。多分类使用的 `torch.nn.CrossEntropyLoss` 同样直接接收 logits，但它内部组合的是 LogSoftmax 和 NLLLoss，两者不要混为一谈。
+
+对单个样本求 logit 的梯度，结果恰好是：
+
+$$\frac{\partial L}{\partial z}=\frac{1}{1+e^{-z}}-y=p-y$$
+
+代码也很直接：
+
+```python
+def grad_bce_logit(z, y):
+    p = sigmoid(z)
+    return p - y
+```
+
+如果 batch 损失取平均，还需要再除以样本数。相比 Sigmoid 后接 MSE，这个梯度不会额外乘上 $p(1-p)$，因此在 Sigmoid 饱和区通常更容易优化；这并不等于整个网络不会出现梯度消失。
+
+### Softmax 与互斥多分类
+
+前面的讨论只有一个 logit，适合二分类。对于互斥多分类，最后的线性层会输出一个向量，其维度等于类别数。以三分类为例：
+
+$$[x_1,x_2,x_3]$$
+
+如果对每个值分别做 Sigmoid，各类别概率彼此独立、总和也不必为 1，这更适合多标签分类。互斥多分类则需要让类别之间形成竞争，Softmax 会把整组 logits 归一化为总和为 1 的概率分布：
+
+$$p_i=\frac{\exp(x_i)}{\sum_j\exp(x_j)}$$
+
+在这个概率分布上，多分类交叉熵写成：
+
+$$L=-\sum_i y_i\log p_i$$
+
+如果目标是 one-hot 向量，只有正确类别对应的那一项会保留下来。先看一个直观实现：
+
+```python
+import math
+
+def softmax(logits):
+    exp_values = [math.exp(z) for z in logits]
+    total = sum(exp_values)
+
+    return [v / total for v in exp_values]
+
+# target 只需要接受一个目标类别，不需要全部 label
+def cross_entropy(logits, target):
+    probs = softmax(logits)
+    return -math.log(probs[target])
+```
+
+这个版本贴近公式，但较大的 logit 会让指数运算溢出。实际计算 Softmax 时，可以先减去最大值；计算交叉熵时，则可以直接使用 LogSumExp：
+
+```python
+import numpy as np
+
+def softmax(logits):
+    logits = np.asarray(logits, dtype=float)
+    shifted = logits - np.max(logits)
+    exp_values = np.exp(shifted)
+    return exp_values / np.sum(exp_values)
+
+def cross_entropy(logits, target):
+    logits = np.asarray(logits, dtype=float)
+    m = np.max(logits)
+    logsumexp = m + np.log(np.sum(np.exp(logits - m)))
+    return logsumexp - logits[target]
+```
+
+两分类 Softmax 还可以化成对两个 logit 之差做 Sigmoid。例如第二类的概率为 $\sigma(x_2-x_1)$，因此两者在数学和工程实现上非常接近。
+
+交叉熵对第 $k$ 个 logit 的梯度同样很简洁：
+
+$$\frac{\partial L}{\partial x_k}=p_k-y_k$$
+
+### 其他的零散话题
+
+多标签分类通常对每个标签分别计算 BCE，而不是使用 Softmax。因为标签之间并不互斥，每个标签的概率都可以很高，也不需要加起来等于 1。
+
+LLM 的下一个 token 预测，本质上是在词表上计算多分类交叉熵。训练时通常只对有效的目标 token 计算损失，并在一个 batch 的所有有效 token 上取平均；不同框架也可以采用其他 reduction 方式。
+
+Padding 不应参与损失计算，一般通过 `ignore_index` 或 loss mask 排除。
+
+交叉熵也可以接受 soft target，此时保留 $-\sum_i y_i\log p_i$ 中的所有项。只要 target 是总和为 1 的概率分布，梯度仍然是 $p-y$。知识蒸馏和标签平滑都会用到这种形式，其中知识蒸馏可以借助教师模型给出的类别分布传递更多信息。
+
+温度参数会把 Softmax 中的 logit 改为 $x_i/T$。下面给出一个带数值稳定处理的实现：
+
+```python
+import math
+
+def softmax(logits, temperature=1.0):
+    if temperature <= 0:
+        raise ValueError("temperature must be positive")
+
+    scaled = [z / temperature for z in logits]
+    maximum = max(scaled)
+    exp_values = [math.exp(z - maximum) for z in scaled]
+    total = sum(exp_values)
+    return [v / total for v in exp_values]
+```
+
+当 $T>1$ 时，概率分布会更平滑；当 $0<T<1$ 时，分布会更尖锐。
