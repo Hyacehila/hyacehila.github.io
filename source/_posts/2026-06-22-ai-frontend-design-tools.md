@@ -47,35 +47,43 @@ Huashu Design 用 HTML 制作高保真原型、交互 demo、幻灯片、动画�
 
 它的价值是把视觉参考变成具体约束。真实页面、竞品截图和手绘草图，都比「高级一点」「现代一点」这类 prompt 更明确。短板也很直接：越追求像素级还原，越可能得到难维护的布局，生成后仍要整理组件、状态和响应式。现在不少工具都支持类似能力，但 screenshot-to-code 仍适合研究这条技术路线或处理明确的截图还原任务。
 
-## 给 coding agent 加审美约束
+## 给 coding agent 补上设计上下文和验证流程
 
-AI 生成的页面经常不是整体结构出错，而是遗漏局部细节。按钮状态、表单间距、弹窗层级，以及 hover、focus、loading、empty、error 等状态单独看都不大，合在一起却会直接影响使用感受。审美约束既包括视觉风格，也包括让模型复用成熟的基础实现。
+AI 生成的页面经常不是整体结构出错，而是遗漏局部细节。按钮状态、表单间距、弹窗层级，以及 hover、focus、loading、empty、error 等状态单独看都不大，合在一起却会直接影响使用感受。处理这些问题需要组件底座，也需要设计上下文和渲染后的检查。把它们都叫作「审美 Skill」，反而容易混淆每种工具的作用。
 
 [shadcn/ui](https://ui.shadcn.com/) 是常见的基础选择。它不是黑盒 npm 组件库，而是通过 registry/CLI 把组件源码放进项目。button、dialog 等组件基于 Radix、Tailwind 和 class-variance-authority，已经处理了 focus ring、disabled、ARIA 和 dark mode 等状态。这样可以减少模型临时编写基础控件的机会。它的短板是默认风格容易同质化，更合适的用法是保留交互和可访问性实现，再调整排版、信息密度、颜色和少量关键组件。
 
-另一个问题是如何把审美判断写进 Skill。它们不会替代设计师，但能让 agent 在生成前检查受众、用途、风格和布局约束。
+另一个问题是如何把设计判断写进 Skill。它们不会替代设计师，但能让 agent 在生成前检查受众、用途、风格和布局约束。不同 Skill 的粒度相差很大，有些接近一段审美提示，有些带着本地知识库，还有一些会接管从视觉概念到浏览器验收的完整流程。
 
 [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) 是 Anthropic skills 仓库里的前端设计 Skill。它要求模型在写代码前明确页面主题、受众、主要任务、配色、字体、布局和标志性视觉元素，也会提醒模型避开常见的默认套路。它不提供组件，主要作用是把设计判断放到生成之前，适合从零制作 landing page、产品页和品牌页。
 
-[web-design-engineer](https://github.com/ConardLi/garden-skills/tree/main/skills/web-design-engineer) 更像一位 HTML-first 的设计工程师。`SKILL.md` 里有事实验证、设计上下文、风格 recipe、设计系统声明、v0 草稿、浏览器验证、五维评审和反套路清单。它比 frontend-design 更重，也更像完整工作流。页面、dashboard、原型、slide deck、可视化都适合；小改按钮时用它会显得过度。
+[UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) 位于轻量提示和完整工作流之间。它带有可检索的本地设计资料，可以生成一版设计系统建议，再按需查询配色、字体、UX、可访问性、图表和不同技术栈的实现规则。项目还没有成熟设计系统时，这类结构化参考可以减少模型现场猜配色、间距和交互的次数。已经有组件库、设计 token 和产品规范时，仍应优先沿用项目本身的规则；搜索结果只能作为参考，不能直接覆盖现有设计。
+
+Codex 也有官方的设计工作流。[OpenAI `build-web-apps` 插件](https://github.com/openai/plugins/tree/main/plugins/build-web-apps) 包含 `frontend-app-builder`、`frontend-testing-debugging`、`react-best-practices` 和 `shadcn-best-practices`。其中 [`frontend-app-builder`](https://github.com/openai/plugins/tree/main/plugins/build-web-apps/skills/frontend-app-builder) 会先用 ImageGen 生成完整的视觉概念，从图中整理配色、字体、间距和组件规则，再实现代码，并通过浏览器和不同视口的截图继续比对。它适合从零设计、整体改版和视觉还原，明显重于在 prompt 里补几条审美要求。其余几个 Skill 分别负责浏览器调试、React 实现和 shadcn/ui 约束，属于这条工作流的工程侧补充。
+
+[web-design-engineer](https://github.com/ConardLi/garden-skills/tree/main/skills/web-design-engineer) 是社区提供的另一种重型方案，更像一位 HTML-first 的设计工程师。`SKILL.md` 里有事实验证、设计上下文、风格 recipe、设计系统声明、v0 草稿、浏览器验证、五维评审和反套路清单。页面、dashboard、原型、slide deck、可视化都适合；小改按钮时用它会显得过度。
 
 Huashu Design 也可以放在这一类里理解。它一方面能生成 HTML 视觉 artifact，另一方面也提供了品牌资产协议、反 AI slop、设计评审和风格探索规则。对技术用户来说，它的价值还在于把怎样避免一眼 AI 味写成了 agent 能执行的清单。
 
+这里还需要分清提示词、模型和工具。[OpenAI Frontend prompt instructions](https://developers.openai.com/api/docs/guides/frontend-prompt) 是一段可以直接复制的官方提示词，不是独立 Skill。它要求模型尊重现有设计和产品场景，补齐必要的控件与状态，避免默认营销页、嵌套卡片和装饰性渐变，并用 Playwright 检查桌面与移动端。它适合给现有 agent 增加一层轻量约束，不会自动提供本地设计知识或完整工作流。
+
+[GPT-5.6 的官方模型说明](https://developers.openai.com/api/docs/guides/latest-model) 提到，它加强了前端布局、视觉层级和设计判断。这提高了模型的默认下限，但项目里的组件、品牌和交互习惯仍然需要作为上下文提供。ImageGen、Browser、Playwright 和 Sites 也是类似的支撑能力：它们分别负责视觉概念、页面检查、自动化验收或站点交付。`frontend-app-builder` 的作用，是把其中几项组织成一条可以执行和反复检查的设计流程。
+
 ## 怎么选
 
-这些工具解决的是同一个问题：减少模型需要临场猜测的部分。
+这些工具都在减少模型需要临场猜测的部分，不过选择顺序应该从项目已有的东西开始。成熟设计系统的优先级最高。项目已经有组件、设计 token 和交互规范时，agent 应该先读懂并复用它们，外部 Skill 更适合补检查项，而不是重新发明一套视觉语言。
 
-v0 和 shadcn/ui 提供工程可用的代码与组件；Claude Design、Open Design 和 Huashu Design 用于先确认视觉方向；screenshot-to-code 把参考图转成更具体的约束；frontend-design 和 web-design-engineer 则把设计检查放进 agent 的工作流程。
+没有成熟设计系统时，UI UX Pro Max 可以先给出结构化参考，再针对字体、配色、UX 或技术栈查询具体规则。如果只想给 agent 增加几条生成前的约束，frontend-design 或 OpenAI Frontend prompt instructions 更轻。它们不需要接管整个开发流程，也更适合范围较小的页面工作。
 
-选择工具时还要看它是否支持运行和验证。预览、截图、点击测试、控制台、网络请求和响应式检查可以暴露静态代码中看不见的问题。没有这类反馈入口，模型很难判断页面是否真的可用。
+从零设计页面或进行整体改版时，`frontend-app-builder` 的视觉概念、设计系统提取、实现和截图比对更完整。`web-design-engineer` 与 Huashu Design 提供了社区路线，适合需要 HTML artifact、设计评审或风格探索的工作。已有 Figma 稿则是另一条分支，OpenAI Figma 插件可以读取真实设计上下文，再按项目规则实现代码。
 
 如果目标是生成一个能放进工程里继续改的页面或组件草稿，优先看 v0。它的下限高，适合技术用户快速拿到 React/Tailwind/shadcn 生态里的可改代码。
 
 如果问题是不知道界面该长什么样，不要急着进完整应用生成器。Claude Design、Open Design、Huashu Design、screenshot-to-code 更适合先找视觉方向。Open Design 更像完整开源工作台，Huashu Design 更像 Claude Design 思路的 Skill 化旁路，screenshot-to-code 适合有明确截图参考时使用。
 
-如果界面已经能跑，但总有廉价感，先检查基础组件和状态。shadcn/ui 可以做底座；frontend-design 和 web-design-engineer 把设计判断前置。
+选择之后还要看工具能否运行和检查页面。预览、截图、点击测试、控制台、网络请求和响应式检查可以暴露静态代码中看不见的问题。界面已经能跑但仍有廉价感时，也应先检查基础组件、排版和交互状态，再决定是否更换视觉方向。
 
-避免一眼 AI 味，不能只依赖更长的 prompt。先给出真实参考和明确场景，再使用稳定组件，并通过可运行预览检查结果，通常比增加“高级”“现代”之类的形容词有效。本文介绍的工具分别覆盖了这些环节。
+避免一眼 AI 味，不能只依赖更长的 prompt，也不能把希望全部放在某个 Skill 上。真实参考、明确场景、稳定组件和浏览器截图分别解决不同问题，把这些信息接进同一条反馈流程，通常比增加“高级”“现代”之类的形容词有效。
 
 ## 附录：不作为本文主线的工具
 
@@ -89,7 +97,7 @@ v0 和 shadcn/ui 提供工程可用的代码与组件；Claude Design、Open Des
 - Base44、Emergent、Firebase Studio、Create、Anything：都属于值得观察的 prompt-to-app / no-code 应用生成方向。它们可以作为原型工具或产品验证工具，但不在本文正文展开。
 - [Figma Make](https://www.figma.com/make/)：适合已经在 Figma 生态里做 prompt-to-prototype 和协作的人。
 - [Google Stitch](https://stitch.withgoogle.com/)：适合从 prompt 或图片探索 UI 方向，再导出到设计/代码链路。
-- [Figma MCP Server](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server)：适合把真实 Figma 文件、变量、组件和布局信息交给 coding agent。
+- [OpenAI Figma 插件](https://github.com/openai/plugins/tree/main/plugins/figma)：适合已经有 Figma 设计稿的项目。`figma-implement-design` 负责把指定 frame 或组件落实成工程代码，`figma-create-design-system-rules` 用于整理项目级的 Figma-to-code 规则；工作流通过 [Figma MCP Server](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server) 获取真实的设计上下文和截图。
 - [Builder.io Visual Copilot](https://www.builder.io/m/design-to-code)：适合把已有 Figma 设计稿转成前端代码，再由工程侧整理。
 - [Locofy](https://www.locofy.ai/)：适合设计稿到 React/Next/HTML 的快速工程起步。
 - [Anima](https://www.animaapp.com/)：适合设计师和前端之间的 design-to-code 协作，但输出仍需工程审查。
