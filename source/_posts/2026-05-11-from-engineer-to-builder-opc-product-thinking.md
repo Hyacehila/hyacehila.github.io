@@ -12,6 +12,8 @@ permalink: '/blog/2026/05/11/from-engineer-to-builder-opc-product-thinking/'
 
 在上一篇关于生成式 AI 的文章里，我写过一个判断：AI 不会简单终结工作，它更可能先改变任务分工，再催生更多需求。对程序员来说，代码、文案、资料研究、设计草稿和 demo 都变得更便宜。结果未必是工作减少，而是个人可以更快试做过去没时间或没能力完成的想法。
 
+这篇文章中的问题也可以和[Model Is Good Enough：2026 年，AI 真正稀缺的是应用而不是更大的模型](/blog/2026/03/18/model-is-good-enough/)、[从设计师到 Agent Builder：看、做、想](/blog/2026/06/25/from-designer-to-agent-builder/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 一个例子：随着 Coding Agent 或者说 LLM 变得越来越强，我更经常的感觉某个项目或者工具不让我满意，总想自己去进行一些自己喜欢的修改。我个人所关注的项目，在解决的问题数量也愈发膨胀。而 2024 与 2025 年的前半年，这些想法恐怕不会出现在我的脑海里。It is too hard for me to solve it.
 
 传统意义上的 Software Engineer 正在向 Builder 靠近。过去的软件工程被组织分工定义：产品定需求，设计定交互，工程师负责实现，测试负责质量，运营和销售负责触达用户。工程师多数时候是在解决别人已经定义好的问题。

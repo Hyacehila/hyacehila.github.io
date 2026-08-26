@@ -1,5 +1,6 @@
 ---
-title: Project
+title: 项目
+title_en: Projects
 date: 2026-06-28 00:00:00
 permalink: /projects/
 comment: false

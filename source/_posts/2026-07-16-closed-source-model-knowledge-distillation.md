@@ -14,6 +14,8 @@ permalink: '/blog/2026/07/16/closed-source-model-knowledge-distillation/'
 
 最近，蒸馏已经不只是一个技术词。Anthropic 把未经授权、批量利用其模型输出训练竞争模型的做法称为 [“distillation attacks”](https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks)。中文讨论里则常有人反问：闭源模型既不公开权重，怎么会被蒸馏？
 
+这篇文章中的问题也可以和[大语言模型后训练与微调实践：从 SFT、LoRA 到人类对齐](/blog/2024/11/01/llm-post-training-and-finetuning/)、[数据合成正在成为一门工程：从 Terminal-Corpus 说起](/blog/2026/07/03/sft-synthetic-data-engineering/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 这看起来像一个 Yes-or-No 问题，实际上把不同层面的事混在了一起。无论直接回答“能”还是“不能”，都不够。
 
 1. 教师模型究竟能提供什么信号；

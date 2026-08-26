@@ -13,6 +13,8 @@ permalink: '/blog/2026/03/09/from-rl-agent-to-language-agent-v2/'
 >
 > Make money from human --> Create value for humanity
 
+这篇文章中的问题也可以和[AEnvironment：Agent Dev 为什么需要交互环境层？](/blog/2026/03/16/aenvironment-everything-as-environment/)、[从记忆形成到记忆治理：Agent Memory 的全景图](/blog/2026/03/21/agent-memory-panorama/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 # 从 RL Agent 到 LLM Agent：The Second Half 之后的范式转移与不确定性建模
 
 **人机交互和软件工程的发展，一直在处理人的不确定性**。从 DOS 界面到 GUI，再到语音与动作输入，技术让计算机逐渐能理解更模糊的意图，并据此服务人。

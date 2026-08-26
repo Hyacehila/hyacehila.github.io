@@ -12,6 +12,8 @@ permalink: '/blog/2026/02/16/mcp-model-context-protocol/'
 
 MCP 起源于 2024 年 11 月 25 日  [Anthropic 发布的文章](https://www.anthropic.com/news/model-context-protocol) 
 
+这篇文章中的问题也可以和[从 MCP 到 Agent Skills：为什么 Agent 又需要一种新的上下文工程协议？](/blog/2026/03/10/from-mcp-to-agent-skills/)、[Agent 外接资源收藏册：Skills、MCP Server、插件与实用工具](/blog/2026/05/17/agent-resource-collection/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 本文参考了一篇 [知乎文章](https://zhuanlan.zhihu.com/p/29001189476)，部分介绍与代码源自此文。
 
 ## MCP 简介

@@ -12,6 +12,8 @@ permalink: '/blog/2026/06/18/comfyui-video-workflow-orchestration/'
 
 过去两年，图片生成里最常见的动作，大概就是抽卡。
 
+这篇文章中的问题也可以和[TouchDesigner 点云与 3D Gaussian Splatting](/blog/2026/04/21/touchdesigner-point-clouds-and-3d-gaussian-splatting/)、[游戏行业如何引入 AI Agent](/blog/2026/05/05/ai-agent-game-industry-pipeline/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 原因倒也朴素：生成模型本来就带着试错味道。换一个 seed，换一点提示词，换一个 LoRA，换一张参考图，甚至什么都不换，结果就可能从普通变成可用。Stable Diffusion、SDXL、Flux 这些模型让很多人习惯了「批量出图、挑一张、再局部重绘、再放大」的流程。ComfyUI 能在这个阶段变得重要，也和这件事有关。它把生成过程拆成节点和连线，把原本一次次点按钮的事情，变成可以保存、修改和复用的工作流。
 
 现在，视频生成也开始进入这个阶段。

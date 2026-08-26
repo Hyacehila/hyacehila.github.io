@@ -12,6 +12,8 @@ permalink: '/blog/2026/04/25/llm-semantic-routing-compound-ai-systems/'
 
 如果你写过一个稍微复杂一点的 Agent，很容易经历同一种变化。
 
+这篇文章中的问题也可以和[为什么 Output Token 更贵：从 KV Cache 到 Agent 成本工程](/blog/2026/04/26/output-token-pricing-kv-cache-agent-cost/)、[MCP (Model Context Protocol)](/blog/2026/02/16/mcp-model-context-protocol/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 一开始，为了让它尽快跑起来，我们会把所有步骤都交给最强模型：理解用户需求、拆任务、写工具参数、读工具结果、总结、反思、再生成最终答案。这样做很直觉，也很适合 demo。模型越强，出错越少，工程心智负担也越低。
 
 但一旦这个 Agent 开始逐渐交付，问题就会出现。很多调用其实很简单，只是在做分类、抽取、改写或格式化；有些调用对质量要求不高，却被送进了昂贵模型；有些调用更看重的不是通用 agentic 能力，而是 JSON schema 遵循、延迟和 provider 稳定性；还有一些步骤明明可以失败后再升级，却一开始就用了最贵路径。

@@ -13,6 +13,8 @@ permalink: "/blog/2025/11/12/pocketflow-source-code-agent-flow-abstractions/"
 
 ## PocketFlow 是什么
 
+这篇文章中的问题也可以和[多模态 Agent AI 综述：范式、学习机制与应用](/blog/2025/01/15/agent-ai-multimodal-survey/)、[从智能体的认知结构到智能体框架](/blog/2026/03/03/cognitive-architecture-to-agent-framework/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 PocketFlow 是一个 [100 行代码](https://github.com/The-Pocket/PocketFlow/blob/main/pocketflow/__init__.py)的极简主义 LLM 框架。
 
 * 完全轻量化，零臃肿、零依赖、零供应商锁定。

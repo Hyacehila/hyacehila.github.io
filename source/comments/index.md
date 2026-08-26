@@ -1,5 +1,6 @@
 ---
-title: Comments
+title: 留言
+title_en: Comments
 date: 2026-07-03 00:00:00
 permalink: /comments/
 comment: true

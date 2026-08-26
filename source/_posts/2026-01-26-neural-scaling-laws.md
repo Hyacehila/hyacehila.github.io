@@ -13,6 +13,8 @@ permalink: '/blog/2026/01/26/neural-scaling-laws/'
 
 > 我并不研究Deep Learning Theory，对相关的内容也并不熟悉；以下的内容仅仅是一个理论领域的小白简单学习后的总结。随便写着玩玩。
 
+这篇文章中的问题也可以和[Compression for AGI：压缩即智能](/blog/2026/02/20/compression-for-agi/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 如果你希望先看到 Scaling Law 在数据、预训练、后训练和部署之间的位置，可以先读[《LLM 生命周期总览》](/blog/2024/08/15/llm-lifecycle-overview/)；本文只展开规模规律本身。
 
 ## Neural Scaling Laws 的从0到1

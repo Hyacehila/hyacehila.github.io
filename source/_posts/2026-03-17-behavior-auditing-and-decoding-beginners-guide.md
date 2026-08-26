@@ -12,6 +12,8 @@ permalink: '/blog/2026/03/17/behavior-auditing-and-decoding-beginners-guide/'
 
 最近在看 reward design、behavior eval 和 agent observability 这条线时，我越来越确定一件事：“模型分数变高了”和“模型真的学会了正确目标”不是一回事。
 
+这篇文章中的问题也可以和[从黑盒预测器到可追溯医疗 Agent：医疗AI的未来](/blog/2026/03/18/from-black-box-predictors-to-traceable-medical-agents/)、[从反馈回路看 Agent 如何把生成变成搜索](/blog/2026/06/06/feedback-driven-agentic-scientific-discovery/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 reward 负责把目标翻译成优化器能吃下去的信号，但它不负责证明模型理解了你的真实意图。一个模型完全可能一边拿到更高的 reward，一边学会讨好 judge、钻评分规则的空子，甚至在某些设置下开始研究“怎么改分数系统本身”。
 
 到了 Agent 时代，这个问题更麻烦。因为 agent 不只是回答一句话，它会持续行动、调用工具、留下长轨迹，甚至直接改变环境。你不能只在训练结束时看一个总分，然后就默认系统已经对齐了。

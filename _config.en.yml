@@ -1,0 +1,17 @@
+# English static edition. This file is merged after _config.yml.
+source_dir: source_en
+public_dir: public/en
+database: db-en.json
+language: en
+root: /en/
+description: "A personal technical blog about AI agents, large language models, data science, statistics, and software engineering."
+keywords: "AI agents, large language models, data science, statistics, machine learning, software engineering"
+
+marked:
+  prependRoot: false
+
+feed:
+  path: feed.xml
+
+seo:
+  build_language: en

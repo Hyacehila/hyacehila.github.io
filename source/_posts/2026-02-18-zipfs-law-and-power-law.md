@@ -13,6 +13,8 @@ permalink: '/blog/2026/02/18/zipfs-law-and-power-law/'
 
 ## 引言：那是胡言乱语吗？
 
+这篇文章中的问题也可以和[统计与真理：如何运用偶然性 (Statistics and Truth)](/blog/2026/01/10/statistics-and-truth/)、[安斯库姆四重奏：可视化的力量与统计错觉](/blog/2026/01/14/anscombes-quartet/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 1912年，波兰书商威尔弗雷德·伏尼契（Wilfrid Voynich）在意大利买下了一本神秘的手稿。这本书充满了奇异的植物插图、占星图表和裸体沐浴的女子，更重要的是，它是由一种地球上从未见过的文字写成的。
 
 这就是著名的 **伏尼契手稿 (Voynich Manuscript)**。

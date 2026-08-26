@@ -12,6 +12,8 @@ permalink: '/blog/2026/01/20/from-llm-to-vlm-visual-understanding/'
 
 多模态大模型的发展大致沿着一条技术路径展开：从纯语言 LLM 开始，到 CLIP 实现视觉-语言对齐，再到生成式 VLM，以及更原生的多模态建模方式。本文梳理这条技术脉络，分析各类模型的基本原理与架构差异。
 
+这篇文章中的问题也可以和[JoyAI-VL-Interaction：从 Chat 回到连续交互的视觉语言模型](/blog/2026/06/23/joyai-vl-interaction/)、[差就是好：从 DeepSeek 未采用 n-gram 结构说起](/blog/2026/04/30/deepseek-ngram-poor-is-good/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 本文包含三个主要部分：**从纯文本到多模态**(LLM→CLIP→VLM 的技术演进)、**进阶话题**(扩散模型与原生多模态)，以及**附录**(基础概念补充，包括 Cross Attention、交叉熵、Softmax 等)。
 
 ## 从纯文本到多模态

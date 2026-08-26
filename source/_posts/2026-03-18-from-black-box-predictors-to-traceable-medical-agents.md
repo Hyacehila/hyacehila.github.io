@@ -12,6 +12,8 @@ permalink: '/blog/2026/03/18/from-black-box-predictors-to-traceable-medical-agen
 
 如果用一个最熟悉的画面概括过去十年的医疗 AI，它大概是这样：你给系统一张胸片、一段 ECG、一份 EHR，模型返回一个概率值。
 
+这篇文章中的问题也可以和[行为审计与行为解码：从 Reward 之后到 Agent 可观测性](/blog/2026/03/17/behavior-auditing-and-decoding-beginners-guide/)、[从反馈回路看 Agent 如何把生成变成搜索](/blog/2026/06/06/feedback-driven-agentic-scientific-discovery/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 这条路线并没有错。相反，它曾经很成功。[DeepPatient](https://www.nature.com/articles/srep26094)、[Gulshan et al. 的糖网筛查系统](https://jamanetwork.com/journals/jama/fullarticle/2588763)、[CheXNet](https://arxiv.org/abs/1711.05225) 这类工作都证明了：只要任务边界清楚、标签稳定、评测干净，深度学习完全可以在医疗子任务上做出很强的预测器。
 
 但医疗场景缺的不只是更高一点的分数。系统还要能被临床追问、复核和接管。

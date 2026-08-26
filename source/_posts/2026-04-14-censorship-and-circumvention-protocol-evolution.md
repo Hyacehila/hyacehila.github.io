@@ -13,6 +13,8 @@ permalink: '/blog/2026/04/14/censorship-and-circumvention-protocol-evolution/'
 
 > 被面试官问了个奇怪问题，不过还挺好玩的，简单学习学习。Gemini-3.1-pro 和GPT-5.4协同完成的正文
 
+这篇文章中的问题也可以和[LLM 是否带来技术平权？(Does LLM Bring Equality?)](/blog/2026/01/04/does-llm-bring-equality/)、[生成式 AI 不会直接终结工作，它先重排劳动，再放大需求](/blog/2026/03/26/generative-ai-rearranges-labor-and-demand/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 # 国家级网络审查机制与抗审查代理协议的攻防演进
 
 不少人还在用“翻墙工具”这套语言理解问题，仿佛胜负取决于某个客户端、某个节点、某个端口还能不能连上。放到系统层面，真正起作用的是识别、探测、协同封锁、恢复力和成本控制。**国家级网络审查与抗审查代理协议之间的对抗，已经是一场系统工程对抗。**

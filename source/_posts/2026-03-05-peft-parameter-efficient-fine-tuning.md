@@ -14,6 +14,8 @@ permalink: '/blog/2026/03/05/peft-parameter-efficient-fine-tuning/'
 
 ## 为什么需要参数高效微调
 
+这篇文章中的问题也可以和[Re0-01 : HuggingFace Transformers Trainer](/blog/2025/12/27/Re0HF-01/)、[大语言模型后训练与微调实践：从 SFT、LoRA 到人类对齐](/blog/2024/11/01/llm-post-training-and-finetuning/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 大语言模型的全量微调（Full Fine-Tuning）通常效果不错，但计算和存储开销会随着模型规模快速增长。为了在有限资源下适配下游任务，研究者们提出了参数高效微调（Parameter-Efficient Fine-Tuning, PEFT）技术：冻结大部分预训练参数，只训练少量新引入或重参数化的模块，用更低成本接近全量微调的效果。
 
 本文梳理 PEFT 领域几种代表性方法的设计思想与技术特点。

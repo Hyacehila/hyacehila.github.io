@@ -50,9 +50,11 @@ const categoryNames = new Set(
 );
 const retiredTags = new Set(['Agents', 'Methodology', 'Society', 'Fiction']);
 const tagAliases = new Map([
-  ['VLM', 'Vision-Language Models'],
-  ['Long-Term Memory', 'Agent Memory'],
-  ['Backend', 'Backend Engineering']
+  ['AI Products', 'AI Product'],
+  ['Coding Agent', 'AI Coding'],
+  ['Coding Agents', 'AI Coding'],
+  ['Agent Evaluation', 'Evaluation'],
+  ['Evals', 'Evaluation']
 ]);
 
 function rel(file) {
@@ -112,6 +114,7 @@ function fmArray(fm, key) {
 function hasCjk(s) {
   return /[\u4e00-\u9fff]/.test(s);
 }
+
 
 function validateDictionary() {
   const sandbox = { window: {} };
@@ -193,24 +196,14 @@ function validateTaxonomyConfig() {
   }
 }
 
-function validateUiCjk() {
-  const checked = [
-    '_config.yml',
-    '_config.redefine.yml',
-    'source/me/index.md',
-    'source/projects/index.md',
-    'source/photos/index.md',
-    'source/footprints/index.md',
-    'source/cv/index.md',
-    'source/friends/index.md',
-    'source/categories/index.md',
-    'source/tags/index.md'
-  ];
-
-  checked.forEach(file => {
-    const src = read(file);
-    if (hasCjk(src)) errors.push(`${file} contains CJK text in English-default UI source`);
-  });
+function validateLanguageSetup() {
+  const config = read('_config.yml');
+  const englishConfig = read('_config.en.yml');
+  const toggle = read('source/assets/js/lang-toggle.js');
+  if (!/^language:\s*zh-CN\s*$/m.test(config)) errors.push('_config.yml must make Chinese the primary language');
+  if (!/^root:\s*\/en\/\s*$/m.test(englishConfig)) errors.push('_config.en.yml must publish the English edition under /en/');
+  if (!toggle.includes('var DEFAULT_LANG = "zh"')) errors.push('language toggle must default to Chinese');
+  if (!toggle.includes('isEnglishRoute()')) errors.push('language toggle must recognize static /en/ routes');
 }
 
 function validatePostI18nGenerator() {
@@ -224,21 +217,59 @@ function validatePostI18nGenerator() {
   if (!src.includes('excerpt_zh')) {
     errors.push('post_i18n_map must emit excerpt_zh so post excerpts can be restored in zh mode');
   }
-  if (!src.includes('before_post_render') || !src.includes('data.title = data.title_en')) {
-    errors.push('posts must be rendered with title_en as the English-default article title');
+}
+
+function validateEnglishSources() {
+  const chineseDir = path.join(root, 'source/_posts');
+  const englishDir = path.join(root, 'source_en/_posts');
+  if (!fs.existsSync(englishDir)) {
+    errors.push('source_en/_posts is missing; run the offline translation generator');
+    return;
   }
+  const chinese = fs.readdirSync(chineseDir).filter(name => name.endsWith('.md')).sort();
+  const english = fs.readdirSync(englishDir).filter(name => name.endsWith('.md')).sort();
+  const englishSet = new Set(english);
+  chinese.forEach(name => {
+    if (!englishSet.has(name)) {
+      errors.push(`English translation is missing for ${name}`);
+      return;
+    }
+    const source = fs.readFileSync(path.join(englishDir, name), 'utf8');
+    const fm = frontMatter(source);
+    if (fmValue(fm, 'lang') !== 'en') errors.push(`${name} English source must set lang: en`);
+    if (fmValue(fm, 'translation_status') !== 'machine') errors.push(`${name} must disclose translation_status: machine`);
+    if (!source.includes('class="translation-notice"')) errors.push(`${name} is missing the visible machine-translation notice`);
+    if (hasCjk(fmValue(fm, 'title'))) errors.push(`${name} has a CJK English title`);
+  });
+  english.forEach(name => {
+    if (!chinese.includes(name)) errors.push(`Orphan English translation: ${name}`);
+  });
+
+  const forbiddenFixed = ['murmur'];
+  forbiddenFixed.forEach(folder => {
+    const candidate = path.join(root, 'source_en', folder);
+    if (fs.existsSync(candidate) && walk(candidate).some(file => file.endsWith('.md'))) {
+      errors.push(`English fixed-page source must not exist: source_en/${folder}/`);
+    }
+  });
 }
 
-validateDictionary();
-validatePosts();
-validateTaxonomyConfig();
-validateUiCjk();
-validatePostI18nGenerator();
+function run() {
+  validateDictionary();
+  validatePosts();
+  validateTaxonomyConfig();
+  validateLanguageSetup();
+  validatePostI18nGenerator();
+  validateEnglishSources();
 
-if (errors.length) {
-  console.error('i18n validation failed:');
-  errors.forEach(err => console.error(' - ' + err));
-  process.exit(1);
+  if (errors.length) {
+    console.error('i18n validation failed:');
+    errors.forEach(err => console.error(' - ' + err));
+    process.exitCode = 1;
+    return;
+  }
+  console.log('i18n validation passed');
 }
 
-console.log('i18n validation passed');
+if (require.main === module) run();
+module.exports = { run };

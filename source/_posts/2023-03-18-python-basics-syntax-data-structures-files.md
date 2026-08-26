@@ -13,6 +13,8 @@ permalink: '/blog/2023/03/18/python-basics-learning-notes/'
 ---
 
 
+这篇文章中的问题也可以和[Python 面向对象与装饰器：类、继承、property 与闭包](/blog/2025/03/04/python-oop-and-decorators-learning-notes/)、[Python 迭代器、生成器与 Lambda：惰性计算和函数式工具](/blog/2025/04/19/python-iterators-generators-lambda-learning-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 和C语言学习的不同之处，这次的整体构建会更加的重视实践，一个比较优秀的基础和实践的练习才能够保证有比较充足的经验，此时看各种官方的文档就会更加的容易了
 
 ## 开篇

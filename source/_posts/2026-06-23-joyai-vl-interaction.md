@@ -12,6 +12,8 @@ permalink: '/blog/2026/06/23/joyai-vl-interaction/'
 
 最近看到 [JoyAI-VL-Interaction](https://joyai-vl-video-future-academy-jd.github.io/JoyAI-VL-Interaction/)，第一眼只觉得它挺好玩：能一直看视频流，能判断什么时候该说话，还能把一时处理不了的复杂问题委派给后台模型或 agent。看上去像一个很完整的实时助理。后来再看，我觉得它最有意思的地方不是“能做这么多”，而是把一个我已经习惯到不太会怀疑的问题重新摆到了面前：Chat 真的是生成式模型天生就该待着的地方吗？
 
+这篇文章中的问题也可以和[从 LLM 到 VLM,语言模型如何实现视觉理解](/blog/2026/01/20/from-llm-to-vlm-visual-understanding/)、[世界模型应该是什么样子，又该如何被利用？](/blog/2026/07/05/what-should-world-models-be-and-how-should-we-use-them/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 ## Chat 不是模型的天生形态
 
 我们现在对 Chat 太熟了。用户说一句，模型回一句；用户再问，模型再答。运行时间更长的 Agent 也差不多：收到命令后默默把事情做完，再回来汇报结果。久而久之，语言模型好像就等于 Chatbot。一轮输入，一轮输出，末尾放一枚 EOS token 结束回答，好像这就是模型本身的形状。

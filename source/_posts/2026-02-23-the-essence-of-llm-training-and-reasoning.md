@@ -13,6 +13,8 @@ permalink: '/blog/2026/02/23/the-essence-of-llm-training-and-reasoning/'
 
 > **本文融合近期多篇研究，讨论一个问题：当下的 LLM 后训练（如 RLHF / RLVR）到底是在创造新的推理能力，还是在更有效地调用预训练中已有的能力？文章会从宏观泛化和微观几何两个角度展开。**
 
+这篇文章中的问题也可以和[LLM 对齐中的强化学习：从奖励信号到优势估计](/blog/2026/03/16/rl-alignment-from-reward-to-advantage/)、[大语言模型后训练与微调实践：从 SFT、LoRA 到人类对齐](/blog/2024/11/01/llm-post-training-and-finetuning/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 # LLM 推理与训练的本质：从 Surrogate 到强化学习的几何空间
 
 ## 楔子：回归训练的代理本质

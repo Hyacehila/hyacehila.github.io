@@ -201,6 +201,16 @@ function buildJsonLd(html, siteConfig) {
   const language = Array.isArray(siteConfig.language) ? siteConfig.language[0] : siteConfig.language;
   const image = getMetaContent(html, 'property', 'og:image');
   const ogType = String(getMetaContent(html, 'property', 'og:type')).toLowerCase();
+  const person = author ? {
+    '@type': 'Person',
+    '@id': `${siteUrl}#person`,
+    name: author,
+    url: `${siteUrl}${String(siteConfig.root || '/').replace(/^\/+/, '')}me/`,
+    sameAs: [
+      'https://github.com/hyacehila',
+      'https://www.linkedin.com/in/hyacehila/'
+    ]
+  } : undefined;
 
   if (ogType === 'article') {
     const tags = getMetaContents(html, 'property', 'article:tag').map(decodeHtml);
@@ -217,8 +227,8 @@ function buildJsonLd(html, siteConfig) {
       image: image ? [image] : undefined,
       datePublished: getMetaContent(html, 'property', 'article:published_time'),
       dateModified: getMetaContent(html, 'property', 'article:modified_time'),
-      author: author ? { '@type': 'Person', name: author } : undefined,
-      publisher: author ? { '@type': 'Person', name: author } : undefined,
+      author: person,
+      publisher: person,
       keywords: tags.length ? tags.join(', ') : getMetaContent(html, 'name', 'keywords'),
       inLanguage: language
     });
@@ -233,7 +243,7 @@ function buildJsonLd(html, siteConfig) {
           name: siteName,
           url: siteUrl,
           description,
-          publisher: author ? { '@type': 'Person', name: author } : undefined,
+          publisher: person,
           inLanguage: language
         },
         {
@@ -241,7 +251,7 @@ function buildJsonLd(html, siteConfig) {
           name: siteName,
           url: siteUrl,
           description,
-          author: author ? { '@type': 'Person', name: author } : undefined,
+          author: person,
           inLanguage: language
         }
       ]
@@ -263,20 +273,19 @@ function buildJsonLd(html, siteConfig) {
   });
 }
 
-hexo.extend.filter.register('before_generate', function (locals) {
+hexo.extend.filter.register('before_generate', function () {
   seoByCanonical.clear();
-  if (!locals || !locals.posts) return;
+  const posts = this.locals && this.locals.get('posts');
+  if (!posts) return;
 
-  locals.posts.forEach(post => {
+  posts.forEach(post => {
     const canonical = buildPostCanonical(this.config, post);
     if (!canonical) return;
 
-    const description = stripHtml(
-      post.description_en ||
-      post.excerpt_en ||
-      post.description ||
-      post.excerpt
-    );
+    const isEnglish = String(this.config.language || '').toLowerCase().startsWith('en');
+    const description = stripHtml(isEnglish
+      ? (post.description || post.excerpt || post.description_en || post.excerpt_en)
+      : (post.description_zh || post.excerpt_zh || post.description || post.excerpt));
     const keywords = Array.from(new Set([
       ...toKeywordList(post.tags),
       ...toKeywordList(post.categories)

@@ -12,6 +12,8 @@ permalink: '/blog/2026/03/16/aenvironment-everything-as-environment/'
 
 这个 Agent 系列写到现在，绕来绕去其实一直在问同一个问题：Agent 到底怎样接触外部世界。
 
+这篇文章中的问题也可以和[从 RL Agent 到 LLM Agent：The Second Half 之后的范式转移与不确定性建模](/blog/2026/03/09/from-rl-agent-to-language-agent-v2/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 MCP 讨论协议，Skills 讨论能力封装，认知架构讨论决策循环，RL Agent 那几篇讨论训练和反馈。它们看起来像不同主题，但放在一起看，会发现中间少了一层：agent 运行的那个环境本身。
 
 **Agent = Model + Harness**，我们过去将 Agent Dev 分成两块。模型负责推理，Harness 负责 loop、tool calling、memory、workflow。这个分法没错，只是不够。Agent 不是在真空里推理，它总是被放进某个具体环境：仓库、终端、浏览器、客服系统、数据库、订单系统、测试套件、规则文档，甚至一个会不断追问和改口的用户。这些东西决定了 agent 看见什么、能做什么、动作会造成什么副作用、失败后能不能恢复、最终结果怎样被验证。换句话说，Agent Dev 中的和外部环境交互的那个层面好像在之前的研究中隐形了。（p.s. 当然我们可以说环境就在harness里，这里仅仅是为了强调该概念，你可以在我关于harness的blog中看到详细的关于harness的讨论）

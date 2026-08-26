@@ -14,6 +14,8 @@ hidden: true
 
 对于一个 $n\times T$ 的多元时间序列矩阵 $X$，其中 $n$ 是通道数（或变量数），$T$ 是时间节点（观测数）。对其进行 SVD 分解，可以得到 $X=U\Sigma V^T$。下面解释分解后各个矩阵的意义及其应用。
 
+这篇文章中的问题也可以和[线性时间序列分析：平稳序列、ARMA与ARIMA](/blog/2024/01/30/linear-time-series-analysis-notes/)、[金融时间序列分析：ARCH/GARCH 效应与波动率建模](/blog/2024/05/06/univariate-financial-time-series-analysis-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 ### 整体的含义
 
 对于矩阵 $U$，它代表了数据中的**空间模式**，其每一列都是特征通道的某种线性组合。

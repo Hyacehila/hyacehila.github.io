@@ -14,6 +14,8 @@ permalink: '/blog/2025/01/15/agent-ai-multimodal-survey/'
 
 本文是关于多模态 AI 智能体的综述文章，发表于 2024 年 1 月。文章讨论多模态智能体系统如何嵌入物理和虚拟环境，核心方向是**智能体、多模态、环境嵌入**。
 
+这篇文章中的问题也可以和[从记忆形成到记忆治理：Agent Memory 的全景图](/blog/2026/03/21/agent-memory-panorama/)、[Agent Memory 与 Runtime 技术盘点：外挂记忆、运行时研究与框架内建能力](/blog/2026/06/07/agent-runtime-teardown/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 ## Background
 Large Foundation Models（LLM 和 VLM）可以处理以前被认为仅限于人类专家或特定领域算法的复杂任务。这些任务包括数学推理、专业的法律与医学问题，以及为机器人和游戏 AI 生成复杂计划。这是构建 Agent 的核心基础。
 

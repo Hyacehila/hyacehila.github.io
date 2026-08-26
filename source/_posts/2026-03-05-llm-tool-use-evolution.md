@@ -13,6 +13,8 @@ permalink: '/blog/2026/03/05/llm-tool-use-evolution/'
 
 ## 为什么关注工具使用
 
+这篇文章中的问题也可以和[MCP (Model Context Protocol)](/blog/2026/02/16/mcp-model-context-protocol/)、[让Agent变得可行，大模型结构化输出与受限解码技术](/blog/2026/03/01/structured-output-and-constrained-decoding/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 大语言模型在不少经典 NLP 领域表现突出，但在算术问题和事实回答等场景上仍不稳定——模型无法及时更新内部参数，也存在幻觉问题。让 LLM 使用外部工具，可以使其访问实时、准确的知识库，并完成计算任务。
 
 关于 Tool Use，**最值得工程界关注的可能是 MCP（Model Context Protocol）协议**。MCP 提供了一个标准化的工具定义与描述通信协议，让模型能够以统一的方式发现和调用工具。关于 MCP 的详细介绍，可以参考本博客此前的文章。了解 Tool Use 的相关论文，更多是为了理解其中的发展脉络与技术思路的演变。

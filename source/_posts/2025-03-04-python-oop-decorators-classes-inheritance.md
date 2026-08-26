@@ -14,6 +14,8 @@ permalink: '/blog/2025/03/04/python-oop-and-decorators-learning-notes/'
 
 ## 类
 
+这篇文章中的问题也可以和[Python 基础：语法、数据结构与文件处理](/blog/2023/03/18/python-basics-learning-notes/)、[Python 迭代器、生成器与 Lambda：惰性计算和函数式工具](/blog/2025/04/19/python-iterators-generators-lambda-learning-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 ​从这里开始，我们将进入一个在C语言没有涉及的思想 **面向对象编程**，在前面的使用中我们的程序设计是面向过程的；面向对象编程是最有效的软件编写方法之一  。
 
 我们先编写现实世界中事务和情景的**类** **class** 然后基于这些类来创建**对象 object** 这样一大类对象自动具备这些类的通用行为 这称为 **继承 inheritance** 我们隐藏了类的内部细节只给了一些调用的函数 这叫做 **封装 encapsulation** 然后赋予对象属于自己的个性 称为 **类的特化（specialization）和泛化（generalization）**  通过**多态（polymorphism）** 实现基于对象类型的动态分派。 最后我们程序的逼真程度会达到一个高的可怕的程度

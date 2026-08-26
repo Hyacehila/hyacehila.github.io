@@ -13,6 +13,8 @@ permalink: '/blog/2026/05/29/embedding-atlas-rag-embedding-visualization/'
 
 RAG 系统出错时，我们很容易先把锅甩给生成模型：模型是不是不够强，提示词是不是写得不够好，是不是还缺一个更复杂的 agent loop。这个反应很自然，因为最后说错话的是模型。但在很多真实问题里，答案在更早的地方就坏了。模型拿到的上下文本来就不对，后面再怎么生成，也只是在错误材料上做语言组织。
 
+这篇文章中的问题也可以和[AI Agent 如何从互联网获取信息：检索、抓取与结构化清洗工具的演进](/blog/2026/06/10/ai-agent-retrieval-tools/)、[我如何做 RAG：从项目实践到系统方法](/blog/2026/08/18/how-i-build-rag/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 早期的 [RAG](https://arxiv.org/abs/2005.11401) 和 [DPR](https://arxiv.org/abs/2004.04906) 研究已经把这个分工讲得很清楚：生成质量依赖检索阶段提供的外部证据。到了工程实践里，这句话会落到一堆更具体的麻烦上。检索失败往往不是一个单点故障，而是一组空间问题：查询没有靠近正确文档，正确文档被切得太碎，语义相近但业务上不同的内容挤在一起，长尾知识变成孤岛，某些来源的数据污染了整个邻域，或者 embedding 模型把表面相似误当成了任务相似。
 
 我关注 [Embedding Atlas](https://github.com/apple/embedding-atlas)，也是因为它处理的正是这个问题。它不是又一个“把向量降到二维然后画散点图”的小工具。它把 embedding、metadata、搜索、过滤、近邻和聚类放进同一个交互界面里，让人可以真的翻一批文本、图片或其他对象在表示空间里的组织方式。它的论文 [Embedding Atlas: Low-Friction, Interactive Embedding Visualization](https://arxiv.org/abs/2505.06386) 强调“低摩擦”和“交互式分析”。这对 RAG 开发者很重要：我们需要的通常不是一张漂亮截图，而是一个能反复追问的诊断入口。

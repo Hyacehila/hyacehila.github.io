@@ -32,6 +32,8 @@ $$Y=f(X_1,X_2,\cdots,X_p,\theta_1,\theta_2,\cdots,\theta_k)+\varepsilon,$$
 $$\min\quad Q(\theta)=\sum_{i=1}^n\left(y_i-f(X^{(i)},\theta)\right)^2.$$
 具体的计算方法这里不进行推到了 R提供了相应的函数 涉及最优化的问题
 
+这篇文章中的问题也可以和[线性回归基础：线性模型、最小二乘估计与回归诊断](/blog/2023/09/04/linear-regression-basics-notes/)、[Logistic 回归：二分类因变量、线性概率模型与Logit 模型](/blog/2024/03/13/logistic-regression-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 非线性回归模型中系数解释没有线性回归中那么直观，我们最好通过绘图或者列表表示自变量变动的时候目标变量的变化情况来解释一个回归模型，无论是多项式，对数等变换回归模型都应该这么解释
 
 

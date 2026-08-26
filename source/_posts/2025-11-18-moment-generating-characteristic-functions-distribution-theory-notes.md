@@ -14,6 +14,8 @@ permalink: '/blog/2025/11/18/moment-generating-characteristic-functions-distribu
 ## 母函数与矩母函数
 在高等概率论开始之前，我们将初等概率论中的一些比较复杂的内容进行一些回顾，**事实上概率的生成函数理论允许我们把概率问题转化为分析问题思考** 对某些问题的证明将起到很好的简化作用
 
+这篇文章中的问题也可以和[初等概率论：随机事件、概率模型与随机变量](/blog/2023/03/18/elementary-probability-notes/)、[概率与统计例题：抽样分布、参数估计与统计量性质](/blog/2024/09/24/probability-and-statistics-exercises-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 ### 母函数的定义与性质
 母函数是为了引入概率分布的另一种表示方法 来简化一些研究
 

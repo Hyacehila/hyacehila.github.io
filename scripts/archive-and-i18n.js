@@ -29,9 +29,8 @@ const toKeywordList = value => {
     .filter(Boolean);
 };
 
-// Keep post bodies as authored, but make article chrome English-first at build
-// time. The original zh title/excerpt stay on the post model for the runtime
-// language switcher.
+// Keep post bodies as authored. Chinese is the default build language; the
+// English build uses translated source files and dedicated URLs.
 hexo.extend.filter.register('before_post_render', function (data) {
   if (!isEnglishDefault(this.config)) return data;
 
@@ -99,9 +98,10 @@ hexo.extend.generator.register('post_i18n_map', function (locals) {
       key = '/' + key.replace(/^\/+/, '');
       const rec = {};
       if (p.title_zh) rec.title_zh = String(p.title_zh);
-      else if (p.title && p.title !== p.title_en) rec.title_zh = String(p.title);
+      else if (p.title) rec.title_zh = String(p.title);
       if (p.title_en) rec.title_en = String(p.title_en);
       if (p.excerpt_zh) rec.excerpt_zh = String(p.excerpt_zh);
+      else if (p.excerpt) rec.excerpt_zh = String(p.excerpt);
       if (p.excerpt_en) rec.excerpt_en = String(p.excerpt_en);
       addRecord(key, rec);
       try {

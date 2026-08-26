@@ -3,7 +3,7 @@ title: "Demystifying evals for AI agents — Anthropic"
 title_en: "Demystifying evals for AI agents (Anthropic)"
 date: 2026-07-07 23:30:00 +0800
 categories: ["Agent Systems", "Agent Evaluation & Governance"]
-tags: ["Agent Evaluation", "Evals", "AI Engineering", "LLM"]
+tags: ["Evaluation", "AI Engineering", "LLM"]
 author: Hyacehila
 excerpt: "让 agent 变得有用的那些能力，也让它们变得难以 eval。跨部署行之有效的策略会组合多种技术，以匹配它们所衡量系统的复杂度。"
 excerpt_en: "The capabilities that make agents useful also make them difficult to evaluate. The strategies that work across deployments combine techniques to match the complexity of the systems they measure."
@@ -12,6 +12,8 @@ permalink: '/blog/2026/07/07/demystifying-evals-for-ai-agents/'
 ---
 
 > 本文转载翻译自 Anthropic Engineering Blog 于 2026 年 1 月 9 日发布的 [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)。这篇文章在今年 1 月发布时我便收藏了，直到 7 月真正动手构建一套 agent eval 系统时才仔细通读全文，读完后深感质量极高——从 eval 的基础概念、不同 agent 类型的 eval 策略，到从零搭建 eval suite 的实操路线图，再到 eval 与其他质量手段（production monitoring、A/B testing 等）的配合关系，体系完整且处处有实战洞见。这里留个记录方便自己后面随时查验。正文只进行了翻译没有进行删改，技术术语不作翻译保证可读性，图片直接引用了原文 CDN 地址，链接均保持原样。
+
+这篇文章中的问题也可以和[行为审计与行为解码：从 Reward 之后到 Agent 可观测性](/blog/2026/03/17/behavior-auditing-and-decoding-beginners-guide/)、[从黑盒预测器到可追溯医疗 Agent：医疗AI的未来](/blog/2026/03/18/from-black-box-predictors-to-traceable-medical-agents/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 ## Introduction
 

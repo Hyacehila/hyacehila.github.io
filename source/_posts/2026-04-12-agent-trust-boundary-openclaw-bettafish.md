@@ -12,6 +12,8 @@ permalink: '/blog/2026/04/12/agent-trust-boundary-openclaw-bettafish/'
 
 语言模型智能体的边界，不只是能力边界，更是委托边界。
 
+这篇文章中的问题也可以和[行为审计与行为解码：从 Reward 之后到 Agent 可观测性](/blog/2026/03/17/behavior-auditing-and-decoding-beginners-guide/)、[从黑盒预测器到可追溯医疗 Agent：医疗AI的未来](/blog/2026/03/18/from-black-box-predictors-to-traceable-medical-agents/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 只问模型能不能规划、能不能调用工具、能不能看浏览器、能不能长期记忆，还没有碰到 Agent 的核心。更关键的是：用户愿意把什么交给它。
 
 BettaFish 和 MiroFish 触碰的是认识论边界：我们愿意在多大程度上相信 AI 对世界的描述、归纳和推演。OpenClaw 触碰的是操作边界：我们愿意在多大程度上让 AI 进入电脑、浏览器、通信入口和长期记忆，替我们做真实动作。

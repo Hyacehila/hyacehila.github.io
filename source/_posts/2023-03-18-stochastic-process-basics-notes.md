@@ -114,6 +114,8 @@ $$\left.C_{2,n}=\left[\begin{array}{ccccc}1&1&1&\cdots&1\\t_1&t_2&t_3&\cdots&t_n
 $$(Z_{t_1},Z_{t_2},\ldots,Z_{t_n})=(X,Y)C_{2,n}.$$
 因此我们知道 新的高维向量也是正态向量 证明了原过程是正态过程
 
+这篇文章中的问题也可以和[金融随机分析：金融衍生品、二叉树定价与无套利理论](/blog/2024/10/17/financial-stochastic-analysis-notes/)、[Markov Chain：转移概率、状态分类与平稳分布](/blog/2025/09/11/markov-chain-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 设随机变量$R$和$\Theta$相互独立 其中$R$服从瑞利分布 密度为
 $$f(r)=\begin{cases}\frac{r}{\sigma^{2}}e^{-\frac{r^{2}}{2\sigma^{2}}},&\quad r\ge0\\0,&\quad r<0\end{cases}$$
 $\Theta$服从$[0,2\pi]$上的均匀分布

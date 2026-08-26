@@ -3,7 +3,7 @@ title: "在代码逐渐廉价之后"
 title_en: "When Code Becomes Cheap"
 date: 2026-07-08 23:30:00 +0800
 categories: ["Work & Society", "AI Engineering Workflows"]
-tags: ["AI Coding", "Coding Agent", "Software Engineering", "Engineering Judgment"]
+tags: ["AI Coding", "Software Engineering", "Engineering Judgment"]
 author: Hyacehila
 excerpt: "Coding Agent 让代码和原型迅速变得廉价，但软件工程的成本没有消失。它正在转移到问题定义、验证、协作、学习和责任上。"
 excerpt_en: "Coding agents make code and prototypes cheap, shifting the scarce resources of software development toward judgment, verification, coordination, learning, and responsibility."

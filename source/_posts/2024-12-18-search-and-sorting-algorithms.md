@@ -13,6 +13,8 @@ permalink: '/blog/2024/12/18/search-and-sorting-algorithms/'
 ---
 ## 查找
 
+这篇文章中的问题也可以和[数据结构导论：线性表、树、图与查找排序](/blog/2025/05/12/data-structures-introduction/)、[算法设计与分析：分治、动态规划与图算法](/blog/2025/05/13/algorithm-design-and-analysis/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 这是一类非常巨大的问题 Search是任何一个程序员都要会并且经常使用的工具 也是现代科学发展的核心 有的可能专门就是学习查找工具的
 
 ### 查找概论

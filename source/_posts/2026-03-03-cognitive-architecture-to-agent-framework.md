@@ -12,6 +12,8 @@ permalink: '/blog/2026/03/03/cognitive-architecture-to-agent-framework/'
 
 ## 引言：Building an LLM Agent
 
+这篇文章中的问题也可以和[给 LLM 戴上确定性枷锁的外围工程：从 Claude Code 看 Agent Harness](/blog/2026/03/20/building-agent-deterministic-constraints/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 从 2025 年开始，语言模型智能体从论文和 Demo 进入了更多工程场景。学术界在讨论认知结构、记忆和多智能体协作，工业界则更关心工具调用、权限、状态恢复和可观测性。Agent 不再只是“模型多轮对话”，而是开始承担一部分原本很难稳定交付的开放式任务。
 
 这篇文章不专门论证“为什么需要 Agent”。我只先放一个前提：LLM 给 Agent 带来了大量世界先验，让它不必像传统 RL Agent 那样只能在极度受限的环境里从零试错。

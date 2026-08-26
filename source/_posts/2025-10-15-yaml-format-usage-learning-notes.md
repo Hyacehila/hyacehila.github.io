@@ -14,6 +14,8 @@ permalink: '/blog/2025/10/14/yaml-format-usage-learning-notes/'
 
 ## 什么是 YAML
 
+这篇文章中的问题也可以和[JSON 与 JSONL 速成](/blog/2025/10/14/json-and-jsonl-learning-notes/)、[SQL 基础：查询、聚合、JOIN 与窗口函数](/blog/2024/07/29/sql-learning-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 YAML 的全称最早可以理解为 Yet Another Markup Language，后来更常被解释成 YAML Ain't Markup Language。这个名字本身就很有意思：它一开始像一种标记语言，后来又强调自己不是标记语言，而是一种数据序列化格式。简单说，YAML 用来表达数据结构，最常见的后缀是 `.yaml` 或 `.yml`。
 
 如果说 JSON 的目标是让机器稳定交换数据，那么 YAML 更偏向让人舒服地写配置。它不需要每个 key 都加双引号，也不需要在每一项后面写逗号，层级靠缩进表达，注释可以直接写在文件里。对于配置文件来说，这些优点非常明显：人可以一眼看到层级，改一个参数也不容易被一堆括号和逗号打断。

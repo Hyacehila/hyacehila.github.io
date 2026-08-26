@@ -12,6 +12,8 @@ permalink: '/blog/2026/06/08/fact-layer-interface-layer-markdown-html/'
 
 最近有个说法挺容易让人心动：AI 以后不该再输出 Markdown ，而应该直接给 HTML。
 
+这篇文章中的问题也可以和[Spec 不是新范式：Vibe Coding、SDD 与 AI 时代的软件工程转向](/blog/2026/04/07/spec-is-not-the-new-paradigm/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 这话不是纯粹为了造梗。Claude Code 团队的 Thariq Shihipar 写了《Using Claude Code: The unreasonable effectiveness of HTML》，Simon Willison 又转述了一次，然后 Karpathy 又来吹了吹。那篇文章的例子很实在：代码审查、调研报告、图表、交互式编辑器、PR 说明，都可以做成一个能在浏览器里打开的 `.html` 文件。和一长串 Markdown 比，它确实更像一个可以上手用的工作台。
 
 看起来挺让人心动的，应该有不少人都遇到过手机打不开`.md`的问题。

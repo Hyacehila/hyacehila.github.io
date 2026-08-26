@@ -12,6 +12,8 @@ permalink: '/blog/2026/06/01/ai-agent-future-governed-delegation/'
 
 Agent 这个词已经快被用烂了。
 
+这篇文章中的问题也可以和[LLM 是否带来技术平权？(Does LLM Bring Equality?)](/blog/2026/01/04/does-llm-bring-equality/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 浏览器里能点按钮的是 Agent，IDE 里能改代码的是 Agent，客服后台里能分单的是 Agent，手机里能替你打开 App 的也是 Agent。再往远处说，就变成完全自主智能体、AGI、ASI。故事听起来很顺：模型继续变强，工具越接越多，某一天它从聊天窗口里站起来，接管人类手里的大部分工作。
 
 我不太相信这个叙事，至少不相信它会这样发生。

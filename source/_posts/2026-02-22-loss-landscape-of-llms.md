@@ -13,6 +13,8 @@ permalink: '/blog/2026/02/22/loss-landscape-of-llms/'
 
 > tldr：预训练不只是把模型推到某个最优点上，也会在参数空间里形成一片可容忍扰动的高维盆地。后续对齐、SFT 乃至越狱攻击，都可以放到这片地貌里理解。
 
+这篇文章中的问题也可以和[Neural Scaling Laws：从 Kaplan 到 Chinchilla](/blog/2026/01/26/neural-scaling-laws/)、[Compression for AGI：压缩即智能](/blog/2026/02/20/compression-for-agi/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 如果你经常观察大模型的后训练现象，就会碰到一些看上去很矛盾的问题：模型明明已经很强了，为什么在一个看似正常的数据集上做完 SFT 之后，数学能力、推理能力或者安全能力会突然退化？为什么有时候只需要极少量对抗数据，模型就会像“失忆”一样把原本的能力丢得一干二净？又为什么在完全不改参数的前提下，仅靠 prompt 优化也能把模型引向危险输出？
 
 这篇文章基于论文 [Unveiling the Basin-Like Loss Landscape in Large Language Models](https://arxiv.org/abs/2505.17646v2)，尝试用一个统一的几何视角来回答这些问题：把大模型看成行走在高维参数空间中的点，而模型能力则由这片空间的地貌决定。你会看到，问题不只是“有没有动参数”，还包括“沿着什么方向动了多远”。

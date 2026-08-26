@@ -14,6 +14,8 @@ permalink: '/blog/2026/01/31/the-illustrated-guide-to-a-phd/'
 > 
 > *原文地址：[The Illustrated Guide to a Ph.D.](http://matt.might.net/articles/phd-school-in-pictures/) by [Matt Might](http://matt.might.net/)*
 
+这篇文章中的问题也可以和[Don't Outsource the Learning（Addy Osmani）](/blog/2026/06/03/dont-outsource-the-learning/)、[这个博客是怎么变成现在这样的](/blog/2025/12/26/welcome-to-my-blog/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 
 每年秋天，我都要向新一批博士生解释什么是博士学位。但这很难用语言描述清楚。
 所以我用图片来表达。

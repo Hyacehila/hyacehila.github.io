@@ -13,6 +13,8 @@ permalink: '/blog/2026/03/15/why-better-simulators-need-learning-plus-rules/'
 
 tldr：更好的 simulator 通常保留已知的世界结构，再让 learning 处理求解慢、建模不完整，或难以直接表达的环节。
 
+这篇文章中的问题也可以和[随机过程基础：随机过程定义、数字特征与平稳过程](/blog/2023/03/18/stochastic-process-basics-notes/)、[统计预测：定性预测、定量预测与趋势外推](/blog/2024/01/01/statistical-forecasting-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 ## 在开始之前：纯 rules 与纯 learning 的对立是个假问题
 
 很多讨论把 rules 与 learning 放在零和对立的两端：一边是解析规则、数值求解和人工建模，另一边是数据、神经网络和端到端学习。现实里的强系统通常没有这么整齐的边界，它们会把两边各自擅长的部分拼在一起。

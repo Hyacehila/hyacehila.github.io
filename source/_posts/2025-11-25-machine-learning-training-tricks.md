@@ -96,6 +96,8 @@ permalink: '/blog/2025/11/25/machine-learning-training-tricks/'
 	
 6.3 直接开始写论文，不用做实验，反正恰好比 sota 高那么一点点 
 
+这篇文章中的问题也可以和[深度学习基础：神经网络、优化方法与归一化](/blog/2024/09/02/deep-learning-basics/)、[深度学习网络架构：CNN、RNN 与 Seq2Seq](/blog/2024/11/13/deep-learning-network-architectures/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 1. self-gating基本加上都涨点
 	
 变体有context gating和SE模块等

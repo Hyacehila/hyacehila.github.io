@@ -12,6 +12,8 @@ permalink: '/blog/2026/01/24/the-statistical-crisis-in-science/'
 
 > 本文主要观点整理自 Andrew Gelman 的一次讲座，即The Statistical Crisis in Science，部分内容来自Kamoun, S. (2022). Death by Statistics. Zenodo以及一些自己的思考。
 
+这篇文章中的问题也可以和[统计学的应用与应用的统计学](/blog/2026/02/14/application-of-statistics-and-applied-statistics/)、[科研理论与实践经验](/blog/2025/09/04/research-theory-and-practice/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 统计学研究数据时，我们希望“数据会说话”，告诉我们它们代表什么。数据或许真的会说话，但人无法直接理解，因此统计学承担了翻译的角色。
 
 现代科学几乎处处使用统计学：分析生化实验、观察临床数据、研究大选结果……数据无处不在，统计学也无处不在。统计学家钻研方法，并将结论分享给其他领域的研究者。

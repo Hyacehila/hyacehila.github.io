@@ -13,6 +13,8 @@ permalink: '/blog/2026/02/07/common-statistical-tests-are-linear-models/'
 > 本文转载自 Jonas Kristoffer Lindeløv 的精彩文章 [Common statistical tests are linear models](https://lindeloev.github.io/tests-as-linear/)
 > 原文深入浅出地揭示了统计学中一个令人惊讶的简单真理：大多数常用的统计检验（t检验、相关分析、ANOVA、卡方检验等）都是线性模型的特例。
 
+这篇文章中的问题也可以和[线性回归基础：线性模型、最小二乘估计与回归诊断](/blog/2023/09/04/linear-regression-basics-notes/)、[线性回归进阶：拟合优度、模型选择与共线性](/blog/2025/09/23/advanced-linear-regression-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 # Common statistical tests are linear models
 
 ## 核心概念：万物皆线性

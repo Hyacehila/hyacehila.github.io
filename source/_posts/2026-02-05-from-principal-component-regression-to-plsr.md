@@ -12,6 +12,8 @@ permalink: '/blog/2026/02/05/from-principal-component-regression-to-plsr/'
 
 > 本文核心观点和部分内容参考自谢益辉的文章：[主成分回归与偏最小二乘回归](https://yihui.org/cn/2008/09/principle-component-regression-and-partial-least-square-regression/)。
 
+这篇文章中的问题也可以和[线性回归基础：线性模型、最小二乘估计与回归诊断](/blog/2023/09/04/linear-regression-basics-notes/)、[线性回归进阶：拟合优度、模型选择与共线性](/blog/2025/09/23/advanced-linear-regression-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 # 从主成分回归 (PCR) 到偏最小二乘 (PLS)
 在多元线性回归（Multiple Linear Regression, MLR）中，最小二乘法（OLS）是常用的参数估计方法。然而，当数据集中存在**多重共线性（Multicollinearity）**，或者自变量的数量多于样本量（$p > n$）时，OLS 估计量会变得不稳定，甚至无法计算（因为设计矩阵 $X^TX$ 不可逆或接近奇异）。
 

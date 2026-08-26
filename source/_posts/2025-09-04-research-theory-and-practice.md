@@ -13,6 +13,8 @@ permalink: '/blog/2025/09/04/research-theory-and-practice/'
 
 ## 科研方法论基础
 
+这篇文章中的问题也可以和[科学写作指南](/blog/2025/10/09/scientific-writing-guide/)、[文献综述方法论指南](/blog/2025/09/18/literature-review-methodology-guideline/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 **读大量的相关领域内文献**是非常重要的，我们需要梳理**当前领域都在解决什么问题 ➕ 当前领域都在怎么解决问题**，借此选择自己的研究方向。
 
 我们需要学习的有：

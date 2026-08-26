@@ -91,6 +91,8 @@ permalink: '/blog/2024/01/01/statistical-forecasting-notes/'
 xxx
 同理 对一阶差分继续进行差分可以得到高阶差分为
 
+这篇文章中的问题也可以和[随机过程基础：随机过程定义、数字特征与平稳过程](/blog/2023/03/18/stochastic-process-basics-notes/)、[线性时间序列分析：平稳序列、ARMA与ARIMA](/blog/2024/01/30/linear-time-series-analysis-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 通过比较要研究的的时间序列数据的差分特征和趋势外推法常见模型的差分特征 就可以选择出我们想要使用的模型 常见的有
 * 二阶差分为0 选取一元的线性模型
 * 某阶各期差分相等 选取对应阶数的多项式模型

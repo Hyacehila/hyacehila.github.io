@@ -14,6 +14,8 @@ permalink: '/blog/2025/04/19/python-iterators-generators-lambda-learning-notes/'
 
 ## 关于迭代
 
+这篇文章中的问题也可以和[Python 基础：语法、数据结构与文件处理](/blog/2023/03/18/python-basics-learning-notes/)、[Python 面向对象与装饰器：类、继承、property 与闭包](/blog/2025/03/04/python-oop-and-decorators-learning-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 ### 可迭代对象与迭代器
 
 **可迭代对象**是指那些实现了 `__iter__()` 方法的对象。简单来说，可迭代对象就是可以被迭代的对象，也就是可以使用 `for` 循环遍历的对象。常见的可迭代对象包括列表、元组、字符串、字典、集合等。

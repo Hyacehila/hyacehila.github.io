@@ -12,6 +12,8 @@ permalink: '/blog/2026/02/13/60-years-of-data-science/'
 
 这是一个宏大的话题。本文的主要思路来自 David Donoho 的 50 Years of Data Science ，也会加入一些我觉得有意思的内容。距离 Donoho 发表本文又过去了将近10年，生成式人工智能的浪潮正在改变整个社会，数据科学也不例外。
 
+这篇文章中的问题也可以和[统计与真理：如何运用偶然性 (Statistics and Truth)](/blog/2026/01/10/statistics-and-truth/)、[安斯库姆四重奏：可视化的力量与统计错觉](/blog/2026/01/14/anscombes-quartet/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 > 在撰写此文档时参考了以下内容，在本文的其余地方将不会额外强调内容的来源：
 > *   [50 Years of Data Science](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734) (David Donoho)
 > *   [A Conversation with John W. Tukey and Elizabeth Tukey](https://projecteuclid.org/journals/statistical-science/volume-18/issue-3/A-Conversation-with-John-W-Tukey-and-Elizabeth-Tukey/10.1214/ss/1076102422.full)

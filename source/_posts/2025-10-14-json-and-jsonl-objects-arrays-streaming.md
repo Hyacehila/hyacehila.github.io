@@ -15,6 +15,8 @@ permalink: '/blog/2025/10/14/json-and-jsonl-learning-notes/'
 ## 什么是JSON
 JS = JavaScript ; ON = Object Notation , 故JSON的本身含义是JavaScript 对象符号系统,但是他已经兼容了几乎一切语言形式,在任何同时需要机器和人类进行双重阅读的时候,都会使用JSON 其使用`.json` 表示作为后缀.
 
+这篇文章中的问题也可以和[YAML 格式与使用速成](/blog/2025/10/14/yaml-format-usage-learning-notes/)、[SQL 基础：查询、聚合、JOIN 与窗口函数](/blog/2024/07/29/sql-learning-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 JSON使用 `{}`作为核心对象表示符号,并且全部使用键值对组织数据,对于一个对象里面的各个子列,我们使用逗号分隔,除了最后一个.
 ```json
 {

@@ -1,20 +1,18 @@
 // EN/ZH language controls for the site chrome and hand-authored pages.
-// English is the system default. Chinese-only post bodies and murmurs are
-// treated as content islands; surrounding UI still follows the selected lang.
+// Chinese is the system default. Each language uses dedicated static URLs;
+// the metadata map supplies shared labels for the site chrome.
 (function () {
   "use strict";
 
   var STORAGE_KEY = "lang";
-  var DEFAULT_LANG = "en";
+  var DEFAULT_LANG = "zh";
   var DEFAULT_LANG_MIGRATION_KEY = "lang-default-migration";
-  var DEFAULT_LANG_MIGRATION = "en-gear-tools-2026-07";
-  var ENGLISH_ONLY_PATHS = {
-    "/photos/": true,
-    "/footprints/": true,
-    "/cv/": true,
-    "/friends/": true,
-    "/comments/": true
-  };
+  var DEFAULT_LANG_MIGRATION = "zh-primary-static-locales-2026-08";
+  var FIXED_ENGLISH_ROOTS = [
+    "/me/", "/cv/", "/projects/", "/footprints/", "/friends/",
+    "/comments/", "/photos/", "/categories/", "/tags/"
+  ];
+  var FIXED_CHINESE_ROOTS = ["/archives/"];
 
   function getLang() {
     try {
@@ -71,12 +69,30 @@
     return normPath(window.location.pathname || "/");
   }
 
-  function isEnglishOnlyPage() {
-    return ENGLISH_ONLY_PATHS[getCurrentPath()] === true;
+  function isEnglishRoute() {
+    var current = getCurrentPath();
+    if (current === "/murmur/" || current.indexOf("/murmur/") === 0) return false;
+    if (current === "/en/" || current.indexOf("/en/") === 0) return true;
+    return isFixedEnglishPage();
   }
 
   function isFixedEnglishPage() {
-    return getCurrentPath() === "/me/" || isEnglishOnlyPage();
+    var current = getCurrentPath();
+    return FIXED_ENGLISH_ROOTS.some(function (root) {
+      return current === root || current.indexOf(root) === 0;
+    });
+  }
+
+  function isFixedChinesePage() {
+    var current = getCurrentPath();
+    return FIXED_CHINESE_ROOTS.some(function (root) {
+      return current === root || current.indexOf(root) === 0;
+    });
+  }
+
+  function isMurmurPage() {
+    var current = getCurrentPath();
+    return current === "/murmur/" || current.indexOf("/murmur/") === 0;
   }
 
   function setLeafText(el, text) {
@@ -104,28 +120,28 @@
   var NAV_LABELS = {
     "/": { zh: "首页", en: "Home" },
     "/archives/": { zh: "归档", en: "Archives" },
-    "/me/": { zh: "我", en: "Me" },
+    "/me/": { zh: "关于我", en: "Me" },
     "/projects/": { zh: "项目", en: "Project" },
     "/murmur/": { zh: "碎碎念", en: "Murmur" },
-    "/photos/": { zh: "Photos", en: "Photos" },
-    "/footprints/": { zh: "Footprints", en: "Footprints" },
-    "/friends/": { zh: "Friends", en: "Friends" },
-    "/comments/": { zh: "Comments", en: "Comments" },
-    "/cv/": { zh: "CV", en: "CV" },
+    "/photos/": { zh: "照片", en: "Photos" },
+    "/footprints/": { zh: "足迹", en: "Footprints" },
+    "/friends/": { zh: "友链", en: "Friends" },
+    "/comments/": { zh: "留言", en: "Comments" },
+    "/cv/": { zh: "简历", en: "CV" },
     "/categories/": { zh: "分类", en: "Categories" },
     "/tags/": { zh: "标签", en: "Tags" }
   };
 
   var PAGE_LABELS = {
     "/archives/": { zh: "归档", en: "Archive" },
-    "/me/": { zh: "我", en: "Me" },
+    "/me/": { zh: "关于我", en: "Me" },
     "/projects/": { zh: "项目", en: "Project" },
     "/murmur/": { zh: "碎碎念", en: "Murmur" },
-    "/photos/": { zh: "Photos", en: "Photos" },
-    "/footprints/": { zh: "Footprints", en: "Footprints" },
-    "/friends/": { zh: "Friends", en: "Friends" },
-    "/comments/": { zh: "Comments", en: "Comments" },
-    "/cv/": { zh: "Resume", en: "Resume" },
+    "/photos/": { zh: "照片", en: "Photos" },
+    "/footprints/": { zh: "足迹", en: "Footprints" },
+    "/friends/": { zh: "友链", en: "Friends" },
+    "/comments/": { zh: "留言", en: "Comments" },
+    "/cv/": { zh: "简历", en: "Resume" },
     "/categories/": { zh: "分类", en: "Categories" },
     "/tags/": { zh: "标签", en: "Tags" }
   };
@@ -280,7 +296,8 @@
   }
 
   function applyPostPageI18n(lang) {
-    if (!POST_I18N || getCurrentPath().indexOf("/blog/") !== 0) return;
+    var current = getCurrentPath();
+    if (!POST_I18N || (current.indexOf("/blog/") !== 0 && current.indexOf("/en/blog/") !== 0)) return;
     var rec = postRecordFor(window.location.pathname);
     if (!rec || !rec.title_en) return;
     var titleNode = document.querySelector(".article-title-regular");
@@ -324,7 +341,7 @@
       .then(function (r) { return r.json(); })
       .then(function (m) {
         POST_I18N = m || {};
-        var current = isFixedEnglishPage() ? DEFAULT_LANG : getLang();
+        var current = isEnglishRoute() ? "en" : "zh";
         swapPostTitles(current);
         applyPostPageI18n(current);
       })
@@ -333,7 +350,7 @@
   }
 
   function ensureToggleButton() {
-    if (isFixedEnglishPage()) {
+    if (isFixedEnglishPage() || isFixedChinesePage() || isMurmurPage()) {
       var existing = document.getElementById("language-toggle");
       if (existing) existing.remove();
       return null;
@@ -389,7 +406,7 @@
   }
 
   function applyI18n() {
-    var lang = isFixedEnglishPage() ? DEFAULT_LANG : getLang();
+    var lang = isEnglishRoute() ? "en" : "zh";
     stampHtml(lang);
     applyDataI18n(lang);
     updateToggleButton(lang);
@@ -405,7 +422,27 @@
   }
 
   function toggleLang() {
-    setLang(getLang() === "en" ? "zh" : "en");
+    if (isFixedEnglishPage() || isFixedChinesePage() || isMurmurPage()) return;
+    var currentLang = isEnglishRoute() ? "en" : "zh";
+    var nextLang = currentLang === "en" ? "zh" : "en";
+    var alternate = document.querySelector('link[rel="alternate"][hreflang="' + (nextLang === "zh" ? "zh-CN" : "en") + '"]');
+    if (alternate && alternate.href) {
+      setLang(nextLang);
+      var target = alternate.href;
+      // Keep local previews on the local server even when canonical metadata
+      // points at the deployed GitHub Pages origin.
+      if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+        try {
+          var localTarget = new URL(target, window.location.href);
+          localTarget.protocol = window.location.protocol;
+          localTarget.host = window.location.host;
+          target = localTarget.href;
+        } catch (e) {}
+      }
+      window.location.assign(target);
+      return;
+    }
+    setLang(nextLang);
     applyI18n();
   }
 
@@ -427,7 +464,7 @@
     applyI18n();
   }
 
-  stampHtml(isFixedEnglishPage() ? DEFAULT_LANG : getLang());
+  stampHtml(isEnglishRoute() ? "en" : "zh");
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);

@@ -12,6 +12,8 @@ permalink: '/blog/2026/05/10/epitaph-protocol-01-wordless-stele/'
 
 ## 无字之证
 
+这篇文章中的问题也可以和[墓志协议 00｜何为墓志协议](/blog/2026/05/10/epitaph-protocol-00-series-concept/)、[《科幻短篇*3》](/blog/2026/03/28/novel1/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 雨夜，乾陵。
 
 第一张纸烘到半干时，梁成看见了自己的死期。

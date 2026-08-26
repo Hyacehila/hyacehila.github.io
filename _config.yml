@@ -4,10 +4,10 @@
 # Site
 title: "Hyacehila's Blog"
 subtitle: 'Essays of a Boring Person'
-description: 'Essays of a Boring Person'
-keywords: 'AI agents, LLM, data science, statistics, machine learning, software engineering, personal blog'
+description: '关于 AI 智能体、大语言模型、数据科学、统计学与软件工程的个人技术博客。'
+keywords: 'AI 智能体, 大语言模型, 数据科学, 统计学, 机器学习, 软件工程, 个人博客'
 author: Hyacehila
-language: en
+language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
@@ -33,6 +33,11 @@ i18n_dir: :lang
 skip_render:
   - 'assets/**/*.json'   # never let Hexo tag-parse data files
   - 'assets/**/*.js'
+ignore:
+  # This handbook is a standalone draft without Hexo front matter. Keep it in
+  # the repository without letting the post processor interpret its thematic
+  # horizontal rule as a YAML delimiter.
+  - '**/_drafts/UE_UI_VFX_TA_Starter_Handbook.md'
 
 # Writing
 new_post_name: :title.md
@@ -145,3 +150,64 @@ feed:
 # Sitemap (hexo-generator-sitemap) — replaces jekyll-sitemap
 sitemap:
   path: sitemap.xml
+  # A custom generator in scripts/seo-governance.js emits a language-aware
+  # sitemap index plus zh/en child sitemaps. Taxonomy allowlists live below.
+  tags: false
+  categories: false
+
+# Search visibility policy. Pages remain navigable when noindexed.
+seo:
+  min_category_posts: 3
+  index_pages:
+    - /
+    - /categories/
+    - /me/
+    - /cv/
+    - /projects/
+    - /photos/
+    - /footprints/
+    - /murmur/
+  noindex_pages:
+    - /404.html
+    - /comments/
+    - /friends/
+    - /tags/
+  # Provisional keep-list based on corpus depth. Search Console data can add
+  # tags with proven clicks/backlinks even when they fall below the threshold.
+  index_tags:
+    - Statistics
+    - Machine Learning
+    - Evaluation
+    - Survey
+    - Statistical Thinking
+    - Context Engineering
+    - Data Curation
+    - Reward Modeling
+    - Time Series
+    - Alignment
+    - Research Methods
+    - Series
+    - Tool Use
+    - Linear Models
+    - R
+    - Retrieval
+    - Multimodality
+    - Tutorial
+    - Reinforcement Learning
+    - Product Thinking
+    - Software Engineering
+    - AI Agent
+    - Regression
+    - Interpretability
+    - Paper Notes
+    - Hugging Face
+    - Fine-Tuning
+    - Memory
+    - Sci-Fi
+    - AI Engineering
+  tag_aliases:
+    AI Products: AI Product
+    Coding Agent: AI Coding
+    Coding Agents: AI Coding
+    Agent Evaluation: Evaluation
+    Evals: Evaluation

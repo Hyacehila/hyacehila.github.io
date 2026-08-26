@@ -12,6 +12,8 @@ permalink: '/blog/2026/04/26/output-token-pricing-kv-cache-agent-cost/'
 
 本文源自一个简单的面试题：
 
+这篇文章中的问题也可以和[模型路由到底在解决什么：从 Agent 成本、延迟到推理控制](/blog/2026/04/25/llm-semantic-routing-compound-ai-systems/)、[MCP (Model Context Protocol)](/blog/2026/02/16/mcp-model-context-protocol/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 **为什么大模型 API 里，input token 的价格通常远低于 output token？从技术上看，这个定价合理吗？**
 
 这个问题有意思，是因为它看起来简单，却可以继续追到推理系统和应用架构层面。一个 Agent 开发者如果真的处理过成本和延迟，就不能只回答“output 更贵是因为生成更慢”。从 GPU 资源到推理侧 batching 调度，这个问题并不轻。

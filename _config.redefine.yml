@@ -12,7 +12,6 @@ info:
   author: Hyacehila
   url: https://hyacehila.github.io
 
-
 # IMAGE CONFIGURATION
 defaults:
   favicon: /assets/images/hyacehila-logo.png
@@ -61,7 +60,7 @@ global:
   open_graph:
     enable: true
     image: /assets/images/hyacehila-og.jpg
-    description: Essays of a Boring Person
+    description: 关于 AI 智能体、大语言模型、数据科学、统计学与软件工程的个人技术博客。
   google_analytics:
     enable: false
 
@@ -151,7 +150,7 @@ navbar:
   # Static MiniSearch full-text search.
   search:
     enable: true
-    preload: true
+    preload: false
 
 
 # HOME PAGE ARTICLE SETTINGS
@@ -269,9 +268,10 @@ inject:
   enable: true
   head:
     - '<link rel="stylesheet" href="/assets/css/custom.css">'
-    - '<script src="/assets/js/i18n.js"></script>'
-    - '<script src="/assets/js/lang-toggle.js"></script>'
-    - '<script src="/assets/js/about.js"></script>'
+    - '<script defer src="/assets/js/i18n.js"></script>'
+    - '<script defer src="/assets/js/lang-toggle.js"></script>'
+    - '<script defer src="/assets/js/about.js"></script>'
+    - '<script src="/assets/js/masonry-bootstrap.js"></script>'
   footer: []
 
 

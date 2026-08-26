@@ -13,6 +13,8 @@ permalink: '/blog/2026/02/24/why-language-models-hallucinate/'
 
 > 本文内容选自 OpenAI 团队 Paper《Why Language Models Hallucinate》
 
+这篇文章中的问题也可以和[Neural Scaling Laws：从 Kaplan 到 Chinchilla](/blog/2026/01/26/neural-scaling-laws/)、[Compression for AGI：压缩即智能](/blog/2026/02/20/compression-for-agi/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 # Why Language Models Hallucinate
 
 ## 简单摘要

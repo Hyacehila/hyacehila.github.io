@@ -21,6 +21,8 @@ permalink: '/blog/2023/03/16/mathematical-analysis-limits-continuity-notes/'
 #### 集合的一些基础知识复习
 集合基本上每本书都会提一点 当然最后我们会在集合论中将他们收束
 
+这篇文章中的问题也可以和[实变函数：集合与点集、测度与可测函数](/blog/2023/03/18/real-analysis-notes/)、[泛函分析：度量空间、紧性与可分性](/blog/2023/09/11/functional-analysis-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 **集合的定义：具有某种特定性的具体或者抽象的对象的集体**  这些对象被称为集合的元素
 $$x \in S ~~~~ x \notin S  $$
 常用的集合

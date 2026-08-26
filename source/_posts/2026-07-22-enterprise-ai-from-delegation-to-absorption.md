@@ -3,7 +3,7 @@ title: "企业 AI 为什么总卡在试点？"
 title_en: "Why Enterprise AI Gets Stuck in Pilots: Systems, Workflows, and Organizational Absorption"
 date: 2026-07-22 21:00:00 +0800
 categories: ["Work & Society", "Builder & Product Thinking"]
-tags: ["AI Strategy", "AI Products", "AI Agent", "Organizational Design"]
+tags: ["AI Strategy", "AI Product", "AI Agent", "Organizational Design"]
 author: Hyacehila
 excerpt: "企业 AI 的难处，往往不在模型接没接上，而在一段工作有没有清楚的交接、验收、例外与责任。员工会用 AI，不表示公司已经拥有一套可复制的做法。"
 excerpt_en: "Enterprise AI gets hard after the model is connected: a task still needs clear handoffs, acceptance criteria, exception handling, and accountability before it becomes repeatable value."
@@ -14,6 +14,8 @@ permalink: '/blog/2026/07/22/enterprise-ai-from-delegation-to-absorption/'
 > As AI and agents take on execution, our own agency expands. The question is whether organizations are built to capture it.
 >
 > *Microsoft, 2026 Work Trend Index Annual Report: “Agents, human agency, and the opportunity for every organization”*
+
+这篇文章中的问题也可以和[AI 应用创业：从卖工具到卖结果](/blog/2026/07/14/ai-app-startups-sell-outcomes/)、[Model Is Good Enough：2026 年，AI 真正稀缺的是应用而不是更大的模型](/blog/2026/03/18/model-is-good-enough/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 
 上一篇文章写得更宽一点，关心 AI 怎样进入人的日常工作。这一篇把镜头收窄，只看公司内部。

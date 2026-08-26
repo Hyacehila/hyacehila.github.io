@@ -12,6 +12,8 @@ permalink: '/blog/2026/06/03/dont-outsource-the-learning/'
 
 > 本文译自 Addy Osmani 的[《Don't Outsource the Learning》](https://x.com/addyosmani/status/2056078124346228860)，并在不改变原意的前提下做了适当的语言润色与本地化。原作者：[Addy Osmani](https://x.com/addyosmani)。文中第一人称「我」均指原作者。
 
+这篇文章中的问题也可以和[The Illustrated Guide to a Ph.D.](/blog/2026/01/31/the-illustrated-guide-to-a-phd/)、[这个博客是怎么变成现在这样的](/blog/2025/12/26/welcome-to-my-blog/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 # Don't Outsource the Learning
 
 现在有件事变得太容易了：让 AI 把代码写完，自己却把学习这一步省掉。Bug 是修好了，可你的心智模型纹丝没动——时间一长，甚至还会退步。我们其实是在悄悄地用未来的能力，换今天的速度，而工具并不会拦着我们。要不要停下来，只能由你自己决定。

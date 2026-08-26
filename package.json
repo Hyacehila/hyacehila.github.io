@@ -5,9 +5,14 @@
   "description": "Hyacehila's personal blog, migrated to Hexo + Redefine",
   "scripts": {
     "clean": "hexo clean",
-    "build": "hexo generate && node scripts/validate-search.js",
+    "build": "node tools/build-all.js",
+    "build:all": "node tools/build-all.js",
     "check:i18n": "node scripts/validate-i18n.js",
     "check:search": "node scripts/validate-search.js",
+    "check:seo": "node tools/validate-seo.js",
+    "normalize:tags": "node tools/normalize-tags.js",
+    "generate:og": "python tools/generate-og-cards.py",
+    "translate:en": "python tools/translate-posts.py",
     "server": "hexo server"
   },
   "hexo": {
@@ -22,7 +27,6 @@
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-feed": "^4.0.0",
     "hexo-generator-index": "^4.0.0",
-    "hexo-generator-sitemap": "^3.0.1",
     "hexo-generator-tag": "^2.0.0",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^7.0.1",

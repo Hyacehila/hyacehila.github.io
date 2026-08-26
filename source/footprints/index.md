@@ -1,5 +1,6 @@
 ---
-title: Footprints
+title: 足迹
+title_en: Footprints
 date: 2026-06-28 00:00:00
 permalink: /footprints/
 comments: false

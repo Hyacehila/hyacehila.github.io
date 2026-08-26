@@ -11,6 +11,8 @@ mathjax: true
 hidden: true
 permalink: '/blog/2024/01/01/statistical-decision-theory-notes/'
 ---
+这篇文章中的问题也可以和[线性回归基础：线性模型、最小二乘估计与回归诊断](/blog/2023/09/04/linear-regression-basics-notes/)、[统计计算：随机数生成、随机变量模拟与蒙特卡洛方法](/blog/2023/09/12/statistical-computing-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 决策是管理活动的重要组成部分 为了避免决策失误 保证决策的科学性和有效性 我们需要研究决策实践的规律 形成了完整的理论体系 
 随着大数据时代的到来 数据在决策中越来越重要 因此形成了统计决策理论；
 ## 理论概述

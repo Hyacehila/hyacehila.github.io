@@ -14,6 +14,8 @@ permalink: '/blog/2023/03/18/optimization-introduction-notes/'
 ## 绪论
 介绍最优化问题和补充一些最基础的知识储备
 
+这篇文章中的问题也可以和[数学分析：极限与连续理论](/blog/2023/03/16/mathematical-analysis-limits-continuity-notes/)、[高等代数：代数学基础](/blog/2023/03/17/advanced-algebra-foundations-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 ### 关于最优化问题
 最优化问题是数学建模的相当重要的一个部分 往往结合数学和计算机数值方法进行处理
 一般最优化问题会体现为 **目标函数在约束条件下的极值问题** 并且数学分析中的手段往往无法处理 我们需要数值方法来解决

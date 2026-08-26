@@ -14,6 +14,8 @@ permalink: '/blog/2026/02/17/how-to-share-data-with-a-statistician/'
 >
 > 这是一份写给需要与统计学家合作的科研人员、学生和数据整理者的实用指南。它说明了在将数据交给统计分析师之前，数据应整理到什么程度，以减少沟通成本、加快分析进程。
 
+这篇文章中的问题也可以和[科研理论与实践经验](/blog/2025/09/04/research-theory-and-practice/)、[The Statistical Crisis in Science](/blog/2026/01/24/the-statistical-crisis-in-science/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 # 如何与统计学家分享数据
 
 这是一份为需要与统计学家分享数据的人准备的指南。无论你是需要统计学家协助分析数据的科研合作者、寻求咨询建议的学生或博士后，还是负责整理/清洗数据的初级统计学学生，都可以从中受益。

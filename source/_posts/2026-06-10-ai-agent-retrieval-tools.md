@@ -13,6 +13,8 @@ hidden: true
 
 把 Tavily、Exa、Firecrawl、Crawl4AI、Jina Reader、Nimble、GPT Researcher、Open Deep Research 这些名字排成一列，很容易写成工具百科。每个工具一小节，讲功能、价格、适用场景。读完能认一堆名词，但还是不知道自己到底该接哪一层。
 
+这篇文章中的问题也可以和[Embedding Atlas：用可视化理解 RAG 的嵌入空间](/blog/2026/05/29/embedding-atlas-rag-embedding-visualization/)、[我如何做 RAG：从项目实践到系统方法](/blog/2026/08/18/how-i-build-rag/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 我更想换个问法：AI Agent 到底怎样从互联网里拿到可用信息？
 
 对人来说，互联网通常是浏览器、搜索框、网页和链接。对 Agent 来说，它是一条很长的信息管线：先发现可能相关的来源，再打开页面，抽取正文，去掉导航和广告，把动态页面或 PDF 转成模型能读的文本，然后筛掉重复、过时和互相冲突的片段，最后带着引用进入上下文。中间任何一段坏掉，模型后面说得再顺也只是顺着坏材料往下编。

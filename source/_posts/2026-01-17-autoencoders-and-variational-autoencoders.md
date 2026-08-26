@@ -13,6 +13,8 @@ permalink: '/blog/2026/01/17/autoencoders-and-variational-autoencoders/'
 ---
 > 从基础到前沿，循序渐进掌握深度学习中的编码器架构
 
+这篇文章中的问题也可以和[深度学习基础：神经网络、优化方法与归一化](/blog/2024/09/02/deep-learning-basics/)、[深度学习网络架构：CNN、RNN 与 Seq2Seq](/blog/2024/11/13/deep-learning-network-architectures/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+
 ---
 
 ## 自编码器基础
