@@ -10,10 +10,9 @@ comments: false
 <section class="me-section me-about-section" aria-labelledby="me-about-title">
   <h2 id="me-about-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-seedling"></i></span><span>关于我</span></h2>
   <div class="me-prose">
-    <p>hyacehila 是我长期使用的网络 ID。它来自我最喜欢的植物 hyacinth（风信子），后来又被我改成了更轻、也更像名字的形式。-hila / -ila 这个结尾带着一点轻盈的虚构感。对我来说，它不只是用户名，也像是一个住在复杂结构里的风信子精灵。</p>
-    <p>这个名字也很接近我理解技术的方式：穿过密集的系统、工具链、工作流和不确定的环境，找到一条自然、说得清楚、而且确实能解决问题的路径。我关心通用的问题解决方法，也关心一项技术能否迁移到真实场景，在不同条件下继续成立。</p>
-    <p>目前我主要关注 AI Agent 的落地与评测。我认为，这两件事决定了大模型能不能真正进入工程实践和生产流程。我的兴趣同时覆盖 Single-Agent 与 Multi-Agent 系统，包括它们如何设计、评估、约束，以及怎样嵌入具体业务，而不是停留在 benchmark 上。写商业小说是另一个业余兴趣。</p>
-    <p>也可以叫我 Julian 或 Jules。</p>
+    <p>hyacehila 是我长期使用的网络 ID。它最早来自我喜欢的植物 hyacinth，后来被我改成了一个更轻、更像名字的形式。<code>-hila / -ila</code> 对我来说有一点虚构生物的感觉，所以我有时把 hyacehila 想象成一只生活在复杂结构里的风信子精灵：在系统、工具链、工作流和不确定环境之间穿行，试着找到一条自然、可解释，而且真正能解决问题的路径。你也可以叫我 Julian 或 Jules。</p>
+    <p>这也很接近我理解技术和工程的方式。我不太相信一个技术从出现的那一刻起，就已经知道自己应该被放在哪里。很多时候，真正有意义的位置需要经过一段时间才能找到：先定义问题，形成一个足够明确、可以被证伪的判断，然后把它放进现实里，观察失败、吸收反馈、修正假设，再继续迭代。相比从某一种固定的 Agent 架构出发，我更习惯先拆解业务：哪些地方真正需要模型判断，哪些地方应该交给 Workflow、Retrieval、Tool 或外部验证来保证确定性，再据此设计适合问题本身的 AI 系统。对我来说，好的工程不是消除所有不确定性，而是知道应该把不确定性留在哪里，又该怎样让它持续接受现实的反馈。</p>
+    <p>最近我主要关注知识系统、AI Agent 在金融与游戏研发/发行中的应用、长期记忆，以及 AI NPC 与 World Simulation。我尤其感兴趣的是模型如何从一次性的生成工具，逐渐成为能够理解环境、积累状态、行动、接受反馈并长期协作的系统。这个博客记录的也不只是技术教程，而是我在 Agent Architecture、Context Engineering、Evaluation、AI Native Game 等问题上不断形成又修正的判断——有些会成为工程实践，有些会被后来新的经验推翻。写作对我来说，是保存这段迭代过程的一种方式。商业小说则是另一项长期兴趣。</p>
   </div>
 </section>
 
