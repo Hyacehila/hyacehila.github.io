@@ -133,6 +133,16 @@ footer.footer,
   -webkit-overflow-scrolling: touch;
 }
 
+@media (max-width: 640px) {
+  .article-content.markdown-body > table:not(.not-markdown),
+  .article-content.markdown-body .tab-pane > table:not(.not-markdown) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* ---- Right-side language tool ---- */
 .tool-language-toggle {
   position: relative;
