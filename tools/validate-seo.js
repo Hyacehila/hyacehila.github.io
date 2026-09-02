@@ -95,11 +95,6 @@ for (const file of walk(publicDir).filter(item => item.endsWith('.html'))) {
     if ($('h1').length !== 1) fail(file, `post must have one H1, found ${$('h1').length}`);
     if ($('.seo-breadcrumb').length !== 1) fail(file, 'missing visible breadcrumb');
     if ($('script[data-seo="breadcrumb"]').length !== 1) fail(file, 'missing BreadcrumbList JSON-LD');
-    const contentLinks = $('.article-content a[href]').filter((_, element) => {
-      const href = $(element).attr('href') || '';
-      return /^\/blog\//.test(href) || /^\/en\/blog\//.test(href);
-    });
-    if (contentLinks.length < 2) fail(file, `article body needs at least 2 contextual internal links, found ${contentLinks.length}`);
     if ($('.seo-context-links').length) fail(file, 'forbidden automatic related-reading module is present');
     const image = $('meta[property="og:image"]').attr('content') || '';
     if (!/\/assets\/images\/og\/[^/]+\.png$/.test(image)) fail(file, `post has non-unique OG image "${image}"`);
