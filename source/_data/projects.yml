@@ -2,6 +2,18 @@
 # HTML reusing the i18n keys from _data/i18n/home.json (mirrored here for
 # maintenance reference). Add new projects here AND in source/projects/index.md.
 
+- key: lenny-compass
+  title_zh: "Lenny Compass：证据可追溯的本地 PM 知识工作区"
+  title_en: "Lenny Compass: Evidence-Grounded Local PM Knowledge Workspace"
+  type: 个人项目 / Personal Project
+  status: active
+  corpus_i18n: project-lenny-compass-corpus
+  retrieval_i18n: project-lenny-compass-retrieval
+  verification_i18n: project-lenny-compass-verification
+  web_i18n: project-lenny-compass-web
+  stack: [Python, FastAPI, SSE, React, TypeScript, Docling, HybridChunker, "SQLite FTS5", sqlite-vec, "Agentic RAG"]
+  links: []
+
 - key: novel-eval
   title_zh: "Novel Evaluation：基于 LLM Rubric 的小说结构化评测系统"
   title_en: "Novel Evaluation: LLM Rubric for Structured Fiction Assessment"

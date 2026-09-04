@@ -9,7 +9,39 @@ comments: false
 
 <div class="projects-page">
 
-<!-- Project 1: AnalysisPosts -->
+<!-- Project 1: Lenny Compass -->
+<div class="project-card">
+  <div class="project-header">
+    <div class="project-title-block">
+      <h3 data-i18n="project-lenny-compass-title"></h3>
+      <div class="project-meta" data-i18n="project-lenny-compass-desc"></div>
+    </div>
+  </div>
+  <div class="project-field">
+    <strong data-i18n="project-lenny-compass-corpus-title">Corpus &amp; Fact Layer:</strong>
+    <span data-i18n="project-lenny-compass-corpus"></span>
+  </div>
+  <div class="project-field">
+    <strong data-i18n="project-lenny-compass-retrieval-title">Hybrid Retrieval &amp; Answer Modes:</strong>
+    <span data-i18n="project-lenny-compass-retrieval"></span>
+  </div>
+  <div class="project-field">
+    <strong data-i18n="project-lenny-compass-verification-title">Claim-Level Verification:</strong>
+    <span data-i18n="project-lenny-compass-verification"></span>
+  </div>
+  <div class="project-field">
+    <strong data-i18n="project-lenny-compass-web-title">Local Web Application:</strong>
+    <span data-i18n="project-lenny-compass-web"></span>
+  </div>
+  <div class="project-field">
+    <strong data-i18n="detail-tech-stack">Tech Stack:</strong>
+    <div class="project-stack">
+      <span>Python</span><span>FastAPI</span><span>SSE</span><span>React</span><span>TypeScript</span><span>Docling</span><span>HybridChunker</span><span>SQLite FTS5</span><span>sqlite-vec</span><span>Agentic RAG</span>
+    </div>
+  </div>
+</div>
+
+<!-- Project 2: AnalysisPosts -->
 <div class="project-card">
   <div class="project-header">
     <div class="project-title-block">
@@ -44,7 +76,7 @@ comments: false
   </div>
 </div>
 
-<!-- Project 2: Novel Evaluation -->
+<!-- Project 3: Novel Evaluation -->
 <div class="project-card">
   <div class="project-header">
     <div class="project-title-block">
@@ -71,7 +103,7 @@ comments: false
   </div>
 </div>
 
-<!-- Project 3: Mental Health -->
+<!-- Project 4: Mental Health -->
 <div class="project-card">
   <div class="project-header">
     <div class="project-title-block">
@@ -99,7 +131,7 @@ comments: false
   </div>
 </div>
 
-<!-- Project 4: Public Health Metrics -->
+<!-- Project 5: Public Health Metrics -->
 <div class="project-card">
   <div class="project-header">
     <div class="project-title-block">

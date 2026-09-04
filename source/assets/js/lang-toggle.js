@@ -9,7 +9,7 @@
   var DEFAULT_LANG_MIGRATION_KEY = "lang-default-migration";
   var DEFAULT_LANG_MIGRATION = "zh-primary-static-locales-2026-08";
   var FIXED_ENGLISH_ROOTS = [
-    "/me/", "/cv/", "/projects/", "/footprints/", "/friends/",
+    "/me/", "/cv/", "/footprints/", "/friends/",
     "/comments/", "/photos/", "/categories/", "/tags/"
   ];
   var FIXED_CHINESE_ROOTS = ["/archives/"];
@@ -72,6 +72,7 @@
   function isEnglishRoute() {
     var current = getCurrentPath();
     if (current === "/murmur/" || current.indexOf("/murmur/") === 0) return false;
+    if (current === "/projects/") return getLang() === "en";
     if (current === "/en/" || current.indexOf("/en/") === 0) return true;
     return isFixedEnglishPage();
   }
