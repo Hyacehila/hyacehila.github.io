@@ -22,9 +22,8 @@
 | `/friends/` | 友情链接 |
 | `/comments/` | 留言页面 |
 | `/cv/` | 简历预览与下载 |
-| `/contact/` | 邮箱、GitHub 和 LinkedIn 等联系方式 |
 
-顶部导航包含 `Home`、`Archives`、`Me`、`Project` 和 `About`。其中 `About` 下拉菜单包含旅行足迹、友情链接、留言和简历页面。
+顶部导航包含 `Home`、`Archives`、`Me`、`Projects` 和 `About`。其中 `About` 下拉菜单包含旅行足迹、友情链接、留言和简历页面。
 
 旧文章链接格式保持不变：
 
@@ -59,7 +58,7 @@ source/
   me/ projects/             # 个人介绍与项目页面
   murmur/ footprints/       # 碎碎念与旅行足迹页面
   friends/ comments/        # 友情链接与留言页面
-  cv/ contact/              # 简历与联系方式页面
+  cv/                       # 简历页面
 .github/workflows/
   deploy.yml                # GitHub Pages 自动构建和部署流程
 public/                     # Hexo 生成的静态站点，不手动编辑

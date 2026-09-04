@@ -8,6 +8,8 @@
   var DEFAULT_LANG = "zh";
   var DEFAULT_LANG_MIGRATION_KEY = "lang-default-migration";
   var DEFAULT_LANG_MIGRATION = "zh-primary-static-locales-2026-08";
+  var MOBILE_DRAWER_QUERY = "(max-width: 640px)";
+  var MOBILE_BACK_TO_TOP_THRESHOLD = 320;
   var FIXED_ENGLISH_ROOTS = [
     "/me/", "/cv/", "/footprints/", "/friends/",
     "/comments/", "/photos/", "/categories/", "/tags/"
@@ -136,7 +138,7 @@
   var PAGE_LABELS = {
     "/archives/": { zh: "归档", en: "Archive" },
     "/me/": { zh: "关于我", en: "Me" },
-    "/projects/": { zh: "项目", en: "Project" },
+    "/projects/": { zh: "项目", en: "Projects", aliases: ["Project"] },
     "/murmur/": { zh: "碎碎念", en: "Murmur" },
     "/photos/": { zh: "照片", en: "Photos" },
     "/footprints/": { zh: "足迹", en: "Footprints" },
@@ -188,8 +190,21 @@
   function applyChrome(lang) {
     var navSel = ".navbar-list a, .navbar-item a, .drawer-navbar-list a, .drawer-navbar-item a, .sidebar-links a";
     document.querySelectorAll(navSel).forEach(function (a) {
-      var map = NAV_LABELS[normPath(a.getAttribute("href"))];
+      var path = normPath(a.getAttribute("href"));
+      if (path === "/" || path === "/en/") {
+        var homePath = lang === "en" ? "/en/" : "/";
+        if (path !== homePath) a.setAttribute("href", homePath);
+        path = "/";
+      }
+      var map = NAV_LABELS[path];
       if (map) setLeafText(a, map[lang]);
+    });
+
+    document.querySelectorAll(".navbar-container a.logo-image, .navbar-container a.logo-title").forEach(function (a) {
+      var path = normPath(a.getAttribute("href"));
+      if (path === "/" || path === "/en/") {
+        a.setAttribute("href", lang === "en" ? "/en/" : "/");
+      }
     });
 
     var textSel = [
@@ -239,13 +254,104 @@
     var map = PAGE_LABELS[getCurrentPath()];
     if (!map) return;
     var target = map[lang];
-    var labels = [map.zh, map.en];
+    var labels = [map.zh, map.en].concat(map.aliases || []);
 
     document.querySelectorAll(".page-template-content > h1, .page-title-header").forEach(function (h1) {
       var cur = h1.textContent.trim();
       if (labels.indexOf(cur) !== -1) h1.textContent = target;
     });
     setDocumentTitle(target, labels);
+  }
+
+  function isMobileDrawerViewport() {
+    return !!(window.matchMedia && window.matchMedia(MOBILE_DRAWER_QUERY).matches);
+  }
+
+  function updateMobileBackToTop() {
+    var button = document.querySelector(".right-side-tools-container .visible-tools-list .tool-scroll-to-top");
+    if (!button) return;
+    var ready = isMobileDrawerViewport() && window.scrollY >= MOBILE_BACK_TO_TOP_THRESHOLD;
+    button.classList.toggle("mobile-scroll-ready", ready);
+  }
+
+  function syncMobileDrawerTools(lang) {
+    var current = document.querySelector("[data-mobile-drawer-settings]");
+    if (!isMobileDrawerViewport()) {
+      if (current) current.remove();
+      updateMobileBackToTop();
+      return;
+    }
+
+    var drawerList = document.querySelector(".drawer-navbar-list");
+    if (!drawerList) return;
+
+    if (!current) {
+      current = document.createElement("li");
+      current.className = "mobile-drawer-settings";
+      current.setAttribute("data-mobile-drawer-settings", "");
+      current.innerHTML = [
+        '<div class="mobile-drawer-settings-title" data-mobile-settings-title></div>',
+        '<div class="mobile-drawer-settings-list">',
+        '  <button type="button" class="mobile-drawer-tool" data-mobile-action="font-plus"><i class="fa-regular fa-magnifying-glass-plus" aria-hidden="true"></i><span data-mobile-label></span></button>',
+        '  <button type="button" class="mobile-drawer-tool" data-mobile-action="font-minus"><i class="fa-regular fa-magnifying-glass-minus" aria-hidden="true"></i><span data-mobile-label></span></button>',
+        '  <button type="button" class="mobile-drawer-tool" data-mobile-action="theme"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i><span data-mobile-label></span></button>',
+        '  <button type="button" class="mobile-drawer-tool" data-mobile-action="language"><i class="fa-solid fa-globe" aria-hidden="true"></i><span data-mobile-label></span></button>',
+        '</div>'
+      ].join("");
+      drawerList.appendChild(current);
+
+      current.addEventListener("click", function (event) {
+        var control = event.target.closest("[data-mobile-action]");
+        if (!control) return;
+        var targets = {
+          "font-plus": ".right-side-tools-container .tool-font-adjust-plus",
+          "font-minus": ".right-side-tools-container .tool-font-adjust-minus",
+          "theme": ".right-side-tools-container .tool-dark-light-toggle",
+          "language": "#language-toggle"
+        };
+        var target = document.querySelector(targets[control.getAttribute("data-mobile-action")]);
+        if (target) target.click();
+      });
+    }
+
+    var copy = lang === "en"
+      ? {
+          title: "Display settings",
+          "font-plus": "Larger",
+          "font-minus": "Smaller",
+          theme: "Theme",
+          language: "中文"
+        }
+      : {
+          title: "显示设置",
+          "font-plus": "放大",
+          "font-minus": "缩小",
+          theme: "明暗",
+          language: "EN"
+        };
+
+    var title = current.querySelector("[data-mobile-settings-title]");
+    if (title) title.textContent = copy.title;
+    current.querySelectorAll("[data-mobile-action]").forEach(function (button) {
+      var action = button.getAttribute("data-mobile-action");
+      var label = copy[action] || "";
+      var labelNode = button.querySelector("[data-mobile-label]");
+      if (labelNode) labelNode.textContent = label;
+      button.setAttribute("aria-label", label);
+      button.setAttribute("title", label);
+      if (action === "language") button.hidden = !document.getElementById("language-toggle");
+    });
+
+    updateMobileBackToTop();
+  }
+
+  function bindMobileDrawerEvents() {
+    if (window.__hyacehilaMobileDrawerToolsBound) return;
+    window.__hyacehilaMobileDrawerToolsBound = true;
+    window.addEventListener("resize", function () {
+      syncMobileDrawerTools(isEnglishRoute() ? "en" : "zh");
+    });
+    window.addEventListener("scroll", updateMobileBackToTop, { passive: true });
   }
 
   var POST_I18N = null;
@@ -415,6 +521,7 @@
     applyPageLabel(lang);
     applyPostI18n(lang);
     applyReadMoreLinks(lang);
+    syncMobileDrawerTools(lang);
 
     if (typeof window.updateGlobeLanguage === "function") {
       try { window.updateGlobeLanguage(lang); } catch (e) {}
@@ -462,6 +569,7 @@
 
   function init() {
     bindButton();
+    bindMobileDrawerEvents();
     applyI18n();
   }
 
