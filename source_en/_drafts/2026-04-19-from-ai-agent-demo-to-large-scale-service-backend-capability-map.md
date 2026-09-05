@@ -19,7 +19,6 @@ lang: en
 translation_key: 2026-04-19-from-ai-agent-demo-to-large-scale-service-backend-capability-map
 translation_status: machine
 translation_source_hash: 48d6ab6ababb285a13f5f38c3ece07a3df5dde25e46b475dd9cba52cf1daa12b
-published: false
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

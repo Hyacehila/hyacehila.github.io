@@ -94,15 +94,12 @@ function metadataErrors(source, english) {
       result.push(`English ${key} must match Chinese source in order`);
     }
   }
-  for (const [key, fallback] of [['hidden', false], ['published', true]]) {
-    for (const [language, fm] of [['Chinese', source], ['English', english]]) {
-      if (Object.prototype.hasOwnProperty.call(fm, key) && typeof fm[key] !== 'boolean') {
-        result.push(`${language} ${key} must be a boolean`);
-      }
+  for (const [language, fm] of [['Chinese', source], ['English', english]]) {
+    if (Object.prototype.hasOwnProperty.call(fm, 'hidden') && typeof fm.hidden !== 'boolean') {
+      result.push(`${language} hidden must be a boolean`);
     }
-    const value = fm => Object.prototype.hasOwnProperty.call(fm, key) ? fm[key] : fallback;
-    if (value(source) !== value(english)) result.push(`English ${key} must match Chinese source`);
   }
+  if ((source.hidden ?? false) !== (english.hidden ?? false)) result.push('English hidden must match Chinese source');
   return result;
 }
 
@@ -227,33 +224,48 @@ function validatePostI18nGenerator() {
   }
 }
 
-function validateEnglishSources() {
-  const chineseDir = path.join(root, 'source/_posts');
-  const englishDir = path.join(root, 'source_en/_posts');
-  if (!fs.existsSync(englishDir)) {
-    errors.push('source_en/_posts is missing; run the offline translation generator');
-    return;
+function sourceDirectoryErrors(zhPosts, enPosts, zhDrafts, enDrafts) {
+  const result = [];
+  for (const name of zhPosts) {
+    if (!enPosts.includes(name)) result.push(`English translation is missing from _posts: ${name}`);
   }
-  const chinese = fs.readdirSync(chineseDir).filter(name => name.endsWith('.md')).sort();
-  const english = fs.readdirSync(englishDir).filter(name => name.endsWith('.md')).sort();
-  const englishSet = new Set(english);
-  chinese.forEach(name => {
-    if (!englishSet.has(name)) {
-      errors.push(`English translation is missing for ${name}`);
-      return;
+  for (const name of enPosts) {
+    if (!zhPosts.includes(name)) result.push(`Orphan English translation in _posts: ${name}`);
+  }
+  for (const name of enDrafts) {
+    if (!zhDrafts.includes(name)) result.push(`English draft has no Chinese draft: ${name}`);
+  }
+  for (const [language, posts, drafts] of [['Chinese', zhPosts, zhDrafts], ['English', enPosts, enDrafts]]) {
+    for (const name of posts) {
+      if (drafts.includes(name)) result.push(`${language} source exists in both _posts and _drafts: ${name}`);
     }
-    const source = fs.readFileSync(path.join(englishDir, name), 'utf8');
-    const fm = frontMatter(source);
-    const chineseFm = frontMatter(fs.readFileSync(path.join(chineseDir, name), 'utf8'));
-    metadataErrors(chineseFm, fm).forEach(message => errors.push(`${name}: ${message}`));
-    if (fmValue(fm, 'lang') !== 'en') errors.push(`${name} English source must set lang: en`);
-    if (fmValue(fm, 'translation_status') !== 'machine') errors.push(`${name} must disclose translation_status: machine`);
-    if (!source.includes('class="translation-notice"')) errors.push(`${name} is missing the visible machine-translation notice`);
-    if (hasCjk(fmValue(fm, 'title'))) errors.push(`${name} has a CJK English title`);
-  });
-  english.forEach(name => {
-    if (!chinese.includes(name)) errors.push(`Orphan English translation: ${name}`);
-  });
+  }
+  return result;
+}
+
+function validateEnglishSources() {
+  const files = (language, folder) => {
+    const dir = path.join(root, language, folder);
+    return fs.existsSync(dir) ? fs.readdirSync(dir).filter(name => name.endsWith('.md')).sort() : [];
+  };
+  const zhPosts = files('source', '_posts');
+  const enPosts = files('source_en', '_posts');
+  const zhDrafts = files('source', '_drafts');
+  const enDrafts = files('source_en', '_drafts');
+  errors.push(...sourceDirectoryErrors(zhPosts, enPosts, zhDrafts, enDrafts));
+
+  for (const [folder, chinese, english] of [['_posts', zhPosts, enPosts], ['_drafts', zhDrafts, enDrafts]]) {
+    for (const name of english.filter(name => chinese.includes(name))) {
+      const source = read(`source_en/${folder}/${name}`);
+      const fm = frontMatter(source);
+      const chineseFm = frontMatter(read(`source/${folder}/${name}`));
+      metadataErrors(chineseFm, fm).forEach(message => errors.push(`${folder}/${name}: ${message}`));
+      if (fmValue(fm, 'lang') !== 'en') errors.push(`${name} English source must set lang: en`);
+      if (fmValue(fm, 'translation_status') !== 'machine') errors.push(`${name} must disclose translation_status: machine`);
+      if (!source.includes('class="translation-notice"')) errors.push(`${name} is missing the visible machine-translation notice`);
+      if (hasCjk(fmValue(fm, 'title'))) errors.push(`${name} has a CJK English title`);
+    }
+  }
 
   const forbiddenFixed = ['murmur'];
   forbiddenFixed.forEach(folder => {
@@ -283,4 +295,4 @@ function run() {
 }
 
 if (require.main === module) run();
-module.exports = { run, frontMatter, metadataErrors };
+module.exports = { run, frontMatter, metadataErrors, sourceDirectoryErrors };

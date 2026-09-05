@@ -202,7 +202,7 @@ def rewrite_english_internal_links(value: str) -> str:
 
 SHARED_METADATA = (
     "date", "updated", "categories", "tags", "author", "mathjax", "cover", "banner", "thumbnail",
-    "hidden", "published", "comment", "template", "type", "layout",
+    "hidden", "comment", "template", "type", "layout",
 )
 
 
@@ -251,8 +251,8 @@ def cjk_count(value: str) -> int:
 
 
 def source_files() -> list[Path]:
-    # Fixed pages are maintained as a single English-only edition. Only blog
-    # posts participate in the bilingual translation contract.
+    # Fixed pages have one English-only edition. Only posts in _posts are
+    # translated automatically; drafts stay in their directories.
     return sorted((ROOT / "source" / "_posts").glob("*.md"))
 
 

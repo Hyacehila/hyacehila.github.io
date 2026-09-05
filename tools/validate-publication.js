@@ -27,16 +27,20 @@ for (const language of ['source', 'source_en']) {
   const posts = path.join(root, language, '_posts');
   for (const name of fs.readdirSync(posts).filter(name => name.endsWith('.md'))) {
     const fm = frontMatter(fs.readFileSync(path.join(posts, name), 'utf8'));
-    if (fm.published === false) {
-      const route = `${language === 'source_en' ? '/en' : ''}${fm.permalink}`;
-      assert.ok(!fs.existsSync(fileFor(route)), `Unpublished page exists: ${route}`);
-      unpublished.add(route);
-      unpublished.add(fm.title);
-    } else if (language === 'source' && fm.categories?.[0] === 'Programming') {
+    if (language === 'source' && fm.categories?.[0] === 'Programming') {
       const category = fm.categories[1];
       if (!categories.has(category)) categories.set(category, new Set());
       categories.get(category).add(`/en${fm.permalink}`);
     }
+  }
+  // Directory membership controls publication; drafts may lack front matter.
+  for (const file of walk(path.join(root, language, '_drafts')).filter(file => file.endsWith('.md'))) {
+    const fm = frontMatter(fs.readFileSync(file, 'utf8'));
+    if (!fm.permalink) continue;
+    const route = `${language === 'source_en' ? '/en' : ''}${fm.permalink}`;
+    assert.ok(!fs.existsSync(fileFor(route)), `Draft page exists: ${route}`);
+    unpublished.add(route);
+    if (fm.title) unpublished.add(fm.title);
   }
 }
 

@@ -292,7 +292,7 @@ hexo.extend.generator.register('bm25_search_index', function (locals) {
   let sourceControlCharacters = 0;
 
   locals.posts.forEach(post => {
-    if (post.published === false || post.search === false) return;
+    if (post.search === false) return;
     const built = createPostRecords(post, this.config.root);
     posts[built.post.postId] = built.post;
     records.push(...built.records);

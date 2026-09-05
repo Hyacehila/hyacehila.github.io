@@ -8,7 +8,6 @@ author: Hyacehila
 excerpt: 这是一篇 Agent 基础设施总览，梳理 AI Agent 从 Demo 走向大规模服务时依赖的能力，以及这些能力分别解决的工程问题。
 excerpt_en: "An agent infrastructure overview that maps the backend capabilities needed for AI agents to move from demos to large-scale services and the engineering problems each solves."
 permalink: '/blog/2026/04/19/from-ai-agent-demo-to-large-scale-service-backend-capability-map/'
-published: false
 ---
 
 把 `AI Agent` 从 Demo 变成大规模服务，难点通常不在把模型接口包成 API，而在补齐一整套后端能力栈。
