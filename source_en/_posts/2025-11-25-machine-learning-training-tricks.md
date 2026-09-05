@@ -18,6 +18,7 @@ lang: en
 translation_key: 2025-11-25-machine-learning-training-tricks
 translation_status: machine
 translation_source_hash: fd6ecbbb92dffe75708f2bbeda86c3b8ea79a2a628f2361e4f82e5e844a1795d
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

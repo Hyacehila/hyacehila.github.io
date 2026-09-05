@@ -4,7 +4,7 @@ title_zh: 查找与排序算法：二分查找、散列表与排序实现
 date: 2024-12-18 21:37:43 +0800
 categories:
 - Programming
-- Computer Science Fundamentals
+- CS Foundations
 tags:
 - Algorithms
 - Search

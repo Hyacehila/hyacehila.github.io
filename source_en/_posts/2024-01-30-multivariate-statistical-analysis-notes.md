@@ -19,6 +19,7 @@ lang: en
 translation_key: 2024-01-30-multivariate-statistical-analysis-notes
 translation_status: machine
 translation_source_hash: a7594fbffc5607307f2054ced387af356423e2c7a12e272fa703345fdc2022f6
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

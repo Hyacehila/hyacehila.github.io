@@ -16,6 +16,7 @@ lang: en
 translation_key: 2024-12-07-advanced-algebra-linear-transformations-euclidean-spaces-notes
 translation_status: machine
 translation_source_hash: c2c805014f03d100d5f80b40eb0017489f8f20922c2eddaf1ca1745db9794369
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

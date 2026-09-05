@@ -4,7 +4,7 @@ title_zh: C 语言程序设计基础：类型、控制流、数组与指针
 date: 2023-03-23 23:35:43 +0800
 categories:
 - Programming
-- C & C++
+- Programming Languages
 tags:
 - C
 author: Hyacehila

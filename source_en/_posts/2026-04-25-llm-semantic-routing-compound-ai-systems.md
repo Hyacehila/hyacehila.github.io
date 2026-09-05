@@ -7,7 +7,7 @@ categories:
 - Agent Infrastructure
 tags:
 - Cost Engineering
-- Backend Engineering
+- AI Engineering
 author: Hyacehila
 excerpt: Model routing breaks every agent call into cost, latency, tool stability, and escalation decisions. The point is
   not picking the strongest model, but allocating budget.

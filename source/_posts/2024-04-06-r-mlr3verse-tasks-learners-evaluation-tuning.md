@@ -2,7 +2,7 @@
 title: "R mlr3verse：任务、学习器、评估与调参"
 title_en: "R mlr3verse: Tasks, Learners, Evaluation, and Tuning"
 date: 2024-04-06 20:28:48 +0800
-categories: ["Programming", "R"]
+categories: ["Programming", "Programming Languages"]
 tags: ["R", "Machine Learning"]
 author: Hyacehila
 excerpt: "整理 mlr3 的任务、学习器、预测、评估、重抽样、基准实验、调参与分类评估等内容。"

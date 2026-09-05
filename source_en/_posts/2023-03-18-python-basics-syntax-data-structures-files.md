@@ -4,7 +4,7 @@ title_zh: Python 基础：语法、数据结构与文件处理
 date: 2023-03-18 21:32:22 +0800
 categories:
 - Programming
-- Python
+- Programming Languages
 tags:
 - Python
 author: Hyacehila

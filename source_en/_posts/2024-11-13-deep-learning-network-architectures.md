@@ -15,6 +15,7 @@ lang: en
 translation_key: 2024-11-13-deep-learning-network-architectures
 translation_status: machine
 translation_source_hash: a2f63a21d80406d71ef2809186052fff42ad27993f84ea0544e114380f781713
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

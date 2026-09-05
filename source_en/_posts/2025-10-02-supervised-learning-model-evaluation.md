@@ -18,6 +18,7 @@ lang: en
 translation_key: 2025-10-02-supervised-learning-model-evaluation
 translation_status: machine
 translation_source_hash: e50265d8599c29ebe10ab5da4abda17a7112522e77ba17cecb4747b2ca97eeb7
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

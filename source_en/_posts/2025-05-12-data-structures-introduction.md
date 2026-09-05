@@ -4,7 +4,7 @@ title_zh: 数据结构导论：线性表、树、图与查找排序
 date: 2025-05-12 22:24:30 +0800
 categories:
 - Programming
-- Computer Science Fundamentals
+- CS Foundations
 tags:
 - Data Structures
 - Algorithms

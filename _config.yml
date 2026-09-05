@@ -95,11 +95,9 @@ category_map:
   "Geometry & Topology": geometry-topology
   "Optimization": optimization
   "Programming": programming
-  "Computer Science Fundamentals": computer-science-fundamentals
-  "Python": python
+  "CS Foundations": cs-foundations
+  "Programming Languages": programming-languages
   "Full Stack Development": full-stack-development
-  "R": r
-  "C & C++": c-cpp
   "Work & Society": work-society
   "AI Engineering Workflows": ai-engineering-workflows
   "Builder & Product Thinking": builder-product-thinking
@@ -206,8 +204,17 @@ seo:
     - Sci-Fi
     - AI Engineering
   tag_aliases:
+    Backend Engineering: AI Engineering
     AI Products: AI Product
     Coding Agent: AI Coding
     Coding Agents: AI Coding
     Agent Evaluation: Evaluation
     Evals: Evaluation
+  category_redirects:
+    python: programming-languages
+    r: programming-languages
+    c-cpp: programming-languages
+    computer-science-fundamentals: cs-foundations
+    web-frontend: full-stack-development
+    backend-engineering: full-stack-development
+    data-databases: cs-foundations

@@ -4,6 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const yaml = require('js-yaml');
 
 const root = path.resolve(__dirname, '..');
 const errors = [];
@@ -29,11 +30,9 @@ const allowedCategoryPairs = new Set([
   'Mathematics > Algebra & Matrix Theory',
   'Mathematics > Geometry & Topology',
   'Mathematics > Optimization',
-  'Programming > Computer Science Fundamentals',
-  'Programming > Python',
+  'Programming > CS Foundations',
+  'Programming > Programming Languages',
   'Programming > Full Stack Development',
-  'Programming > R',
-  'Programming > C & C++',
   'Work & Society > AI Engineering Workflows',
   'Work & Society > Builder & Product Thinking',
   'Work & Society > Career & Learning',
@@ -76,39 +75,48 @@ function walk(dir, out = []) {
 
 function frontMatter(src) {
   const m = src.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  return m ? m[1] : '';
+  return m ? yaml.load(m[1]) || {} : {};
 }
 
 function fmValue(fm, key) {
-  const re = new RegExp('^' + key + ':\\s*(.+?)\\s*$', 'm');
-  const m = fm.match(re);
-  if (!m) return '';
-  return m[1].replace(/^['"]|['"]$/g, '').trim();
-}
-
-function stripQuotes(s) {
-  return s.replace(/^['"]|['"]$/g, '').trim();
+  return fm[key] == null ? '' : String(fm[key]).trim();
 }
 
 function fmArray(fm, key) {
-  const re = new RegExp('^' + key + ':\\s*(.*?)\\s*$', 'm');
-  const m = fm.match(re);
-  if (!m) return [];
-  const raw = m[1].trim();
-  if (!raw || raw === '[]') return [];
-  if (raw.startsWith('[') && raw.endsWith(']')) {
-    try {
-      const parsed = JSON.parse(raw);
-      return Array.isArray(parsed) ? parsed.map(String) : [];
-    } catch {
-      return raw
-        .slice(1, -1)
-        .split(',')
-        .map(stripQuotes)
-        .filter(Boolean);
+  return Array.isArray(fm[key]) ? fm[key] : [];
+}
+
+function metadataErrors(source, english) {
+  const result = [];
+  for (const key of ['categories', 'tags']) {
+    if (!Array.isArray(source[key]) || !Array.isArray(english[key]) ||
+        JSON.stringify(source[key]) !== JSON.stringify(english[key])) {
+      result.push(`English ${key} must match Chinese source in order`);
     }
   }
-  return [stripQuotes(raw)];
+  for (const [key, fallback] of [['hidden', false], ['published', true]]) {
+    for (const [language, fm] of [['Chinese', source], ['English', english]]) {
+      if (Object.prototype.hasOwnProperty.call(fm, key) && typeof fm[key] !== 'boolean') {
+        result.push(`${language} ${key} must be a boolean`);
+      }
+    }
+    const value = fm => Object.prototype.hasOwnProperty.call(fm, key) ? fm[key] : fallback;
+    if (value(source) !== value(english)) result.push(`English ${key} must match Chinese source`);
+  }
+  return result;
+}
+
+function validateRetiredFrontMatter() {
+  for (const folder of ['source/_posts', 'source/_drafts', 'source_en/_posts', 'source_en/_drafts']) {
+    const dir = path.join(root, folder);
+    if (!fs.existsSync(dir)) continue;
+    walk(dir).filter(file => file.endsWith('.md')).forEach(file => {
+      const fm = frontMatter(fs.readFileSync(file, 'utf8'));
+      if (JSON.stringify(fm).includes('Backend Engineering')) {
+        errors.push(`${rel(file)} uses retired Backend Engineering in front matter`);
+      }
+    });
+  }
 }
 
 function hasCjk(s) {
@@ -236,6 +244,8 @@ function validateEnglishSources() {
     }
     const source = fs.readFileSync(path.join(englishDir, name), 'utf8');
     const fm = frontMatter(source);
+    const chineseFm = frontMatter(fs.readFileSync(path.join(chineseDir, name), 'utf8'));
+    metadataErrors(chineseFm, fm).forEach(message => errors.push(`${name}: ${message}`));
     if (fmValue(fm, 'lang') !== 'en') errors.push(`${name} English source must set lang: en`);
     if (fmValue(fm, 'translation_status') !== 'machine') errors.push(`${name} must disclose translation_status: machine`);
     if (!source.includes('class="translation-notice"')) errors.push(`${name} is missing the visible machine-translation notice`);
@@ -261,6 +271,7 @@ function run() {
   validateLanguageSetup();
   validatePostI18nGenerator();
   validateEnglishSources();
+  validateRetiredFrontMatter();
 
   if (errors.length) {
     console.error('i18n validation failed:');
@@ -272,4 +283,4 @@ function run() {
 }
 
 if (require.main === module) run();
-module.exports = { run };
+module.exports = { run, frontMatter, metadataErrors };

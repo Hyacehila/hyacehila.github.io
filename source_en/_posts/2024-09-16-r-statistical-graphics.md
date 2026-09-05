@@ -4,7 +4,7 @@ title_zh: R 统计图形：base、lattice 与 ggplot2
 date: 2024-09-16 22:32:48 +0800
 categories:
 - Programming
-- R
+- Programming Languages
 tags:
 - R
 - Data Visualization

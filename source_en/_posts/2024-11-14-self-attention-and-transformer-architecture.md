@@ -16,6 +16,7 @@ lang: en
 translation_key: 2024-11-14-self-attention-and-transformer-architecture
 translation_status: machine
 translation_source_hash: bab96d8e28eafbfa6622bbdd19e3447041217617b146bbca053a523a7e588f00
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

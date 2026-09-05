@@ -2,7 +2,7 @@
 title: "Python 基础：语法、数据结构与文件处理"
 title_en: "Python Basics: Syntax, Data Structures, and File Handling"
 date: 2023-03-18 21:32:22 +0800
-categories: ["Programming", "Python"]
+categories: ["Programming", "Programming Languages"]
 tags: ["Python"]
 author: Hyacehila
 excerpt: "整理变量、字符串、列表、分支、集合、字典、循环、函数、正则表达式、文件异常与测试等入门内容。"

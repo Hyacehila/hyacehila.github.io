@@ -16,6 +16,7 @@ lang: en
 translation_key: 2025-11-12-sampling-survey-notes
 translation_status: machine
 translation_source_hash: ab48f0b18377ca8cf9cec3ee359037a29d3fa1a4d873153fd033a460b6960a70
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

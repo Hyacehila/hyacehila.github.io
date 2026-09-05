@@ -2,7 +2,7 @@
 title: "Python 面向对象与装饰器：类、继承、property 与闭包"
 title_en: "Python Object-Oriented Programming and Decorators: Classes, Inheritance, property, and Closures"
 date: 2025-03-04 17:10:22 +0800
-categories: ["Programming", "Python"]
+categories: ["Programming", "Programming Languages"]
 tags: ["Python", "Object-Oriented Programming"]
 author: Hyacehila
 excerpt: "整理类、实例、私有化、property、slots、静态方法、类方法、继承、多态、导入类和装饰器。"

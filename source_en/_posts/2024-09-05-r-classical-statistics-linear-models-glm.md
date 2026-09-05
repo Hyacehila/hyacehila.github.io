@@ -4,7 +4,7 @@ title_zh: R 经典统计：估计、检验、线性模型与 GLM
 date: 2024-09-05 12:20:32 +0800
 categories:
 - Programming
-- R
+- Programming Languages
 tags:
 - R
 - Classical Statistics

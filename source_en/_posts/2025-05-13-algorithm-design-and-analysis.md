@@ -5,7 +5,7 @@ date: 2025-05-13 18:32:25 +0800
 permalink: /blog/2025/05/13/algorithm-design-and-analysis/
 categories:
 - Programming
-- Computer Science Fundamentals
+- CS Foundations
 tags:
 - Algorithms
 - Dynamic Programming
@@ -18,6 +18,7 @@ lang: en
 translation_key: 2025-05-13-algorithm-design-and-analysis
 translation_status: machine
 translation_source_hash: 9b4b552c49a57329361b301d6fc262e679a9e0cfef8afdd17dbc28ac2d35dcd3
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

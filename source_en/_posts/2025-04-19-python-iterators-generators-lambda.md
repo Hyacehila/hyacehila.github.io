@@ -4,7 +4,7 @@ title_zh: Python 迭代器、生成器与 Lambda：惰性计算和函数式工�
 date: 2025-04-19 19:53:29 +0800
 categories:
 - Programming
-- Python
+- Programming Languages
 tags:
 - Python
 - Iterators

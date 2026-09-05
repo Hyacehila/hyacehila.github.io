@@ -16,6 +16,7 @@ lang: en
 translation_key: 2024-11-14-generative-and-diffusion-models
 translation_status: machine
 translation_source_hash: 8e2507be8fda6641552706e4dc0b54325aa4d4d4195525eaa650d81683ba3682
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

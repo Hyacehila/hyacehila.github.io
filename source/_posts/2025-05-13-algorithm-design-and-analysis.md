@@ -2,7 +2,7 @@
 title: "算法设计与分析：分治、动态规划与图算法"
 title_en: "Algorithm Design and Analysis: Divide and Conquer, Dynamic Programming, and Graph Algorithms"
 date: 2025-05-13 18:32:25 +0800
-categories: ["Programming", "Computer Science Fundamentals"]
+categories: ["Programming", "CS Foundations"]
 tags: ["Algorithms", "Dynamic Programming", "Greedy Algorithms"]
 author: Hyacehila
 excerpt: "围绕分治、动态规划、贪心、摊还分析、图算法与复杂度分析整理问题建模和算法思路。"

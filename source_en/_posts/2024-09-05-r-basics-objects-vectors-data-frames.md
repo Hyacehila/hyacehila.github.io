@@ -4,7 +4,7 @@ title_zh: R 基础：对象、向量、数据框、函数与数据分析
 date: 2024-09-05 10:29:12 +0800
 categories:
 - Programming
-- R
+- Programming Languages
 tags:
 - R
 - Data Management

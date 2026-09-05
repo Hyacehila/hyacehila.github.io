@@ -4,7 +4,7 @@ title_zh: Python 面向对象与装饰器：类、继承、property 与闭包
 date: 2025-03-04 17:10:22 +0800
 categories:
 - Programming
-- Python
+- Programming Languages
 tags:
 - Python
 - Object-Oriented Programming

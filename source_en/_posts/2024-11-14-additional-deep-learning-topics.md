@@ -17,6 +17,7 @@ lang: en
 translation_key: 2024-11-14-additional-deep-learning-topics
 translation_status: machine
 translation_source_hash: 1ac7f8d7338a543cabf6ae88d4128324ae63c7ead9037bda7e16dac30a33cdf7
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

@@ -14,6 +14,7 @@ lang: en
 translation_key: 2024-12-29-economic-foundations
 translation_status: machine
 translation_source_hash: 9702ee4b8343e413d14fe071b78a2237d50ba6a6ce395cfa562eb137ca1e781c
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

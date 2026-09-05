@@ -10,6 +10,7 @@
     "check:i18n": "node scripts/validate-i18n.js",
     "check:search": "node scripts/validate-search.js",
     "check:seo": "node tools/validate-seo.js",
+    "check:publication": "node tools/validate-publication.js",
     "normalize:tags": "node tools/normalize-tags.js",
     "generate:og": "python tools/generate-og-cards.py",
     "translate:en": "python tools/translate-posts.py",

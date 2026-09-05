@@ -34,14 +34,6 @@ os.environ.setdefault("PYTHONUTF8", "1")
 
 import yaml  # type: ignore  # noqa: E402
 
-try:
-    import argostranslate.translate as argos_translate  # type: ignore  # noqa: E402
-except ImportError as exc:  # pragma: no cover - actionable setup message
-    raise SystemExit(
-        "Argos Translate is unavailable. Install it into "
-        ".codex-artifacts/argos-runtime and install the zh→en package."
-    ) from exc
-
 CJK_RE = re.compile(r"[\u3400-\u9fff]")
 MATH_OR_URL_RE = re.compile(
     r"(\$\$[\s\S]*?\$\$|(?<!\\)\$(?:\\.|[^$\n])+?(?<!\\)\$|https?://[^\s<]+)",
@@ -208,11 +200,17 @@ def rewrite_english_internal_links(value: str) -> str:
     return re.sub(r'(?P<prefix>href=["\'])/blog/', r'\g<prefix>/en/blog/', value)
 
 
+SHARED_METADATA = (
+    "date", "updated", "categories", "tags", "author", "mathjax", "cover", "banner", "thumbnail",
+    "hidden", "published", "comment", "template", "type", "layout",
+)
+
+
 def english_front_matter(source: dict[str, Any], body_hash: str, stem: str) -> dict[str, Any]:
     result: dict[str, Any] = {}
     result["title"] = source.get("title_en") or source.get("title")
     result["title_zh"] = source.get("title")
-    for key in ("date", "updated", "categories", "tags", "author", "mathjax", "cover", "banner", "thumbnail", "hidden", "comment", "template", "type", "layout"):
+    for key in SHARED_METADATA:
         if key in source:
             result[key] = source[key]
     excerpt = source.get("excerpt_en") or source.get("description_en") or source.get("excerpt")
@@ -263,6 +261,40 @@ def target_for(source: Path) -> Path:
     return ROOT / "source_en" / relative
 
 
+def sync_metadata(source: dict[str, Any], target_text: str, body_hash: str, stem: str) -> str:
+    """Refresh generated metadata without touching the existing translated body."""
+    current, _ = split_source(target_text)
+    expected = english_front_matter(source, body_hash, stem)
+    # Remove obsolete source-owned optional fields while preserving English-only fields.
+    managed = set(SHARED_METADATA) | set(expected) | {"excerpt", "description", "excerpt_zh", "permalink"}
+    merged = {key: value for key, value in current.items() if key not in managed}
+    merged.update(expected)
+    if merged == current:
+        return target_text
+    match = re.match(r"^---\r?\n[\s\S]*?\r?\n---(?=\r?\n|$)", target_text)
+    if not match:
+        raise ValueError("English source has no YAML front matter")
+    head = yaml.safe_dump(merged, allow_unicode=True, sort_keys=False, width=120).rstrip()
+    newline = "\r\n" if target_text.startswith("---\r\n") else "\n"
+    return f"---\n{head}\n---".replace("\n", newline) + target_text[match.end():]
+
+
+def translation_cache(shard_count: int, shard: int) -> TranslationCache:
+    # Metadata-only updates and --check do not need a translation model.
+    try:
+        import argostranslate.translate as argos_translate
+    except ImportError as exc:
+        raise SystemExit(
+            "Argos Translate is unavailable. Install it into "
+            ".codex-artifacts/argos-runtime and install the zh→en package."
+        ) from exc
+    translation = argos_translate.get_translation_from_codes("zh", "en")
+    if translation is None:
+        raise SystemExit("The local zh→en Argos package is not installed.")
+    cache_name = "translation-cache-zh-en.json" if shard_count == 1 else f"translation-cache-zh-en-{shard}.json"
+    return TranslationCache(ROOT / ".codex-artifacts" / cache_name, translation)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=0)
@@ -275,11 +307,7 @@ def main() -> int:
     if args.shard_count < 1 or not 0 <= args.shard < args.shard_count:
         parser.error("--shard must be between 0 and --shard-count - 1")
 
-    translation = argos_translate.get_translation_from_codes("zh", "en")
-    if translation is None:
-        raise SystemExit("The local zh→en Argos package is not installed.")
-    cache_name = "translation-cache-zh-en.json" if args.shard_count == 1 else f"translation-cache-zh-en-{args.shard}.json"
-    cache = TranslationCache(ROOT / ".codex-artifacts" / cache_name, translation)
+    cache = None
 
     files = source_files()
     if args.shard_count > 1:
@@ -294,24 +322,30 @@ def main() -> int:
             front, markdown = split_source(source_text)
             body_hash = sha256(markdown)
             target = target_for(source_path)
-            if target.exists() and not args.force:
-                target_front, _ = split_source(target.read_text(encoding="utf-8"))
-                if target_front.get("translation_status") == "original":
-                    continue
-                if target_front.get("translation_source_hash") == body_hash:
-                    continue
-            if target.exists() and args.force:
-                target_text = target.read_text(encoding="utf-8")
+            if target.exists():
+                target_text = target.read_bytes().decode("utf-8")
                 target_front, target_body = split_source(target_text)
+                if target_front.get("translation_status") == "original" and not args.force:
+                    continue
                 if (
                     target_front.get("translation_source_hash") == body_hash
-                    and cjk_count(target_body) <= 200
+                    and (not args.force or cjk_count(target_body) <= 200)
                 ):
+                    refreshed = sync_metadata(front, target_text, body_hash, source_path.stem)
+                    if refreshed != target_text:
+                        if args.check:
+                            stale.append(str(source_path.relative_to(ROOT)))
+                        else:
+                            target.write_bytes(refreshed.encode("utf-8"))
+                            changed += 1
+                            print(f"[translate] metadata {source_path.name}", flush=True)
                     continue
             if args.check:
                 stale.append(str(source_path.relative_to(ROOT)))
                 continue
 
+            if cache is None:
+                cache = translation_cache(args.shard_count, args.shard)
             rendered = render_markdown(markdown)
             translated = rewrite_english_internal_links(translate_html(rendered, cache))
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -322,7 +356,8 @@ def main() -> int:
             changed += 1
             print(f"[translate] {index}/{len(files)} {source_path.name}", flush=True)
     finally:
-        cache.flush()
+        if cache is not None:
+            cache.flush()
 
     if args.check and stale:
         print("[translate] stale or missing English sources:")

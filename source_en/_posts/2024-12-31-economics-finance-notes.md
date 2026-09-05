@@ -15,6 +15,7 @@ lang: en
 translation_key: 2024-12-31-economics-finance-notes
 translation_status: machine
 translation_source_hash: c7899bc8216b1993ce622c52d28f5d1ac909159b44f43f06f2b20dadbd87204d
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

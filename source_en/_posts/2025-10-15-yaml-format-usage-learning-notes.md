@@ -4,7 +4,7 @@ title_zh: YAML 格式与使用速成
 date: 2025-10-15 23:55:21 +0800
 categories:
 - Programming
-- Computer Science Fundamentals
+- CS Foundations
 tags:
 - YAML
 - Data Engineering

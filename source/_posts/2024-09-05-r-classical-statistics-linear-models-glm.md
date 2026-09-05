@@ -2,7 +2,7 @@
 title: "R 经典统计：估计、检验、线性模型与 GLM"
 title_en: "R Classical Statistics: Estimation, Tests, Linear Models, and GLMs"
 date: 2024-09-05 12:20:32 +0800
-categories: ["Programming", "R"]
+categories: ["Programming", "Programming Languages"]
 tags: ["R", "Classical Statistics"]
 author: Hyacehila
 excerpt: "整理描述性统计、参数估计、假设检验、线性模型、方差分析、非线性回归和 GLM。"

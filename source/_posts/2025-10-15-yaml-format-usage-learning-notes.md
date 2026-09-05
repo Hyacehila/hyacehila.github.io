@@ -2,7 +2,7 @@
 title: "YAML 格式与使用速成"
 title_en: "YAML: Syntax, Use Cases, and Practical Parsing"
 date: 2025-10-15 23:55:21 +0800
-categories: ["Programming", "Computer Science Fundamentals"]
+categories: ["Programming", "CS Foundations"]
 tags: ["YAML", "Data Engineering"]
 author: Hyacehila
 excerpt: "整理 YAML 的基本语法、配置文件场景、Python/JS 读写方法，以及缩进、类型推断、锚点、重复 key 等常见坑。"

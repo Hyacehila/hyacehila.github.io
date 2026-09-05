@@ -27,7 +27,7 @@ translation_source_hash: 47f4452b74fadc546a78177b48005ce271e3256acc41786d85a3e52
 
 <h2>HTML Profile</h2>
 <p>HTML is a language used to describe a web page, fully known as Hyper-Text Markup Language, or hypertext tagging language. The text, buttons, pictures, videos, etc. that we see when we view the web page are presented through HTML writing and through browsers. This will be at the heart of our presentation at the front end.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/04/19/from-ai-agent-demo-to-large-scale-service-backend-capability-map/">From AI Agent Demo to large-scale service</a>、<a href="/en/blog/2026/06/08/fact-layer-interface-layer-markdown-html/">Factual and Interface Level: Markdown and HTML are not a substitute</a>How the concept of a relatively close read together is developed in different contexts.</p>
+<p>Read this article alongside <a href="/en/blog/2026/06/08/fact-layer-interface-layer-markdown-html/">Factual and Interface Level: Markdown and HTML are not a substitute</a> to compare how related concepts develop in different contexts.</p>
 <p>In October 2014, HTML5 was issued as the recommended criterion for stabilizing W3C, which means that the standardization of HTML5 has been completed. HTML is already a very mature language, and he is the basis for follow-up throughout the front end.</p>
 <p>All computers with browsers are able to view HTML files, using browsers only to modify the suffix, or using some plugins to modify and preview HTML codes in VSC.</p>
 <h2>HTML Foundation</h2>

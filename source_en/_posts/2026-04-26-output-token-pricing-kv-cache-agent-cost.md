@@ -7,7 +7,7 @@ categories:
 - Agent Infrastructure
 tags:
 - Cost Engineering
-- Backend Engineering
+- AI Engineering
 author: Hyacehila
 excerpt: Output tokens are expensive mainly because decoding is serial, KV cache consumes memory, and generation occupies
   scheduler slots. Agent cost optimization requires controlling output budgets.

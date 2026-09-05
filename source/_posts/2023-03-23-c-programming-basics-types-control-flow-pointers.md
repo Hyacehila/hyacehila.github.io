@@ -2,7 +2,7 @@
 title: "C 语言程序设计基础：类型、控制流、数组与指针"
 title_en: "C Programming Basics: Types, Control Flow, Arrays, and Pointers"
 date: 2023-03-23 23:35:43 +0800
-categories: ["Programming", "C & C++"]
+categories: ["Programming", "Programming Languages"]
 tags: ["C"]
 author: Hyacehila
 excerpt: "整理语言概览、编译环境、关键词、数据类型、运算符、语句、循环、数组、函数和指针。"

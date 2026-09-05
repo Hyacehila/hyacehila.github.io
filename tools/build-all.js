@@ -4,6 +4,8 @@
 const { spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const yaml = require('js-yaml');
+const { writeTaxonomyRedirects } = require('./taxonomy-redirects');
 
 const root = path.resolve(__dirname, '..');
 const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx';
@@ -124,6 +126,8 @@ if (fs.existsSync(stagedEnglish)) {
 }
 rewriteFixedRoutes(path.join(root, 'public'));
 normalizeMasonryScriptOrder(path.join(root, 'public'));
+writeTaxonomyRedirects(yaml.load(fs.readFileSync(path.join(root, '_config.yml'), 'utf8')), path.join(root, 'public'));
 run(process.execPath, ['scripts/validate-i18n.js']);
 run(process.execPath, ['scripts/validate-search.js']);
 run(process.execPath, ['tools/validate-seo.js']);
+run(process.execPath, ['tools/validate-publication.js']);

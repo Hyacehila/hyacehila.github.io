@@ -14,6 +14,7 @@ lang: en
 translation_key: 2024-12-30-financial-markets
 translation_status: machine
 translation_source_hash: 71a4d00b18b4c6e3046364400a3f7fba4ebb812f17b71f947ab2d2ff71aedee5
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

@@ -15,6 +15,7 @@ lang: en
 translation_key: 2023-03-18-real-analysis-notes
 translation_status: machine
 translation_source_hash: c0ea7ab8b53b6e3235ef1adc6935091030c70f654c419e2aab1f291fa93292a1
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

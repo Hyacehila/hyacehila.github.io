@@ -18,6 +18,7 @@ lang: en
 translation_key: 2023-09-04-linear-regression-basics-notes
 translation_status: machine
 translation_source_hash: 361927c294117149e90d53bad01463a83ba348ae3a46e49b83a90bff5c1f2a42
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

@@ -2,7 +2,7 @@
 title: "R 基础：对象、向量、数据框、函数与数据分析"
 title_en: "R Basics: Objects, Vectors, Data Frames, Functions, and Data Analysis"
 date: 2024-09-05 10:29:12 +0800
-categories: ["Programming", "R"]
+categories: ["Programming", "Programming Languages"]
 tags: ["R", "Data Management", "Exploratory Data Analysis"]
 author: Hyacehila
 excerpt: "系统整理 R 的对象、向量、矩阵、数据框、列表、时间序列、函数与常用内置函数，并覆盖数据导入、数据管理、缺失值处理和探索性数据分析。"

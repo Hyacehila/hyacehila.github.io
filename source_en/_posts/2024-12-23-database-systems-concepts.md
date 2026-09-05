@@ -5,7 +5,7 @@ date: 2024-12-23 19:42:58 +0800
 permalink: /blog/2024/12/23/database-systems-concepts/
 categories:
 - Programming
-- Computer Science Fundamentals
+- CS Foundations
 tags:
 - Database Systems
 - Relational Databases
@@ -17,6 +17,7 @@ lang: en
 translation_key: 2024-12-23-database-systems-concepts
 translation_status: machine
 translation_source_hash: fc5cb49e23a073cfc8af20b1a247aa0b7d32d85a795de9d3de69772f8fb7cc59
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

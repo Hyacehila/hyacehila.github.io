@@ -18,6 +18,7 @@ lang: en
 translation_key: 2024-05-24-generalized-linear-regression-notes
 translation_status: machine
 translation_source_hash: 7f15f19630927537bfa79bef423ee1ed26bbf7a8fc69fac3d71c88dd3d9b8012
+hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>

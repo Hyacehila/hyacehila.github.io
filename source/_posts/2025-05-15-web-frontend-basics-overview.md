@@ -15,7 +15,7 @@ permalink: '/blog/2025/05/15/web-frontend-basics-overview/'
 ## HTML简介
 HTML 是用来描述网页的一种语言，全称是 Hyper-Text Markup Language，即超文本标记语言。我们浏览网页时看到的文字、按钮、图片、视频等元素，它们都是通过 HTML 书写并通过浏览器来呈现的。这将是我们介绍前端的核心。
 
-这篇文章中的问题也可以和[从 AI Agent Demo 到大规模服务](/blog/2026/04/19/from-ai-agent-demo-to-large-scale-service-backend-capability-map/)、[事实层与界面层：Markdown 与 HTML 不是替代关系](/blog/2026/06/08/fact-layer-interface-layer-markdown-html/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+这篇文章中的问题也可以和[事实层与界面层：Markdown 与 HTML 不是替代关系](/blog/2026/06/08/fact-layer-interface-layer-markdown-html/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 2014年10月，HTML5作为稳定W3C推荐标准发布，这意味着HTML5的标准化已经完成。HTML已经是一个非常成熟的语言，他是整个前端的后续介绍的基础。
 

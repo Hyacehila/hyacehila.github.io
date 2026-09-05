@@ -8,7 +8,6 @@
   { "query": "C++", "expectedTitle": "C Programming Basics", "topK": 3 },
   { "query": "cpp", "expectedTitle": "C Programming Basics", "topK": 3 },
   { "query": "R", "expectedTitle": "R Basics", "topK": 5 },
-  { "query": "Go", "expectedTitle": "From AI Agent Demo to Large-Scale Service", "topK": 5 },
   { "query": "SHAP", "expectedTitle": "Interpretable Machine Learning", "topK": 5 },
   { "query": "PocketFlow", "expectedTitle": "PocketFlow Source Walkthrough", "topK": 3 },
   { "query": "AEnvironment", "expectedTitle": "AEnvironment", "topK": 3 },

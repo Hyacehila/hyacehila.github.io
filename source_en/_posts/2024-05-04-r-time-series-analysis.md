@@ -4,7 +4,7 @@ title_zh: R 时间序列分析：ts、zoo、xts、ARIMA 与 VAR
 date: 2024-05-04 21:38:03 +0800
 categories:
 - Programming
-- R
+- Programming Languages
 tags:
 - R
 - Time Series

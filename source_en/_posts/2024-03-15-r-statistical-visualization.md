@@ -4,7 +4,7 @@ title_zh: R 统计可视化：单变量、多变量与函数型数据图形
 date: 2024-03-15 16:54:45 +0800
 categories:
 - Programming
-- R
+- Programming Languages
 tags:
 - R
 - Data Visualization

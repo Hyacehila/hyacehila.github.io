@@ -464,20 +464,11 @@ hexo.extend.generator.register('seo-sitemaps', function (locals) {
   });
   ['/me/','/cv/','/projects/','/photos/','/footprints/','/categories/'].forEach(item => enUrls.add(`${base}${item}`));
   const index = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>${base}/sitemap-zh.xml</loc></sitemap><sitemap><loc>${base}/sitemap-en.xml</loc></sitemap></sitemapindex>\n`;
-  const redirects = Object.entries(seo.tag_aliases || {}).map(([from, to]) => {
-    const oldPath = `/tags/${slugify(from)}/`;
-    const target = `${base}/tags/${slugify(to)}/`.replace(/([^:]\/)\/+/g, '$1');
-    return {
-      path: `${oldPath.replace(/^\/+/, '')}index.html`,
-      data: `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><link rel="canonical" href="${escapeXml(target)}"><meta http-equiv="refresh" content="0;url=${escapeXml(target)}"><title>Redirect</title></head><body><a href="${escapeXml(target)}">Continue</a></body></html>`
-    };
-  });
   const zhList = Array.from(zhUrls).filter(url => !Array.from(enUrls).includes(url));
   const enList = Array.from(enUrls);
   return [
     { path: 'sitemap.xml', data: index },
     { path: 'sitemap-zh.xml', data: urlset(zhList.sort().map(url => sitemapUrl(url, routePath(url) === '/' || routePath(url).startsWith('/blog/')))) },
-    { path: 'sitemap-en.xml', data: urlset(enList.sort().map(url => sitemapUrl(url, routePath(url) === '/en/' || routePath(url).startsWith('/en/blog/')))) },
-    ...redirects
+    { path: 'sitemap-en.xml', data: urlset(enList.sort().map(url => sitemapUrl(url, routePath(url) === '/en/' || routePath(url).startsWith('/en/blog/')))) }
   ];
 });
