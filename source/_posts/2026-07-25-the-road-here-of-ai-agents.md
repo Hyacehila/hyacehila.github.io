@@ -58,7 +58,7 @@ RAG 因此成了那几年的默认答案。向量数据库拿到大笔融资，�
 
 我们花了两年时间，把“怎么把知识送进去”做得极其精细，却几乎没有人做“怎么把结果拿回来”。这条不对称，我们会在主文再次提到。
 
-如果你对 RAG 本身好奇，可以参考[《文本嵌入：从词袋模型到 Qwen3 Embedding》](/blog/2024/09/25/text-embedding-from-bow-to-qwen3/)、[《Embedding Atlas：用可视化理解 RAG 的嵌入空间》](/blog/2026/05/29/embedding-atlas-rag-embedding-visualization/)和[《AI Agent 如何从互联网获取信息》](/blog/2026/06/10/ai-agent-retrieval-tools/)；至于知识被送进去之后，如何在上下文和记忆里被组织，可以先看[《Context is All You Need》](/blog/2026/06/11/agent-context-engineering/)与[《从记忆形成到记忆治理》](/blog/2026/03/21/agent-memory-panorama/)，后面我们还会回到这个问题。
+如果你对 RAG 本身好奇，可以参考[《文本嵌入：从词袋模型到 Qwen3 Embedding》](/blog/2024/09/25/text-embedding-from-bow-to-qwen3/)和[《AI Agent 如何从互联网获取信息》](/blog/2026/06/10/ai-agent-retrieval-tools/)；至于知识被送进去之后，如何在上下文和记忆里被组织，可以先看[《Context is All You Need》](/blog/2026/06/11/agent-context-engineering/)与[《从记忆形成到记忆治理》](/blog/2026/03/21/agent-memory-panorama/)，后面我们还会回到这个问题。
 
 ### LangGraph、LangChain 与 Workflow
 

@@ -1,7 +1,6 @@
 [
   { "query": "MCP", "expectedTitle": "MCP (Model Context Protocol)", "topK": 3 },
   { "query": "model context protocol", "expectedTitle": "MCP (Model Context Protocol)", "topK": 3 },
-  { "query": "RAG", "expectedTitle": "Embedding Atlas", "topK": 3 },
   { "query": "RL", "expectedTitle": "Agentic RL", "topK": 3 },
   { "query": "reinforcement learning alignment", "expectedTitle": "Reinforcement Learning in LLM Alignment", "topK": 5 },
   { "query": "BM25", "expectedTitle": "Text Embedding", "topK": 3 },

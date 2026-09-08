@@ -20,13 +20,13 @@ permalink: /blog/2026/06/10/ai-agent-retrieval-tools/
 lang: en
 translation_key: 2026-06-10-ai-agent-retrieval-tools
 translation_status: machine
-translation_source_hash: 1c98f55848cf8fb0cafb9fd172ef7c44e128ef33a03f414e836641ce745532e5
+translation_source_hash: 39abd311f7ed31bbdc7dd45d27d5abca1d3c951030ba1e86ea039f3b0b6c6a88
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>The names Tavily, Exa, Firecrawl, Crawl4AI, Jina Reader, Nimble, GPT Researcher, Open Deep Research, are listed in a row, and can easily be written into tool encyclopedia. A subsection on each tool, describing functionality, prices, applicable scenes. You can read a bunch of terms, but you still don't know which floor you're going to take.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/05/29/embedding-atlas-rag-embedding-visualization/">Embedding Atlas: understand the embedded space of RAG with visualization</a>、<a href="/en/blog/2026/08/18/how-i-build-rag/">RG: From project practice to system approach</a>How the concept of a relatively close read together is developed in different contexts.</p>
+<p>This article can also be read alongside <a href="/en/blog/2026/08/18/how-i-build-rag/">How I Build RAG: From Project Experience to a Systematic Approach</a> to see how related ideas develop in different contexts.</p>
 <p>I would like to ask another question: how does AI Agent get the information available on the Internet?</p>
 <p>For humans, the Internet is usually a browser, a search box, a web page and a link. For Agent, it is a long information conduit: first, to identify possible sources, then to open the page, to extract the text, to remove navigation and advertising, to convert dynamic pages or PDF into modelable text, and then to sift out duplicate, obsolete and conflicting segments, and then to enter the context with references. Any part of the middle is broken and the following is simply a copy of the material.</p>
 <p>So instead of being presented by the manufacturer, the article looks down the line. Search, web-page capture and structured cleansing are not the same issues. But they're all connected to Agent's access to information from the Internet.</p>

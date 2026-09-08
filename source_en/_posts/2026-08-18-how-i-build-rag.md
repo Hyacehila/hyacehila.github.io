@@ -26,13 +26,12 @@ permalink: /blog/2026/08/18/how-i-build-rag/
 lang: en
 translation_key: 2026-08-18-how-i-build-rag
 translation_status: machine
-translation_source_hash: 39ea157a0993ceba2a21dcc79986765246628ab2e4d0405df9c1e36f118b0532
+translation_source_hash: 37286e1db1c396254e195ab5d73f0cc9ec0425ac52649cf57221a158d8c6d7bb
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>In this blog, I would like to talk about how I understand and how I can complete a RAG system and consider optimizing it.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/05/29/embedding-atlas-rag-embedding-visualization/">Embedding Atlas: understand the embedded space of RAG with visualization</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>When I first started studying AI Agent, I was not very interested in the RAG technique; the tips for a few samples were initially valuable, but when the knowledge base was larger and humans were trained in its more adequate models, they could shift from a point to a point where the model was designed to solve the problem to one that limits its ability to act. Building an AI Agent requires a balance between restraint and freedom, and I always thought that RAG was a compromise technique, and we should focus on building the system itself, and RAG is just one component of it.</p>
 <p>But there have been some changes in thinking, and I thought about it in July, when I re-taked the AIAgent technology of the last six months. Perhaps RAG has a future, where training can be knowledgeable and well-intended, but not the reality of the world's multiplicity of habits. At this point, to collect and clean data and to think about how knowledge should be stored and iterative, we may be doing a QA Bot for the time being, but our goal is to build a systematic knowledge system that will allow AI to understand the complex reality of the world and real engineering. Maybe that's what it means to study RAG now.</p>
 <p>This Blog will be more based on some practical approaches to how I construct a RAG system on different issues; how to separate the factual layer, enhance it, and search it; how to understand Agentic RAG and the most basic information queries and aggregations; and how to find suitable solutions in the many and costed RAG methods available on the market. We will bring technology from the problems themselves, rather than giving the reader a large comparative table that seems useful.</p>
