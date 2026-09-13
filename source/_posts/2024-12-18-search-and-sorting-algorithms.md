@@ -5,965 +5,997 @@ date: 2024-12-18 21:37:43 +0800
 categories: ["Programming", "CS Foundations"]
 tags: ["Algorithms", "Search", "Sorting"]
 author: Hyacehila
-excerpt: "整理顺序查找、二分查找、二叉排序树、散列表、排序算法和相关 C 语言实现。"
-excerpt_en: "Covers sequential search, binary search, binary search trees, hash tables, sorting algorithms, and related C implementations."
+excerpt: "整理顺序查找、二分查找、二叉排序树、散列表、排序算法及其 Python 实现。"
+excerpt_en: "Covers sequential search, binary search, binary search trees, hash tables, sorting algorithms, and related Python implementations."
 mathjax: true
 hidden: true
 permalink: '/blog/2024/12/18/search-and-sorting-algorithms/'
 ---
+
 ## 查找
 
-这篇文章中的问题也可以和[数据结构导论：线性表、树、图与查找排序](/blog/2025/05/12/data-structures-introduction/)、[算法设计与分析：分治、动态规划与图算法](/blog/2025/05/13/algorithm-design-and-analysis/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
+这篇文章可以和[数据结构导论：线性表、树、图与查找排序](/blog/2025/05/12/data-structures-introduction/)、[算法设计与分析：分治、动态规划与图算法](/blog/2025/05/13/algorithm-design-and-analysis/)一起阅读。几篇文章涉及的概念相近，但侧重点不同。
 
-这是一类非常巨大的问题 Search是任何一个程序员都要会并且经常使用的工具 也是现代科学发展的核心 有的可能专门就是学习查找工具的
+查找是程序中经常出现的操作，也是学习数据结构时绕不开的主题。问题通常很直接：给定一组数据和一个关键字，如何尽快找到对应记录？数据规模、是否有序、是否需要插入或删除，都会影响查找方法和数据结构的选择。
 
 ### 查找概论
 
-所有需要被查询的数据所在的集合称为**查找表** Search Table
+存放待查记录的集合称为**查找表**（search table）。
 
-**关键词** key是 数据元素中某一项  他可以标识一个数据元素 也可以标识一个字段（关键码）
+**关键字**（key）是数据元素中的某个字段，可以用来标识一个数据元素，也可以用来标识一个记录中的字段。
 
-如果关键词可以唯一标识一个记录 则是称他是 **主关键词** Primary Key 反之称为次关键词 Secondary Key 他们也对应关键码
+如果一个关键字能够唯一标识一条记录，就称为**主关键字**（primary key）；否则称为**次关键字**（secondary key）。这两个概念也常被简称为主码和次码。
 
-所谓的查找就是根据一个值 找到对应的记录
+查找就是根据给定的关键字，找到对应记录。查找成功时返回记录的位置或记录本身；查找失败时，通常返回 `None` 或约定的无效下标。
 
-我们在查找成功的时候返回位置 否则返回空指针（一般）
+按照操作过程中是否允许修改数据，查找表可以分为静态查找表和动态查找表：
 
-按照操作方式 我们把查找表分为静态查找表和动态查找表
+- **静态查找表**：只进行查询，不插入或删除数据。
+- **动态查找表**：在查询过程中还要插入或删除数据元素。
 
-**静态查找表** 就是我们一般意义上的查找 在一堆数据里面找自己想要的
+为了提高查找效率，需要为查找操作选择合适的数据结构。静态查找通常可以使用线性表；动态查找可以考虑二叉搜索树；如果只需要根据关键字直接定位，而不需要范围查询，则可以考虑散列表。
 
-**动态查找表** 会在查找的过程中插入或者删除数据元素  
-
-为了提高查找的效率 我们往往为查找操作设置合适的数据结构  合适的数据结构的选取是为了在查找的时候获得更高的查找性能
-
-合适的结构 就是我们在后面要讨论的 一般情况下 静态查找选择线性表 动态查找考虑二叉排序树 部分特殊情况选择散列表
-
-### 顺序表查找
+### 线性表查找
 
 #### 顺序查找
 
-此时数据元素是无序的线性表 我们没什么好用的技巧 挨个比对是唯一的办法 代码示意如下
+当数据元素存放在无序的线性表中时，没有可以利用的顺序信息，最直接的方法就是从头到尾逐个比较。下面的代码定义了一个简单的顺序表，然后分别实现普通查找和带哨兵的查找。
 
-```c
-int linear_search(int arr[N], int value) {
-    int i;
-    for (i = 0; i < N; i++) {
-        if (arr[i] == value) {
-            return i;
-        }
-    }
-    return 0;
-}
-//优化代码 避免一次越界检测
-int linear_search(int arr[N], int value) {
-    int i;
-    a[0]=key;
-    i=n;
-    while(a[i]!=key){
-        i--;
-    }
-    return i;
-}
+```python
+from dataclasses import dataclass
+from typing import Generic, TypeVar
+
+T = TypeVar("T")
+
+
+@dataclass
+class SequenceTable(Generic[T]):
+    """用 Python 列表封装的顺序表。"""
+
+    items: list[T]
+
+    def __len__(self) -> int:
+        return len(self.items)
+
+    def __getitem__(self, index: int) -> T:
+        return self.items[index]
+
+
+def linear_search(table: SequenceTable[int], target: int) -> int:
+    """返回 target 的下标；查找失败时返回 -1。"""
+    for index, value in enumerate(table.items):
+        if value == target:
+            return index
+    return -1
+
+
+def linear_search_with_sentinel(table: SequenceTable[int], target: int) -> int:
+    """在表尾临时添加哨兵，省去循环中的一次边界判断。"""
+    table.items.append(target)
+    index = 0
+    while table.items[index] != target:
+        index += 1
+    table.items.pop()
+    return index if index < len(table) else -1
+
+
+table = SequenceTable([7, 3, 9, 1])
+print(linear_search(table, 9))
+print(linear_search_with_sentinel(table, 8))
 ```
 
-#### 有序表查找 
+顺序查找不要求数据有序，时间复杂度为 (O(n))。哨兵只能减少边界判断，不能改变最坏时间复杂度。
 
-如果原本的元素按照某个顺序排列 这对于我们的查找就有很大的帮助了
+#### 有序表查找
+
+如果元素已经按照某个关键字排序，就可以利用这种顺序缩小查找范围。二分查找、插值查找和斐波那契查找都建立在有序表之上。
 
 #### 二分查找
 
-```c
-int search(int nums[], int size, int target) //nums是数组，size是数组的大小，target是需要查找的值
-{
-    int left = 0;
-    int right = size - 1;	// 定义了target在左闭右闭的区间内，[left, right]
-    while (left <= right) {	//当left == right时，区间[left, right]仍然有效
-        int middle = left + ((right - left) / 2);//等同于 (left + right) / 2 /符号自动取整
-        if (nums[middle] > target) {
-            right = middle - 1;	//target在左区间，所以[left, middle - 1]
-        } else if (nums[middle] < target) {
-            left = middle + 1;	//target在右区间，所以[middle + 1, right]
-        } else {	//既不在左边，也不在右边，那就是找到答案了
-            return middle;
-        }
-    }
-    return -1;
-}
-//原理非常容易 处理好边界就可以了 不复杂
+二分查找每次检查区间中间的元素。如果中间元素大于目标值，就继续查找左半区间；如果小于目标值，就查找右半区间。下面的实现使用左闭右闭区间 `[left, right]`。
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class OrderedTable:
+    """保存升序整数的有序表。"""
+
+    items: list[int]
+
+    def __post_init__(self) -> None:
+        if self.items != sorted(self.items):
+            raise ValueError("items 必须按升序排列")
+
+    def __len__(self) -> int:
+        return len(self.items)
+
+
+def binary_search(table: OrderedTable, target: int) -> int:
+    left, right = 0, len(table) - 1
+    while left <= right:
+        middle = left + (right - left) // 2
+        value = table.items[middle]
+        if value < target:
+            left = middle + 1
+        elif value > target:
+            right = middle - 1
+        else:
+            return middle
+    return -1
+
+
+numbers = OrderedTable([1, 3, 7, 9, 12])
+print(binary_search(numbers, 9))
 ```
+
+二分查找的时间复杂度为 (O(\log n))，前提是表中的元素已经有序，并且能够通过下标快速访问。
 
 #### 插值查找
 
-能从一半的地方开始 别处不行吗？ 数学家们给出了自己的答案 插值查找公式
+二分查找总是取中间位置。对于关键字分布比较均匀的有序表，可以根据目标值在首尾关键字之间的相对位置估计查找位置，这就是插值查找。估计位置为：
 
-```c
-mid = low + (high-low)*(key-a[low])/(a[high]-a[low]);
+\[
+mid = low + \frac{(high-low)(key-a[low])}{a[high]-a[low]}
+\]
+
+当首尾元素相等时不能使用这个公式，否则会发生除零错误。插值查找适合关键字分布均匀的场景；分布不均匀时，它不一定优于二分查找。
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class InterpolationTable:
+    """保存升序整数，并提供插值查找所需的下标访问。"""
+
+    items: list[int]
+
+    def __post_init__(self) -> None:
+        if self.items != sorted(self.items):
+            raise ValueError("items 必须按升序排列")
+
+
+def interpolation_search(table: InterpolationTable, target: int) -> int:
+    low, high = 0, len(table.items) - 1
+    while low <= high and table.items[low] <= target <= table.items[high]:
+        if table.items[low] == table.items[high]:
+            return low if table.items[low] == target else -1
+
+        mid = low + (high - low) * (target - table.items[low]) // (
+            table.items[high] - table.items[low]
+        )
+        if table.items[mid] < target:
+            low = mid + 1
+        elif table.items[mid] > target:
+            high = mid - 1
+        else:
+            return mid
+    return -1
+
+
+table = InterpolationTable([10, 20, 30, 40, 50, 60])
+print(interpolation_search(table, 40))
 ```
-
-使用插值公式 有时候能增加查找的效率 比如数组很长并且均匀的时候
 
 #### 斐波那契查找
 
-也是从分隔点入手的 由于F（n）= F（n-1）+ F（n-2） 所以我们选择把数组分成这样的两部分
+斐波那契查找使用斐波那契数列确定分隔位置。数列满足 (F(n)=F(n-1)+F(n-2))，查找区间也按照相应比例缩小。下面的代码在必要时用最后一个元素补齐逻辑数组，避免访问越界；返回值仍然是原表中的下标。
 
-```c
-int Fibonacci_Search(int *a, int key, int n)
-{
-	int i, low = 0, high = n - 1;
-	int mid = 0;
-	int k = 0;
-	int F[ARRSIZE];
-	InitFibonacci(F);
-	while (n > F[k] - 1)          //计算出n在斐波那契中的数列  
-	{
-		++k;
-	}
-	for (i = n; i < F[k] - 1; ++i) //把数组补全  最大补全到后面的位置
-	{
-		a[i] = a[high];
-	}
-	while (low <= high)
-	{
-		mid = low + F[k - 1] - 1;  //根据斐波那契数列进行黄金分割  
-		if (a[mid] > key)
-		{
-			high = mid - 1;
-			k = k - 1;
-		}
-		else if (a[mid] < key)
-		{
-			low = mid + 1;
-			k = k - 2;
-		}
-		else
-		{
-			if (mid <= high) //如果为真则找到相应的位置  
-			{
-				return mid;
-			}
-			else 
-			{
-				return n;
-			}
-		}
-	}
-	return 0;
-}
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class FibonacciTable:
+    """保存升序整数的有序表，查找时不修改原始数据。"""
+
+    items: list[int]
+
+    def __post_init__(self) -> None:
+        if self.items != sorted(self.items):
+            raise ValueError("items 必须按升序排列")
+
+
+def fibonacci_search(table: FibonacciTable, target: int) -> int:
+    size = len(table.items)
+    if size == 0:
+        return -1
+
+    fib_previous, fib_current = 0, 1
+    while fib_current < size:
+        fib_previous, fib_current = fib_current, fib_previous + fib_current
+
+    offset = -1
+    while fib_current > 1:
+        index = min(offset + fib_previous, size - 1)
+        if table.items[index] < target:
+            fib_current, fib_previous = fib_previous, fib_current - fib_previous
+            offset = index
+        elif table.items[index] > target:
+            fib_current, fib_previous = fib_current - fib_previous, fib_previous - (fib_current - fib_previous)
+        else:
+            return index
+
+    if fib_previous and offset + 1 < size and table.items[offset + 1] == target:
+        return offset + 1
+    return -1
+
+
+table = FibonacciTable([1, 3, 5, 8, 13, 21])
+print(fibonacci_search(table, 13))
 ```
 
 ### 线性索引查找
 
-如果数据量非常庞大 让他们有序排列是肯定不可能的 但是我们能否让无序的排列有一点规律可言吗 当然可以 图书馆的书都是使用索引这个中介方便我们查找的 把关键词和一个对应的记录绑定 我们无序排列也能有序查找 
+当数据量很大、无法直接把所有记录排成一个整体有序序列时，可以为数据建立索引。索引把关键字与记录位置关联起来，查找时先定位索引，再到原始数据中查找记录。
 
-索引结构一般分为 **线性索引 树形索引 多级索引** 我们这里着重介绍线性索引结构
+索引结构通常分为**线性索引、树形索引和多级索引**。这里重点介绍线性索引。
 
 #### 稠密索引
 
-每一个数据集中的记录都对应一个索引项 索引项一定是按照关键码有序排列的 稠密索引可能导致的问题是大量数据导致索引项过多
+数据集中的每条记录都有对应的索引项，索引项按照关键字有序排列。稠密索引查找方便，但记录很多时，索引本身也会占用较多空间。
 
 #### 分块索引
 
-图书馆的图书本质上就是分块索引 我们把原本的图书分块 块内无序（架子上的书） 块间有序  我们在块内查找具体元素的时候选择最基本的顺序查找 分块索引在数据库中非常的常用 因为他有专人在维护并且人力消耗不大
+分块索引把数据分成若干块，块内可以无序，块间按照关键字范围有序。查找时先定位数据块，再在块内进行顺序查找。图书馆按书架整理图书，就是这种思想的直观例子。
 
 #### 倒排索引
 
-这其实是搜索引擎比较常用的技术 很容易发现 搜索引擎的效率好像高的可怕 我们这里只会进行简单的介绍 真正的搜索引擎技术需要长期的学习和积累
+倒排索引是搜索系统常用的结构。它把文档中出现的关键词提取出来，再记录每个关键词对应的文档编号。用户输入关键词后，系统可以直接通过关键词索引找到相关文档，而不必逐个扫描所有文档。
 
-我们把可能出现的所有关键词单独提取 并且找到他们对应的原始文件编号 此时再输入关键词的时候 搜索效率就会非常高 因为我们可以把提取的关键词进行排序或者制造索引结构
-
-这种索引技术就被称为倒排索引 inverted index 他的核心结构是关键码和记录号表 
+倒排索引（inverted index）的核心是“关键字 → 记录号列表”的映射。关键字表和记录号列表可以继续使用数组、树或散列表组织。
 
 ### 二叉排序树
 
-我们现在来尝试一下 **动态查找表**    我们希望一方面查找效率不错 另一方面能够方便插入和删除 正如本章的标题 我们希望借助二叉树来实现 在构造二叉树方面 我们把新元素和原本树里面的元素一层一层的比较大小 小的放左边 大的选右边 一层一层来 最后得到的二叉树进行中序遍历的时候就是一个有序的数列 这就是二叉排序树 Binary Sort Tree 他有一下性质
+动态查找表既要支持查找，也要方便插入和删除。二叉排序树（binary search tree，BST）通过比较关键字建立这种结构：较小的值放在左子树，较大的值放在右子树。对二叉排序树进行中序遍历，可以得到一个有序序列。
 
-* 如果左子树不空 左子树所有结点的值小于他跟结构的值
-* 如果右子树不空 右子树所有结点的值大于根节点的值
-* 左右子树分别为二叉排序树
+二叉排序树具有以下性质：
 
-很明面 递归是我们研究二叉树不能错过的话题 构造二叉排序树不是为了排序 而是为了方便查找和插入与删除 下面是一些代码实现
+- 如果左子树不为空，左子树中所有结点的值都小于根结点的值。
+- 如果右子树不为空，右子树中所有结点的值都大于根结点的值。
+- 左、右子树也分别是二叉排序树。
 
-```c
-typedef int DataType;
-typedef struct BST_Node {
-    DataType data;
-    struct BST_Node *lchild, *rchild;
-}BST_T, *BST_P;
-//我们先默认有一棵二叉排序树 建立放到插入后面讲 很快就会理解意思
-BST_P SearchMin(BST_P root)
-{
-    if (root == NULL)
-        return NULL;
-    if (root->lchild == NULL)
-        return root;
-    else  //一直往左孩子找，直到没有左孩子的结点  
-        return SearchMin(root->lchild);
-}
-//查找最大原理也非常的简单 略去了
-BST_P Search_BST(BST_P root, DataType key)
-{
-    if (root == NULL)
-        return NULL;
-    if (key > root->data) //查找右子树  
-        return Search_BST(root->rchild, key);
-    else if (key < root->data) //查找左子树  
-        return Search_BST(root->lchild, key);
-    else
-        return root;
-}
-//递归是查找算法的核心 学习这些也会帮助我们理解递归
-void Insert_BST(BST_P *root, DataType data)
-{
-    //初始化插入节点
-    BST_P p = (BST_P)malloc(sizeof(struct BST_Node));
-    if (!p) return;
-    p->data = data;
-    p->lchild = p->rchild = NULL;
+构造二叉排序树的目的不是单纯排序，而是让查找、插入和删除可以围绕树结构进行。下面的代码先定义结点和树，再实现查找、插入、最小值查找和删除。
 
-    //空树时，直接作为根节点
-    if (*root == NULL)
-    {
-        *root = p;
-        return;
-    }
+```python
+from __future__ import annotations
 
-    //是否存在，已存在则返回，不插入
-    if (Search_BST(root, data) != NULL) return; 
+from dataclasses import dataclass
 
-    //进行插入，首先找到要插入的位置的父节点
-    BST_P tnode = NULL, troot = *root;
-    while (troot)
-    {       
-        tnode = troot;
-        if(data < troot->data){
-            troot = troot->lchild;
-        }
-        else{
-            troot = troot->rchild；
-        }
-    }
-    if (data < tnode->data)
-        tnode->lchild = p;
-    else
-        tnode->rchild = p;
-}
-//所谓的插入就是查找一个合适的地方添加进去
-void CreateBST(BST_P *T, int a[], int n)
-{
-    int i;
-    for (i = 0; i < n; i++)
-    {
-        Insert_BST(T, a[i]);
-    }
-}
-//所谓的建立就是重复插入的过程 非常简单
-void DeleteBSTNode(BST_P *root, DataType data)
-{
-    BST_P p = *root, parent = NULL, s = NULL;
 
-    if (!p) return;
+@dataclass
+class BSTNode:
+    """二叉排序树结点：一个关键字和左右子树引用。"""
 
-    if (p->data == data) //找到要删除的节点了
-    {
-        /* It's a leaf node */
-        if (!p->rchild && !p->lchild) 
-            *root = NULL;
+    key: int
+    left: BSTNode | None = None
+    right: BSTNode | None = None
 
-        // 只有一个左节点
-        else if (!p->rchild&&p->lchild) 
-            *root = p->lchild;
 
-        // 只有一个右节点
-        else if (!p->lchild&&p->rchild) 
-            *root = p->rchild;
+class BinarySearchTree:
+    """使用 BSTNode 维护一棵二叉排序树。"""
 
-        //左右节点都不空 里面是一个复杂的判断过程 
-        else 
-        {
-            s = p->rchild;
-            /* the s without left child */
-            if (!s->lchild)
-                s->lchild = p->lchild;  //完成接树的过程
-            
-            /* the s have left child */
-            else 
-            {
-                /* find the smallest node in the left subtree of s */
-                while (s->lchild) 
-                {
-                    /* record the parent node of s */
-                    parent = s;
-                    s = s->lchild;
-                }
-                parent->lchild = s->rchild;
-                s->lchild = p->lchild;
-                s->rchild = p->rchild;
-            }
-            *root = s;
-        }
-        free(p);
-    }
-    else if (data > p->data) //向右找
-        DeleteBSTNode(&(p->rchild), data);
-    else if (data < p->data) //向左找
-        DeleteBSTNode(&(p->lchild), data);
-}
-//删除其实比较复杂 你得分清是不是叶子结点 如果要删除的结点有子孙 我们需要怎么变化我们的二叉树 
-//删除代码包括了我们进行查找的过程 后面的递归就是如此
+    def __init__(self) -> None:
+        self.root: BSTNode | None = None
+
+    def search(self, key: int) -> BSTNode | None:
+        node = self.root
+        while node is not None:
+            if key < node.key:
+                node = node.left
+            elif key > node.key:
+                node = node.right
+            else:
+                return node
+        return None
+
+    def insert(self, key: int) -> None:
+        def insert_node(node: BSTNode | None) -> BSTNode:
+            if node is None:
+                return BSTNode(key)
+            if key < node.key:
+                node.left = insert_node(node.left)
+            elif key > node.key:
+                node.right = insert_node(node.right)
+            return node
+
+        self.root = insert_node(self.root)
+
+    @staticmethod
+    def _minimum(node: BSTNode) -> BSTNode:
+        while node.left is not None:
+            node = node.left
+        return node
+
+    def delete(self, key: int) -> None:
+        def delete_node(node: BSTNode | None, target: int) -> BSTNode | None:
+            if node is None:
+                return None
+            if target < node.key:
+                node.left = delete_node(node.left, target)
+            elif target > node.key:
+                node.right = delete_node(node.right, target)
+            elif node.left is None:
+                return node.right
+            elif node.right is None:
+                return node.left
+            else:
+                successor = self._minimum(node.right)
+                node.key = successor.key
+                node.right = delete_node(node.right, successor.key)
+            return node
+
+        self.root = delete_node(self.root, key)
+
+    def inorder(self) -> list[int]:
+        result: list[int] = []
+
+        def visit(node: BSTNode | None) -> None:
+            if node is None:
+                return
+            visit(node.left)
+            result.append(node.key)
+            visit(node.right)
+
+        visit(self.root)
+        return result
+
+
+tree = BinarySearchTree()
+for value in [7, 3, 9, 1, 5, 8]:
+    tree.insert(value)
+tree.delete(3)
+print(tree.search(8) is not None)
+print(tree.inorder())
 ```
 
-二叉排序树的主要部分就是这些 我们很容易发现一个问题 我们希望树比较平衡 深度和完全二叉树一致 这样能减少查找消耗的判断次数 也就是平衡二叉树问题
+二叉排序树的查找、插入和删除操作的时间复杂度与树高有关。树较平衡时接近 (O(\log n))；如果数据本身有序，树可能退化成链表，最坏时间复杂度为 (O(n))。这也是平衡二叉树要解决的问题。
 
-### 平衡二叉树 AVL树
+### 平衡二叉树：AVL 树
 
-平衡的意思很简单 就是希望所有结点左子树和右子树的高度最多相差1 我们把二叉树结点左子树深度减去右子树深度的值称为平衡因子 BF 对于AVL树平衡因子只能为 1 0 -1  当然 如果不是排序二叉树 平衡二叉树的前提条件就没了 
+AVL 树要求任意结点的左、右子树高度之差最多为 1。这个差值称为平衡因子（balance factor，BF）：
 
-我们称距离插入结点最近的 且平衡因子绝对值大于1的结点为根的子树被我们称为最小不平衡子树 
+\[
+BF = height(left) - height(right)
+\]
 
-平衡二叉树的构建的核心就是在构建二叉排序树的时候每当插入一个节点就检查一下平衡性是否还存在 如果平衡性被破坏 就在保持二叉排序树前提特性的前提下 调整最小不平衡子树各结点之间的逻辑关系 让他称为新的平衡子树 下面我们来介绍一下思路 用一个简单的例子来讲解
+在平衡状态下，BF 只能是 -1、0 或 1。插入或删除结点后，如果某个结点的平衡因子绝对值大于 1，就要调整最小不平衡子树，使其恢复平衡。
 
-3 2 1 4 5 6 7 10 9 8 直接构成的二叉排序树如图所示  理论上优化后构成的如另一图所示 如何实现这个转换呢
+AVL 树通过旋转完成调整，常见情况有 LL、RR、LR 和 RL：LL 使用右旋，RR 使用左旋，LR 先左旋再右旋，RL 先右旋再左旋。
 
-我们从头开始考虑 什么时候出现了不平衡 这时候应该怎么办 
+下面的代码先定义带高度字段的 `AVLNode`，再实现高度更新、左右旋转和重新平衡。
 
-1 插入这个二叉树后 我们发现整棵树成为了最小不平衡子树 为了让他平衡 需要整体顺时针旋转 让2成为根节点 
+```python
+from __future__ import annotations
 
-4正常插入 5插入的时候 结点3出现最小不平衡子树 需要逆时针旋转 
+from dataclasses import dataclass
 
-增加结点6 整棵树再次成为了最小不平衡子树 以2为结点逆时针旋转
 
-同理 7加入 10加入  9加入的时候再次不平衡 但是此时直接旋转解决不了问题了 这是因为最小不平衡子树的BF和他的子树的BF符号相反 所以需要进行两次旋转来解决问题
+@dataclass
+class AVLNode:
+    """AVL 树结点：关键字、左右孩子和以该结点为根的高度。"""
 
-也就是四种情况   LL RR  LR RL 不难理解
+    key: int
+    left: AVLNode | None = None
+    right: AVLNode | None = None
+    height: int = 1
 
-这个旋转的思路就是AVL树的实现思路 在插入的过程中就着手解决 下面是代码示例
 
-```c
-struct node {
-    int             data;
-    int             height;
-    struct node     *left;
-    struct node     *right;
-}
+class AVLTree:
+    """通过旋转维持平衡的二叉搜索树。"""
 
-typedef struct node node_t;
-typedef struct node* nodeptr_t;
-//首先重新纠正我们的结点问题 没有高度怎么考虑平衡因子的问题呢 
-int treeHeight(nodeptr_t root) {
-    if(root == NULL) {
-        return -1;
-    } else {
-        return max(treeHeight(root->left),treeHeight(root->right)) + 1;
-    }
-}
-//用来获得结点高度的函数 在后面进行什么删除或者插入的操作的时候记得更新高度这个量
-int treeGetBalanceFactor(nodeptr_t root) {
-    if(root == NULL)
-        return 0;
-    else
-        return x->left->height - x->right->height;
-}
-//检测BF因子 当绝对值大于一的时候就应该进行一次修正
-nodeptr_t treeRotateRight(nodeptr_t root) {
-    nodeptr_t left = root->left; //保存新的根节点 也就是原本结点的左孩子
-    root->left = left->right; // 将将要被抛弃的节点连接为旋转后的 root 的左孩子
-    left->right = root; // 调换父子关系
+    @staticmethod
+    def height(node: AVLNode | None) -> int:
+        return node.height if node is not None else 0
 
-    left->height = max(treeHeight(left->left), treeHeight(left->right))+1;
-    right->height = max(treeHeight(right->left), treeHeight(right->right))+1;
-    
-    return left; //返回的是这一部分的新的根节点
-}
-nodeptr_t treeRotateLeft(nodeptr_t root) {
-    nodeptr_t right = root->right;
-    root->right = right->left;
-    right->left = root;
+    @classmethod
+    def update_height(cls, node: AVLNode) -> None:
+        node.height = 1 + max(cls.height(node.left), cls.height(node.right))
 
-    left->height = max(treeHeight(left->left), treeHeight(left->right))+1;
-    right->height = max(treeHeight(right->left), treeHeight(right->right))+1;
+    @classmethod
+    def balance_factor(cls, node: AVLNode | None) -> int:
+        if node is None:
+            return 0
+        return cls.height(node.left) - cls.height(node.right)
 
-    return right;
-}
-//这是标准左旋和标准右旋的代码 其实本身非常简单 后面的四种平衡操作都是对两种旋转的应用
-//平衡实现
-nodeptr_t treeRebalance(nodeptr_t root) {
-    int factor = treeGetBalanceFactor(root);
-    if(factor > 1 && treeGetBalanceFactor(root->left) > 0) // LL
-        return treeRotateRight(root);
-    else if(factor > 1 && treeGetBalanceFactor(root->left) <= 0) { //LR
-        root->left = treeRotateLeft(root->left);
-        return treeRotateRight(temp);
-    } else if(factor < -1 && treeGetBalanceFactor(root->right) <= 0) // RR
-        return treeRotateLeft(root);
-    else if((factor < -1 && treeGetBalanceFactor(root->right) > 0) { // RL
-        root->right = treeRotateRight(root->right);
-        return treeRotateLeft(root);
-    } else { // Nothing happened.
-        return root;
-    }
-}
+    @classmethod
+    def rotate_right(cls, root: AVLNode) -> AVLNode:
+        new_root = root.left
+        if new_root is None:
+            return root
+        root.left = new_root.right
+        new_root.right = root
+        cls.update_height(root)
+        cls.update_height(new_root)
+        return new_root
+
+    @classmethod
+    def rotate_left(cls, root: AVLNode) -> AVLNode:
+        new_root = root.right
+        if new_root is None:
+            return root
+        root.right = new_root.left
+        new_root.left = root
+        cls.update_height(root)
+        cls.update_height(new_root)
+        return new_root
+
+    @classmethod
+    def rebalance(cls, node: AVLNode) -> AVLNode:
+        cls.update_height(node)
+        factor = cls.balance_factor(node)
+
+        if factor > 1:
+            if cls.balance_factor(node.left) < 0:
+                node.left = cls.rotate_left(node.left)  # LR
+            return cls.rotate_right(node)  # LL 或 LR
+        if factor < -1:
+            if cls.balance_factor(node.right) > 0:
+                node.right = cls.rotate_right(node.right)  # RL
+            return cls.rotate_left(node)  # RR 或 RL
+        return node
+
+    @classmethod
+    def insert_node(cls, node: AVLNode | None, key: int) -> AVLNode:
+        if node is None:
+            return AVLNode(key)
+        if key < node.key:
+            node.left = cls.insert_node(node.left, key)
+        elif key > node.key:
+            node.right = cls.insert_node(node.right, key)
+        else:
+            return node
+        return cls.rebalance(node)
+
+    @classmethod
+    def _minimum(cls, node: AVLNode) -> AVLNode:
+        while node.left is not None:
+            node = node.left
+        return node
+
+    @classmethod
+    def delete_node(cls, node: AVLNode | None, key: int) -> AVLNode | None:
+        if node is None:
+            return None
+        if key < node.key:
+            node.left = cls.delete_node(node.left, key)
+        elif key > node.key:
+            node.right = cls.delete_node(node.right, key)
+        elif node.left is None:
+            return node.right
+        elif node.right is None:
+            return node.left
+        else:
+            successor = cls._minimum(node.right)
+            node.key = successor.key
+            node.right = cls.delete_node(node.right, successor.key)
+        return cls.rebalance(node)
+
+    @staticmethod
+    def inorder(node: AVLNode | None) -> list[int]:
+        if node is None:
+            return []
+        return AVLTree.inorder(node.left) + [node.key] + AVLTree.inorder(node.right)
+
+
+root: AVLNode | None = None
+for value in [3, 2, 1, 4, 5, 6, 7, 10, 9, 8]:
+    root = AVLTree.insert_node(root, value)
+root = AVLTree.delete_node(root, 5)
+print(AVLTree.inorder(root))
 ```
 
-实现AVL的代码就是这样的  但是我们是在插入和删除的过程中导致失去平衡 也就是说我们要根据这些函数修正插入和删除代码 封装后轻松了很多
+把平衡调整放进插入和删除的递归回溯过程后，每层结点都会更新高度并检查平衡因子。AVL 树的查找、插入和删除时间复杂度都能保持在 (O(\log n))。
 
-```c
-void treeInsert(nodeptr_t *rootptr, int value)
-{
-    nodeptr_t newNode;
-    nodeptr_t root = *rootptr;
+### 多路查找树：B 树
 
-    if(root == NULL) {
-        newNode = malloc(sizeof(node_t));
-        assert(newNode);
+二叉树限制每个结点最多有两个孩子。当数据规模很大、数据主要存放在磁盘上时，树高会直接影响磁盘访问次数，而磁盘访问速度通常低于内存和高速缓存。多路查找树让一个结点保存多个关键字，并拥有多个孩子，从而降低树高。
 
-        newNode->data = value;
-        newNode->left = newNode->right = NULL;
+下面会依次介绍 2-3 树、2-3-4 树、B 树和 B+ 树。
 
-        *rootptr = newNode;
-    } else if(root->data == value) {
-        return;
-    } else {
-        if(root->data < value)
-            treeInsert(&root->right,value);
-        else
-            treeInsert(&root->left,value)
-    }
+#### 2-3 树
 
-    treeRebalance(root);//递归使用平衡树的代码 这个代码递归执行了很多次
-}
-//
-void treeDelete(nodeptr_t *rootptr, int data)
-{
-    nodeptr_t *toFree; // 拜拜了您呐
-    nodeptr_t root = *rootptr;
+2-3 树中的结点有两种：
 
-    if(root) {
-        if(root->data == value) {
-            if(root->right) {
-                root->data = treeDeleteMin(&(root->right));
-            } else {
-                toFree = root;
-                *rootptr = toFree->left;
-                free(toFree);
-            }
-        } else {
-        if(root->data < value)
-            treeDelete(&root->right,value);
-        else
-            treeDelete(&root->left,value)
-        }
+- 2 结点包含一个关键字和两个孩子，也可以没有孩子。
+- 3 结点包含两个有序关键字和三个孩子，也可以没有孩子。
 
-        treeRebalance(root);
-    }
-}
-```
+2 结点的左子树小于关键字，右子树大于关键字。3 结点的左、中、右子树分别保存小于较小关键字、介于两个关键字之间、大于较大关键字的元素。
 
-### 多路查找树 B树
+2-3 树还要求所有叶子结点位于同一层。插入只发生在叶子处：空树直接插入一个 2 结点；插入到 2 结点后可以变成 3 结点；插入到 3 结点后需要拆分结点，并把中间关键字向上层传递。删除时，删除 3 结点中的一个关键字较简单；删除 2 结点中的关键字则可能需要借关键字或合并结点。
 
-前面的数限制在每个结点存储一个元素 二叉树限制每个结点最多有两个孩子 这在进行大文件存储的时候肯定会导致内存溢出 我们需要访问硬盘 而硬盘的访问速度是远低于内存的 内存的访问速度是远低于内置缓存的 因为这个原因我们引入的多路查找树  根据每个结点能存储的元素数目和他的孩子数目 我们在下面研究2 3树 2 3 4树 B树 和B+树 
+#### 2-3-4 树
 
-#### 2-3树
+2-3-4 树是 2-3 树的扩展，一个结点最多可以包含三个关键字，并拥有四个孩子。它的插入和删除规则更复杂，但仍然要求所有叶子在同一层。
 
-顾名思义  每个结点具有两个到三个孩子 他们分别是2结点和3结点 2结点包含一个元素和俩孩子（或者0个孩子） 3结点包含一大一小两个元素和三孩子（或者0个孩子） 
+#### B 树
 
-与二叉排序树类似的是 2结点要求左子树小于根 右子树大于根 不同的是2结点不能有一个孩子  3结点原理类似 左子树包含较小元素 右子树包含较大元素 中间树包含介于两者之间的元素 
+B 树是平衡的多路查找树，2-3 树和 2-3-4 树都可以看作它的特殊情况。B 树的阶（order）通常用于描述一个结点最多可以拥有的孩子数。实际应用中可以根据页大小、记录大小和内存容量选择合适的阶数。阶数越大，树高通常越低；如果根结点常驻内存，查找时就能减少外存访问次数。
 
-并且我们要求2-3树的所有叶子结点在同一个平面上 很明显 2-3树增大了我们进行插入和删除的难度 
+#### B+ 树
 
-**插入情况分类**
+B+ 树是 B 树的一种改进形式。内部结点主要保存索引，记录通常存放在叶子结点中，叶子结点还会按顺序连接起来。因此，B+ 树特别适合范围查找和顺序扫描。
 
-正如二叉排序树一样 插入只能发生在叶子结点
+### 散列表查找：哈希表概述
 
-对于空树 插入一个二结点就可以 
+顺序查找和树形查找都需要进行关键字比较。散列表试图直接根据关键字计算存储位置：
 
-插入结点到一个二结点的叶子上 我们需要把它升级为3结点  并且修正左右关系
+\[
+address = h(key)
+\]
 
-插入结点到一个三结点的叶子上 需要拆分结点 移动层数……
+函数 (h) 称为散列函数（hash function），存放记录的连续空间称为散列表（hash table）。理想情况下，不同关键字对应不同地址；实际中多个关键字映射到同一地址的情况不可避免，这称为**冲突**（collision），发生冲突的不同关键字互称**同义词**（synonyms）。
 
-#### 删除情况分类
-
-删除三节点的叶子结点 这很简单 删除以后更改他为二结点
-
-删除二结点的叶子结点 导致单元素节点的产生 这就是导致不再是2-3树 需要比较复杂的处理 继续分类研究 在这里就不浪费时间了
-
-#### 2-3-4树
-
-顾名思义 是2-3树概念的拓展 更加复杂 了解概念就可以
-
-#### B树
-
-B树是一种平衡的多路查找树 前面的两种都是B树的特例  结点的最大的孩子数目称为B数的阶 order B数被引入就是为了处理交换内存和外存
-
-我们的思路就是根据内存的大小调整B树的阶数 更大的阶数可以有更低的高度 只要根结点在内存中 访问高度次外存就可以了 
-
-#### B+树
-
-B+树是一种B树的改良 他已经不属于我们前面研究的树的范畴 他的好处是便于带范围的查找 修正了B树只能从根结点查找的问题 
-
-### 散列表查找/哈希表概述
-
-在前面的查找方式里面 无论是顺序还是无序 线性还是树形 比较都是查找不可避免的一部分 但是比较真的不能被避免吗 能否直接用关键词就得到存储位置吗 答案是肯定的 存储位置=f（key） 这是一种可行的新的存储技术 散列技术 我们在关键字和存储位置之间建立映射f 这种映射就被称为散列函数 也称为Hash函数 散列技术把记录存储在一块连续空间里面 这块空间被称为Hash table 
-
-Hash  这个目前非常热的词汇 在数据结构的课堂上出现了
-
-本质上 散列技术既是一种存储方法 也是一种查找方法 他的数据元素之间没有任何的逻辑关系 他就是一种面向查找的结构 
-
-很明显的 散列技术不适用于单关键词多记录的情况 不适合范围查找 
-
-理想状况下 散列函数每一个关键词都应该对应不同的地址 但是理想只是理想 多关键词单地址的collision情况不可避免 此时两个key被称为synonym 如何精妙的控制散列函数避免collision的发生是非常重要的 
+散列表既是一种存储结构，也是一种查找结构。它不强调数据元素之间的逻辑顺序，而是面向关键字定位。因此，散列表不适合单个关键字对应多条记录的场景，也不适合范围查找。
 
 ### 散列函数的构造
 
-什么是一个好的散列函数 我们有几条基本规则 计算简单来增加效率 地址分布均匀来避免过多的冲突发生 基于这些规则有以下的方法
+一个常用的散列函数通常需要满足两个条件：计算简单，并且让地址尽量均匀分布，以减少冲突。常见方法如下。
 
 #### 直接定址法
 
-举个例子 如果我们要统计不同年龄人口数目 可以直接用年龄作为地址  如果统计不同年份的出生人数 可以用年份作为地址 考虑关键词的某个线性函数 
+直接把关键字或关键字的线性函数作为地址。例如，统计不同年龄的人数时，可以直接用年龄作为地址；统计不同年份的出生人数时，也可以用年份作为地址。
 
-这类函数额度有点就是简单 均匀 不会冲突 但是需要率先知道关键词的分布 所以不是非常的常用
+这种方法简单、地址分布容易理解，且在关键字不重复时不会冲突，但需要预先知道关键字的范围，空间利用率可能较低。
 
 #### 数字分析法
 
-抽取关键词的一部分 比如手机号后四位经常用来做身份核验 身份证号 银行卡号当然也可以 也是需要大概了解关键词的特征 并且需要分布均匀
+从关键字中抽取若干位作为地址。例如，电话号码或身份证号中的某些位可能具有较好的区分度。使用这种方法前，需要了解关键字的特征，并确认抽取出的数字分布较均匀。
 
 #### 平方取中法
 
-原始关键字平方然后取中间的若干位 比如三位  适合不知道关键词分布 位数不是很大的情况
+先计算关键字的平方，再取结果中间的若干位作为地址。这种方法不太依赖关键字本身的分布，适合关键字位数不大、难以预先分析分布的情况。
 
 #### 折叠法
 
-拆分关键词为位数相等的几部分 然后进行求和作为地址 （最后一位不够就短一些） 
-
-只进行一次折叠可能不均匀 或许可以选择从另一端也折叠一次 两个加起来能更均匀一些
-
-适合位数比较大 不知道分布
+把关键字分成位数相等的几段，再将各段相加作为地址。最后一段长度不足时，可以直接使用较短的一段。只从一个方向折叠可能仍然不均匀，也可以从另一端再折叠一次后合并结果。
 
 #### 除留余数法
 
-就是 mod 函数 数学家告诉我们 表长m的时候 一般选择除接近m的最小质数 或者不包含小于20质因子的合数
+用关键字除以表长 (m) 后的余数作为地址：
 
-#### 随机数
+\[
+h(key) = key \bmod m
+\]
 
-随机数一般是伪随机的 里面有一些生成随机数的算法 他可以根据原始值生成对应的随机数 
+实际选择表长时，常考虑使用接近表长的质数，以减少特定数据分布带来的冲突。
 
-随机数生成的原理没必要在这里说 其实平方取中也用于随机数生成
+#### 随机数法
+
+使用伪随机函数根据关键字生成地址。伪随机函数必须保证同一个关键字每次得到相同结果，否则无法再次定位记录。
 
 ### 处理散列冲突
 
-当我们已经发现冲突了 怎么修正？ 当然是有办法的
+发现冲突后，需要使用冲突处理方法寻找其他存储位置。
 
 #### 开放定址法
 
-在遇到冲突的时候 去选择下一个空的散列地址 只要表够大 就不担心找不到
+遇到冲突时，按照某种探测序列继续寻找空地址：
 
-hi(key) = (h(key)+di) mod m
+\[
+h_i(key) = (h(key)+d_i) \bmod m
+\]
 
-这是核心的开放定址公式 di的不同选取是不同的细分方法     
+其中 (d_i) 的取法不同，就形成不同的开放定址方法：
 
-线性探测：di = i
-
-平方探测：di = ± i2( +12, -12, +22, -22……)  平方探测是为了避免堆积效应的发生 更好的占用整个散列表
-
-随机探测：di是随机数 根据时间或者什么别的生成
+- 线性探测：(d_i=i)。实现简单，但容易产生聚集。
+- 平方探测：(d_i=\pm i^2)。它可以减轻线性探测的聚集现象。
+- 随机探测：(d_i) 由可复现的伪随机序列产生。
 
 #### 再散列函数法
 
-di = i * h2(key)   弄好几个散列函数 一直换函数 问题总能解决
+使用第二个散列函数计算探测步长，例如：
+
+\[
+d_i=i\times h_2(key)
+\]
+
+发生冲突时改变探测步长，直到找到空位置或确认表已满。
 
 #### 链地址法
 
-地址冲突就冲突 我在这直接扔一个单链表 来一个元素加一个 大不了找到了这个地址再遍历一次进行查找
+每个散列地址对应一个链表或其他容器。发生冲突时，把记录放进同一地址对应的容器中；查找时先定位地址，再在容器内查找。
 
 #### 公共溢出区法
 
-所有地址冲突的 单独找一个溢出区存放 发现哈希不到就来我的溢出区查找 只要冲突数据不多 效果还是很好的
+为发生冲突的记录单独设置溢出区。主表中找不到记录时，再到溢出区查找。当冲突记录较少时，这种方法比较容易实现。
 
 ### 散列表的查找
 
-有了前面的哪些思想 这里应该不是问题 
+下面的示例使用长度为 16 的线性探测散列表。代码开头定义了散列表槽位和哈希表本身；空槽使用 `None` 表示，因此关键字不必用 0 作为特殊值。
 
-```c
-#define m 16	//  哈希表/散列表长度
-typedef int KeyType;
-typedef int InfoType;
-//散列表定义
-typedef struct
-{
-	KeyType key;
-	InfoType otherinfo;
-}HashTable[m];
-
-//散列表的查找
-int SearchHash(HashTable HT, KeyType key)
-{
-	int HO = key % 13;  //根据散列函数计算散列地址
-	if (HT[HO].key == 0)  return -1;		// 若单元为空， 则所查元素不存在
-	else if (HT[HO].key == key) return HO;
-	else
-	{
-		//按照线性探测法计算下一个散列地址Hi
-		for (int i = 1; i < m; i++)
-		{
-			int Hi = (HO + i) % m;
-			if (HT[Hi].key == 0)  return -1;		// 若单元为空， 则所查元素不存在
-			else if (HT[Hi].key == key) return Hi;
-		}
-		return -1;
-	}
-}
-
-//散列表的插入
-int InsertHash(HashTable HT, KeyType key)
-{
-	int HO = key % 13;		//根据散列函数计算散列地址
-	if (HT[HO].key == 0)	// 若单元为空， 则所查元素不存在
-	{
-		HT[HO].key = key;
-		return 0;
-	}
-	else
-	{
-		//按照线性探测法计算下一个散列地址Hi
-		for (int i = 1; i < m; i++)
-		{
-			int Hi = (HO + i) % m;
-			if (HT[Hi].key == 0) 	// 若单元为空， 则所查元素不存在
-			{
-				HT[Hi].key = key;
-				return 0;
-			}
-		}
-		return -1;					//散列表已满
-	}
-}
+```python
+from dataclasses import dataclass
 
 
-int main()
-{
-	//初始化
-	HashTable HT;
-	for (int i = 0; i < m; i++)
-	{
-		HT[i].key = 0;
-	}
+@dataclass
+class HashEntry:
+    """散列表槽位中的记录。"""
 
-	//插入
-	InsertHash(HT, 19);
-	InsertHash(HT, 14);
-	InsertHash(HT, 23);
-	InsertHash(HT, 1);
-	InsertHash(HT, 68);
-	InsertHash(HT, 20);
-	InsertHash(HT, 84);
-	InsertHash(HT, 27);
-	InsertHash(HT, 55);
-	InsertHash(HT, 11);
-	InsertHash(HT, 10);
-	InsertHash(HT, 79);
+    key: int
+    value: object = None
 
-	//遍历散列表
-	printf("按散列地址排列：");
-	for (int i = 1; i <m; i++)
-	{
-		printf("%d,", HT[i].key);
-	}
 
-	//查找
-	int n;
-	printf("\n请输入要查找的数：");
-	scanf("%d", &n);
-	int result = SearchHash(HT, n);
-	printf("\n要查找的数在散列表中的地址为：%d  \n", result);
-}
+class LinearProbingHashTable:
+    """使用开放定址法和线性探测保存键值对。"""
+
+    def __init__(self, capacity: int = 16) -> None:
+        if capacity <= 0:
+            raise ValueError("capacity 必须为正数")
+        self.slots: list[HashEntry | None] = [None] * capacity
+
+    def _index(self, key: int) -> int:
+        return key % len(self.slots)
+
+    def insert(self, key: int, value: object = None) -> bool:
+        start = self._index(key)
+        for step in range(len(self.slots)):
+            index = (start + step) % len(self.slots)
+            entry = self.slots[index]
+            if entry is None or entry.key == key:
+                self.slots[index] = HashEntry(key, value)
+                return True
+        return False
+
+    def search(self, key: int) -> tuple[int, object] | None:
+        start = self._index(key)
+        for step in range(len(self.slots)):
+            index = (start + step) % len(self.slots)
+            entry = self.slots[index]
+            if entry is None:
+                return None
+            if entry.key == key:
+                return index, entry.value
+        return None
+
+    def items_by_address(self) -> list[tuple[int, int, object] | None]:
+        return [
+            None if entry is None else (index, entry.key, entry.value)
+            for index, entry in enumerate(self.slots)
+        ]
+
+
+table = LinearProbingHashTable(capacity=16)
+for key in [19, 14, 23, 1, 68, 20, 84, 27, 55, 11, 10, 79]:
+    table.insert(key, f"record-{key}")
+
+print(table.items_by_address())
+print(table.search(68))
+print(table.search(100))
 ```
 
-数组符号实际上只是一个表述 
+Python 的列表本身也是一种数组结构，但在示例中使用 `HashEntry` 和 `LinearProbingHashTable` 明确表示了槽位、冲突探测和键值记录之间的关系。
 
-我们前面所有的Hash都针对数字 因为计算机一切都是二进制表示 只要编码都可以转化为数字 所以Hash针对一切关键字都可以
+前面的示例主要针对整数关键字。计算机中的字符串等数据最终也会以编码形式表示，因此可以先把它们转换为整数，或直接使用语言提供的哈希函数。需要注意的是，哈希表的哈希值和槽位布局不应被当作持久化数据格式。
 
 ## 排序
 
-前面我们无数次的提到过一个概念 有序； 在网络上搜索信息我们也经常提到有序的概念 所以引出了非常重要的一类算法 排序问题
+网络检索、报表生成和数据分析都经常需要有序数据。排序的任务是重新排列线性表中的元素，使其关键字满足非递增或非递减关系。后文默认使用非递减顺序。
 
 ### 排序的基本概念和分类
 
-排序的核心就是让序列按照关键码满足非递增或者非递减的关系 一般我们会使用非递减的序列 前面的搜索算法就是根据非递减设计的 很明显的 排序是一种对线性表的操作  
+多关键字排序可以看作按多个关键字依次比较。实际实现中，常把多个关键字组合成比较规则；下面主要讨论单关键字排序。
 
-多关键词的排序本质上是单关键词排序的叠加 有时候会采用关键词连缀的方式直接简化 所以后面我们着重进行单关键词的排序
+当两个记录的排序关键字相等时，如果排序前后的相对顺序保持不变，就称算法是**稳定的**；否则称为**不稳定的**。例如，两名学生的成绩相同，排序后仍保持原来的先后顺序，就说明排序稳定。
 
-当出现有两个关键词排序条件相等的时候 会引出**排序稳定性**的概念 也就是说 如果有两个人成绩一样 排序之前就在前面的元素应该在排序之后也在前面 就称为稳定 反之称为不稳定 排序算法的稳定性是我们后面需要考虑的一个概念
+按照数据是否全部装入内存，排序可以分为**内排序**和**外排序**。本文重点介绍内排序。
 
-在前面的研究中我们已经简单了解了数据在内存和外存的差别 在排序的时候也会遇到这个问题 所以区分了**内排序与外排序**的概念 后面只会着重介绍内排序
+内排序通常从时间复杂度、辅助空间和稳定性等方面评价。算法复杂度是一个更宽泛的概念，时间复杂度只是其中的一部分。
 
-内排序算法的性能主要采用三个角度衡量 **时间性能 辅助空间 算法复杂性** 这里的复杂性是指算法本身的复杂性 而非时间复杂性
+按照主要操作，排序可以分为插入排序、交换排序、选择排序和归并排序。按照实现和复杂度，又常把冒泡排序、简单选择排序、直接插入排序归为简单排序，把希尔排序、堆排序、归并排序和快速排序归为改进排序。
 
-根据排序的主要操作 我们把排序分为 插入排序 交换排序 选择排序 归并排序 四大类
+排序通常作用于线性表。为了让代码清楚地表达“交换元素”这个操作，下面的示例会用一个小型自定义数组类封装 Python 列表。
 
-根据算法的复杂度 我们分为   简单算法*含冒泡排序 简单选择排序 直接插入排序*     改良算法 *含 希尔排序 堆排序 归并排序 快速排序*
+### 冒泡排序（Bubble Sort）
 
-排序的最基本 需要一个线性表 由于排序经常需要交换元素 所以我们使用一些封装元素  后面不再解释
+冒泡排序反复比较相邻记录的关键字，如果顺序相反就交换。每一轮会把当前未排序部分的最大元素移动到末尾。它实现简单，时间复杂度为 (O(n^2))，并且稳定。
 
-### 冒泡排序 Bubble Sort
+```python
+from dataclasses import dataclass
 
-这可以说是最简单的排序算法了 在语言初学阶段就知道他  他的核心思想就是不断两两比较相邻记录的关键词 如果反序就交换 直到没有反序的记录为止 标准的冒泡排序代码如下  时间复杂度$n^{2}$  具有稳定性
 
-```c
-void bubble_sort(int a[], int n)   
-{
-    int i,j,temp;    
-    for (j=0;j<n-1;j++)    
-    {                           
-        for (i=0;i<n-1-j;i++)
-        {
-            if(a[i]>a[i+1])  
-            {
-                temp=a[i];      
-                a[i]=a[i+1];    
-                a[i+1]=temp;
-            }
-        }
-    }    
-}
-//有时候冒泡排序会做一些无意义的比较 我们可以选择增加flag来避免有序情况下的判断（如果有一轮已经发现没有发生任何交换 终止算法）  
+@dataclass
+class IntArray:
+    """封装可变整数序列，并提供统一的交换操作。"""
+
+    data: list[int]
+
+    def swap(self, left: int, right: int) -> None:
+        self.data[left], self.data[right] = self.data[right], self.data[left]
+
+
+def bubble_sort(values: IntArray) -> None:
+    for end in range(len(values.data) - 1, 0, -1):
+        swapped = False
+        for index in range(end):
+            if values.data[index] > values.data[index + 1]:
+                values.swap(index, index + 1)
+                swapped = True
+        if not swapped:
+            break
+
+
+values = IntArray([5, 2, 8, 2, 1])
+bubble_sort(values)
+print(values.data)
 ```
 
-### 简单选择排序 Simple Selection Sort
+如果某一轮没有发生交换，说明剩余部分已经有序，可以提前结束。
 
-也就是我们最经常提到的选择排序 找到那个最小的放到最前面 然后不断循环 时间复杂度也是$n^2$ 但是性能实际上略微好一点 具稳定性
+### 简单选择排序（Simple Selection Sort）
 
-```c
-void select_sort(int R[],int n)    
-{
-    int i,j,k,index;    
-    for(i=0;i<n-1;i++)  
-    {
-        k=i;
-        for(j=i+1;j<n;j++)    
-        {
-            if(R[j]<R[k])  
-                k=j;      
-        }
-        index=R[i];   
-        R[i]=R[k];    
-        R[k]=index; 
-    }
-} 
+简单选择排序每轮从未排序部分找到最小元素，再把它交换到当前起始位置。它的比较次数通常为 (O(n^2))，交换次数少于冒泡排序，但它不稳定。
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class SelectionArray:
+    """保存待排序整数，并集中定义交换行为。"""
+
+    data: list[int]
+
+    def swap(self, left: int, right: int) -> None:
+        self.data[left], self.data[right] = self.data[right], self.data[left]
+
+
+def selection_sort(values: SelectionArray) -> None:
+    for start in range(len(values.data) - 1):
+        minimum = start
+        for index in range(start + 1, len(values.data)):
+            if values.data[index] < values.data[minimum]:
+                minimum = index
+        if minimum != start:
+            values.swap(start, minimum)
+
+
+values = SelectionArray([5, 2, 8, 2, 1])
+selection_sort(values)
+print(values.data)
 ```
 
-### 直接插入排序 Straight Insertion Sort
+### 直接插入排序（Straight Insertion Sort）
 
-插入排序的思路是将一个记录插入已经排好的有序表中 得到新的有序表的过程 前两个元素会在第一轮排序的过程中放好  后面就是选择合适的位置 插进去的过程  时间复杂度$n^{2}$  稳定的
+直接插入排序逐个取出未排序元素，把它插入已经有序的前缀中。它适合数据量较小或原本已经接近有序的序列，时间复杂度为 (O(n^2))，并且稳定。
 
-```c
-void insertion_sort(int number[],int n)    
-{
-    int i=0,j=0,temp=0;  
-    for(i=1;i<n;i++)  
-    {
-        temp=number[i]; 
-        j=i-1;  
-        while(j>=0&&temp<number[j])   
-        {
-            number[j+1]=number[j];    
-            j--; 
-        }
-        number[j+1]=temp;   
-    }              
-}
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class InsertionArray:
+    """保存可变序列；插入排序会直接修改 data。"""
+
+    data: list[int]
+
+
+def insertion_sort(values: InsertionArray) -> None:
+    for index in range(1, len(values.data)):
+        current = values.data[index]
+        position = index - 1
+        while position >= 0 and values.data[position] > current:
+            values.data[position + 1] = values.data[position]
+            position -= 1
+        values.data[position + 1] = current
+
+
+values = InsertionArray([5, 2, 8, 2, 1])
+insertion_sort(values)
+print(values.data)
 ```
 
-### 希尔排序 Shell Sort
+### 希尔排序（Shell Sort）
 
-在排序算法不断发展的过程中 前面的三种算法和他们的优化方法是很长时间的主流 由于时间复杂度迟迟无法下降 曾有人认为排序算法的时间复杂度不可能低于$n^{2}$ 幸运的是 这个时间复杂度最后被一些科学家突破了 希尔排序就是率先的一批
+希尔排序是直接插入排序的改进。它先选择一个间隔，把相隔该间隔的元素分为一组，分别进行插入排序；随后逐步缩小间隔，直到间隔为 1。前几轮让序列接近有序，最后一轮插入排序就能少做很多移动。
 
-希尔排序是一种对直接插入排序的优化 他的思路是 竟然时间复杂度以$n^{2}$增加 如果能降低n就能有效降低时间复杂度 所以他选择将原本的序列分组优化为小的子序列 当子序列分别基本有序以后 在对各个序列进行直接插入排序  这里的核心点就在于 **基本有序** 到底是什么 我们来看看代码 
+希尔排序不稳定，时间复杂度取决于间隔序列，不能简单地用一个固定表达式概括。下面使用常见的 `gap // 2` 间隔序列。
 
-优化子序列是通过间隔k点取一个 分为一组 因此会失去稳定性 跳跃的直接插入能够让序列变得基本有序
+```python
+from dataclasses import dataclass
 
-```c
-void ShellSort(int L[].int n){
-    int i,j;
-    int increment = n;
-    int temp;
-    do{
-        increment = increment/3+1;
-        for(i=increment+1;i<=n;i++){
-            if(L[i]<L[i-increment]){
-                temp=L[i];
-                for(j=i-increment;j>0&&temp<L[j];j-=increment){
-                    L[j+increment]=L[j];
-                }
-                L[j+increment]=temp;
-            }
-        }
-    }
-    while(increment>1);
-}
-//这段代码L[0]位置是空的 不存储数据 很明显 increment的选取非常重要 我们这一的知识一种方法 仅供参考
+
+@dataclass
+class ShellArray:
+    """保存希尔排序使用的可变整数序列。"""
+
+    data: list[int]
+
+
+def shell_sort(values: ShellArray) -> None:
+    gap = len(values.data) // 2
+    while gap > 0:
+        for index in range(gap, len(values.data)):
+            current = values.data[index]
+            position = index
+            while position >= gap and values.data[position - gap] > current:
+                values.data[position] = values.data[position - gap]
+                position -= gap
+            values.data[position] = current
+        gap //= 2
+
+
+values = ShellArray([9, 1, 8, 2, 7, 3, 6, 4, 5])
+shell_sort(values)
+print(values.data)
 ```
 
-希尔排序算法的核心是间隔选取比较进行跳跃的直接插入  我们比较相隔为increment的元素并且直插排序 在完成一轮dowhile循环后再次缩小increment继续进行 实际上在前面几轮排序完成后 越靠后需要进行的排序工作就越少 这就是希尔排序的核心 在这个方法的优化下 我们将时间复杂度压缩到了 n^1.5 虽然进步不大 但是突破慢速排序很重要  不稳定 平均复杂度会变化 但是不突破nlogn
+### 堆排序（Heap Sort）
 
-### 堆排序 Heap Sort
+堆排序改进了简单选择排序。简单选择排序每轮都要重新扫描未排序部分；堆排序把这些元素组织成堆，直接从堆顶取出最大值或最小值。
 
-堆排序是对简单选择排序的改进升级 在简单选择排序里面 我们其实在第一次比较完成后又进行了很多次重复的比较 导致时间复杂度的过高 堆排序的思路就是借助堆的新数据结构来辅助 不稳定 平均复杂度$nlogn$极限就是平均
+堆是满足特定序关系的完全二叉树：大顶堆中每个结点都大于或等于孩子，小顶堆中每个结点都小于或等于孩子。若使用从 0 开始的数组表示完全二叉树，结点 `index` 的孩子下标为 `2 * index + 1` 和 `2 * index + 2`。
 
-**堆是具有以下特点的完全二叉树 每个结点的值都大于或者等于他的左右孩子的大顶堆 每个结点的值都小于或者等于他的左右孩子的小顶堆**  
+```python
+from dataclasses import dataclass
 
-在堆的前提下 我们在完全二叉树的部分提到了一个性质
 
-对于一棵有n个结点的完全二叉树 按照层序对结点进行编号 对于任意的结点i
+@dataclass
+class MaxHeap:
+    """用列表保存大顶堆；堆的有效区间由 size 指定。"""
 
-i=1时 他是根节点 没有双亲 i>1的时候双亲是 [i/2]
+    data: list[int]
+    size: int = 0
 
-若2i>n 则结点i没有左孩子（他是叶子结点） 否则i的左孩子是2i
+    def __post_init__(self) -> None:
+        self.size = len(self.data)
 
-若2i+1>n 则结点i没有右孩子 否则i的右孩子是2i+1
+    def sift_down(self, root: int) -> None:
+        while True:
+            largest = root
+            left = 2 * root + 1
+            right = left + 1
+            if left < self.size and self.data[left] > self.data[largest]:
+                largest = left
+            if right < self.size and self.data[right] > self.data[largest]:
+                largest = right
+            if largest == root:
+                return
+            self.data[root], self.data[largest] = self.data[largest], self.data[root]
+            root = largest
 
-很明显的 大顶堆和小顶堆采用层序遍历的话就是一个大致有序数组 而所谓的堆排序 就是把原始序列构造成一个大顶堆 把堆顶元素移动到末尾 再让剩下的元素构成大顶堆 不断重复 就能得到有序的序列 下面我们疑惑的问题可以靠代码理解
+    def sort(self) -> None:
+        for root in range(self.size // 2 - 1, -1, -1):
+            self.sift_down(root)
+        for end in range(len(self.data) - 1, 0, -1):
+            self.data[0], self.data[end] = self.data[end], self.data[0]
+            self.size = end
+            self.sift_down(0)
 
-```c
-void swap(int* a, int* b) {
-    int temp = *b;
-    *b = *a;
-    *a = temp;
-}//懂得都懂 后面那么多结点交换 这样轻松一些
-void max_heapify(int arr[], int start, int end) {
-    //建立父节点指标和子节点指标
-    int dad = start;
-    int son = dad * 2 + 1;
-    while (son <= end) { //若子节点指标在范围内才做比较
-        if (son + 1 <= end && arr[son] < arr[son + 1]) //先比较两个子节点大小，选择最大的
-            son++;
-        if (arr[dad] > arr[son]) //如果父节点大于子节点代表调整完毕，直接跳出函数
-            return;
-        else { //否则交换父子内容再继续子节点和孙节点比较
-            swap(&arr[dad], &arr[son]);
-            dad = son;
-            son = dad * 2 + 1;
-        }
-    }
-}
-void heap_sort(int arr[], int len) {
-    int i;
-    //初始化，i从最后一个父节点开始调整
-    for (i = len / 2 - 1; i >= 0; i--)
-        max_heapify(arr, i, len - 1);
-    //先将第一个元素和已排好元素前一位做交换，再从新调整，直到排序完毕
-    for (i = len - 1; i > 0; i--) {
-        swap(&arr[0], &arr[i]);
-        max_heapify(arr, 0, i - 1);
-    }
-}
-//修正完以后的二叉树进行层序遍历就可以有序了
+
+heap = MaxHeap([5, 2, 8, 2, 1])
+heap.sort()
+print(heap.data)
 ```
 
-### 归并排序 Merging Sort
+堆排序的时间复杂度为 (O(n\log n))，辅助空间为 (O(1))，但通常不稳定。
 
-归并就是合并的意思 他的核心是把多个有序的表合成一个新的有序表 如果初始有n个记录 就视为n个有序的子序列 长度都是1 然后两两归并为长度[n/2]的长度为1或2的子序列 如此重复继续归并 最后得到一个长度为n的有序序列 这被称为2路归并排序 也是我们在这里介绍的一种  它稳定 平均复杂度$nlogn$ 极限就是平均 下面直接看代码帮助我们理解
+### 归并排序（Merge Sort）
 
-在归并的时候实际上是用用两个指针分别追踪两个小数组 然后单独开辟空间存放归并的结果
+归并排序把序列不断拆分，直到每个子序列只剩一个元素，再将两个有序子序列合并成一个更长的有序序列。下面的实现使用临时数组保存合并结果。
 
-```c
-void merge_sort_recursive(int arr[], int reg[], int start, int end) {
-    if (start >= end)
-        return;
-    int len = end - start, mid = (len >> 1) + start;
-    int start1 = start, end1 = mid;
-    int start2 = mid + 1, end2 = end;
-    merge_sort_recursive(arr, reg, start1, end1);
-    merge_sort_recursive(arr, reg, start2, end2);
-    int k = start;
-    while (start1 <= end1 && start2 <= end2)
-        reg[k++] = arr[start1] < arr[start2] ? arr[start1++] : arr[start2++];
-    while (start1 <= end1)
-        reg[k++] = arr[start1++];
-    while (start2 <= end2)
-        reg[k++] = arr[start2++];  //这三个while循环就是对拆分双指针递归的实现 
-    								//理解一下思路 我们从两个数组里从两边的头开始比大小 找小的塞进reg里面 然后下一位
-    for (k = start; k <= end; k++)
-        arr[k] = reg[k]; //把reg临时存放的数据扔回去方便递归回去调用
-}
-void merge_sort(int arr[], const int len) {
-    int reg[len];
-    merge_sort_recursive(arr, reg, 0, len - 1);
-}
-//这里只是进行了一次调用 方便我们进行前面函数的递归操作
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class MergeArray:
+    """归并排序操作的整数序列。"""
+
+    data: list[int]
+
+
+def merge_sort(values: MergeArray) -> None:
+    def sort_range(left: int, right: int) -> None:
+        if left >= right:
+            return
+        middle = (left + right) // 2
+        sort_range(left, middle)
+        sort_range(middle + 1, right)
+
+        merged: list[int] = []
+        first, second = left, middle + 1
+        while first <= middle and second <= right:
+            if values.data[first] <= values.data[second]:
+                merged.append(values.data[first])
+                first += 1
+            else:
+                merged.append(values.data[second])
+                second += 1
+        merged.extend(values.data[first : middle + 1])
+        merged.extend(values.data[second : right + 1])
+        values.data[left : right + 1] = merged
+
+    sort_range(0, len(values.data) - 1)
+
+
+values = MergeArray([5, 2, 8, 2, 1])
+merge_sort(values)
+print(values.data)
 ```
 
-### 计数排序 Counting Sort
-计数排序(Counting Sort)不是基于比较的排序算法，
+归并排序的时间复杂度为 (O(n\log n))，需要 (O(n)) 的辅助空间。合并时使用小于等于比较，可以保持相等元素的相对顺序，因此该实现稳定。
 
-其核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。 作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数。它的基本思想是：给定的输入序列中的每一个元素x，确定该序列中值小于等于x元素的个数，然后将x直接存放到最终的排序序列的正确位置上。
+### 计数排序（Counting Sort）
 
-### 桶排序 Bucket Sort
-桶排序（Bucket sort）或所谓的箱排序，是一个排序算法，工作的原理是将数组分到有限数量的桶里。每个桶再个别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排序），最后依次把各个桶中的记录列出来记得到有序序列。
+计数排序不是基于比较的排序算法。它把输入整数作为计数数组的下标，统计每个值出现的次数，再按照下标顺序还原结果。因此，输入必须是整数，并且关键字范围不能远大于元素数量。
 
-### 基数排序 Radix Sort
-基数排序（Radix sort）是一种非比较型整数排序算法。
+### 桶排序（Bucket Sort）
 
-原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。基数排序的方式可以采用LSD（Least significant digital）或MSD（Most significant digital），LSD的排序方式由键值的最右边开始，而MSD则相反，由键值的最左边开始。
+桶排序把元素按照取值范围分配到有限个桶中，再分别对每个桶排序，最后依次连接所有桶。桶的数量和分配规则会明显影响性能；数据分布均匀时更容易发挥优势。
 
-- **MSD**：先从高位开始进行排序，在每个关键字上，可采用计数排序
-- **LSD**：先从低位开始进行排序，在每个关键字上，可采用桶排序
+### 基数排序（Radix Sort）
 
-### 快速排序 Quick Sort
+基数排序不直接比较完整关键字，而是按位处理整数。LSD（least significant digit）从最低位开始，MSD（most significant digit）从最高位开始。每一轮通常需要稳定的计数排序或桶排序作为子过程。
 
-快速排序是我们在前面提到的最基础的排序方法 冒泡排序的升级 也是通过不断地比较和移动 不过他增大了比较和移动的距离 从而减少了比较和交换的次数
+- **MSD**：从高位开始处理，适合按前缀划分数据。
+- **LSD**：从低位开始处理，要求每一轮排序保持稳定。
 
-基本思想 ：通过一套排序把待排记录分割成独立的两部分 一部分的关键词均比另一部分要小 从而分别对着两部分进行排序 从而让整个数列有序 他虽然看起来叙述向希尔排序 但是实际上和原本的基本更大不一样 我们直接看代码‘
+### 快速排序（Quick Sort）
 
-```c
-void QuickSort(Sqlist *L){
-    Qsort(L,1,L->length);
-}
-//和归并一样 因为涉及到递归调用的问题我们添加了一个封装层 
-void Qsort(Sqlist *L,int low,int high){
-    int pivot;
-    if(low<high){
-        pivot=Partition(L,low,high); //用调用了一个函数 他的作用是选择一个关键词 是谁无所谓 
-        							//然后找到一个位置让他左边都比他小 右边都比他大
-        Qsort(L,low,pivot-1);
-        Qsort(L,pivot+1,high);//两次递归调用
-    }
-}
-int Partition(Sqlist *L,int low,int high){
-    int pivotkey;
-    pivotkey = L->r[low];
-    while(low<high){
-        while(low<high&&L->r[high]>=pivotkey){
-            high--;
-        }
-        swap(L,low,high); //就当这是一个封装好的函数就行 虽然C里没有 这里我们的核心是理解算法
-        while(low<high&&L->r[low]<=pivotkey){
-            low++;
-        }
-        swap(L,low,high); //就是从两端找元素 找到了就和选定的pivot交换 最后形成一个左小右大 high=low的时候OK了
-    }
-    return lowl;
-}
-//1 开始存元素的地方 别用前面那数组了 还是链表好用 
+快速排序选择一个基准值（pivot），通过分区操作把序列分成两部分：左侧元素不大于基准值，右侧元素不小于基准值，然后递归处理两部分。
+
+快速排序是不稳定的，平均时间复杂度为 (O(n\log n))；如果每次选择的基准值都接近最小值或最大值，最坏时间复杂度会退化为 (O(n^2))。
+
+下面的代码使用原地分区。代码开头的 `QuickArray` 明确表示待排序的可变线性表。
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class QuickArray:
+    """快速排序直接修改其中的 data。"""
+
+    data: list[int]
+
+
+def quick_sort(values: QuickArray) -> None:
+    def partition(left: int, right: int) -> int:
+        pivot = values.data[right]
+        boundary = left
+        for index in range(left, right):
+            if values.data[index] <= pivot:
+                values.data[boundary], values.data[index] = (
+                    values.data[index],
+                    values.data[boundary],
+                )
+                boundary += 1
+        values.data[boundary], values.data[right] = (
+            values.data[right],
+            values.data[boundary],
+        )
+        return boundary
+
+    def sort_range(left: int, right: int) -> None:
+        if left >= right:
+            return
+        pivot_index = partition(left, right)
+        sort_range(left, pivot_index - 1)
+        sort_range(pivot_index + 1, right)
+
+    sort_range(0, len(values.data) - 1)
+
+
+values = QuickArray([5, 2, 8, 2, 1])
+quick_sort(values)
+print(values.data)
 ```
 
-快速排序并不稳定 其时间复杂度一般为 $nlogn$  最坏情况下（原本的数列就有顺序）时间复杂度是$n^{2}$
+#### 基准值的选择
 
-**优化pivot**
+快速排序的性能很大程度上取决于基准值。可以使用随机选取、三数取中等方法，让分区结果尽量接近均衡，降低退化的可能性。
 
-快速排序的算法性能很明显的被我们选取的pivot的值所影响 这个值越接近整体的中位数 后面的算法就会算的更少 所以我们会引入三数字取中 九数字取中的方式 希望它更接近中间值的关键字
+#### 小数组优化
 
-**优化交换**
+对很小的子数组继续递归分区，额外开销可能超过排序本身。实际实现中，可以在子数组长度较小时改用直接插入排序。
 
-舍弃封装好的swap函数 改为替换 希望在这里节省一些操作 但是舍弃封装 会更接近底层 
+#### 递归优化
 
-**优化小数组方案**
+递归深度过大时会增加栈空间消耗。可以优先递归较短的一侧，对较长的一侧使用循环处理，从而把额外栈空间控制在较小范围内。
 
-小数组时快速排序并不快速 在长度低于几十（很主观）的时候 选择直接插入排序就好了
+## 结语
 
-**优化递归**
-
-递归对计算机性能的消耗是不小的 所以存在尾递归的优化方式来提高性能
-
-### 结尾语
-
-很有趣的是 这个排序算法被称为快速排序 这个命名其实就能说明很大的问题 如果有更好的排序算法 他就不名副其实了 实际上快速排序经过不断地演进后 就是目前整体效率最高的算法 很难继续被优化了
+快速排序的名字来自它在许多实际场景中的高效表现，但它并不是所有输入下都最快。基准值选择、数据分布、稳定性要求和可用内存都会影响算法选择。理解这些取舍，比单独记住某个排序算法的名字更重要。

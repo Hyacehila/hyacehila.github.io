@@ -1,786 +1,1013 @@
 ---
-title: 'Search and Sorting Algorithms: Binary Search, Hash Tables, and Sorting Implementations'
+title: "Search and Sorting Algorithms: Binary Search, Hash Tables, and Sorting Implementations"
 title_zh: 查找与排序算法：二分查找、散列表与排序实现
 date: 2024-12-18 21:37:43 +0800
 categories:
-- Programming
-- CS Foundations
+  - Programming
+  - CS Foundations
 tags:
-- Algorithms
-- Search
-- Sorting
+  - Algorithms
+  - Search
+  - Sorting
 author: Hyacehila
 mathjax: true
 hidden: true
-excerpt: Covers sequential search, binary search, binary search trees, hash tables, sorting algorithms, and related C implementations.
-description: Covers sequential search, binary search, binary search trees, hash tables, sorting algorithms, and related C
-  implementations.
-excerpt_zh: 整理顺序查找、二分查找、二叉排序树、散列表、排序算法和相关 C 语言实现。
+excerpt: Covers sequential search, binary search, binary search trees, hash tables, sorting algorithms, and related Python implementations.
+description: Covers sequential search, binary search, binary search trees, hash tables, sorting algorithms, and related Python implementations.
+excerpt_zh: 整理顺序查找、二分查找、二叉排序树、散列表、排序算法及其 Python 实现。
 permalink: /blog/2024/12/18/search-and-sorting-algorithms/
 lang: en
 translation_key: 2024-12-18-search-and-sorting-algorithms
 translation_status: machine
-translation_source_hash: 4c4cbb8fb7b92c401c070cadc6573a926de28eb4d122ef2f6192d0d28ec33105
+translation_source_hash: 233d662f410963dbf442c24f12cd43d06a86d16f0c2cfe962930e93775d3436b
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
-<h2>Find</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2025/05/12/data-structures-introduction/">Data structure introduction: linear tables, trees, maps and search sequence</a>、<a href="/en/blog/2025/05/13/algorithm-design-and-analysis/">Algorithm design and analysis: partitioning, dynamic planning and algorithms</a>How the concept of a relatively close read together is developed in different contexts.</p>
-<p>It's a very big problem, and Search is a tool that any programmer must know and use, and it's at the heart of modern science, and it's possible that some of the things that are special about finding tools are the ones that you need to learn.</p>
-<h3>Find General</h3>
-<p>All data that need to be checked are called the collections of data<strong>Search Table</strong> Search Table</p>
-<p><strong>Keywords</strong> Key is a certain item in the data element that he can identify a data element or a field (key code)</p>
-<p>If the keyword is the only one that can identify a record, it's called him. <strong>Main keyword</strong> Primary Key, otherwise called subkey.</p>
-<p>So the search is based on a value that we've found.</p>
-<p>We return to position when we have a successful search or we return to empty pointer (normal)</p>
-<p>By way of operation, we split the search tables into static and dynamic search tables.</p>
-<p><strong>Static Search Sheet</strong> We're looking for the kind of search we want in a bunch of data.</p>
-<p><strong>Dynamic Search Table</strong> Data elements are inserted or removed during search  </p>
-<p>To improve the efficiency of the search, we often set the right data structure for the search operation. Yes.</p>
-<p>The right structure is the general pattern of the discussion that we're going to discuss, the static search of the linear table, the dynamic search of the dident sorting tree, and the selection of the scattered list for some special cases.</p>
-<h3>Order Table Searches</h3>
-<h4>Order Searches</h4>
-<p>At this point, the data elements are a linear table of disorder, and we have no good technique, and one by one, the only way to do it is to compare it.</p>
-<pre><code class="language-c">int linear_search(int arr[N], int value) {
-    int i;
-    for (i = 0; i &lt; N; i++) {
-        if (arr[i] == value) {
-            return i;
-        }
-    }
-    return 0;
-}
-//优化代码 避免一次越界检测
-int linear_search(int arr[N], int value) {
-    int i;
-    a[0]=key;
-    i=n;
-    while(a[i]!=key){
-        i--;
-    }
-    return i;
-}
-</code></pre>
-<h4>Order Table Search</h4>
-<p>If the original elements are in a certain order, it'll be very helpful to find out.</p>
-<h4>Half Find</h4>
-<pre><code class="language-c">int search(int nums[], int size, int target) //nums是数组，size是数组的大小，target是需要查找的值
-{
-    int left = 0;
-    int right = size - 1;	// 定义了target在左闭右闭的区间内，[left, right]
-    while (left &lt;= right) {	//当left == right时，区间[left, right]仍然有效
-        int middle = left + ((right - left) / 2);//等同于 (left + right) / 2 /符号自动取整
-        if (nums[middle] &gt; target) {
-            right = middle - 1;	//target在左区间，所以[left, middle - 1]
-        } else if (nums[middle] &lt; target) {
-            left = middle + 1;	//target在右区间，所以[middle + 1, right]
-        } else {	//既不在左边，也不在右边，那就是找到答案了
-            return middle;
-        }
-    }
-    return -1;
-}
-//原理非常容易 处理好边界就可以了 不复杂
-</code></pre>
-<h4>Plugin Search</h4>
-<p>Can we start at half the place? Can't we just start somewhere else? Mathematicians gave their answers, plugged in the formula.</p>
-<pre><code class="language-c">mid = low + (high-low)*(key-a[low])/(a[high]-a[low]);
-</code></pre>
-<p>Using plug-in formulas, sometimes it increases the efficiency of searching, for example, when arrays are long and even.</p>
-<h4>Fabonacci.</h4>
-<p>And it started from the partition point because F(n)=F(n-1)+F(n-2), so we chose to divide the array into two parts.</p>
-<pre><code class="language-c">int Fibonacci_Search(int *a, int key, int n)
-{
-	int i, low = 0, high = n - 1;
-	int mid = 0;
-	int k = 0;
-	int F[ARRSIZE];
-	InitFibonacci(F);
-	while (n &gt; F[k] - 1)          //计算出n在斐波那契中的数列
-	{
-		++k;
-	}
-	for (i = n; i &lt; F[k] - 1; ++i) //把数组补全  最大补全到后面的位置
-	{
-		a[i] = a[high];
-	}
-	while (low &lt;= high)
-	{
-		mid = low + F[k - 1] - 1;  //根据斐波那契数列进行黄金分割
-		if (a[mid] &gt; key)
-		{
-			high = mid - 1;
-			k = k - 1;
-		}
-		else if (a[mid] &lt; key)
-		{
-			low = mid + 1;
-			k = k - 2;
-		}
-		else
-		{
-			if (mid &lt;= high) //如果为真则找到相应的位置
-			{
-				return mid;
-			}
-			else
-			{
-				return n;
-			}
-		}
-	}
-	return 0;
-}
-</code></pre>
-<h3>Linear Index Search</h3>
-<p>If the data is huge, it's impossible to get them in order, but can we get a little bit of a pattern in the order? </p>
-<p>Index structure is generally divided into <strong>Linear Index Tree Index Multi-level Index</strong> We're here to highlight the linear index structure.</p>
-<h4>Thin Index</h4>
-<p>The record in each data set corresponds to a single index item, which must be organized in a dense index by key code.</p>
-<h4>Part Index</h4>
-<p>The library's books are essentially a block index, and we're sort of sort of sort of sort of sort of sort of sort of sort of sort of sort of sort of sort of thing, sort of sort of sort of sort of sort of thing, sort of sort of sort of thing, because he's got a guy who's got a lot of work on him and he's not really a man.</p>
-<h4>Backward Index</h4>
-<p>It's actually a more common technique for search engines, and it's easy to find that the efficiency of search engines is as high as it is scary.</p>
-<p>We take all the key words that may be individually and find their original file number, and then when we enter the key word, it's very efficient to search because we can sort the key words out or create index structures.</p>
-<p>This indexing technique is called a reverse index, which is based on a key code and log number. </p>
-<h3>A tree sorted fork</h3>
-<p>Let's try it now. <strong>Dynamic Search Table</strong>    We want to find a good search and on the one hand, we want to be able to insert and delete it, as the title of this chapter is, we want to use the fork tree to achieve a comparison of the size of one layer of the new element with the elements in the original tree, and we want to put the new element on the left side, and we want to have one layer on the right side, and then we want to have one layer of the last one, and this is an orderly sequence of the two-fork tree, which is the binary soort Tree.</p>
-<ul>
-<li>If the left tree is not empty, all the points of the left tree are less than the value of his structure.</li>
-<li>If the right subtree is not empty, all the nodes of the right subtree have values greater than the root node.</li>
-<li>The right and right sub-trees are sorted with two fork trees.</li>
-</ul>
-<p>The retrogression is the subject of a two-knot tree that we can't miss, not to sort, but to find, insert and delete, and then some of the codes are there.</p>
-<pre><code class="language-c">typedef int DataType;
-typedef struct BST_Node {
-    DataType data;
-    struct BST_Node *lchild, *rchild;
-}BST_T, *BST_P;
-//我们先默认有一棵二叉排序树 建立放到插入后面讲 很快就会理解意思
-BST_P SearchMin(BST_P root)
-{
-    if (root == NULL)
-        return NULL;
-    if (root-&gt;lchild == NULL)
-        return root;
-    else  //一直往左孩子找，直到没有左孩子的结点
-        return SearchMin(root-&gt;lchild);
-}
-//查找最大原理也非常的简单 略去了
-BST_P Search_BST(BST_P root, DataType key)
-{
-    if (root == NULL)
-        return NULL;
-    if (key &gt; root-&gt;data) //查找右子树
-        return Search_BST(root-&gt;rchild, key);
-    else if (key &lt; root-&gt;data) //查找左子树
-        return Search_BST(root-&gt;lchild, key);
-    else
-        return root;
-}
-//递归是查找算法的核心 学习这些也会帮助我们理解递归
-void Insert_BST(BST_P *root, DataType data)
-{
-    //初始化插入节点
-    BST_P p = (BST_P)malloc(sizeof(struct BST_Node));
-    if (!p) return;
-    p-&gt;data = data;
-    p-&gt;lchild = p-&gt;rchild = NULL;
+## Search
 
-    //空树时，直接作为根节点
-    if (*root == NULL)
-    {
-        *root = p;
-        return;
-    }
+This article can be read together with [Introduction to Data Structures: Linear Lists, Trees, Graphs, and Search](/en/blog/2025/05/12/data-structures-introduction/) and [Algorithm Design and Analysis: Divide and Conquer, Dynamic Programming, and Graph Algorithms](/en/blog/2025/05/13/algorithm-design-and-analysis/). The topics overlap, but each article has a different focus.
 
-    //是否存在，已存在则返回，不插入
-    if (Search_BST(root, data) != NULL) return;
+Searching is a common operation in programs and an unavoidable topic when learning data structures. The question is straightforward: given a set of data and a key, how can we find the corresponding record quickly? The data size, whether the data is ordered, and whether insertion or deletion is required all affect the choice of search method and data structure.
 
-    //进行插入，首先找到要插入的位置的父节点
-    BST_P tnode = NULL, troot = *root;
-    while (troot)
-    {
-        tnode = troot;
-        if(data &lt; troot-&gt;data){
-            troot = troot-&gt;lchild;
-        }
-        else{
-            troot = troot-&gt;rchild；
-        }
-    }
-    if (data &lt; tnode-&gt;data)
-        tnode-&gt;lchild = p;
-    else
-        tnode-&gt;rchild = p;
-}
-//所谓的插入就是查找一个合适的地方添加进去
-void CreateBST(BST_P *T, int a[], int n)
-{
-    int i;
-    for (i = 0; i &lt; n; i++)
-    {
-        Insert_BST(T, a[i]);
-    }
-}
-//所谓的建立就是重复插入的过程 非常简单
-void DeleteBSTNode(BST_P *root, DataType data)
-{
-    BST_P p = *root, parent = NULL, s = NULL;
+### Search basics
 
-    if (!p) return;
+A collection of records to be searched is called a **search table**.
 
-    if (p-&gt;data == data) //找到要删除的节点了
-    {
-        /* It&#39;s a leaf node */
-        if (!p-&gt;rchild &amp;&amp; !p-&gt;lchild)
-            *root = NULL;
+A **key** is a field of a data element that can identify the element or a field in a record.
 
-        // 只有一个左节点
-        else if (!p-&gt;rchild&amp;&amp;p-&gt;lchild)
-            *root = p-&gt;lchild;
+If a key uniquely identifies a record, it is a **primary key**. Otherwise, it is a **secondary key**.
 
-        // 只有一个右节点
-        else if (!p-&gt;lchild&amp;&amp;p-&gt;rchild)
-            *root = p-&gt;rchild;
+Searching means finding the record associated with a given key. A successful search usually returns the record or its position; an unsuccessful search returns `None` or a designated invalid index.
 
-        //左右节点都不空 里面是一个复杂的判断过程
-        else
-        {
-            s = p-&gt;rchild;
-            /* the s without left child */
-            if (!s-&gt;lchild)
-                s-&gt;lchild = p-&gt;lchild;  //完成接树的过程
+Based on whether the data can be modified during the operation, search tables are divided into static and dynamic search tables:
 
-            /* the s have left child */
-            else
-            {
-                /* find the smallest node in the left subtree of s */
-                while (s-&gt;lchild)
-                {
-                    /* record the parent node of s */
-                    parent = s;
-                    s = s-&gt;lchild;
-                }
-                parent-&gt;lchild = s-&gt;rchild;
-                s-&gt;lchild = p-&gt;lchild;
-                s-&gt;rchild = p-&gt;rchild;
-            }
-            *root = s;
-        }
-        free(p);
-    }
-    else if (data &gt; p-&gt;data) //向右找
-        DeleteBSTNode(&amp;(p-&gt;rchild), data);
-    else if (data &lt; p-&gt;data) //向左找
-        DeleteBSTNode(&amp;(p-&gt;lchild), data);
-}
-//删除其实比较复杂 你得分清是不是叶子结点 如果要删除的结点有子孙 我们需要怎么变化我们的二叉树
-//删除代码包括了我们进行查找的过程 后面的递归就是如此
-</code></pre>
-<p>The main part of the dident tree is these, and we can easily find a problem, and we want the tree to be more balanced, deep and fully balanced, so that the number of judgments that can be found for consumption is reduced, that is, the problem of balancing the dident tree.</p>
-<h3>Balance the fork tree AVL tree</h3>
-<p>The simple point of balance is that we want to see a maximum difference between the height of all the node left and the right tree, and we call the value of the diagonal node left tree minus the depth of the right subtree as a balance factor, and BF, for the AVL tree balance factor, only 10-1, and of course, if it's not sorted two fork tree, then there's no precondition for balancing two fork tree. </p>
-<p>We call the tree closest to the plug and the fraction is the one whose absolute value is more than one. </p>
-<p>The core of the construction of the balanced diagonal tree is to check whether the balance still exists when a node is inserted in the construction of the diagonal sort of tree, and if the balance is compromised, then adjust the logic between the fewer and lesser fractions of the tree, while maintaining the pre-ordering properties of the dident, so that he can be called the new balance tree, and then we can give you a thought, and let's just say, a simple example,</p>
-<p>And how do you achieve this transformation, as the theoretically optimized tree of the didental sorting tree of the direct composition of the two fork, as shown in the figure?</p>
-<p>Let's start from the beginning, and think about when there's an imbalance, and what should we do about it? </p>
-<p>One, after inserting this fork tree, we found that the whole tree became the smallest imbalance subtree, and in order to balance it, we needed a whole clockwise rotation to make two roots. Points </p>
-<p>When normal four inserts five, the smallest imbalance in node three subtrees needs to rotate reverse clockwise. </p>
-<p>Add node six, and the whole tree becomes once again the smallest imbalance subtree, rotating the two-point counterclockwise.</p>
-<p>By the same token, seven plus 10 plus nine times, but then it's not gonna solve the problem by going straight to the point where the BF of the smallest imbalance tree and his BF symbol of the subtree are going to have to do twice.</p>
-<p>It's four situations, and it's not hard to understand.</p>
-<p>The idea of this rotation is the idea of the AVL tree, and the way it is inserted, is to solve it.</p>
-<pre><code class="language-c">struct node {
-    int             data;
-    int             height;
-    struct node     *left;
-    struct node     *right;
-}
+- **Static search table**: supports queries only; records are not inserted or deleted.
+- **Dynamic search table**: supports insertion or deletion while it is being searched.
 
-typedef struct node node_t;
-typedef struct node* nodeptr_t;
-//首先重新纠正我们的结点问题 没有高度怎么考虑平衡因子的问题呢
-int treeHeight(nodeptr_t root) {
-    if(root == NULL) {
-        return -1;
-    } else {
-        return max(treeHeight(root-&gt;left),treeHeight(root-&gt;right)) + 1;
-    }
-}
-//用来获得结点高度的函数 在后面进行什么删除或者插入的操作的时候记得更新高度这个量
-int treeGetBalanceFactor(nodeptr_t root) {
-    if(root == NULL)
-        return 0;
-    else
-        return x-&gt;left-&gt;height - x-&gt;right-&gt;height;
-}
-//检测BF因子 当绝对值大于一的时候就应该进行一次修正
-nodeptr_t treeRotateRight(nodeptr_t root) {
-    nodeptr_t left = root-&gt;left; //保存新的根节点 也就是原本结点的左孩子
-    root-&gt;left = left-&gt;right; // 将将要被抛弃的节点连接为旋转后的 root 的左孩子
-    left-&gt;right = root; // 调换父子关系
+Choosing an appropriate data structure can improve search performance. A linear table is often enough for static search. A binary search tree is useful when the table changes dynamically. A hash table is a good choice when direct key-based lookup is needed and range queries are not.
 
-    left-&gt;height = max(treeHeight(left-&gt;left), treeHeight(left-&gt;right))+1;
-    right-&gt;height = max(treeHeight(right-&gt;left), treeHeight(right-&gt;right))+1;
+### Searching a linear table
 
-    return left; //返回的是这一部分的新的根节点
-}
-nodeptr_t treeRotateLeft(nodeptr_t root) {
-    nodeptr_t right = root-&gt;right;
-    root-&gt;right = right-&gt;left;
-    right-&gt;left = root;
+#### Sequential search
 
-    left-&gt;height = max(treeHeight(left-&gt;left), treeHeight(left-&gt;right))+1;
-    right-&gt;height = max(treeHeight(right-&gt;left), treeHeight(right-&gt;right))+1;
+When elements are stored in an unordered linear table, there is no ordering information to exploit. The direct approach is to compare elements from the beginning to the end. The code below defines a simple sequential table and implements both ordinary search and sentinel search.
 
-    return right;
-}
-//这是标准左旋和标准右旋的代码 其实本身非常简单 后面的四种平衡操作都是对两种旋转的应用
-//平衡实现
-nodeptr_t treeRebalance(nodeptr_t root) {
-    int factor = treeGetBalanceFactor(root);
-    if(factor &gt; 1 &amp;&amp; treeGetBalanceFactor(root-&gt;left) &gt; 0) // LL
-        return treeRotateRight(root);
-    else if(factor &gt; 1 &amp;&amp; treeGetBalanceFactor(root-&gt;left) &lt;= 0) { //LR
-        root-&gt;left = treeRotateLeft(root-&gt;left);
-        return treeRotateRight(temp);
-    } else if(factor &lt; -1 &amp;&amp; treeGetBalanceFactor(root-&gt;right) &lt;= 0) // RR
-        return treeRotateLeft(root);
-    else if((factor &lt; -1 &amp;&amp; treeGetBalanceFactor(root-&gt;right) &gt; 0) { // RL
-        root-&gt;right = treeRotateRight(root-&gt;right);
-        return treeRotateLeft(root);
-    } else { // Nothing happened.
-        return root;
-    }
-}
-</code></pre>
-<p>That's how we get AVL code, but we're trying to get the balance out of the insertion and deletion, which means we're going to fix the insertion and delete codes based on these functions, and it's easier to wrap them up.</p>
-<pre><code class="language-c">void treeInsert(nodeptr_t *rootptr, int value)
-{
-    nodeptr_t newNode;
-    nodeptr_t root = *rootptr;
+```python
+from dataclasses import dataclass
+from typing import Generic, TypeVar
 
-    if(root == NULL) {
-        newNode = malloc(sizeof(node_t));
-        assert(newNode);
-
-        newNode-&gt;data = value;
-        newNode-&gt;left = newNode-&gt;right = NULL;
-
-        *rootptr = newNode;
-    } else if(root-&gt;data == value) {
-        return;
-    } else {
-        if(root-&gt;data &lt; value)
-            treeInsert(&amp;root-&gt;right,value);
-        else
-            treeInsert(&amp;root-&gt;left,value)
-    }
-
-    treeRebalance(root);//递归使用平衡树的代码 这个代码递归执行了很多次
-}
-//
-void treeDelete(nodeptr_t *rootptr, int data)
-{
-    nodeptr_t *toFree; // 拜拜了您呐
-    nodeptr_t root = *rootptr;
-
-    if(root) {
-        if(root-&gt;data == value) {
-            if(root-&gt;right) {
-                root-&gt;data = treeDeleteMin(&amp;(root-&gt;right));
-            } else {
-                toFree = root;
-                *rootptr = toFree-&gt;left;
-                free(toFree);
-            }
-        } else {
-        if(root-&gt;data &lt; value)
-            treeDelete(&amp;root-&gt;right,value);
-        else
-            treeDelete(&amp;root-&gt;left,value)
-        }
-
-        treeRebalance(root);
-    }
-}
-</code></pre>
-<h3>Multiple-road search for tree B</h3>
-<p>The number of numbers in front of each node limits the storage of an element to two children at each node, which will certainly lead to an overload of memory at the time of the big file storage, and we need access to hard drives, which are much faster than the memory, and the memory access speed is much less than the built-in cache, because for this reason the multi-road search tree we're introducing is based on the number of elements that each node can store and the number of children he has, and we're looking at 2,3 trees, 2,3 and 4 trees B and B+ below. </p>
-<h4>2-3 trees</h4>
-<p>By definition, each node has two or three children, two and three, respectively, and two have one element and two children (or two children) and three have one or two elements and three children (or none). </p>
-<p>Similar to the dident tree, the 2 node requires that the left tree be smaller than the root, and the right subtree is larger than the root, unlike the 2 node cannot have a child, the 3 node principle is similar, the left node contains smaller elements, the right subtree contains larger elements, the middle tree contains elements between them. </p>
-<p>And we're asking all the leaves of the two-3 tree to be on the same plane, and it's clear that the two-3 tree makes it more difficult to insert and delete. </p>
-<p><strong>Insert Category</strong></p>
-<p>Like the tree that sorted the fork, the insertion can only occur at the leaf node.</p>
-<p>For the empty tree, insert a two-point point. </p>
-<p>Insert the node into a two-point leaf. We need to upgrade it to three and correct the left-and-right relationship.</p>
-<p>Insert node into a three-point leaf.</p>
-<h4>Delete Category</h4>
-<p>Remove the leaves node from the three nodes.</p>
-<p>The removal of the leaves of the two nodes led to the creation of the synthesis node, which led to the cessation of the two-three trees, which required more complex processing, continued classification, and no time was wasted here.</p>
-<h4>2-3-4 trees</h4>
-<p>By definition, the expansion of the concept of two to three trees is more complicated, so that you can understand the concept.</p>
-<h4>B tree.</h4>
-<p>B tree is a balanced multi-road search tree, and the two preceding are unique examples of B tree, and the largest number of children at the nodes is called B numbers, order B numbers are introduced to deal with swap memory and extras.</p>
-<p>Our idea is to adjust the number of B trees to the size of the memory, and the larger step can have a lower height, just to access the heights in the root memory. </p>
-<h4>B+ Tree</h4>
-<p>The B+ tree is an improvement of the B tree, which is no longer part of the tree we studied before, and his advantage is to be able to find the area, and to correct the problem that B tree can only look at from the root. </p>
-<h3>Fragmented List Search/Hashi Table Summary</h3>
-<p>In the search methods that are in front of us, whether it's sequence or disorder, linear or tree, the comparison is an inevitable part of the search, but it's not really possible to avoid it. The answer is yes, storage = f (key) -- this is a viable new storage technology -- hash technology -- we're building a mapf between keywords and storage positions, which is called a hash function, and hash technology is storing records in a continuous space called a rash table. </p>
-<p>Hash, this is a very hot word that appears in the classroom of the data structure.</p>
-<p>In essence, hash technology is both a storage and a search method, and there's no logical relationship between his data elements, and he's a search-oriented structure. </p>
-<p>It's obvious that hash technology is not suitable for a single keyword multirecording situation, and it's not suitable for a range search. </p>
-<p>Ideally, each hash function should be addressed to a different address, but the ideal is the ideal of a collision with a multi-key word-mail address. </p>
-<h3>The construction of a hash function</h3>
-<p>What is a good hash function, and we have a few basic rules, which are simple to calculate to increase efficiency, and evenly distributed addresses to avoid too many conflicts, based on the following methods:</p>
-<h4>Direct Location</h4>
-<p>For example, if we want to count the number of people of different ages, we can use age as the address directly, if we count the number of births in different years, we can use the year as the address to consider a linear function of the keyword. </p>
-<p>These functions are a little simple, even, non-conflict, but need to be first to know the distribution of keywords, so they're not very common.</p>
-<h4>Digital Analysis Method</h4>
-<p>The key is taken from the top four, which are often used for ID checks, ID numbers, bank cards, of course, and also for the description of the key word, and for a balanced distribution.</p>
-<h4>Square-based</h4>
-<p>The original keyword squared and then a few places in the middle, like three, which is appropriate for a situation where the number of digits is not very large, but rather a few.</p>
-<h4>Collapse</h4>
-<p>Split the keywords into the same bits and then make a request and as an address. </p>
-<p>One fold may be uneven, perhaps one that can be folded from the other side, and two combined will be more even.</p>
-<p>It's a big bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a bit of a sort of a little bit of a sort of a sort of a sort of a sort of a sort of a sort of a sort of a sort of a little bit of a sort of a sort of a sort of a sort of a sort of a sort of a sort of a sort of a sort of a sort of a sort of a thing.</p>
-<h4>Save the remaining number</h4>
-<p>It's the mod function, and mathematicians tell us when the table is long, you usually choose to separate the smallest mass close to m or not to contain a combination of 20 or less progeny.</p>
-<h4>Random number</h4>
-<p>The random numbers are usually pseudo-random, and there are algorithms that generate random numbers. </p>
-<p>The principle of random number generation does not have to be said here, but it's also used in square numbers.</p>
-<h3>Dealing with the hash conflict</h3>
-<p>When we've found the conflict, how do we fix it? There's a way.</p>
-<h4>Open Locations</h4>
-<p>When you're in conflict, choose the next empty hash address, and if the watch is big enough, you're not afraid to find it.</p>
-<p>hi(key) = (h(key)+di) mod m</p>
-<p>This is the core open location formula.     </p>
-<p>Linear detection: di = i</p>
-<p>Square detection: di = ±i2 (+12, -12, +22, -22) Square detection is to avoid accumulation effects and better occupy the whole bulk list</p>
-<p>Random detection: di is random number by time or by anything.</p>
-<h4>Re-hash Function Method</h4>
-<p>* h2(key) makes several hash functions always changing functions always solves problems</p>
-<h4>Chain Address Method</h4>
-<p>I'm throwing a single watch here, one element plus one, and I'm gonna find this address and I'm gonna go over it again.</p>
-<h4>Public Spill Areas Act</h4>
-<p>All address conflicts, separate spill areas, and if Hathy doesn't come to my spill area, it's good to have a few conflict data.</p>
-<h3>Fragmented List Searches</h3>
-<p>With the ideas that are ahead, this should not be the problem. </p>
-<pre><code class="language-c">#define m 16	//  哈希表/散列表长度
-typedef int KeyType;
-typedef int InfoType;
-//散列表定义
-typedef struct
-{
-	KeyType key;
-	InfoType otherinfo;
-}HashTable[m];
-
-//散列表的查找
-int SearchHash(HashTable HT, KeyType key)
-{
-	int HO = key % 13;  //根据散列函数计算散列地址
-	if (HT[HO].key == 0)  return -1;		// 若单元为空， 则所查元素不存在
-	else if (HT[HO].key == key) return HO;
-	else
-	{
-		//按照线性探测法计算下一个散列地址Hi
-		for (int i = 1; i &lt; m; i++)
-		{
-			int Hi = (HO + i) % m;
-			if (HT[Hi].key == 0)  return -1;		// 若单元为空， 则所查元素不存在
-			else if (HT[Hi].key == key) return Hi;
-		}
-		return -1;
-	}
-}
-
-//散列表的插入
-int InsertHash(HashTable HT, KeyType key)
-{
-	int HO = key % 13;		//根据散列函数计算散列地址
-	if (HT[HO].key == 0)	// 若单元为空， 则所查元素不存在
-	{
-		HT[HO].key = key;
-		return 0;
-	}
-	else
-	{
-		//按照线性探测法计算下一个散列地址Hi
-		for (int i = 1; i &lt; m; i++)
-		{
-			int Hi = (HO + i) % m;
-			if (HT[Hi].key == 0) 	// 若单元为空， 则所查元素不存在
-			{
-				HT[Hi].key = key;
-				return 0;
-			}
-		}
-		return -1;					//散列表已满
-	}
-}
+T = TypeVar("T")
 
 
-int main()
-{
-	//初始化
-	HashTable HT;
-	for (int i = 0; i &lt; m; i++)
-	{
-		HT[i].key = 0;
-	}
+@dataclass
+class SequenceTable(Generic[T]):
+    """A sequential table backed by a Python list."""
 
-	//插入
-	InsertHash(HT, 19);
-	InsertHash(HT, 14);
-	InsertHash(HT, 23);
-	InsertHash(HT, 1);
-	InsertHash(HT, 68);
-	InsertHash(HT, 20);
-	InsertHash(HT, 84);
-	InsertHash(HT, 27);
-	InsertHash(HT, 55);
-	InsertHash(HT, 11);
-	InsertHash(HT, 10);
-	InsertHash(HT, 79);
+    items: list[T]
 
-	//遍历散列表
-	printf(&quot;按散列地址排列：&quot;);
-	for (int i = 1; i &lt;m; i++)
-	{
-		printf(&quot;%d,&quot;, HT[i].key);
-	}
+    def __len__(self) -> int:
+        return len(self.items)
 
-	//查找
-	int n;
-	printf(&quot;\n请输入要查找的数：&quot;);
-	scanf(&quot;%d&quot;, &amp;n);
-	int result = SearchHash(HT, n);
-	printf(&quot;\n要查找的数在散列表中的地址为：%d  \n&quot;, result);
-}
-</code></pre>
-<p>The array symbol is actually just a representation. </p>
-<p>All Hash before us is for numbers, because computers are binary, so if the code can be converted to numbers, Hash can be for all keywords.</p>
-<h2>Sort</h2>
-<p>We've mentioned a concept a million times before, and we've been looking for information on the Internet, and we've been talking about orderly concepts, so we've been asking for very important algorithms, sorting questions.</p>
-<h3>Basic concepts and classifications of ranking</h3>
-<p>The core of the sorting is that we make the sequence meet non-ingressive or non-ingressive relationships by key code, and we usually use non-ingressive sequences.  </p>
-<p>The sorting of multiple keywords is essentially a supersizing of the sort of keywords, sometimes directly simplified by the word-linking, so we focus on the sorting of the word.</p>
-<p>When two keywords appear to be sorted in equal terms, they are drawn out.<strong>Sort stability</strong>The concept, which means that if two people are doing the same thing, the elements that were in front of the ranking should be in front of the ranking, and then stability, and the stability of the ranking algorithm, is a concept that we need to consider later.</p>
-<p>We've been able to get a brief picture of the differences between data memory and memory in the previous study, and this is a problem that happens when you sort out.<strong>Sort inside and outside</strong>The concept of a single, and then it's just about sorting out the inside.</p>
-<p>The performance of the internal ranking algorithm is measured mainly from three angles <strong>Time performance, auxiliary space, algorithm complexity.</strong> The complexity here is the complexity of algorithms, not the complexity of time.</p>
-<p>By the main operation of sorting, we sort sort of insert sort of sort of swap sort of select sort of sort of group group of four big Category</p>
-<p>Based on the complexity of algorithms, we divide them into simple algorithms.<em>A sort of bubble-bearing, a simple selection of sorting, a direct insertion of sorting</em>     Improved algorithm <em>It's got Hill sorted, stacked, sorted, sorted quickly.</em></p>
-<p>The basics of sorting are a linear table, because sorting often requires the exchange of elements, so we use some encapsulation elements, and then we don't explain.</p>
-<h3>Bubble Sort</h3>
-<p>And that's the simplest sort of sort of sort of thing, knowing him at the language first stage, his core idea is to keep two more than one key words in the next, and if it's reversed, then it's exchanged until there's no reverse sequence, and the standard bubble sorting code is as follows, and time is complicated. degrees&#36;n^{2}&#36;  It's stable.</p>
-<pre><code class="language-c">void bubble_sort(int a[], int n)
-{
-    int i,j,temp;
-    for (j=0;j&lt;n-1;j++)
-    {
-        for (i=0;i&lt;n-1-j;i++)
-        {
-            if(a[i]&gt;a[i+1])
-            {
-                temp=a[i];
-                a[i]=a[i+1];
-                a[i+1]=temp;
-            }
-        }
-    }
-}
-//有时候冒泡排序会做一些无意义的比较 我们可以选择增加flag来避免有序情况下的判断（如果有一轮已经发现没有发生任何交换 终止算法）
-</code></pre>
-<h3>Simple Select Sort</h3>
-<p>And that's the sort of selection we're talking about most often, finding the smallest one in the front and then revolving, and the complexity of time.&#36;n^2&#36; But it's actually a little better. It's stable.</p>
-<pre><code class="language-c">void select_sort(int R[],int n)
-{
-    int i,j,k,index;
-    for(i=0;i&lt;n-1;i++)
-    {
-        k=i;
-        for(j=i+1;j&lt;n;j++)
-        {
-            if(R[j]&lt;R[k])
-                k=j;
-        }
-        index=R[i];
-        R[i]=R[k];
-        R[k]=index;
-    }
-}
-</code></pre>
-<h3>Insert Sorting Directly</h3>
-<p>The idea of inserting sorting is to insert a record into a chart that is already in order, and get a new order sheet, and the first two elements will be put in the first sorting, and then the right position will be selected, and the insertion process will be complicated. degrees&#36;n^{2}&#36;  Steady</p>
-<pre><code class="language-c">void insertion_sort(int number[],int n)
-{
-    int i=0,j=0,temp=0;
-    for(i=1;i&lt;n;i++)
-    {
-        temp=number[i];
-        j=i-1;
-        while(j&gt;=0&amp;&amp;temp&lt;number[j])
-        {
-            number[j+1]=number[j];
-            j--;
-        }
-        number[j+1]=temp;
-    }
-}
-</code></pre>
-<h3>Shell Sort</h3>
-<p>In the course of the evolution of the ranking algorithm, the three algorithms and their optimization are being mainstreamed over a long period of time, and because of the time complexity, it was thought that the time complexity of the ranking algorithm could not be lower than that of the time.&#36;n^{2}&#36; Fortunately, the complexity of the time was finally broken by some scientists.</p>
-<p>Hill sorted out as an optimisation for direct insertion.&#36;n^{2}&#36;The increase, if it reduces the n, it will effectively reduce the time complexity, so he chooses to optimize the original sequence into a small sub-series, and when the sequence is essentially organized, then the core point is that the sequence is inserted directly into the sequence. <strong>Basically orderly.</strong> What is it? Let's see the code. </p>
-<p>The optimisation subseries is taken by the k-point, and divided into groups, and thus loses stability.</p>
-<pre><code class="language-c">void ShellSort(int L[].int n){
-    int i,j;
-    int increment = n;
-    int temp;
-    do{
-        increment = increment/3+1;
-        for(i=increment+1;i&lt;=n;i++){
-            if(L[i]&lt;L[i-increment]){
-                temp=L[i];
-                for(j=i-increment;j&gt;0&amp;&amp;temp&lt;L[j];j-=increment){
-                    L[j+increment]=L[j];
-                }
-                L[j+increment]=temp;
-            }
-        }
-    }
-    while(increment&gt;1);
-}
-//这段代码L[0]位置是空的 不存储数据 很明显 increment的选取非常重要 我们这一的知识一种方法 仅供参考
-</code></pre>
-<p>The core of Hill's sorting algorithm is the direct insertion of spacing comparisons to leaps, and we compare the elements that are increment and directly sequenced, and then narrow it again after the round of dowhile cycles, and actually, the smaller the sorting that needs to be done after the previous rounds, which is the core of Hill's sorting, and this is the way to optimize it, and we're able to reduce the time complexity to n^1.5, although progress is not significant, the speed of breaking through the slow sequencing is important, and the average complexity changes, but it doesn't break the nlogn.</p>
-<h3>Stack Sort Heap Sort</h3>
-<p>The stacking is an improvement in the simple selection sorting, and in the simple selection sorting, we actually do a lot of replicating comparisons after the first comparison was completed, which leads to excessive time complexity, and the idea of stacking is to use the new data structure of the stack to complement, instability, average complexity. degrees&#36;nlogn&#36;The limit is the average.</p>
-<p><strong>The pile is a full-blown fork tree with the following characteristics:</strong>  </p>
-<p>And under the condition of piles, we're talking about a nature in the complete fork tree.</p>
-<p>For a full binary tree with n nodes, number the node in a stratification order for any node i</p>
-<p>At 1 p.m., he was root nodes without parents.&gt;Parents at 1st</p>
-<p>If 2i&gt;Node i has no left child.</p>
-<p>If 2i+1&gt;No, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no. No, no, no, no, no. No, no, no. No. I has no right, no, no, no, no, no, no, no, no, no, no.</p>
-<p>Obviously, if the large and small tops are to be stratified, it's a roughly sequenced array, and the sort of sorting is to make the original sequence a large pile, move the top elements to the end, and then the rest of the elements become a pile of tops, and repeat them, and we can get an orderly sequence, and the questions that we're wondering about can be understood by code.</p>
-<pre><code class="language-c">void swap(int* a, int* b) {
-    int temp = *b;
-    *b = *a;
-    *a = temp;
-}//懂得都懂 后面那么多结点交换 这样轻松一些
-void max_heapify(int arr[], int start, int end) {
-    //建立父节点指标和子节点指标
-    int dad = start;
-    int son = dad * 2 + 1;
-    while (son &lt;= end) { //若子节点指标在范围内才做比较
-        if (son + 1 &lt;= end &amp;&amp; arr[son] &lt; arr[son + 1]) //先比较两个子节点大小，选择最大的
-            son++;
-        if (arr[dad] &gt; arr[son]) //如果父节点大于子节点代表调整完毕，直接跳出函数
-            return;
-        else { //否则交换父子内容再继续子节点和孙节点比较
-            swap(&amp;arr[dad], &amp;arr[son]);
-            dad = son;
-            son = dad * 2 + 1;
-        }
-    }
-}
-void heap_sort(int arr[], int len) {
-    int i;
-    //初始化，i从最后一个父节点开始调整
-    for (i = len / 2 - 1; i &gt;= 0; i--)
-        max_heapify(arr, i, len - 1);
-    //先将第一个元素和已排好元素前一位做交换，再从新调整，直到排序完毕
-    for (i = len - 1; i &gt; 0; i--) {
-        swap(&amp;arr[0], &amp;arr[i]);
-        max_heapify(arr, 0, i - 1);
-    }
-}
-//修正完以后的二叉树进行层序遍历就可以有序了
-</code></pre>
-<h3>Sorting Merging Sort</h3>
-<p>And so, if you have an entire series of sequenced tables, and if you have an initial record of one, you have an sequence of one, and then two of them have a sequence of one or two lengths, and then you repeat it, and you get an sequence of sequences of two, which is a sequence of two, which is a sequence of two, which is a sequence of two, which is a stable, complex average. degrees&#36;nlogn&#36; The limit is average.</p>
-<p>When you merge, you actually track two decimal groups with two fingers and then you create separate spaces to store the results of the amalgamation.</p>
-<pre><code class="language-c">void merge_sort_recursive(int arr[], int reg[], int start, int end) {
-    if (start &gt;= end)
-        return;
-    int len = end - start, mid = (len &gt;&gt; 1) + start;
-    int start1 = start, end1 = mid;
-    int start2 = mid + 1, end2 = end;
-    merge_sort_recursive(arr, reg, start1, end1);
-    merge_sort_recursive(arr, reg, start2, end2);
-    int k = start;
-    while (start1 &lt;= end1 &amp;&amp; start2 &lt;= end2)
-        reg[k++] = arr[start1] &lt; arr[start2] ? arr[start1++] : arr[start2++];
-    while (start1 &lt;= end1)
-        reg[k++] = arr[start1++];
-    while (start2 &lt;= end2)
-        reg[k++] = arr[start2++];  //这三个while循环就是对拆分双指针递归的实现
-								//理解一下思路 我们从两个数组里从两边的头开始比大小 找小的塞进reg里面 然后下一位
-    for (k = start; k &lt;= end; k++)
-        arr[k] = reg[k]; //把reg临时存放的数据扔回去方便递归回去调用
-}
-void merge_sort(int arr[], const int len) {
-    int reg[len];
-    merge_sort_recursive(arr, reg, 0, len - 1);
-}
-//这里只是进行了一次调用 方便我们进行前面函数的递归操作
-</code></pre>
-<h3>Counting Sort</h3>
-<p>The ranking of numbers is not based on a comparative sorting algorithm.</p>
-<p>The core is to convert the data values entered into key to be stored in extra-created array space. As a sort of linear time complexity, the order of count requires that the data entered be integers with a defined range. Its basic idea is that each element of the given input series x determines the number of median values of the series less than the equivalent of the x element, and then it is stored directly at the correct location of the final sorting sequence.</p>
-<h3>Bucket Sort</h3>
-<p>The sorting of drums (Bucket sort) or so-called box sorting is a sorting algorithm that works on the basis of the distribution of arrays into a limited number of barrels. Each barrel is then sorted individually (possibly using alternative sorting algorithms or continuing to sort in a descending pattern), and the records in each barrel are then listed in order to remember the sequence.</p>
-<h3>Base Sort Radix Sort</h3>
-<p>Radix sort is a non-comparable integer sorting algorithm.</p>
-<p>The rationale is to cut the whole number into a different number, and then compare it separately. The base figure can be sorted in LSD (Lest significant digital) or MSD (Most significant digital), where the LSD is sorted from the right side of the key value, whereas the MSD, in contrast, starts from the left side of the key value.</p>
-<ul>
-<li><strong>MSD</strong>: Sorting first from the top, and in each key word, by counting</li>
-<li><strong>LSD</strong>: Sorting from lower to lower, with barrel sorting for each key word</li>
-</ul>
-<h3>Quick Sort</h3>
-<p>The quick-sorting is the most basic sorting we've ever mentioned, the bubble-sorting upgrade, which is also made by constant comparison and movement, but he increases the distance between comparison and movement, and thus reduces the number of comparisons and exchanges.</p>
-<p>Basic thought: to divide the pending records into two separate parts by a sort of sequence, one of which is smaller than the other, and thus sorting out two separate parts, and thus keeping the whole series in order, and he looks like he's sorting to Hill, but actually, it's not the same as the original, much bigger part, and we look at the code.</p>
-<pre><code class="language-c">void QuickSort(Sqlist *L){
-    Qsort(L,1,L-&gt;length);
-}
-//和归并一样 因为涉及到递归调用的问题我们添加了一个封装层
-void Qsort(Sqlist *L,int low,int high){
-    int pivot;
-    if(low&lt;high){
-        pivot=Partition(L,low,high); //用调用了一个函数 他的作用是选择一个关键词 是谁无所谓
-							//然后找到一个位置让他左边都比他小 右边都比他大
-        Qsort(L,low,pivot-1);
-        Qsort(L,pivot+1,high);//两次递归调用
-    }
-}
-int Partition(Sqlist *L,int low,int high){
-    int pivotkey;
-    pivotkey = L-&gt;r[low];
-    while(low&lt;high){
-        while(low&lt;high&amp;&amp;L-&gt;r[high]&gt;=pivotkey){
-            high--;
-        }
-        swap(L,low,high); //就当这是一个封装好的函数就行 虽然C里没有 这里我们的核心是理解算法
-        while(low&lt;high&amp;&amp;L-&gt;r[low]&lt;=pivotkey){
-            low++;
-        }
-        swap(L,low,high); //就是从两端找元素 找到了就和选定的pivot交换 最后形成一个左小右大 high=low的时候OK了
-    }
-    return lowl;
-}
-//1 开始存元素的地方 别用前面那数组了 还是链表好用
-</code></pre>
-<p>The speed of sorting is unstable. &#36;nlogn&#36;  The worst case scenario (the original sequence) is the complexity of the time.&#36;n^{2}&#36;</p>
-<p><strong>Optimizing pivot</strong></p>
-<p>The more the value is close to the median of the whole, the less the algorithm will be calculated after it is, so we'll introduce a three-digit medium, nine-digit medium, and hopefully it'll be closer to the middle key.</p>
-<p><strong>Optimizing exchange</strong></p>
-<p>The swap function is replaced by a swap function that is not sealed, and it is hoped that there will be some operation savings here, but leaving the envelope will be closer to the bottom. </p>
-<p><strong>Optimizing decimal schemes</strong></p>
-<p>If you're not quick in sorting in decimal groups, you can just choose to insert a direct sorting in the order of the number of decimals.</p>
-<p><strong>Optimizing Recursive</strong></p>
-<p>The reverse is not a small consumption of computer performance, so there is an optimisation of tail return to improve performance.</p>
-<h3>Final remarks</h3>
-<p>And what's interesting is that this sort of algorithm is called fast-sequencing, and it's actually a big problem, and if there's a better sorting algorithm, he's not really sure, and it's actually the fastest way to get it, and it's the most efficient algorithm in the world, and it's hard to get it right.</p>
+    def __getitem__(self, index: int) -> T:
+        return self.items[index]
+
+
+def linear_search(table: SequenceTable[int], target: int) -> int:
+    """Return target's index, or -1 when it is not present."""
+    for index, value in enumerate(table.items):
+        if value == target:
+            return index
+    return -1
+
+
+def linear_search_with_sentinel(table: SequenceTable[int], target: int) -> int:
+    """Temporarily append a sentinel to avoid one boundary check."""
+    table.items.append(target)
+    index = 0
+    while table.items[index] != target:
+        index += 1
+    table.items.pop()
+    return index if index < len(table) else -1
+
+
+table = SequenceTable([7, 3, 9, 1])
+print(linear_search(table, 9))
+print(linear_search_with_sentinel(table, 8))
+```
+
+Sequential search does not require ordered data and has (O(n)) time complexity. A sentinel reduces a boundary check, but it does not change the worst-case complexity.
+
+#### Searching an ordered table
+
+If elements are ordered by a key, the ordering can be used to reduce the search range. Binary search, interpolation search, and Fibonacci search all rely on an ordered table.
+
+#### Binary search
+
+Binary search checks the middle element of the current interval. If it is greater than the target, the search continues in the left half; if it is smaller, the search continues in the right half. The implementation below uses the closed interval `[left, right]`.
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class OrderedTable:
+    """An ordered table containing integers in ascending order."""
+
+    items: list[int]
+
+    def __post_init__(self) -> None:
+        if self.items != sorted(self.items):
+            raise ValueError("items must be sorted in ascending order")
+
+    def __len__(self) -> int:
+        return len(self.items)
+
+
+def binary_search(table: OrderedTable, target: int) -> int:
+    left, right = 0, len(table) - 1
+    while left <= right:
+        middle = left + (right - left) // 2
+        value = table.items[middle]
+        if value < target:
+            left = middle + 1
+        elif value > target:
+            right = middle - 1
+        else:
+            return middle
+    return -1
+
+
+numbers = OrderedTable([1, 3, 7, 9, 12])
+print(binary_search(numbers, 9))
+```
+
+Binary search has (O(\log n)) time complexity, provided that the table is ordered and supports efficient indexed access.
+
+#### Interpolation search
+
+Binary search always chooses the middle position. For an ordered table whose keys are distributed fairly uniformly, interpolation search estimates the position from the target's relative position between the first and last keys:
+
+\[
+mid = low + \frac{(high-low)(key-a[low])}{a[high]-a[low]}
+\]
+
+When the first and last elements are equal, this formula cannot be used because it would divide by zero. Interpolation search is suitable for uniformly distributed keys; with a skewed distribution, it is not necessarily better than binary search.
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class InterpolationTable:
+    """An ascending integer table with indexed access for interpolation search."""
+
+    items: list[int]
+
+    def __post_init__(self) -> None:
+        if self.items != sorted(self.items):
+            raise ValueError("items must be sorted in ascending order")
+
+
+def interpolation_search(table: InterpolationTable, target: int) -> int:
+    low, high = 0, len(table.items) - 1
+    while low <= high and table.items[low] <= target <= table.items[high]:
+        if table.items[low] == table.items[high]:
+            return low if table.items[low] == target else -1
+
+        mid = low + (high - low) * (target - table.items[low]) // (
+            table.items[high] - table.items[low]
+        )
+        if table.items[mid] < target:
+            low = mid + 1
+        elif table.items[mid] > target:
+            high = mid - 1
+        else:
+            return mid
+    return -1
+
+
+table = InterpolationTable([10, 20, 30, 40, 50, 60])
+print(interpolation_search(table, 40))
+```
+
+#### Fibonacci search
+
+Fibonacci search uses the Fibonacci sequence to choose a split position. The sequence satisfies (F(n)=F(n-1)+F(n-2)), so the search interval shrinks according to the same proportions. The implementation below uses the last element to fill a logical array when necessary, while returning an index from the original table.
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class FibonacciTable:
+    """An ascending integer table that is not modified during the search."""
+
+    items: list[int]
+
+    def __post_init__(self) -> None:
+        if self.items != sorted(self.items):
+            raise ValueError("items must be sorted in ascending order")
+
+
+def fibonacci_search(table: FibonacciTable, target: int) -> int:
+    size = len(table.items)
+    if size == 0:
+        return -1
+
+    fib_previous, fib_current = 0, 1
+    while fib_current < size:
+        fib_previous, fib_current = fib_current, fib_previous + fib_current
+
+    offset = -1
+    while fib_current > 1:
+        index = min(offset + fib_previous, size - 1)
+        if table.items[index] < target:
+            fib_current, fib_previous = fib_previous, fib_current - fib_previous
+            offset = index
+        elif table.items[index] > target:
+            fib_current, fib_previous = fib_current - fib_previous, fib_previous - (fib_current - fib_previous)
+        else:
+            return index
+
+    if fib_previous and offset + 1 < size and table.items[offset + 1] == target:
+        return offset + 1
+    return -1
+
+
+table = FibonacciTable([1, 3, 5, 8, 13, 21])
+print(fibonacci_search(table, 13))
+```
+
+### Linear indexing
+
+When the data is large and cannot conveniently be kept as one globally ordered sequence, an index can be built. The index associates keys with record positions. A search first locates the index entry and then finds the record in the original data.
+
+Index structures are commonly divided into **linear indexes, tree indexes, and multilevel indexes**. This article focuses on linear indexes.
+
+#### Dense index
+
+Every record in the data set has a corresponding index entry, and the entries are ordered by key. A dense index makes lookup convenient, but the index itself may consume substantial space when there are many records.
+
+#### Block index
+
+A block index divides data into blocks. Records within a block may be unordered, while the blocks are ordered by key range. A search first locates the block and then performs a sequential search inside it. Organizing books by shelves is an intuitive example of this idea.
+
+#### Inverted index
+
+An inverted index is common in search systems. It extracts the words that appear in documents and records the document identifiers associated with each word. When a user enters a query, the system can use the index to find matching documents without scanning every document.
+
+The core of an inverted index is a mapping from a key to a list of record identifiers. The key table and identifier lists can themselves be organized with arrays, trees, or hash tables.
+
+### Binary search tree
+
+A dynamic search table must support search as well as convenient insertion and deletion. A binary search tree (BST) builds this structure by comparing keys: smaller values go into the left subtree and larger values go into the right subtree. An in-order traversal of a BST produces an ordered sequence.
+
+A binary search tree has these properties:
+
+- If the left subtree is not empty, every value in it is smaller than the root value.
+- If the right subtree is not empty, every value in it is larger than the root value.
+- The left and right subtrees are also binary search trees.
+
+The purpose of a BST is not merely to sort data, but to support search, insertion, and deletion through the tree structure. The code below defines the node and tree first, then implements search, insertion, minimum lookup, and deletion.
+
+```python
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+
+@dataclass
+class BSTNode:
+    """A BST node containing one key and references to two subtrees."""
+
+    key: int
+    left: BSTNode | None = None
+    right: BSTNode | None = None
+
+
+class BinarySearchTree:
+    """A binary search tree built from BSTNode objects."""
+
+    def __init__(self) -> None:
+        self.root: BSTNode | None = None
+
+    def search(self, key: int) -> BSTNode | None:
+        node = self.root
+        while node is not None:
+            if key < node.key:
+                node = node.left
+            elif key > node.key:
+                node = node.right
+            else:
+                return node
+        return None
+
+    def insert(self, key: int) -> None:
+        def insert_node(node: BSTNode | None) -> BSTNode:
+            if node is None:
+                return BSTNode(key)
+            if key < node.key:
+                node.left = insert_node(node.left)
+            elif key > node.key:
+                node.right = insert_node(node.right)
+            return node
+
+        self.root = insert_node(self.root)
+
+    @staticmethod
+    def _minimum(node: BSTNode) -> BSTNode:
+        while node.left is not None:
+            node = node.left
+        return node
+
+    def delete(self, key: int) -> None:
+        def delete_node(node: BSTNode | None, target: int) -> BSTNode | None:
+            if node is None:
+                return None
+            if target < node.key:
+                node.left = delete_node(node.left, target)
+            elif target > node.key:
+                node.right = delete_node(node.right, target)
+            elif node.left is None:
+                return node.right
+            elif node.right is None:
+                return node.left
+            else:
+                successor = self._minimum(node.right)
+                node.key = successor.key
+                node.right = delete_node(node.right, successor.key)
+            return node
+
+        self.root = delete_node(self.root, key)
+
+    def inorder(self) -> list[int]:
+        result: list[int] = []
+
+        def visit(node: BSTNode | None) -> None:
+            if node is None:
+                return
+            visit(node.left)
+            result.append(node.key)
+            visit(node.right)
+
+        visit(self.root)
+        return result
+
+
+tree = BinarySearchTree()
+for value in [7, 3, 9, 1, 5, 8]:
+    tree.insert(value)
+tree.delete(3)
+print(tree.search(8) is not None)
+print(tree.inorder())
+```
+
+The time complexity of BST search, insertion, and deletion depends on the tree height. It is close to (O(\log n)) when the tree is balanced, but can degrade to (O(n)) when ordered input turns the tree into a linked list. This is the problem that balanced binary trees address.
+
+### AVL tree
+
+An AVL tree requires the heights of the left and right subtrees of every node to differ by at most 1. The difference is called the balance factor:
+
+\[
+BF = height(left) - height(right)
+\]
+
+In a balanced state, BF can only be -1, 0, or 1. After insertion or deletion, if the absolute balance factor of a node exceeds 1, the smallest unbalanced subtree must be adjusted.
+
+AVL trees use rotations for adjustment. The usual cases are LL, RR, LR, and RL: LL uses a right rotation, RR uses a left rotation, LR uses a left rotation followed by a right rotation, and RL uses a right rotation followed by a left rotation.
+
+The code below defines `AVLNode` with a height field, then implements height updates, rotations, and rebalancing.
+
+```python
+from __future__ import annotations
+
+from dataclasses import dataclass
+
+
+@dataclass
+class AVLNode:
+    """An AVL node with a key, two children, and its subtree height."""
+
+    key: int
+    left: AVLNode | None = None
+    right: AVLNode | None = None
+    height: int = 1
+
+
+class AVLTree:
+    """A binary search tree that maintains balance through rotations."""
+
+    @staticmethod
+    def height(node: AVLNode | None) -> int:
+        return node.height if node is not None else 0
+
+    @classmethod
+    def update_height(cls, node: AVLNode) -> None:
+        node.height = 1 + max(cls.height(node.left), cls.height(node.right))
+
+    @classmethod
+    def balance_factor(cls, node: AVLNode | None) -> int:
+        if node is None:
+            return 0
+        return cls.height(node.left) - cls.height(node.right)
+
+    @classmethod
+    def rotate_right(cls, root: AVLNode) -> AVLNode:
+        new_root = root.left
+        if new_root is None:
+            return root
+        root.left = new_root.right
+        new_root.right = root
+        cls.update_height(root)
+        cls.update_height(new_root)
+        return new_root
+
+    @classmethod
+    def rotate_left(cls, root: AVLNode) -> AVLNode:
+        new_root = root.right
+        if new_root is None:
+            return root
+        root.right = new_root.left
+        new_root.left = root
+        cls.update_height(root)
+        cls.update_height(new_root)
+        return new_root
+
+    @classmethod
+    def rebalance(cls, node: AVLNode) -> AVLNode:
+        cls.update_height(node)
+        factor = cls.balance_factor(node)
+
+        if factor > 1:
+            if cls.balance_factor(node.left) < 0:
+                node.left = cls.rotate_left(node.left)  # LR
+            return cls.rotate_right(node)  # LL or LR
+        if factor < -1:
+            if cls.balance_factor(node.right) > 0:
+                node.right = cls.rotate_right(node.right)  # RL
+            return cls.rotate_left(node)  # RR or RL
+        return node
+
+    @classmethod
+    def insert_node(cls, node: AVLNode | None, key: int) -> AVLNode:
+        if node is None:
+            return AVLNode(key)
+        if key < node.key:
+            node.left = cls.insert_node(node.left, key)
+        elif key > node.key:
+            node.right = cls.insert_node(node.right, key)
+        else:
+            return node
+        return cls.rebalance(node)
+
+    @classmethod
+    def _minimum(cls, node: AVLNode) -> AVLNode:
+        while node.left is not None:
+            node = node.left
+        return node
+
+    @classmethod
+    def delete_node(cls, node: AVLNode | None, key: int) -> AVLNode | None:
+        if node is None:
+            return None
+        if key < node.key:
+            node.left = cls.delete_node(node.left, key)
+        elif key > node.key:
+            node.right = cls.delete_node(node.right, key)
+        elif node.left is None:
+            return node.right
+        elif node.right is None:
+            return node.left
+        else:
+            successor = cls._minimum(node.right)
+            node.key = successor.key
+            node.right = cls.delete_node(node.right, successor.key)
+        return cls.rebalance(node)
+
+    @staticmethod
+    def inorder(node: AVLNode | None) -> list[int]:
+        if node is None:
+            return []
+        return AVLTree.inorder(node.left) + [node.key] + AVLTree.inorder(node.right)
+
+
+root: AVLNode | None = None
+for value in [3, 2, 1, 4, 5, 6, 7, 10, 9, 8]:
+    root = AVLTree.insert_node(root, value)
+root = AVLTree.delete_node(root, 5)
+print(AVLTree.inorder(root))
+```
+
+When rebalancing is placed in the recursive unwind phase of insertion and deletion, every ancestor can update its height and check its balance factor. AVL tree search, insertion, and deletion remain (O(\log n)).
+
+### Multiway search trees: B-trees
+
+A binary tree allows at most two children per node. When data is large and primarily stored on disk, tree height directly affects the number of disk accesses. Disk access is usually slower than memory and cache access. A multiway search tree stores several keys in a node and has several children, reducing the tree height.
+
+The following sections introduce 2-3 trees, 2-3-4 trees, B-trees, and B+ trees.
+
+#### 2-3 trees
+
+A 2-3 tree has two kinds of nodes:
+
+- A 2-node contains one key and two children, or no children.
+- A 3-node contains two ordered keys and three children, or no children.
+
+For a 2-node, the left subtree is smaller than the key and the right subtree is larger. For a 3-node, the left, middle, and right subtrees contain values smaller than the smaller key, between the two keys, and larger than the larger key, respectively.
+
+All leaves of a 2-3 tree must be at the same level. Insertion occurs at a leaf: an empty tree receives a 2-node; inserting into a 2-node can produce a 3-node; inserting into a 3-node requires splitting it and promoting the middle key. Deletion from a 3-node is relatively simple, while deletion from a 2-node may require borrowing a key or merging nodes.
+
+#### 2-3-4 trees
+
+A 2-3-4 tree extends the 2-3 tree idea. A node can contain up to three keys and have four children. Its insertion and deletion rules are more involved, but all leaves are still kept at the same level.
+
+#### B-trees
+
+A B-tree is a balanced multiway search tree. 2-3 trees and 2-3-4 trees can be viewed as special cases. The order of a B-tree usually describes the maximum number of children a node may have. In practice, the order can be chosen based on page size, record size, and available memory. A larger order generally produces a shorter tree; keeping the root in memory can reduce the number of external-memory accesses.
+
+#### B+ trees
+
+A B+ tree is an improved form of a B-tree. Internal nodes mainly store indexes, while records are usually stored in leaf nodes. The leaves are also linked in order, which makes B+ trees particularly suitable for range queries and sequential scans.
+
+### Hash table overview
+
+Sequential and tree searches both rely on key comparisons. A hash table attempts to calculate a storage position directly from a key:
+
+\[
+address = h(key)
+\]
+
+The function (h) is a **hash function**, and the continuous storage area is the **hash table**. Ideally, different keys would map to different addresses. In practice, multiple keys mapping to one address is unavoidable; this is a **collision**, and the different keys involved are called **synonyms**.
+
+A hash table is both a storage structure and a search structure. It does not emphasize a logical ordering between elements; it is designed for key-based lookup. It is therefore not suitable for cases where one key maps to many records or for range queries.
+
+### Constructing hash functions
+
+A useful hash function should be simple to compute and should distribute addresses as evenly as possible to reduce collisions. Common approaches include the following.
+
+#### Direct addressing
+
+Use the key itself, or a linear function of the key, as the address. For example, age can be used directly as an address when counting people by age, and year can be used when counting births by year.
+
+This method is simple and easy to reason about. It can avoid collisions when keys are unique, but it requires the key range to be known in advance and may waste space.
+
+#### Digit analysis
+
+Extract selected digits from the key as the address. Some digits of a telephone number or identification number may have good distinguishing power. The key characteristics must be understood first, and the extracted digits should be distributed reasonably evenly.
+
+#### Mid-square method
+
+Square the original key and use several middle digits of the result as the address. This method depends less on the original key distribution and is suitable when the keys are not very long and their distribution is difficult to analyze in advance.
+
+#### Folding method
+
+Split a key into several parts of equal width and add the parts to obtain an address. If the last part is shorter, it can be used as is. Folding from another direction can be added if one-way folding produces an uneven distribution.
+
+#### Division-remainder method
+
+Use the remainder after dividing the key by the table size (m):
+
+\[
+h(key) = key \bmod m
+\]
+
+In practice, a prime table size near the desired size is often considered to reduce collisions caused by particular key distributions.
+
+#### Random-number method
+
+Use a pseudorandom function to generate an address from the key. The function must return the same result for the same key each time; otherwise, the record cannot be located again.
+
+### Handling hash collisions
+
+Once a collision is found, a collision-resolution method is needed to find another storage position.
+
+#### Open addressing
+
+When a collision occurs, continue searching for an empty slot according to a probe sequence:
+
+\[
+h_i(key) = (h(key)+d_i) \bmod m
+\]
+
+Different choices of (d_i) produce different open-addressing methods:
+
+- Linear probing: (d_i=i). It is simple but prone to clustering.
+- Quadratic probing: (d_i=\pm i^2). It can reduce the clustering of linear probing.
+- Random probing: (d_i) comes from a reproducible pseudorandom sequence.
+
+#### Rehashing
+
+Use a second hash function to compute the probe step, for example:
+
+\[
+d_i=i\times h_2(key)
+\]
+
+When a collision occurs, the probe step changes until an empty slot is found or the table is confirmed to be full.
+
+#### Separate chaining
+
+Associate a linked list or another container with each hash address. A colliding record is placed in the container for that address; lookup first locates the address and then searches that container.
+
+#### Common overflow area
+
+Store colliding records in a separate overflow area. If a record is not found in the main table, search the overflow area as well. This is easy to implement when the number of collisions is small.
+
+### Hash table search
+
+The following example uses a linear-probing hash table with 16 slots. The slot record and the hash table are defined at the beginning; `None` represents an empty slot, so 0 does not need to be reserved as a special key.
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class HashEntry:
+    """A record stored in one hash-table slot."""
+
+    key: int
+    value: object = None
+
+
+class LinearProbingHashTable:
+    """A key-value table using open addressing and linear probing."""
+
+    def __init__(self, capacity: int = 16) -> None:
+        if capacity <= 0:
+            raise ValueError("capacity must be positive")
+        self.slots: list[HashEntry | None] = [None] * capacity
+
+    def _index(self, key: int) -> int:
+        return key % len(self.slots)
+
+    def insert(self, key: int, value: object = None) -> bool:
+        start = self._index(key)
+        for step in range(len(self.slots)):
+            index = (start + step) % len(self.slots)
+            entry = self.slots[index]
+            if entry is None or entry.key == key:
+                self.slots[index] = HashEntry(key, value)
+                return True
+        return False
+
+    def search(self, key: int) -> tuple[int, object] | None:
+        start = self._index(key)
+        for step in range(len(self.slots)):
+            index = (start + step) % len(self.slots)
+            entry = self.slots[index]
+            if entry is None:
+                return None
+            if entry.key == key:
+                return index, entry.value
+        return None
+
+    def items_by_address(self) -> list[tuple[int, int, object] | None]:
+        return [
+            None if entry is None else (index, entry.key, entry.value)
+            for index, entry in enumerate(self.slots)
+        ]
+
+
+table = LinearProbingHashTable(capacity=16)
+for key in [19, 14, 23, 1, 68, 20, 84, 27, 55, 11, 10, 79]:
+    table.insert(key, f"record-{key}")
+
+print(table.items_by_address())
+print(table.search(68))
+print(table.search(100))
+```
+
+Python lists are arrays, but the example uses `HashEntry` and `LinearProbingHashTable` to make the relationship between slots, probing, and key-value records explicit.
+
+The example above uses integer keys. Strings and other data are eventually represented through encodings, so they can be converted to integers or handled with a language-provided hash function. Hash values and slot layouts should not be treated as a persistent data format.
+
+## Sorting
+
+Ordered data is useful in web search, report generation, and data analysis. Sorting rearranges the elements of a linear table so that their keys satisfy a non-increasing or non-decreasing relationship. The rest of this article assumes non-decreasing order.
+
+### Basic sorting concepts and classifications
+
+Multi-key sorting can be viewed as comparing several keys in sequence. In practice, multiple keys are often combined into one comparison rule; the algorithms below focus on a single key.
+
+When two records have equal sorting keys, an algorithm is **stable** if their relative order is preserved; otherwise, it is **unstable**. For example, if two students have the same score and remain in their original order after sorting, the sort is stable.
+
+Based on whether all data fits in memory, sorting can be divided into **internal sorting** and **external sorting**. This article focuses on internal sorting.
+
+Internal sorting is commonly evaluated by time complexity, auxiliary space, and stability. Algorithmic complexity is a broader concept; time complexity is only one part of it.
+
+By their main operations, sorting algorithms can be divided into insertion, exchange, selection, and merge sorts. In another common classification, bubble sort, simple selection sort, and direct insertion sort are considered simple sorts, while Shell sort, heap sort, merge sort, and quicksort are treated as improved sorts.
+
+Sorting usually operates on a linear table. To make the exchange operation explicit, the examples below wrap Python lists in small custom array classes.
+
+### Bubble sort
+
+Bubble sort repeatedly compares adjacent records and swaps them when they are in the wrong order. Each pass moves the largest element in the unsorted portion to the end. It is simple, stable, and has (O(n^2)) time complexity.
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class IntArray:
+    """A mutable integer sequence with a shared swap operation."""
+
+    data: list[int]
+
+    def swap(self, left: int, right: int) -> None:
+        self.data[left], self.data[right] = self.data[right], self.data[left]
+
+
+def bubble_sort(values: IntArray) -> None:
+    for end in range(len(values.data) - 1, 0, -1):
+        swapped = False
+        for index in range(end):
+            if values.data[index] > values.data[index + 1]:
+                values.swap(index, index + 1)
+                swapped = True
+        if not swapped:
+            break
+
+
+values = IntArray([5, 2, 8, 2, 1])
+bubble_sort(values)
+print(values.data)
+```
+
+If a pass makes no swaps, the remaining portion is already ordered and the algorithm can stop early.
+
+### Simple selection sort
+
+Simple selection sort finds the minimum element in the unsorted portion on each pass and swaps it into the current starting position. Its comparison count is generally (O(n^2)). It performs fewer swaps than bubble sort, but it is unstable.
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class SelectionArray:
+    """A sortable integer sequence with an explicit swap operation."""
+
+    data: list[int]
+
+    def swap(self, left: int, right: int) -> None:
+        self.data[left], self.data[right] = self.data[right], self.data[left]
+
+
+def selection_sort(values: SelectionArray) -> None:
+    for start in range(len(values.data) - 1):
+        minimum = start
+        for index in range(start + 1, len(values.data)):
+            if values.data[index] < values.data[minimum]:
+                minimum = index
+        if minimum != start:
+            values.swap(start, minimum)
+
+
+values = SelectionArray([5, 2, 8, 2, 1])
+selection_sort(values)
+print(values.data)
+```
+
+### Straight insertion sort
+
+Straight insertion sort takes each unsorted element and inserts it into the already ordered prefix. It works well for small or nearly ordered sequences, has (O(n^2)) time complexity, and is stable.
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class InsertionArray:
+    """A mutable sequence that insertion sort modifies in place."""
+
+    data: list[int]
+
+
+def insertion_sort(values: InsertionArray) -> None:
+    for index in range(1, len(values.data)):
+        current = values.data[index]
+        position = index - 1
+        while position >= 0 and values.data[position] > current:
+            values.data[position + 1] = values.data[position]
+            position -= 1
+        values.data[position + 1] = current
+
+
+values = InsertionArray([5, 2, 8, 2, 1])
+insertion_sort(values)
+print(values.data)
+```
+
+### Shell sort
+
+Shell sort improves direct insertion sort. It first chooses a gap, groups elements that are that distance apart, and insertion-sorts each group. The gap is then reduced until it becomes 1. The early passes move the sequence closer to order, so the final insertion sort performs fewer shifts.
+
+Shell sort is unstable, and its time complexity depends on the gap sequence. It cannot be summarized accurately by one fixed expression. The example below uses the common `gap // 2` sequence.
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class ShellArray:
+    """A mutable integer sequence used by Shell sort."""
+
+    data: list[int]
+
+
+def shell_sort(values: ShellArray) -> None:
+    gap = len(values.data) // 2
+    while gap > 0:
+        for index in range(gap, len(values.data)):
+            current = values.data[index]
+            position = index
+            while position >= gap and values.data[position - gap] > current:
+                values.data[position] = values.data[position - gap]
+                position -= gap
+            values.data[position] = current
+        gap //= 2
+
+
+values = ShellArray([9, 1, 8, 2, 7, 3, 6, 4, 5])
+shell_sort(values)
+print(values.data)
+```
+
+### Heap sort
+
+Heap sort improves simple selection sort. Selection sort repeatedly scans the unsorted portion; heap sort organizes those elements as a heap and takes the maximum or minimum directly from the root.
+
+A heap is a complete binary tree with an ordering property. In a max-heap, every node is greater than or equal to its children; in a min-heap, every node is less than or equal to its children. When a complete binary tree is stored in a zero-based array, the children of `index` are `2 * index + 1` and `2 * index + 2`.
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class MaxHeap:
+    """A max-heap backed by a list; size marks its active range."""
+
+    data: list[int]
+    size: int = 0
+
+    def __post_init__(self) -> None:
+        self.size = len(self.data)
+
+    def sift_down(self, root: int) -> None:
+        while True:
+            largest = root
+            left = 2 * root + 1
+            right = left + 1
+            if left < self.size and self.data[left] > self.data[largest]:
+                largest = left
+            if right < self.size and self.data[right] > self.data[largest]:
+                largest = right
+            if largest == root:
+                return
+            self.data[root], self.data[largest] = self.data[largest], self.data[root]
+            root = largest
+
+    def sort(self) -> None:
+        for root in range(self.size // 2 - 1, -1, -1):
+            self.sift_down(root)
+        for end in range(len(self.data) - 1, 0, -1):
+            self.data[0], self.data[end] = self.data[end], self.data[0]
+            self.size = end
+            self.sift_down(0)
+
+
+heap = MaxHeap([5, 2, 8, 2, 1])
+heap.sort()
+print(heap.data)
+```
+
+Heap sort has (O(n\log n)) time complexity and (O(1)) auxiliary space, but it is generally unstable.
+
+### Merge sort
+
+Merge sort repeatedly splits a sequence until each subsequence contains one element, then merges two ordered subsequences into a longer ordered sequence. The implementation below uses temporary storage for each merge.
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class MergeArray:
+    """The integer sequence operated on by merge sort."""
+
+    data: list[int]
+
+
+def merge_sort(values: MergeArray) -> None:
+    def sort_range(left: int, right: int) -> None:
+        if left >= right:
+            return
+        middle = (left + right) // 2
+        sort_range(left, middle)
+        sort_range(middle + 1, right)
+
+        merged: list[int] = []
+        first, second = left, middle + 1
+        while first <= middle and second <= right:
+            if values.data[first] <= values.data[second]:
+                merged.append(values.data[first])
+                first += 1
+            else:
+                merged.append(values.data[second])
+                second += 1
+        merged.extend(values.data[first : middle + 1])
+        merged.extend(values.data[second : right + 1])
+        values.data[left : right + 1] = merged
+
+    sort_range(0, len(values.data) - 1)
+
+
+values = MergeArray([5, 2, 8, 2, 1])
+merge_sort(values)
+print(values.data)
+```
+
+Merge sort has (O(n\log n)) time complexity and requires (O(n)) auxiliary space. Using a less-than-or-equal comparison during merging preserves the order of equal elements, so this implementation is stable.
+
+### Counting sort
+
+Counting sort is not comparison-based. It uses input integers as indexes in a counting array, counts how often each value occurs, and reconstructs the result in index order. The input must therefore consist of integers whose key range is not much larger than the number of elements.
+
+### Bucket sort
+
+Bucket sort distributes elements into a finite number of buckets according to their value ranges, sorts each bucket, and then concatenates the buckets. The number of buckets and the distribution rule have a significant effect on performance; the method is easier to use effectively when the data is relatively uniform.
+
+### Radix sort
+
+Radix sort processes integers digit by digit instead of comparing complete keys. LSD (least significant digit) processing starts at the lowest digit, while MSD (most significant digit) processing starts at the highest. Each pass commonly uses stable counting sort or bucket sort as a subroutine.
+
+- **MSD**: process from the highest digit, which is useful for partitioning by prefix.
+- **LSD**: process from the lowest digit, and preserve stability on every pass.
+
+### Quick sort
+
+Quick sort selects a pivot and partitions the sequence into two parts: elements on the left are no greater than the pivot, and elements on the right are no smaller. It then recursively processes the two parts.
+
+Quick sort is unstable. Its average time complexity is (O(n\log n)), but if each pivot is close to the minimum or maximum value, the worst-case complexity degrades to (O(n^2)).
+
+The following implementation uses in-place partitioning. The `QuickArray` class at the beginning makes the mutable linear table explicit.
+
+```python
+from dataclasses import dataclass
+
+
+@dataclass
+class QuickArray:
+    """The mutable sequence modified directly by quick sort."""
+
+    data: list[int]
+
+
+def quick_sort(values: QuickArray) -> None:
+    def partition(left: int, right: int) -> int:
+        pivot = values.data[right]
+        boundary = left
+        for index in range(left, right):
+            if values.data[index] <= pivot:
+                values.data[boundary], values.data[index] = (
+                    values.data[index],
+                    values.data[boundary],
+                )
+                boundary += 1
+        values.data[boundary], values.data[right] = (
+            values.data[right],
+            values.data[boundary],
+        )
+        return boundary
+
+    def sort_range(left: int, right: int) -> None:
+        if left >= right:
+            return
+        pivot_index = partition(left, right)
+        sort_range(left, pivot_index - 1)
+        sort_range(pivot_index + 1, right)
+
+    sort_range(0, len(values.data) - 1)
+
+
+values = QuickArray([5, 2, 8, 2, 1])
+quick_sort(values)
+print(values.data)
+```
+
+#### Choosing a pivot
+
+Quick sort performance depends heavily on the pivot. Random selection and median-of-three selection can make partitions more balanced and reduce the chance of degeneration.
+
+#### Small-array optimization
+
+For very small subarrays, the overhead of further partitioning can exceed the work of sorting. Practical implementations can switch to straight insertion sort below a chosen size threshold.
+
+#### Recursion optimization
+
+Excessive recursion depth increases stack usage. One option is to recurse into the shorter partition first and process the longer partition in a loop, keeping additional stack space small.
+
+## Conclusion
+
+Quick sort is named for its strong performance in many practical situations, but it is not fastest for every input. Pivot selection, data distribution, stability requirements, and available memory all affect the choice of algorithm. Understanding these trade-offs is more useful than memorizing the name of one sorting algorithm.
