@@ -20,7 +20,7 @@ permalink: /blog/2025/05/12/data-structures-introduction/
 lang: en
 translation_key: 2025-05-12-data-structures-introduction
 translation_status: machine
-translation_source_hash: 8d325d1e59bda8b44edb63b7bde5f44d9222c421398d23cb93fdc94537e75a16
+translation_source_hash: 9e101ddaf2810d50667a8d5da193bae1760acaadd095e5ecedd3451eb1530452
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
@@ -102,7 +102,7 @@ translation_source_hash: 8d325d1e59bda8b44edb63b7bde5f44d9222c421398d23cb93fdc94
 <li>Non-highest sub-points to ignore</li>
 <li>The highest sub-point is very important.</li>
 </ul>
-<p>In fact, we're just looking at the size of the step, which is the complexity of the time we need to focus on, which is generally called the O-class, and the O-class study, and one mathematician should be able to easily think that there's no O-12, but O (lgn) O (lnn) O (m*n) O (nlgn) O (n) O (n) (n) (n) (n) (n) (n) (n) (n) (n)) (i) (i)) (i)) (ii) that the relationship between them is not an infinity of the size of the relationship, it should be not a problem for the mathematicals.</p>
+<p>Based on the preceding simplifications, we only need to focus on the growth order. The most common complexity classes are <code>O(1)</code>, <code>O(n)</code>, and <code>O(n^2)</code>, usually called Big-O orders. We do not normally write <code>O(12)</code>, because it belongs to the same class as <code>O(1)</code>; constant terms are grouped into <code>O(1)</code>. Expressions such as <code>O(log n)</code>, <code>O(ln n)</code>, <code>O(mn)</code>, <code>O(n log n)</code>, and <code>O(2^n)</code> are valid. Comparing these classes is essentially comparing growth rates as <code>n</code> tends to infinity.</p>
 <h3>Worst and average</h3>
 <p>Average and worst means something, but better still, it's not. </p>
 <p>The worst is a guarantee that nothing worse will happen, so we're always looking at him as a measure.</p>
@@ -110,7 +110,7 @@ translation_source_hash: 8d325d1e59bda8b44edb63b7bde5f44d9222c421398d23cb93fdc94
 <h3>Space complexity</h3>
 <p>We often have low space complexity, and we often use space-for-time techniques in algorithm design, and after all, users don't necessarily say what they want because they're using more storage, but they're evaluating the cartons they encounter, and they're going to get some of the usual content calculated, and direct calls are a good way to use it when needed.</p>
 <p>It's a programr that should be taking into account when designing the bottom of the program, but it doesn't seem important to a developer.</p>
-<p>The SSI O(1) means that all operations do not consume additional levels of memory, and the higher complexity of the space is the same.</p>
+<p>Space complexity <code>O(1)</code> means that operations do not consume memory that grows with the input size; the same idea applies to higher space complexities.</p>
 <h2>Linear Table</h2>
 <p>The linear table is one of the simplest and most commonly used data structures, and he has a head, a tail, a sequence;</p>
 <p>Linear table:<strong>Limited series of zero or more data elements</strong></p>
@@ -135,7 +135,7 @@ typedef struct
 {
     ElemType data[MAXSIZE];
     int length;
-}Sqlist;
+}SqList;
 //存储的类型是自由变化的 是结构也无所谓 这个我们这里强调一次 后面就不提的 很明显的我们选择使用这个结构作为存储数据的形式
 //起始位置 数组data 最大容量 长度 均在我们的线性表中被体现的出来
 </code></pre>
@@ -146,7 +146,7 @@ typedef struct
 #define TRUE 1
 #define FALSE 0
 #define int Status
-Status GetElem (Sqlist L,int i,ElemType *e)
+Status GetElem (SqList L,int i,ElemType *e)
 {
     if(L.length==0 || i&lt;1 || i&gt;L.length){
         return ERROR;
@@ -155,7 +155,7 @@ Status GetElem (Sqlist L,int i,ElemType *e)
     return OK;
 }
 //建立访问线性表中元素的函数 由于不需要修改所以选择值传递
-Status ListInsert(Sqlist *L,int i,ElemType *e)
+Status ListInsert(SqList *L,int i,ElemType *e)
 {
     int k;
     if(L-&gt;length==MAXSIZE){
@@ -165,7 +165,7 @@ Status ListInsert(Sqlist *L,int i,ElemType *e)
         return ERROR;
     }
     if(i&lt;=L-&gt;length){
-        for(k=L-length-1;k&gt;=i-1;k--){
+        for(k=L-&gt;length-1;k&gt;=i-1;k--){
             L-&gt;data[k+1]=L-&gt;data[k];
         }
     }
@@ -174,7 +174,7 @@ Status ListInsert(Sqlist *L,int i,ElemType *e)
     return OK;
 }
 //检验插入位置后 插入元素到原本的线性表里面 这个程序的设计拒绝我们把元素跳跃的插入 否则线性表的前后元素就会出问题
-Status ListDel(Sqlist *L,int i,ElemType *e)
+Status ListDel(SqList *L,int i,ElemType *e)
 {
     int k;
     if(L-&gt;length==0){
@@ -350,7 +350,7 @@ Status Push(SqStack *S,ElemType e){
     return OK;
 }
 //这是压栈的函数
-Status Pop(SaStack *S,ElemType *e){
+Status Pop(SqStack *S,ElemType *e){
     if(S-&gt;top == -1){
         return ERROR;//空栈
     }
@@ -362,7 +362,7 @@ Status Pop(SaStack *S,ElemType *e){
 <p>We're not gonna write any more here.</p>
 <h4>Two stacks share storage space</h4>
 <p>Sometimes we'll meet two data structures of the same type, and they have a relationship that we'll use to save space. It's just a storage technique, not that we have to use it, just a few small examples, without detailing it.</p>
-<pre><code class="language-c">typedef sturct{
+<pre><code class="language-c">typedef struct{
     ElemType data[MAXSIZE];
     int top1;
     int top2;
@@ -501,12 +501,12 @@ Status DeQueue(LinkQueue *Q,ElemType *e){
 <h3>Stringed ADT and Storage</h3>
 <p>The same thing, but the basic operation of the string and the linear appearance are different, and we're concerned about the existence of the substring, but the linear table does not have this concept, because the advanced language has already sealed most of the operation of the string, so the following is just some introductory material.</p>
 <p>The string is usually stored in sequence, chain storage has no advantage for the string, actually, the String type data is stored in a stack, the system is distributing him dynamically, and stacks can be managed with a maloc and free.</p>
-<pre><code class="language-c">int Index(String S,Strint T,int pos){
+<pre><code class="language-c">int Index(String S,String T,int pos){
     int n,m,i;
     String sub;
     if(pos&gt;0){
         n= StrLength(S);
-        m= StlLength(T);
+        m= StrLength(T);
         i = pos;
         while(i&lt;=n-m+1){
             SubString(sub,S,i,m);
@@ -638,7 +638,7 @@ typedef struct{
     ElemType data;
     int parent;
     int firstchild;
-    int rigthsib;
+    int rightsib;
 }PTNode;
 </code></pre>
 <p>The design of storage structures is very flexible, and whether it continues to grow depends on demand and not on other things.</p>
@@ -671,7 +671,7 @@ typedef struct{
 <p>We started with the nodes of parents and children, and we tried to express it from the brothers of both parents, and of course, it was impossible to form a tree structure. </p>
 <pre><code class="language-c">typedef struct CSNode{
     ElemType data;
-    struct CSNode *firstchild,*rigthsib;
+    struct CSNode *firstchild,*rightsib;
 }CSNode,*CSTree;
 </code></pre>
 <p>The group was not selected as we were at the very beginning because the pointer actually greatly increased the flexibility of the structure design, so that one tree that was made up of just a lack of access to both parents, and the rest was very comfortable, and the most beneficial of this expression was that it was actually a very good idea to have a good idea to have a good idea.<strong>Turned the original complex tree structure into a fork tree.</strong> And without the partial nodes, it gives us a very comfortable character.</p>
@@ -830,8 +830,8 @@ void Layer_order(BiTree * TNode,BiTree ** F,BiTree ** R)  //二级指针
 <li>For those who have to go to the side we call his edge Edge Arc. </li>
 <li>To facilitate the description, the un-supplied description is in parentheses, and the unsupplied description is in square brackets.</li>
 <li>If there's no point to his own side and the same side does not repeat it, call him a simple picture.</li>
-<li>In the no-go map, if all the vertexes are connected, he's called completely ungodly.<del>n</del>♪ Two sides ♪</li>
-<li>If there's a graph, if all the vertex are connected in two opposite directions, he's called a complete graph 2 *C.<del>n</del>^2^</li>
+<li>In an undirected graph, if every pair of vertices is connected by an edge, it is a complete undirected graph with <code>n(n - 1) / 2</code> edges.</li>
+<li>In a directed graph, if every pair of vertices has two opposite directed edges, it is a complete directed graph with <code>n(n - 1)</code> edges.</li>
 <li>Because of the variable number of sides, there are concepts of thin and dense maps, and he has no quantitative criteria.</li>
 <li>Some of the numbers that exist in the edges and arcs are called Right Weight, and the map with rights is called Network.</li>
 <li>The concept of the submersible exists.</li>
@@ -876,21 +876,21 @@ void CreateMGraph(MGraph *G){
         G-&gt;arc[j][i] = w;
     }//识别与创建部分
 }
-//很明显能看到 这个时间复杂度在n^2级别 并不算低
+//很明显能看到 这个时间复杂度在O(n^2)级别 并不算低
 </code></pre>
 <h4>Adjacency List</h4>
 <p>It's clear that the matrix of the tie map is very expensive for storage space on the 2D matrix and that when the thin map is not working, we're thinking of using linear tables to save storage space, which is a similar idea to the first two ways we use in the tree sector.</p>
 <p>The top one-dimensional arrays are used to store the chain tables, of course, and the top-point arrays also need to point the data elements to the first adjacent point, and we make all the adjacent points at each of the top points a linear table to save the storage space, and with a right value, the variable of field power values on each of the elements of the online table is the exact same principle, but simply adds the concept of a counternap table to the sky.</p>
 <pre><code class="language-c">typedef struct EdgeNode{
     int adjvex;
-    ElemType weigth;
+    ElemType weight;
     struct EdgeNode *next;
 }EdgeNode;
 //边结点 最后形成邻接表
 typedef struct VertexNode{
     ElemType data;
-    EdgeNode *firstdege;
-}VertexNdoe,AdjList[MAXVEX];
+    EdgeNode *firstedge;
+}VertexNode,AdjList[MAXVEX];
 // 顶点结点 只是用来做位置标识 其中要存储每个结点的邻接表
 typedef struct{
     AdjList adjList;
@@ -925,7 +925,7 @@ void CreateALGraph(GraphAdjList *G){
     ElemType data;
     EdgeNode *firstin;
     EdgeNode *firstout;
-}VertexNdoe,AdjList[MAXVEX];
+}VertexNode,AdjList[MAXVEX];
 </code></pre>
 <p>His best use is to handle the flow map, because it's the only time he's gonna have to study the details. degrees</p>
 <h4>Multiple Chains next to</h4>
@@ -982,7 +982,7 @@ void DFSTraverse(GraphAdjList GL){
                 p = GL-&gt;adjList[i].firstedge;
                 while(p){
                     if(!visited[p-&gt;adjvex]){
-                        visited[p-&gt;adjvex]=TURE;
+                        visited[p-&gt;adjvex]=TRUE;
                         printf(&quot;%c&quot;,GL-&gt;adjList[p-&gt;adjvex].data);
                         EnQueue(&amp;Q,p-&gt;adjvex);
                     }
@@ -1023,7 +1023,7 @@ void DFSTraverse(GraphAdjList GL){
         lowcost[k]=0;
         for(j=1;j&lt;G.numVertexes;j++){
             if(lowcost[j]!=0&amp;&amp;G.arc[k][j],lowcost[j]){
-                lowcost[j]=Garc[k][j];
+                lowcost[j]=G.arc[k][j];
                 adjvex[j]=k;
             }
         }
@@ -1037,7 +1037,7 @@ void DFSTraverse(GraphAdjList GL){
     int i,n,m;
     Edge edges[MAXEDGE]; //按照权值排好顺序的代码我们省略了
     int parent[MAXVEX];
-    for(i=0;i&lt;G,numEdges;i++){
+    for(i=0;i&lt;G.numEdges;i++){
         parent[i]=0;
     }
     for(i=0;i&lt;G.numEdges,i++){
@@ -1045,8 +1045,8 @@ void DFSTraverse(GraphAdjList GL){
         m=Find(parent,edges[i].end);
         if(n==0||m==0){
             parent[edges[i].begin]=1;
-            parent[edges[i].end)]=1;
-            printf(&quot;(%d %d) %d&quot;,edges[i].begin,edges[i].end,edges[i].weight)
+            parent[edges[i].end]=1;
+            printf(&quot;(%d %d) %d&quot;,edges[i].begin,edges[i].end,edges[i].weight);
         }
     }
 }
@@ -1061,14 +1061,14 @@ int Find(int *parent,int f){
 <h3>Shortest Path Problem</h3>
 <h4>Dijkstra algorithm</h4>
 <p>This is an algorithm that selects the shortest path by increasing the length of the path, an improvement from the BFS algorithm, and a continuous extended search for recently found nodes.</p>
-<pre><code class="language-c">int Pathmatirx[MAXVEX];  //前驱顶点的下标 实际上就是路径数组 它存储的是路怎么走
+<pre><code class="language-c">int Pathmatrix[MAXVEX];  //前驱顶点的下标 实际上就是路径数组 它存储的是路怎么走
 int ShortPathTable[MAXVEX]; //最短路径的存储
-void ShortestPath_Dijkstra(MGraph G,int v0,Pathmatirx *P,ShortPathTable *D){
+void ShortestPath_Dijkstra(MGraph G,int v0,Pathmatrix *P,ShortPathTable *D){
     int v,k,w,min;
     int final[MAXVEX]; //存储这个顶点有没有找到最短路径的状态 1就是找到了 0是没找到
     for(v=0;v&lt;G.numVertexes;v++){
         final[v]=0;
-        (*D)[v] = G.matirx[v0][v];
+        (*D)[v] = G.matrix[v0][v];
         (*P)[v] = 0;
     }
     (*D)[v0] = 0;
@@ -1093,9 +1093,9 @@ void ShortestPath_Dijkstra(MGraph G,int v0,Pathmatirx *P,ShortPathTable *D){
 </code></pre>
 <h4>Floyd algorithm</h4>
 <p>This algorithm is the shortest path between all points and all points at the same time, so that all points can try to be relayed to see if they can optimize the algorithm.</p>
-<pre><code class="language-c">int Pathmatirx[MAXVEX][MAXVEX];
+<pre><code class="language-c">int Pathmatrix[MAXVEX][MAXVEX];
 int ShortPathTable[MAXVEX][MAXVEX];
-void ShortestPath_Floyd(MGraph G,Pathmatrix *P;ShortPathTable *D){
+void ShortestPath_Floyd(MGraph G,Pathmatrix *P,ShortPathTable *D){
     int v,k,m;
     for(v=0;v&lt;G.numVertexes;v++){
         for(w=0;w&lt;G.numVertexes;w++){
@@ -1123,7 +1123,7 @@ void ShortestPath_Floyd(MGraph G,Pathmatrix *P;ShortPathTable *D){
 <p>The basic idea of scaling up the sorting selects the point output with an input of zero, removes this vertex and arc with his end in it repeats the process </p>
 <p>To facilitate the removal of the adjacent forms, we need to create a adjacent form that we can use here, and he needs to focus on the input, which is not important.</p>
 <pre><code class="language-c">/* 拓扑排序，若GL无回路，则输出拓扑排序序列并返回OK，若有回路返回ERROR */
-Status TopplogicalSort(GraphAdjList GL){
+Status TopologicalSort(GraphAdjList GL){
 	EdgeNode *e;
 	int i, k, gettop;
 	int top = 0;	//用于栈指针下标
