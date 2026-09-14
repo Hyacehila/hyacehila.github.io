@@ -9,6 +9,7 @@ excerpt: "Connect binary tree traversals with graph search: when DFS processes a
 description: "Connect binary tree traversals with graph search: when DFS processes a node, why BFS finds paths with the fewest edges, and how Dijkstra selects the next vertex by cumulative distance."
 excerpt_zh: "把二叉树的前中后序与层序遍历放到图搜索中理解：DFS 何时处理节点，BFS 为什么能求最少边数，以及 Dijkstra 如何用累计距离选择下一个顶点。"
 mathjax: false
+hidden: true
 permalink: '/blog/2026/09/14/tree-traversals-graph-search-and-dijkstra/'
 lang: en
 translation_key: 2026-09-14-tree-traversals-graph-search-and-dijkstra
