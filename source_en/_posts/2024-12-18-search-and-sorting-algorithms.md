@@ -19,7 +19,7 @@ permalink: /blog/2024/12/18/search-and-sorting-algorithms/
 lang: en
 translation_key: 2024-12-18-search-and-sorting-algorithms
 translation_status: machine
-translation_source_hash: d448a208adac8a93bcf067ecdfb96b004a974af842685f2911f0d4e65fdae352
+translation_source_hash: 6c3b0bd7fbaa9177b520d98261f899dd7a4dc6280d0f989f1aa71e05b49aac7d
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
@@ -371,6 +371,23 @@ $$
 In a balanced state, BF can only be -1, 0, or 1. After insertion or deletion, if the absolute balance factor of a node exceeds 1, the smallest unbalanced subtree must be adjusted.
 
 AVL trees use rotations for adjustment. The usual cases are LL (left-left), RR (right-right), LR (left-right), and RL (right-left): LL uses a right rotation, RR uses a left rotation, LR uses a left rotation followed by a right rotation, and RL uses a right rotation followed by a left rotation.
+
+Any single rotation can be described in three steps. Take a right rotation as an example; it handles a subtree whose left subtree is too tall:
+1. Find the unbalanced node `y` and make its left child `x` the new subtree root.
+2. Save the right subtree `B` of `x`. The keys in `B` are greater than `x` and smaller than `y`, so after rotation `B` must become the left subtree of `y`.
+3. Point `x`'s right pointer to `y`, point `y`'s left pointer to `B`, and return `x` as the new subtree root.
+
+Before the rotation:
+
+```text
+       y
+      /
+     x
+      \
+       B
+```
+
+Left rotation is completely symmetric. LR and RL are double rotations, each composed of two single rotations in opposite directions.
 
 The code below defines `AVLNode` with a height field, then implements height updates, rotations, and rebalancing.
 

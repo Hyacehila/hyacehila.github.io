@@ -362,6 +362,34 @@ AVL 树通过旋转完成调整，常见情况有 LL（left-left）、RR（right
 
 下面的代码先定义带高度字段的 `AVLNode`，再实现高度更新、左右旋转和重新平衡。
 
+单旋转（single rotation）可以概括为三步。以右旋为例，它用于处理某个结点的左子树过高：
+1. 找到失衡结点 `y`，令它的左孩子 `x` 成为新的子树根。
+2. 暂存 `x` 的右子树 `B`。`B` 中的关键字大于 `x` 且小于 `y`，因此旋转后应当成为 `y` 的左子树。
+3. 将 `x` 的右指针指向 `y`，将 `y` 的左指针指向 `B`，并返回 `x` 作为新的子树根。
+
+具体如下：
+
+```text
+       y
+      /
+     x
+      \
+       B
+```
+
+```python
+def rotate_right(y):
+    x = y.left
+    B = x.right
+
+    x.right = y
+    y.left = B
+
+    return x
+```
+
+左旋的情况与此完全对称；LR 和 RL 属于双旋转，分别由两次方向相反的单旋转组成。
+
 ```python
 from __future__ import annotations
 
