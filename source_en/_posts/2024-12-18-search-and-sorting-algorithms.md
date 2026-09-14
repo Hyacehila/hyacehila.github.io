@@ -245,20 +245,6 @@ When the data is large and cannot conveniently be kept as one globally ordered s
 
 Index structures are commonly divided into **linear indexes, tree indexes, and multilevel indexes**. This article focuses on linear indexes.
 
-#### Dense index
-
-Every record in the data set has a corresponding index entry, and the entries are ordered by key. A dense index makes lookup convenient, but the index itself may consume substantial space when there are many records.
-
-#### Block index
-
-A block index divides data into blocks. Records within a block may be unordered, while the blocks are ordered by key range. A search first locates the block and then performs a sequential search inside it. Organizing books by shelves is an intuitive example of this idea.
-
-#### Inverted index
-
-An inverted index is common in search systems. It extracts the words that appear in documents and records the document identifiers associated with each word. When a user enters a query, the system can use the index to find matching documents without scanning every document.
-
-The core of an inverted index is a mapping from a key to a list of record identifiers. The key table and identifier lists can themselves be organized with arrays, trees, or hash tables.
-
 ### Binary search tree
 
 A dynamic search table must support search as well as convenient insertion and deletion. A binary search tree (BST) builds this structure by comparing keys: smaller values go into the left subtree and larger values go into the right subtree. An in-order traversal of a BST produces an ordered sequence.
