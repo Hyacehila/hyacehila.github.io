@@ -9,6 +9,7 @@ public/
 db.json
 db-en.json
 _multiconfig.yml
+.build-en-staging/
 .deploy_git/
 
 # Build outputs
