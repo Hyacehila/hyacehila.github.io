@@ -19,7 +19,7 @@ permalink: /blog/2024/12/18/search-and-sorting-algorithms/
 lang: en
 translation_key: 2024-12-18-search-and-sorting-algorithms
 translation_status: machine
-translation_source_hash: 7286203399848bf4ceeadae5bf042c2714ccc3c2acc223cca8e794a472ca2ce5
+translation_source_hash: 0ad210842fb1959d79bcfbe92f295678f13bdf3fed21d02f217d22a65420d35b
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
@@ -814,9 +814,24 @@ Internal sorting is commonly evaluated by time complexity, auxiliary space, and 
 
 By their main operations, sorting algorithms can be divided into insertion, exchange, selection, and merge sorts. In another common classification, bubble sort, simple selection sort, and direct insertion sort are considered simple sorts, while Shell sort, heap sort, merge sort, and quicksort are treated as improved sorts.
 
+The four categories above describe how an algorithm performs its main work; they are not mutually exclusive labels. An algorithm can have both a “main operation” classification and a “design strategy” classification. For example, quicksort is an exchange sort by its main operation and also uses divide and conquer; merge sort is a merge sort by its main operation and also uses divide and conquer. Counting sort, bucket sort, and radix sort mainly use the value range or digit distribution of keys rather than repeated comparisons, so they are non-comparison sorts and do not need to be forced into the four categories above.
+
+| Algorithm | Main classification | Basis for the classification |
+| --- | --- | --- |
+| Bubble sort | Exchange sort, simple sort | Gradually sorts the sequence by swapping adjacent out-of-order elements |
+| Simple selection sort | Selection sort, simple sort | Selects the minimum or maximum element and places it in its target position on each pass |
+| Straight insertion sort | Insertion sort, simple sort | Inserts the current element into an already ordered prefix |
+| Shell sort | Improved insertion sort | Applies insertion sort to subsequences defined by different gaps |
+| Heap sort | Improved selection sort | Uses a heap to select the current maximum or minimum efficiently |
+| Merge sort | Merge sort, improved sort | Merges two ordered subsequences into one ordered sequence |
+| Counting sort, bucket sort, radix sort | Non-comparison sorts | Organizes elements using counts, value ranges, or key digits |
+| Quicksort | Exchange sort, improved sort | Exchanges elements during partitioning to place them on the two sides of the pivot |
+
 Sorting usually operates on a linear list. To make the exchange operation explicit, the examples below wrap Python lists in small custom array classes.
 
 ### Bubble sort
+
+**Classification: exchange sort and simple sort.** Its core operation is swapping adjacent out-of-order elements; its implementation is direct and uses little auxiliary structure, so it is also considered a simple sort.
 
 Bubble sort repeatedly compares adjacent records and swaps them when they are in the wrong order. Each pass moves the largest element in the unsorted portion to the end. It is simple, stable, and has $O(n^2)$ time complexity.
 
@@ -854,6 +869,8 @@ If a pass makes no swaps, the remaining portion is already ordered and the algor
 
 ### Simple selection sort
 
+**Classification: selection sort and simple sort.** Each pass selects a target element from the unsorted interval and places it in its final position, which is the defining feature of selection sort.
+
 Simple selection sort finds the minimum element in the unsorted portion on each pass and swaps it into the current starting position. Its comparison count is generally $O(n^2)$. It performs fewer swaps than bubble sort, but it is unstable.
 
 ```python
@@ -887,6 +904,8 @@ print(values.data)
 
 ### Straight insertion sort
 
+**Classification: insertion sort and simple sort.** Each step takes one unsorted element and inserts it into an ordered prefix, so it is an insertion sort; it moves elements directly and uses a simple structure, so it is also considered a simple sort.
+
 Straight insertion sort takes each unsorted element and inserts it into the already ordered prefix. It works well for small or nearly ordered sequences, has $O(n^2)$ time complexity, and is stable.
 
 ```python
@@ -916,6 +935,8 @@ print(values.data)
 ```
 
 ### Shell sort
+
+**Classification: an improved insertion sort.** Shell sort preserves the basic idea of inserting elements into locally ordered sequences, but first performs insertion sort on groups separated by a gap and then gradually reduces the gap.
 
 Shell sort improves direct insertion sort. It first chooses a gap, groups elements that are that distance apart, and insertion-sorts each group. The gap is then reduced until it becomes 1. The early passes move the sequence closer to order, so the final insertion sort performs fewer shifts.
 
@@ -951,6 +972,8 @@ print(values.data)
 ```
 
 ### Heap sort
+
+**Classification: an improved selection sort.** Each pass still selects the maximum or minimum from the unsorted elements, but a heap maintains the candidates and avoids the repeated scanning performed by simple selection sort.
 
 Heap sort improves simple selection sort. Selection sort repeatedly scans the unsorted portion; heap sort organizes those elements as a heap and takes the maximum or minimum directly from the root.
 
@@ -1002,6 +1025,8 @@ Heap sort has $O(n\log n)$ time complexity and $O(1)$ auxiliary space, but it is
 
 ### Merge sort
 
+**Classification: merge sort and a classic divide-and-conquer application.** Its core operation is not exchanging elements or selecting one element, but merging two ordered subsequences into a longer ordered sequence.
+
 Merge sort repeatedly splits a sequence until each subsequence contains one element, then merges two ordered subsequences into a longer ordered sequence. The implementation below uses temporary storage for each merge.
 
 ```python
@@ -1048,13 +1073,19 @@ Merge sort has $O(n\log n)$ time complexity and requires $O(n)$ auxiliary space.
 
 ### Counting sort
 
+**Classification: a non-comparison sort.** Counting sort maps keys directly to positions in a counting array and sorts by counting occurrences, so it does not rely on comparisons between elements and does not belong to the four comparison-based categories above.
+
 Counting sort is not comparison-based. It uses input integers as indexes in a counting array, counts how often each value occurs, and reconstructs the result in index order. The input must therefore consist of integers whose key range is not much larger than the number of elements.
 
 ### Bucket sort
 
+**Classification: a non-comparison sort.** Bucket sort first distributes elements according to value ranges and then processes each bucket; it mainly uses the data distribution rather than pairwise comparisons to determine global order.
+
 Bucket sort distributes elements into a finite number of buckets according to their value ranges, sorts each bucket, and then concatenates the buckets. The number of buckets and the distribution rule have a significant effect on performance; the method is easier to use effectively when the data is relatively uniform.
 
 ### Radix sort
+
+**Classification: a non-comparison sort.** Radix sort organizes data one digit or character position at a time, usually using stable counting sort or bucket sort for each pass, so it also falls outside the four comparison-based categories above.
 
 Radix sort processes integers digit by digit instead of comparing complete keys. Least-significant-digit (LSD) processing starts at the lowest digit, while most-significant-digit (MSD) processing starts at the highest. Each pass commonly uses stable counting sort or bucket sort as a subroutine.
 
@@ -1062,6 +1093,8 @@ Radix sort processes integers digit by digit instead of comparing complete keys.
 - **LSD (least significant digit)**: process from the lowest digit, and preserve stability on every pass.
 
 ### Quick sort
+
+**Classification: an improved exchange sort and a classic divide-and-conquer application.** Quicksort exchanges elements during partitioning to place them on the two sides of the pivot, so its main-operation category is exchange sort; it then recursively processes the two subarrays, reflecting divide and conquer as well.
 
 Quick sort selects a pivot and partitions the sequence into two parts: elements on the left are no greater than the pivot, and elements on the right are no smaller. It then recursively processes the two parts.
 
