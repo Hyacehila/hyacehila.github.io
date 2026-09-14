@@ -14,19 +14,19 @@ mathjax: true
 hidden: true
 excerpt: Covers sequential search, binary search, binary search trees, hash tables, sorting algorithms, and related Python implementations.
 description: Covers sequential search, binary search, binary search trees, hash tables, sorting algorithms, and related Python implementations.
-excerpt_zh: 整理顺序查找、二分查找、二叉搜索树、散列表、排序算法及其 Python 实现。
+excerpt_zh: 整理顺序查找、二分查找、二叉搜索树（binary search tree，BST）、散列表（hash table）、排序算法及其 Python 实现。
 permalink: /blog/2024/12/18/search-and-sorting-algorithms/
 lang: en
 translation_key: 2024-12-18-search-and-sorting-algorithms
 translation_status: machine
-translation_source_hash: 233d662f410963dbf442c24f12cd43d06a86d16f0c2cfe962930e93775d3436b
+translation_source_hash: d448a208adac8a93bcf067ecdfb96b004a974af842685f2911f0d4e65fdae352
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 ## Search
 
-This article can be read together with [Introduction to Data Structures: Linear Lists, Trees, Graphs, and Search](/en/blog/2025/05/12/data-structures-introduction/) and [Algorithm Design and Analysis: Divide and Conquer, Dynamic Programming, and Graph Algorithms](/en/blog/2025/05/13/algorithm-design-and-analysis/). The topics overlap, but each article has a different focus.
+This article builds on the basic ideas about linear lists, trees, and graphs introduced in [Introduction to Data Structures: Linear Lists, Trees, Graphs, and Search](/en/blog/2025/05/12/data-structures-introduction/), then develops concrete search and sorting implementations. After this article, continue with [Algorithm Design and Analysis: Divide and Conquer, Dynamic Programming, and Graph Algorithms](/en/blog/2025/05/13/algorithm-design-and-analysis/) to place these data structures within algorithm design and complexity analysis.
 
 Searching is a common operation in programs and an unavoidable topic when learning data structures. The question is straightforward: given a set of data and a key, how can we find the corresponding record quickly? The data size, whether the data is ordered, and whether insertion or deletion is required all affect the choice of search method and data structure.
 
@@ -45,13 +45,13 @@ Based on whether the data can be modified during the operation, search tables ar
 - **Static search table**: supports queries only; records are not inserted or deleted.
 - **Dynamic search table**: supports insertion or deletion while it is being searched.
 
-Choosing an appropriate data structure can improve search performance. A linear table is often enough for static search. A binary search tree is useful when the table changes dynamically. A hash table is a good choice when direct key-based lookup is needed and range queries are not.
+Choosing an appropriate data structure can improve search performance. A linear list is often enough for static search. A binary search tree (BST) is useful when the list changes dynamically. A hash table is a good choice when direct key-based lookup is needed and range queries are not.
 
-### Searching a linear table
+### Searching a linear list
 
 #### Sequential search
 
-When elements are stored in an unordered linear table, there is no ordering information to exploit. The direct approach is to compare elements from the beginning to the end. The code below defines a simple sequential table and implements both ordinary search and sentinel search.
+When elements are stored in an unordered linear list, there is no ordering information to exploit. The direct approach is to compare elements from the beginning to the end. The code below defines a simple sequential list and implements both ordinary search and sentinel search.
 
 ```python
 from dataclasses import dataclass
@@ -62,7 +62,7 @@ T = TypeVar("T")
 
 @dataclass
 class SequenceTable(Generic[T]):
-    """A sequential table backed by a Python list."""
+    """A sequential list backed by a Python list."""
 
     items: list[T]
 
@@ -98,9 +98,9 @@ print(linear_search_with_sentinel(table, 8))
 
 Sequential search does not require ordered data and has $O(n)$ time complexity. A sentinel reduces a boundary check, but it does not change the worst-case complexity.
 
-#### Searching an ordered table
+#### Searching an ordered list
 
-If elements are ordered by a key, the ordering can be used to reduce the search range. Binary search, interpolation search, and Fibonacci search all rely on an ordered table.
+If elements are ordered by a key, the ordering can be used to reduce the search range. Binary search, interpolation search, and Fibonacci search all rely on an ordered list.
 
 #### Binary search
 
@@ -112,7 +112,7 @@ from dataclasses import dataclass
 
 @dataclass
 class OrderedTable:
-    """An ordered table containing integers in ascending order."""
+    """An ordered list containing integers in ascending order."""
 
     items: list[int]
 
@@ -146,7 +146,7 @@ Binary search has $O(\log n)$ time complexity, provided that the table is ordere
 
 #### Interpolation search
 
-Binary search always chooses the middle position. For an ordered table whose keys are distributed fairly uniformly, interpolation search estimates the position from the target's relative position between the first and last keys:
+Binary search always chooses the middle position. For an ordered list whose keys are distributed fairly uniformly, interpolation search estimates the position from the target's relative position between the first and last keys:
 
 $$
 mid = low + \frac{(high-low)(key-a[low])}{a[high]-a[low]}
@@ -243,9 +243,9 @@ print(fibonacci_search(table, 13))
 
 When the data is large and cannot conveniently be kept as one globally ordered sequence, an index can be built. The index associates keys with record positions. A search first locates the index entry and then finds the record in the original data.
 
-Index structures are commonly divided into **linear indexes, tree indexes, and multilevel indexes**. This article focuses on linear indexes.
+Index structures are commonly divided into **linear indexes**, **tree indexes**, and **multilevel indexes**. This article focuses on linear indexes.
 
-### Binary search tree
+### Binary search tree (BST)
 
 A dynamic search table must support search as well as convenient insertion and deletion. A binary search tree (BST) builds this structure by comparing keys: smaller values go into the left subtree and larger values go into the right subtree. An in-order traversal of a BST produces an ordered sequence.
 
@@ -358,11 +358,11 @@ Let $h$ be the height of the BST. Search, insertion, and deletion each follow at
 | Deletion | $O(\log n)$ | $O(n)$ |
 | Minimum or maximum lookup | $O(\log n)$ | $O(n)$ |
 
-An in-order traversal visits every node, so its time complexity is $O(n)$ regardless of balance. If keys are inserted in ascending or descending order, each node may have only one child and the BST degenerates into a linked list. Search, insertion, and deletion then become linear-time operations, and a recursive implementation may also exceed the call-stack limit. Balanced trees such as AVL trees use rotations to keep the height small and address this problem.
+An in-order traversal visits every node, so its time complexity is $O(n)$ regardless of balance. If keys are inserted in ascending or descending order, each node may have only one child and the BST degenerates into a linked list. Search, insertion, and deletion then become linear-time operations, and a recursive implementation may also exceed the call-stack limit. This degeneration shows that the ordering property of a BST alone is not enough; the height must also be controlled after updates. The next section uses an AVL tree as an example of a balanced search tree that addresses this problem.
 
-### AVL tree
+### Balanced search tree (balanced binary search tree, BBST): AVL tree (Adelson-Velsky and Landis tree, AVL tree)
 
-An AVL tree requires the heights of the left and right subtrees of every node to differ by at most 1. The difference is called the balance factor:
+A balanced binary search tree (BBST) preserves the ordering property of a BST while controlling its height after insertions and deletions. An AVL tree (Adelson-Velsky and Landis tree, AVL tree) is one type of balanced search tree; it requires the heights of the left and right subtrees of every node to differ by at most 1. The difference is called the balance factor:
 
 $$
 BF = height(left) - height(right)
@@ -370,7 +370,7 @@ $$
 
 In a balanced state, BF can only be -1, 0, or 1. After insertion or deletion, if the absolute balance factor of a node exceeds 1, the smallest unbalanced subtree must be adjusted.
 
-AVL trees use rotations for adjustment. The usual cases are LL, RR, LR, and RL: LL uses a right rotation, RR uses a left rotation, LR uses a left rotation followed by a right rotation, and RL uses a right rotation followed by a left rotation.
+AVL trees use rotations for adjustment. The usual cases are LL (left-left), RR (right-right), LR (left-right), and RL (right-left): LL uses a right rotation, RR uses a left rotation, LR uses a left rotation followed by a right rotation, and RL uses a right rotation followed by a left rotation.
 
 The code below defines `AVLNode` with a height field, then implements height updates, rotations, and rebalancing.
 
@@ -494,7 +494,7 @@ root = AVLTree.delete_node(root, 5)
 print(AVLTree.inorder(root))
 ```
 
-When rebalancing is placed in the recursive unwind phase of insertion and deletion, every ancestor can update its height and check its balance factor. AVL tree search, insertion, and deletion remain $O(\log n)$.
+When rebalancing is placed in the recursive unwind phase of insertion and deletion, every ancestor can update its height and check its balance factor. AVL tree search, insertion, and deletion remain $O(\log n)$. AVL trees solve degeneration in memory by controlling height; when data is large and mainly stored on disk, the next requirement is to reduce the number of external-memory accesses per level. The next section introduces multiway search trees, which store several keys and children in one node and continue the same effort to reduce height and access cost.
 
 ### Multiway search trees: B-trees
 
@@ -535,7 +535,7 @@ $$
 
 The function $h$ is a **hash function**, and the continuous storage area is the **hash table**. Ideally, different keys would map to different addresses. In practice, multiple keys mapping to one address is unavoidable; this is a **collision**, and the different keys involved are called **synonyms**.
 
-A hash table is both a storage structure and a search structure. It does not emphasize a logical ordering between elements; it is designed for key-based lookup. It is therefore not suitable for cases where one key maps to many records or for range queries.
+A hash table is both a storage structure and a search structure. It does not emphasize a logical ordering between elements; it is designed for direct key-based lookup. The tree structures above emphasize ordering and range access, while a hash table offers a different path that trades space for fast average lookup. It is therefore not suitable for cases where one key maps to many records or for range queries.
 
 ### Constructing hash functions
 
@@ -573,7 +573,7 @@ In practice, a prime table size near the desired size is often considered to red
 
 Use a pseudorandom function to generate an address from the key. The function must return the same result for the same key each time; otherwise, the record cannot be located again.
 
-### Handling hash collisions
+### Handling hash collisions (collision handling)
 
 Once a collision is found, a collision-resolution method is needed to find another storage position.
 
@@ -591,7 +591,7 @@ Different choices of $d_i$ produce different open-addressing methods:
 - Quadratic probing: $d_i=\pm i^2$. It can reduce the clustering of linear probing.
 - Random probing: $d_i$ comes from a reproducible pseudorandom sequence.
 
-#### Rehashing
+#### Double hashing
 
 Use a second hash function to compute the probe step, for example:
 
@@ -679,7 +679,7 @@ The example above uses integer keys. Strings and other data are eventually repre
 
 ## Sorting
 
-Ordered data is useful in web search, report generation, and data analysis. Sorting rearranges the elements of a linear table so that their keys satisfy a non-increasing or non-decreasing relationship. The rest of this article assumes non-decreasing order.
+Ordered data is useful in web search, report generation, and data analysis. Sorting rearranges the elements of a linear list so that their keys satisfy a non-increasing or non-decreasing relationship. The rest of this article assumes non-decreasing order.
 
 ### Basic sorting concepts and classifications
 
@@ -693,7 +693,7 @@ Internal sorting is commonly evaluated by time complexity, auxiliary space, and 
 
 By their main operations, sorting algorithms can be divided into insertion, exchange, selection, and merge sorts. In another common classification, bubble sort, simple selection sort, and direct insertion sort are considered simple sorts, while Shell sort, heap sort, merge sort, and quicksort are treated as improved sorts.
 
-Sorting usually operates on a linear table. To make the exchange operation explicit, the examples below wrap Python lists in small custom array classes.
+Sorting usually operates on a linear list. To make the exchange operation explicit, the examples below wrap Python lists in small custom array classes.
 
 ### Bubble sort
 
@@ -935,10 +935,10 @@ Bucket sort distributes elements into a finite number of buckets according to th
 
 ### Radix sort
 
-Radix sort processes integers digit by digit instead of comparing complete keys. LSD (least significant digit) processing starts at the lowest digit, while MSD (most significant digit) processing starts at the highest. Each pass commonly uses stable counting sort or bucket sort as a subroutine.
+Radix sort processes integers digit by digit instead of comparing complete keys. Least-significant-digit (LSD) processing starts at the lowest digit, while most-significant-digit (MSD) processing starts at the highest. Each pass commonly uses stable counting sort or bucket sort as a subroutine.
 
-- **MSD**: process from the highest digit, which is useful for partitioning by prefix.
-- **LSD**: process from the lowest digit, and preserve stability on every pass.
+- **MSD (most significant digit)**: process from the highest digit, which is useful for partitioning by prefix.
+- **LSD (least significant digit)**: process from the lowest digit, and preserve stability on every pass.
 
 ### Quick sort
 
@@ -946,7 +946,7 @@ Quick sort selects a pivot and partitions the sequence into two parts: elements 
 
 Quick sort is unstable. Its average time complexity is $O(n\log n)$, but if each pivot is close to the minimum or maximum value, the worst-case complexity degrades to $O(n^2)$.
 
-The following implementation uses in-place partitioning. The `QuickArray` class at the beginning makes the mutable linear table explicit.
+The following implementation uses in-place partitioning. The `QuickArray` class at the beginning makes the mutable linear list explicit.
 
 ```python
 from dataclasses import dataclass
