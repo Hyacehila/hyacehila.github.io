@@ -26,11 +26,26 @@ function isMurmurPath(pathname) {
 }
 
 // English machine-translated sources may contain unmatched dollar signs from
-// prose/code. The KaTeX filter assumes every `$` has a closing delimiter and
-// can otherwise loop indefinitely; keep those pages renderable as plain text.
+// prose/code. Preserve valid KaTeX spans and escape only unmatched dollar
+// signs, so the KaTeX filter can render formulas without getting stuck.
+function escapeUnmatchedDollars(content) {
+  const mathSpan = /\$\$[\s\S]*?\$\$|\$(?:\\.|[^$\r\n])*\$/g;
+  let cursor = 0;
+  let result = '';
+  let match;
+
+  while ((match = mathSpan.exec(content)) !== null) {
+    result += content.slice(cursor, match.index).replace(/\$/g, '&#36;');
+    result += match[0];
+    cursor = mathSpan.lastIndex;
+  }
+
+  return result + content.slice(cursor).replace(/\$/g, '&#36;');
+}
+
 hexo.extend.filter.register('before_post_render', function (data) {
   if (String(this.config.language || '') === 'en' && typeof data.content === 'string') {
-    data.content = data.content.replace(/\$/g, '&#36;');
+    data.content = escapeUnmatchedDollars(data.content);
   }
   return data;
 }, 8);

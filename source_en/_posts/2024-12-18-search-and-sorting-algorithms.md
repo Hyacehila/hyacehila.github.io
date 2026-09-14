@@ -96,7 +96,7 @@ print(linear_search(table, 9))
 print(linear_search_with_sentinel(table, 8))
 ```
 
-Sequential search does not require ordered data and has (O(n)) time complexity. A sentinel reduces a boundary check, but it does not change the worst-case complexity.
+Sequential search does not require ordered data and has $O(n)$ time complexity. A sentinel reduces a boundary check, but it does not change the worst-case complexity.
 
 #### Searching an ordered table
 
@@ -142,15 +142,15 @@ numbers = OrderedTable([1, 3, 7, 9, 12])
 print(binary_search(numbers, 9))
 ```
 
-Binary search has (O(\log n)) time complexity, provided that the table is ordered and supports efficient indexed access.
+Binary search has $O(\log n)$ time complexity, provided that the table is ordered and supports efficient indexed access.
 
 #### Interpolation search
 
 Binary search always chooses the middle position. For an ordered table whose keys are distributed fairly uniformly, interpolation search estimates the position from the target's relative position between the first and last keys:
 
-\[
+$$
 mid = low + \frac{(high-low)(key-a[low])}{a[high]-a[low]}
-\]
+$$
 
 When the first and last elements are equal, this formula cannot be used because it would divide by zero. Interpolation search is suitable for uniformly distributed keys; with a skewed distribution, it is not necessarily better than binary search.
 
@@ -193,7 +193,7 @@ print(interpolation_search(table, 40))
 
 #### Fibonacci search
 
-Fibonacci search uses the Fibonacci sequence to choose a split position. The sequence satisfies (F(n)=F(n-1)+F(n-2)), so the search interval shrinks according to the same proportions. The implementation below uses the last element to fill a logical array when necessary, while returning an index from the original table.
+Fibonacci search uses the Fibonacci sequence to choose a split position. The sequence satisfies $F(n)=F(n-1)+F(n-2)$, so the search interval shrinks according to the same proportions. The implementation below uses the last element to fill a logical array when necessary, while returning an index from the original table.
 
 ```python
 from dataclasses import dataclass
@@ -363,15 +363,15 @@ print(tree.search(8) is not None)
 print(tree.inorder())
 ```
 
-The time complexity of BST search, insertion, and deletion depends on the tree height. It is close to (O(\log n)) when the tree is balanced, but can degrade to (O(n)) when ordered input turns the tree into a linked list. This is the problem that balanced binary trees address.
+The time complexity of BST search, insertion, and deletion depends on the tree height. It is close to $O(\log n)$ when the tree is balanced, but can degrade to $O(n)$ when ordered input turns the tree into a linked list. This is the problem that balanced binary trees address.
 
 ### AVL tree
 
 An AVL tree requires the heights of the left and right subtrees of every node to differ by at most 1. The difference is called the balance factor:
 
-\[
+$$
 BF = height(left) - height(right)
-\]
+$$
 
 In a balanced state, BF can only be -1, 0, or 1. After insertion or deletion, if the absolute balance factor of a node exceeds 1, the smallest unbalanced subtree must be adjusted.
 
@@ -499,7 +499,7 @@ root = AVLTree.delete_node(root, 5)
 print(AVLTree.inorder(root))
 ```
 
-When rebalancing is placed in the recursive unwind phase of insertion and deletion, every ancestor can update its height and check its balance factor. AVL tree search, insertion, and deletion remain (O(\log n)).
+When rebalancing is placed in the recursive unwind phase of insertion and deletion, every ancestor can update its height and check its balance factor. AVL tree search, insertion, and deletion remain $O(\log n)$.
 
 ### Multiway search trees: B-trees
 
@@ -534,11 +534,11 @@ A B+ tree is an improved form of a B-tree. Internal nodes mainly store indexes, 
 
 Sequential and tree searches both rely on key comparisons. A hash table attempts to calculate a storage position directly from a key:
 
-\[
+$$
 address = h(key)
-\]
+$$
 
-The function (h) is a **hash function**, and the continuous storage area is the **hash table**. Ideally, different keys would map to different addresses. In practice, multiple keys mapping to one address is unavoidable; this is a **collision**, and the different keys involved are called **synonyms**.
+The function $h$ is a **hash function**, and the continuous storage area is the **hash table**. Ideally, different keys would map to different addresses. In practice, multiple keys mapping to one address is unavoidable; this is a **collision**, and the different keys involved are called **synonyms**.
 
 A hash table is both a storage structure and a search structure. It does not emphasize a logical ordering between elements; it is designed for key-based lookup. It is therefore not suitable for cases where one key maps to many records or for range queries.
 
@@ -566,11 +566,11 @@ Split a key into several parts of equal width and add the parts to obtain an add
 
 #### Division-remainder method
 
-Use the remainder after dividing the key by the table size (m):
+Use the remainder after dividing the key by the table size $m$:
 
-\[
+$$
 h(key) = key \bmod m
-\]
+$$
 
 In practice, a prime table size near the desired size is often considered to reduce collisions caused by particular key distributions.
 
@@ -586,23 +586,23 @@ Once a collision is found, a collision-resolution method is needed to find anoth
 
 When a collision occurs, continue searching for an empty slot according to a probe sequence:
 
-\[
+$$
 h_i(key) = (h(key)+d_i) \bmod m
-\]
+$$
 
-Different choices of (d_i) produce different open-addressing methods:
+Different choices of $d_i$ produce different open-addressing methods:
 
-- Linear probing: (d_i=i). It is simple but prone to clustering.
-- Quadratic probing: (d_i=\pm i^2). It can reduce the clustering of linear probing.
-- Random probing: (d_i) comes from a reproducible pseudorandom sequence.
+- Linear probing: $d_i=i$. It is simple but prone to clustering.
+- Quadratic probing: $d_i=\pm i^2$. It can reduce the clustering of linear probing.
+- Random probing: $d_i$ comes from a reproducible pseudorandom sequence.
 
 #### Rehashing
 
 Use a second hash function to compute the probe step, for example:
 
-\[
+$$
 d_i=i\times h_2(key)
-\]
+$$
 
 When a collision occurs, the probe step changes until an empty slot is found or the table is confirmed to be full.
 
@@ -702,7 +702,7 @@ Sorting usually operates on a linear table. To make the exchange operation expli
 
 ### Bubble sort
 
-Bubble sort repeatedly compares adjacent records and swaps them when they are in the wrong order. Each pass moves the largest element in the unsorted portion to the end. It is simple, stable, and has (O(n^2)) time complexity.
+Bubble sort repeatedly compares adjacent records and swaps them when they are in the wrong order. Each pass moves the largest element in the unsorted portion to the end. It is simple, stable, and has $O(n^2)$ time complexity.
 
 ```python
 from dataclasses import dataclass
@@ -738,7 +738,7 @@ If a pass makes no swaps, the remaining portion is already ordered and the algor
 
 ### Simple selection sort
 
-Simple selection sort finds the minimum element in the unsorted portion on each pass and swaps it into the current starting position. Its comparison count is generally (O(n^2)). It performs fewer swaps than bubble sort, but it is unstable.
+Simple selection sort finds the minimum element in the unsorted portion on each pass and swaps it into the current starting position. Its comparison count is generally $O(n^2)$. It performs fewer swaps than bubble sort, but it is unstable.
 
 ```python
 from dataclasses import dataclass
@@ -771,7 +771,7 @@ print(values.data)
 
 ### Straight insertion sort
 
-Straight insertion sort takes each unsorted element and inserts it into the already ordered prefix. It works well for small or nearly ordered sequences, has (O(n^2)) time complexity, and is stable.
+Straight insertion sort takes each unsorted element and inserts it into the already ordered prefix. It works well for small or nearly ordered sequences, has $O(n^2)$ time complexity, and is stable.
 
 ```python
 from dataclasses import dataclass
@@ -882,7 +882,7 @@ heap.sort()
 print(heap.data)
 ```
 
-Heap sort has (O(n\log n)) time complexity and (O(1)) auxiliary space, but it is generally unstable.
+Heap sort has $O(n\log n)$ time complexity and $O(1)$ auxiliary space, but it is generally unstable.
 
 ### Merge sort
 
@@ -928,7 +928,7 @@ merge_sort(values)
 print(values.data)
 ```
 
-Merge sort has (O(n\log n)) time complexity and requires (O(n)) auxiliary space. Using a less-than-or-equal comparison during merging preserves the order of equal elements, so this implementation is stable.
+Merge sort has $O(n\log n)$ time complexity and requires $O(n)$ auxiliary space. Using a less-than-or-equal comparison during merging preserves the order of equal elements, so this implementation is stable.
 
 ### Counting sort
 
@@ -949,7 +949,7 @@ Radix sort processes integers digit by digit instead of comparing complete keys.
 
 Quick sort selects a pivot and partitions the sequence into two parts: elements on the left are no greater than the pivot, and elements on the right are no smaller. It then recursively processes the two parts.
 
-Quick sort is unstable. Its average time complexity is (O(n\log n)), but if each pivot is close to the minimum or maximum value, the worst-case complexity degrades to (O(n^2)).
+Quick sort is unstable. Its average time complexity is $O(n\log n)$, but if each pivot is close to the minimum or maximum value, the worst-case complexity degrades to $O(n^2)$.
 
 The following implementation uses in-place partitioning. The `QuickArray` class at the beginning makes the mutable linear table explicit.
 
