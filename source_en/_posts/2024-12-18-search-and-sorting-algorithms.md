@@ -19,7 +19,7 @@ permalink: /blog/2024/12/18/search-and-sorting-algorithms/
 lang: en
 translation_key: 2024-12-18-search-and-sorting-algorithms
 translation_status: machine
-translation_source_hash: 7be898fd5fa803ed3ad38857873e7becb01157e9a438373e2f2d29ebef3912cb
+translation_source_hash: 7432580ebb7a0cde128bdc134626318fd7649d9de1590d0f5ecfc923e2e17422
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
@@ -626,18 +626,6 @@ After splitting:        [10 | 20]   [40 | 50]
 During a split, a middle key is selected as the promoted key. Keys smaller than it remain in the left node, and keys larger than it remain in the right node; the promoted key itself leaves the original node and is inserted into the parent. The example uses nodes that can hold at most four keys, so inserting a fifth key splits around 30. The exact middle position depends on the B-tree order and implementation convention, but the mechanism is always the same: separate the keys on both sides and promote the middle key.
 
 The parent may also overflow after receiving the promoted key. In that case, the parent is split as well, and its middle key is promoted to the next level. This process can continue recursively up to the root:
-
-```text
-insert(key):
-    leaf = find_leaf(key)
-    insert_in_order(leaf, key)
-    while node_overflows(leaf):
-        left, middle, right = split(leaf)
-        insert_into_parent(left, middle, right)
-        leaf = parent(leaf)
-    if root_overflows:
-        create_new_root()
-```
 
 The `split` operation does not move a leaf to another level. The two leaves produced by splitting remain at the same level as the original leaf; splitting an internal node only reorganizes children within that level. Ordinary insertion and splitting therefore leave leaf depth unchanged. Only a root split creates a new root: the old root and its two split nodes all move down one level together, so every leaf becomes one level deeper at the same time. This is why a B-tree remains balanced as insertions continue.
 

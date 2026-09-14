@@ -625,18 +625,6 @@ B 树的插入通常从根结点开始，沿着关键字所在的区间向下查
 
 父结点接收提升关键字后也可能溢出，此时继续对父结点分裂，并把更高层的中间关键字向上提升。这个过程可以一直递归到根结点：
 
-```text
-insert(key):
-    leaf = find_leaf(key)
-    insert_in_order(leaf, key)
-    while node_overflows(leaf):
-        left, middle, right = split(leaf)
-        insert_into_parent(left, middle, right)
-        leaf = parent(leaf)
-    if root_overflows:
-        create_new_root()
-```
-
 这里的 `split` 不会把叶子结点移动到其他层。叶子分裂出的左右结点仍然和原叶子处于同一层，内部结点分裂也只是在同一层重新组织孩子。因此，普通插入和分裂都不会改变叶子的深度。只有根结点分裂时，才会新建一个根结点；原根结点及其分裂出的两个结点统一下降一层，所以所有叶子会同时增加一层，仍然保持在同一层。这就是 B 树能够在不断插入后继续保持平衡的原因。
 
 #### B+ 树（B+ tree）
