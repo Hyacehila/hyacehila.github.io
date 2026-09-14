@@ -19,7 +19,7 @@ permalink: /blog/2024/12/18/search-and-sorting-algorithms/
 lang: en
 translation_key: 2024-12-18-search-and-sorting-algorithms
 translation_status: machine
-translation_source_hash: 6c3b0bd7fbaa9177b520d98261f899dd7a4dc6280d0f989f1aa71e05b49aac7d
+translation_source_hash: 98016894404861bd808f9a71432cbe95fed783150b67ef805c5284d22b2968b0
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
@@ -371,6 +371,15 @@ $$
 In a balanced state, BF can only be -1, 0, or 1. After insertion or deletion, if the absolute balance factor of a node exceeds 1, the smallest unbalanced subtree must be adjusted.
 
 AVL trees use rotations for adjustment. The usual cases are LL (left-left), RR (right-right), LR (left-right), and RL (right-left): LL uses a right rotation, RR uses a left rotation, LR uses a left rotation followed by a right rotation, and RL uses a right rotation followed by a left rotation.
+
+For an imbalance caused by insertion, the core distinction among these four cases is the direction of the search path from the unbalanced node to the newly inserted node:
+
+| Case | Position of the newly inserted node | Adjustment |
+| --- | --- | --- |
+| LL | Left subtree of the left subtree of the unbalanced node | Right rotation |
+| RR | Right subtree of the right subtree of the unbalanced node | Left rotation |
+| LR | Right subtree of the left subtree of the unbalanced node | Left rotation, then right rotation |
+| RL | Left subtree of the right subtree of the unbalanced node | Right rotation, then left rotation |
 
 Any single rotation can be described in three steps. Take a right rotation as an example; it handles a subtree whose left subtree is too tall:
 1. Find the unbalanced node `y` and make its left child `x` the new subtree root.
