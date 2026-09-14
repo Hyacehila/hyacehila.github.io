@@ -19,7 +19,7 @@ permalink: /blog/2024/12/18/search-and-sorting-algorithms/
 lang: en
 translation_key: 2024-12-18-search-and-sorting-algorithms
 translation_status: machine
-translation_source_hash: 4a86e669333b8450e247bb2786f7200415444e3c8c0e90dca007bec2f06aa005
+translation_source_hash: 7be898fd5fa803ed3ad38857873e7becb01157e9a438373e2f2d29ebef3912cb
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
@@ -579,7 +579,9 @@ The multiway search trees discussed next put several keys in one node and focus 
 
 ### Multiway search trees: B-trees
 
-A binary tree allows at most two children per node. When data is large and primarily stored on disk, tree height directly affects the number of disk accesses. Disk access is usually slower than memory and cache access. A multiway search tree stores several keys in a node and has several children, reducing the tree height.
+A binary tree allows at most two children per node. When data is large and primarily stored on disk, tree height directly affects the number of disk accesses. Disk access is usually slower than memory and cache access. Large amounts of random I/O on SSDs and HDDs can quickly degrade system performance.
+
+A multiway search tree stores several keys in a node and has several children, reducing the tree height.
 
 The following sections introduce 2-3 trees, 2-3-4 trees, B-trees, and B+ trees.
 
@@ -592,6 +594,8 @@ A 2-3 tree has two kinds of nodes:
 
 For a 2-node, the left subtree is smaller than the key and the right subtree is larger. For a 3-node, the left, middle, and right subtrees contain values smaller than the smaller key, between the two keys, and larger than the larger key, respectively.
 
+A B-tree is still fundamentally a search tree; the difference is that one node contains multiple separators.
+
 All leaves of a 2-3 tree must be at the same level. Insertion occurs at a leaf: an empty tree receives a 2-node; inserting into a 2-node can produce a 3-node; inserting into a 3-node requires splitting it and promoting the middle key. Deletion from a 3-node is relatively simple, while deletion from a 2-node may require borrowing a key or merging nodes.
 
 #### 2-3-4 trees
@@ -601,6 +605,41 @@ A 2-3-4 tree extends the 2-3 tree idea. A node can contain up to three keys and 
 #### B-trees
 
 A B-tree is a balanced multiway search tree. 2-3 trees and 2-3-4 trees can be viewed as special cases. The order of a B-tree usually describes the maximum number of children a node may have. In practice, the order can be chosen based on page size, record size, and available memory. A larger order generally produces a shorter tree; keeping the root in memory can reduce the number of external-memory accesses.
+
+This is still a search tree and still uses the search idea introduced earlier, but each level eliminates more possibilities. A B-tree is designed so that one node roughly corresponds to one disk page. A single I/O can read hundreds of keys, after which the search proceeds in memory. This is an I/O optimization trade-off rather than an improvement in asymptotic time complexity.
+
+Insertion into a B-tree starts at the root and follows the key range down to the appropriate leaf. The new key is inserted into that leaf in sorted order. If the node does not exceed its key limit, insertion is complete.
+
+When a leaf is full, insertion causes an overflow and requires a `split`:
+
+```text
+Before insertion:       [10 | 20 | 40 | 50]
+After inserting 30:     [10 | 20 | 30 | 40 | 50]  ← overflow
+                                  ↑
+                             promote middle key
+
+After splitting:        [10 | 20]   [40 | 50]
+                                  ↑
+                             30 enters parent
+```
+
+During a split, a middle key is selected as the promoted key. Keys smaller than it remain in the left node, and keys larger than it remain in the right node; the promoted key itself leaves the original node and is inserted into the parent. The example uses nodes that can hold at most four keys, so inserting a fifth key splits around 30. The exact middle position depends on the B-tree order and implementation convention, but the mechanism is always the same: separate the keys on both sides and promote the middle key.
+
+The parent may also overflow after receiving the promoted key. In that case, the parent is split as well, and its middle key is promoted to the next level. This process can continue recursively up to the root:
+
+```text
+insert(key):
+    leaf = find_leaf(key)
+    insert_in_order(leaf, key)
+    while node_overflows(leaf):
+        left, middle, right = split(leaf)
+        insert_into_parent(left, middle, right)
+        leaf = parent(leaf)
+    if root_overflows:
+        create_new_root()
+```
+
+The `split` operation does not move a leaf to another level. The two leaves produced by splitting remain at the same level as the original leaf; splitting an internal node only reorganizes children within that level. Ordinary insertion and splitting therefore leave leaf depth unchanged. Only a root split creates a new root: the old root and its two split nodes all move down one level together, so every leaf becomes one level deeper at the same time. This is why a B-tree remains balanced as insertions continue.
 
 #### B+ trees
 
