@@ -19,7 +19,7 @@ permalink: /blog/2024/12/18/search-and-sorting-algorithms/
 lang: en
 translation_key: 2024-12-18-search-and-sorting-algorithms
 translation_status: machine
-translation_source_hash: 7432580ebb7a0cde128bdc134626318fd7649d9de1590d0f5ecfc923e2e17422
+translation_source_hash: 7286203399848bf4ceeadae5bf042c2714ccc3c2acc223cca8e794a472ca2ce5
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
@@ -632,6 +632,19 @@ The `split` operation does not move a leaf to another level. The two leaves prod
 #### B+ trees
 
 A B+ tree is an improved form of a B-tree. Internal nodes mainly store indexes, while records are usually stored in leaf nodes. The leaves are also linked in order, which makes B+ trees particularly suitable for range queries and sequential scans.
+
+A B+ tree can be abstracted as:
+
+```text
+                  [30 | 60]
+                 /    |     \
+                /     |      \
+ [10 20] <--> [30 40 50] <--> [60 70 80]
+```
+
+Complete records are stored only in the bottom-level leaf nodes. Internal nodes store only separator keys for navigation; they can be understood as guideposts.
+
+Because internal nodes do not store complete records, a disk page of the same size can hold more child pointers. This gives the tree a higher fan-out and a smaller height, reducing the number of external-memory accesses required for lookup. Once the leaves are linked in key order, a sequential scan can begin at the located leaf, which is another reason B+ trees are well suited to range queries.
 
 ### Hash table overview
 
