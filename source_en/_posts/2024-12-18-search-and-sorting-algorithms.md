@@ -14,7 +14,7 @@ mathjax: true
 hidden: true
 excerpt: Covers sequential search, binary search, binary search trees, hash tables, sorting algorithms, and related Python implementations.
 description: Covers sequential search, binary search, binary search trees, hash tables, sorting algorithms, and related Python implementations.
-excerpt_zh: 整理顺序查找、二分查找、二叉排序树、散列表、排序算法及其 Python 实现。
+excerpt_zh: 整理顺序查找、二分查找、二叉搜索树、散列表、排序算法及其 Python 实现。
 permalink: /blog/2024/12/18/search-and-sorting-algorithms/
 lang: en
 translation_key: 2024-12-18-search-and-sorting-algorithms
@@ -349,7 +349,16 @@ print(tree.search(8) is not None)
 print(tree.inorder())
 ```
 
-The time complexity of BST search, insertion, and deletion depends on the tree height. It is close to $O(\log n)$ when the tree is balanced, but can degrade to $O(n)$ when ordered input turns the tree into a linked list. This is the problem that balanced binary trees address.
+Let $h$ be the height of the BST. Search, insertion, and deletion each follow at most one root-to-leaf path, so their time complexity is $O(h)$. When the tree is reasonably balanced, $h=O(\log n)$; when the tree degenerates, $h=O(n)$.
+
+| Operation | Balanced | Worst case |
+| --- | --- | --- |
+| Search | $O(\log n)$ | $O(n)$ |
+| Insertion | $O(\log n)$ | $O(n)$ |
+| Deletion | $O(\log n)$ | $O(n)$ |
+| Minimum or maximum lookup | $O(\log n)$ | $O(n)$ |
+
+An in-order traversal visits every node, so its time complexity is $O(n)$ regardless of balance. If keys are inserted in ascending or descending order, each node may have only one child and the BST degenerates into a linked list. Search, insertion, and deletion then become linear-time operations, and a recursive implementation may also exceed the call-stack limit. Balanced trees such as AVL trees use rotations to keep the height small and address this problem.
 
 ### AVL tree
 

@@ -5,7 +5,7 @@ date: 2024-12-18 21:37:43 +0800
 categories: ["Programming", "CS Foundations"]
 tags: ["Algorithms", "Search", "Sorting"]
 author: Hyacehila
-excerpt: "整理顺序查找、二分查找、二叉排序树、散列表、排序算法及其 Python 实现。"
+excerpt: "整理顺序查找、二分查找、二叉搜索树、散列表、排序算法及其 Python 实现。"
 excerpt_en: "Covers sequential search, binary search, binary search trees, hash tables, sorting algorithms, and related Python implementations."
 mathjax: true
 hidden: true
@@ -233,17 +233,17 @@ print(fibonacci_search(table, 13))
 
 索引结构通常分为**线性索引、树形索引和多级索引**。这里重点介绍线性索引。
 
-### 二叉排序树
+### 二叉搜索树
 
-动态查找表既要支持查找，也要方便插入和删除。二叉排序树（binary search tree，BST）通过比较关键字建立这种结构：较小的值放在左子树，较大的值放在右子树。对二叉排序树进行中序遍历，可以得到一个有序序列。
+动态查找表既要支持查找，也要方便插入和删除。二叉搜索树（binary search tree，BST）通过比较关键字建立这种结构：较小的值放在左子树，较大的值放在右子树。对二叉搜索树进行中序遍历，可以得到一个有序序列。
 
-二叉排序树具有以下性质：
+二叉搜索树具有以下性质：
 
 - 如果左子树不为空，左子树中所有结点的值都小于根结点的值。
 - 如果右子树不为空，右子树中所有结点的值都大于根结点的值。
-- 左、右子树也分别是二叉排序树。
+- 左、右子树也分别是二叉搜索树。
 
-构造二叉排序树的目的不是单纯排序，而是让查找、插入和删除可以围绕树结构进行。下面的代码先定义结点和树，再实现查找、插入、最小值查找和删除。
+构造二叉搜索树的目的不是单纯排序，而是让查找、插入和删除可以围绕树结构进行。下面的代码先定义结点和树，再实现查找、插入、最小值查找和删除。
 
 ```python
 from __future__ import annotations
@@ -253,7 +253,7 @@ from dataclasses import dataclass
 
 @dataclass
 class BSTNode:
-    """二叉排序树结点：一个关键字和左右子树引用。"""
+    """二叉搜索树结点：一个关键字和左右子树引用。"""
 
     key: int
     left: BSTNode | None = None
@@ -261,7 +261,7 @@ class BSTNode:
 
 
 class BinarySearchTree:
-    """使用 BSTNode 维护一棵二叉排序树。"""
+    """使用 BSTNode 维护一棵二叉搜索树。"""
 
     def __init__(self) -> None:
         self.root: BSTNode | None = None
@@ -337,7 +337,16 @@ print(tree.search(8) is not None)
 print(tree.inorder())
 ```
 
-二叉排序树的查找、插入和删除操作的时间复杂度与树高有关。树较平衡时接近 $O(\log n)$；如果数据本身有序，树可能退化成链表，最坏时间复杂度为 $O(n)$。这也是平衡二叉树要解决的问题。
+设二叉搜索树的高度为 $h$。查找、插入和删除都只需要沿着一条从根到叶子的路径处理，因此它们的时间复杂度都是 $O(h)$。在树较平衡时，$h=O(\log n)$；如果树发生退化，$h=O(n)$。
+
+| 操作 | 平衡时 | 最坏情况 |
+| --- | --- | --- |
+| 查找 | $O(\log n)$ | $O(n)$ |
+| 插入 | $O(\log n)$ | $O(n)$ |
+| 删除 | $O(\log n)$ | $O(n)$ |
+| 查找最小值或最大值 | $O(\log n)$ | $O(n)$ |
+
+中序遍历需要访问每个结点，无论树是否平衡，时间复杂度都是 $O(n)$。如果按照升序或降序依次插入关键字，每个结点都可能只有一个孩子，二叉搜索树就会退化成链表。此时查找、插入和删除都会退化为线性时间，递归实现还可能因为递归深度过大而触发栈限制。AVL 树等平衡二叉树通过旋转维持较小的树高，正是为了解决这个问题。
 
 ### 平衡二叉树：AVL 树
 
