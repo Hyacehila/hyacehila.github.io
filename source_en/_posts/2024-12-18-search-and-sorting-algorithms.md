@@ -19,7 +19,7 @@ permalink: /blog/2024/12/18/search-and-sorting-algorithms/
 lang: en
 translation_key: 2024-12-18-search-and-sorting-algorithms
 translation_status: machine
-translation_source_hash: 98016894404861bd808f9a71432cbe95fed783150b67ef805c5284d22b2968b0
+translation_source_hash: 4185c112e943b1b1d108ecd54d31d099048a4b8fa632a813a140f7475e1442c7
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
@@ -520,7 +520,33 @@ root = AVLTree.delete_node(root, 5)
 print(AVLTree.inorder(root))
 ```
 
-When rebalancing is placed in the recursive unwind phase of insertion and deletion, every ancestor can update its height and check its balance factor. AVL tree search, insertion, and deletion remain $O(\log n)$. AVL trees solve degeneration in memory by controlling height; when data is large and mainly stored on disk, the next requirement is to reduce the number of external-memory accesses per level. The next section introduces multiway search trees, which store several keys and children in one node and continue the same effort to reduce height and access cost.
+When rebalancing is placed in the recursive unwind phase of insertion and deletion, every ancestor can update its height and check its balance factor. AVL tree search, insertion, and deletion remain $O(\log n)$. AVL trees solve degeneration in memory by controlling height, but their balance condition is strict and may require more frequent adjustment during updates. The next section first introduces red-black trees, which use a looser balance condition; when data is large and mainly stored on disk, the following multiway search trees continue the same effort by reducing external-memory accesses per level.
+
+### Red-black tree (RBT): a more flexible balanced search tree
+
+A red-black tree (RBT) is another self-balancing binary search tree. Like an AVL tree, it preserves the ordering property of a binary search tree and keeps search, insertion, and deletion at $O(\log n)$. The difference is that an AVL tree directly limits the height difference between subtrees, while a red-black tree controls the overall height indirectly through color constraints.
+
+Each node in a red-black tree is marked red or black and satisfies these properties:
+
+1. The root is black.
+2. All external leaf nodes, usually represented by black `NIL` sentinels, are black.
+3. Both children of a red node must be black, so two red nodes cannot be adjacent.
+4. Every path from any node to all of its descendant `NIL` leaves contains the same number of black nodes.
+
+The last property equalizes the number of black nodes on all paths, while the third property prevents red nodes from appearing consecutively. Together they prevent the tree from degenerating into a linked list and give it the height bound $h \leq 2\log_2(n+1)$. This bound is looser than the height constraint of an AVL tree, but it is still logarithmic.
+
+The main differences between AVL trees and red-black trees can be summarized as follows:
+
+| Comparison | AVL tree | Red-black tree |
+| --- | --- | --- |
+| Balancing method | Strictly limits the height difference between the two subtrees of every node | Controls height through colors and the number of black nodes |
+| Search | Usually shorter, with a smaller lookup constant | May be slightly taller, but remains $O(\log n)$ |
+| Insertion and deletion | Maintains heights and may perform more adjustment | Usually combines recoloring with a small number of rotations |
+| Suitable use | Ordered dynamic sets with far more searches than updates | Dynamic sets with a more balanced mix of insertion, deletion, and search |
+
+During insertion, a red-black tree usually first places the new node as in an ordinary binary search tree and colors it red. If its parent is black, no property is violated; if its parent is also red, the tree chooses recoloring or rotations based on the uncle's color, then ensures that the root is black. Deletion repair involves more complicated cases such as an “extra black” node, but the basic idea is still to restore the balance in the number of black nodes through recoloring and rotations.
+
+A red-black tree is therefore not another name for an AVL tree, but a different balanced-search-tree implementation. An AVL tree trades stricter balance for a tighter height bound, while a red-black tree trades looser balance for more flexible updates. Many ordered maps and ordered sets use red-black trees to maintain dynamic data. When range queries, minimum and maximum lookup, or ordered traversal are required, a red-black tree is more suitable than a hash table. The multiway search trees discussed next put several keys in one node and focus on reducing external-memory accesses.
 
 ### Multiway search trees: B-trees
 
