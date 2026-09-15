@@ -16,7 +16,7 @@ permalink: /blog/2026/09/07/about-interview/
 lang: en
 translation_key: 2026-09-07-about-interview
 translation_status: machine
-translation_source_hash: 5b2891f03283f67b6080102b78999193609004f277df6127266975a5c2b224a1
+translation_source_hash: 123a967ede6e78ddb2f07a753dfaa6960def15a36343aa6095fc4daf19fdf34d
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
@@ -80,6 +80,32 @@ Agentic Generation also explores trade-offs around questions such as: **Which de
 For a robot operating in the physical world, many actions cannot be undone with Ctrl+Z. How should tools for embodied AI be designed, and what feedback should they give the "brain"? In [the discussion of forward knowledge injection and backward feedback in "What Problems Are We Really Solving When We Build AI Agents?"](/en/blog/2026/07/28/what-problems-are-we-really-solving-when-building-ai-agents/#feedback-design), I wrote: **Tools are never just a list of tools; they are the entire world an AI agent can observe and affect.** Tool calling has mainly focused on virtual environments. In the physical world, this view needs to translate into more concrete interface and feedback design.
 
 For embodied AI, a tool should return more than "call successful." The brain also needs to know whether the action actually completed, what changed in the environment, and what remains possible after a failure. How should this information be obtained from sensors, VLAs, and lower-level control systems? At what granularity, and when, should it be passed to the higher-level agent? These are questions I want to investigate further, and I suspect no one has an answer to them yet.
+
+### What Is the Biggest Challenge I Have Encountered?
+
+I seem to have been asked this question in more than one interview. It is especially popular in the AI interviews that have become common recently: they like to throw a pile of fairly pointless questions at you, apparently simply because they want to ask them.
+
+If I had to name the biggest challenge I have encountered, I do not think it would be one specific technical problem. It would be this: **deciding what to do next when I do not even know whether an answer exists.**
+
+Much of my past work has not been the kind of engineering problem with a clearly defined specification. This is especially true of AI and agent projects. At the beginning, even the boundary of the problem is often unclear. Is the model capable enough? Can this technical direction work? What would count as an effective result? Does the problem itself even have a solution? None of these questions necessarily has an answer yet.
+
+The approach I have gradually become used to is forming a belief from the information and experience I currently have: the technical direction I consider most plausible and most worth trying. I think having such beliefs is natural, and probably necessary, for a technically oriented developer. Mine come from the projects I have worked on before.
+
+I then avoid spending too long trying to prove that my first judgment was correct. Instead, I build a minimal prototype around it as quickly as I can. The most important purpose of a prototype is not necessarily to become the finished product. It is to give me new information through real technical feedback. Every prototype and every failure changes how I understand the problem. I use that information to revise my belief, choose a more promising path, and begin another iteration.
+
+Over time, I have come to think that the most important ability when facing an unknown problem may not be finding the right answer immediately. It is this: **can you form a good enough judgment, move quickly, and keep letting reality correct that judgment?**
+
+This is also why I now rather enjoy dealing with problems whose answers are unclear. A problem with a known solution is mostly a matter of execution. When you do not know whether a solution exists, you have to keep observing, judging, and trying, then slowly find structure in the confusion. That process is challenging, but the challenge is also part of the fun.
+
+So when someone suddenly gives me a completely unfamiliar problem, my first reaction is usually no longer:
+
+“Do I know how to do this?”
+
+It is:
+
+“Given what I know now, which path do I believe in most? Can I build something small enough to see what reality tells me?”
+
+I think this may be the most important habit I have developed for dealing with difficult problems over the years.
 
 ## Questions to Ask Interviewers: What I Want to Find Out
 
