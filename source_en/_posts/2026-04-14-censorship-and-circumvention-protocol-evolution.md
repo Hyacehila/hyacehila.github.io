@@ -3,8 +3,8 @@ title: National Internet Censorship and Anti-Censorship Proxy Protocols
 title_zh: 国家级网络审查机制与抗审查代理协议的攻防演进
 date: 2026-04-14 20:00:00 +0800
 categories:
-- Work & Society
-- AI & Society
+- Programming
+- Full Stack Development
 tags:
 - Security
 - Protocols
