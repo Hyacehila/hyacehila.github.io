@@ -69,18 +69,18 @@ class TranslationMetadataTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             (root / 'source/_posts').mkdir(parents=True)
-            for language in ['source', 'source_en']:
-                draft = root / language / '_drafts/example.md'
-                draft.parent.mkdir(parents=True)
-                draft.write_text('---\ntitle: Draft\n---\nBody\n', encoding='utf-8')
-            original = (root / 'source_en/_drafts/example.md').read_bytes()
+            draft = root / 'source/_drafts/example.md'
+            draft.parent.mkdir(parents=True)
+            draft.write_text('---\ntitle: Draft\n---\nBody\n', encoding='utf-8')
+            original = draft.read_bytes()
             with patch.object(translate, 'ROOT', root), patch.object(translate, 'translation_cache', side_effect=AssertionError('must not translate drafts')):
                 for args in [[], ['--check'], ['--force']]:
                     with patch('sys.argv', ['translate-posts.py', *args]), contextlib.redirect_stdout(io.StringIO()):
                         self.assertEqual(translate.main(), 0)
-                self.assertEqual(translate.target_for(root / 'source/_drafts/example.md'), root / 'source_en/_drafts/example.md')
-            self.assertFalse((root / 'source_en/_posts/example.md').exists())
-            self.assertEqual((root / 'source_en/_drafts/example.md').read_bytes(), original)
+                with self.assertRaises(ValueError):
+                    translate.target_for(draft)
+            self.assertFalse((root / 'source_en').exists())
+            self.assertEqual(draft.read_bytes(), original)
 
 
 if __name__ == '__main__':

@@ -44,7 +44,7 @@ scripts/
   validate-i18n.js          # 中英文内容与分类标签校验
 source/
   _posts/                   # 已发布文章
-  _drafts/                  # 草稿，不参与正式构建
+  _drafts/                  # 仅中文草稿，不参与正式构建
   _data/
     essays.yml              # 碎碎念数据
     links.yml               # 友情链接数据
@@ -118,6 +118,8 @@ npm run check:search   # 单独校验已生成的搜索索引
 ```bash
 npx hexo new post "文章标题"
 ```
+
+草稿只使用中文，统一保存在 `source/_drafts/`；英文源目录不保留草稿，也不检查草稿的英文对应版本。文章移入 `source/_posts/` 后才生成英文翻译，并检查正式文章的中英文一致性。
 
 创建草稿：
 

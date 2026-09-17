@@ -30,14 +30,13 @@ test('quoted booleans and null are rejected even when both languages agree', () 
 });
 
 
-test('Chinese-only drafts are allowed and bilingual drafts must share the same directory', () => {
-  assert.deepEqual(sourceDirectoryErrors(['post.md'], ['post.md'], ['draft.md', 'notes.md'], ['draft.md']), []);
-  assert.ok(sourceDirectoryErrors([], ['draft.md'], ['draft.md'], []).some(error => error.includes('_posts')));
-  assert.ok(sourceDirectoryErrors(['post.md'], [], [], ['post.md']).some(error => error.includes('no Chinese draft')));
+test('Chinese drafts need no translation; published posts must have bilingual pairs', () => {
+  assert.deepEqual(sourceDirectoryErrors(['post.md'], ['post.md'], ['draft.md', 'notes.md']), []);
+  assert.ok(sourceDirectoryErrors([], ['draft.md'], ['draft.md']).some(error => error.includes('Orphan English translation')));
+  assert.ok(sourceDirectoryErrors(['post.md'], [], []).some(error => error.includes('English translation is missing')));
 });
 
-test('rejects orphan drafts and duplicate draft/post sources', () => {
-  assert.ok(sourceDirectoryErrors([], [], [], ['orphan.md']).length);
-  const errors = sourceDirectoryErrors(['same.md'], ['same.md'], ['same.md'], ['same.md']);
-  assert.equal(errors.filter(error => error.includes('both _posts and _drafts')).length, 2);
+test('rejects duplicate Chinese draft/post sources', () => {
+  const errors = sourceDirectoryErrors(['same.md'], ['same.md'], ['same.md']);
+  assert.deepEqual(errors, ['Chinese source exists in both _posts and _drafts: same.md']);
 });

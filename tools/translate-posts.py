@@ -252,13 +252,13 @@ def cjk_count(value: str) -> int:
 
 def source_files() -> list[Path]:
     # Fixed pages have one English-only edition. Only posts in _posts are
-    # translated automatically; drafts stay in their directories.
+    # translated automatically; drafts stay in source/_drafts in Chinese.
     return sorted((ROOT / "source" / "_posts").glob("*.md"))
 
 
 def target_for(source: Path) -> Path:
-    relative = source.relative_to(ROOT / "source")
-    return ROOT / "source_en" / relative
+    relative = source.relative_to(ROOT / "source" / "_posts")
+    return ROOT / "source_en" / "_posts" / relative
 
 
 def sync_metadata(source: dict[str, Any], target_text: str, body_hash: str, stem: str) -> str:
