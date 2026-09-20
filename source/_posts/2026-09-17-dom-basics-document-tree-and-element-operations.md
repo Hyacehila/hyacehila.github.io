@@ -1,7 +1,7 @@
 ---
 title: "DOM 基础：文档树、元素操作与动态页面"
 title_en: "DOM Basics: Document Trees, Element Operations, and Dynamic Pages"
-date: 2026-09-17 12:00:00 +0800
+date: 2026-09-18 12:00:00 +0800
 categories: ["Programming", "Full Stack Development"]
 tags: [DOM, HTML, JavaScript, Frontend]
 author: Hyacehila
@@ -9,7 +9,7 @@ excerpt: "从 HTML 如何形成 DOM 树讲起，理解 document、window、Node 
 excerpt_en: "Understand how HTML becomes a DOM tree and how document, window, Node, and Element relate. Use a user list to explore element queries, content and attribute updates, node creation and removal, and the relationship between data and the page."
 description: "从 HTML 如何形成 DOM 树讲起，理解 document、window、Node 与 Element，再通过用户列表示例学习元素查找、内容与属性修改、节点创建和删除，以及数据与页面之间的关系。"
 mathjax: false
-hidden: false
+hidden: true
 permalink: '/blog/2026/09/17/dom-basics-document-tree-and-element-operations/'
 ---
 

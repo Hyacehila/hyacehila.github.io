@@ -1,7 +1,7 @@
 ---
 title: "JavaScript Basics: Variables, Functions, Arrays, and Event Callbacks"
 title_zh: "JavaScript 基础：变量、函数、数组与事件回调"
-date: 2026-09-18 12:00:00 +0800
+date: 2026-09-17 12:00:00 +0800
 categories: ["Programming", "Programming Languages"]
 tags: [JavaScript, Frontend]
 author: Hyacehila
@@ -9,7 +9,7 @@ excerpt: "Learn JavaScript through a user list: variables and types, objects and
 description: "Learn JavaScript through a user list: variables and types, objects and arrays, regular and arrow functions, callbacks, and array methods, then connect them to browser events and React list rendering."
 excerpt_zh: "以用户列表为例，逐步理解 JavaScript 的变量与类型、对象与数组、普通函数与箭头函数、回调和常用数组操作，并衔接浏览器事件与 React 列表渲染。"
 mathjax: false
-hidden: false
+hidden: true
 permalink: '/blog/2026/09/18/javascript-basics-variables-functions-arrays-callbacks/'
 lang: en
 translation_key: 2026-09-18-javascript-basics-variables-functions-arrays-callbacks
