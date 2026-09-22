@@ -16,7 +16,7 @@ permalink: /blog/2026/09/07/about-interview/
 lang: en
 translation_key: 2026-09-07-about-interview
 translation_status: machine
-translation_source_hash: 123a967ede6e78ddb2f07a753dfaa6960def15a36343aa6095fc4daf19fdf34d
+translation_source_hash: ecf7c82ebe7077b02dc3a70a413055f8a344246b5e782cbc3e2167a0d4744258
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
@@ -89,21 +89,13 @@ If I had to name the biggest challenge I have encountered, I do not think it wou
 
 Much of my past work has not been the kind of engineering problem with a clearly defined specification. This is especially true of AI and agent projects. At the beginning, even the boundary of the problem is often unclear. Is the model capable enough? Can this technical direction work? What would count as an effective result? Does the problem itself even have a solution? None of these questions necessarily has an answer yet.
 
-The approach I have gradually become used to is forming a belief from the information and experience I currently have: the technical direction I consider most plausible and most worth trying. I think having such beliefs is natural, and probably necessary, for a technically oriented developer. Mine come from the projects I have worked on before.
+The approach I have gradually become used to is forming a Belief from the information and experience I currently have: the technical direction I consider most plausible and most worth trying. I think having such a Belief is natural, and probably necessary, for a technically oriented developer. Mine comes from the projects I have worked on before.
 
 I then avoid spending too long trying to prove that my first judgment was correct. Instead, I build a minimal prototype around it as quickly as I can. The most important purpose of a prototype is not necessarily to become the finished product. It is to give me new information through real technical feedback. Every prototype and every failure changes how I understand the problem. I use that information to revise my belief, choose a more promising path, and begin another iteration.
 
 Over time, I have come to think that the most important ability when facing an unknown problem may not be finding the right answer immediately. It is this: **can you form a good enough judgment, move quickly, and keep letting reality correct that judgment?**
 
 This is also why I now rather enjoy dealing with problems whose answers are unclear. A problem with a known solution is mostly a matter of execution. When you do not know whether a solution exists, you have to keep observing, judging, and trying, then slowly find structure in the confusion. That process is challenging, but the challenge is also part of the fun.
-
-So when someone suddenly gives me a completely unfamiliar problem, my first reaction is usually no longer:
-
-“Do I know how to do this?”
-
-It is:
-
-“Given what I know now, which path do I believe in most? Can I build something small enough to see what reality tells me?”
 
 I think this may be the most important habit I have developed for dealing with difficult problems over the years.
 
