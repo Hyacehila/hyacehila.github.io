@@ -19,10 +19,15 @@ permalink: /blog/2026/06/18/comfyui-video-workflow-orchestration/
 lang: en
 translation_key: 2026-06-18-comfyui-video-workflow-orchestration
 translation_status: machine
-translation_source_hash: fe59b612e3f44e31051994aed26fdb762cf6beac58bd24e8e4748e23d6467178
+translation_source_hash: abf78c4d21c8f52b8d2e3de82197138e7915690e214629af08473ab763d0a69b
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
+
+<p><strong>A note from a few months later</strong></p>
+<p>When I wrote this, I was asking whether a tool like ComfyUI needed shots, assets, candidate versions, and a timeline to help people assemble short clips into a longer video. A few months later, I think I may have asked too narrow a question. As models like GPT-6 and Astra get better at using tools on their own, the one operating all this may not be a person.</p>
+<p>I've recently noticed something interesting: you don't even need to build a complete video workbench first. Give an agent a few atomic capabilities to generate images, process audio, read assets, and cut and join clips through a CLI. It can plan the steps, inspect the results, and make a video of some length and reasonable quality. I used to think someone had to sit at a timeline, choose shots, trim clips, and redo the voiceover. Now I'm less sure those steps need a person working through them one by one. An agent can do them too, and decide when to go back and try again.</p>
+<p>So the question I now want to ask is: what should ComfyUI or LibTV look like if AI becomes the main user of these tools? The shots, inherited assets, and task orchestration I discuss below still matter, but they don't all have to become controls for a person to operate. At the very least, the tool needs to let an agent see how far it has got, retrieve the assets from the previous step, and pick up again after a failure. Doing that shouldn't burn through a pile of tokens at every step, either. Perhaps the next problem for video creation tools is not just making editing easier for people, but helping AI finish a whole video and then letting a person decide whether it's any good.</p>
 
 <p>The most common action in the production of pictures in the last two years is probably a draw card.</p>
 <p>The questions in this article can also be addressed<a href="/en/blog/2026/04/21/touchdesigner-point-clouds-and-3d-gaussian-splatting/">TouchDesigner Lights with 3D Gaussian Splatting</a>、<a href="/en/blog/2026/05/05/ai-agent-game-industry-pipeline/">How the game industry is introduced AI Agent</a>How the concept of a relatively close read together is developed in different contexts.</p>
