@@ -36,7 +36,7 @@
   { "query": "Paper Notes", "expectedTitle": "Literature Review as a Research Methodology", "topK": 5 },
   { "query": "Mathematics", "expectedTitle": "Mathematical Analysis", "topK": 5 },
   { "query": "Search and Sorting", "expectedTitle": "Search and Sorting Algorithms", "topK": 3 },
-  { "query": "database systems", "expectedTitle": "Database Systems Concepts", "topK": 5 },
+  { "query": "database systems", "expectedTitle": "Database Foundations: Relational Models, Table Design, and Normalization", "topK": 5 },
   { "query": "Bayesian Statistics", "expectedTitle": "Bayesian Statistics", "topK": 3 },
   { "query": "Functional Analysis", "expectedTitle": "Functional Analysis", "topK": 3 },
   { "query": "Matrix Theory", "expectedTitle": "Matrix Theory", "topK": 5 },
