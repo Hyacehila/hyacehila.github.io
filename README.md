@@ -159,6 +159,7 @@ hidden: false
 - `title_en` 和 `excerpt_en` 用于英文界面的首页、归档、分类、标签和搜索结果。
 - `hidden: true` 只会让文章从首页列表隐藏，文章链接、归档、分类、标签和全文搜索仍然保留。
 - 分类最多使用两级结构，并优先复用 `_config.yml` 中已有的分类映射。
+- 视觉设计文章使用 `Creative Media & Games > Visual Design`，涵盖平面排版、字体、配色、网页视觉和演示文稿设计；具体风格与方法使用标签，例如 `Swiss Style`、`Typography` 和 `Grid Systems`。
 - 数学公式使用 `$...$` 和 `$$...$$`，构建时由 KaTeX 转换为静态 HTML。
 - Mermaid 图表使用标记为 `mermaid` 的代码块。
 - 提交前建议运行 `npm run check:i18n` 和 `npm run build`。
