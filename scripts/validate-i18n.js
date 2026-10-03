@@ -41,6 +41,7 @@ const allowedCategoryPairs = new Set([
   'Creative Media & Games > Game AI & Production',
   'Creative Media & Games > Game Design',
   'Creative Media & Games > Generative Media Tools',
+  'Creative Media & Games > Visual Design',
   'Fiction & Literature > Speculative Fiction',
   'Fiction & Literature > Science Fiction & Literary Criticism'
 ]);
