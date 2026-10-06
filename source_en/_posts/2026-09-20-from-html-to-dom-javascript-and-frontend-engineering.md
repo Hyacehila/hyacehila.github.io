@@ -274,7 +274,29 @@ console.log("Synchronous end");
 
 The output order is "Synchronous start → Synchronous end → Promise continuation → Timer callback." The current synchronous code completes first, followed by queued microtasks, then later tasks. The Promise here is already fulfilled, so its continuation can be queued as a microtask immediately.
 
-A useful outline is "run the current task → process microtasks → update the display when appropriate → continue other tasks." The browser does not guarantee one painted frame after every task; continuous synchronous work or many microtasks can delay responsiveness. This is enough to explain why awaiting a network request usually lets the page keep responding, while a long loop can still block it.
+It is easier to reason about browser code when we break the usual sequence into steps:
+
+1. Run one task, such as the current script or a timer callback. Synchronous code runs to completion; a timer or Promise callback cannot interrupt it.
+2. When the task ends, process the microtask queue. Promise `then` callbacks and the continuation after `await` are microtasks. Any microtasks added while processing the queue are handled too, until the queue is empty.
+3. After microtasks finish, the browser gets an opportunity to update the display. Whether it paints then depends on browser scheduling; a frame is not guaranteed after every turn.
+4. The browser chooses a later task, such as an eligible timer callback, and repeats the process.
+
+Now let a microtask add another microtask:
+
+```javascript
+console.log("Synchronous code");
+
+Promise.resolve().then(() => {
+    console.log("First microtask");
+    Promise.resolve().then(() => console.log("Microtask added later"));
+});
+
+setTimeout(() => console.log("Timer task"), 0);
+```
+
+The output is "Synchronous code → First microtask → Microtask added later → Timer task." The microtask queue is processed until empty before the next task begins. Even a timer set to `0` only becomes eligible to run as soon as possible; it cannot jump ahead of the current task and its microtasks.
+
+`await` follows the same model: when the awaited Promise fulfills, the code after `await` resumes as a microtask. While a network request is pending, the main thread can handle other work. But once JavaScript starts a long stretch of synchronous code, the event loop must wait for it to finish. The browser also does not guarantee a painted frame after every task, so continuous synchronous work or many microtasks can delay responsiveness.
 
 
 ## HTTP: What the Frontend and Backend Exchange
