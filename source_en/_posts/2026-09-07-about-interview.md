@@ -16,7 +16,7 @@ permalink: /blog/2026/09/07/about-interview/
 lang: en
 translation_key: 2026-09-07-about-interview
 translation_status: machine
-translation_source_hash: ecf7c82ebe7077b02dc3a70a413055f8a344246b5e782cbc3e2167a0d4744258
+translation_source_hash: f8f0adff5a29cc3817f4e7f7e512ce3ee49a59b1a95d57d9263588cd71b4da9a
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
@@ -62,6 +62,20 @@ I try to organize each experience around a few questions: What problem needed so
 Research projects, collaborations with companies, papers addressing practical problems, competitions, and internships become useful interview material when they are organized around a clear sequence of questions. Otherwise, even a long list of experiences can amount to little more than names on a resume.
 
 ## Questions About My Background and Interests
+
+### What My Background Outside Game Client Development Brings to AI Tools for Game Production
+
+I do not come from a traditional game client development background. My work has mainly involved statistics, machine learning, and AI agents in different fields. For building AI tools that improve game production, I think this can be an advantage: I find it easier to step outside established roles and tools, start with what the model can do and what the team needs to deliver, and reconsider how the work in between should be organized. Existing roles, tools, and handoffs are all worth another look. Some need to stay, but I want to understand what purpose each one serves.
+
+Many parts of today's pipeline are arranged to make work easier for people: one role produces a document, another translates it into an engineering artifact, and someone else integrates and checks it. The information a model can read, the tools it can call, and the speed at which it receives feedback may allow those handoffs to work differently. We can give each role an assistant, or work backward from the final deliverable and ask which intermediate steps still need to exist. That second approach interests me more. Having fewer habits tied to an existing workflow makes it easier for me to ask these questions from outside and try ways of dividing work that suit AI.
+
+I discussed a similar issue in ["Why Enterprise AI Gets Stuck in Pilots"](/en/blog/2026/07/22/enterprise-ai-from-delegation-to-absorption/). Even when employees can use AI, the team still needs to make a single generated output part of a repeatable delivery process: who provides the input, who checks and accepts the result, who takes over when something goes wrong, and how human corrections carry into the next run. I want to explore designing these working relationships together with the tools, so agents carry out routine tasks while people set goals, make key judgments, and handle exceptions. Existing team structures affect system design, and a new system can in turn change how people hand off work and collaborate. This can begin with one concrete task and evolve through actual use.
+
+This view also comes from my experience building agents across domains. Security, public opinion analysis, and game UI involve very different business knowledge, yet I keep running into similar questions: what information is the model missing, which judgments can it make, and how should a tool's result be verified? In a new setting, I first clarify goals and constraints, then choose how to organize the system. Human roles are one reference point. At NetEase, I tried letting the model infer UI semantics and structure, passing the result through an intermediate representation for deterministic assembly, reusing existing controls, and checking the result through editor feedback. The path from a design mockup to a usable UI artifact showed me that representations and tool interfaces also deserve to be redesigned. They affect how easily a model can complete a task and whether errors can be corrected promptly. A game's project standards still need to be met, while the operations used to meet them remain open to exploration.
+
+My statistics background makes me ask what a change actually improves. If one design mockup works, will a more complex interface work too? If we run the same task several times, will the results stay consistent? We need samples and comparisons to answer these questions. Time spent preparing materials, waiting for handoffs, checking results, and reworking them all needs to be counted. If the model generates quickly but someone downstream spends longer cleaning up, the process may not save work overall. I want this feedback to guide the next step: keep changes that help, find out where failures occur, and revise my judgment. Human corrections and exception records should also be retained. What we learn and verify can then feed into the knowledge, tools, and evaluations used for similar tasks.
+
+In ["What We Talk About When We Talk About AI-Native Games"](/en/blog/2026/07/12/ai-native-game/), I kept asking what AI ultimately brings to players. I want to keep that question in mind when building tools for development: can the time saved let a team try one more approach, bring a design idea into the engine sooner, and get feedback? Model capabilities determine which new approaches we can try, while people still need to guide the direction, aesthetics, and experience of the game. I hope AI gives ideas that once stayed on paper because they cost too much to produce more chances to be built and tested. Coming from outside client development gives me a different place to examine the workflow. My experience with agents across domains and my training in statistics let me turn ideas into prototypes and check whether they help. That is the work I want to do in AI tools for game production.
 
 ### Some Thoughts on Embodied AI
 
