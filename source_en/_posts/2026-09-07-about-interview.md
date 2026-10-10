@@ -16,7 +16,7 @@ permalink: /blog/2026/09/07/about-interview/
 lang: en
 translation_key: 2026-09-07-about-interview
 translation_status: machine
-translation_source_hash: f8f0adff5a29cc3817f4e7f7e512ce3ee49a59b1a95d57d9263588cd71b4da9a
+translation_source_hash: 9b18ae2e79302a0a8417bdd2e6b716f9a0ce711d527f5a0b91b1759ea7a51c79
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
@@ -171,7 +171,7 @@ Note: This feels a bit like putting the interviewer on the spot. I copied it fro
 
 **What are the team's working hours and overtime expectations? How does on-call work, and is overtime paid?**
 
-Note: Work-life balance may deserve more thought for a full-time position. For an internship, I am less concerned. I already live the "9117" life at university; can a company really work me harder than the lab does? The Lei Jun Building has free air conditioning, free coffee, and showers. Give me a bed and I could live in the office.
+Note: Work-life balance may deserve more thought for a full-time position. For an internship, I am less concerned.
 
 **Can I contribute to open-source projects? Would I need approval?**
 
@@ -192,5 +192,197 @@ Note: This is worth asking at startups and smaller companies that operate like s
 **What is the balance between remote work and working in the office?**
 
 Note: Does remote work really exist in China?
+
+### HR Interviews and Salary Negotiation: Essential Questions to Confirm
+
+At the HR interview and salary negotiation stage, judging whether a job suits me also means getting clear about some specific conditions: how compensation is structured, where I will work, how much time the job requires, and which benefits actually apply to me. This checklist can be worked through during HR interviews, compensation discussions, and before accepting an offer.
+
+#### Compensation: Annual Package, Actual Payouts, and Negotiation
+
+- [ ] **1. What makes up the annual compensation package?**
+
+  Ask: How is compensation for this role structured? What is the gross fixed monthly salary, and how many months of salary are guaranteed each year? Are any additional salary payments conditional? How are quarterly performance bonuses, year-end bonuses, and allowances calculated, and are they already included in the quoted annual package?
+
+  Record: List fixed salary, guaranteed bonuses, target performance pay, and bonuses that are not guaranteed separately. Check whether quarterly and year-end bonuses have been counted twice. Also ask whether the quote includes the employer's social insurance contributions, housing provident fund contributions, or other benefit costs.
+
+- [ ] **2. How much compensation is variable, and how much is typically paid out?**
+
+  Ask: Which bonuses in the annual package are guaranteed, and which depend on performance? How do individual, team, and company results affect quarterly and year-end bonuses? If this can be shared, what has the typical payout range been over the past year or two for someone in this role with a normal performance rating?
+
+  Record: Assessment periods, the bonus associated with each rating, payment conditions, and whether there are circumstances in which no bonus is paid. Keep target bonuses separate from actual payouts; past results cannot be treated as a promise of future payments.
+
+- [ ] **3. How do probation pay and first-year income differ?**
+
+  Ask: How long is probation, and is the salary the same as after probation? For a new graduate, are quarterly bonuses, year-end bonuses, and additional salary payments prorated in the year of joining? Are there minimum service requirements or deadlines for completing probation?
+
+  Record: Confirm how income is calculated for the calendar year of joining, the first twelve months after joining, and the first full calendar year. Note the performance assumptions behind each calculation.
+
+- [ ] **4. When are salary and bonuses paid?**
+
+  Ask: What is the monthly payday? When are quarterly bonuses, year-end bonuses, and additional salary payments normally paid? Are they paid in installments or deferred? Must I still be employed on the payment date, and how would leaving or changing roles affect settlement?
+
+  Record: The work period covered by each payment, its payment date, and eligibility conditions. Money included in the annual package but not yet payable should not be treated as cash already available.
+
+- [ ] **5. Are there signing bonuses, joining bonuses, or equity incentives?**
+
+  Ask: Are there signing, joining, or retention bonuses, shares, or stock options? When are cash awards paid, and are they paid in installments? What are the conditions for equity grants, vesting, and realizing their value? Would leaving early require repayment of any award, and how is the amount calculated?
+
+  Record: List one-time cash payments, awards with service requirements, and equity separately. For equity, record the number granted, the vesting schedule, and the conditions for realizing its value, then assess it separately.
+
+- [ ] **6. What job level does the quote correspond to, and what can still be negotiated?**
+
+  Ask: What job level and pay band does this quote correspond to? Which parts can still be adjusted: fixed monthly salary, bonuses, job level, or a joining bonus? Would increasing one part reduce another?
+
+  Record: Each final agreed amount and its conditions. Compare fixed and variable compensation before and after the adjustment, and confirm exactly what has increased when the annual package is said to be higher.
+
+#### Work Location: Address, On-site Assignments, and Transfers
+
+- [ ] **7. Where exactly will I normally work?**
+
+  Ask: Which district, office campus, and building is the workplace in? Can you provide the full address? Will the location be the same during training, probation, and after probation?
+
+  Record: An address precise enough to check the commute. Compare commuting time and possible housing locations, and confirm whether the workplace has been finalized.
+
+- [ ] **8. Does the role require business travel, on-site assignments, or work in other cities?**
+
+  Ask: Does the role involve frequent visits to factories, client sites, or other cities? Are there regular on-site assignments? How long does each assignment typically last, how much of the year does it take up, and can I return on weekends?
+
+  Record: Locations, frequency, duration, and whether these assignments are mandatory. For a group IT services or client delivery department in particular, clarify which team I would work with day to day and where the work takes place.
+
+- [ ] **9. How are location changes and remote work arranged?**
+
+  Ask: Could there be rotations, moves to another office campus, or transfers to another city? How are these changes discussed beforehand? If remote or hybrid work is available, does it apply to this role, what approval is needed, and is it available during probation?
+
+  Record: Confirmed arrangements, the possible scope of changes, and how the employment contract describes the work location. Check both the remote work policy and what this team actually permits.
+
+#### Working Hours: Daily Schedule, Overtime, and On-call Duties
+
+- [ ] **10. What are the actual working hours, and are weekends normally free?**
+
+  Ask: What are the official starting and finishing times, and when do team members usually arrive and leave? How long is the lunch break, and are both weekend days normally free? During releases, delivery deadlines, or busy periods, how does the schedule change, and for how long?
+
+  Record: Official hours, the usual actual schedule, and arrangements during busy periods separately. Ask the future manager to explain the actual pace, ideally with an example from a recent project.
+
+- [ ] **11. How frequent are on-call duties, overnight responses, and holiday shifts?**
+
+  Ask: Is there a duty rotation or on-call schedule, and does it require being available online or attending in person? How often does each person take a turn, and what response is expected overnight or on holidays? When do new graduates start participating, and what handover and support are provided?
+
+  Record: Frequency, response requirements, how much rest time the duties actually take up, and how rest is arranged afterward.
+
+- [ ] **12. How are overtime and time off in lieu recorded and compensated?**
+
+  Ask: Which working-hours system applies to this role? How is overtime on evenings, weekends, and public holidays recorded, and is advance approval required? When do overtime pay, duty allowances, and time off in lieu apply? How is time off requested, and is there a deadline for using it?
+
+  Record: Recognition rules, compensation rates, approval procedures, and whether time off can actually be scheduled. Obtain the policy that applies to this role.
+
+#### Job Responsibilities and Career Development
+
+- [ ] **13. What technical direction does the actual work follow?**
+
+  Ask: Does the role mainly involve developing large models and agent systems, integrating business applications, data governance, building IT systems, or operations support? What project would I join first, and how is the work divided between development, delivery, and support?
+
+  Record: Specific projects, deliverables, and responsibility boundaries. Check whether the work builds the core technical skills I want to develop. Ask the future manager to clarify anything HR cannot explain.
+
+- [ ] **14. Have the department, team, and role been finalized?**
+
+  Ask: Which department and team within the group would I join, and who would I report to? Is the role assigned during recruitment or after initial training? Are there rotations, how is the final placement decided, and can I participate in the choice?
+
+  Record: Confirmed arrangements and anything still awaiting allocation. Confirm when the placement will be finalized and whether the actual responsibilities match the job description and the technical interview discussion.
+
+- [ ] **15. How are probation and ongoing performance assessed?**
+
+  Ask: What am I expected to achieve in the first three to six months, and who evaluates successful completion of probation? How often is regular performance reviewed, what goals are used, and how is feedback provided? Who assesses performance during on-site assignments or work across teams?
+
+  Record: Goals, assessors, review periods, and feedback processes. Connect probation requirements with the criteria used for later bonuses.
+
+- [ ] **16. What opportunities are there for salary reviews, promotion, and development?**
+
+  Ask: How many salary or promotion review rounds are usually held each year, and when are new graduates first eligible? What career paths are available for technical roles? Are mentors, training, or internal transfers provided, and what conditions apply to each?
+
+  Record: Review policies, eligibility, and opportunities that are actually available. An annual review cycle does not itself constitute an agreed salary increase.
+
+#### Employment Contract and Joining Arrangements
+
+- [ ] **17. Which company will I sign with, and what form of employment is involved?**
+
+  Ask: What is the full legal name of the company signing the employment contract, and how long is the contract? Will I sign directly with the employer, or does the arrangement involve labor dispatch or outsourcing? Which entities direct the work, pay the salary, and handle social insurance?
+
+  Record: Each entity and its relationship to the others. Confirm how the recruiting brand, the department, and the actual contracting company relate to one another.
+
+- [ ] **18. What conditions and deadlines apply to accepting the offer and joining?**
+
+  Ask: What are the offer response deadline, the deadline for signing the tripartite graduate employment agreement, and the latest joining date? What graduation, degree, medical examination, or background check documents are required? How can changes to graduation or reporting dates be coordinated? Does prior internship experience affect probation or compensation?
+
+  Record: Required documents, key dates, outstanding joining conditions, and the contact person.
+
+- [ ] **19. Are there non-compete restrictions, service requirements, or repayment clauses?**
+
+  Ask: Does the contract or any attachment contain a non-compete restriction after leaving, and how are its scope, duration, and compensation defined? Do training or joining bonuses carry minimum service periods or repayment obligations? How do confidentiality and intellectual property terms affect personal projects, open-source contributions, or outside work?
+
+  Record: The specific clauses and their conditions. Obtain the relevant documents before signing, and check the applicable rules wherever anything remains unclear.
+
+- [ ] **20. Where can the agreed conditions be confirmed in writing?**
+
+  Ask: Which compensation details, responsibilities, location, joining date, and key benefits will appear in the offer, contract, or attachments? Can other policies be provided as documents or confirmed by email? If documents disagree, can the difference be explained and corrected first?
+
+  Record: The final versions, the person confirming them, and their effective dates. List any questions that still await an answer.
+
+#### Benefits: What Is Provided, Who Qualifies, and What It Costs
+
+The same questions can guide the discussion of each benefit: what is provided, who can use it, when it starts, how much I must pay, how to claim it, and whether it is already included in the quoted annual package. Social insurance, the housing provident fund, and different types of leave should also be checked individually here.
+
+- [ ] **21. Where is social insurance registered, and what contribution rules apply?**
+
+  Ask: In which city will social insurance be registered, and how are the contribution base and the employee's share determined for each type of insurance? From which month is enrollment handled, and how do arrangements during and after probation connect? If the workplace, contracting company, and insurance registration are in different locations, who helps with medical care outside the registration city or transferring the insurance relationship?
+
+  Record: The registration city, how the contribution base is calculated, employee deductions, and enrollment timing. Check the current local rules and the actual payroll deductions.
+
+- [ ] **22. What are the housing provident fund contribution base, rates, and start date?**
+
+  Ask: In which city will contributions be made, and what are the employee and employer contribution rates? How is the contribution base for a new employee determined, and when is it adjusted? From which month do contributions start, and has the employer's contribution already been included in the quoted annual package?
+
+  Record: The city, contribution base, both rates, and the monthly amounts. List the employer's contribution separately, along with the employee's payroll deduction.
+
+- [ ] **23. What supplementary benefits are available, such as additional insurance and health checks?**
+
+  Ask: Beyond basic social insurance and the housing provident fund, are there supplementary insurance plans, enterprise annuities, or supplementary provident fund contributions? Must I contribute personally, and is participation voluntary? When do I become eligible, and are the employer's contributions subject to vesting or service requirements?
+
+  Medical and commercial insurance: Does coverage include outpatient care, hospitalization, accidents, or other risks, and can it cover family members? Which hospitals and services qualify? Are there waiting periods, deductibles, reimbursement rates, or annual limits? Must I pay first, and how are claims submitted?
+
+  Health checks and other health services: Who pays for the pre-employment medical examination, and is a designated provider required? Are annual health checks, psychological counseling, or other health services available, and what must I pay personally? How are appointments made, and do they require using my own leave?
+
+  Record: Each benefit's name, employee and employer contributions, eligibility, and start date. For insurance, also record coverage and claims procedures; for health services, record the services, frequency, and costs. Where vesting or service requirements apply, confirm the conditions for receiving the benefits and how they are handled when leaving, and keep the relevant explanations.
+
+- [ ] **24. What housing, accommodation, or rent benefits are available?**
+
+  Ask: Are there dormitories, talent housing, or rent allowances? What are the room types, distance, waiting time, and maximum stay? Who pays rent, utilities, internet charges, or deposits? How much is the rent allowance, for how long is it paid, what documents are needed, and is it available during probation?
+
+  Record: Actual housing costs, eligibility, duration, and start date. Check whether accommodation and rent allowances can be used together and whether the allowance is already included in the annual package.
+
+- [ ] **25. What support is provided for commuting and transport after overtime?**
+
+  Ask: What shuttle routes, stops, and schedules are available, and does the last shuttle cover the team's actual finishing time? Are there transport allowances, parking discounts, or reimbursement for late-night taxis? What time, spending, and approval conditions apply to reimbursement?
+
+  Record: Arrangements that work for my commute, personal costs, and reimbursement limits. Compare shuttle schedules with actual working hours.
+
+- [ ] **26. How much paid annual leave is available, and how is it actually scheduled?**
+
+  Ask: How much statutory annual leave and additional company leave are provided, and how is prior service recognized? How is leave prorated in the joining year, and when can I start using it? How is leave requested during projects, what happens to leave that has not been scheduled, and can additional company leave be carried over?
+
+  Record: Applicable leave days, calculation rules, request procedures, and whether the team can actually arrange time off.
+
+- [ ] **27. What are the conditions for sick leave and other types of leave?**
+
+  Ask: How are applicable types of leave, such as sick, marriage, parental, or caregiving leave, requested, and what documents are needed? How are salary, performance pay, and allowances calculated during leave? Does the company provide additional leave benefits, and what rules apply during probation?
+
+  Record: Leave rules relevant to me and how pay is calculated. Distinguish local requirements from additional company benefits.
+
+- [ ] **28. What other benefits and eligibility rules should I confirm?**
+
+  Ask: Are there communications allowances, fitness benefits, holiday benefits, or other benefits? Do they vary by city, job level, contract type, performance, or completion of probation? Which apply only at headquarters or particular office campuses? Are they provided as cash, vouchers, or reimbursement, and must I apply for them?
+
+  Record: The benefits that apply to me, payment frequency, application procedures, and personal costs. Confirm whether the amounts are already included in salary, the annual package, or another allowance.
+
+Comparing these details can help us decide whether the offer meets our expectations and whether to compare it with other offers.
 
 This article will continue to be updated over time.
