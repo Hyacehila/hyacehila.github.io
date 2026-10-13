@@ -12,7 +12,7 @@ description: A short guide to assignment, shallow copies, and deep copies throug
 excerpt_zh: 用嵌套列表理解赋值、浅拷贝和深拷贝，整理常见操作的复制行为，再看看 CPython 的对象引用和 deepcopy 的 memo 机制。
 author: Hyacehila
 mathjax: false
-hidden: false
+hidden: true
 permalink: /blog/2026/10/02/python-shallow-and-deep-copy/
 lang: en
 translation_key: 2026-10-02-python-shallow-and-deep-copy

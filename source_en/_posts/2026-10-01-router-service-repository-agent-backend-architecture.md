@@ -9,6 +9,7 @@ excerpt: "Build on the Q&A bot from the first two posts with conversation histor
 description: "Using a complete, runnable FastAPI agent project, understand backend layers, business workflows, data access, dependency assembly, and the boundary between a Service and an Agent Runtime."
 excerpt_zh: "沿着前两篇的问答 Bot，搭建一个带会话历史和检索工具的完整 Agent 后端，由一次请求理解 Router、Service、Repository 的职责、依赖关系，以及真实项目的代码结构怎样随着需求长出来。"
 mathjax: false
+hidden: true
 permalink: '/blog/2026/10/01/router-service-repository-agent-backend-architecture/'
 lang: en
 translation_key: 2026-10-01-router-service-repository-agent-backend-architecture

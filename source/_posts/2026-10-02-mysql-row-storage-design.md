@@ -13,7 +13,7 @@ excerpt: 从数据页、行格式和行溢出出发，理解数据库怎样描�
 excerpt_en: A short look at data pages, row formats, and off-page storage to understand how a database represents a row and why column design affects read costs.
 author: Hyacehila
 mathjax: false
-hidden: false
+hidden: true
 permalink: /blog/2026/10/02/mysql-row-storage-design/
 ---
 

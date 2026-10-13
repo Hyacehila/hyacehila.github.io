@@ -11,7 +11,7 @@ tags:
   - Software Engineering
 author: Hyacehila
 mathjax: false
-hidden: false
+hidden: true
 excerpt: A short look at data pages, row formats, and off-page storage to understand how a database represents a row and why column design affects read costs.
 description: A short look at data pages, row formats, and off-page storage to understand how a database represents a row and why column design affects read costs.
 excerpt_zh: 从数据页、行格式和行溢出出发，理解数据库怎样描述一行数据，以及字段设计为什么会影响读取成本。

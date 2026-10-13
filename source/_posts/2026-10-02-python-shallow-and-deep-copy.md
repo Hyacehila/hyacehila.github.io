@@ -11,7 +11,7 @@ excerpt: 用嵌套列表理解赋值、浅拷贝和深拷贝，整理常见操�
 excerpt_en: A short guide to assignment, shallow copies, and deep copies through nested lists, common operations, CPython object references, and deepcopy's memo mechanism.
 author: Hyacehila
 mathjax: false
-hidden: false
+hidden: true
 permalink: /blog/2026/10/02/python-shallow-and-deep-copy/
 ---
 
