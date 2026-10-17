@@ -9,7 +9,7 @@ excerpt: "Use MySQL InnoDB to understand how B+ trees, clustered indexes, and se
 description: "Use MySQL InnoDB to understand how B+ trees, clustered indexes, and secondary indexes locate data, and how table lookups, covering indexes, and composite indexes affect query costs. Then explore transaction isolation, MVCC, and lock management to connect concurrent reads and writes with consistency, lock waits, deadlocks, and the relationship between index design and locking ranges."
 excerpt_zh: "以 MySQL InnoDB 为例，从 B+ 树、聚簇索引与二级索引出发，理解数据库如何查找数据，以及回表、覆盖索引和联合索引怎样影响查询成本；再结合事务隔离、MVCC 与锁管理，梳理并发读写中的一致性、锁等待和死锁，并理解索引设计与加锁范围之间的联系。"
 mathjax: false
-hidden: false
+hidden: true
 permalink: '/blog/2026/10/07/mysql-indexes-transactions-locking/'
 lang: en
 translation_key: 2026-10-07-mysql-indexes-transactions-locking
