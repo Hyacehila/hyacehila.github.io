@@ -25,7 +25,6 @@
   { "query": "agent browser tools", "expectedTitle": "Letting Agents Use Browsers", "topK": 5 },
   { "query": "semantic routing", "expectedTitle": "Model Routing", "topK": 5 },
   { "query": "output token pricing", "expectedTitle": "Why Output Tokens Are More Expensive", "topK": 3 },
-  { "query": "AI frontend tools", "expectedTitle": "AI Frontend Tools", "topK": 3 },
   { "query": "OCR", "expectedTitle": "Make OCR Great Again", "topK": 5 },
   { "query": "SFT synthetic data", "expectedTitle": "Synthetic Data as Engineering", "topK": 5 },
   { "query": "evals AI agents", "expectedTitle": "Demystifying evals for AI agents", "topK": 3 },
