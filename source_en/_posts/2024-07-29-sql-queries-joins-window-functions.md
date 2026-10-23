@@ -5,8 +5,7 @@ date: 2024-07-29 22:29:30 +0800
 categories:
 - Programming
 - CS Foundations
-tags:
-- SQL
+tags: ["Backend", "Databases", "SQL"]
 author: Hyacehila
 mathjax: false
 hidden: true

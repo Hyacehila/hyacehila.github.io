@@ -5,9 +5,7 @@ date: 2025-05-15 17:16:45 +0800
 categories:
 - Programming
 - Full Stack Development
-tags:
-- HTML
-- CSS
+tags: ["Frontend"]
 author: Hyacehila
 mathjax: false
 hidden: true

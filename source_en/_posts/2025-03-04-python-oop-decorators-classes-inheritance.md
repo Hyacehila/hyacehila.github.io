@@ -5,9 +5,7 @@ date: 2025-03-04 17:10:22 +0800
 categories:
 - Programming
 - Programming Languages
-tags:
-- Python
-- Object-Oriented Programming
+tags: ["Python"]
 author: Hyacehila
 mathjax: false
 hidden: true

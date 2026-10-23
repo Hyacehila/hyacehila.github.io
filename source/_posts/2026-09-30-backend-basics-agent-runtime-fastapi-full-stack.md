@@ -3,7 +3,7 @@ title: "后端基础：一个问答 Bot 如何变成互联网上的 API"
 title_en: "Backend Basics: How a Question-Answer Bot Becomes an Internet API"
 date: 2026-09-30 00:25:00 +0800
 categories: ["Programming", "Full Stack Development"]
-tags: [Backend, FastAPI, Python, Agent Runtime, HTTP, JavaScript]
+tags: ["Backend", "FastAPI"]
 author: Hyacehila
 excerpt: "从一个把用户问题交给语言模型的最小问答 Bot 出发，对照 curl 和浏览器发出的请求，理解 Python 函数如何通过 HTTP、FastAPI 路由与数据约定，成为客户端可以调用的后端 API。"
 excerpt_en: "Starting with a minimal question-answer bot, compare requests from curl and a browser to see how HTTP, FastAPI routes, and data contracts make a Python function available as a backend API."

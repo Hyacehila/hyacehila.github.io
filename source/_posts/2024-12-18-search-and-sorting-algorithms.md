@@ -3,7 +3,7 @@ title: "查找与排序算法：二分查找、散列表与排序实现"
 title_en: "Search and Sorting Algorithms: Binary Search, Hash Tables, and Sorting Implementations"
 date: 2024-12-18 21:37:43 +0800
 categories: ["Programming", "CS Foundations"]
-tags: ["Algorithms", "Search", "Sorting"]
+tags: ["Algorithms"]
 author: Hyacehila
 excerpt: "整理顺序查找、二分查找、二叉搜索树（binary search tree，BST）、散列表（hash table）、排序算法及其 Python 实现。"
 excerpt_en: "Covers sequential search, binary search, binary search trees, hash tables, sorting algorithms, and related Python implementations."

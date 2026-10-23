@@ -3,7 +3,7 @@ title: "后端的数据边界：一个问题怎样进入问答 Bot"
 title_en: "Backend Data Boundaries: How a Question Reaches a Q&A Bot"
 date: 2026-09-30 12:30:00 +0800
 categories: ["Programming", "Full Stack Development"]
-tags: [Backend, FastAPI, Python, Pydantic, OpenAPI, JSON Schema]
+tags: ["Backend", "FastAPI"]
 author: Hyacehila
 excerpt: "沿着上一篇问答 Bot 的 /chat 接口，看看客户端送来的 JSON 怎样变成可信的 Python 数据，答案又怎样按约定返回；再由此理解 Pydantic、Schema 和 OpenAPI 在后端各自做什么。"
 excerpt_en: "Following the Q&A bot's /chat endpoint, see how incoming JSON becomes validated Python data, how the answer takes a defined shape, and where Pydantic, schemas, and OpenAPI fit in."

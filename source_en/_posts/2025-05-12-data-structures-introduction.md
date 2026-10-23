@@ -5,9 +5,7 @@ date: 2025-05-12 22:24:30 +0800
 categories:
 - Programming
 - CS Foundations
-tags:
-- Data Structures
-- Algorithms
+tags: ["Algorithms"]
 author: Hyacehila
 mathjax: false
 hidden: true

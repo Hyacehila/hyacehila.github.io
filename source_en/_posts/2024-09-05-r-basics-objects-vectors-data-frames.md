@@ -5,10 +5,7 @@ date: 2024-09-05 10:29:12 +0800
 categories:
 - Programming
 - Programming Languages
-tags:
-- R
-- Data Management
-- Exploratory Data Analysis
+tags: ["R"]
 author: Hyacehila
 mathjax: true
 hidden: true

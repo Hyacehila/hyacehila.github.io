@@ -3,7 +3,7 @@ title: "数据库基础：关系模型、表设计与规范化"
 title_en: "Database Foundations: Relational Models, Table Design, and Normalization"
 date: 2024-12-23 19:42:58 +0800
 categories: ["Programming", "CS Foundations"]
-tags: ["Database Systems", "Relational Databases"]
+tags: ["Backend", "Databases"]
 author: Hyacehila
 excerpt: "从一个订单与商品系统出发，理解数据库与 DBMS、关系模型、键与约束，以及 E-R 建模和规范化怎样帮助我们把业务事实组织成可靠的表。"
 excerpt_en: "Use an order and product system to understand databases and DBMSs, relational models, keys and constraints, and how E-R modeling and normalization turn business facts into reliable tables."

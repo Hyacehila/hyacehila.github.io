@@ -2,8 +2,8 @@
 title: "REST API：从调用函数到操作资源"
 title_en: "REST APIs: From Calling Functions to Working with Resources"
 date: 2026-10-01 12:30:00 +0800
-categories: ["Programming", "CS Foundations"]
-tags: [Backend, HTTP, FastAPI, Python]
+categories: ["Programming", "Full Stack Development"]
+tags: ["Backend", "FastAPI"]
 author: Hyacehila
 excerpt: "从资源、HTTP 方法和请求中的参数位置理解 REST API，再用一个最小的 FastAPI 用户接口看看这些约定怎样落到代码里。"
 excerpt_en: "Understand REST APIs through resources, HTTP methods, and parameter locations, then put those ideas into a minimal FastAPI user API."

@@ -5,9 +5,7 @@ date: 2024-12-23 19:42:58 +0800
 categories:
 - Programming
 - CS Foundations
-tags:
-- Database Systems
-- Relational Databases
+tags: ["Backend", "Databases"]
 author: Hyacehila
 mathjax: true
 hidden: true

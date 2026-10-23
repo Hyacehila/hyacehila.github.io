@@ -6,10 +6,7 @@ permalink: /blog/2025/05/13/algorithm-design-and-analysis/
 categories:
 - Programming
 - CS Foundations
-tags:
-- Algorithms
-- Dynamic Programming
-- Greedy Algorithms
+tags: ["Algorithms"]
 excerpt: Covers divide and conquer, dynamic programming, greedy methods, amortized analysis, graph algorithms, and complexity
   reasoning.
 description: Covers divide and conquer, dynamic programming, greedy methods, amortized analysis, graph algorithms, and complexity

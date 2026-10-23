@@ -3,7 +3,7 @@ title: "浏览器交互如何运行：从事件与表单到前后端通信"
 title_en: "How Browser Interactions Work: From Events and Forms to Client-Server Communication"
 date: 2026-09-20 12:00:00 +0800
 categories: ["Programming", "Full Stack Development"]
-tags: [JavaScript, DOM, Frontend, Async, HTTP, Software Engineering]
+tags: ["Frontend", "JavaScript"]
 author: Hyacehila
 excerpt: "以注册表单为主线，串起事件、输入校验、Promise 与 async/await、HTTP 请求和 Fetch，理解浏览器如何等待并展示远程结果，再通过存储、登录状态和 F12 排查建立前后端边界的基本认识。"
 excerpt_en: "Follow a registration form through events, input validation, Promise and async/await, HTTP, and Fetch. Understand how browsers wait for remote results and update the page, then use storage, login state, and developer tools to identify where problems occur."

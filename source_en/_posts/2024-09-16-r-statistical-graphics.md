@@ -5,10 +5,7 @@ date: 2024-09-16 22:32:48 +0800
 categories:
 - Programming
 - Programming Languages
-tags:
-- R
-- Data Visualization
-- ggplot2
+tags: ["R", "Data Visualization"]
 author: Hyacehila
 mathjax: false
 hidden: true

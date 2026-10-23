@@ -3,7 +3,7 @@ title: "DOM Basics: Document Trees, Element Operations, and Dynamic Pages"
 title_zh: "DOM 基础：文档树、元素操作与动态页面"
 date: 2026-09-18 12:00:00 +0800
 categories: ["Programming", "Full Stack Development"]
-tags: [DOM, HTML, JavaScript, Frontend]
+tags: ["Frontend", "JavaScript"]
 author: Hyacehila
 excerpt: "Understand how HTML becomes a DOM tree and how document, window, Node, and Element relate. Use a user list to explore element queries, content and attribute updates, node creation and removal, and the relationship between data and the page."
 description: "Understand how HTML becomes a DOM tree and how document, window, Node, and Element relate. Use a user list to explore element queries, content and attribute updates, node creation and removal, and the relationship between data and the page."

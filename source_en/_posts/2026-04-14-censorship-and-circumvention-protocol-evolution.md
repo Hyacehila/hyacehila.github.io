@@ -5,9 +5,7 @@ date: 2026-04-14 20:00:00 +0800
 categories:
 - Programming
 - Full Stack Development
-tags:
-- Security
-- Protocols
+tags: ["Networking", "Security"]
 author: Hyacehila
 hidden: true
 excerpt: The struggle between national censorship and anti-censorship protocols is a long systems game around identification,

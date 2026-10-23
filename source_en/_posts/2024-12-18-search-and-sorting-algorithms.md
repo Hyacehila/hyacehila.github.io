@@ -5,10 +5,7 @@ date: 2024-12-18 21:37:43 +0800
 categories:
   - Programming
   - CS Foundations
-tags:
-  - Algorithms
-  - Search
-  - Sorting
+tags: ["Algorithms"]
 author: Hyacehila
 mathjax: true
 hidden: true

@@ -5,9 +5,7 @@ date: 2025-10-15 23:55:21 +0800
 categories:
 - Programming
 - CS Foundations
-tags:
-- YAML
-- Data Engineering
+tags: ["Data Formats"]
 author: Hyacehila
 mathjax: false
 hidden: true

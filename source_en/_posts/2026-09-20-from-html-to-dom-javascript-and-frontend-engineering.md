@@ -3,7 +3,7 @@ title: "How Browser Interactions Work: From Events and Forms to Client-Server Co
 title_zh: "浏览器交互如何运行：从事件与表单到前后端通信"
 date: 2026-09-20 12:00:00 +0800
 categories: ["Programming", "Full Stack Development"]
-tags: [JavaScript, DOM, Frontend, Async, HTTP, Software Engineering]
+tags: ["Frontend", "JavaScript"]
 author: Hyacehila
 excerpt: "Follow a registration form through events, input validation, Promise and async/await, HTTP, and Fetch. Understand how browsers wait for remote results and update the page, then use storage, login state, and developer tools to identify where problems occur."
 description: "Follow a registration form through events, input validation, Promise and async/await, HTTP, and Fetch. Understand how browsers wait for remote results and update the page, then use storage, login state, and developer tools to identify where problems occur."

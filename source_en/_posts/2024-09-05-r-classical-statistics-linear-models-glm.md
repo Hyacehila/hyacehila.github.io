@@ -5,9 +5,7 @@ date: 2024-09-05 12:20:32 +0800
 categories:
 - Programming
 - Programming Languages
-tags:
-- R
-- Classical Statistics
+tags: ["R", "Statistics"]
 author: Hyacehila
 mathjax: true
 hidden: true

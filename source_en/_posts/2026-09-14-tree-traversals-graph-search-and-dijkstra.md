@@ -3,7 +3,7 @@ title: "From Binary Tree Traversals to Graph Search: Preorder, Inorder, Postorde
 title_zh: "从二叉树遍历到图搜索：前中后序、层序与 DFS、BFS、Dijkstra"
 date: 2026-09-14 12:00:00 +0800
 categories: ["Programming", "CS Foundations"]
-tags: ["Data Structures", "Algorithms"]
+tags: ["Algorithms"]
 author: Hyacehila
 excerpt: "Connect binary tree traversals with graph search: when DFS processes a node, why BFS finds paths with the fewest edges, and how Dijkstra selects the next vertex by cumulative distance."
 description: "Connect binary tree traversals with graph search: when DFS processes a node, why BFS finds paths with the fewest edges, and how Dijkstra selects the next vertex by cumulative distance."

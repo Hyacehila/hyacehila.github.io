@@ -3,7 +3,7 @@ title: "Why Backends Need Layers: Growing a Q&A Bot into a Complete Agent Projec
 title_zh: "后端为什么要分层：把问答 Bot 长成一个完整的 Agent 项目"
 date: 2026-10-01 12:00:00 +0800
 categories: ["Programming", "Full Stack Development"]
-tags: [Backend, FastAPI, Python, Agent Runtime, Software Engineering]
+tags: ["Backend", "FastAPI"]
 author: Hyacehila
 excerpt: "Build on the Q&A bot from the first two posts with conversation history and a retrieval tool, then follow one request to understand Router, Service, Repository, and how a backend's structure grows with its requirements."
 description: "Using a complete, runnable FastAPI agent project, understand backend layers, business workflows, data access, dependency assembly, and the boundary between a Service and an Agent Runtime."

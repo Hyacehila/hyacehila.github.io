@@ -5,9 +5,7 @@ date: 2025-10-14 23:54:21 +0800
 categories:
 - Programming
 - CS Foundations
-tags:
-- JSON
-- Data Engineering
+tags: ["Data Formats"]
 author: Hyacehila
 mathjax: false
 hidden: true

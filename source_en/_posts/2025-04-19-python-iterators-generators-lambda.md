@@ -5,9 +5,7 @@ date: 2025-04-19 19:53:29 +0800
 categories:
 - Programming
 - Programming Languages
-tags:
-- Python
-- Iterators
+tags: ["Python"]
 author: Hyacehila
 mathjax: false
 hidden: true

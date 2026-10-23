@@ -5,10 +5,7 @@ date: 2026-10-02
 categories:
   - Programming
   - CS Foundations
-tags:
-  - MySQL
-  - Database
-  - Software Engineering
+tags: ["Backend", "Databases", "MySQL"]
 author: Hyacehila
 mathjax: false
 hidden: true

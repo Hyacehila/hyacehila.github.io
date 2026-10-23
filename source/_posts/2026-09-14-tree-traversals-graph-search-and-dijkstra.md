@@ -3,7 +3,7 @@ title: "从二叉树遍历到图搜索：前中后序、层序与 DFS、BFS、Di
 title_en: "From Binary Tree Traversals to Graph Search: Preorder, Inorder, Postorder, Level Order, DFS, BFS, and Dijkstra"
 date: 2026-09-14 12:00:00 +0800
 categories: ["Programming", "CS Foundations"]
-tags: ["Data Structures", "Algorithms"]
+tags: ["Algorithms"]
 author: Hyacehila
 excerpt: "把二叉树的前中后序与层序遍历放到图搜索中理解：DFS 何时处理节点，BFS 为什么能求最少边数，以及 Dijkstra 如何用累计距离选择下一个顶点。"
 excerpt_en: "Connect binary tree traversals with graph search: when DFS processes a node, why BFS finds paths with the fewest edges, and how Dijkstra selects the next vertex by cumulative distance."

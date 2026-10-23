@@ -3,7 +3,7 @@ title: "Advanced Databases: Indexes, Transactions, and Lock Management"
 title_zh: "数据库进阶：索引机制、事务与锁管理"
 date: 2026-10-07
 categories: ["Programming", "CS Foundations"]
-tags: ["MySQL", "Database"]
+tags: ["Backend", "Databases", "MySQL"]
 author: Hyacehila
 excerpt: "Use MySQL InnoDB to understand how B+ trees, clustered indexes, and secondary indexes locate data, and how table lookups, covering indexes, and composite indexes affect query costs. Then explore transaction isolation, MVCC, and lock management to connect concurrent reads and writes with consistency, lock waits, deadlocks, and the relationship between index design and locking ranges."
 description: "Use MySQL InnoDB to understand how B+ trees, clustered indexes, and secondary indexes locate data, and how table lookups, covering indexes, and composite indexes affect query costs. Then explore transaction isolation, MVCC, and lock management to connect concurrent reads and writes with consistency, lock waits, deadlocks, and the relationship between index design and locking ranges."

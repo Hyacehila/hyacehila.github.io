@@ -211,6 +211,33 @@ seo:
     Coding Agents: AI Coding
     Agent Evaluation: Evaluation
     Evals: Evaluation
+  # Retired Programming tag archives: navigation only, not global tag aliases.
+  # Programming uses 1-3 tags: a topic, plus a language/stack or cross-topic tag.
+  tag_redirects:
+    Agent Runtime: Backend
+    Async: Frontend
+    CSS: Frontend
+    Classical Statistics: Statistics
+    DOM: Frontend
+    Data Engineering: Data Formats
+    Data Management: R
+    Data Structures: Algorithms
+    Database: Databases
+    Database Systems: Databases
+    Dynamic Programming: Algorithms
+    Greedy Algorithms: Algorithms
+    HTTP: Backend
+    Iterators: Python
+    JSON: Data Formats
+    JSON Schema: Backend
+    Object-Oriented Programming: Python
+    OpenAPI: Backend
+    Pydantic: FastAPI
+    Relational Databases: Databases
+    Search: Algorithms
+    Sorting: Algorithms
+    YAML: Data Formats
+    ggplot2: Data Visualization
   category_redirects:
     python: programming-languages
     r: programming-languages

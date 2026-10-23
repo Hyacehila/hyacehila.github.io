@@ -13,6 +13,9 @@ function taxonomyRedirects(config) {
     ...Object.entries(seo.tag_aliases || {}).map(([from, to]) => ({
       from: `/tags/${tagSlug(from)}/`, to: `/tags/${tagSlug(to)}/`
     })),
+    ...Object.entries(seo.tag_redirects || {}).map(([from, to]) => ({
+      from: `/tags/${tagSlug(from)}/`, to: `/tags/${tagSlug(to)}/`
+    })),
     ...Object.entries(seo.category_redirects || {}).map(([from, to]) => ({
       from: `/categories/programming/${from}/`, to: `/categories/programming/${to}/`
     }))

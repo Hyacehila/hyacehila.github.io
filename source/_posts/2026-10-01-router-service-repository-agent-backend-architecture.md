@@ -3,7 +3,7 @@ title: "后端为什么要分层：把问答 Bot 长成一个完整的 Agent 项
 title_en: "Why Backends Need Layers: Growing a Q&A Bot into a Complete Agent Project"
 date: 2026-10-01 12:00:00 +0800
 categories: ["Programming", "Full Stack Development"]
-tags: [Backend, FastAPI, Python, Agent Runtime, Software Engineering]
+tags: ["Backend", "FastAPI"]
 author: Hyacehila
 excerpt: "沿着前两篇的问答 Bot，搭建一个带会话历史和检索工具的完整 Agent 后端，由一次请求理解 Router、Service、Repository 的职责、依赖关系，以及真实项目的代码结构怎样随着需求长出来。"
 excerpt_en: "Build on the Q&A bot from the first two posts with conversation history and a retrieval tool, then follow one request to understand Router, Service, Repository, and how a backend's structure grows with its requirements."

@@ -3,7 +3,7 @@ title: "SQL 基础：查询、聚合、JOIN 与窗口函数"
 title_en: "SQL Basics: Queries, Aggregation, JOINs, and Window Functions"
 date: 2024-07-29 22:29:30 +0800
 categories: ["Programming", "CS Foundations"]
-tags: ["SQL"]
+tags: ["Backend", "Databases", "SQL"]
 author: Hyacehila
 excerpt: "围绕同一套客户、商品、订单与明细数据，学习建表和增删改查，再理解 NULL、聚合、JOIN、子查询、集合运算和窗口函数，并保留视图、索引及常用函数的查阅入口。"
 excerpt_en: "Use one customer, product, order, and order-item dataset to learn table definitions and CRUD, then NULL, aggregation, JOINs, subqueries, set operations, and window functions, with reference sections for views, indexes, and common functions."
