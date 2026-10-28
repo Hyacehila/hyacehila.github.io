@@ -957,15 +957,238 @@ body:has(.me-page) .page-template-content > h1 {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-@media (min-width: 769px) and (max-height: 825px) {
-  .home-identity-focus {
+/* Keep the navigation at its original size; spend less height on the profile
+   before hiding optional information. Mobile/tablet layouts stay unchanged. */
+@media (min-width: 769px) and (height < 900px) {
+  .home-identity-sidebar .home-identity-card {
+    margin-top: 10px;
+    padding: 12px !important;
+  }
+
+  .home-identity-sidebar .home-identity-card.sidebar-content .avatar img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .home-identity-sidebar .home-identity-card .author {
+    margin: 6px 0 2px !important;
+  }
+
+  .home-identity-sidebar .home-identity-card.sidebar-content .author .name {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .home-identity-sidebar .home-identity-school {
+    margin-bottom: 4px;
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  .home-identity-sidebar .home-identity-focus {
+    margin: 8px 0 4px;
+    padding: 6px 0;
+  }
+
+  .home-identity-sidebar .home-identity-focus-list {
+    gap: 4px;
+  }
+
+  .home-identity-sidebar .home-identity-focus-item {
+    min-height: 32px;
+    padding: 4px 8px;
+    gap: 8px;
+  }
+
+  .home-identity-sidebar .home-identity-focus-item i {
+    flex-basis: 20px;
+    width: 20px;
+    font-size: 16px;
+  }
+
+  .home-identity-sidebar .home-identity-statistics .statistics {
+    margin-top: 4px !important;
+  }
+
+  .home-identity-sidebar .home-identity-statistics .number {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .home-identity-sidebar .home-identity-statistics .label {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media (min-width: 769px) and (height < 760px) {
+  /* The old visible profile held this column at the theme's 240px width.
+     Preserve that constraint so compacting it does not reflow the article list. */
+  @media (height > 519px) {
+    .home-sidebar-container.home-identity-sidebar {
+      flex-shrink: 0;
+    }
+  }
+
+  .home-identity-sidebar .home-identity-card {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    grid-template-areas:
+      "avatar author"
+      "avatar school"
+      "focus focus"
+      "statistics statistics";
+    column-gap: 10px;
+    align-items: center;
+    margin-top: 8px;
+    padding: 10px !important;
+  }
+
+  .home-identity-sidebar .home-identity-card .avatar {
+    grid-area: avatar;
+  }
+
+  .home-identity-sidebar .home-identity-card.sidebar-content .avatar img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .home-identity-sidebar .home-identity-card .author {
+    grid-area: author;
+    align-self: end;
+    min-width: 0;
+    margin: 0 !important;
+  }
+
+  .home-identity-sidebar .home-identity-card.sidebar-content .author .name {
+    font-size: 16px;
+    line-height: 20px;
+    text-align: left;
+  }
+
+  .home-identity-sidebar .home-identity-school {
+    grid-area: school;
+    align-self: start;
+    margin: 0;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: left;
+  }
+
+  .home-identity-sidebar .home-identity-focus {
+    grid-area: focus;
+    margin: 6px 0 0;
+    padding: 5px 0;
+  }
+
+  .home-identity-sidebar .home-identity-focus-list {
+    gap: 3px;
+  }
+
+  .home-identity-sidebar .home-identity-focus-item {
+    min-height: 26px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .home-identity-sidebar .home-identity-statistics {
+    grid-area: statistics;
+    container: home-profile-stats / inline-size;
+  }
+
+  .home-identity-sidebar .home-identity-statistics .statistics {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0 6px;
+    margin-top: 4px !important;
+  }
+
+  .home-identity-sidebar .home-identity-statistics .item {
+    flex-direction: row;
+    flex: 0 0 auto;
+    width: auto;
+    gap: 3px;
+    white-space: nowrap;
+  }
+
+  .home-identity-sidebar .home-identity-statistics .number,
+  .home-identity-sidebar .home-identity-statistics .label {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  /* The theme can narrow the sidebar on small desktops. Keep full translated
+     statistics readable by stacking each number above its label when needed. */
+  @container home-profile-stats (width < 205px) {
+    .home-identity-sidebar .home-identity-statistics .statistics {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr);
+    }
+
+    .home-identity-sidebar .home-identity-statistics .item {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+}
+
+@media (min-width: 769px) and (height < 620px) {
+  .home-identity-sidebar .home-identity-focus {
     display: none;
   }
 }
 
-@media (min-width: 769px) and (max-height: 519px) {
-  .home-identity-card {
+@media (min-width: 769px) and (height < 480px) {
+  .home-identity-sidebar .home-identity-card {
     display: none;
+  }
+}
+
+/* Very short windows keep every navigation link reachable without scaling it. */
+@media (min-width: 769px) and (height < 360px) {
+  .home-identity-sidebar > .sticky-container > .sidebar-links {
+    box-sizing: border-box;
+    max-height: max(0px, calc(100vh - 86px));
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+}
+
+/* Animate only the vertical profile layouts. Smaller layouts switch at once
+   so a shrinking viewport never has to wait for the old geometry to fit. */
+@media (min-width: 769px) and (min-height: 760px) and (prefers-reduced-motion: no-preference) {
+  .home-identity-sidebar .home-identity-card {
+    transition: color 0.2s ease, background 0.2s ease,
+      box-shadow 0.2s ease, border-color 0.2s ease,
+      padding 0.15s ease-out;
+  }
+
+  .home-identity-sidebar .home-identity-card.sidebar-content .avatar img {
+    transition: color 0.2s ease, background 0.2s ease,
+      box-shadow 0.2s ease, border-color 0.2s ease,
+      width 0.15s ease-out, height 0.15s ease-out;
+  }
+
+  .home-identity-sidebar .home-identity-focus-list {
+    transition: color 0.2s ease, background 0.2s ease,
+      box-shadow 0.2s ease, border-color 0.2s ease,
+      gap 0.15s ease-out;
+  }
+}
+
+/* Fade the interests in as a group. Leaving display:none immediate preserves
+   space on short screens; browsers without starting-style simply show them. */
+@media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+  .home-identity-sidebar .home-identity-focus {
+    transition: color 0.2s ease, background 0.2s ease,
+      box-shadow 0.2s ease, border-color 0.2s ease,
+      opacity 0.14s ease-out;
+  }
+
+  @starting-style {
+    .home-identity-sidebar .home-identity-focus {
+      opacity: 0;
+    }
   }
 }
 

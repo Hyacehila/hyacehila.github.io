@@ -55,7 +55,7 @@ hexo.extend.filter.register('before_generate', function () {
                     </div>
                     <div class="home-identity-focus-item">
                         <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
-                        <span data-i18n="service-llm-eval-title">Evaluation/Benchmark</span>
+                        <span data-i18n="service-llm-eval-title">Evaluation</span>
                     </div>
                     <div class="home-identity-focus-item">
                         <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
@@ -63,7 +63,7 @@ hexo.extend.filter.register('before_generate', function () {
                     </div>
                     <div class="home-identity-focus-item">
                         <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
-                        <span data-i18n="service-game-client-title">Game Client Dev</span>
+                        <span data-i18n="service-game-client-title">AI4Game</span>
                     </div>
                 </div>
             </div>
