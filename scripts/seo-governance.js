@@ -11,9 +11,9 @@ let categoryCounts = new Map();
 let tagCounts = new Map();
 
 // The English edition of these public pages is served at the original root
-// route. Blog posts remain the only content with a /en/ counterpart.
+// route. The homepage, Me page, and blog posts have /en/ counterparts.
 const FIXED_ENGLISH_ROOTS = new Set([
-  '/me/', '/cv/', '/projects/', '/footprints/', '/friends/', '/comments/',
+  '/cv/', '/projects/', '/footprints/', '/friends/', '/comments/',
   '/photos/', '/categories/', '/tags/'
 ]);
 
@@ -432,7 +432,7 @@ hexo.extend.filter.register('after_render:html', function (html) {
     node.replaceWith($('<h1 class="tag-name"></h1>').html(node.html()));
   }
 
-  const paired = Boolean(record) || pathname === '/';
+  const paired = Boolean(record) || pathname === '/' || pathname === '/me/';
   if (paired) {
     setLink($, 'link[rel="alternate"][hreflang="zh-CN"]', { rel: 'alternate', hreflang: 'zh-CN', href: counterpart(canonical, 'zh') });
     setLink($, 'link[rel="alternate"][hreflang="en"]', { rel: 'alternate', hreflang: 'en', href: counterpart(canonical, 'en') });
@@ -461,8 +461,9 @@ hexo.extend.generator.register('seo-sitemaps', function (locals) {
   if (String(this.config.root || '/') === '/en/') return [];
   const base = siteBase(this.config);
   const seo = this.config.seo || {};
-  const zhUrls = new Set(['/','/murmur/'].map(item => `${base}${item}`));
+  const zhUrls = new Set(['/','/murmur/','/me/'].map(item => `${base}${item}`));
   const enUrls = new Set(['/en/']);
+  enUrls.add(`${base}/en/me/`);
   const postPaths = [];
   locals.posts.forEach(post => {
     const url = canonicalFor(this.config, post);
@@ -477,13 +478,13 @@ hexo.extend.generator.register('seo-sitemaps', function (locals) {
   locals.tags.forEach(tag => {
     if (indexedTags.has(String(tag.name))) enUrls.add(`${base}/${String(tag.path).replace(/^\/+/, '')}`);
   });
-  ['/me/','/cv/','/projects/','/photos/','/footprints/','/categories/'].forEach(item => enUrls.add(`${base}${item}`));
+  ['/cv/','/projects/','/photos/','/footprints/','/categories/'].forEach(item => enUrls.add(`${base}${item}`));
   const index = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>${base}/sitemap-zh.xml</loc></sitemap><sitemap><loc>${base}/sitemap-en.xml</loc></sitemap></sitemapindex>\n`;
   const zhList = Array.from(zhUrls).filter(url => !Array.from(enUrls).includes(url));
   const enList = Array.from(enUrls);
   return [
     { path: 'sitemap.xml', data: index },
-    { path: 'sitemap-zh.xml', data: urlset(zhList.sort().map(url => sitemapUrl(url, routePath(url) === '/' || routePath(url).startsWith('/blog/')))) },
-    { path: 'sitemap-en.xml', data: urlset(enList.sort().map(url => sitemapUrl(url, routePath(url) === '/en/' || routePath(url).startsWith('/en/blog/')))) }
+    { path: 'sitemap-zh.xml', data: urlset(zhList.sort().map(url => sitemapUrl(url, routePath(url) === '/' || routePath(url) === '/me/' || routePath(url).startsWith('/blog/')))) },
+    { path: 'sitemap-en.xml', data: urlset(enList.sort().map(url => sitemapUrl(url, routePath(url) === '/en/' || routePath(url) === '/en/me/' || routePath(url).startsWith('/en/blog/')))) }
   ];
 });

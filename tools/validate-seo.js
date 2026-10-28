@@ -10,7 +10,7 @@ const publicDir = path.join(root, 'public');
 const failures = [];
 const warnings = [];
 const pages = [];
-const FIXED_ENGLISH_ROOTS = ['/me/', '/cv/', '/projects/', '/footprints/', '/friends/', '/comments/', '/photos/', '/categories/', '/tags/'];
+const FIXED_ENGLISH_ROOTS = ['/cv/', '/projects/', '/footprints/', '/friends/', '/comments/', '/photos/', '/categories/', '/tags/'];
 
 function walk(dir, out = []) {
   if (!fs.existsSync(dir)) return out;
@@ -117,6 +117,22 @@ for (const file of walk(publicDir).filter(item => item.endsWith('.html'))) {
   if (!isPost && !isMurmur && isFixedEnglish && $('.translation-notice').length) fail(file, 'fixed English page must not contain a translation notice');
   if (isFixedEnglish && $('link[rel="alternate"][hreflang]').length) fail(file, 'fixed English page must not emit hreflang alternates');
 
+  if (route === '/me/' || route === '/en/me/') {
+    for (const [lang, target] of [['zh-CN', '/me/'], ['en', '/en/me/'], ['x-default', '/me/']]) {
+      const alternate = $(`link[rel="alternate"][hreflang="${lang}"]`);
+      if (alternate.length !== 1 || alternate.attr('href') !== `https://hyacehila.github.io${target}`) {
+        fail(file, `Me page has an incorrect ${lang} language alternate`);
+      }
+    }
+    $('.me-page a[href]').each((_, element) => {
+      const href = $(element).attr('href') || '';
+      if (!href.startsWith('/') || href.startsWith('//')) return;
+      const target = expectedFileForHref(href);
+      if (target && !fs.existsSync(target)) fail(file, `Me page has a broken internal link: ${href}`);
+      if (/^\/(?:en\/)?blog\//.test(href) && href.startsWith('/en/') !== isEnglish) fail(file, 'Me retrospective link has the wrong language');
+    });
+  }
+
   const pathname = (() => { try { return new URL(canonical).pathname.replace(/^\/en(?=\/)/, ''); } catch (_) { return ''; } })();
   const hasMermaid = $('.mermaid').length > 0;
   $('script[src]').each((_, element) => {
@@ -150,7 +166,12 @@ const enSitemap = xmlLocs(path.join(publicDir, 'sitemap-en.xml'));
 if (!zhSitemap.length) failures.push('sitemap-zh.xml has no URLs');
 if (!enSitemap.length) failures.push('sitemap-en.xml has no URLs');
 
-['photos', 'archives', 'murmur', 'me', 'cv', 'projects', 'footprints', 'friends', 'comments', 'categories', 'tags', 'masonry']
+for (const [route, sitemap] of [['/me/', zhSitemap], ['/en/me/', enSitemap]]) {
+  if (!fs.existsSync(expectedFileForHref(route))) failures.push(`missing bilingual Me page: ${route}`);
+  if (!sitemap.includes(`https://hyacehila.github.io${route}`)) failures.push(`Me page is missing from its language sitemap: ${route}`);
+}
+
+['photos', 'archives', 'murmur', 'cv', 'projects', 'footprints', 'friends', 'comments', 'categories', 'tags', 'masonry']
   .forEach(name => {
     if (fs.existsSync(path.join(publicDir, 'en', name))) failures.push(`forbidden fixed-page output exists: public/en/${name}/`);
   });

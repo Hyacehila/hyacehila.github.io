@@ -561,6 +561,97 @@ body:has(.me-page) .page-template-content > h1 {
   padding-top: 0.05rem;
 }
 
+.me-education-list {
+  display: grid;
+  gap: 1.2rem;
+  margin: 0;
+}
+
+.me-education-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.45rem 2rem;
+  min-width: 0;
+}
+
+.me-education-entry:not(:last-child) {
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--me-border);
+}
+
+.me-education-main {
+  min-width: 0;
+}
+
+.me-education-timing {
+  min-width: 0;
+  text-align: right;
+}
+
+.page-template-container .page-template-content .me-page .me-education-school {
+  margin: 0;
+  color: var(--me-ink);
+  font-size: 1.12rem;
+  font-weight: 760;
+  line-height: 1.4;
+}
+
+.markdown-body .me-page .me-education-meta,
+.markdown-body .me-page .me-education-period {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin: 0;
+  color: var(--me-muted);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.markdown-body .me-page .me-education-meta {
+  gap: 0.15rem 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.me-education-degree {
+  color: var(--me-ink);
+  font-weight: 550;
+}
+
+.markdown-body .me-page .me-education-period {
+  justify-content: flex-end;
+  gap: 0.1rem 0.35rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.markdown-body .me-page .me-education-description {
+  grid-column: 1 / -1;
+  max-width: 44rem;
+  margin: 0.15rem 0 0;
+  color: var(--me-muted);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.me-education-period time {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .me-education-entry {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .me-education-timing {
+    text-align: left;
+  }
+
+  .markdown-body .me-page .me-education-period {
+    justify-content: flex-start;
+  }
+}
+
 .me-prose {
   display: grid;
   gap: 0.86rem;
@@ -605,6 +696,13 @@ body:has(.me-page) .page-template-content > h1 {
   font-weight: 780;
   line-height: 1.32;
   opacity: 0.84;
+}
+
+.markdown-body .me-page .me-entry-summary {
+  margin: 0;
+  color: var(--me-muted);
+  font-size: 0.94rem;
+  line-height: 1.68;
 }
 
 .me-detail-list,
@@ -731,6 +829,7 @@ body:has(.me-page) .page-template-content > h1 {
 @media (max-width: 520px) {
   .me-page {
     margin-top: 0;
+    padding: 0 0.65rem;
   }
 
   .me-section {

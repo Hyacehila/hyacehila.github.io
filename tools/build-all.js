@@ -41,7 +41,7 @@ function normalizeEnglishImagePaths(dir) {
 }
 
 const FIXED_PAGE_DIRS = [
-  'categories', 'tags', 'me', 'cv', 'projects',
+  'categories', 'tags', 'cv', 'projects',
   'footprints', 'friends', 'comments', 'photos'
 ];
 
@@ -51,9 +51,9 @@ function rewriteFixedRoutes(dir) {
     if (!file.endsWith('.html')) return;
     const source = fs.readFileSync(file, 'utf8');
     const normalized = source
-      .replace(/(["'(])\/en\/(archives|categories|tags|me|cv|projects|footprints|friends|comments|photos|murmur|masonry)(?=[\/#?"')])/g, '$1/$2')
+      .replace(/(["'(])\/en\/(archives|categories|tags|cv|projects|footprints|friends|comments|photos|murmur|masonry)(?=[\/#?"')])/g, '$1/$2')
       .replace(/(["'(])\/en\/(assets|css|js|images|fonts|webfonts)\//g, '$1/$2/')
-      .replace(/<a(?![^>]*\bdata-no-swup)[^>]*\bhref="\/(archives|categories|tags|me|cv|projects|footprints|friends|comments|photos|murmur)(?:\/|["#?])/gi, match => match.replace('<a', '<a data-no-swup="true"'));
+      .replace(/<a(?![^>]*\bdata-no-swup)[^>]*\bhref="\/(archives|categories|tags|me|en\/me|cv|projects|footprints|friends|comments|photos|murmur)(?:\/|["#?])/gi, match => match.replace('<a', '<a data-no-swup="true"'));
     const withoutSwup = normalized.replace(/<script>\s*window\.swup\s*=\s*new Swup\([\s\S]*?<\/script>/i, '');
     if (withoutSwup !== source) fs.writeFileSync(file, withoutSwup, 'utf8');
   });

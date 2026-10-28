@@ -11,7 +11,7 @@
   var MOBILE_DRAWER_QUERY = "(max-width: 640px)";
   var MOBILE_BACK_TO_TOP_THRESHOLD = 320;
   var FIXED_ENGLISH_ROOTS = [
-    "/me/", "/cv/", "/footprints/", "/friends/",
+    "/cv/", "/footprints/", "/friends/",
     "/comments/", "/photos/", "/categories/", "/tags/"
   ];
   var FIXED_CHINESE_ROOTS = ["/archives/"];
@@ -196,6 +196,10 @@
         if (path !== homePath) a.setAttribute("href", homePath);
         path = "/";
       }
+      if (path === "/me/" || path === "/en/me/") {
+        a.setAttribute("href", lang === "en" ? "/en/me/" : "/me/");
+        path = "/me/";
+      }
       var map = NAV_LABELS[path];
       if (map) setLeafText(a, map[lang]);
     });
@@ -251,7 +255,8 @@
   }
 
   function applyPageLabel(lang) {
-    var map = PAGE_LABELS[getCurrentPath()];
+    var current = getCurrentPath();
+    var map = PAGE_LABELS[current === "/en/me/" ? "/me/" : current];
     if (!map) return;
     var target = map[lang];
     var labels = [map.zh, map.en].concat(map.aliases || []);
@@ -514,6 +519,10 @@
 
   function applyI18n() {
     var lang = isEnglishRoute() ? "en" : "zh";
+    if (getCurrentPath() === "/me/" || getCurrentPath() === "/en/me/") {
+      getLang(); // Initialize the existing preference migration before saving.
+      setLang(lang);
+    }
     stampHtml(lang);
     applyDataI18n(lang);
     updateToggleButton(lang);

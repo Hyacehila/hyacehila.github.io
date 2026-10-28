@@ -3,39 +3,58 @@ title: Me
 date: 2026-06-28 00:00:00
 permalink: /me/
 lang: en
+comments: false
 ---
 
 
 <div class="me-page">
 <section class="me-section me-about-section" aria-labelledby="me-about-title">
-  <h2 id="me-about-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-seedling"></i></span><span>About me.</span></h2>
+  <h2 id="me-about-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-seedling"></i></span><span>About Me</span></h2>
   <div class="me-prose">
-    <p>hyacehila is the online ID I have used for a long time. It began with a plant I like, hyacinth, and I later reshaped it into something lighter and more name-like. The suffixes <code>-hila / -ila</code> feel a little like a fictional creature to me, so I sometimes imagine hyacehila as a hyacinth sprite living in complex structures: moving between systems, toolchains, workflows, and uncertain environments, trying to find a path that is natural, explainable, and genuinely solves the problem. You can also call me Julian or Jules.</p>
-    <p>This is also close to how I understand technology and engineering. I do not really believe that a technology knows where it belongs from the moment it appears. Often, it takes time to find a place that is genuinely meaningful: first define the problem, form a sufficiently clear and falsifiable judgment, put it into reality, observe failures, absorb feedback, revise the hypothesis, and iterate again. Rather than starting from a fixed Agent architecture, I prefer to decompose the business first: which parts truly require model judgment, which should be handed to Workflow, Retrieval, Tool, or external validation to preserve determinism, and then design an AI system suited to the problem itself. To me, good engineering is not about eliminating all uncertainty, but about knowing where uncertainty should remain and how to keep it continuously exposed to feedback from reality.</p>
-    <p>Recently, I have focused on knowledge systems, applications of AI Agents in finance and game development and publishing, long-term memory, and AI NPCs and World Simulation. I am especially interested in how models can evolve from one-off generation tools into systems that understand their environments, accumulate state, act, receive feedback, and collaborate over the long term. This blog records more than technical tutorials. It records the judgments I keep forming and revising around Agent Architecture, Context Engineering, Evaluation, AI Native Game, and related questions. Some of those judgments will become engineering practices; others will be overturned by later experience. Writing is one way for me to preserve this process of iteration. Commercial fiction is another long-term interest.</p>
+    <p>You can call me Julian or Jules, both loosely adapted from Jue, the pinyin spelling of my name. Online, I've long gone by hyacehila. It comes from hyacinth, a flower I like, with endings like <code>-hila / -ila</code> that sound a little like a sprite's name to me. I sometimes picture it as a sprite flying through a sea of hyacinths, curious about whatever it finds along the way.</p>
+    <p>That's also close to how I think about technology and engineering. A new technology may be capable of a lot, but where it belongs and whether it helps are things we have to find out in practice. When building agents, I start with the business and how people currently do the work. I look at what needs model judgment and what workflows, retrieval, or tools can handle. Then I make the idea and expectations clear, build something, see where the results differ, and keep adjusting. Models need some room to explore, but we need ways to check the results and learn from what goes wrong.</p>
+    <p>Lately, I've been interested in knowledge systems, AI4Game, long-term memory, and AI4Fin. When work continues over time, can AI remember what's already been done, make sense of human feedback, and use that experience in its next decisions? I want to build systems that can work with people in that way over time. I use this blog to record what I read, what I try, and what I haven't figured out yet. There's fiction here too. I enjoy imagining characters, wondering what choices they'll make, and letting the story unfold.</p>
+  </div>
+</section>
+
+<section class="me-section" aria-labelledby="me-education-title">
+  <h2 id="me-education-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></span><span>Education</span></h2>
+  <div class="me-education-list">
+    <article class="me-education-entry" aria-labelledby="me-education-whu">
+      <div class="me-education-main">
+        <h3 id="me-education-whu" class="me-education-school">Wuhan University</h3>
+        <p class="me-education-meta"><span class="me-education-degree">Master's</span><span aria-hidden="true">·</span><span>Wuhan, Hubei, China</span></p>
+      </div>
+      <div class="me-education-timing">
+        <p class="me-education-period"><time datetime="2025-09">Sep 2025</time><span>—</span><time datetime="2027-06">Jun 2027</time></p>
+      </div>
+      <p class="me-education-description">I'm currently working on knowledge retrieval and agent workflows, and thinking about how long-term memory might fit into these systems. What information should they keep, when should they use it, and how should they adjust when new feedback comes in? I hope to work through these questions in real tasks.</p>
+    </article>
+    <article class="me-education-entry" aria-labelledby="me-education-xdu">
+      <div class="me-education-main">
+        <h3 id="me-education-xdu" class="me-education-school">Xidian University</h3>
+        <p class="me-education-meta"><span class="me-education-degree">Bachelor's</span><span aria-hidden="true">·</span><span>Xi'an, Shaanxi, China</span></p>
+      </div>
+      <div class="me-education-timing">
+        <p class="me-education-period"><time datetime="2021-09">Sep 2021</time><span>—</span><time datetime="2025-06">Jun 2025</time></p>
+      </div>
+      <p class="me-education-description">My undergraduate studies gave me a foundation in mathematics, statistics, and programming, along with ways of thinking through problems. I like turning what I learn into code and seeing how it runs. When the results don't match what I expected, I go back to check whether the implementation is wrong or whether I need to rethink the idea.</p>
+    </article>
   </div>
 </section>
 
 <section class="me-section" aria-labelledby="me-intern-title">
-  <h2 id="me-intern-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></span><span>Internship experience</span></h2>
+  <h2 id="me-intern-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></span><span>Work and Internship</span></h2>
   <div class="me-entry-list">
     <article class="me-entry">
-      <h3>AI Age Research and Development Engineer (internship)</h3>
-      <p class="me-entry-company">Internet Recreation (Shanghai) June 2026 August 2026 <a href="/en/blog/2026/08/08/ui-pipeline-automation-thinking/" data-i18n-preserve-label>Intern Rewind</a></p>
-      <ul class="me-detail-list">
-        <li><strong>Project background and objectives:</strong>Develop an Agent-based UI Project Auto-Generation System, reduce duplication of construction work when converting UI designs to online projects, reduce process dependence on personal development experience, and explore the role of Agent in a more complete UI workflow.</li>
-        <li><strong>UI Agent Workstream:</strong>Design and implement a hybrid structure independently, combining the definitive Age Workflow with the OpenAI Actors SDK based autonomous nodes. System can be generated from the Figma/PSD script NeoX <code>.uiprefab</code> Project, while supporting generation from zero and blueprint-based. The process package has about 50 nodes, 26 of which are reused between different processes. LLM only handles tasks that do require model judgement, such as structural extrapolations, selection of materials, and determines that sex workflows are responsible for the bottom-out; multi-modular retrieval and project specifications allow the results to follow established engineering specifications and re-use existing controls as much as possible. Blueprint models can re-use historical engineering. I worked with the GUI designer to organize about 10 business blueprints covering common interfaces like weekly sign-ins, shop windows, etc. Part B/C UI missions have been reduced from about 0.5 to 1.5 person days to 30 minutes, and 4 generation projects have been online.</li>
-        <li><strong>UI Agent evaluates and returns:</strong>Create a three-tier validation process for "inspiring rules screening, Ground Truth comparison, manual final review" to make Agent's results more stable and more easily validated. Use AI to dig up structural clustering and sub-prefab candidate models from existing projects, then develop standard calibrations according to UI and add these models to the workflow through multiple rounds of Skill Demo. For more than 10 real UI samples, continuous iteratives are checked with an inspirational rating and editor, supplemented by regression tests for blueprint generation and base capacity from zero. In a blueprint intermediate migration, field and script omissions were detected; these omissions could lead to a distorted overall picture ratio.</li>
-        <li><strong>Internal knowledge base:</strong>Try different knowledge modelling and retrieval options for knowledge in complex types of internal documentation and game fields. For documents that are classified, in multiple file formats, a unified structured factual layer is created using Docling, which complements chart information, then integrates vector search, BM25 and PageIndex style structured search. For game knowledge, about 20,000 physical nodes and 30,000 program relationships are extracted from the source code and configuration table and organized into JSON Wiki to address the problem of planning for expired documents and conflict of content. On this basis, the LLM Wiki style and query rewriting is used to construct the Agenic RAG to achieve the recall of all questions on the test set.</li>
-      </ul>
+      <h3>AI Agent R&amp;D Engineer (Intern)</h3>
+      <p class="me-entry-company">NetEase Interactive Entertainment (Shanghai) · June–August 2026 · <a href="/en/blog/2026/08/08/ui-pipeline-automation-thinking/" data-i18n-preserve-label>Internship retrospective</a></p>
+      <p class="me-entry-summary">I worked on agents for game development, including UI engineering automation and organizing and retrieving game knowledge. I cared about which repetitive tasks they could take off developers' hands, and whether the output could actually be used in a project.</p>
     </article>
     <article class="me-entry">
-      <h3>Algorithm Fellow (internship)</h3>
-      <p class="me-entry-company">Green League Technology (Wuhan) December 2025-March 2026</p>
-      <ul class="me-detail-list">
-        <li><strong>Hole-duging Agent and CodeQL authentication cycle:</strong>In complex code loophole analysis, LLM is easily anchored by early judgement and then gives unreliable conclusions. In response, I created the Single-Agent Harness for the glare-mining, which forms a traceable multi-cycle analysis cycle of leak intelligence retrieval, source positioning, stain flow modelling, CodeQL query generation and engine validation. The system focuses on status, tool call protocols and validation feedback rather than pre-dismantling multiple roles. The model can be used to keep iterative the results of the validation of candidates, source/sink pairs, failed paths, tool output and CodeQL, thereby reducing path dependence and misreporting in long-range analysis.</li>
-        <li><strong>Training data and Agent track preparation:</strong>Based on open-source projects and internal databases, a gap-cleaning and labelling process was put in place for the back-training of Agent in the hole-duging process. Take and validate more than 8,000 CVE entities, collect 4,000 high-quality samples, mark them by type of loophole and programming language, and balance the composition of the training set. Distilling 2,500 high-confidence tools from the Agent execution records using SFT tracks and 300 stain stream records for evaluation of the architecture, reward design and subsequent RL training exploration.</li>
-      </ul>
+      <h3>Algorithm Researcher (Intern)</h3>
+      <p class="me-entry-company">NSFOCUS Technology (Wuhan) · December 2025–March 2026</p>
+      <p class="me-entry-summary">I worked on agents for code security, including vulnerability analysis, checks with analysis tools, and preparing data for model post-training. I was interested in whether we could verify a model's judgment and use tool feedback to get it back on track when it went wrong.</p>
     </article>
   </div>
 </section>
@@ -54,12 +73,12 @@ lang: en
 </section>
 
 <section class="me-section" aria-labelledby="me-awards-title">
-  <h2 id="me-awards-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-trophy"></i></span><span>Awards and certificates</span></h2>
+  <h2 id="me-awards-title" class="me-section-title"><span class="me-section-icon" aria-hidden="true"><i class="fa-solid fa-trophy"></i></span><span>Awards and Certificates</span></h2>
   <ul class="me-awards-list">
-    <li>First prize for the National University of Statistics Modelling Championship</li>
-    <li>SAS China University Data Analysis National Third-class Award</li>
-    <li>Second-class award for the Mathematics Modelling Competition for American University Students (MCM/ICM)</li>
-    <li>University English IV: 510 | University English VI: 513</li>
+    <li>First Prize, Shaanxi Province — National College Student Statistical Modeling Competition</li>
+    <li>Third Prize, National Level — SAS China University Data Analysis Competition</li>
+    <li>Second Prize — Mathematical Contest in Modeling / Interdisciplinary Contest in Modeling (MCM/ICM)</li>
+    <li>College English Test: CET-4 510 | CET-6 513</li>
   </ul>
 </section>
 </div>
