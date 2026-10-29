@@ -28,7 +28,7 @@ comments: false
       <div class="me-education-timing">
         <p class="me-education-period"><time datetime="2025-09">Sep 2025</time><span>—</span><time datetime="2027-06">Jun 2027</time></p>
       </div>
-      <p class="me-education-description">I'm currently working on knowledge retrieval and agent workflows, and thinking about how long-term memory might fit into these systems. What information should they keep, when should they use it, and how should they adjust when new feedback comes in? I hope to work through these questions in real tasks.</p>
+      <p class="me-education-description">My master's work focuses on knowledge retrieval and agent workflows. I am also exploring how to combine long-term memory with RSI so that systems can retain and use valuable information and improve iteratively based on feedback.</p>
     </article>
     <article class="me-education-entry" aria-labelledby="me-education-xdu">
       <div class="me-education-main">
@@ -38,7 +38,7 @@ comments: false
       <div class="me-education-timing">
         <p class="me-education-period"><time datetime="2021-09">Sep 2021</time><span>—</span><time datetime="2025-06">Jun 2025</time></p>
       </div>
-      <p class="me-education-description">My undergraduate studies gave me a foundation in mathematics, statistics, and programming, along with ways of thinking through problems. I like turning what I learn into code and seeing how it runs. When the results don't match what I expected, I go back to check whether the implementation is wrong or whether I need to rethink the idea.</p>
+      <p class="me-education-description">My undergraduate studies in mathematics, statistics, and programming helped me develop ways to analyze problems. I enjoy putting what I learn into practice and, when results differ from expectations, examining the process and revisiting my reasoning.</p>
     </article>
   </div>
 </section>
@@ -49,12 +49,12 @@ comments: false
     <article class="me-entry">
       <h3>AI Agent R&amp;D Engineer (Intern)</h3>
       <p class="me-entry-company">NetEase Interactive Entertainment (Shanghai) · June–August 2026 · <a href="/en/blog/2026/08/08/ui-pipeline-automation-thinking/" data-i18n-preserve-label>Internship retrospective</a></p>
-      <p class="me-entry-summary">I worked on agents for game development, including UI engineering automation and organizing and retrieving game knowledge. I cared about which repetitive tasks they could take off developers' hands, and whether the output could actually be used in a project.</p>
+      <p class="me-entry-summary">I worked on AI agent development for games, including UI engineering automation and the organization and retrieval of game knowledge. I was interested in how agents could reduce repetitive work for developers and whether their outputs could be used in real projects.</p>
     </article>
     <article class="me-entry">
       <h3>Algorithm Researcher (Intern)</h3>
       <p class="me-entry-company">NSFOCUS Technology (Wuhan) · December 2025–March 2026</p>
-      <p class="me-entry-summary">I worked on agents for code security, including vulnerability analysis, checks with analysis tools, and preparing data for model post-training. I was interested in whether we could verify a model's judgment and use tool feedback to get it back on track when it went wrong.</p>
+      <p class="me-entry-summary">I researched agents for code security, including vulnerability analysis, tool-assisted verification, and post-training data preparation. I focused on the verifiability of model judgments and on whether agents could adjust their analysis in response to tool feedback.</p>
     </article>
   </div>
 </section>

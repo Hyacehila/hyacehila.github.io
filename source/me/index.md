@@ -27,7 +27,7 @@ comments: false
       <div class="me-education-timing">
         <p class="me-education-period"><time datetime="2025-09">2025.09</time><span>—</span><time datetime="2027-06">2027.06</time></p>
       </div>
-      <p class="me-education-description">现在主要做知识检索和 Agent 工作流，也在思考长期记忆该怎样放进这些系统里。哪些信息值得留下，什么时候拿来用，新的反馈来了以后又该怎样调整，我希望能在实际任务中把这些问题一点点弄清楚。</p>
+      <p class="me-education-description">硕士阶段主要开展知识检索与 Agent 工作流相关工作，也在思考如何结合长期记忆与迭代式进化（RSI），让系统保留和调用有价值的信息，并根据反馈持续调整。</p>
     </article>
     <article class="me-education-entry" aria-labelledby="me-education-xdu">
       <div class="me-education-main">
@@ -37,7 +37,7 @@ comments: false
       <div class="me-education-timing">
         <p class="me-education-period"><time datetime="2021-09">2021.09</time><span>—</span><time datetime="2025-06">2025.06</time></p>
       </div>
-      <p class="me-education-description">本科时学了数学、统计和编程，很多理解和分析问题的方法也是那时慢慢积累起来的。我比较喜欢把学到的东西写成代码，实际跑一跑。结果和预期对不上，就回头看看是实现出了问题，还是一开始就想错了。</p>
+      <p class="me-education-description">本科阶段学习了数学、统计与编程，逐步积累了分析问题的方法。我喜欢在实践中验证所学，并在结果与预期不符时检查过程、重新审视思路。</p>
     </article>
   </div>
 </section>
@@ -48,12 +48,12 @@ comments: false
     <article class="me-entry">
       <h3>AI Agent 研发工程师（实习）</h3>
       <p class="me-entry-company">网易互娱（上海） · 2026 年 6 月—2026 年 8 月 · <a href="/blog/2026/08/08/ui-pipeline-automation-thinking/" data-i18n-preserve-label>实习复盘</a></p>
-      <p class="me-entry-summary">我主要做游戏开发里的 AI Agent，包括 UI 工程自动化、游戏知识的整理与检索。做这些东西时，我比较在意它能帮开发者省掉哪些重复工作，生成的结果能不能在实际项目里用起来。</p>
+      <p class="me-entry-summary">参与游戏开发相关的 AI Agent 研发，涉及 UI 工程自动化、游戏知识的整理与检索。关注如何减少开发中的重复工作，以及生成结果在实际项目中的可用性。</p>
     </article>
     <article class="me-entry">
       <h3>算法研究员（实习）</h3>
       <p class="me-entry-company">绿盟科技（武汉） · 2025 年 12 月—2026 年 3 月</p>
-      <p class="me-entry-summary">我主要研究代码安全里的 Agent，做过漏洞分析、工具验证和后训练数据的整理。我比较关心模型的判断能不能被检查，走错方向以后能不能根据工具反馈重新调整。</p>
+      <p class="me-entry-summary">从事代码安全领域的 Agent 研究，涉及漏洞分析、工具验证与后训练数据整理。关注模型判断的可核查性，以及 Agent 根据工具反馈调整分析方向的能力。</p>
     </article>
   </div>
 </section>
