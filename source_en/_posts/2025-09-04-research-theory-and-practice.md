@@ -26,7 +26,6 @@ translation_source_hash: 35c095f5fab79c39b3853aa08717b567d64bf196bbd0898ed3cbec3
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <h2>The methodological basis for research</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2025/10/09/scientific-writing-guide/">Scientific writing guide</a>、<a href="/en/blog/2025/09/18/literature-review-methodology-guideline/">Methodological guide for the synthesis of literature</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p><strong>Extensive literature in relevant fields</strong>It's very important. We need to comb it.<strong>What are the problems in the field?</strong>This is how you choose your own research direction.</p>
 <p>What we need to learn is:</p>
 <ul>

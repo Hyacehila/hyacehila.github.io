@@ -12,7 +12,6 @@ permalink: '/blog/2026/04/30/deepseek-ngram-poor-is-good/'
 
 > 本文是对原[知乎回答](https://www.zhihu.com/question/2031512824917267006/answer/2032447961972597290?share_code=1dybiBtxsSsmS&utm_psn=2032984959640711218)的摘记与轻度整理。
 
-这篇文章中的问题也可以和[LLM 生命周期总览：从数据、预训练到解码与部署](/blog/2024/08/15/llm-lifecycle-overview/)、[从 LLM 到 VLM,语言模型如何实现视觉理解](/blog/2026/01/20/from-llm-to-vlm-visual-understanding/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 这篇回答把大模型结构设计里的一个反直觉规律说得很直白：**差就是好**。
 

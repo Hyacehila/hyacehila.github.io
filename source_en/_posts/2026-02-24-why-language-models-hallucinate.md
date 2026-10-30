@@ -29,7 +29,6 @@ translation_source_hash: ba5a4cf3a93a414e9ac44c9d54cbe28cc1a9ede18ef111b21da1e16
 <blockquote>
 <p>This post is taken from the OpenAI team Paper "Why Language Models Hallucinate"</p>
 </blockquote>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/26/neural-scaling-laws/">Neal Scaling Laws: From Kaplan to Chinchilla</a>、<a href="/en/blog/2026/02/20/compression-for-agi/">Compression for AGI: compression is intelligence</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h1>Why Language Models Hallucinate</h1>
 <h2>Summary</h2>
 <p>The “satisfaction” of the large language models (LLMs) refers to the model producing statements of overconfidence but of error of fact. From the perspective of probabilistic and statistical learning theory:<strong>The illusion is not just a data noise or model structure flaw, but also a statistical pressure in a modern training paradigm.</strong> The paper proved that even if training data were completely non-noise, the optimization of cross-breath losses would lead to inevitable production errors. The illusions persist in the post-training phase, and are related to the assessment of incentives:<strong>The current mainstream assessment mechanism (Dual dollar 0-1 rating) will reward speculation by systematically punishing uncertainty expressions (e.g. “I do not know”).</strong></p>

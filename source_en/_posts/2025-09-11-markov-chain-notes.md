@@ -39,7 +39,6 @@ We started working on it from the break-up.</p>
 &amp;♪ I'm a little girl ♪
 I'm sorry, I'm sorry.
 This random process is called a separate Markov chain of time.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/03/18/stochastic-process-basics-notes/">Random process basis: random process definition, digital characteristics and smooth process</a>、<a href="/en/blog/2024/10/17/financial-stochastic-analysis-notes/">Financial random analysis: financial derivatives, fork tree pricing and the theory of arbitrage</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>The definition of Markov Chain is the most essential feature we can call<strong>Marquisity.</strong>Or amnesia. <strong>Only now will the results affect the next results, and the previous results will not affect the next results.</strong>
 Conditional probability in expression
 &#36;&#36;P(X_{n+1}=i_{n+1}|X_{n}=i_{n})&#36;&#36;

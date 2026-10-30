@@ -22,7 +22,6 @@ translation_source_hash: 49cb84c4e8bdef3372b24cef1f53ede08539451fadd173946af5a51
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <h2>About the iterative</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/03/18/python-basics-learning-notes/">Python Foundation: Syntax: Data Structure and File Processing</a>、<a href="/en/blog/2025/03/04/python-oop-and-decorators-learning-notes/">Python For Object and Decorator: Classes, Inheritance, Policy and Closed</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h3>Invertable objects and anipher</h3>
 <p><strong>Reversible objects</strong>It means that it's done. <code>__iter__()</code> The object of the method. In short, it's an object that can be repeated, that is, it can be used. <code>for</code> Cycle through objects. Common iterative objects include lists, groups, strings, dictionaries, collections, etc.</p>
 <p>The object must be an iterative object <code>__iter__()</code> Method, method returns one<strong>Organisation</strong>I'm sorry. When used <code>for</code> When you recycle an iterative object, you actually call the object first <code>__iter__()</code> method to get an iterative device, and then access the elements one by one through an iterative device.</p>

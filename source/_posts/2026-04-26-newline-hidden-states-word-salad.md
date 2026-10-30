@@ -12,7 +12,6 @@ permalink: '/blog/2026/04/26/newline-hidden-states-word-salad/'
 
 最近看到一篇 paper：[Word Salad Chopper: Reasoning Models Waste A Ton Of Decoding Budget On Useless Repetitions, Self-Knowingly](https://aclanthology.org/2025.emnlp-main.1705/)。
 
-这篇文章中的问题也可以和[提示工程与上下文学习：从基础设计到技术图谱与场景实践](/blog/2024/09/20/prompt-engineering-and-in-context-learning/)、[Why Language Models Hallucinate](/blog/2026/02/24/why-language-models-hallucinate/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 它表面上讲的是一件很工程的问题：reasoning model 在生成长推理链时，经常会浪费大量 token 在重复、空转、看似还在思考但其实没有新增信息的片段上。作者把这种现象叫作 `word salad`，也就是那种不断重复相似表达、消耗上下文和预算、但对最终答案没有什么帮助的推理废话。
 

@@ -107,7 +107,6 @@ hidden: true
 6.2 High performance, open source is only README
 
 6.3. Start writing papers without experimenting. It's just as high as sota. Points </p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2024/09/02/deep-learning-basics/">In-depth learning base: neuronet, optimization approach and integration</a>、<a href="/en/blog/2024/11/13/deep-learning-network-architectures/">In-depth learning network architecture: CNN, RNN and Seq2Seq</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <ol>
 <li>Self-gating basically up points</li>
 </ol>

@@ -26,7 +26,6 @@ translation_source_hash: 35da98ff5cb492711ebbc5fe1c76aeca7c627cd8979d6ccc2e08b3a
 <blockquote>
 <p>&quot;Statistics represents the science of learning from data.&quot;<br>Statistical science should be about learning from data.</p>
 </blockquote>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/24/the-statistical-crisis-in-science/">The Statistical Crisis in Science</a>、<a href="/en/blog/2025/09/04/research-theory-and-practice/">Scientific theory and practical experience</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>Today, when big data and artificial intelligence, especially the generation AI, are sweeping the globe, we hear often the argument that statistics pass the test of the times. Is statistics outdated because of the inability to process big data?</p>
 <p>It's a hypocritical proposition. Statistics never fear the size of data, making traditional statistics seem to be a drag in modern applications, not data.<strong>Volume</strong>And we're dealing with data.<strong>Attitude</strong>and<strong>Parameter</strong>。</p>
 <p>It is intended to discuss why statistics are far removed from application sites on the path to mathematical rigour and how modern data science and machine learning can bring problems back into reality through a “data-driven” approach, focusing on two seemingly entangled concepts: “Application of statistics” and “Statistics of application”.</p>

@@ -27,7 +27,6 @@ translation_source_hash: 27cdf55e634195def721bc3ace9898708ad1f7ff0abe137a2a42ed5
 <blockquote>
 <p>From basic to front, step by step, master the encoder architecture in in-depth learning</p>
 </blockquote>
-<p>The questions in this article can also be addressed<a href="/en/blog/2024/09/02/deep-learning-basics/">In-depth learning base: neuronet, optimization approach and integration</a>、<a href="/en/blog/2024/11/13/deep-learning-network-architectures/">In-depth learning network architecture: CNN, RNN and Seq2Seq</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <hr>
 <h2>Custom Encoder Base</h2>
 <h3>What's a self-encoder?</h3>

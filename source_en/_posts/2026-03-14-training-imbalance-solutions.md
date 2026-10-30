@@ -28,7 +28,6 @@ translation_source_hash: 46f710562b09b9d50cd0977784f04d23b4b726bef42e4863e05543a
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>And the first thing that happens to people is that they're not even.&quot;The few are too few.&quot;I'm sorry. But if the understanding is to stop at this point, it is easy to follow a series of costly operations that do not necessarily serve business objectives. The real available frame is<strong>Just follow the sequence and take a few steps.</strong>First, to decide whether to process it, then to hold the assessment, then to start with the cheapest means, and then to consider changing the data.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2024/03/28/machine-learning-introduction-supervised-learning/">Introduction to Machine Learning: Monitoring Learning and the Bayesian Approach</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h2>Step one: to decide whether to deal with it or not.</h2>
 <p>Before addressing imbalances, make a shift:<strong>Don't ask first.&quot;Should I, SMOTE?&quot;, and ask&quot;I'm going to optimize ranking, probability, or the final benefit of decision-making.&quot;。</strong> These three objectives are not evenly priced in the uneven scenario:</p>
 <ul>

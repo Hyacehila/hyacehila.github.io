@@ -26,7 +26,6 @@ translation_source_hash: b87ae43fa425d772623c2b6ebc78202728a53bf373221494ad51dc3
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p><strong>Theme: Compression is intelligence: Why is ChatGPT intelligent?</strong> This paper is based on the theme-sharing of OpenAI researcher Jack Rae, "Community for AGI." The main lines of discussion were:<strong>Basic model training can be understood as compressing effective information as much as possible without loss.</strong></p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/26/neural-scaling-laws/">Neal Scaling Laws: From Kaplan to Chinchilla</a>、<a href="/en/blog/2026/02/22/loss-landscape-of-llms/">What's a big model of Los Landscape?</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h2>About General Artificial Intelligence</h2>
 <p>Before explaining why “compression” is a path to universal intelligence, we briefly look back at a classic thought experiment: the Chinese room (John Seal, 1980).</p>
 <blockquote>

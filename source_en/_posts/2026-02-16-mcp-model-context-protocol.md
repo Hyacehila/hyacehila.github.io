@@ -27,7 +27,6 @@ translation_source_hash: 118085f877726ee8660a87f5f0cf49a7c6f11ed68bf4c7cc891e09e
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>MCP originated on 25 November 2024  <a href="https://www.anthropic.com/news/model-context-protocol">Anthropic published article</a> </p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/03/10/from-mcp-to-agent-skills/">From MCP to Argentina Skills: Why does Agent need a new context work protocol?</a>、<a href="/en/blog/2026/05/17/agent-resource-collection/">Agent Extra Resource Collection: Skills, MCP Server, Plugins and Practical Tools</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>This paper refers to one of the most important articles in the world. <a href="https://zhuanlan.zhihu.com/p/29001189476">- It's a piece.</a>, part of the introduction and code is derived from this text.</p>
 <h2>MCP Introduction</h2>
 <p>MCP (Model Context Protocol, Model Context Protocol) defines the way in which context information is exchanged between the application and the AI model. It provides a protocol interface for tools, data sources and alert templates to enable developers to<strong>Connect data sources, tools and functions to AI models in a consistent manner</strong>。</p>

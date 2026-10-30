@@ -24,7 +24,6 @@ translation_source_hash: bd1e6f836ce088e8b78b87d0df3c360ad05899132ff69dfa9f08c14
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
-<p>The questions in this article can also be addressed<a href="/en/blog/2025/03/04/python-oop-and-decorators-learning-notes/">Python For Object and Decorator: Classes, Inheritance, Policy and Closed</a>、<a href="/en/blog/2025/04/19/python-iterators-generators-lambda-learning-notes/">Python, Generator and Lambda: Inert Calculator and Function Tool</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>The whole structure will be more practice-oriented, with a better foundation and practice to ensure that there is more experience, and it will be easier to look at official documents at the moment.</p>
 <h2>- Open.</h2>
 <h3>Analysis of Python applications and career development</h3>

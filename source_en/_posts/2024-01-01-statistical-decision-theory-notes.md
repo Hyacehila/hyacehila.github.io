@@ -25,7 +25,6 @@ translation_source_hash: 1aa734e332a2d3e4e05075d9348621975d0cc78fa4e3d3c2e8fd3c1
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/09/04/linear-regression-basics-notes/">Linear regression base: linear model, minimum 2x2 estimate and regression diagnosis</a>、<a href="/en/blog/2023/09/12/statistical-computing-notes/">Statistical calculations: random number generation, random variable simulation and Monte Carlo method</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>Decision-making is an important part of management activity, and in order to avoid decision-making errors, to ensure the science and effectiveness of decision-making, we need to look at the patterns of decision-making practice and develop a complete theoretical system.
 With the advent of the big data age, data becomes more and more important in decision-making, leading to the theory of statistical decision-making.</p>
 <h2>Summary of doctrine</h2>

@@ -13,7 +13,6 @@ permalink: '/blog/2025/10/09/scientific-writing-guide/'
 
 ## 引言
 
-这篇文章中的问题也可以和[科研理论与实践经验](/blog/2025/09/04/research-theory-and-practice/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 ### 什么是好的科学写作
 

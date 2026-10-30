@@ -18,5 +18,3 @@ hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
-
-<p>For context, compare <a href="/en/blog/2024/12/29/economic-foundations/">the economic foundations notes</a> and <a href="/en/blog/2024/01/30/linear-time-series-analysis-notes/">the time-series analysis notes</a>.</p>

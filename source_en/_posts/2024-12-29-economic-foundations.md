@@ -18,5 +18,3 @@ hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
-
-这篇文章中的问题也可以和[经济与金融随记](/en/blog/2024/12/31/economics-finance-notes/)、[金融市场基本知识](/en/blog/2024/12/30/financial-markets/)放在一起阅读，以比较相近的概念如何在不同语境中展开。

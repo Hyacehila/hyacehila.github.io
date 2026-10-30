@@ -25,7 +25,6 @@ translation_source_hash: e1744f90aeacc820d3cb25a3e0cb8c26fad1f4395893f5099d08604
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>This article is a collection of resources that I like and can reach out to Agent/ComingCLI.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/02/16/mcp-model-context-protocol/">MCP (Model Context Protocol)</a>、<a href="/en/blog/2026/03/10/from-mcp-to-agent-skills/">From MCP to Argentina Skills: Why does Agent need a new context work protocol?</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>They are not necessarily large, nor do they warrant a separate article. It could be a Skills, a MCP Server, a plugin, or a script, a hint structure, a little bit strange, but really saves things. Common ground: it can be hung on Agent or Coding CLI, and it can be a little more powerful.</p>
 <p>This is a two-part piece: one is.<strong>Large plant / Platformr Basic Services Skill</strong>CLI, product files and engineering best practices maintained by official or platform teams; the other is<strong>Something that was invented by independent developers.</strong>More like a test field, there are editing processes, creative workflows and small and easy tools. Each item is still a standard type (Skill / MCP Server/ Plugin/ Tool) and will not be able to be saved half a day later.</p>
 <p>Stay here. We'll get new ones later.</p>

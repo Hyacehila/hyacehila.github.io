@@ -34,7 +34,6 @@ translation_source_hash: 978e98fbf0f148067d9f1d7674b104fb8992a24ea7edfd01a04e1eb
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <h2>Order</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/07/12/ai-native-game/">When we talk about AI Native Game, what are we talking about?</a>、<a href="/en/blog/2026/05/05/ai-agent-game-industry-pipeline/">How the game industry is introduced AI Agent</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>This is a phase-out of my Internet-friendly internship, and I'm exploring how AI should get involved in the game development process.</p>
 <p>AI is already a daily way to generate a web page. The same model gives it a complete visual copy, which gives it a panel in the game: a background, buttons, a reward panel. I've been doing this for two months, and I can't say it's working, and it's a long way from the web.</p>
 <p>Why?</p>

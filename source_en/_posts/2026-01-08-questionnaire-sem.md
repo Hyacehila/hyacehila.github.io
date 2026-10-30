@@ -25,7 +25,6 @@ translation_source_hash: f2ec8f6c6ebf96bd865c90fa140571dfc40cd05504138ab8cadfb0a
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <h2>About Trust and Effectiveness</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/09/04/linear-regression-basics-notes/">Linear regression base: linear model, minimum 2x2 estimate and regression diagnosis</a>、<a href="/en/blog/2025/09/23/advanced-linear-regression-notes/">Linear regression step: proposed alignment, model selection and co-line Sex</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>In the questionnaire study,<strong>Trust</strong>and<strong>Effect</strong>These are two measures of the quality of the questionnaire. The analysis and conclusions based on the data collected from a questionnaire are unreliable if the letter and effectiveness of the questionnaire are not met.</p>
 <ul>
 <li><strong>Letter Analysis</strong> Concerned that “Does my questionnaire measure stable, consistent and reliable?” It cares.<strong>Measurement tool itself</strong>The question is not whether it measured the right thing.</li>

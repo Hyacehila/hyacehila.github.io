@@ -25,7 +25,6 @@ translation_source_hash: 9bc6eec25e42f73cbb85cb27df25af6f6b1f652960544758d3c041f
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>The article was really called An Example. It's half the opening statement, half the markdown writing notes. Looking back, most of the notes are out of date, but I still want to leave the portal, by the way, to record how the site has become a little bit like this.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/02/2025-year-in-review/">2025 Annual summary: far and far</a>、<a href="/en/blog/2026/01/31/the-illustrated-guide-to-a-phd/">The Illustrated Guide to a Ph.D.</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h2>Start with a useful blog.</h2>
 <p>From warehouse history, blogs were set up on December 26, 2025. At the time, the website was using Jekyll, and the page also contained a GitBook-style layout and resources. Target is direct: put Markdown in. <code>_posts</code>, let GitHub Pages generate accessible articles.</p>
 <p>The article was then changed to an example. The text is written about how the document should be named, what fields Front Matter has, and how Claude Code, GLM 4.7 and Cursor are involved in the build-up process. At that time, it was more like an operating manual left to itself, and it could not speak of a complete personal station.</p>

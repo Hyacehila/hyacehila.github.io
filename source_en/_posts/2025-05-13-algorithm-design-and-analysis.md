@@ -161,5 +161,3 @@ This is a near-uniform, and at least the subset extension function will not be r
 <p>Why does this thing work? Because he can provide a higher line,&#36;S\subset T,T-S=E&#36; And...&#36;e_i&#36;Yes.&#36;E&#36;All elements of the list are available
 &#36;&#36;f(T)\le f(S)+\sum e_i&#36;&#36;</p>
 <p>What kind of greedy strategy should be followed when confronted with such functions? Find the largest addition, the largest marginal increase. So that the increase will be smaller and smaller, and the solution that we finally find will be near the best. If similar problems are encountered (e.g., backpack problems), a near-negative strategy may be considered to find the most expensive elements.<strong>Find a greedy indicator and then implement greed.</strong></p>
-
-<p>For context, compare <a href="/en/blog/2025/05/12/data-structures-introduction/">the data structures introduction</a> and <a href="/en/blog/2024/12/18/search-and-sorting-algorithms/">the search and sorting algorithms notes</a>.</p>

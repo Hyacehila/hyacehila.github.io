@@ -28,7 +28,6 @@ translation_source_hash: 7787e6efbf7cc3c2cc277abcce41bbdffac8f19f4dcc98b54945e6e
 
 <h2>Mother and Rectangular Functions</h2>
 <p>Before the introduction of the high probability theory, we looked back at some of the more complex elements of the primary probability theory.<strong>The theory of probability-generated functions allows us to turn the probability problem into an analytical one.</strong> Proof of certain issues would be a good simplification.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/03/18/elementary-probability-notes/">Primary probability theory: random events, probability models and random variables</a>、<a href="/en/blog/2024/09/24/probability-and-statistics-exercises-notes/">Probability and statistical caselines: sample distribution, parameter estimates and statistical nature</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h3>Definition and nature of parent function</h3>
 <p>The parent function is designed to simplify some studies by introducing another expression of probability distribution.</p>
 <p>For those random variables that take only non-negative values (e.g., the two distributions, the Benuli distribution, the bellow distribution, etc.), we call whole-value random variables, the parent function can be used as a support for this type of random variable.</p>

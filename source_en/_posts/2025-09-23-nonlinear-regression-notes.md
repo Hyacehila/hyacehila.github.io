@@ -46,7 +46,6 @@ Model as
 We can use a very seemingly nuanced approach to squared and minimized the difference, which is,
 &#36;&#36;\min\quad Q(\theta)=\sum_{i=1}^n\left(y_i-f(X^{(i)},\theta)\right)^2.&#36;&#36;
 The exact method of calculation is not pushed to the point where R provides the corresponding function, which involves the optimal question.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/09/04/linear-regression-basics-notes/">Linear regression base: linear model, minimum 2x2 estimate and regression diagnosis</a>、<a href="/en/blog/2024/03/13/logistic-regression-notes/">Logistic regression: 2-classic because of variables, linear probabilities model and Logit model</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>The median coefficient for the non-linear regression model is not as intuitive as linear regression, and we would be better advised to explain a regression model by drawing or tabulating changes in target variables when they change, regardless of the formula, which should be the same for the logarithmic transformation regression model.</p>
 <h2>Some ideas for a disability analysis.</h2>
 <p>Now we've probably understood the meaning of disability, and we can use it to try to deal with the real problem.

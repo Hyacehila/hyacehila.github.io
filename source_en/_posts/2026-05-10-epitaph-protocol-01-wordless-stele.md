@@ -26,7 +26,6 @@ translation_source_hash: ecb2cda54ae786ed4648dfc12d8cf232b4e2b0a67a63d50f568847f
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <h2>No proof of words.</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/05/10/epitaph-protocol-00-series-concept/">What is a grave protocol?</a>、<a href="/en/blog/2026/03/28/novel1/">Sci-Fiction *3</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>Rain night, dry hill.</p>
 <p>When the first piece of paper was dryed, the beam saw its own death.</p>
 <p>That's not ink. The back of the paper was floated, and then a little bit, the gray words were seep out of the paper. The army officials thought it was a Dahir, and the bookkeeper fell on his knees in the mud and the creditors reached out to rob him. When it's the beam, there's only one tomb on the paper.</p>

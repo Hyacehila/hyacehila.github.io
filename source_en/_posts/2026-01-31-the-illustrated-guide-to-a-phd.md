@@ -26,7 +26,6 @@ translation_source_hash: 4c8d148314556bdc9f7548b085dbf59ec91fb05eef1c84964f968d8
 <p>It is a widely circulated graphical guide on doctoral degrees, written by Matt Light, Professor of Computer Science at Utah University. He vividly interpreted the knowledge accumulation process from primary school to doctoral degree in a simple circle, as well as the minor contribution of doctoral degrees to the boundaries of human knowledge.</p>
 <p><em>Original address:<a href="http://matt.might.net/articles/phd-school-in-pictures/">The Illustrated Guide to a Ph.D.</a> by <a href="http://matt.might.net/">Matt Might</a></em></p>
 </blockquote>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/06/03/dont-outsource-the-learning/">Don&#39;t Outsource the Learning（Addy Osmani）</a>、<a href="/en/blog/2025/12/26/welcome-to-my-blog/">How did this blog get to be like this?</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>Every fall, I explain to the new generation what a doctorate is. But it is difficult to describe it in language.
 So I'm using pictures to express it.</p>
 <p>Imagine, it's a circle that contains all human knowledge:</p>

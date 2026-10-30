@@ -12,7 +12,6 @@ permalink: '/blog/2026/06/07/agent-runtime-teardown/'
 
 > **写作状态：本文为占位草稿。** 现在只保留文章定位和标题坑位，不展开产品索引，不做长内容盘点。
 
-这篇文章中的问题也可以和[从记忆形成到记忆治理：Agent Memory 的全景图](/blog/2026/03/21/agent-memory-panorama/)、[Context is All You Need：智能体的上下文工程](/blog/2026/06/11/agent-context-engineering/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 # Agent Memory 与 Runtime 技术盘点：外挂记忆、运行时研究与框架内建能力
 

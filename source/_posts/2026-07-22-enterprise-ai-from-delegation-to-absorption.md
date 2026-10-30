@@ -15,7 +15,6 @@ permalink: '/blog/2026/07/22/enterprise-ai-from-delegation-to-absorption/'
 >
 > *Microsoft, 2026 Work Trend Index Annual Report: “Agents, human agency, and the opportunity for every organization”*
 
-这篇文章中的问题也可以和[AI 应用创业：从卖工具到卖结果](/blog/2026/07/14/ai-app-startups-sell-outcomes/)、[Model Is Good Enough：2026 年，AI 真正稀缺的是应用而不是更大的模型](/blog/2026/03/18/model-is-good-enough/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 
 上一篇文章写得更宽一点，关心 AI 怎样进入人的日常工作。这一篇把镜头收窄，只看公司内部。

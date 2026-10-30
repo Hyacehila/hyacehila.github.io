@@ -12,7 +12,6 @@ permalink: '/blog/2026/02/26/inspection-paradox/'
 ---
 
 
-这篇文章中的问题也可以和[统计与真理：如何运用偶然性 (Statistics and Truth)](/blog/2026/01/10/statistics-and-truth/)、[安斯库姆四重奏：可视化的力量与统计错觉](/blog/2026/01/14/anscombes-quartet/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 ## 直觉上的思考：你的体验为何总是偏离“平均值”？
 

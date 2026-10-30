@@ -30,7 +30,6 @@ translation_source_hash: 9be6a22bb06322fb210a20fd6352906b0e99aff4860d90424dc834b
 <li>All judgments are statistical, based on reason.</li>
 </ul>
 </blockquote>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/14/anscombes-quartet/">Anscom Quartet: Visualized power and statistical illusion</a>、<a href="/en/blog/2026/02/04/benfords-law-and-statistical-fraud/">Figures don't lie, but the liars make them up: talk about statistical fraud from Benford's particular law.</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>Statistics and Truth - How to Use Coincidentally, the issues discussed were:</p>
 <ol>
 <li>How to design experiments to provide the required information</li>

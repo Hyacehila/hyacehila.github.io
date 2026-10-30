@@ -24,7 +24,6 @@ translation_source_hash: d7dda4120c7a293501cf4384a740701150ead7567913c73e0d939b3
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>This post is based on a simple interview:</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/04/25/llm-semantic-routing-compound-ai-systems/">What exactly is the model route solving: from Agent cost, delay to reasoning control?</a>、<a href="/en/blog/2026/02/16/mcp-model-context-protocol/">MCP (Model Context Protocol)</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p><strong>Why is the price of input token in the big model usually much lower than output token? Technically, is this a reasonable price?</strong></p>
 <p>This is interesting because it looks simple, but it can continue to follow the reasoning system and application architecture. If a person who is an Agent developer has really handled costs and delays, it cannot simply answer "output is more expensive because it is slower to produce." From GPU resources to the reasoning side of the watching schedule, the problem is not light.</p>
 <p>If it's just product-level, input and output seem to be token. One token come in, one token go out, why is the price so low?</p>

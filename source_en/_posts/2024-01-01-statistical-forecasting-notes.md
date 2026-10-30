@@ -120,7 +120,6 @@ Therefore, calculating the time series over time&#36;t&#36; Changing Functions&#
 <p>We can define the difference.
 xx
 Same thing.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/03/18/stochastic-process-basics-notes/">Random process basis: random process definition, digital characteristics and smooth process</a>、<a href="/en/blog/2024/01/30/linear-time-series-analysis-notes/">Linear time series analysis: smooth sequence, ARMA and ARIMA</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>By comparing the differential characteristics of time series data to be studied and the differential characteristics of common models for extrapolation of trends, we can choose the models that we want to use.</p>
 <ul>
 <li>The 2nd grade is divided into zero.</li>

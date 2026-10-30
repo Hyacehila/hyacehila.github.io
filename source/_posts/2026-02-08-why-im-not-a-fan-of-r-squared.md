@@ -12,7 +12,6 @@ permalink: '/blog/2026/02/08/why-im-not-a-fan-of-r-squared/'
 
 > 本文核心观点翻译自 John Myles White 的文章 [Why I'm Not a Fan of R-Squared](https://www.johnmyleswhite.com/notebook/2016/07/23/why-im-not-a-fan-of-r-squared/)
 
-这篇文章中的问题也可以和[统计与真理：如何运用偶然性 (Statistics and Truth)](/blog/2026/01/10/statistics-and-truth/)、[安斯库姆四重奏：可视化的力量与统计错觉](/blog/2026/01/14/anscombes-quartet/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 ## Take Home Message
 

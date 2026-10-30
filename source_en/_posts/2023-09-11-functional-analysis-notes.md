@@ -25,7 +25,6 @@ translation_source_hash: de7d0270bb9f4c9a6971cd214046bb4f1213d3ee8c0b9094def7199
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>In the mathematical analysis, we studied core calculus of the whole higher mathematical theory; the subsequent multiple functions extended the theory to the plural, and the real-life function introduced the broader Leberg points; and the more numerous functions of general analysis, studying them as they are of the same nature as calculus, which is one of the most important basic lessons to follow up on a very large number of courses.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/03/16/mathematical-analysis-limits-continuity-notes/">Mathematical analysis: the theory of limits and continuity</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h2>Measurement Space</h2>
 <p>The calculus theory is about functions, and we start with a lot of things from the limit and the continuous function; the boundaries of the painting need to be based on distance; this is what needs to be studied in the measurement space; we want to study the distance more broadly.</p>
 <h3>Definition of measuring space</h3>

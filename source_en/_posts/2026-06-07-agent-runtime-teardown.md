@@ -27,7 +27,6 @@ translation_source_hash: e6b1808a8a22a6baa93f17e0d9d4bc9213406adbe4c2db8021c2293
 <blockquote>
 <p><strong>Writing status: This is the place-in draft.</strong> Only the article location and title pits are kept, the product index is not expanded and the long content count is not made.</p>
 </blockquote>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/03/21/agent-memory-panorama/">From memory formation to memory governance: the panorama of Agent Memoory</a>、<a href="/en/blog/2026/06/11/agent-context-engineering/">Context is All You Need: Context Project for Smart Bodies</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h1>Agent Memoory and Runte technology inventory: hang memory, running time research and capacity-building in a framework</h1>
 <p>The article no longer follows the L1/L2/L3 mapping method and does not rank as a product. The real answer to follow-up is how a system is remembered, how it is taken, how it is modified and how it is forgotten. Here we use the example of a real-run system to explain how a complete Agent Runtme, a Memoory Framework and Agent's development tools help users manage context and long-term memory. This will be a case study of the previous discussions on Research and Context Engineering.</p>
 <h2>Emory Products and Research (in position)</h2>

@@ -12,7 +12,6 @@ permalink: '/blog/2026/01/14/anscombes-quartet/'
 ---
 
 
-这篇文章中的问题也可以和[统计与真理：如何运用偶然性 (Statistics and Truth)](/blog/2026/01/10/statistics-and-truth/)、[数字不会撒谎，但撒谎的人会编数字：从本福特定律聊聊统计造假识别](/blog/2026/02/04/benfords-law-and-statistical-fraud/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 ## 引言：数值的欺骗性
 

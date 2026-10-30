@@ -19,5 +19,3 @@ hidden: true
 ---
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
-
-<p>The questions in this article can also be addressed<a href="/en/blog/2024/12/29/economic-foundations/">Basic knowledge of economics</a>、<a href="/en/blog/2024/12/30/financial-markets/">Financial market fundamentals</a>How the concept of a relatively close read together is developed in different contexts.</p>

@@ -26,7 +26,6 @@ translation_source_hash: 20a3f7e2bd2e7489cc142473e4eb9f1682788a2dc0075dea49be077
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>For one. &#36;n\times T&#36; Multiple Time Series Matrix &#36;X&#36;, of which &#36;n&#36; is the number of channels (or variables),&#36;T&#36; is the time node (observation number). Disassemble it from SVD. &#36;X=U\Sigma V^T&#36;I'm sorry. The implications of the decomposition matrices and their application are explained below.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2024/01/30/linear-time-series-analysis-notes/">Linear time series analysis: smooth sequence, ARMA and ARIMA</a>、<a href="/en/blog/2024/05/06/univariate-financial-time-series-analysis-notes/">Financial time series analysis: ARCCH/GARCH effect and volatility modelling</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h3>Meaning of the whole</h3>
 <p>For Matrix &#36;U&#36;It represents the data.<strong>Space model</strong>, each column is a linear combination of a characteristic channel.</p>
 <p>For Matrix &#36;V&#36;It represents the data.<strong>Time Mode</strong>, each column corresponds to the temporal evolution of the above spatial pattern.</p>

@@ -23,7 +23,6 @@ translation_source_hash: 6d1a19cf625252930e9bd40554374d1dd7ae9379c004ea160d08300
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/10/statistics-and-truth/">Statistics and Truth: How to use the accident (Statistics and Truth)</a>、<a href="/en/blog/2026/01/14/anscombes-quartet/">Anscom Quartet: Visualized power and statistical illusion</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h2>Intuitive thinking: Why do you always deviate from the average?</h2>
 <p>The logic of examining paradoxes is straightforward:<strong>When you look at or "check" something, those "greater" or "longer" samples, because they take more space or time and have a higher probability of being drawn by you.</strong> So, the probability of intuition underestimates the real probability, and the real probability itself is counterintuitive.</p>
 <p>Let's see two classic intuitive scenes:</p>

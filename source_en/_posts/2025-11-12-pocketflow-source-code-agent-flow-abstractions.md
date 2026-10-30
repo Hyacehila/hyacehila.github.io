@@ -25,7 +25,6 @@ translation_source_hash: a2dd6b6b4def927ac0d837a88a9d3bbca3bc8ea83ad9c22192fe4b1
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <h2>What's PocketFlow?</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2025/01/15/agent-ai-multimodal-survey/">Multi-modular Agent AI Overview: Model, Learning Mechanisms and Applications</a>、<a href="/en/blog/2026/03/03/cognitive-architecture-to-agent-framework/">From the cognitive structure of an intelligent body to the framework of an intelligent body</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>PocketFlow is one <a href="https://github.com/The-Pocket/PocketFlow/blob/main/pocketflow/__init__.py">100 Line Code</a>The very simple LLM framework.</p>
 <ul>
 <li>It is completely light, with zero swelling, zero dependence, zero supplier locking.</li>

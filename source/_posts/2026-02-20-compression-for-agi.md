@@ -13,7 +13,6 @@ permalink: '/blog/2026/02/20/compression-for-agi/'
 
 **主题：压缩即智能：为什么 ChatGPT 拥有智能？** 本文观点来自 OpenAI 研发人员 Jack Rae 的主题分享《Compression for AGI》。文章讨论的主线是：**基础模型训练可以理解为尽可能无损地压缩有效信息。**
 
-这篇文章中的问题也可以和[Neural Scaling Laws：从 Kaplan 到 Chinchilla](/blog/2026/01/26/neural-scaling-laws/)、[大模型的 Loss Landscape 是什么样的？](/blog/2026/02/22/loss-landscape-of-llms/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 ## 关于通用人工智能
 

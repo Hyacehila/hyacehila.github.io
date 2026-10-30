@@ -25,7 +25,6 @@ translation_source_hash: 65781b8a5527c34bbca303f778fea71ef8696160415f377eede39fd
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <h2>Kalman Filter</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2024/01/30/linear-time-series-analysis-notes/">Linear time series analysis: smooth sequence, ARMA and ARIMA</a>、<a href="/en/blog/2024/05/06/univariate-financial-time-series-analysis-notes/">Financial time series analysis: ARCCH/GARCH effect and volatility modelling</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h3>Why do you need Kalman filters?</h3>
 <p>State Estimates are fundamental issues in robotics, autopilot and aerospace. Engineering systems need to combine physical models with noise-bearing sensor readings to estimate states that cannot be observed directly and accurately. Kalman Filter provided a progressive calculation method for the linear status spatial model.</p>
 <p>Assuming that we estimate the location and speed of the vehicles, two sources of information can be used, but they all have errors:</p>

@@ -13,7 +13,6 @@ permalink: '/blog/2025/09/18/literature-review-methodology-guideline/'
 
 本文截取自 Hannah Snyder 撰写的 *Literature review as a research methodology: An overview and guidelines*，它是科研 Review 文章的一个详细指南，比在[科学写作指南](/blog/2025/10/09/scientific-writing-guide/)中简单介绍的语言风格注意要详细得多。它将系统地包含整个 Review 的各个方面，包括系统性 Review。本文对应的 PDF 存储在同一文件夹中。
 
-这篇文章中的问题也可以和[科研理论与实践经验](/blog/2025/09/04/research-theory-and-practice/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 ## 摘要
 

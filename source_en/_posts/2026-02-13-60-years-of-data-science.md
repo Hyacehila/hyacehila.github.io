@@ -24,7 +24,6 @@ translation_source_hash: b86df8f8d6df3eb627d1719ee68d8c404272316af3ebe40199b919e
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>It's a big topic. The main idea of this paper is from David Donoho's 50 Years of Data Science, which also adds something I find interesting. Nearly 10 years after Donoho published this paper, the wave of artificial intelligence generation is transforming society as a whole, and data science is no exception.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/10/statistics-and-truth/">Statistics and Truth: How to use the accident (Statistics and Truth)</a>、<a href="/en/blog/2026/01/14/anscombes-quartet/">Anscom Quartet: Visualized power and statistical illusion</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <blockquote>
 <p>The following elements were taken into account in the preparation of this document, and the rest of the paper will not add any emphasis on the sources of content:</p>
 <ul>

@@ -12,7 +12,6 @@ permalink: '/blog/2026/06/06/feedback-driven-agentic-scientific-discovery/'
 
 Shunyu Yao 在 [The Second Half](https://ysymyth.github.io/The-Second-Half/) 里有个判断我一直记得：AI 的下半场会从解决问题转向定义问题，evaluation 与 RL 的 generalization 会比训练算法更重要。我把这个判断放到 Agent 上，会得到一个更具体的系统问题：先定义问题，再给系统搭一个能不断返回信号的环境。这样，Agent 才有机会在不进行参数训练的情况下解决新问题。
 
-这篇文章中的问题也可以和[行为审计与行为解码：从 Reward 之后到 Agent 可观测性](/blog/2026/03/17/behavior-auditing-and-decoding-beginners-guide/)、[从黑盒预测器到可追溯医疗 Agent：医疗AI的未来](/blog/2026/03/18/from-black-box-predictors-to-traceable-medical-agents/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 模型已经很会说、会写、会联想，也能在很多问题上快速给出候选方案。可是一旦没有反馈，这些候选很容易停在“看起来合理的解释”。把问题放进一个能验证、能比较、能回滚的系统里，生成才会慢慢变成搜索。
 

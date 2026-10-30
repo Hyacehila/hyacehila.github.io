@@ -14,7 +14,6 @@ permalink: '/blog/2026/08/08/ui-pipeline-automation-thinking/'
 
 ## 序
 
-这篇文章中的问题也可以和[当我们谈论 AI Native Game 的时候，我们在谈论什么](/blog/2026/07/12/ai-native-game/)、[游戏行业如何引入 AI Agent](/blog/2026/05/05/ai-agent-game-industry-pipeline/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 这是我在网易实习期间的一次阶段性总结，也是在探索 AI 究竟应该如何介入游戏研发流程。
 

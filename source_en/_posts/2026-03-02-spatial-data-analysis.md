@@ -28,7 +28,6 @@ translation_source_hash: 47ffbd8844713859947d6ee02ff67cda961e2218940794365509c27
 <h2>Introduction</h2>
 <h3>Introduction of spatial data analysis</h3>
 <p>Data with spatial coordinates or relative positions are known as spatial data. The classic statistical methodology requires, in most cases, that samples be independent of each other, large samples and repeated repeatedly. Spatial data, on the other hand, generally do not meet the requirements of independence, while spatial heterogeneity exists and cannot be repeated.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/03/18/stochastic-process-basics-notes/">Random process basis: random process definition, digital characteristics and smooth process</a>、<a href="/en/blog/2024/01/01/statistical-forecasting-notes/">Statistical projections: qualitative projections, quantitative projections and extrapolations of trends</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>Migration of classical statistical methods to spatial data needs to be discussed separately. After many years of research, space data have developed their own theoretical systems.<strong>The entire spatial data analysis system is based on spatial self-relevance</strong></p>
 <h3>Origin and development of spatial data analysis</h3>
 <p>In 1854, John Show, a spatial analysis of cholera data from London, identified sources of infection and became a common source of both spatial data analysis and epidemiology disciplines.</p>

@@ -27,7 +27,6 @@ translation_source_hash: 928047995745c48f268cad56c5dfef722e71de3bbb0b6b09c713bae
 <blockquote>
 <p>The core view of this post is translated from John Myles White's article. <a href="https://www.johnmyleswhite.com/notebook/2016/07/23/why-im-not-a-fan-of-r-squared/">Why I&#39;m Not a Fan of R-Squared</a></p>
 </blockquote>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/10/statistics-and-truth/">Statistics and Truth: How to use the accident (Statistics and Truth)</a>、<a href="/en/blog/2026/01/14/anscombes-quartet/">Anscom Quartet: Visualized power and statistical illusion</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h2>Take Home Message</h2>
 <p>&#36;R^2&#36; Not simply model error functions, but it also implies a comparison of two models: One is the model currently analysed, and one is the so-called constant model (i.e., the model that only uses the average of variables to predict). The blogger says:&#36;R^2&#36; The answer is one question:</p>
 <blockquote>

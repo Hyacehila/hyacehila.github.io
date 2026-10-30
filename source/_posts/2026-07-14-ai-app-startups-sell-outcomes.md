@@ -13,7 +13,6 @@ permalink: '/blog/2026/07/14/ai-app-startups-sell-outcomes/'
 
 > The next 1T dollar company will be a software company masquerading as a services firm.
 
-这篇文章中的问题也可以和[Model Is Good Enough：2026 年，AI 真正稀缺的是应用而不是更大的模型](/blog/2026/03/18/model-is-good-enough/)、[从 Engineer 到 Builder：AI 时代的一人公司与产品思维](/blog/2026/05/11/from-engineer-to-builder-opc-product-thinking/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 最近看了 Sequoia 合伙人 Julien Bek 的《[Services: The New Software](https://sequoiacap.com/article/services-the-new-software/)》。这篇文章当然在找投资机会，不过它问得很直白：模型越来越强以后，AI 应用到底该卖什么？当 Claude 或 ChatGPT 的下一次升级把我做的工具压成一个功能，工具的护城河还剩多少？
 

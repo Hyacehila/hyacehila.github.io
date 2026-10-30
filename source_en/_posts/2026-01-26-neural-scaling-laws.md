@@ -28,7 +28,6 @@ translation_source_hash: 54ad74ffe0e674fe961e75bb9c1f3b4b12270efea4a0b551eebbe10
 <blockquote>
 <p>I'm not studying Deep Learning Theory, and I'm not familiar with the content; the following is just a brief summary of a theoretical field. Write anything about fun.</p>
 </blockquote>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/02/20/compression-for-agi/">Compression for AGI: compression is intelligence</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>If you want to see Scaling Law first, you can read it first, between data, pre-training, post-training and deployment.<a href="/en/blog/2024/08/15/llm-lifecycle-overview/">LLM Life Cycle Overview</a>;This paper expands only the size pattern itself.</p>
 <h2>From 0 to 1 from Neal Scaling Laws</h2>
 <p>The Neurocaling Laws are a common set of empirical patterns that understand large-scale in-depth learning (especially the LLM model). It describes<strong>The relationship between model performance and Power Law calculations of resources, data and parameters.</strong></p>

@@ -13,7 +13,6 @@ permalink: '/blog/2025/12/26/welcome-to-my-blog/'
 
 这篇文章原来真的叫《第一篇博客（An Example）》。它一半是开场白，一半是 Markdown 写作说明。现在回头看，那些说明大多已经过时了，但我还是想把这个入口留下来，顺便记下网站是怎么一点点变成现在这样的。
 
-这篇文章中的问题也可以和[2025 年度总结：远近之间](/blog/2026/01/02/2025-year-in-review/)、[The Illustrated Guide to a Ph.D.](/blog/2026/01/31/the-illustrated-guide-to-a-phd/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 ## 从一个能用的博客开始
 

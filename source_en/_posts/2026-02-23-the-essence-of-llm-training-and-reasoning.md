@@ -30,7 +30,6 @@ translation_source_hash: 1737c3958baa62800ce489a9e833a2166aa34a0d192d0b126bad150
 <blockquote>
 <p><strong>This paper combines recent studies and discusses the question of whether current LLM post-training (e.g. RLHF / RLVR) is creating new reasoning capabilities or is it more effective to use the capabilities already available in pre-training? The articles will be presented from both macro-wide and micro-geometric perspectives.</strong></p>
 </blockquote>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/03/16/rl-alignment-from-reward-to-advantage/">LLM Enhanced Learning in Alignment: From Incentive Signals to Estimation of Strengths</a>、<a href="/en/blog/2024/11/01/llm-post-training-and-finetuning/">Post-linguistic training and fine-tuning of practice: from SFT, LoRA to human alignment</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h1>LLM The Nature of Logic and Training: from Surrogate to Geometry for Enhanced Learning</h1>
 <h2>Wedges: Re-entry to the proxy nature of training</h2>
 <p>Before exploring large model reasoning, it is necessary to look at a basic fact in model training.</p>

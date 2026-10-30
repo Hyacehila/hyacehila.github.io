@@ -29,7 +29,6 @@ translation_source_hash: 193e96bfa65d238b0b140ebed329e8e8701026282f7d49abc83c7f1
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>Recently, distillation has become more than a technical word. Anthropic describes the unauthorized, bulk-based use of its model output to train competition models as <a href="https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks">“distillation attacks”</a>I'm sorry. In Chinese, the question is often answered: how can the closed-source model be distilled without the public weight?</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2024/11/01/llm-post-training-and-finetuning/">Post-linguistic training and fine-tuning of practice: from SFT, LoRA to human alignment</a>、<a href="/en/blog/2026/07/03/sft-synthetic-data-engineering/">Data synthesis is becoming a project: from Terminal-Corpus</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>It looks like a yes-or-no problem, actually mixing up different levels. Neither the direct answer to “can” nor “can” is sufficient.</p>
 <ol>
 <li>The teacher model provides a signal.</li>

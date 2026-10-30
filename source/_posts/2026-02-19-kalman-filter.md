@@ -13,7 +13,6 @@ permalink: '/blog/2026/02/19/kalman-filter/'
 ---
 ## 卡尔曼滤波 (Kalman Filter)
 
-这篇文章中的问题也可以和[线性时间序列分析：平稳序列、ARMA与ARIMA](/blog/2024/01/30/linear-time-series-analysis-notes/)、[金融时间序列分析：ARCH/GARCH 效应与波动率建模](/blog/2024/05/06/univariate-financial-time-series-analysis-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 ### 为什么需要卡尔曼滤波
 

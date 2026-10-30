@@ -24,7 +24,6 @@ translation_source_hash: 3f1f10395f2770984faa99e815a8292d8a1dc4983141fee61557627
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <h2>Introduction: Inference crises in application</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/16/dimensionality-reduction-high-dimensional-data/">From Oscillospace to Flowing: The Declining of High Data</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>In today's data science applications, the common scenario is that you have designed an operational indicator to measure algorithmic effects or have trained an in-depth neuronet model. In addition to obtaining a point estimate (e.g. CTR up 2%, or model accuracy 85%), operators or scientific reviewers often ask:</p>
 <p><strong>"What is the confidence of this result? How much is it in the range of fluctuations?"</strong></p>
 <p>That sounds like a standard statistical inference. In the traditional statistics course, we learned to process the mean of the function with CLT (centre of extreme limits), and the difference of the function with Delta Method (Delta method). But in the face of modern applications, these classic tools are often not effective:</p>

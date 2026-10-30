@@ -24,7 +24,6 @@ translation_source_hash: 4a90da2d2d6bb4a205475c0a8fd91cb104e491a7a4881d837cffb24
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <h2>First, why do instincts always get stuck?</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/10/statistics-and-truth/">Statistics and Truth: How to use the accident (Statistics and Truth)</a>、<a href="/en/blog/2026/01/14/anscombes-quartet/">Anscom Quartet: Visualized power and statistical illusion</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>Three of the most hesitant points are not counting, but emotions.</p>
 <p>You chose one door, the host opened the other, and there were only two doors left. The first reaction of a person is almost always:<strong>Isn't that a choice now?</strong> And then there's an additional psychological discomfort: If the door was right, it would be particularly bad if it was right and wrong.</p>
 <p>So many people are stopped not by the probability, but by the feeling that they should not betray their first choice.</p>

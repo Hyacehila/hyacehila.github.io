@@ -27,7 +27,6 @@ translation_source_hash: cc63d2d130d8898b027d77934758fd14622cd8681e0d62fea97523e
 <blockquote>
 <p>This post is part of our special coverage of the World Cup.<a href="https://x.com/addyosmani/status/2056078124346228860">《Don&#39;t Outsource the Learning》</a>The language is duly modulated and localized without changing its original intent. Original author:<a href="https://x.com/addyosmani">Addy Osmani</a>I'm sorry. The first person in the text, who said "I" was the original author.</p>
 </blockquote>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/31/the-illustrated-guide-to-a-phd/">The Illustrated Guide to a Ph.D.</a>、<a href="/en/blog/2025/12/26/welcome-to-my-blog/">How did this blog get to be like this?</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h1>Don&#39;t Outsource the Learning</h1>
 <p>Now one thing is too easy: let AI finish writing the code and save himself the learning step. Bug is fixed, but your mental model is still unscrewed -- for a long time, even back. We are in fact quietly using our future capabilities for today's speed, and the tools will not stop us. It's up to you to stop.</p>
 <p>Most of us have slipped into the same pattern: stick a demand or a misstatement in it, hand over a model for a fix, the symptoms disappear, and you go straight to the hip. At some point in this cycle, the mess between the problem and the solution has been completely eliminated.</p>

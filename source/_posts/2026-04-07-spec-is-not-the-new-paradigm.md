@@ -12,7 +12,6 @@ permalink: '/blog/2026/04/07/spec-is-not-the-new-paradigm/'
 
 如果今天要讨论 AI 时代的软件工程是否出现了新的主导范式，答案大概率不会是 Spec。
 
-这篇文章中的问题也可以和[在代码逐渐廉价之后](/blog/2026/07/08/after-code-is-cheap/)、[我们又回到了 CLI：Agent 时代 CLI 与 GUI](/blog/2026/05/27/cli-vs-gui-agent-era/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 `Specification`、`contract`、`ADR` 和 `acceptance criteria` 在高风险系统里仍然重要。我反对的是把前置文档视为 AI 时代的软件工程中心，仿佛需求和设计写得足够完整，模型就能像编译器一样稳定推导出复杂系统。
 

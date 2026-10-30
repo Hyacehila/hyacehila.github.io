@@ -97,7 +97,6 @@ It's actually a certain spirit of the C language.</li>
 <li>Fix and improve his computing utility.
 In fact, C99 has kept its original design thinking, and then we'll explain the changes that have occurred when we need them.</li>
 </ul>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/03/18/python-basics-learning-notes/">Python Foundation: Syntax: Data Structure and File Processing</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h2>Language Overview C</h2>
 <p>The first chapter is just an overview of what we're learning.</p>
 <h3>Simple examples</h3>

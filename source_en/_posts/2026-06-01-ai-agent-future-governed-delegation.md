@@ -24,7 +24,6 @@ translation_source_hash: a5b80584ff50882447ad5ba53c77d5df8b66619cf64345e219dee69
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>The word Agen is already being used to rot.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/04/does-llm-bring-equality/">LLM brings technology equity? Does LLM Bring Equality?</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>The buttons in the browser are Agent, Ide, who can change the code, and Agent, who can split the list in the back of the passenger's uniform, and Agent, who can open the App for you. And far away, it turns into a fully autonomous intelligence body, AGI, ASI. The story sounds good: the model continues to grow stronger, the tools become more and more, and one day it rises from a chat window and takes over most of the work that humans have.</p>
 <p>I don't believe in this narrative, at least not in this way.</p>
 <p>Agent's change is of course important. Chatbot is mainly answering, Agent is on the move. It looks at the environment, adjusts tools, reads and write, and carries out its tasks on a continuous basis. From this moment on, it is not just smart, but also the power to act, the power to authorize borders and the responsibility for consequences.</p>

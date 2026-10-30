@@ -12,7 +12,6 @@ permalink: '/blog/2026/03/16/aenvironment-everything-as-environment/'
 
 这个 Agent 系列写到现在，绕来绕去其实一直在问同一个问题：Agent 到底怎样接触外部世界。
 
-这篇文章中的问题也可以和[从 RL Agent 到 LLM Agent：The Second Half 之后的范式转移与不确定性建模](/blog/2026/03/09/from-rl-agent-to-language-agent-v2/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 MCP 讨论协议，Skills 讨论能力封装，认知架构讨论决策循环，RL Agent 那几篇讨论训练和反馈。它们看起来像不同主题，但放在一起看，会发现中间少了一层：agent 运行的那个环境本身。
 

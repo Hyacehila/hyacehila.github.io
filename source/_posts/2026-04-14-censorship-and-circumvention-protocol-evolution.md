@@ -13,7 +13,6 @@ permalink: '/blog/2026/04/14/censorship-and-circumvention-protocol-evolution/'
 
 > 被面试官问了个奇怪问题，不过还挺好玩的，简单学习学习。Gemini-3.1-pro 和GPT-5.4协同完成的正文
 
-这篇文章中的问题也可以和[LLM 是否带来技术平权？(Does LLM Bring Equality?)](/blog/2026/01/04/does-llm-bring-equality/)、[生成式 AI 不会直接终结工作，它先重排劳动，再放大需求](/blog/2026/03/26/generative-ai-rearranges-labor-and-demand/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 # 国家级网络审查机制与抗审查代理协议的攻防演进
 

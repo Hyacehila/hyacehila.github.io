@@ -127,7 +127,6 @@ Yes.
 有
 &#36;&#36;♪ ♪ I'm not gonna let you go ♪
 So we know that the new high-dimensional vector is also a normal vector, which proves that the process is a normal one.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2024/10/17/financial-stochastic-analysis-notes/">Financial random analysis: financial derivatives, fork tree pricing and the theory of arbitrage</a>、<a href="/en/blog/2025/09/11/markov-chain-notes/">Markov Chain: Transfer probability, status classification and smooth distribution</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>Set Random Variables&#36;R&#36;and&#36;\Theta&#36;I'm independent of one another.&#36;R&#36;Following Riley's distribution, the density is...
 &#36;f(r)=\begin{cases}\frac{r}{\sigma^2},&amp;\quad r\ge0\0,&amp;\quad r&lt;0\end{cases}&#36;&#36;
 &#36;\Theta&#36;服从&#36;[0,2\pi]&#36;上的均匀分布

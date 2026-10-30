@@ -12,7 +12,6 @@ permalink: '/blog/2026/01/16/dimensionality-reduction-high-dimensional-data/'
 
 ## 降维的动机与背景
 
-这篇文章中的问题也可以和[线性回归基础：线性模型、最小二乘估计与回归诊断](/blog/2023/09/04/linear-regression-basics-notes/)、[统计计算：随机数生成、随机变量模拟与蒙特卡洛方法](/blog/2023/09/12/statistical-computing-notes/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 ### 高维数据的挑战
 

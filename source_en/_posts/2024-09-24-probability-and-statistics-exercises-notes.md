@@ -43,7 +43,6 @@ Remember&#36;A&#36;It's the probability of our target event.&#36;\bar{A}&#36; It
 &#36;总数m=C_{a+b}^{k} 样本点数量n=C_{a+b-1}^{k-1}&#36;
 <em>Both results are the same.</em>
 <em>It's important to study classical generals, and you have to make sure you're consistent.</em></p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/03/18/elementary-probability-notes/">Primary probability theory: random events, probability models and random variables</a>、<a href="/en/blog/2024/10/09/advanced-probability-notes/">High probability theory: probability space, random variables and measurement base</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h2>The mathematical statistical example of probabilities</h2>
 <p>In the study of practical problems, we should not know the number or the rate of sub-products, and we need to look at him in the light of the situation, which is an example;</p>
 <p>(b) Capture 1,200 fish from the pool, mark it and release it back, then re-eating 1,000 fish, 100 of which were marked and extrapolated to the total;</p>

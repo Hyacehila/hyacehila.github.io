@@ -39,7 +39,6 @@ The math is a pseudo-random, and he's going to experience a certain amount of ca
 </ul>
 <h4>Natural Mode</h4>
 <p>The core is to take the base seed squared and remove the middle N-bit and divide it by the following:&#36;10^{N}&#36; Random number of areas to reach 01</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/09/04/linear-regression-basics-notes/">Linear regression base: linear model, minimum 2x2 estimate and regression diagnosis</a>、<a href="/en/blog/2024/01/01/statistical-decision-theory-notes/">Statistical decision-making: decision-making issues, risk-based decision-making and uncertainty-based decision-making</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h4>Multiplier Mode</h4>
 <p>Natural Middle Derivative, changing the original square to fixed number to middle as follows:
 Check&#36;位数N=4;倍积K=5678;w_{0}=1234&#36;

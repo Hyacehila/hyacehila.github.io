@@ -25,7 +25,6 @@ translation_source_hash: a0b5e1a8d46c39ebac4c81df149561d646ee45a18bfd47f81fb9a7f
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>If there's only a bunch of embedding vectors, without any other a priori information, many downstream tasks can be rewritten as the same problem:<strong>How to compare points with points in high space.</strong> The focus is on finding “too close”, searching is looking for “nearest point to search”, clustering is looking for “nature formation” and sample screening is looking for “best point to cover the whole spectrum”, and recommending “the best point to match the user vector”. Instead of simply listing tools, the article is based on the most basic mathematical objects, explaining what these methods do in vector space.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2024/08/15/llm-lifecycle-overview/">LLM Life Cycle Overview: From Data, Pre-Training to Decoding and Deployment</a>、<a href="/en/blog/2024/09/20/prompt-engineering-and-in-context-learning/">Indications for engineering and context learning: from basic design to technical mapping and scenario practice</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h2>Start with a vector: likeness, distance and fusion</h2>
 <p>Sets a text that gets vectors after embeding</p>
 <p>&#36;&#36;

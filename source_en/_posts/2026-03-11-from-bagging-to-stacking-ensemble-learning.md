@@ -24,7 +24,6 @@ translation_source_hash: 36bbf2f33ab5abaa4db4b9284c8ba5451305acc650274c2278ba306
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <p>In a previous article on table data and tree models, I have already mentioned Random Forest, GGBT, XGBoost, LightGBM and CatBoost. But if we remember only that “they are a combination of many trees”, one more question that is worth asking is:<strong>Why are they all integrated and the training logic is completely different?</strong></p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2024/03/28/machine-learning-introduction-supervised-learning/">Introduction to Machine Learning: Monitoring Learning and the Bayesian Approach</a>、<a href="/en/blog/2024/04/06/advanced-machine-learning-unsupervised-learning/">Machine learning progression: unsupervised and semi-supervised learning</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>Random Forest's idea is "co-production of diversity, then averages," and the idea of GDDT is "colleges to continue the uneducated part of the previous round." And then back, Stacking doesn't even ask that the base model be the same algorithm, which is more like asking:<strong>Can I train a model, specializing in "When should I trust who?"</strong></p>
 <p>This article is about to complete the picture. The whole text is based on a simple route:</p>
 <ul>

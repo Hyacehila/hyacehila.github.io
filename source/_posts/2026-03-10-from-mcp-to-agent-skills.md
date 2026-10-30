@@ -12,7 +12,6 @@ permalink: '/blog/2026/03/10/from-mcp-to-agent-skills/'
 
 2024 年 11 月 25 日 Anthropic 推出了 Model Context Protocol（MCP），很多人以为 Agent 世界终于有了统一接口，后面的事情无非是补生态、补客户端、补分发。
 
-这篇文章中的问题也可以和[MCP (Model Context Protocol)](/blog/2026/02/16/mcp-model-context-protocol/)、[Agent 外接资源收藏册：Skills、MCP Server、插件与实用工具](/blog/2026/05/17/agent-resource-collection/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 但现实并没有这么线性。
 

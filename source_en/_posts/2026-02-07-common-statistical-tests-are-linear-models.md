@@ -27,7 +27,6 @@ translation_source_hash: 838333ddbda267547a969b188353b2df8be1c50c9175207637e18b9
 <p>This post is a good article from Jonas Kristoffer Lindeløv. <a href="https://lindeloev.github.io/tests-as-linear/">Common statistical tests are linear models</a>
 The original text reveals in a very shallow way an amazing simple truth in statistics: most commonly used statistical tests (t-test, related analysis, ANOVA, calculator tests, etc.) are exceptions to linear models.</p>
 </blockquote>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/09/04/linear-regression-basics-notes/">Linear regression base: linear model, minimum 2x2 estimate and regression diagnosis</a>、<a href="/en/blog/2025/09/23/advanced-linear-regression-notes/">Linear regression step: proposed alignment, model selection and co-line Sex</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h1>Common statistical tests are linear models</h1>
 <h2>Core concept: Linearness of everything</h2>
 <p>Most commonly used statistical models (t-test, coordination, ANOVA; chi-square, etc.) are either linear models or similar ones. We do not have to remember the assumptions and formulas of each test in the back, because they can be attributed to the formulas that were taught in high school:</p>

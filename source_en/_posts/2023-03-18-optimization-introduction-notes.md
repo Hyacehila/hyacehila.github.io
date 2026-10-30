@@ -27,7 +27,6 @@ translation_source_hash: f99666c9c1385edf6cc81ed6890419a31733bb4afc356fb263a5bd1
 
 <h2>Introduction</h2>
 <p>Presentation of optimization issues and addition of some of the most basic knowledge reserves</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/03/16/mathematical-analysis-limits-continuity-notes/">Mathematical analysis: the theory of limits and continuity</a>、<a href="/en/blog/2023/03/17/advanced-algebra-foundations-notes/">Higher algebra: the basis of the meta-mathematics</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h3>On the issue of optimization</h3>
 <p>The most important aspect of mathematical modelling is that it is often combined with mathematical and computer numerical methods.
 The general optimization problem is reflected in <strong>The polar question of the target function under binding conditions</strong> And the tools in math analysis are often unmanageable.

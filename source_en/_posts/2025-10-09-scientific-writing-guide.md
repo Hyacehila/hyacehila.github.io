@@ -27,7 +27,6 @@ translation_source_hash: 1eca47a37e4e182990167f9724ff1285e999534309f1edb070b5bba
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <h2>Introduction</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2025/09/04/research-theory-and-practice/">Scientific theory and practical experience</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h3>What's good science writing?</h3>
 <ol>
 <li><strong>Clear and effective communication</strong>（Communication Clearly and Effectively）</li>

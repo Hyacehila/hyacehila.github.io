@@ -31,7 +31,6 @@ In math analysis, we need to not only learn to calculate, but understand the ide
 <h3>Gather!</h3>
 <h4>Some basic learning review of the collection</h4>
 <p>And basically, every book will mention it.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2023/03/18/real-analysis-notes/">Realistic functions: collection and point set, measure and detectability</a>、<a href="/en/blog/2023/09/11/functional-analysis-notes/">General analysis of communications: measuring space, tightness and severability</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p><strong>Definition of a collectivity: a collective of specific or abstract objects of a particular nature</strong>  These objects are called the elements of the assembly.
 &#36;&#36;x \in S ~~~~ x \notin S  &#36;&#36;
 Common collections

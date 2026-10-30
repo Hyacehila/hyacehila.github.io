@@ -23,7 +23,6 @@ translation_source_hash: 3b2831dca8c49f1ac8ff4cbd09ed502d4868beedabc3c59c0f174e5
 
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/10/statistics-and-truth/">Statistics and Truth: How to use the accident (Statistics and Truth)</a>、<a href="/en/blog/2026/02/04/benfords-law-and-statistical-fraud/">Figures don't lie, but the liars make them up: talk about statistical fraud from Benford's particular law.</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <h2>Introduction: Deceptiveness of values</h2>
 <p>In data science and statistics, beginners are often caught in the wrong direction:<strong>Overdependence on numerical indicators (Metrics) ignores the distribution patterns of data.</strong></p>
 <p>When data are available, averages, differences and related coefficients are calculated immediately, and even the regression model is applied directly. The view that earlier was popular in the statistical community:&quot;The numerical calculations are accurate and the charts are not very useful.&quot;（Numerical calculations are exact, but graphs are rough）。</p>

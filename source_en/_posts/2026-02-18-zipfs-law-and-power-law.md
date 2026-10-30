@@ -24,7 +24,6 @@ translation_source_hash: ccb1ea20dfa45ab6f988df3b01e8eaef300d2cef20358b831d347ec
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <h2>Quote: Is that a lie?</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/01/10/statistics-and-truth/">Statistics and Truth: How to use the accident (Statistics and Truth)</a>、<a href="/en/blog/2026/01/14/anscombes-quartet/">Anscom Quartet: Visualized power and statistical illusion</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>In 1912, the Polish bookkeeper Wilfrid Voynich bought a mysterious manuscript in Italy. The book is full of strange plant illustrations, astrometric charts and naked bathing women, and, more importantly, it is written in a text that has never been seen on Earth.</p>
 <p>That's famous. <strong>Voynich Manuscript</strong>。</p>
 <p>For a century, top coders, including experts in the Enigma code, have tried to untangle it, but have found nothing. Some start to wonder: Is this a medieval charade that some medieval liar drew to cheat money? It doesn't mean anything?</p>

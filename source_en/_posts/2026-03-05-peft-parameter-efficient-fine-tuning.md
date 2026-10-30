@@ -27,7 +27,6 @@ translation_source_hash: a49ae18668129324c7fd5c4b98a71dd8335efdd39d77654530a590b
 <aside class="translation-notice" role="note">This English version was machine-translated from the Chinese original. Technical terms may require verification.</aside>
 
 <h2>Why do you need to fine-tune the parameters efficiently?</h2>
-<p>The questions in this article can also be addressed<a href="/en/blog/2025/12/27/Re0HF-01/">Re0-01 : HuggingFace Transformers Trainer</a>、<a href="/en/blog/2024/11/01/llm-post-training-and-finetuning/">Post-linguistic training and fine-tuning of practice: from SFT, LoRA to human alignment</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>Full Fine-Tuning is usually a good effect of large language models, but computing and storing costs will increase rapidly with model size. To fit downstream missions with limited resources, researchers proposed the high-efficiency fine-tuning of parameters (Parameter-Efficient Fine-Tuning, PEFT) technology: freeze most pre-training parameters, train only a few newly introduced or re-parametric modules and use lower-cost effects to approach full fine-tuning.</p>
 <p>This paper summarizes the design ideas and technical features of several representative methods in the PEFT field.</p>
 <h2>Adapter: Insert training modules into layers</h2>

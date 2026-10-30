@@ -13,7 +13,6 @@ permalink: '/blog/2026/02/14/application-of-statistics-and-applied-statistics/'
 > "Statistics represents the science of learning from data."  
 > 统计学本应是关于从数据中学习的科学。
 
-这篇文章中的问题也可以和[The Statistical Crisis in Science](/blog/2026/01/24/the-statistical-crisis-in-science/)、[科研理论与实践经验](/blog/2025/09/04/research-theory-and-practice/)放在一起阅读，以比较相近的概念如何在不同语境中展开。
 
 在大数据与人工智能尤其是生成式AI席卷全球的今天，我们经常听到这样的争论：统计学是否通过了时代的考验？统计学是否因为无法处理大数据而过时了？
 

@@ -30,7 +30,6 @@ translation_source_hash: fa5628e775ed346e0bae8c8c8d6ccbf38cb33ea88a382d798e3e36a
 <p>As AI and agents take on execution, our own agency expands. The question is whether organizations are built to capture it.</p>
 <p><em>Microsoft, 2026 Work Trend Index Annual Report: “Agents, human agency, and the opportunity for every organization”</em></p>
 </blockquote>
-<p>The questions in this article can also be addressed<a href="/en/blog/2026/07/14/ai-app-startups-sell-outcomes/">AI Application of entrepreneurship: from selling tools to selling results</a>、<a href="/en/blog/2026/03/18/model-is-good-enough/">Model Is Good End: 2026, AI, which is really scarce, is an application rather than a larger model.</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>The last article was a little broader, concerned about how AI gets into people's daily work. This one narrows the camera, looking only at the company.</p>
 <p>It is now common in businesses: employees already write emails, check information, analyze it with AI; developers also give the clear border to Coding Agent. But at the corporate level, the conclusion is often reversed: accounts are opened up, and demo does, and there are few projects that can be counted with value, responsibility and cost.</p>
 <p>That's not contradictory. A person who has changed tools does not mean that the company has changed the way it does things.</p>

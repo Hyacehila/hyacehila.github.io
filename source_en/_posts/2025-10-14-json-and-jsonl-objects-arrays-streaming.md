@@ -23,7 +23,6 @@ translation_source_hash: c0736d7c94ebee85a1e83b7e86801393f92a2fa3c33bc860abe37e8
 
 <h2>What's JSON?</h2>
 <p>JS = JavaScript; ON =Object Notation, so JSON means the JavaScript object symbol system, but he already has almost all language versions that are used in any time that both machines and humans are required to read twice.<code>.json</code> It means as a suffix.</p>
-<p>The questions in this article can also be addressed<a href="/en/blog/2025/10/14/yaml-format-usage-learning-notes/">YAML Format and Usage Speed</a>、<a href="/en/blog/2024/07/29/sql-learning-notes/">SQL Foundation: Query, Aggregation, JOIN and Window Functions</a>How the concept of a relatively close read together is developed in different contexts.</p>
 <p>JSON uses <code>{}</code>As a core object, a symbol, and using all key values for tissue data, we use commas to separate the columns within an object, except for the last.</p>
 <pre><code class="language-json">{
 &quot;name&quot; : &quot;Jake&quot;, //这是一个普通字符串
