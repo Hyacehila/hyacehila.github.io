@@ -86,6 +86,7 @@ home_banner:
       - Welcome to my blog.
       - Stay awhile; there are small ideas being assembled here.
       - What I cannot create, I do not understand. - Richard Feynman
+      - Ask interesting questions. Build something new.
     hitokoto:
       enable: false
     typing_speed: 100
