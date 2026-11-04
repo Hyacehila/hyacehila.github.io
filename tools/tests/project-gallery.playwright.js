@@ -19,6 +19,12 @@ async (page) => {
  check(await page.locator('.gallery-title a').count()===0,'titles do not navigate');
  for(let i=0;i<5;i++) {
   const paragraph=page.locator('.gallery-description').nth(i),button=paragraph.locator('button');
+  const narrative=await paragraph.locator('.gallery-full').textContent();
+  const preview=await paragraph.locator('.gallery-preview').textContent();
+  check(Array.from(narrative).length>=200&&Array.from(narrative).length<=300,`card ${i+1}: full narrative is 200–300 characters`);
+  check(Array.from(preview).length>=85&&Array.from(preview).length<100&&preview.endsWith('…'),`card ${i+1}: preview is under 100 characters with ellipsis`);
+  check(narrative.startsWith(preview.slice(0,-1))&&!/[。！？.!?]$/.test(preview.slice(0,-1)),`card ${i+1}: preview truncates the original narrative mid-sentence`);
+
   await paragraph.locator('.gallery-preview').click();
   check(await button.getAttribute('aria-expanded')==='false',`card ${i+1}: description text does not expand`);
   await button.click();check(await button.getAttribute('aria-expanded')==='true',`card ${i+1}: button expands`);
@@ -41,7 +47,8 @@ async (page) => {
  await page.mouse.move(0,0);
  await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
  await page.screenshot({path:'output/playwright/projects-dark.png',fullPage:true});
- await page.evaluate(()=>{document.documentElement.classList.remove('dark');document.querySelectorAll('[data-i18n]').forEach(e=>{const v=window.I18N.en[e.dataset.i18n];if(v)e.innerHTML=v;});});
+ await page.evaluate(()=>{document.documentElement.classList.remove('dark');document.querySelectorAll('[data-i18n]').forEach(e=>{const v=window.I18N.en[e.dataset.i18n];if(v)e.innerHTML=v;});document.dispatchEvent(new CustomEvent('i18n:applied'));});
+ check(await page.locator('.gallery-preview').first().textContent()===(await page.locator('.gallery-full').first().textContent()).slice(0,92).replace(/[，。；！？、,.!?;:\s]+$/u,'')+'…','language update regenerates preview from translated full text');
  await page.screenshot({path:'output/playwright/projects-english.png',fullPage:true});
  await page.setViewportSize({width:640,height:1000});
  check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'English narrow layout does not overflow');
