@@ -1,5 +1,13 @@
 # 项目视觉卡片 Demo
 
+## 新增网页整理项目（2026-11-04）
+
+新增 LaterOn 与 AutoTabGroups 两张独立卡片，中英文介绍分别突出独立项目资料库与 Chrome 原生标签组，并说明两种使用方式的关联，不宣称共享代码或数据。原有三个项目的介绍未在本轮重写，沿用四行摘要、展开与封面外链交互。
+
+文案依据：LaterOn 的 AI 功能位于 [codex/ai-tab-organization 分支 README](https://github.com/Hyacehila/LaterOn/blob/codex/ai-tab-organization/README.md)，主分支 README 尚未包含这部分；[AutoTabGroups README](https://github.com/Miraclexc/AutoTabGroups/blob/main/README.md) 说明原生分组、网页读取、归组判断和撤销。卡片按用户提供的仓库根地址链接。
+
+两张概念封面由内置 imagegen 生成，保存于 `source/assets/images/projects/lateron.png` 与 `source/assets/images/projects/autotabgroups.png`，不是产品截图。提示词记录在 `.codex-artifacts/gallery-tab-tools-prompts.json`；延续象牙白纸张、磨砂玻璃、黄铜和蓝灰配色，分别以档案盒与阅读透镜、同一玻璃框内的分组标签为主题。
+
 ## 项目列表精简（2026-11-04）
 
 移除“可穿戴心理健康研究”和“中国居民健康测度”的中英文卡片、gallery 翻译键及专用封面。当前仅展示 Lenny Compass、AnalysisPosts 和 Novel Evaluation；浏览器验证同步按三张卡片执行。下方五个项目的描述为此前版本的历史记录。

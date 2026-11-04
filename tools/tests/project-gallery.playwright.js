@@ -4,13 +4,13 @@ async (page) => {
  await page.emulateMedia({reducedMotion:'no-preference'});
  await page.goto('http://localhost:4000/projects/');
  await page.locator('.gallery-card').first().waitFor();
- check(await page.locator('.gallery-card').count()===3,'only the three retained projects are shown');
+ check(await page.locator('.gallery-card').count()===5,'all five projects are shown');
  for(const width of [1440,1024,768,390,320]) {
   await page.setViewportSize({width,height:1000});
   await page.locator('.gallery-card').last().scrollIntoViewIfNeeded();
   await page.evaluate(()=>document.fonts.ready);
   const state=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,columns:getComputedStyle(document.querySelector('.gallery-grid')).gridTemplateColumns.split(' ').length,images:[...document.querySelectorAll('.gallery-cover img')].every(i=>i.complete&&i.naturalWidth>0)}));
-  check(!state.overflow,`${width}: no horizontal overflow`);check(state.images,`${width}: all three covers loaded`);
+  check(!state.overflow,`${width}: no horizontal overflow`);check(state.images,`${width}: all five covers loaded`);
   check(state.columns===(width>=1440?3:width>=768?2:1),`${width}: expected column count (${state.columns})`);
   await page.evaluate(()=>window.scrollTo(0,0));
   await page.screenshot({path:`output/playwright/projects-${width}.png`,fullPage:true});
@@ -18,7 +18,7 @@ async (page) => {
  await page.setViewportSize({width:1440,height:1000});
  check(await page.locator('.gallery-category,.gallery-index,.gallery-footer,.gallery-count').count()===0,'keywords, numbering and footer actions removed');
  check(await page.locator('.gallery-title a').count()===0,'titles do not navigate');
- for(let i=0;i<3;i++) {
+ for(let i=0;i<5;i++) {
   const paragraph=page.locator('.gallery-description').nth(i),button=paragraph.locator('button');
   const narrative=await paragraph.locator('.gallery-full').textContent();
   const preview=await paragraph.locator('.gallery-preview').textContent();
@@ -42,14 +42,17 @@ async (page) => {
  await page.waitForFunction(()=>getComputedStyle(document.querySelector('.gallery-card')).transform==='none');
  check(true,'card settles back after pointer leaves');
  check(page.url()==='http://localhost:4000/projects/','expand controls never navigate');
- const link=page.locator('.gallery-link').first();
- check(await link.getAttribute('href')==='https://github.com/Hyacehila/AnalysisPosts','correct external project destination');
+ const link=page.locator('.gallery-link').nth(1);
+ check(await page.locator('.gallery-link').nth(3).getAttribute('href')==='https://github.com/Hyacehila/LaterOn','LaterOn repository link');
+ check(await page.locator('.gallery-link').nth(4).getAttribute('href')==='https://github.com/Miraclexc/AutoTabGroups','AutoTabGroups repository link');
+ check(await page.locator('.gallery-link').first().getAttribute('href')==='https://github.com/Hyacehila/lenny-compass','Lenny Compass links to its repository');
+ check(await link.getAttribute('href')==='https://github.com/Hyacehila/Tweets2Insights','correct external project destination');
  await page.context().route('https://github.com/**',route=>route.fulfill({status:200,body:'External navigation verified'}));
- await page.locator('.gallery-card').nth(1).scrollIntoViewIfNeeded();
+ await page.locator('.gallery-card').first().scrollIntoViewIfNeeded();
  const popupPromise=page.waitForEvent('popup');
- const cover=await page.locator('.gallery-card').nth(1).locator('.gallery-cover').boundingBox(); await page.mouse.click(cover.x+cover.width/2,cover.y+cover.height/2);
- const popup=await popupPromise;await popup.waitForLoadState();check(popup.url()==='https://github.com/Hyacehila/AnalysisPosts','cover opens correct external tab');await popup.close();
- check(await page.locator('a.gallery-cover').count()===2,'only the two known project images link externally');
+ const cover=await page.locator('.gallery-card').first().locator('.gallery-cover').boundingBox(); await page.mouse.click(cover.x+cover.width/2,cover.y+cover.height/2);
+ const popup=await popupPromise;await popup.waitForLoadState();check(popup.url()==='https://github.com/Hyacehila/lenny-compass','cover opens correct external tab');await popup.close();
+ check(await page.locator('a.gallery-cover').count()===5,'all five project images link to their repositories');
  // Dismiss the theme's existing image viewer before capturing page themes.
  await page.keyboard.press('Escape');
  await page.evaluate(()=>{window.scrollTo(0,0);document.documentElement.classList.add('dark');});
