@@ -27,18 +27,6 @@ comments: false
 <h2 class="gallery-title not-markdown" id="gallery-novel-eval-title"><span data-i18n="gallery-novel-eval-title">Novel Evaluation</span></h2>
 <p class="gallery-description" id="gallery-novel-eval-description"><span class="gallery-preview" hidden></span><span class="gallery-full" data-i18n="gallery-novel-eval-desc">为小说提供标准明确、分项可查的评测报告，帮助读者理解评分依据，并在不同作品之间复用评测方案。这套本地大模型评测系统会先筛查输入、选择分析模式并识别作品类型，再按八个维度评分，补充针对作品类型的评估，检查结果的一致性后汇总报告。使用者可以查看各项判断、调整提示词和评测标准，并通过历史记录比较结果。系统还支持任务创建、批量评测、输出格式校验与回归检查，便于反复检验方案是否稳定。评测的重点是呈现可以讨论和修改的判断依据，让总分背后的取舍有迹可循。</span> <button class="gallery-toggle" type="button" aria-expanded="true" aria-controls="gallery-novel-eval-description" hidden><span class="gallery-more" data-i18n="gallery-more">展开</span><span class="gallery-less" data-i18n="gallery-less">收起</span></button></p>
 </div></article>
-<article class="gallery-card" style="--card-order:3">
-<div class="gallery-cover"><img class="not-markdown" src="/assets/images/projects/mental-health.webp" alt="" width="960" height="640" loading="lazy" decoding="async"></div>
-<div class="gallery-body">
-<h2 class="gallery-title not-markdown" id="gallery-mental-health-title"><span data-i18n="gallery-mental-health-title">可穿戴心理健康研究</span></h2>
-<p class="gallery-description" id="gallery-mental-health-description"><span class="gallery-preview" hidden></span><span class="gallery-full" data-i18n="gallery-mental-health-desc">探索用可穿戴设备的日常记录预测心理健康状态，为阶段性问卷之外的状态观察提供数据依据。项目将生理与行为信号整理成可用于建模的数据，从四年观测记录中筛选四十三个变量，构建约三万行的多时间尺度数据集，处理缺失值、离群值和偏态分布。随后建立线性回归、随机森林与梯度提升模型，通过集成学习结合预测结果，并用网格搜索调整超参数，形成从原始记录到状态预测的完整流程。这项研究用于分析可穿戴信号与心理健康状态的关系，项目获得国家级大学生创新创业训练计划支持，于二〇二四年五月结题。</span> <button class="gallery-toggle" type="button" aria-expanded="true" aria-controls="gallery-mental-health-description" hidden><span class="gallery-more" data-i18n="gallery-more">展开</span><span class="gallery-less" data-i18n="gallery-less">收起</span></button></p>
-</div></article>
-<article class="gallery-card" style="--card-order:4">
-<div class="gallery-cover"><img class="not-markdown" src="/assets/images/projects/health-metrics.webp" alt="" width="960" height="640" loading="lazy" decoding="async"></div>
-<div class="gallery-body">
-<h2 class="gallery-title not-markdown" id="gallery-health-metrics-title"><span data-i18n="gallery-health-metrics-title">中国居民健康测度</span></h2>
-<p class="gallery-description" id="gallery-health-metrics-description"><span class="gallery-preview" hidden></span><span class="gallery-full" data-i18n="gallery-health-metrics-desc">把分散的居民健康数据整理成可比较、可解释的综合指标，并分析与健康水平相关的影响因素。项目整合国家统计局与商业数据库中的健康指标，结合医疗研究主题的变化信息，用主成分分析梳理指标间的关联，根据实际含义选取两个主要成分，减少单项指标难以反映整体状况的问题。再通过稀疏回归筛选相关因素，利用网格搜索平衡模型拟合程度与变量数量，为后续比较和分析提供依据。最终模型拟合优度约为零点八九，项目获得全国大学生统计建模大赛赛区一等奖。结果用于解释数据中的关联，供进一步研究与检验。</span> <button class="gallery-toggle" type="button" aria-expanded="true" aria-controls="gallery-health-metrics-description" hidden><span class="gallery-more" data-i18n="gallery-more">展开</span><span class="gallery-less" data-i18n="gallery-less">收起</span></button></p>
-</div></article>
 </div></section>
 
 <script defer src="/assets/js/project-gallery.js"></script>

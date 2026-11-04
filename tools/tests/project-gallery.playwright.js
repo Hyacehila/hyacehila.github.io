@@ -4,12 +4,13 @@ async (page) => {
  await page.emulateMedia({reducedMotion:'no-preference'});
  await page.goto('http://localhost:4000/projects/');
  await page.locator('.gallery-card').first().waitFor();
+ check(await page.locator('.gallery-card').count()===3,'only the three retained projects are shown');
  for(const width of [1440,1024,768,390,320]) {
   await page.setViewportSize({width,height:1000});
   await page.locator('.gallery-card').last().scrollIntoViewIfNeeded();
   await page.evaluate(()=>document.fonts.ready);
   const state=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,columns:getComputedStyle(document.querySelector('.gallery-grid')).gridTemplateColumns.split(' ').length,images:[...document.querySelectorAll('.gallery-cover img')].every(i=>i.complete&&i.naturalWidth>0)}));
-  check(!state.overflow,`${width}: no horizontal overflow`);check(state.images,`${width}: all five covers loaded`);
+  check(!state.overflow,`${width}: no horizontal overflow`);check(state.images,`${width}: all three covers loaded`);
   check(state.columns===(width>=1440?3:width>=768?2:1),`${width}: expected column count (${state.columns})`);
   await page.evaluate(()=>window.scrollTo(0,0));
   await page.screenshot({path:`output/playwright/projects-${width}.png`,fullPage:true});
@@ -17,7 +18,7 @@ async (page) => {
  await page.setViewportSize({width:1440,height:1000});
  check(await page.locator('.gallery-category,.gallery-index,.gallery-footer,.gallery-count').count()===0,'keywords, numbering and footer actions removed');
  check(await page.locator('.gallery-title a').count()===0,'titles do not navigate');
- for(let i=0;i<5;i++) {
+ for(let i=0;i<3;i++) {
   const paragraph=page.locator('.gallery-description').nth(i),button=paragraph.locator('button');
   const narrative=await paragraph.locator('.gallery-full').textContent();
   const preview=await paragraph.locator('.gallery-preview').textContent();
