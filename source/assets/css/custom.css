@@ -1957,8 +1957,6 @@ body:has(.comments-page) iframe.utterances-frame {
   --gallery-cover-bg:#253341;
   --gallery-image-filter:brightness(.86) saturate(.9);
 }
-.project-gallery .gallery-intro { margin:0 0 28px; }
-.project-gallery .gallery-intro p { margin:0; font-size:16px; line-height:1.7; }
 .gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; align-items:start; }
 .project-gallery .gallery-card {
   min-width:0; border:1px solid var(--gallery-border); border-radius:16px;

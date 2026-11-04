@@ -8,7 +8,6 @@ comments: false
 ---
 
 <section class="projects-page project-gallery" aria-label="Projects">
-<div class="gallery-intro"><p data-i18n="gallery-intro">一些把想法变成工具、把问题变成研究的尝试。</p></div>
 <div class="gallery-grid">
 <article class="gallery-card" style="--card-order:0">
 <div class="gallery-cover"><img class="not-markdown" src="/assets/images/projects/lenny-compass.webp" alt="" width="960" height="640" loading="lazy" decoding="async"></div>
