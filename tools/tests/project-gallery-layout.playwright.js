@@ -16,6 +16,13 @@ async (page) => {
    await page.evaluate(d=>document.documentElement.classList.toggle('dark',d),dark);
    for(const width of [1440,1024,768,390,320]) {
     await page.setViewportSize({width,height:1000});await equal();
+    const geometry=await page.locator('.gallery-description').evaluateAll(es=>es.map(p=>{
+     const b=p.querySelector('button').getBoundingClientRect(), box=p.getBoundingClientRect();
+     const range=document.createRange();range.selectNodeContents(p.querySelector('.gallery-preview'));
+     const rects=[...range.getClientRects()];const last=rects[rects.length-1];
+     return {right:Math.abs(box.right-b.right),bottom:Math.abs(box.bottom-b.bottom),lines:box.height/parseFloat(getComputedStyle(p).lineHeight),overlap:last.right>b.left+.5,lastLine:Math.abs((last.top+last.bottom)/2-(b.top+b.bottom)/2)};
+    }));
+    if(geometry.some(g=>g.right>1||g.bottom>1||Math.abs(g.lines-4)>.1||g.overlap||g.lastLine>5))throw Error(JSON.stringify({lang,dark,width,geometry}));
     const before=await page.locator('.gallery-card').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().height));
     await page.locator('.gallery-toggle').first().click();
     const opened=await page.locator('.gallery-card').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().height));
@@ -37,6 +44,21 @@ async (page) => {
  await page.setViewportSize({width:390,height:1000});await equal();
  await page.screenshot({path:'output/playwright/projects-equal-mobile.png',fullPage:true});
  await page.setViewportSize({width:1440,height:1000});await equal();
+ await page.evaluate(()=>{document.documentElement.style.zoom='2';window.dispatchEvent(new Event('resize'));});await equal();
+ const zoom=await page.locator('.gallery-description').evaluateAll(es=>es.map(p=>{
+  const b=p.querySelector('button').getBoundingClientRect(),box=p.getBoundingClientRect();
+  const range=document.createRange();range.selectNodeContents(p.querySelector('.gallery-preview'));
+  const rects=[...range.getClientRects()],last=rects[rects.length-1];
+  return Math.abs(box.right-b.right)<1&&Math.abs(box.bottom-b.bottom)<1&&last.right<=b.left+.5&&Math.abs((last.top+last.bottom-b.top-b.bottom)/2)<10;
+ }));
+ if(zoom.some(v=>!v)||await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('200% zoom alignment or overflow');
+ await page.screenshot({path:'output/playwright/projects-zoom-200.png',fullPage:true});
+ await page.locator('.gallery-toggle').first().click();
+ if(!await page.locator('.gallery-full').first().isVisible())throw Error('200% zoom expansion');
+ await page.screenshot({path:'output/playwright/projects-expanded-zoom.png',fullPage:true});
+ await page.locator('.gallery-toggle').first().click();
+ await page.evaluate(()=>{document.documentElement.style.zoom='';window.dispatchEvent(new Event('resize'));});await equal();
+ results.push({zoom:'200%',alignment:true,expansion:true});
  return results;
 }
 

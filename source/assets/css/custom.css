@@ -1971,8 +1971,12 @@ body:has(.comments-page) iframe.utterances-frame {
 .project-gallery .gallery-title { margin:0 0 10px !important; padding:0; border:0; font-size:21px; font-weight:600; color:var(--gallery-title); line-height:1.35; letter-spacing:-.025em; overflow-wrap:anywhere; }
 .project-gallery .gallery-title::before,.project-gallery .gallery-title::after { display:none; }
 .markdown-body .project-gallery .gallery-description { margin:0; font-size:14px; line-height:1.85; color:var(--gallery-text); }
+.project-gallery .gallery-description { position:relative; overflow-wrap:anywhere; }
+.project-gallery .gallery-collapsed { height:var(--gallery-preview-height); }
+.project-gallery .gallery-collapsed .gallery-toggle { position:absolute; right:0; bottom:0; }
+.project-gallery .gallery-text-measure { position:absolute; visibility:hidden; pointer-events:none; height:auto; }
 .project-gallery .gallery-toggle {
-  display:inline; margin:0; padding:3px 4px; border:0; border-radius:4px;
+  display:inline; margin:0; padding:0 4px; border:0; border-radius:4px;
   color:var(--gallery-action); background:none; font:inherit; white-space:nowrap; cursor:pointer;
   text-decoration:underline; text-underline-offset:3px;
 }
