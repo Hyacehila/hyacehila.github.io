@@ -1930,6 +1930,19 @@ body:has(.comments-page) iframe.utterances-frame {
 }
 
 /* Project gallery: image link and inline disclosure are separate controls. */
+@media (max-width:767px) {
+  .page-template-container:has(.project-gallery) {
+    padding:24px clamp(16px, 4vw, 24px);
+  }
+  .page-template-container:has(.project-gallery) .page-template-content > h1:first-child {
+    margin:0 0 24px;
+    font-size:28px;
+    line-height:1.3;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+  .page-template-container .project-gallery { margin-top:0; }
+}
 .project-gallery {
   container-type:inline-size;
   --gallery-surface:rgba(250,252,255,.96);
