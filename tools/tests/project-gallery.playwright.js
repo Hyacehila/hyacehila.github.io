@@ -1,6 +1,7 @@
 async (page) => {
  const results=[];
  const check=(ok,label)=>{if(!ok)throw Error(label);results.push(label);};
+ await page.emulateMedia({reducedMotion:'no-preference'});
  await page.goto('http://localhost:4000/projects/');
  await page.locator('.gallery-card').first().waitFor();
  for(const width of [1440,1024,768,390,320]) {
@@ -14,12 +15,19 @@ async (page) => {
   await page.screenshot({path:`output/playwright/projects-${width}.png`,fullPage:true});
  }
  await page.setViewportSize({width:1440,height:1000});
+ check(await page.locator('.gallery-category,.gallery-index,.gallery-footer,.gallery-count').count()===0,'keywords, numbering and footer actions removed');
+ check(await page.locator('.gallery-title a').count()===0,'titles do not navigate');
  for(let i=0;i<5;i++) {
-  const details=page.locator('.gallery-details').nth(i);const summary=details.locator('summary');
-  await summary.click();check(await details.getAttribute('open')!==null,`card ${i+1}: expands`);
-  check(await details.locator('.gallery-description').evaluate(e=>e.scrollHeight<=e.clientHeight+1),`card ${i+1}: full description visible`);
-  await summary.focus();await page.keyboard.press('Enter');check(await details.getAttribute('open')===null,`card ${i+1}: keyboard collapses`);
+  const paragraph=page.locator('.gallery-description').nth(i),button=paragraph.locator('button');
+  await paragraph.locator('.gallery-preview').click();
+  check(await button.getAttribute('aria-expanded')==='false',`card ${i+1}: description text does not expand`);
+  await button.click();check(await button.getAttribute('aria-expanded')==='true',`card ${i+1}: button expands`);
+  check(await paragraph.locator('.gallery-full').isVisible(),`card ${i+1}: full description visible`);
+  await button.focus();await page.keyboard.press('Enter');check(await button.getAttribute('aria-expanded')==='false',`card ${i+1}: keyboard collapses`);
  }
+ await page.locator('.gallery-card').first().hover();
+ await page.waitForFunction(()=>Number(getComputedStyle(document.querySelector('.gallery-card')).transform.split(',')[5]?.replace(')','')) < -4);
+ check(true,'card hover lifts the whole card');
  check(page.url()==='http://localhost:4000/projects/','expand controls never navigate');
  const link=page.locator('.gallery-link').first();
  check(await link.getAttribute('href')==='https://github.com/Hyacehila/AnalysisPosts','correct external project destination');
@@ -28,7 +36,7 @@ async (page) => {
  const popupPromise=page.waitForEvent('popup');
  const cover=await page.locator('.gallery-card').nth(1).locator('.gallery-cover').boundingBox(); await page.mouse.click(cover.x+cover.width/2,cover.y+cover.height/2);
  const popup=await popupPromise;await popup.waitForLoadState();check(popup.url()==='https://github.com/Hyacehila/AnalysisPosts','cover opens correct external tab');await popup.close();
- check(await page.locator('.gallery-link').count()===2,'no invented links for unpublished projects');
+ check(await page.locator('a.gallery-cover').count()===2,'only the two known project images link externally');
  await page.evaluate(()=>{window.scrollTo(0,0);document.documentElement.classList.add('dark');});
  await page.mouse.move(0,0);
  await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
@@ -39,11 +47,11 @@ async (page) => {
  check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'English narrow layout does not overflow');
  await page.screenshot({path:'output/playwright/projects-english-narrow.png',fullPage:true});
  await page.emulateMedia({reducedMotion:'reduce'});
- check(await page.locator('.gallery-card').first().evaluate(e=>getComputedStyle(e).animationName)==='none','reduced motion disables entrance animation');
+ check(await page.locator('.gallery-card').first().evaluate(e=>getComputedStyle(e).transitionDuration)==='0s','reduced motion disables transitions');
  const context=await page.context().browser().newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});
  const plain=await context.newPage();await plain.goto('http://localhost:4000/projects/');
  check(await plain.locator('.gallery-title').first().innerText()==='Lenny Compass','no-JS content remains readable');
- await plain.locator('.gallery-details summary').first().click();check(await plain.locator('.gallery-details').first().getAttribute('open')!==null,'no-JS expansion works');await context.close();
+ check(await plain.locator('.gallery-full').first().isVisible(),'no-JS full description remains readable');check(await plain.locator('.gallery-toggle').first().isHidden(),'no-JS inactive toggle hidden');await context.close();
  return results;
 }
 
