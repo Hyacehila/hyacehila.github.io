@@ -49,3 +49,9 @@
 悬浮参考 https://tailwindcss.com/docs/hover-focus-and-other-states 与 https://tailwindcss.com/docs/transition-property ，采用克制的上浮、阴影、边框和图片缩放。
 
 本轮完整构建及 i18n、搜索、SEO、publication 检查通过；浏览器 47 项断言通过，覆盖五档宽度、图片唯一跳转入口、正文点击不展开、按钮展开与键盘收起、整体卡片 hover、英文排版、减少动态效果及无 JS 完整正文降级。主 Agent 检查桌面、手机与展开截图，确认段末按钮排版及卡片悬浮效果。截图与日志保存在 `.codex-artifacts/project-gallery-refined/`。
+
+## 明暗配色细化（2026-11-04）
+
+卡片使用局部颜色变量，明亮模式为冷白卡面、深蓝灰标题与正文、深蓝操作文字；暗黑模式为深蓝灰卡面、浅灰正文、浅蓝操作文字。两种模式分别定义边框、hover 阴影与键盘焦点色；暗黑封面使用 brightness(.86) saturate(.9)，减弱亮图与暗色背景的反差，图片源文件不变。只涉及项目区域 CSS，不修改全站主题切换。
+
+已在 1440px / 390px 检查明暗模式，并验证 hover、键盘展开与收起。考虑卡片透明背景在纯黑及纯白底上的合成结果，标题/正文/展开按钮最低文字对比度：亮色 11.54 / 6.78 / 6.16，暗色 12.48 / 8.20 / 8.84；均高于 4.5:1。截图及验证日志归档于 `.codex-artifacts/project-gallery-colors/`。本轮仅样式调整，完成浏览器定向验证与 diff 检查，没有重复全站构建。
