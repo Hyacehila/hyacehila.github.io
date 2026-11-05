@@ -5,7 +5,7 @@ date: 2025-11-12 16:04:37 +0800
 permalink: /blog/2025/11/12/sampling-survey-notes/
 categories:
 - Data Science
-- Data Practice
+- Statistical Modeling & Inference
 tags:
 - Statistics
 - Sampling

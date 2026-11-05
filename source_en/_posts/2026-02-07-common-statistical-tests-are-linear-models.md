@@ -4,7 +4,7 @@ title_zh: 常见的统计检验本质上都是线性模型 (Common statistical t
 date: 2026-02-07 12:00:00 +0800
 categories:
 - Data Science
-- Statistical Modeling & Inference
+- Statistical Thinking
 tags:
 - Linear Models
 - Repost
