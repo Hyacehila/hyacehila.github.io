@@ -225,7 +225,7 @@ translation_source_hash: 3b2831dca8c49f1ac8ff4cbd09ed502d4868beedabc3c59c0f174e5
 <p>The caution of Francis Anskum, which was expressed 50 years ago, remains valid in today ' s big data age. The more common automation machine learning (AutoML) and black box models are, the more easily people lose sight of the raw data.</p>
 <p><strong>Do not rely on statistics without charts. No, I'm not.</strong></p>
 <p>I'm pressing it. &quot;Run Model&quot; button, draw a picture. This is both a good working habit and a first confirmation that the data really support subsequent inferences.</p>
-<h2>Appendix: Python Code Achieved</h2>
+<h2>Appendix</h2>
 <p>If you want to reproduce the four sets of data and charts in person, you can use the following Python code:</p>
 <pre><code class="language-python">import matplotlib.pyplot as plt
 import numpy as np
