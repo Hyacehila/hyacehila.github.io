@@ -526,25 +526,25 @@ body:has(.me-page) .page-template-content > h1 {
   background: linear-gradient(90deg, transparent, var(--me-border), transparent);
 }
 
-.me-section-title {
+.page-template-container .page-template-content .me-page .me-section-title {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 14px;
   margin: 0 0 1.25rem !important;
-  font-size: clamp(1.45rem, 3.2vw, 2.05rem);
-  line-height: 1.18;
-  font-weight: 820;
+  font-size: 32px;
+  line-height: 1.25;
+  font-weight: 650;
 }
 
 .me-section-icon {
   display: inline-flex;
-  flex: 0 0 34px;
+  flex: 0 0 48px;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 48px;
+  height: 48px;
   border: 1px solid var(--me-border);
-  border-radius: 8px;
+  border-radius: 10px;
   color: var(--me-cyan);
   background:
     linear-gradient(135deg, rgba(79, 159, 186, 0.18), transparent 58%),
@@ -553,7 +553,7 @@ body:has(.me-page) .page-template-content > h1 {
 }
 
 .me-section-icon i {
-  font-size: 0.95rem;
+  font-size: 26px;
   line-height: 1;
 }
 
@@ -836,20 +836,20 @@ body:has(.me-page) .page-template-content > h1 {
     margin-bottom: 2rem;
   }
 
-  .me-section-title {
-    gap: 0.62rem;
+  .page-template-container .page-template-content .me-page .me-section-title {
+    gap: 12px;
+    font-size: 28px;
     margin-bottom: 1rem !important;
   }
 
   .me-section-icon {
-    flex-basis: 30px;
-    width: 30px;
-    height: 30px;
-    border-radius: 7px;
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
   }
 
   .me-section-icon i {
-    font-size: 0.84rem;
+    font-size: 24px;
   }
 
   .markdown-body .me-page .me-detail-list li,
