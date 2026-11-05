@@ -4,7 +4,7 @@ title_zh: 多元统计引论：随机向量、协方差矩阵与多元正态分�
 date: 2024-09-11 18:36:49 +0800
 categories:
 - Data Science
-- Statistical Modeling & Inference
+- Probability & Statistical Foundations
 tags:
 - Statistics
 - Multivariate Statistics
