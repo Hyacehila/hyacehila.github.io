@@ -247,7 +247,7 @@ Relative approximation is an extension of the use of this subjective information
 <h4>Relatively Appearances</h4>
 <p>This approach is generally applied to cases where the a priori distribution is in a limited range, and it is an extension of the relatively semblance of the front-end use, with the goal of obtaining a first-spectrum distribution.</p>
 <p>For example, we know that the a priori distribution is in the zone.&#36;[0,1]&#36; So, we can draw a map of the possibilities, and we'll use the smallest one as a relative one. Here's the picture. We need to regularize it.
-<img src="/assets/images/probability-statistics-notes/bayesian-statistics-posterior-distributions-notes-01.png" alt="Bayesian statistics"></p>
+<img src="/assets/images/probability-statistics-notes/bayesian-statistics-posterior-distributions-notes-01.svg" alt="Bayesian statistics"></p>
 <h4>Parity and Variable Method</h4>
 <p>The method of scoring and the method of variing are the methods of obtaining subjective probabilities based on expert advice and then processing them into probabilities curves, which are actually a continuation of the notion of subjective probabilities. </p>
 <p>The scoring method is the division of the possible range of parameters into equal lengths, and the inviting of experts in each small area to give subjective probabilities</p>

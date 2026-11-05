@@ -304,7 +304,7 @@ $$
 这种方法一般适用于先验分布落在有限区间的情况 是对前面利用相对似然性的扩展 目标是得到先验分布的草图
 
 比如 我们知道先验分布落在区间$[0,1]$ 上 那么可以根据可能性绘制似然图 一般我们会用最小似然来作为1 相对似然图如下 我们需要进行规范化才可用
-![贝叶斯统计](/assets/images/probability-statistics-notes/bayesian-statistics-posterior-distributions-notes-01.png)
+![贝叶斯统计](/assets/images/probability-statistics-notes/bayesian-statistics-posterior-distributions-notes-01.svg)
 
 #### 定分度法和变分度法
 定分度法和变分度法都是依据专家咨询得到各种主观概率 然后加工成概率曲线的方法 其实还是对主观概率思想的继续扩展 他们非常的相似 

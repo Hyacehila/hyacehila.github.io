@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-labelledby="title desc">
+  <title id="title">相对似然图</title>
+  <desc id="desc">横轴为参数 θ，纵轴为似然；五个点分别为 (0, 1)、(1/4, 1.5)、(1/2, 2)、(3/4, 3) 和 (1, 2)。</desc>
+  <rect width="640" height="440" fill="white"/>
+  <g fill="none" stroke="#303941" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M76 370H590 M76 370V38"/>
+    <path d="M583 365l9 5-9 5 M71 46l5-9 5 9" fill="#303941"/>
+    <path d="M193 370v-9 M310 370v-9 M427 370v-9 M544 370v-9 M76 279h9 M76 188h9 M76 97h9"/>
+    <path d="M76 279L193 233.5L310 188L427 97L544 188" stroke="#345e78" stroke-width="4"/>
+  </g>
+  <g fill="#345e78">
+    <circle cx="76" cy="279" r="5.5"/><circle cx="193" cy="233.5" r="5.5"/><circle cx="310" cy="188" r="5.5"/><circle cx="427" cy="97" r="5.5"/><circle cx="544" cy="188" r="5.5"/>
+  </g>
+  <g fill="#303941" font-family="Georgia, 'Times New Roman', 'Microsoft YaHei', sans-serif" font-size="24">
+    <text x="52" y="378" text-anchor="end" font-style="italic">O</text>
+    <text x="193" y="402" text-anchor="middle">1/4</text><text x="310" y="402" text-anchor="middle">1/2</text><text x="427" y="402" text-anchor="middle">3/4</text><text x="544" y="402" text-anchor="middle">1</text>
+    <text x="56" y="287" text-anchor="end">1</text><text x="56" y="196" text-anchor="end">2</text><text x="56" y="105" text-anchor="end">3</text>
+    <text x="602" y="379" font-style="italic">θ</text><text x="93" y="51" font-family="'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif">似然</text>
+  </g>
+</svg>
