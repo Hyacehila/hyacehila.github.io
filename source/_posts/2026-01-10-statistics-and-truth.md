@@ -1,6 +1,6 @@
 ---
-title: 统计与真理：如何运用偶然性 (Statistics and Truth)
-title_en: "Statistics and Truth: How to Use Chance"
+title: 统计与真理读书笔记
+title_en: "Reading Notes on Statistics and Truth"
 date: 2026-01-10 12:00:00 +0800
 categories: ["Data Science", "Statistical Thinking"]
 tags: ["Statistical Thinking"]
