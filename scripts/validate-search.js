@@ -12,6 +12,8 @@ const evaluationCases = require('./search-eval.json');
 const publicSearchDir = path.join(__dirname, '..', 'public', 'assets', 'search');
 const manifestPath = path.join(publicSearchDir, 'manifest.json');
 const MAX_SHARD_GZIP_BYTES = 1.5 * 1024 * 1024;
+// Hidden posts move their full-text records into the archive index.
+const MAX_ARCHIVE_INDEX_GZIP_BYTES = 2 * 1024 * 1024;
 const MAX_QUERY_P95_MS = 50;
 const failures = [];
 
@@ -79,7 +81,8 @@ const loadSearch = () => {
     const actualDocumentsGzip = zlib.gzipSync(documentsJson).length;
     check(actualIndexGzip === shard.indexGzipBytes, `${shardName} index gzip size does not match the manifest.`);
     check(actualDocumentsGzip === shard.documentsGzipBytes, `${shardName} document gzip size does not match the manifest.`);
-    check(actualIndexGzip <= MAX_SHARD_GZIP_BYTES, `${shardName} index exceeds 1.5 MiB gzip.`);
+    const maxIndexGzip = shardName === 'archive' ? MAX_ARCHIVE_INDEX_GZIP_BYTES : MAX_SHARD_GZIP_BYTES;
+    check(actualIndexGzip <= maxIndexGzip, `${shardName} index exceeds ${maxIndexGzip / (1024 * 1024)} MiB gzip.`);
     check(actualDocumentsGzip <= MAX_SHARD_GZIP_BYTES, `${shardName} documents exceed 1.5 MiB gzip.`);
 
     const indexObject = JSON.parse(indexJson);
