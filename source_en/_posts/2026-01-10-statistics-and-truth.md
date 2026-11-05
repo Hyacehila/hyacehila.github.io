@@ -9,6 +9,7 @@ tags:
 - Statistical Thinking
 author: Hyacehila
 mathjax: true
+hidden: true
 excerpt: This post revisits C. R. Rao's statistical classic, reviewing the history of statistics and the problems that emerged
   as the discipline developed.
 description: This post revisits C. R. Rao's statistical classic, reviewing the history of statistics and the problems that
