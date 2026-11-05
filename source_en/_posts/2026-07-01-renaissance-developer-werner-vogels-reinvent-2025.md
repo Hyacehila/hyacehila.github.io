@@ -8,6 +8,7 @@ categories:
 tags:
 - Software Engineering
 author: Hyacehila
+hidden: true
 mathjax: false
 excerpt: 'Werner Vogels'' final re:Invent keynote framed the AI-era developer as a Renaissance Developer: curious, systemic,
   communicative, responsible, and polymathic.'

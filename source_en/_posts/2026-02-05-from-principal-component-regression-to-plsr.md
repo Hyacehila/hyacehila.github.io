@@ -9,6 +9,7 @@ tags:
 - Linear Models
 - Dimensionality Reduction
 author: Hyacehila
+hidden: true
 excerpt: PCR and PLSR are common dimensionality-reduction regression methods under multicollinearity. This post derives their
   logic and explains how PLSR brings in response relevance.
 description: PCR and PLSR are common dimensionality-reduction regression methods under multicollinearity. This post derives

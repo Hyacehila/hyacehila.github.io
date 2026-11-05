@@ -10,6 +10,7 @@ tags:
 - Reproducibility
 - Repost
 author: Hyacehila
+hidden: true
 excerpt: A repost of Jeff Leek's classic guide to preparing and organizing data before working with a statistician, covering
   raw data, tidy data, and code books.
 description: A repost of Jeff Leek's classic guide to preparing and organizing data before working with a statistician, covering

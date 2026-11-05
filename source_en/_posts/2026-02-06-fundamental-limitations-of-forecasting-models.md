@@ -10,6 +10,7 @@ tags:
 - Evaluation
 - Multimodality
 author: Hyacehila
+hidden: true
 excerpt: Are deep learning methods always effective for time-series forecasting? Based on Christoph Bergmeir's NeurIPS 2024
   talk, this post discusses model limits and evaluation traps.
 description: Are deep learning methods always effective for time-series forecasting? Based on Christoph Bergmeir's NeurIPS

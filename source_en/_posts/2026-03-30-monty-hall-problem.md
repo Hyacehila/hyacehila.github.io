@@ -8,6 +8,7 @@ categories:
 tags:
 - Statistical Thinking
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: The Monty Hall problem is confusing not because 2/3 is hard to compute, but because after the host opens a door people
   instinctively see the situation as 50/50.

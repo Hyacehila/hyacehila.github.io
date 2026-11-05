@@ -10,6 +10,7 @@ tags:
 - AI Coding
 - Repost
 author: Hyacehila
+hidden: true
 excerpt: 'A Chinese translation and commentary of Addy Osmani''s essay: the default AI coding loop is optimized for closing
   tasks, not for keeping you sharp.'
 description: 'A Chinese translation and commentary of Addy Osmani''s essay: the default AI coding loop is optimized for closing

@@ -5,6 +5,7 @@ date: 2026-02-07 12:00:00 +0800
 categories: ["Data Science", "Statistical Thinking"]
 tags: ["Linear Models", "Repost"]
 author: Hyacehila
+hidden: true
 excerpt: 转载自 Jonas Kristoffer Lindeløv 的文章。揭示了 t 检验、ANOVA、卡方检验等常用统计方法背后的统一线性模型原理。
 excerpt_en: "A repost of Jonas Kristoffer Lindelov's classic article showing the unified linear-model logic behind t-tests, ANOVA, chi-square tests, and other common methods."
 permalink: '/blog/2026/02/07/common-statistical-tests-are-linear-models/'

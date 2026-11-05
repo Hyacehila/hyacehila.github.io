@@ -5,6 +5,7 @@ date: 2026-01-20 00:00:00 +0800
 categories: ["Foundation Models", "Model Mechanics"]
 tags: ["Vision-Language Models", "Multimodality", "Model Architecture", "Survey"]
 author: Hyacehila
+hidden: true
 excerpt: 梳理从纯语言模型到视觉-语言模型的技术路线，说明 CLIP、VLM、扩散模型与原生多模态在输入表示、训练目标和推理方式上的差异。
 excerpt_en: "A technical overview of the path from language-only models to vision-language models, covering CLIP, VLMs, diffusion guidance, and native multimodal tokenization."
 permalink: '/blog/2026/01/20/from-llm-to-vlm-visual-understanding/'

@@ -5,6 +5,7 @@ date: 2026-04-26 16:00:00 +0800
 categories: ["Foundation Models", "Model Mechanics"]
 tags: ["Interpretability", "Reasoning", "Model Behavior"]
 author: Hyacehila
+hidden: true
 excerpt: Word Salad Chopper 不只是在砍掉推理模型里的重复废话，也提示我们：换行边界 token 的 hidden state 可能是观察模型生成模式的低成本入口。
 excerpt_en: "Word Salad Chopper does more than trim repetitive reasoning text. It suggests that hidden states at newline-boundary tokens may offer a cheap window into generation patterns."
 permalink: '/blog/2026/04/26/newline-hidden-states-word-salad/'

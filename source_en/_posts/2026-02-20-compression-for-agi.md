@@ -10,6 +10,7 @@ tags:
 - Model Mechanics
 - Paper Notes
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: 'A summary of Jack Rae''s Compression for AGI: foundation-model training as lossless compression of useful information,
   and why lower loss can imply stronger generalization.'

@@ -10,6 +10,7 @@ tags:
 - Multimodality
 - Model Mechanics
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: World models matter less as beautiful video generators than as internal simulators for agents. This post compares
   the main routes, explains why JEPA is appealing, and revisits Critique of World Model and PAN.

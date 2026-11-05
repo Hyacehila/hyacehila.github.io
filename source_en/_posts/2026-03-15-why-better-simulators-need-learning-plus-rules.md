@@ -8,6 +8,7 @@ categories:
 tags:
 - Survey
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: 'Better simulators often come from a clear division of labor: encode conservation, geometry, causality, boundaries,
   and rendering structure, then let learning cover expensive or fuzzy parts.'

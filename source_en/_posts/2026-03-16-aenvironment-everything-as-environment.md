@@ -10,6 +10,7 @@ tags:
 - Evaluation
 - Environment Design
 author: Hyacehila
+hidden: true
 excerpt: SWE-bench, SWE-agent, and Tau-bench show that agent development cannot focus only on models and frameworks. Tasks,
   tools, users, state, rules, and validators shape whether agents work.
 description: SWE-bench, SWE-agent, and Tau-bench show that agent development cannot focus only on models and frameworks. Tasks,

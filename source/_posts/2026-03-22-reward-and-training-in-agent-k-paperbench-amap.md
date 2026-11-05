@@ -5,6 +5,7 @@ date: 2026-03-22 20:30:00 +0800
 categories: ["Agent Systems", "Agent Training"]
 tags: ["Reward Modeling", "Data Curation", "Verifiers", "Online RL"]
 author: Hyacehila
+hidden: true
 excerpt: 按真实系统的训练流水线重写 Agent 训练闭环：从数据治理、工具环境和 verifier 设计，到 trajectories、SFT、curriculum、online RL 与 benchmark audit。
 excerpt_en: "A rewritten view of agent training pipelines, from data governance, tool environments, and verifier design to trajectories, SFT, curriculum, online RL, and benchmark audits."
 mathjax: true

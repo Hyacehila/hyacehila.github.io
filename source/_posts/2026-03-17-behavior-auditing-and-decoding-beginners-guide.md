@@ -5,6 +5,7 @@ date: 2026-03-17 10:00:00 +0800
 categories: ["Agent Systems", "Agent Evaluation & Governance"]
 tags: ["Reward Modeling", "Evaluation", "Interpretability"]
 author: Hyacehila
+hidden: true
 excerpt: Reward 负责把目标写进优化器，但它不负责证明模型真的学会了正确目标。本文从初学者视角重写行为审计与行为解码：为什么 reward 之后还需要后验校验，Anthropic 与 Transluce 两条路线分别在补什么空白。
 excerpt_en: "Reward writes goals into the optimizer, but it does not prove the model learned the right goals. This beginner-oriented rewrite explains why post-reward verification is needed."
 permalink: '/blog/2026/03/17/behavior-auditing-and-decoding-beginners-guide/'

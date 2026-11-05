@@ -5,6 +5,7 @@ date: 2026-01-22 10:00:00 +0800
 categories: ["Machine Learning", "Classical Machine Learning"]
 tags: ["XGBoost", "Tabular Data", "Baselines"]
 author: Hyacehila
+hidden: true
 excerpt: 为什么结构化表格数据场景里，提升树至今仍常是最强 baseline？本文聚焦 XGBoost、LightGBM 与 CatBoost，讨论它们各自的技术重心、工程取舍与最佳战场。
 excerpt_en: "Why are boosted trees still such strong baselines for structured tabular data? This post compares XGBoost, LightGBM, and CatBoost by technical focus and best-fit use cases."
 mathjax: true

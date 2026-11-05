@@ -5,6 +5,7 @@ date: 2026-01-26 21:00:00 +0800
 categories: ["Foundation Models", "Model Mechanics"]
 tags: ["Pre-Training", "Model Mechanics", "Paper Notes"]
 author: Hyacehila
+hidden: true
 excerpt: 本文从 Kaplan 定律到 Chinchilla 修正，整理 Scaling Law 的经验规律，并简单讨论 Tree Model 与 Scaling Law 的关系。
 excerpt_en: "A summary of empirical scaling laws from Kaplan to Chinchilla, with a brief discussion of tree models and scaling laws."
 mathjax: true

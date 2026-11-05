@@ -9,6 +9,7 @@ tags:
 - Builder Mindset
 - Product Thinking
 author: Hyacehila
+hidden: true
 excerpt: 'Designer training also works for AI Agent builders: see more real systems, solve real problems, and keep asking
   why.'
 description: 'Designer training also works for AI Agent builders: see more real systems, solve real problems, and keep asking

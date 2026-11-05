@@ -10,6 +10,7 @@ tags:
 - Evaluation
 - Statistical Thinking
 author: Hyacehila
+hidden: true
 excerpt: R-squared is not a simple model error function. Its definition hides a comparison against a constant model, so it
   never directly measures fit to the real world.
 description: R-squared is not a simple model error function. Its definition hides a comparison against a constant model, so

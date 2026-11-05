@@ -5,6 +5,7 @@ date: 2026-03-15 21:00:00 +0800
 categories: ["Machine Learning", "Deep Learning"]
 tags: ["Survey"]
 author: Hyacehila
+hidden: true
 excerpt: 更好的 simulator 往往来自明确分工：把守恒、几何、因果、边界条件与渲染/求解结构当作归纳偏置，再让 learning 去补昂贵、模糊或难解析的部分。
 excerpt_en: "Better simulators often come from a clear division of labor: encode conservation, geometry, causality, boundaries, and rendering structure, then let learning cover expensive or fuzzy parts."
 mathjax: true

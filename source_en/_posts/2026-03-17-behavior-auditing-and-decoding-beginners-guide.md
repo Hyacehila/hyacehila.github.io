@@ -10,6 +10,7 @@ tags:
 - Evaluation
 - Interpretability
 author: Hyacehila
+hidden: true
 excerpt: Reward writes goals into the optimizer, but it does not prove the model learned the right goals. This beginner-oriented
   rewrite explains why post-reward verification is needed.
 description: Reward writes goals into the optimizer, but it does not prove the model learned the right goals. This beginner-oriented

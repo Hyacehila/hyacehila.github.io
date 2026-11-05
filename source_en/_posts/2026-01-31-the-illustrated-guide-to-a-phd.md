@@ -8,6 +8,7 @@ categories:
 tags:
 - Learning
 author: Hyacehila
+hidden: true
 excerpt: Every fall, Matt Might explains what a Ph.D. means to new doctoral students. This post uses that classic illustration
   to describe knowledge accumulation through doctoral research.
 description: Every fall, Matt Might explains what a Ph.D. means to new doctoral students. This post uses that classic illustration

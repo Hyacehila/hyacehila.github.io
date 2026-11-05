@@ -9,6 +9,7 @@ tags:
 - Tool Use
 - Reasoning
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: Why is structured output hard for agents? This post explains what prompts, JSON mode, constrained decoding, and inference
   engines each solve.

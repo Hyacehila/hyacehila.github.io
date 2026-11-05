@@ -10,6 +10,7 @@ tags:
 - Environment Design
 - Online RL
 author: Hyacehila
+hidden: true
 excerpt: When LLMs move from answering questions to acting in environments, the upper bound is often set by the training loop
   across data governance, environment contracts, feedback, RL, and distillation.
 description: When LLMs move from answering questions to acting in environments, the upper bound is often set by the training

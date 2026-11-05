@@ -5,6 +5,7 @@ date: 2026-07-04 23:30:00 +0800
 categories: ["Agent Systems", "Agent Infrastructure"]
 tags: ["OCR", "Document Parsing", "AI Engineering"]
 author: Hyacehila
+hidden: true
 excerpt: "从面向检索的交付标准出发，讨论文字、章节、公式、图片和表格应该如何被结构化与增强，再比较市面上常见的 OCR 解决方案，顺便聊聊我喜欢怎么做。"
 excerpt_en: "A retrieval-oriented view of production OCR: what a parser should deliver for text, sections, formulas, images, and tables; how to route documents across Docling and MinerU; why DoclingDocument makes a good unified representation; and why the representation layer is not the query layer."
 mathjax: false

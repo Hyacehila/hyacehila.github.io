@@ -5,6 +5,7 @@ date: 2026-02-04 23:00:00 +0800
 categories: ["Data Science", "Statistical Thinking"]
 tags: ["Statistical Thinking"]
 author: Hyacehila
+hidden: true
 excerpt: 数据过于平滑或数字分布异常时，可能值得进一步检查。本文介绍本福特定律、末位数字、方差、相关结构和门槛聚束等检测思路。
 excerpt_en: "When data looks too perfect, it may have drifted away from reality. Starting from Benford's Law, this post reveals statistical fingerprints hidden in fabricated data."
 mathjax: true

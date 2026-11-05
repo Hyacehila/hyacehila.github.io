@@ -12,6 +12,7 @@ tags:
 - Advantage Estimation
 - Training Dynamics
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: Following the signal chain from reward to baseline, advantage, and normalization, this post explains why RL algorithms
   for LLM alignment keep rewriting reward signals.

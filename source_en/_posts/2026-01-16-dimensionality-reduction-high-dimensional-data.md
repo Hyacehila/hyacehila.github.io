@@ -10,6 +10,7 @@ tags:
 - Statistics
 - Statistical Inference
 author: Hyacehila
+hidden: true
 excerpt: Starting from high-dimensional, small-sample settings and the curse of dimensionality, this post frames dimensionality
   reduction alongside EDA, regularization, and sparsity before surveying PCA/MDS, t-SNE, UMAP, and autoencoders.
 description: Starting from high-dimensional, small-sample settings and the curse of dimensionality, this post frames dimensionality

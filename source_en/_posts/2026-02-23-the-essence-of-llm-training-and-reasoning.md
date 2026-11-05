@@ -11,6 +11,7 @@ tags:
 - Alignment
 - Training Dynamics
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: Starting from the view that loss is only a surrogate, this post revisits test-time compute, capability frontiers,
   policy entropy collapse, and Meta's Three-Gate theory.

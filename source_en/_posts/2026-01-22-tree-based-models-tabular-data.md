@@ -10,6 +10,7 @@ tags:
 - Tabular Data
 - Baselines
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: Why are boosted trees still such strong baselines for structured tabular data? This post compares XGBoost, LightGBM,
   and CatBoost by technical focus and best-fit use cases.

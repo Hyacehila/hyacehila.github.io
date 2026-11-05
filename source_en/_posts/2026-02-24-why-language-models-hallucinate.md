@@ -11,6 +11,7 @@ tags:
 - Model Behavior
 - Paper Notes
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: A reading of OpenAI's Why Language Models Hallucinate, arguing that hallucination is tied to training paradigms and
   binary evaluation pressure, not only data noise or model flaws.

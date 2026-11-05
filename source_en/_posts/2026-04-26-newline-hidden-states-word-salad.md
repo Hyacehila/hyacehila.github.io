@@ -10,6 +10,7 @@ tags:
 - Reasoning
 - Model Behavior
 author: Hyacehila
+hidden: true
 excerpt: Word Salad Chopper does more than trim repetitive reasoning text. It suggests that hidden states at newline-boundary
   tokens may offer a cheap window into generation patterns.
 description: Word Salad Chopper does more than trim repetitive reasoning text. It suggests that hidden states at newline-boundary

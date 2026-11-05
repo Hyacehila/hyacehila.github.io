@@ -5,6 +5,7 @@ date: 2026-03-16 21:00:00 +0800
 categories: ["Agent Systems", "Agent Architecture"]
 tags: ["Verifiers", "Evaluation", "Environment Design"]
 author: Hyacehila
+hidden: true
 excerpt: SWE-bench、SWE-agent 和 Tau-bench 都在提醒一件事：Agent Dev 不能只盯模型和框架。任务、工具、用户、状态、规则和验证器怎样被组织成环境，会直接影响 agent 能不能工作。
 excerpt_en: "SWE-bench, SWE-agent, and Tau-bench show that agent development cannot focus only on models and frameworks. Tasks, tools, users, state, rules, and validators shape whether agents work."
 permalink: '/blog/2026/03/16/aenvironment-everything-as-environment/'

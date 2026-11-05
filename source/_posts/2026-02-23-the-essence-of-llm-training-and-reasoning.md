@@ -5,6 +5,7 @@ date: 2026-02-23 20:00:00 +0800
 categories: ["Foundation Models", "Training & Alignment"]
 tags: ["Reasoning", "Reinforcement Learning", "Alignment", "Training Dynamics"]
 author: Hyacehila
+hidden: true
 excerpt: 从Loss 只是 Surrogate的视角出发，回顾 Test-Time Compute (TTS) 如何控制泛化误差，并结合 CMU 的能力边缘理论揭示 RL 后训练的边界；微观剖析策略熵坍缩现象与 Meta 的 Three-Gate 理论，了解RL和SFT在微观的差异。
 excerpt_en: "Starting from the view that loss is only a surrogate, this post revisits test-time compute, capability frontiers, policy entropy collapse, and Meta's Three-Gate theory."
 mathjax: true

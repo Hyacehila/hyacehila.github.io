@@ -11,6 +11,7 @@ tags:
 - Model Architecture
 - Survey
 author: Hyacehila
+hidden: true
 excerpt: A technical overview of the path from language-only models to vision-language models, covering CLIP, VLMs, diffusion
   guidance, and native multimodal tokenization.
 description: A technical overview of the path from language-only models to vision-language models, covering CLIP, VLMs, diffusion

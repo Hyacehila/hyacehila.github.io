@@ -8,6 +8,7 @@ categories:
 tags:
 - Statistical Thinking
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: Why does your wait for a bus often feel longer than the published average interval? This post explains the inspection
   paradox, a common statistical trap behind such intuitions.

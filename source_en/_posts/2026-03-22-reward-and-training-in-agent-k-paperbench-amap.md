@@ -11,6 +11,7 @@ tags:
 - Verifiers
 - Online RL
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: A rewritten view of agent training pipelines, from data governance, tool environments, and verifier design to trajectories,
   SFT, curriculum, online RL, and benchmark audits.

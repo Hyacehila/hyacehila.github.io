@@ -10,6 +10,7 @@ tags:
 - Document Parsing
 - AI Engineering
 author: Hyacehila
+hidden: true
 mathjax: false
 excerpt: 'A retrieval-oriented view of production OCR: what a parser should deliver for text, sections, formulas, images,
   and tables; how to route documents across Docling and MinerU; why DoclingDocument makes a good unified representation; and

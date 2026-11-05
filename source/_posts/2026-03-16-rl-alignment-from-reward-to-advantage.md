@@ -5,6 +5,7 @@ date: 2026-03-16 17:30:00 +0800
 categories: ["Foundation Models", "Training & Alignment"]
 tags: ["Reinforcement Learning", "Alignment", "Reward Modeling", "Advantage Estimation", "Training Dynamics"]
 author: Hyacehila
+hidden: true
 excerpt: 从 reward、baseline、advantage 与 normalization 这条信号链出发，解释为什么 LLM 对齐中的 RL 算法总在重写奖励信号。
 excerpt_en: "Following the signal chain from reward to baseline, advantage, and normalization, this post explains why RL algorithms for LLM alignment keep rewriting reward signals."
 mathjax: true

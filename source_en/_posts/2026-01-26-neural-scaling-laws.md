@@ -10,6 +10,7 @@ tags:
 - Model Mechanics
 - Paper Notes
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: A summary of empirical scaling laws from Kaplan to Chinchilla, with a brief discussion of tree models and scaling
   laws.

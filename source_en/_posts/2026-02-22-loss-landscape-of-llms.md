@@ -11,6 +11,7 @@ tags:
 - Model Mechanics
 - Paper Notes
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: Based on Unveiling the Basin-Like Loss Landscape in Large Language Models, this post explains basin-like loss landscapes
   and implications for fine-tuning and alignment.

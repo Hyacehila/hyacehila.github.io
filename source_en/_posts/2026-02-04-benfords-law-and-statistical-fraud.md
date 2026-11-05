@@ -8,6 +8,7 @@ categories:
 tags:
 - Statistical Thinking
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: When data looks too perfect, it may have drifted away from reality. Starting from Benford's Law, this post reveals
   statistical fingerprints hidden in fabricated data.

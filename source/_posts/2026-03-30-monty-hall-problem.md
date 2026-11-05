@@ -5,6 +5,7 @@ date: 2026-03-30 00:00:00 +0800
 categories: ["Data Science", "Statistical Thinking"]
 tags: ["Statistical Thinking"]
 author: Hyacehila
+hidden: true
 excerpt: 三门问题最迷惑人的地方，不是算不出 2/3，而是主持人开门以后，人会本能地把局面看成 50/50。真正关键在于，主持人的行动不是随机事件，而是一次带约束的信息披露。
 excerpt_en: "The Monty Hall problem is confusing not because 2/3 is hard to compute, but because after the host opens a door people instinctively see the situation as 50/50."
 mathjax: true

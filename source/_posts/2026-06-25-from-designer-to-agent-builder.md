@@ -5,6 +5,7 @@ date: 2026-06-25 10:00:00 +0800
 categories: ["Work & Society", "Builder & Product Thinking"]
 tags: ["Builder Mindset", "Product Thinking"]
 author: Hyacehila
+hidden: true
 excerpt: "看、做、想本来是设计师的成长路径，但放到 AI Agent 开发里也成立：我们需要看更多真实系统，做真实问题，并不断追问这样做背后的原因。"
 excerpt_en: "Designer training also works for AI Agent builders: see more real systems, solve real problems, and keep asking why."
 permalink: '/blog/2026/06/25/from-designer-to-agent-builder/'

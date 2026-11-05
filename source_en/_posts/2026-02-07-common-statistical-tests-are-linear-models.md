@@ -9,6 +9,7 @@ tags:
 - Linear Models
 - Repost
 author: Hyacehila
+hidden: true
 excerpt: A repost of Jonas Kristoffer Lindelov's classic article showing the unified linear-model logic behind t-tests, ANOVA,
   chi-square tests, and other common methods.
 description: A repost of Jonas Kristoffer Lindelov's classic article showing the unified linear-model logic behind t-tests,

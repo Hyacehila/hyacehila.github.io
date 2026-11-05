@@ -5,6 +5,7 @@ date: 2026-01-16 10:00:00 +0800
 categories: ["Data Science", "Statistical Modeling & Inference"]
 tags: ["Dimensionality Reduction", "Statistics", "Statistical Inference"]
 author: Hyacehila
+hidden: true
 excerpt: 从高维小样本与维数灾难出发，梳理 EDA、正则化与稀疏性等高维统计思路，并重点介绍 PCA/MDS、t-SNE、UMAP、Autoencoder 等降维方法的数学直觉与适用场景。
 excerpt_en: "Starting from high-dimensional, small-sample settings and the curse of dimensionality, this post frames dimensionality reduction alongside EDA, regularization, and sparsity before surveying PCA/MDS, t-SNE, UMAP, and autoencoders."
 permalink: '/blog/2026/01/16/dimensionality-reduction-high-dimensional-data/'

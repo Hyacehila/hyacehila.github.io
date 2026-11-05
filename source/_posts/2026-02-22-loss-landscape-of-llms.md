@@ -5,6 +5,7 @@ date: 2026-02-22 20:00:00 +0800
 categories: ["Foundation Models", "Model Mechanics"]
 tags: ["Fine-Tuning", "Alignment", "Model Mechanics", "Paper Notes"]
 author: Hyacehila
+hidden: true
 excerpt: 基于论文 Unveiling the Basin-Like Loss Landscape in Large Language Models，解读大模型 loss landscape 的 basin 现象及其对微调、对齐、越狱与预训练的启示。
 excerpt_en: "Based on Unveiling the Basin-Like Loss Landscape in Large Language Models, this post explains basin-like loss landscapes and implications for fine-tuning and alignment."
 mathjax: true

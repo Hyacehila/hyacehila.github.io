@@ -8,6 +8,7 @@ categories:
 tags:
 - Statistical Thinking
 author: Hyacehila
+hidden: true
 mathjax: true
 excerpt: Is the Voynich manuscript random scribbling or a lost language? What would alien signals look like? Both questions
   point to the same statistical law.

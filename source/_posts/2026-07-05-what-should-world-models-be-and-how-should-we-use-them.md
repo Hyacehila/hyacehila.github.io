@@ -5,6 +5,7 @@ date: 2026-07-05 00:00:00 +0800
 categories: ["Foundation Models", "Model Mechanics"]
 tags: [World Models, Multimodality, Model Mechanics]
 author: Hyacehila
+hidden: true
 excerpt: "世界模型最有价值的部分，是让智能体在行动前模拟未来。本文从几条路线的差异讲到 JEPA，再回到 Critique of World Model 与 PAN。"
 excerpt_en: "World models matter less as beautiful video generators than as internal simulators for agents. This post compares the main routes, explains why JEPA is appealing, and revisits Critique of World Model and PAN."
 mathjax: true
