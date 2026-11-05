@@ -83,11 +83,11 @@ translation_source_hash: 9be6a22bb06322fb210a20fd6352906b0e99aff4860d90424dc834b
 <p>One of the main concepts that leads to conclusions from generalization is that<strong>Quantification of uncertainty</strong>Quantification of uncertainty has been controversial. To that end, statistical institutes have been established to study different methods of measuring uncertainty. The current Bayesian and frequency schools are the two main schools of statistics that have been formed.</p>
 <p>Thus, a new discipline of information and extrapolation from data has emerged, and the term “statistics” has also expanded from data itself to interpretation of data. Coincidence is no longer a matter of concern or a manifestation of ignorance; it is a logical way of expressing the knowledge we have.</p>
 <p>Statistics are not just a science, but a synthesis:</p>
-<ul>
-<li><strong>Science</strong>: It is similar to science and technology that is guided by certain fundamental principles and has broad application. These technologies cannot be applied in fixed models; users must select the technologies to be applied, based on the expertise available, and amend them as necessary.</li>
-<li><strong>Process</strong>: It is like the quality control procedures in industrial production processes. The methodological approach to statistics is developed in a management system that ensures that products meet expected quality and maintain stability.</li>
-<li><strong>Arts</strong>• Statistical methodological approaches relying on general reasoning are neither fully codified nor uncontroversial. ** Different statisticians may have different conclusions on the analytical treatment of the same data set. ** The data that are usually actually given contain much more information than the information obtained from statistical tools.</li>
-</ul>
+
+* **Science**: It is similar to science and technology that is guided by certain fundamental principles and has broad application. These technologies cannot be applied in fixed models; users must select the technologies to be applied, based on the expertise available, and amend them as necessary.
+* **Process**: It is like the quality control procedures in industrial production processes. The methodological approach to statistics is developed in a management system that ensures that products meet expected quality and maintain stability.
+* **Arts**• Statistical methodological approaches relying on general reasoning are neither fully codified nor uncontroversial. **Different statisticians may have different conclusions on the analytical treatment of the same data set.** The data that are usually actually given contain much more information than the information obtained from statistical tools.
+
 <h2>The rationale and strategy for data analysis — cross-checking of data</h2>
 <p>The format of statistical analysis has changed over time, but the “extracting all information from data” or “comprehensive and revealing” as the purpose of statistical analysis has not changed. The methodology of statistical analysis has changed over the years and the development of data analysis is broadly as follows.</p>
 <p>The blogger says:<strong>Description of statistics</strong>and<strong>Theory Statistics</strong>Two areas of statistically different methodology were considered. The former aims to consolidate the given data set within the meaning of “statistical description” and to use techniques to express the visual and visible characteristics of the data. In theoretical statistics, the synthesis or description of statistics depends on a particular random model. The distribution of these statistics is used to determine the extent of uncertainty in extrapolating certain unknown parameters. So this is called<strong>Infer data analysis</strong>。</p>
@@ -117,6 +117,5 @@ translation_source_hash: 9be6a22bb06322fb210a20fd6352906b0e99aff4860d90424dc834b
 <p>The value of human activities can be enhanced by introducing statistical thinking into the design of the plan and by adopting statistical methods that effectively analyse data, evaluate feedback and control results.</p>
 <p>If there were problems to be resolved, reference should be made to statistics rather than to a single expert committee. Statistical and statistical analysis can provide additional clues to the problem than the wisdom of a few experts.</p>
 <p>Statistics have no intrinsic object and is a unique subject. Statistics exist and flourish in other areas. L.J. Savage once said:</p>
-<blockquote>
-<p>** Statistics are essentially parasitic: they survive by studying work in other fields. ** This is not a sign of contempt for statistics, as for many host countries, there are no parasites that could die.</p>
-</blockquote>
+
+> **Statistics are essentially parasitic: they survive by studying work in other fields.** This is not a sign of contempt for statistics, as for many host countries, there are no parasites that could die.
