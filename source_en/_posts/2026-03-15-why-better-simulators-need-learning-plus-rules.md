@@ -3,8 +3,8 @@ title: 'Why Better Simulators Often Combine Learning and Rules: From PDEs and Ra
 title_zh: 为什么更好的 Simulator 往往是 Learning + Rules：从 PDE、光线追踪到 DLSS
 date: 2026-03-15 21:00:00 +0800
 categories:
-- Data Science
-- Time Series & Spatial Data
+- Machine Learning
+- Deep Learning
 tags:
 - Survey
 author: Hyacehila

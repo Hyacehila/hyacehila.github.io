@@ -4,7 +4,7 @@ title_zh: 基础预测模型的基本限制：多模态与严谨评估的必要�
 date: 2026-02-06 12:00:00 +0800
 categories:
 - Data Science
-- Time Series & Spatial Data
+- Statistical Thinking
 tags:
 - Time Series
 - Evaluation
