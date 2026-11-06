@@ -2,6 +2,16 @@
 # HTML reusing the i18n keys from _data/i18n/home.json (mirrored here for
 # maintenance reference). Add new projects here AND in source/projects/index.md.
 
+- key: humanizer-zh-next
+  title_zh: "Humanizer-zh-next：中文写作编辑技能"
+  title_en: "Humanizer-zh-next: Chinese Writing Editing Skill"
+  type: 个人项目 / Personal Project
+  status: active
+  stack: ["Agent Skills", "Chinese Writing"]
+  links:
+    - label: Code
+      url: https://github.com/Hyacehila/humanizer-zh-next
+
 - key: lenny-compass
   title_zh: "Lenny Compass：证据可追溯的本地 PM 知识工作区"
   title_en: "Lenny Compass: Evidence-Grounded Local PM Knowledge Workspace"
