@@ -1979,6 +1979,16 @@ body:has(.comments-page) iframe.utterances-frame {
 .markdown-body .project-gallery .gallery-cover { display:block; position:relative; aspect-ratio:3/2; overflow:hidden; background:var(--gallery-cover-bg); margin:0; padding:0; border:0; border-radius:0; }
 .markdown-body .project-gallery .gallery-link::before,.markdown-body .project-gallery .gallery-link::after { display:none; }
 .project-gallery .gallery-cover img { display:block; width:100%; height:100%; object-fit:cover; margin:0; border-radius:0; filter:var(--gallery-image-filter); transition:transform .35s ease; }
+.project-gallery .gallery-role {
+  position:absolute; top:12px; left:12px; z-index:1;
+  padding:4px 9px; border-radius:5px;
+  background:#e8f0f5; color:#315f78;
+  font-size:12px; font-weight:500; line-height:1.5;
+  pointer-events:none;
+}
+.project-gallery .gallery-role-contributor { background:#f2ede4; color:#735c37; }
+.dark .project-gallery .gallery-role { background:#263e4c; color:#a6d4e8; }
+.dark .project-gallery .gallery-role-contributor { background:#423a2c; color:#e0c795; }
 .gallery-body { padding:20px; box-sizing:border-box; min-height:var(--gallery-body-height, 0px); }
 .project-gallery .gallery-measure { position:absolute; top:0; left:0; width:100%; min-height:0; visibility:hidden; pointer-events:none; }
 .project-gallery .gallery-title { margin:0 0 10px !important; padding:0; border:0; font-size:21px; font-weight:600; color:var(--gallery-title); line-height:1.35; letter-spacing:-.025em; overflow-wrap:anywhere; }
