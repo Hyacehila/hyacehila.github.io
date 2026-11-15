@@ -12,6 +12,16 @@
     - label: Code
       url: https://github.com/Hyacehila/humanizer-zh-next
 
+- key: build-your-own-rag
+  title_zh: "Build Your Own RAG：RAG 实践教程"
+  title_en: "Build Your Own RAG: A Practical RAG Tutorial"
+  type: 个人项目 / Personal Project
+  status: active
+  stack: [Python, RAG]
+  links:
+    - label: Code
+      url: https://github.com/Hyacehila/build-your-own-rag
+
 - key: lenny-compass
   title_zh: "Lenny Compass：证据可追溯的本地 PM 知识工作区"
   title_en: "Lenny Compass: Evidence-Grounded Local PM Knowledge Workspace"
