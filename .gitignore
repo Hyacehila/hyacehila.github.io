@@ -51,6 +51,7 @@ coverage/
 # Temporary folders
 tmp/
 temp/
+/output/
 
 # Playwright MCP
 .playwright-mcp/
