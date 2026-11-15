@@ -4,7 +4,7 @@ title_zh: 从设计师到 Agent Builder：看、做、想
 date: 2026-06-25 10:00:00 +0800
 categories:
 - Work & Society
-- Builder & Product Thinking
+- Research, Learning & Career
 tags:
 - Builder Mindset
 - Product Thinking

@@ -4,7 +4,7 @@ title_zh: 我们又回到了 CLI：Agent 时代 CLI 与 GUI
 date: 2026-05-27 22:00:00 +0800
 categories:
 - Work & Society
-- AI Engineering Workflows
+- Building & Product
 tags:
 - AI Coding
 - Developer Tools

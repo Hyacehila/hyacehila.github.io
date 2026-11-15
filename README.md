@@ -142,7 +142,7 @@ title_en: "English title"
 date: 2026-06-25 10:00:00
 categories:
   - Work & Society
-  - Builder & Product Thinking
+  - Building & Product
 tags:
   - Builder Mindset
   - Product Thinking

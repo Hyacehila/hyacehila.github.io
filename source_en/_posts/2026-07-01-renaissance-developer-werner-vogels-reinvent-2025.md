@@ -4,7 +4,7 @@ title_zh: Werner Vogels 的最后一课：AI 时代的文艺复兴开发者
 date: 2026-07-01 15:30:00 +0800
 categories:
 - Work & Society
-- Builder & Product Thinking
+- Research, Learning & Career
 tags:
 - Software Engineering
 author: Hyacehila

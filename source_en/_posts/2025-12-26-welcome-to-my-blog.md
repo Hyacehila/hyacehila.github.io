@@ -4,7 +4,7 @@ title_zh: 这个博客是怎么变成现在这样的
 date: 2025-11-12 21:49:12 +0800
 categories:
 - Work & Society
-- Career & Learning
+- Research, Learning & Career
 tags:
 - Personal
 - Blog

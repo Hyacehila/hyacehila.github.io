@@ -4,7 +4,7 @@ title_zh: 从 Engineer 到 Builder：AI 时代的一人公司与产品思维
 date: 2026-05-11 14:00:00 +0800
 categories:
 - Work & Society
-- Builder & Product Thinking
+- Building & Product
 tags:
 - Builder Mindset
 - Product Thinking

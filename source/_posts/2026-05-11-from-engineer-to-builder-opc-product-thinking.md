@@ -2,7 +2,7 @@
 title: "从 Engineer 到 Builder：AI 时代的一人公司与产品思维"
 title_en: "From Engineer to Builder: One-Person Companies and Product Thinking in the AI Era"
 date: 2026-05-11 14:00:00 +0800
-categories: ["Work & Society", "Builder & Product Thinking"]
+categories: ["Work & Society", "Building & Product"]
 tags: ["Builder Mindset", "Product Thinking", "Software Engineering", "AI Product"]
 author: Hyacehila
 excerpt: "生成式 AI 降低了代码、设计草稿和资料整理的成本，也让个人能够更快试做产品。工程师接下来需要学习选择问题、接触用户、验证付费意愿并找到稳定的分发入口。"

@@ -4,7 +4,7 @@ title_zh: 企业 AI 为什么总卡在试点？
 date: 2026-07-22 21:00:00 +0800
 categories:
 - Work & Society
-- Builder & Product Thinking
+- Building & Product
 tags:
 - AI Strategy
 - AI Product

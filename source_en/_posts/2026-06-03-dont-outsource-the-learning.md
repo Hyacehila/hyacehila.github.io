@@ -4,7 +4,7 @@ title_zh: Don't Outsource the Learning（Addy Osmani）
 date: 2026-06-03 10:00:00 +0800
 categories:
 - Work & Society
-- Career & Learning
+- Research, Learning & Career
 tags:
 - Learning
 - AI Coding

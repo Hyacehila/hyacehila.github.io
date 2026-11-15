@@ -2,7 +2,7 @@
 title: "Who Should I Be When Taking a Recruitment Personality Assessment?"
 title_zh: "做招聘测评的时候，我应该是谁？"
 date: 2026-09-11 00:00:00 +0800
-categories: ["Work & Society", "Career & Learning"]
+categories: ["Work & Society", "Research, Learning & Career"]
 tags: ["Interview", "Career"]
 author: Hyacehila
 mathjax: false

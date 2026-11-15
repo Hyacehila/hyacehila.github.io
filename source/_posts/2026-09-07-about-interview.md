@@ -2,7 +2,7 @@
 title: "面试准备：问题、回答与反问"
 title_en: "Interview Preparation: Questions, Answers, and Questions to Ask"
 date: 2026-09-07 00:00:00 +0800
-categories: ["Work & Society", "Career & Learning"]
+categories: ["Work & Society", "Research, Learning & Career"]
 tags: ["Interview", "Career"]
 author: Hyacehila
 excerpt: "整理面试中可能遇到的问题、提前准备的回答，以及向面试官反问的问题，随准备和面试经历持续更新。"

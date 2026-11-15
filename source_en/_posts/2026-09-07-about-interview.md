@@ -4,7 +4,7 @@ title_zh: "面试准备：问题、回答与反问"
 date: 2026-09-07 00:00:00 +0800
 categories:
 - Work & Society
-- Career & Learning
+- Research, Learning & Career
 tags:
 - Interview
 - Career

@@ -4,7 +4,7 @@ title_zh: The Illustrated Guide to a Ph.D.
 date: 2026-01-31 23:55:00 +0800
 categories:
 - Work & Society
-- Career & Learning
+- Research, Learning & Career
 tags:
 - Learning
 author: Hyacehila

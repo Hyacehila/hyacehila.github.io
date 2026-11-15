@@ -4,7 +4,7 @@ title_zh: AI 应用创业：从卖工具到卖结果
 date: 2026-07-14 12:00:00 +0800
 categories:
 - Work & Society
-- Builder & Product Thinking
+- Building & Product
 tags:
 - AI Strategy
 - AI Product

@@ -2,7 +2,7 @@
 title: 如何与统计学家分享数据 (Jeff Leek)
 title_en: "How to Share Data with a Statistician"
 date: 2026-02-17 12:00:00 +0800
-categories: ["Work & Society", "Research Practice"]
+categories: ["Data Science", "Statistical Thinking"]
 tags: ["Data Curation", "Reproducibility", "Repost"]
 author: Hyacehila
 hidden: true

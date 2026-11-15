@@ -4,7 +4,7 @@ title_zh: 事实层与界面层：Markdown 与 HTML 不是替代关系
 date: 2026-06-08 20:00:00 +0800
 categories:
 - Work & Society
-- AI Engineering Workflows
+- Building & Product
 tags:
 - HTML
 - Software Engineering

@@ -2,7 +2,7 @@
 title: "不要用行动代替思考：携程 AI 面试反馈"
 title_en: "Don't Substitute Action for Thinking: Feedback from a Ctrip AI Interview"
 date: 2026-09-19 12:00:00 +0800
-categories: ["Work & Society", "Career & Learning"]
+categories: ["Work & Society", "Research, Learning & Career"]
 tags: ["Interview", "Career", "Problem Solving", "Decision Making"]
 author: Hyacehila
 excerpt: "携程 AI 面试给了我一个有些意外、但很有价值的反馈：从遇到问题以后再想办法解决，转向在行动之前先建立问题模型，用假设、验证和预案来指导行动。"

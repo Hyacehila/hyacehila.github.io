@@ -2,7 +2,7 @@
 title: "Don't Substitute Action for Thinking: Feedback from a Ctrip AI Interview"
 title_zh: "不要用行动代替思考：携程 AI 面试反馈"
 date: 2026-09-19 12:00:00 +0800
-categories: ["Work & Society", "Career & Learning"]
+categories: ["Work & Society", "Research, Learning & Career"]
 tags: ["Interview", "Career", "Problem Solving", "Decision Making"]
 author: Hyacehila
 excerpt: "A Ctrip AI interview gave me an unexpected but useful piece of feedback: move from solving problems after they appear to modeling them before acting, and let hypotheses, validation, and contingency plans guide the work."

@@ -4,7 +4,7 @@ title_zh: Model Is Good Enough：2026 年，AI 真正稀缺的是应用而不是
 date: 2026-03-18 20:00:00 +0800
 categories:
 - Work & Society
-- Builder & Product Thinking
+- Building & Product
 tags:
 - Feedback Loops
 - Product Thinking

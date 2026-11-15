@@ -2,7 +2,7 @@
 title: "Don't Outsource the Learning（Addy Osmani）"
 title_en: "Don't Outsource the Learning"
 date: 2026-06-03 10:00:00 +0800
-categories: ["Work & Society", "Career & Learning"]
+categories: ["Work & Society", "Research, Learning & Career"]
 tags: ["Learning", "AI Coding", "Repost"]
 author: Hyacehila
 hidden: true

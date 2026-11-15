@@ -2,7 +2,7 @@
 title: "小红书起号/养号知识库与自动化机器人设计"
 title_en: "Xiaohongshu Account Growth Knowledge Base and Automation Assistant Design"
 date: 2026-07-09 00:00:00 +0800
-categories: ["Work & Society", "Builder & Product Thinking"]
+categories: ["Work & Society", "Building & Product"]
 tags: ["小红书", "起号", "养号", "内容运营", "接广告", "AI Agent"]
 author: Hyacehila
 excerpt: "整理小红书起号、养号、内容生产、接广告与合规自动化机器人所需的方法论、数据结构、工作流、提示词模板和规则库。"

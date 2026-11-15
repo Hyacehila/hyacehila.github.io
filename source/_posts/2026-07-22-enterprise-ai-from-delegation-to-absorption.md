@@ -2,7 +2,7 @@
 title: "企业 AI 为什么总卡在试点？"
 title_en: "Why Enterprise AI Gets Stuck in Pilots: Systems, Workflows, and Organizational Absorption"
 date: 2026-07-22 21:00:00 +0800
-categories: ["Work & Society", "Builder & Product Thinking"]
+categories: ["Work & Society", "Building & Product"]
 tags: ["AI Strategy", "AI Product", "AI Agent", "Organizational Design"]
 author: Hyacehila
 excerpt: "企业 AI 的难处，往往不在模型接没接上，而在一段工作有没有清楚的交接、验收、例外与责任。员工会用 AI，不表示公司已经拥有一套可复制的做法。"

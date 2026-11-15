@@ -2,7 +2,7 @@
 title: 这个博客是怎么变成现在这样的
 title_en: "How This Blog Became What It Is Today"
 date: 2025-11-12 21:49:12 +0800
-categories: ["Work & Society", "Career & Learning"]
+categories: ["Work & Society", "Research, Learning & Career"]
 tags: ["Personal", "Blog"]
 author: Hyacehila
 excerpt: 这篇旧文章记录了本站从 Jekyll/GitBook 风格博客迁移到 Hexo + Redefine，以及内容和分类逐步整理成现在样子的过程。

@@ -2,7 +2,7 @@
 title: "做招聘测评的时候，我应该是谁？"
 title_en: "Who Should I Be When Taking a Recruitment Personality Assessment?"
 date: 2026-09-11 00:00:00 +0800
-categories: ["Work & Society", "Career & Learning"]
+categories: ["Work & Society", "Research, Learning & Career"]
 tags: ["Interview", "Career"]
 author: Hyacehila
 excerpt: "最近找工作做了非常多心理测评，我想弄明白它们怎么得出结论。也想聊聊答题时那个有点纠结的问题：我应该回答平时的自己、工作中的自己，还是公司想要的自己？构造一个能在测评中拿到满分的假想人格，有可能吗？"

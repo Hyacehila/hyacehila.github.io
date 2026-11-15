@@ -2,7 +2,7 @@
 title: "科研理论与实践经验"
 title_en: "Research Theory and Practical Experience"
 date: 2025-09-04 12:00:00 +0800
-categories: ["Work & Society", "Research Practice"]
+categories: ["Work & Society", "Research, Learning & Career"]
 tags: ["Research Methods", "Academic Writing", "Data Curation"]
 author: Hyacehila
 excerpt: "整理科研入门方法论与实践经验：从文献阅读、研究节奏和数据来源选择，到论文撰写、研究设计与结果组织，并以常用临床与公共卫生数据库说明不同数据的适用边界。"

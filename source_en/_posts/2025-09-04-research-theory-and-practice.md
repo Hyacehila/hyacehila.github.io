@@ -4,7 +4,7 @@ title_zh: 科研理论与实践经验
 date: 2025-09-04 12:00:00 +0800
 categories:
 - Work & Society
-- Research Practice
+- Research, Learning & Career
 tags:
 - Research Methods
 - Academic Writing

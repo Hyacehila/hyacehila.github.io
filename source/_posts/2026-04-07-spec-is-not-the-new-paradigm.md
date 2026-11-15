@@ -2,7 +2,7 @@
 title: "Spec 不是新范式：Vibe Coding、SDD 与 AI 时代的软件工程转向"
 title_en: "Spec Is Not the New Paradigm: Vibe Coding, SDD, and Software Engineering in the AI Era"
 date: 2026-04-07 20:00:00 +0800
-categories: ["Work & Society", "AI Engineering Workflows"]
+categories: ["Work & Society", "Building & Product"]
 tags: ["Software Engineering", "Feedback Loops", "AI Coding"]
 author: Hyacehila
 excerpt: 代码生成成本下降后，软件工程需要更早获得原型和集成反馈，再把经过验证的约束整理成文档、契约、测试与 ADR。Spec 仍然有用，但它更适合系统逐渐收敛之后。

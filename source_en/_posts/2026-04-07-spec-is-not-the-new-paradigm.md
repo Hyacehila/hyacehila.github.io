@@ -4,7 +4,7 @@ title_zh: Spec 不是新范式：Vibe Coding、SDD 与 AI 时代的软件工程�
 date: 2026-04-07 20:00:00 +0800
 categories:
 - Work & Society
-- AI Engineering Workflows
+- Building & Product
 tags:
 - Software Engineering
 - Feedback Loops

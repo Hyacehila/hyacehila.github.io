@@ -4,7 +4,7 @@ title_zh: 文献综述方法论指南
 date: 2025-09-18 12:00:00 +0800
 categories:
 - Work & Society
-- Research Practice
+- Research, Learning & Career
 tags:
 - Research Methods
 - Literature Review

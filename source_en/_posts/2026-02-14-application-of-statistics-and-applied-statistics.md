@@ -3,8 +3,8 @@ title: The Application of Statistics and Statistics of Application
 title_zh: 统计学的应用与应用的统计学
 date: 2026-02-14 12:00:00 +0800
 categories:
-- Work & Society
-- Research Practice
+- Data Science
+- Statistical Thinking
 tags:
 - Statistical Thinking
 - Research Methods

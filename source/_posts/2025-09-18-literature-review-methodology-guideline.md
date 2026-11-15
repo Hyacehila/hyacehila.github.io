@@ -2,7 +2,7 @@
 title: "文献综述方法论指南"
 title_en: "Literature Review as a Research Methodology: A Guideline"
 date: 2025-09-18 12:00:00 +0800
-categories: ["Work & Society", "Research Practice"]
+categories: ["Work & Society", "Research, Learning & Career"]
 tags: ["Research Methods", "Literature Review", "Survey", "Paper Notes"]
 author: Hyacehila
 excerpt: "本文截取自 Hannah Snyder 撰写的 Literature review as a research methodology: An overview and guidelines，系统介绍系统性综述、半系统性综述与整合性综述三种方法及其适用场景，以及开展高质量文献综述的完整流程与常见误区。"

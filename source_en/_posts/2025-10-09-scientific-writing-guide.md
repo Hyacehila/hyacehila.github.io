@@ -4,7 +4,7 @@ title_zh: 科学写作指南
 date: 2025-10-09 12:00:00 +0800
 categories:
 - Work & Society
-- Research Practice
+- Research, Learning & Career
 tags:
 - Research Methods
 - Academic Writing

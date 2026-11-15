@@ -99,11 +99,9 @@ category_map:
   "Programming Languages": programming-languages
   "Full Stack Development": full-stack-development
   "Work & Society": work-society
-  "AI Engineering Workflows": ai-engineering-workflows
-  "Builder & Product Thinking": builder-product-thinking
-  "Career & Learning": career-learning
+  "Building & Product": building-product
+  "Research, Learning & Career": research-learning-career
   "AI & Society": ai-society
-  "Research Practice": research-practice
   "Creative Media & Games": creative-media-games
   "Visual Design": visual-design
   "Game AI & Production": game-ai-production

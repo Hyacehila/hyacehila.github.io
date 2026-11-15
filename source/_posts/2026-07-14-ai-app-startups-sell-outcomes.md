@@ -2,7 +2,7 @@
 title: "AI 应用创业：从卖工具到卖结果"
 title_en: "AI Application Startups: From Selling Tools to Selling Outcomes"
 date: 2026-07-14 12:00:00 +0800
-categories: ["Work & Society", "Builder & Product Thinking"]
+categories: ["Work & Society", "Building & Product"]
 tags: ["AI Strategy", "AI Product", "Service as Software", "Product Thinking"]
 author: Hyacehila
 excerpt: "一篇关于 AI 应用创业的阅读笔记：与其只卖更聪明的工具，不如从已被外包、规则明确的工作切入，直接交付结果。"

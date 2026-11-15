@@ -3,8 +3,8 @@ title: The Statistical Crisis in Science
 title_zh: The Statistical Crisis in Science
 date: 2026-01-24 10:00:00 +0800
 categories:
-- Work & Society
-- Research Practice
+- Data Science
+- Statistical Thinking
 tags:
 - Reproducibility
 - Research Methods

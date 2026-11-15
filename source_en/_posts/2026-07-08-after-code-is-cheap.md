@@ -4,7 +4,7 @@ title_zh: 在代码逐渐廉价之后
 date: 2026-07-08 23:30:00 +0800
 categories:
 - Work & Society
-- AI Engineering Workflows
+- Building & Product
 tags:
 - AI Coding
 - Software Engineering
